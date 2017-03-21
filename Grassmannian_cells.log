@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9) (preloaded format=pdflatex 2015.5.29)  21 MAR 2017 14:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (MiKTeX 2.9) (preloaded format=pdflatex 2015.5.29)  21 MAR 2017 17:46
 entering extended mode
 **Grassmannian_cells.tex
 (Grassmannian_cells.tex
@@ -143,8 +143,7 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen121
 \Gm@dimlist=\toks26
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg"))
-No file Grassmannian_cells.aux.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\geometry\geometry.cfg")) (Grassmannian_cells.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
@@ -158,6 +157,7 @@ LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Try loading font information for U+msa on input line 10.
+
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
@@ -205,24 +205,20 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-[1{C:/Users/Thorsten/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (Grassmannian_cells.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+[1{C:/Users/Thorsten/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] (Grassmannian_cells.aux) ) 
 Here is how much of TeX's memory you used:
- 2117 strings out of 493671
- 25708 string characters out of 3141411
- 84390 words of memory out of 3000000
+ 2119 strings out of 493671
+ 25752 string characters out of 3141411
+ 84397 words of memory out of 3000000
  5316 multiletter control sequences out of 15000+200000
  8613 words of font info for 35 fonts, out of 3000000 for 9000
  1186 hyphenation exceptions out of 8191
  34i,4n,32p,292b,192s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Pro
-gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr8.pfb>
-Output written on Grassmannian_cells.pdf (1 page, 66722 bytes).
+<C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmcsc10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+Output written on Grassmannian_cells.pdf (1 page, 67292 bytes).
 PDF statistics:
  26 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
