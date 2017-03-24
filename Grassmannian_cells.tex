@@ -2,10 +2,29 @@
 \usepackage{amsmath,amssymb,latexsym}
 \usepackage[margin=1in]{geometry}
 
-\author{Dylan Rupel}
-\author{Thorsten Weist}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{definition}{Definition}[theorem]
+\newtheorem{lemma}{Lemma}[theorem]
+\newtheorem{question}{Question}[theorem]
+\newtheorem{proposition}{Proposition}[theorem]
+
+\newcommand{\bfe}{\mathbf{e}}
+\newcommand{\bff}{\mathbf{f}}
+\newcommand{\bfg}{\mathbf{g}}
+\newcommand{\tbfe}{{\tilde\bfe}}
+\newcommand{\tbff}{{\tilde\bff}}
+\newcommand{\tbfg}{{\tilde\bfg}}
+
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Hom}{\operatorname{Hom}}
 
 \title{Cell Decomposition of Rank 2 Quiver Grassmannians}
+
+\author{Dylan Rupel}
+\author{Thorsten Weist}
 
 \begin{document}
 \begin{abstract}
@@ -19,13 +38,104 @@
 -something about categorification and quiver Grassmannians
 -something about compatible pairs and combinatorial construction of cluster variables
 -statement of our results
--added abstract
 -acknowledgements?
 
--trying to  a conflict
 
-\section{Quiver Representations}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Torus Action on Quiver Grassmannians}
+\begin{definition}
+  universal cover $\tilde Q$
+\end{definition}
 
-\section{Compatible Pairs}
+\begin{lemma}
+  how to lift exceptional representations of $Q$ to $\tilde Q$
+\end{lemma}
+
+\begin{lemma}
+  $d:\tilde Q_0\to\ZZ$ defines a torus action on $Gr^Q_\bfe(X)$ if $d(q,w\rho)-d(q,w)=c_\rho$ for all $w\in W_{\tilde Q_1}$
+\end{lemma}
+
+\begin{lemma}
+  There exists $d:\tilde Q_0\to\ZZ$ such that $d(q,w)\ne d(q',w')$ for all $q,q',w,w'$ with $\dim X_{q,w}\ne0$ and $\dim X_{q',w'}\ne0$.
+\end{lemma}
+
+\begin{theorem}
+  $Gr^Q_\bfe(X)^T\cong\bigsqcup_{\tilde\bfe of type \bfe} Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$
+\end{theorem}
+
+\begin{corollary}
+  affine bundles over $Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$ if $Gr^Q_\bfe(X)$ is smooth
+  \[\{U\in Gr^Q_\bfe(X):\lim_{t\to0} t\cdot U\in Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)\}\]
+\end{corollary}
+
+\begin{question}
+  What are the ranks of these bundles?  Poincar\'e polynomials?
+\end{question}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Quiver Grassmannians of $\widetilde{K(n)}$}
+
+Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=1$, $u_{k+1}=nu_k-u_{k-1}$.  For $m\ge1$, let $P_m$ be the preprojective representation of $K(n)$ with dimension vector $(u_m,u_{m-1})$.
+
+Let $\tilde P_m$ be a fixed lift of $P_m$ to the universal cover $\widetilde{K(n)}$.
+\begin{lemma}
+  \label{le:preprojective lifts}
+  There exist lifts $\tilde P_{m-1,i}$ for $1\le i\le n$ of $P_{m-1}$ to $\widetilde{K(n)}$ so that:
+  \begin{enumerate}
+    \item $\Hom_Q(P_{m-1},P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$;
+    \item For any proper subset $\{i_1,\ldots,i_k\}\subset\{1,\ldots,n\}$, there exists a short exact sequence
+      \[0\longrightarrow \tilde P_{m-1,i_1}\oplus\cdots\oplus\tilde P_{m-1,i_k}\longrightarrow\tilde P_m\longrightarrow \tilde P_m^{i_1,\ldots,i_k}\longrightarrow 0;\]
+    \item The lifts $\tilde P_{m-1,i}$ are pairwise orthogonal. 
+    \item All nontrivial proper subrepresentations of $\tilde P_m^{(k)}$ are preprojective.
+  \end{enumerate}
+\end{lemma}
+
+We will always choose the subset $\{1,\ldots,k\}$ when using Lemma~\ref{le:preprojective lifts}.2 and thus we denote the cokernal simply by $\tilde P_m^{(k)}$.
+
+\begin{lemma}
+  If each $Gr^{\tilde Q}_\tbfe(\tilde P_{m-1,i})$ has a cell decomposition, then $Gr^{\tilde Q}_\tbfe(\bigoplus\tilde P_{m-1,i_j})$ has a cell decomposition.
+\end{lemma}
+
+\begin{lemma}
+  \begin{enumerate}
+    \item $\tilde P_m^{(n-1)}\cong\tilde P_{m-1}^{(1)}$
+    \item The subrepresentation $\bigoplus_{i=1}^{k-1}\tilde P_{m-1,i}\oplus\bigoplus_{i=1}^k\tilde P_{m-2,i}\subset\bigoplus{i=1}^k\tilde P_{m-1,i}$ is in $(\tilde P_m^{(k)})^\perp$ and
+      \[\Ext(\bigoplus{i=1}^k\tilde P_{m-1,i},\tilde P_m^{(k)})\cong\Ext(\tilde P_{m-1}^{(k)},\tilde P_m^{(k)})\]
+      where $\tilde P_{m-1}^{(k)}$ above denotes the cokernel of the inclusion.
+  \end{enumerate}
+\end{lemma}
+
+\begin{corollary}
+  observe when fibers are empty
+\end{corollary}
+
+\begin{proposition}
+  Consider $\psi:Gr^{\tilde Q}_\tbfe(\tilde P_m)\to\bigsqcup_{\tbff+\tbfg=\tbfe} Gr^{\tilde Q}_\tbff(\bigoplus_{i=1}^k \tilde P_{m-1,i})\times Gr^{\tilde Q}_\tbfg(\tilde P_m^{(k)}$.  Then the following hold:
+  \begin{enumerate}
+    \item For $V\subsetneq \tilde P_m^{(k)}$ and $U\subset\bigoplus_{i=1}^k\tilde P_{m-1,i}$, we have $\psi^{-1}(U,V)=\AA^{\langle V,\bigoplus_{i=1}^k\tilde P_{m-1,i}/U\rangle}$.
+    \item If $V=\tilde P_m^{(k)}$ and the fiber is not empty, then $\psi^{-1}(U,V)$ is constant.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  (1) $V$ is preprojective but $\bigoplus_{i=1}^k\tilde P_{m-1,i}/U$ is not unless $U=0$
+
+  (2) \[0\longrightarrow[V,P/U]\longrightarrow[V,U]^1\longrightarrow[V,P]^1\longrightarrow[V,P/U]^1\longrightarrow0\]
+      and the middle map is surjective.
+\end{proof}
+
+\begin{theorem}
+  Every quiver Grassmannian of a preprojective or preinjective representation of $K(n)$ and $\widetilde{K(n)}$ has a cell decomposition.
+\end{theorem}
+
+\begin{question}
+  cells of $Gr^{\tilde Q}_\tbfe(\tilde P_m)$ are in one-to-one correspondence with certain tuples of subgraphs for smaller $\tilde P_\ell^{i_1,\ldots,i_k}$
+\end{question}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Compatible Pairs Label Cells in $Gr^Q_\bfe(P_m)$}
+
+
 
 \end{document}
