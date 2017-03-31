@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  24 MAR 2017 15:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  30 MAR 2017 22:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -145,39 +145,137 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@layoutvoffset=\dimen121
 \Gm@dimlist=\toks26
 )
-\c@theorem=\count102
-\c@corollary=\count103
-\c@definition=\count104
-\c@lemma=\count105
-\c@question=\count106
-\c@proposition=\count107
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing:
+catcodes, docmode,
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xypic/xyrecat.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xypic/xyidioms.tex)
 
-(./Grassmannian_cells.aux)
+ Xy-pic version 3.8.9 <2013/10/06>
+ Copyright (c) 1991-2013 by Kristoffer H. Rose <krisrose@tug.org> and others
+ Xy-pic is free software: see the User's Guide for details.
+
+Loading kernel: messages; fonts; allocations: state,
+\X@c=\dimen122
+\Y@c=\dimen123
+\U@c=\dimen124
+\D@c=\dimen125
+\L@c=\dimen126
+\R@c=\dimen127
+\Edge@c=\toks27
+\X@p=\dimen128
+\Y@p=\dimen129
+\U@p=\dimen130
+\D@p=\dimen131
+\L@p=\dimen132
+\R@p=\dimen133
+\Edge@p=\toks28
+\X@origin=\dimen134
+\Y@origin=\dimen135
+\X@xbase=\dimen136
+\Y@xbase=\dimen137
+\X@ybase=\dimen138
+\Y@ybase=\dimen139
+\X@min=\dimen140
+\Y@min=\dimen141
+\X@max=\dimen142
+\Y@max=\dimen143
+\lastobjectbox@=\box29
+\zerodotbox@=\box30
+\almostz@=\dimen144
+ direction,
+\d@X=\dimen145
+\d@Y=\dimen146
+\K@=\count102
+\KK@=\count103
+\Direction=\count104
+\K@dXdY=\dimen147
+\K@dYdX=\dimen148
+\xyread@=\read1
+\xywrite@=\write3
+\csp@=\count105
+\quotPTK@=\dimen149
+
+utility macros; pictures: \xy, positions,
+\swaptoks@@=\toks29
+\connectobjectbox@@=\box31
+ objects,
+\styletoks@=\toks30
+ decorations;
+kernel objects: directionals, circles, text; options; algorithms: directions,
+edges, connections;  Xy-pic loaded)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xypic/xyall.tex
+ Xy-pic option: All features v.3.8
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xypic/xycurve.tex
+ Xy-pic option: Curve and Spline extension v.3.12 curve,
+\crv@cnt@=\count106
+\crvpts@=\toks31
+\splinebox@=\box32
+\splineval@=\dimen150
+\splinedepth@=\dimen151
+\splinetol@=\dimen152
+\splinelength@=\dimen153
+ circles,
+\L@=\dimen154
+ loaded)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xypic/xyframe.tex
+ Xy-pic option: Frame and Bracket extension v.3.14 loaded)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xypic/xycmtip.tex
+ Xy-pic option: Computer Modern tip extension v.3.7
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xypic/xytips.tex
+ Xy-pic option: More Tips extension v.3.11 loaded) loaded)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xypic/xyline.tex
+ Xy-pic option: Line styles extension v.3.10
+\xylinethick@=\dimen155
+ loaded)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xypic/xyrotate.tex
+ Xy-pic option: Rotate and Scale extension v.3.8 loaded)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xypic/xycolor.tex
+ Xy-pic option: Colour extension v.3.11 loaded)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xypic/xymatrix.tex
+ Xy-pic option: Matrix feature v.3.14
+\Row=\count107
+\Col=\count108
+\queue@=\toks32
+\queue@@=\toks33
+\qcount@=\count109
+\qcount@@=\count110
+\matrixsize@=\count111
+ loaded)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xypic/xyarrow.tex
+ Xy-pic option: Arrow and Path feature v.3.9 path, \ar, loaded)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xypic/xygraph.tex
+ Xy-pic option: Graph feature v.3.11 loaded) loaded)
+\c@theorem=\count112
+\c@corollary=\count113
+\c@definition=\count114
+\c@lemma=\count115
+\c@question=\count116
+\c@proposition=\count117
+ (./Grassmannian_cells.aux)
 \openout1 = `Grassmannian_cells.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Try loading font information for U+msa on input line 29.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Try loading font information for U+msa on input line 33.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 29.
+LaTeX Font Info:    Try loading font information for U+msb on input line 33.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 29.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 33.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
@@ -216,39 +314,52 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+
+Overfull \hbox (32.9317pt too wide) in paragraph at lines 93--95
+\OT1/cmr/bx/n/10 Lemma 2.1. \OT1/cmr/m/it/10 For any $\OML/cmm/m/it/10 m \OMS/c
+msy/m/n/10 ^^U \OT1/cmr/m/n/10 1$\OT1/cmr/m/it/10 , we have $[] []\OT1/cmr/m/n/
+10 (\OML/cmm/m/it/10 P[]; P[]\OT1/cmr/m/n/10 ) = 1$\OT1/cmr/m/it/10 , $[] []\OT
+1/cmr/m/n/10 (\OML/cmm/m/it/10 P[]; P[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 n$\
+OT1/cmr/m/it/10 , and $[] []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 P[]; P[]\OT1/cmr/
+m/n/10 ) =
+ []
+
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2] (./Grassmannian_cells.aux) ) 
+<xymatrix 5x5 784> [2] [3] (./Grassmannian_cells.aux) ) 
 Here is how much of TeX's memory you used:
- 2178 strings out of 493089
- 26278 string characters out of 6134842
- 94385 words of memory out of 5000000
- 5510 multiletter control sequences out of 15000+600000
- 10844 words of font info for 45 fonts, out of 8000000 for 9000
+ 4410 strings out of 493089
+ 53090 string characters out of 6134842
+ 170302 words of memory out of 5000000
+ 7691 multiletter control sequences out of 15000+600000
+ 12293 words of font info for 54 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 34i,8n,32p,292b,234s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
-lic/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-ti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symbol
-s/msam10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/sy
-mbols/msbm10.pfb>
-Output written on Grassmannian_cells.pdf (2 pages, 197069 bytes).
+ 34i,15n,32p,292b,472s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2015/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
+/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2015/texmf-dist/font
+s/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/public/xypic/xybtip10.pfb>
+Output written on Grassmannian_cells.pdf (3 pages, 221008 bytes).
 PDF statistics:
- 83 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
+ 98 PDF objects out of 1000 (max. 8388607)
+ 71 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

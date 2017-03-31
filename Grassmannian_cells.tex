@@ -2,6 +2,9 @@
 \usepackage{amsmath,amssymb,latexsym}
 \usepackage[margin=1in]{geometry}
 
+\input xy
+\xyoption{all}
+
 \newtheorem{theorem}{Theorem}
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{definition}{Definition}[theorem]
@@ -17,6 +20,7 @@
 \newcommand{\tbfg}{{\tilde\bfg}}
 
 \renewcommand{\AA}{\mathbb{A}}
+\newcommand{\kk}{\Bbbk}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\Ext}{\operatorname{Ext}}
 \newcommand{\Hom}{\operatorname{Hom}}
@@ -73,10 +77,54 @@
 \end{question}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Representation Theory of $K(n)$}
+
+Denote by $K(n)$ the \emph{$n$-Kronecker quiver} $1\stackrel{n}{\longleftarrow}2$ with vertices $K(n)_0=\{1,2\}$ and $n$ arrows from vertex $2$ to vertex $1$.  
+
+Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=1$, $u_{k+1}=nu_k-u_{k-1}$.
+\begin{theorem}
+  For each $m\ge1$, there exist unique (up to isomorphism) indecomposable rigid representations $P_m$ and $I_m$ of $K(n)$ with dimension vectors $(u_m,u_{m-1})$ and $(u_{m-1},u_m)$ respectively.
+  Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}P_{m+1}^{a_2}$ or $I_m^{a_1}I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
+\end{theorem}
+The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
+
+\begin{lemma}
+  For any $m\ge1$, we have $\dim\Hom(P_m,P_m)=1$, $\dim\Hom(P_m,P_{m+1})=n$, and $\dim\Hom(P_{m+1},P_m)=0$.  
+  Moreover, for $1\le k<n$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, the map $[f_1\ \cdots\ f_k]:P_m^k\to P_{m+1}$ is injective. 
+\end{lemma}
+Write $P_{m+1}^{\{f_1,\ldots,f_k\}}$ for the cokernel of the map $[f_1\ \cdots\ f_k]:P_m^k\to P_{m+1}$, i.e. we have a short exact sequence
+\begin{equation}
+\label{eq:truncated preprojectives}
+  0\longrightarrow P_m^k\stackrel{[f_1\ \cdots\ f_k]}{\longrightarrow} P_{m+1}\longrightarrow P_{m+1}^{\{f_1,\ldots,f_k\}}\longrightarrow 0.
+\end{equation}
+\begin{lemma}
+  For $m\ge1$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, the following hold:
+  \begin{enumerate}
+    \item $\Hom(P_m,P_{m+1}^{\{f_1,\ldots,f_k\}})$ is naturally isomorphic to $\Hom(P_m,P_{m+1})/\kk f_1\oplus\cdots\oplus\kk f_k$;
+    \item $\Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m)$ is naturally isomorphic to $\kk f_1\oplus\cdots\oplus\kk f_k$;
+    \item $\Hom(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m)=0$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  Applying the functor $\Hom(P_m,-)$ to the sequence \eqref{eq:truncated preprojectives} gives the exact sequence
+  \[0\longrightarrow \Hom(P_m,P_m^k)\stackrel{[f_1\ \cdots\ f_k]\circ}{\longrightarrow} \Hom(P_m,P_{m+1})\longrightarrow \Hom(P_m,P_{m+1}^{\{f_1,\ldots,f_k\}})\longrightarrow 0,\]
+  establishing (1).  
+  
+  To see (2), we apply the functor $\Hom(-,P_m)$ to the sequence \eqref{eq:truncated preprojectives} to get an isomorphism $\Hom(P_m^k,P_m)\cong\Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m)$.
+  To get the isomorphism with $\kk f_1\oplus\cdots\oplus\kk f_k$, we work by induction on $k$.  
+  Indeed, $\Hom(P_m^k,P_m)$ is spanned by the coordinate projections $\pi_i:P_m^k\to P_m$ for $1\le i\le k$ and each of these gives rise to a commutative diagram
+  \[\xymatrix{ & 0\ar[d] & 0\ar[d] & & \\ & P_m^{k-1}\ar[d]\ar@{=}[r]& P_m^{k-1}\ar[d]^{[f_1\ \cdots\ \widehat{f_i}\ \cdots\ f_k]}& & \\
+    0\ar[r]& P_m^k\ar[r]^{[f_1\ \cdots\ f_k]}\ar[d]^{\pi_i}\ar@{}[dr]|{\ulcorner}& P_{m+1}\ar[r]\ar[d]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]\ar@{=}[d]& 0 \\
+    0\ar[r]& P_m\ar[r]^(.35){f_i}\ar[d]& P_{m+1}^{\{f_1,\ldots,\widehat{f_i},\ldots,f_k\}}\ar[r]\ar[d]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]& 0\\
+     & 0 & 0 & & }\]
+  The bottom row of this diagram is the extension in $\Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m)$ naturally identified with the generator $f_i$ of $\kk f_1\oplus\cdots\oplus\kk f_k$.
+
+  Part (3) follows immediately from the observation that $\langle P_{m+1}^{\{f_1,\ldots,f_k\}},P_m\rangle=-k$.
+\end{proof}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quiver Grassmannians of $\widetilde{K(n)}$}
-
-Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=1$, $u_{k+1}=nu_k-u_{k-1}$.  For $m\ge1$, let $P_m$ be the preprojective representation of $K(n)$ with dimension vector $(u_m,u_{m-1})$.
 
 Let $\tilde P_m$ be a fixed lift of $P_m$ to the universal cover $\widetilde{K(n)}$.
 \begin{lemma}
