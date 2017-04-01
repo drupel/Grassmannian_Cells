@@ -90,7 +90,8 @@ Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=
 The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
 
 \begin{lemma}
-  For any $m\ge1$, we have $\dim\Hom(P_m,P_m)=1$, $\dim\Hom(P_m,P_{m+1})=n$, and $\dim\Hom(P_{m+1},P_m)=0$.  
+  For any $m\ge1$, we have 
+  \[\dim\Hom(P_m,P_m)=1,\quad \dim\Hom(P_m,P_{m+1})=n,\quad \dim\Hom(P_{m+1},P_m)=0.\]  
   Moreover, for $1\le k<n$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, the map $[f_1\ \cdots\ f_k]:P_m^k\to P_{m+1}$ is injective. 
 \end{lemma}
 Write $P_{m+1}^{\{f_1,\ldots,f_k\}}$ for the cokernel of the map $[f_1\ \cdots\ f_k]:P_m^k\to P_{m+1}$, i.e. we have a short exact sequence
@@ -112,16 +113,42 @@ Write $P_{m+1}^{\{f_1,\ldots,f_k\}}$ for the cokernel of the map $[f_1\ \cdots\ 
   establishing (1).  
   
   To see (2), we apply the functor $\Hom(-,P_m)$ to the sequence \eqref{eq:truncated preprojectives} to get an isomorphism $\Hom(P_m^k,P_m)\cong\Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m)$.
-  To get the isomorphism with $\kk f_1\oplus\cdots\oplus\kk f_k$, we work by induction on $k$.  
-  Indeed, $\Hom(P_m^k,P_m)$ is spanned by the coordinate projections $\pi_i:P_m^k\to P_m$ for $1\le i\le k$ and each of these gives rise to a commutative diagram
+  Observe that $\Hom(P_m^k,P_m)$ is spanned by the coordinate projections $\pi_i:P_m^k\to P_m$ for $1\le i\le k$ and each of these gives rise to a commutative diagram
   \[\xymatrix{ & 0\ar[d] & 0\ar[d] & & \\ & P_m^{k-1}\ar[d]\ar@{=}[r]& P_m^{k-1}\ar[d]^{[f_1\ \cdots\ \widehat{f_i}\ \cdots\ f_k]}& & \\
     0\ar[r]& P_m^k\ar[r]^{[f_1\ \cdots\ f_k]}\ar[d]^{\pi_i}\ar@{}[dr]|{\ulcorner}& P_{m+1}\ar[r]\ar[d]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]\ar@{=}[d]& 0 \\
     0\ar[r]& P_m\ar[r]^(.35){f_i}\ar[d]& P_{m+1}^{\{f_1,\ldots,\widehat{f_i},\ldots,f_k\}}\ar[r]\ar[d]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]& 0\\
      & 0 & 0 & & }\]
   The bottom row of this diagram is the extension in $\Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m)$ naturally identified with the generator $f_i$ of $\kk f_1\oplus\cdots\oplus\kk f_k$.
 
-  Part (3) follows immediately from the observation that $\langle P_{m+1}^{\{f_1,\ldots,f_k\}},P_m\rangle=-k$.
+  Part (3) follows immediately from (2) and the observation that 
+  \[\langle P_{m+1}^{\{f_1,\ldots,f_k\}},P_m\rangle=\langle P_{m+1},P_m\rangle-k\langle P_m,P_m\rangle=-k.\]
 \end{proof}
+
+For any nonempty subset $I\subset[1,k]$, say with $|I|=\ell$, we get an exact sequence
+\[0\longrightarrow P_m^\ell\stackrel{[f_i]_{i\in I}}{\longrightarrow} P_{m+1}^{\{f_j\}_{j\in[1,k]\setminus I}}\longrightarrow P_{m+1}^{\{f_1,\ldots,f_k\}}\longrightarrow 0.\]
+Each such sequence has the following almost-split property for subrepresentations of $P_{m+1}^{\{f_1,\ldots,f_k\}}$.
+\begin{lemma}
+  For $m\ge1$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, given any proper subrepresentation $V\subsetneq P_{m+1}^{\{f_1,\ldots,f_k\}}$, the upper pullback sequence
+  \[\xymatrix{0\ar[r] & P_m^\ell\ar@{=}[d]\ar[r] & V^I\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & V\ar[d]\ar[r] & 0 \\
+  0\ar[r]& P_m^\ell\ar[r]^(.35){[f_i]_{i\in I}} & P_{m+1}^{\{f_j\}_{j\in[1,k]\setminus I}}\ar[r]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]& 0}\]
+  splits for every $I\subset[1,k]$.
+\end{lemma}
+\begin{proof}
+  When $I=\emptyset$ there is nothing to show, so assume $I$ is a nontrivial subset of $[1,k]$.  
+  
+  We proceed by induction on $k$.  For any nonzero $f\in\Hom(P_m,P_{m+1})$ the exact sequence
+  \[\xymatrix{0\ar[r] & P_m\ar[r]^f & P_{m+1}\ar[r] & P_{m+1}^{\{f\}}\ar[r] & 0}\]
+  is almost split, giving the claim in the case $k=1$.  For $k>1$ and a nontrivial subset $I\subset[1,k]$, we have the following commutative diagram
+  \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & P_m^{k-\ell}\ar@{=}[r]\ar[d]^{[f_j]_{j\in[1,k]\setminus I}} & P_m^{k-\ell}\ar[d]^{[f_j]_{j\in[1,k]\setminus I}}\ar[r] & 0 \\
+  0\ar[r] & P_m^\ell\ar@{=}[d]\ar[r]^{[f_i]_{i\in I}} & P_{m+1}\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & P_{m+1}^{\{f_i\}_{i\in I}}\ar[d]\ar[r] & 0 \\
+  0\ar[r]& P_m^\ell\ar[r]^(.35){[f_i]_{i\in I}}\ar[d] & P_{m+1}^{\{f_j\}_{j\in[1,k]\setminus I}}\ar[r]\ar[d] & P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]\ar[d]& 0\\ & 0 & 0 & 0 & }\]
+  A proper subrepresentation $V\subset P_{m+1}^{\{f_1,\ldots,f_k\}}$ gives rise, via pullbacks, to the following commutative diagram
+  \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & P_m^{k-\ell}\ar@{=}[r]\ar[d]^{[f_j]_{j\in[1,k]\setminus I}} & P_m^{k-\ell}\ar[d]^{[f_j]_{j\in[1,k]\setminus I}}\ar[r] & 0 \\
+  0\ar[r] & P_m^\ell\ar@{=}[d]\ar[r]^{[f_i]_{i\in I}} & V^{[1,k]}\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & V^{[1,k]\setminus I}\ar[d]\ar[r] & 0 \\
+  0\ar[r]& P_m^\ell\ar[r]^(.35){[f_i]_{i\in I}}\ar[d] & V^I\ar[r]\ar[d] & V\ar[r]\ar[d]& 0\\ & 0 & 0 & 0 & }\]
+  in which the middle vertical sequence and the middle horizontal sequence split by induction.  But then the lower horizontal sequence splits, establshing the claim for all $I\subset[1,k]$.
+\end{proof}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quiver Grassmannians of $\widetilde{K(n)}$}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  30 MAR 2017 22:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  31 MAR 2017 23:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -315,51 +315,51 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Overfull \hbox (32.9317pt too wide) in paragraph at lines 93--95
-\OT1/cmr/bx/n/10 Lemma 2.1. \OT1/cmr/m/it/10 For any $\OML/cmm/m/it/10 m \OMS/c
-msy/m/n/10 ^^U \OT1/cmr/m/n/10 1$\OT1/cmr/m/it/10 , we have $[] []\OT1/cmr/m/n/
-10 (\OML/cmm/m/it/10 P[]; P[]\OT1/cmr/m/n/10 ) = 1$\OT1/cmr/m/it/10 , $[] []\OT
-1/cmr/m/n/10 (\OML/cmm/m/it/10 P[]; P[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 n$\
-OT1/cmr/m/it/10 , and $[] []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 P[]; P[]\OT1/cmr/
-m/n/10 ) =
+Overfull \hbox (4.69499pt too wide) in paragraph at lines 94--96
+\OT1/cmr/m/it/10 Moreover, for $\OT1/cmr/m/n/10 1 \OMS/cmsy/m/n/10 ^^T \OML/cmm
+/m/it/10 k < n$ \OT1/cmr/m/it/10 and lin-early in-de-pen-dent func-tions $\OML/
+cmm/m/it/10 f[]; [] ; f[] \OMS/cmsy/m/n/10 2 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/1
+0 P[]; P[]\OT1/cmr/m/n/10 )$\OT1/cmr/m/it/10 , the map $\OT1/cmr/m/n/10 [\OML/c
+mm/m/it/10 f[]  []  f[]\OT1/cmr/m/n/10 ] :
  []
 
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-<xymatrix 5x5 784> [2] [3] (./Grassmannian_cells.aux) ) 
+<xymatrix 5x5 784> <xymatrix 5x2 465> <xymatrix 5x1 165> <xymatrix 5x5 920>
+[2] <xymatrix 5x5 920> [3] [4] (./Grassmannian_cells.aux) ) 
 Here is how much of TeX's memory you used:
  4410 strings out of 493089
  53090 string characters out of 6134842
- 170302 words of memory out of 5000000
+ 181442 words of memory out of 5000000
  7691 multiletter control sequences out of 15000+600000
  12293 words of font info for 54 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  34i,15n,32p,292b,472s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2015/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2015/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2015/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
-/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
-ype1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2015/texmf-dist/font
-s/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-dist/
-fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2015/texmf-dist/fonts
-/type1/public/xypic/xybtip10.pfb>
-Output written on Grassmannian_cells.pdf (3 pages, 221008 bytes).
+</usr/local/texlive/
+2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/201
+5/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb></usr/local/texlive/2
+015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/20
+15/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-dist/fon
+ts/type1/public/amsfonts/symbols/msam7.pfb></usr/local/texlive/2015/texmf-dist/
+fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2015/texmf-d
+ist/fonts/type1/public/xypic/xyatip10.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/xypic/xybtip10.pfb>
+Output written on Grassmannian_cells.pdf (4 pages, 228006 bytes).
 PDF statistics:
- 98 PDF objects out of 1000 (max. 8388607)
- 71 compressed objects within 1 object stream
+ 101 PDF objects out of 1000 (max. 8388607)
+ 73 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
