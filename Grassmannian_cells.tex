@@ -1,7 +1,7 @@
 \documentclass{amsart}
 \usepackage{amsmath,amssymb,latexsym}
 \usepackage[margin=1in]{geometry}
-
+\usepackage{extarrows}
 \input xy
 \xyoption{all}
 
@@ -27,6 +27,7 @@
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\Ext}{\operatorname{Ext}}
 \newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\ses}[3]{0\rightarrow #1\rightarrow #2\rightarrow#3\rightarrow 0}
 
 \title{Cell Decomposition of Rank 2 Quiver Grassmannians}
 
@@ -105,11 +106,16 @@ The representations $P_m$ are called the \emph{preprojective} representations of
   \[\dim\Hom(P_m,P_m)=1,\quad \dim\Hom(P_m,P_{m+1})=n,\quad \dim\Hom(P_{m+1},P_m)=0.\]  
   Moreover, for $1\le k<n$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, the map $[f_1\ \cdots\ f_k]:P_m^k\to P_{m+1}$ is injective. 
 \end{lemma}
-Write $P_{m+1}^{\{f_1,\ldots,f_k\}}$ for the cokernel of the map $[f_1\ \cdots\ f_k]:P_m^k\to P_{m+1}$, i.e. we have a short exact sequence
+\begin{proof} Note that we have a Auslander-Reiten sequence
+\[0\longrightarrow P_{m-1}\longrightarrow P_m^n\stackrel{[f_1\ \cdots\ f_n]}{\longrightarrow} P_{m+1}\longrightarrow 0\]
+with irreducible homomorphisms $f_i$ which are also linear independent. Thus they do not factor through a representation $Z\neq P_{m}$ which already means that they are injective, see for instance \cite[Lemma 1.6]{ass}. If we pick $k<n$ linear independent homomorphisms $f_{i_1},\ldots, f_{i_k}$, this also means that $[f_{i_1}\ \cdots\ f_{i_k}]:P_m^k\to P_{m+1}$ is injective. Indeed otherwise, at least one of the homomorphisms were forced to factor through a representation $Z\neq P_{m}$.
+
+ Write $P_{m+1}^{\{f_1,\ldots,f_k\}}$ for the cokernel of the map $[f_1\ \cdots\ f_k]:P_m^k\to P_{m+1}$, i.e. we have a short exact sequence
 \begin{equation}
 \label{eq:truncated preprojectives}
   0\longrightarrow P_m^k\stackrel{[f_1\ \cdots\ f_k]}{\longrightarrow} P_{m+1}\longrightarrow P_{m+1}^{\{f_1,\ldots,f_k\}}\longrightarrow 0.
 \end{equation}
+\end{proof}
 \begin{lemma}
   For $m\ge1$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, the following hold:
   \begin{enumerate}
@@ -187,27 +193,39 @@ We will always choose the subset $\{1,\ldots,k\}$ when using Lemma~\ref{le:prepr
   \begin{enumerate}
     \item $\tilde P_m^{(n-1)}\cong\tilde P_{m-1}^{(1)}$
     \item The subrepresentation $\bigoplus_{i=1}^{k-1}\tilde P_{m-1,i}\oplus\bigoplus_{i=1}^k\tilde P_{m-2,i}\subset\bigoplus{i=1}^k\tilde P_{m-1,i}$ is in $(\tilde P_m^{(k)})^\perp$ and
-      \[\Ext(\bigoplus{i=1}^k\tilde P_{m-1,i},\tilde P_m^{(k)})\cong\Ext(\tilde P_{m-1}^{(k)},\tilde P_m^{(k)})\]
+      \[\Ext(\bigoplus_{i=1}^k\tilde P_{m-1,i},\tilde P_m^{(k)})\cong\Ext(\tilde P_{m-1}^{(k)},\tilde P_m^{(k)})\]
       where $\tilde P_{m-1}^{(k)}$ above denotes the cokernel of the inclusion.
   \end{enumerate}
 \end{lemma}
 
-\begin{corollary}
-  observe when fibers are empty
-\end{corollary}
+\begin{lemma}\label{quotient}
+ Consider $\ses{\tilde P_m}{\tilde P_{m+1}^{(k)}}{\tilde P_{m+1}^{(k-1)}}$. If $U\subset P_m$ such that $\Ext(\tilde P_{m+1}^{(k-1)},U)\neq 0$, then we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)= 0$.
+\end{lemma}
+\begin{proof}
+First observe that $\tilde P_m\in ~^\perp \tilde P_{m+1}^{(k-1)}$ and $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)=k$. As $U$ is preprojective with $U\subset \tilde P_m\subset \tilde P_{m+1}^{(k)}$, it follows that $\Hom(U,\tilde P_{m+1}^{(k-1)})=0$ (check again). This yields $\Ext(\tilde P_m/U,\tilde P_{m+1}^{(k-1)})=0$. Consider
+\[0\longrightarrow[\tilde P_{m+1}^{(k-1)},\tilde P_m/U]\longrightarrow[\tilde P_{m+1}^{(k-1)},U]^1\xlongrightarrow{\pi}[\tilde P_{m+1}^{(k-1)},\tilde P_m]^1\longrightarrow[\tilde P_{m+1}^{(k-1)},\tilde P_m/U]^1\longrightarrow 0.\]
+Since $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)=k$, we have that $\pi$ is surjective if $\pi\neq 0$. If $U=U_1\oplus\ldots\oplus U_r$ is a decomposition into indecomposable representations, we can write $\pi=(\pi_1,\ldots,\pi_r)$ and it suffices to show that $\pi_j\neq 0$ for at least one $j=1,\ldots,r$. Thus we can without loss of generality assume that $U$ is indecomposable (check again). This means that $U\cong \tilde P_{i}$ for some $i=1,\ldots,m$. Moreover, $\tilde P_{m+1}/U$ is indecomposable (details).
+
+If $\tilde P_{m+1}/U$ is exceptional, $\Ext(\tilde P_m/U,\tilde P_{m+1}^{(k-1)})=0$ together with \cite[Theorem 4.1]{sch} yields that either $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)=0$ or $\Hom(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)=0$. Thus $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)\neq 0$ would imply that $\Ext(\tilde P_{m+1}^{(k-1)},U)=0$. But this contradicts the assumption and the claim follows.
+
+Thus assume that $\tilde P_{m+1}/U$ has self-extensions. Since $\Ext(\tilde P_m/U,\tilde P_{m+1}^{(k-1)})= 0$, from \cite[Lemma 4.1]{hr} we obtain that every homomorphism $\tilde P_{m+1}^{(k-1)}\to \tilde P_m/U$ is injective or surjective. By a dimension count it needs to be surjective (case $k=1$?). Such a homomorphism would yield $\Ext(\tilde P_m/U,\tilde P_{m+1}^{(k-1)})\twoheadrightarrow\Ext(\tilde P_m/U,\tilde P_m/U)\neq 0$ which contradicts the further observations. Thus $\Ext(\tilde P_{m+1}^{(k-1)},U)\neq 0$, already yields $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)= 0$ in this case.
+
+
+\end{proof}
 
 \begin{proposition}
   Consider $\psi:Gr^{\tilde Q}_\tbfe(\tilde P_m)\to\bigsqcup_{\tbff+\tbfg=\tbfe} Gr^{\tilde Q}_\tbff(\bigoplus_{i=1}^k \tilde P_{m-1,i})\times Gr^{\tilde Q}_\tbfg(\tilde P_m^{(k)}$.  Then the following hold:
   \begin{enumerate}
     \item For $V\subsetneq \tilde P_m^{(k)}$ and $U\subset\bigoplus_{i=1}^k\tilde P_{m-1,i}$, we have $\psi^{-1}(U,V)=\AA^{\langle V,\bigoplus_{i=1}^k\tilde P_{m-1,i}/U\rangle}$.
-    \item If $V=\tilde P_m^{(k)}$ and the fiber is not empty, then $\psi^{-1}(U,V)$ is constant.
+    \item If $V=\tilde P_m^{(k)}$, the fibre $\psi^{-1}(U,V)$ is non-empty and of constant dimension if and only if $\Ext(\tilde P_m^{(k)},U)\neq 0$.
   \end{enumerate}
 \end{proposition}
 \begin{proof}
   (1) $V$ is preprojective but $\bigoplus_{i=1}^k\tilde P_{m-1,i}/U$ is not unless $U=0$
 
-  (2) \[0\longrightarrow[V,P/U]\longrightarrow[V,U]^1\longrightarrow[V,P]^1\longrightarrow[V,P/U]^1\longrightarrow0\]
-      and the middle map is surjective.
+  (2) 
+If $\Ext(\tilde P_m^{(k)},U)= 0$, the fibre is empty because the sequence is non-split. If $\Ext(\tilde P_m^{(k)},U)\neq 0$, Lemma \ref{quotient} yields $\Ext(\tilde P_m^{(k)},\tilde P_{m-1}/U)=0$. In particular, the dimension is constant if it is not empty and
+$\Ext(\tilde P_{m+1}^{(k-1)},U)\xlongrightarrow{\pi}\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)$ is surjective. But this already means that the fibre is not empty.
 \end{proof}
 
 \begin{theorem}
@@ -222,8 +240,14 @@ We will always choose the subset $\{1,\ldots,k\}$ when using Lemma~\ref{le:prepr
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Compatible Pairs Label Cells in $Gr^Q_\bfe(P_m)$}
 \begin{thebibliography}{10}
+\bibitem{ass}
+Assem, I., Simson, D., Skowronski, A.: Elements of the Representation Theory of Associative Algebras. Cambridge University Press, Cambridge 2007.
 \bibitem{bgp}
 Bernstein, I.~N., Gelfand, I.~M., Ponomarev, V.~A.: Coxeter functors, and Gabriel's theorem. Russian Mathematical Surveys \textbf{28}(2), 17-32 (1973).
+\bibitem{hr} Happel, D., Ringel, C.M.: Tilted Algebras. Transactions of the American Mathematical Society {\bf 274}, no.2, 399-443 (1982).
+
+\bibitem{sch} Schofield, A.: General representations of quivers. Proceedings of the London Mathematical Society (3) \textbf{65}(1), 46-64 (1992).
+
 \end{thebibliography}
 
 \end{document}
