@@ -202,7 +202,7 @@ We will always choose the subset $\{1,\ldots,k\}$ when using Lemma~\ref{le:prepr
  Consider $\ses{\tilde P_m}{\tilde P_{m+1}^{(k)}}{\tilde P_{m+1}^{(k-1)}}$. If $U\subset P_m$ such that $\Ext(\tilde P_{m+1}^{(k-1)},U)\neq 0$, then we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)= 0$.
 \end{lemma}
 \begin{proof}
-First observe that $\tilde P_m\in ~^\perp \tilde P_{m+1}^{(k-1)}$ and $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)=k$. As $U$ is preprojective with $U\subset \tilde P_m\subset \tilde P_{m+1}^{(k)}$, it follows that $\Hom(U,\tilde P_{m+1}^{(k-1)})=0$ (check again). This yields $\Ext(\tilde P_m/U,\tilde P_{m+1}^{(k-1)})=0$. Consider
+First observe that $\tilde P_m\in ~^\perp \tilde P_{m+1}^{(k-1)}$ and $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)=k$. Assume that $U$ is preprojective with $\Hom(U,\tilde P_{m+1}^{(k-1)})=0$ (check again). This yields $\Ext(\tilde P_m/U,\tilde P_{m+1}^{(k-1)})=0$. Consider
 \[0\longrightarrow[\tilde P_{m+1}^{(k-1)},\tilde P_m/U]\longrightarrow[\tilde P_{m+1}^{(k-1)},U]^1\xlongrightarrow{\pi}[\tilde P_{m+1}^{(k-1)},\tilde P_m]^1\longrightarrow[\tilde P_{m+1}^{(k-1)},\tilde P_m/U]^1\longrightarrow 0.\]
 Since $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)=k$, we have that $\pi$ is surjective if $\pi\neq 0$. If $U=U_1\oplus\ldots\oplus U_r$ is a decomposition into indecomposable representations, we can write $\pi=(\pi_1,\ldots,\pi_r)$ and it suffices to show that $\pi_j\neq 0$ for at least one $j=1,\ldots,r$. Thus we can without loss of generality assume that $U$ is indecomposable (check again). This means that $U\cong \tilde P_{i}$ for some $i=1,\ldots,m$. Moreover, $\tilde P_{m+1}/U$ is indecomposable (details).
 
@@ -210,6 +210,7 @@ If $\tilde P_{m+1}/U$ is exceptional, $\Ext(\tilde P_m/U,\tilde P_{m+1}^{(k-1)})
 
 Thus assume that $\tilde P_{m+1}/U$ has self-extensions. Since $\Ext(\tilde P_m/U,\tilde P_{m+1}^{(k-1)})= 0$, from \cite[Lemma 4.1]{hr} we obtain that every homomorphism $\tilde P_{m+1}^{(k-1)}\to \tilde P_m/U$ is injective or surjective. By a dimension count it needs to be surjective (case $k=1$?). Such a homomorphism would yield $\Ext(\tilde P_m/U,\tilde P_{m+1}^{(k-1)})\twoheadrightarrow\Ext(\tilde P_m/U,\tilde P_m/U)\neq 0$ which contradicts the further observations. Thus $\Ext(\tilde P_{m+1}^{(k-1)},U)\neq 0$, already yields $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)= 0$ in this case.
 
+Case $\Hom(U,P)\neq 0$?
 
 \end{proof}
 
