@@ -5,12 +5,12 @@
 \input xy
 \xyoption{all}
 
-\newtheorem{theorem}{Theorem}
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{definition}{Definition}[theorem]
-\newtheorem{lemma}{Lemma}[theorem]
-\newtheorem{question}{Question}[theorem]
-\newtheorem{proposition}{Proposition}[theorem]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{proposition}[theorem]{Proposition}
 
 \newcommand{\bfe}{\mathbf{e}}
 \newcommand{\bff}{\mathbf{f}}
@@ -106,16 +106,24 @@ The representations $P_m$ are called the \emph{preprojective} representations of
   \[\dim\Hom(P_m,P_m)=1,\quad \dim\Hom(P_m,P_{m+1})=n,\quad \dim\Hom(P_{m+1},P_m)=0.\]  
   Moreover, for $1\le k<n$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, the map $[f_1\ \cdots\ f_k]:P_m^k\to P_{m+1}$ is injective. 
 \end{lemma}
-\begin{proof} Note that we have a Auslander-Reiten sequence
-\[0\longrightarrow P_{m-1}\longrightarrow P_m^n\stackrel{[f_1\ \cdots\ f_n]}{\longrightarrow} P_{m+1}\longrightarrow 0\]
-with irreducible homomorphisms $f_i$ which are also linear independent. Thus they do not factor through a representation $Z\neq P_{m}$ which already means that they are injective, see for instance \cite[Lemma 1.6]{ass}. If we pick $k<n$ linear independent homomorphisms $f_{i_1},\ldots, f_{i_k}$, this also means that $[f_{i_1}\ \cdots\ f_{i_k}]:P_m^k\to P_{m+1}$ is injective. Indeed otherwise, at least one of the homomorphisms were forced to factor through a representation $Z\neq P_{m}$.
+\begin{proof} 
+  Note that we have an Auslander-Reiten sequence
+  \begin{equation}
+  \label{eq:AR sequence}
+    0\longrightarrow P_{m-1}\longrightarrow P_m^n\stackrel{[f_1\ \cdots\ f_n]}{\longrightarrow} P_{m+1}\longrightarrow 0
+  \end{equation}
+  with irreducible homomorphisms $f_i$ which are also linearly independent. 
+  Thus they do not factor through a representation $Z\neq P_{m}$ which already means that they are injective, see for instance \cite[Lemma 1.6]{ass}. 
+  If we pick $k<n$ linear independent homomorphisms $f_{i_1},\ldots, f_{i_k}$, this also means that $[f_{i_1}\ \cdots\ f_{i_k}]:P_m^k\to P_{m+1}$ is injective. 
+  Indeed otherwise, at least one of the homomorphisms were forced to factor through a representation $Z\neq P_{m}$.
+\end{proof}
 
- Write $P_{m+1}^{\{f_1,\ldots,f_k\}}$ for the cokernel of the map $[f_1\ \cdots\ f_k]:P_m^k\to P_{m+1}$, i.e. we have a short exact sequence
+Write $P_{m+1}^{\{f_1,\ldots,f_k\}}$ for the cokernel of the map $[f_1\ \cdots\ f_k]:P_m^k\to P_{m+1}$, i.e. we have a short exact sequence
 \begin{equation}
 \label{eq:truncated preprojectives}
   0\longrightarrow P_m^k\stackrel{[f_1\ \cdots\ f_k]}{\longrightarrow} P_{m+1}\longrightarrow P_{m+1}^{\{f_1,\ldots,f_k\}}\longrightarrow 0.
 \end{equation}
-\end{proof}
+
 \begin{lemma}
   For $m\ge1$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, the following hold:
   \begin{enumerate}
@@ -132,13 +140,26 @@ with irreducible homomorphisms $f_i$ which are also linear independent. Thus the
   To see (2), we apply the functor $\Hom(-,P_m)$ to the sequence \eqref{eq:truncated preprojectives} to get an isomorphism $\Hom(P_m^k,P_m)\cong\Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m)$.
   Observe that $\Hom(P_m^k,P_m)$ is spanned by the coordinate projections $\pi_i:P_m^k\to P_m$ for $1\le i\le k$ and each of these gives rise to a commutative diagram
   \[\xymatrix{ & 0\ar[d] & 0\ar[d] & & \\ & P_m^{k-1}\ar[d]\ar@{=}[r]& P_m^{k-1}\ar[d]^{[f_1\ \cdots\ \widehat{f_i}\ \cdots\ f_k]}& & \\
-    0\ar[r]& P_m^k\ar[r]^{[f_1\ \cdots\ f_k]}\ar[d]^{\pi_i}\ar@{}[dr]|{\ulcorner}& P_{m+1}\ar[r]\ar[d]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]\ar@{=}[d]& 0 \\
+    0\ar[r]& P_m^k\ar[r]^{[f_1\ \cdots\ f_k]}\ar[d]^{\pi_i}\ar@{}[dr]|(.35){\ulcorner}& P_{m+1}\ar[r]\ar[d]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]\ar@{=}[d]& 0 \\
     0\ar[r]& P_m\ar[r]^(.35){f_i}\ar[d]& P_{m+1}^{\{f_1,\ldots,\widehat{f_i},\ldots,f_k\}}\ar[r]\ar[d]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]& 0\\
      & 0 & 0 & & }\]
   The bottom row of this diagram is the extension in $\Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m)$ naturally identified with the generator $f_i$ of $\kk f_1\oplus\cdots\oplus\kk f_k$.
 
   Part (3) follows immediately from (2) and the observation that 
   \[\langle P_{m+1}^{\{f_1,\ldots,f_k\}},P_m\rangle=\langle P_{m+1},P_m\rangle-k\langle P_m,P_m\rangle=-k.\]
+\end{proof}
+
+\begin{lemma}
+  Let $f_1,\ldots,f_n\in\Hom(P_m,P_{m+1})$ be linearly independent morphisms and write $g:P_{m-1}\to P_m$ for the composition of the inclusion from \eqref{eq:AR sequence} with the projection $\pi_n:P_m^n\to P_m$ to the $n^{th}$ factor.  Then $P_{m+1}^{\{f_1,\ldots,f_{n-1}\}}\cong P_m^{\{g\}}$.
+\end{lemma}
+\begin{proof}
+  We have the following commutative diagram
+  \[\xymatrix{0\ar[r]& P_m^{n-1}\ar@{=}[d]\ar[r]& P_m^n\ar[r]^{\pi_n}\ar[d]^{[f_1\ \cdots\ f_n]}\ar@{}[dr]|(.65){\lrcorner}& P_m\ar[r]\ar[d]^{f_n}& 0 \\
+  0\ar[r]& P_m^{n-1}\ar[r]^{[f_1\ \cdots\ f_{n-1}]}& P_{m+1}\ar[r]& P_{m+1}^{\{f_1,\ldots,f_{n-1}\}}\ar[r]& 0}\]
+  Since the vertical morphism on the left is an equality, the right hand square is a pullback.  
+  But this implies the kernels of the vertical morphisms coincide.  
+  The middle vertical morphism fits into the exact sequence \eqref{eq:AR sequence} and so the kernel is $P_{m-1}$.
+  It follows that there is a morphism $g:P_{m-1}\to P_m$ so that $P_{m+1}^{\{f_1,\ldots,f_{n-1}\}}\cong P_m^{\{g\}}$.
 \end{proof}
 
 For any nonempty subset $I\subset[1,k]$, say with $|I|=\ell$, we get an exact sequence
@@ -192,7 +213,7 @@ We will always choose the subset $\{1,\ldots,k\}$ when using Lemma~\ref{le:prepr
 \begin{lemma}
   \begin{enumerate}
     \item $\tilde P_m^{(n-1)}\cong\tilde P_{m-1}^{(1)}$
-    \item The subrepresentation $\bigoplus_{i=1}^{k-1}\tilde P_{m-1,i}\oplus\bigoplus_{i=1}^k\tilde P_{m-2,i}\subset\bigoplus{i=1}^k\tilde P_{m-1,i}$ is in $(\tilde P_m^{(k)})^\perp$ and
+    \item The subrepresentation $\bigoplus_{i=1}^{k-1}\tilde P_{m-1,i}\oplus\bigoplus_{i=1}^k\tilde P_{m-2,i}\subset\bigoplus_{i=1}^k\tilde P_{m-1,i}$ is in $(\tilde P_m^{(k)})^\perp$ and
       \[\Ext(\bigoplus_{i=1}^k\tilde P_{m-1,i},\tilde P_m^{(k)})\cong\Ext(\tilde P_{m-1}^{(k)},\tilde P_m^{(k)})\]
       where $\tilde P_{m-1}^{(k)}$ above denotes the cokernel of the inclusion.
   \end{enumerate}
