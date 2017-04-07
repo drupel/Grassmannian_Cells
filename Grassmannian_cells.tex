@@ -172,11 +172,11 @@ Each such sequence has the following almost-split property for subrepresentation
   splits for every $I\subset[1,k]$.
 \end{lemma}
 \begin{proof}
-  When $I=\emptyset$ there is nothing to show, so assume $I$ is a nontrivial subset of $[1,k]$.  
+  When $I=\emptyset$, we have $\ell=0$ and there is nothing to show, so assume $I$ is a nontrivial subset of $[1,k]$.  
   
-  We proceed by induction on $k$.  For any nonzero $f\in\Hom(P_m,P_{m+1})$ the exact sequence
+  We proceed by simultaneous induction on $k$ and $\ell=|I|$.  For any nonzero $f\in\Hom(P_m,P_{m+1})$ the exact sequence
   \[\xymatrix{0\ar[r] & P_m\ar[r]^f & P_{m+1}\ar[r] & P_{m+1}^{\{f\}}\ar[r] & 0}\]
-  is almost split, giving the claim in the case $k=1$.  For $k>1$ and a nontrivial subset $I\subset[1,k]$, we have the following commutative diagram
+  is almost split, giving the claim in the case $k=\ell=1$.  For $k>1$ and a nontrivial proper subset $I\subsetneq[1,k]$, we have the following commutative diagram
   \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & P_m^{k-\ell}\ar@{=}[r]\ar[d]^{[f_j]_{j\in[1,k]\setminus I}} & P_m^{k-\ell}\ar[d]^{[f_j]_{j\in[1,k]\setminus I}}\ar[r] & 0 \\
   0\ar[r] & P_m^\ell\ar@{=}[d]\ar[r]^{[f_i]_{i\in I}} & P_{m+1}\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & P_{m+1}^{\{f_i\}_{i\in I}}\ar[d]\ar[r] & 0 \\
   0\ar[r]& P_m^\ell\ar[r]^(.35){[f_i]_{i\in I}}\ar[d] & P_{m+1}^{\{f_j\}_{j\in[1,k]\setminus I}}\ar[r]\ar[d] & P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]\ar[d]& 0\\ & 0 & 0 & 0 & }\]
@@ -184,7 +184,18 @@ Each such sequence has the following almost-split property for subrepresentation
   \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & P_m^{k-\ell}\ar@{=}[r]\ar[d]^{[f_j]_{j\in[1,k]\setminus I}} & P_m^{k-\ell}\ar[d]^{[f_j]_{j\in[1,k]\setminus I}}\ar[r] & 0 \\
   0\ar[r] & P_m^\ell\ar@{=}[d]\ar[r]^{[f_i]_{i\in I}} & V^{[1,k]}\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & V^{[1,k]\setminus I}\ar[d]\ar[r] & 0 \\
   0\ar[r]& P_m^\ell\ar[r]^(.35){[f_i]_{i\in I}}\ar[d] & V^I\ar[r]\ar[d] & V\ar[r]\ar[d]& 0\\ & 0 & 0 & 0 & }\]
-  in which the middle vertical sequence and the middle horizontal sequence split by induction.  But then the lower horizontal sequence splits, establshing the claim for all $I\subset[1,k]$.
+  in which the middle vertical sequence and the middle horizontal sequence split by induction.  
+  But the images of $[f_i]_{i\in I}$ and $[f_j]_{j\in[1,k]\setminus I}$ intersect trivially inside $V^{[1,k]}$ and thus the lower horizontal sequence must split as well, establishing the claim for $I\subsetneq[1,k]$.
+
+  For $I=[1,k]$, we consider the commutative diagram
+  \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & P_{m+1}\ar@{=}[r]\ar[d] & P_{m+1}\ar[d]\ar[r] & 0 \\
+  0\ar[r] & P_m^{k-1}\oplus P_m\ar@{=}[d]\ar[r] & P_{m+1}\oplus P_{m+1}\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & P_{m+1}^{\{f_1\ \cdots\ f_{k-1}\}}\oplus P_{m+1}^{\{f_k\}}\ar[d]\ar[r] & 0 \\
+  0\ar[r]& P_m^k\ar[r]^{[f_1\ \cdots\ f_k]}\ar[d] & P_{m+1}\ar[r]\ar[d] & P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]\ar[d]& 0\\ & 0 & 0 & 0 & }\]
+  A proper subrepresentation $V\subset P_{m+1}^{\{f_1,\ldots,f_k\}}$ then gives rise to the following commutative diagram
+  \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & V^{[1,k]}\ar@{=}[r]\ar[d] & V^{[1,k]}\ar[d]\ar[r] & 0 \\
+  0\ar[r] & P_m^{k-1}\oplus P_m\ar@{=}[d]\ar[r] & V^{[1,k]}\oplus V^{[1,k]}\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & V^{[1,k]\setminus I}\oplus V^I\ar[d]\ar[r] & 0 \\
+  0\ar[r]& P_m^k\ar[r]\ar[d] & V^{[1,k]}\ar[r]\ar[d] & V\ar[r]\ar[d]& 0\\ & 0 & 0 & 0 & }\]
+  in which the middle vertical sequence splits and the middle horizontal sequence is split by induction.  But then the lower horizontal sequence splits, establishing the claim for $I\subsetneq[1,k]$.
 \end{proof}
 
 
@@ -196,15 +207,15 @@ Let $\tilde P_m$ be a fixed lift of $P_m$ to the universal cover $\widetilde{K(n
   \label{le:preprojective lifts}
   There exist lifts $\tilde P_{m-1,i}$ for $1\le i\le n$ of $P_{m-1}$ to $\widetilde{K(n)}$ so that:
   \begin{enumerate}
-    \item $\Hom_Q(P_{m-1},P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$;
+    \item $\Hom_Q(P_{m-1},P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$, where each $\Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$ is one-dimensional;
     \item For any proper subset $\{i_1,\ldots,i_k\}\subset\{1,\ldots,n\}$, there exists a short exact sequence
       \[0\longrightarrow \tilde P_{m-1,i_1}\oplus\cdots\oplus\tilde P_{m-1,i_k}\longrightarrow\tilde P_m\longrightarrow \tilde P_m^{i_1,\ldots,i_k}\longrightarrow 0;\]
     \item The lifts $\tilde P_{m-1,i}$ are pairwise orthogonal. 
-    \item All nontrivial proper subrepresentations of $\tilde P_m^{(k)}$ are preprojective.
+    \item All nontrivial proper subrepresentations of $\tilde P_m^{i_1,\ldots,i_k}$ are preprojective.
   \end{enumerate}
 \end{lemma}
 
-We will always choose the subset $\{1,\ldots,k\}$ when using Lemma~\ref{le:preprojective lifts}.2 and thus we denote the cokernal simply by $\tilde P_m^{(k)}$.
+We will always choose the subset $\{1,\ldots,k\}$ when using Lemma~\ref{le:preprojective lifts}.2 and thus we denote the cokernel simply by $\tilde P_m^{(k)}$.
 
 \begin{lemma}
   If each $Gr^{\tilde Q}_\tbfe(\tilde P_{m-1,i})$ has a cell decomposition, then $Gr^{\tilde Q}_\tbfe(\bigoplus\tilde P_{m-1,i_j})$ has a cell decomposition.
