@@ -180,7 +180,7 @@ Each such sequence has the following almost-split property for subrepresentation
   \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & P_m^{k-\ell}\ar@{=}[r]\ar[d]^{[f_j]_{j\in[1,k]\setminus I}} & P_m^{k-\ell}\ar[d]^{[f_j]_{j\in[1,k]\setminus I}}\ar[r] & 0 \\
   0\ar[r] & P_m^\ell\ar@{=}[d]\ar[r]^{[f_i]_{i\in I}} & P_{m+1}\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & P_{m+1}^{\{f_i\}_{i\in I}}\ar[d]\ar[r] & 0 \\
   0\ar[r]& P_m^\ell\ar[r]^(.35){[f_i]_{i\in I}}\ar[d] & P_{m+1}^{\{f_j\}_{j\in[1,k]\setminus I}}\ar[r]\ar[d] & P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]\ar[d]& 0\\ & 0 & 0 & 0 & }\]
-  A proper subrepresentation $V\subset P_{m+1}^{\{f_1,\ldots,f_k\}}$ gives rise, via pullbacks, to the following commutative diagram
+  A proper subrepresentation $V\subsetneq P_{m+1}^{\{f_1,\ldots,f_k\}}$ gives rise, via pullbacks, to the following commutative diagram
   \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & P_m^{k-\ell}\ar@{=}[r]\ar[d]^{[f_j]_{j\in[1,k]\setminus I}} & P_m^{k-\ell}\ar[d]^{[f_j]_{j\in[1,k]\setminus I}}\ar[r] & 0 \\
   0\ar[r] & P_m^\ell\ar@{=}[d]\ar[r]^{[f_i]_{i\in I}} & V^{[1,k]}\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & V^{[1,k]\setminus I}\ar[d]\ar[r] & 0 \\
   0\ar[r]& P_m^\ell\ar[r]^(.35){[f_i]_{i\in I}}\ar[d] & V^I\ar[r]\ar[d] & V\ar[r]\ar[d]& 0\\ & 0 & 0 & 0 & }\]
@@ -191,11 +191,13 @@ Each such sequence has the following almost-split property for subrepresentation
   \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & P_{m+1}\ar@{=}[r]\ar[d] & P_{m+1}\ar[d]\ar[r] & 0 \\
   0\ar[r] & P_m^{k-1}\oplus P_m\ar@{=}[d]\ar[r] & P_{m+1}\oplus P_{m+1}\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & P_{m+1}^{\{f_1\ \cdots\ f_{k-1}\}}\oplus P_{m+1}^{\{f_k\}}\ar[d]\ar[r] & 0 \\
   0\ar[r]& P_m^k\ar[r]^{[f_1\ \cdots\ f_k]}\ar[d] & P_{m+1}\ar[r]\ar[d] & P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]\ar[d]& 0\\ & 0 & 0 & 0 & }\]
-  A proper subrepresentation $V\subset P_{m+1}^{\{f_1,\ldots,f_k\}}$ then gives rise to the following commutative diagram
-  \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & V^{[1,k]}\ar@{=}[r]\ar[d] & V^{[1,k]}\ar[d]\ar[r] & 0 \\
+  A proper subrepresentation $V\subsetneq P_{m+1}^{\{f_1,\ldots,f_k\}}$ then gives rise to the following commutative diagram
+  \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & V^{[1,k]}\ar@{=}[r]\ar[d]^{\Delta} & V^{[1,k]}\ar[d]\ar[r] & 0 \\
   0\ar[r] & P_m^{k-1}\oplus P_m\ar@{=}[d]\ar[r] & V^{[1,k]}\oplus V^{[1,k]}\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & V^{[1,k]\setminus I}\oplus V^I\ar[d]\ar[r] & 0 \\
   0\ar[r]& P_m^k\ar[r]\ar[d] & V^{[1,k]}\ar[r]\ar[d] & V\ar[r]\ar[d]& 0\\ & 0 & 0 & 0 & }\]
-  in which the middle vertical sequence splits and the middle horizontal sequence is split by induction.  But then the lower horizontal sequence splits, establishing the claim for $I\subsetneq[1,k]$.
+  in which the middle vertical sequence splits and the middle horizontal sequence is split by induction.  
+  But the image of $[f_1\ \cdots\ f_k]:P_m^{k-1}\oplus P_m\to V^{[1,k]}\oplus V^{[1,k]}$ and the diagonal $\Delta:V^{[1,k]}\to V^{[1,k]}\oplus V^{[1,k]}$ intersect trivially because $f_1,\ldots,f_k$ are linearly independent.
+  As above the lower horizontal sequence also splits, establishing the claim for $I=[1,k]$.
 \end{proof}
 
 
