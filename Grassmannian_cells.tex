@@ -243,7 +243,7 @@ The first statement follows by the last section.
 Let $m\geq 3$. Consider the short exact sequence $\ses{\tilde P_m}{\tilde P_{m+1}^{(k)}}{\tilde P_{m+1}^{(k-1)}}$.
 There exists a short exact sequence 
 \[\ses{\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}}{\tilde P_m}{\tau\tilde P_{m+1}^{(k-1)}}\]
-where $\tau$ denotes the Auslander-Reiten translate. Here the lifts of $P_{m-1}$ and $P_{m-2}$ have to be chosen appropriately. Moreover, we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)\cong \Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=k$, $\Hom(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=0$ and $\tau\tilde P_{m+1}^{(k-1)}\in ~^\perp(\tilde P_{m+1}^{(k-1)})$. Finally, we have $\Ext(\tilde P_{m+1}^{(k-1)},V)=0$ for every subrepresentation $V$ of $\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}$.
+where $\tau$ denotes the Auslander-Reiten translate. Here the lifts of $P_{m-1}$ and $P_{m-2}$ have to be chosen appropriately. Moreover, we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)\cong \Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=\kk$, $\Hom(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=0$ and $\tau\tilde P_{m+1}^{(k-1)}\in ~^\perp(\tilde P_{m+1}^{(k-1)})$. Finally, we have $\Ext(\tilde P_{m+1}^{(k-1)},V)=0$ for every subrepresentation $V$ of $\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}$.
 %\footnote{introduce/consider/check indices, we have to mod out the corresponding reps in the covering} 
 \end{lemma}
 \begin{proof}
@@ -260,14 +260,14 @@ Every $U\subset \tilde P_m$ gives rise to a commutative diagram
   \[\xymatrix{0\ar[r] &\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}\ar[r] &  \tilde P_m\ar[r] & \tau\tilde P_{m+1}^{(k-1)}\ar[r] & 0 \\
   0\ar[r]& V\ar[r]\ar[u] & U\ar[u]\ar[r]& W\ar[r]\ar[u]& 0}\]
 
-We have $\Hom(\tilde P_{m+1}^{(k-1)},\tau \tilde P_{m+1}^{(k-1)})=0$ and $\Ext((\tilde P_{m+1}^{(k-1)},\tau \tilde P_{m+1}^{(k-1)})=k$. Since we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)=k$ and $\Hom(\tilde P_{m+1}^{(k-1)},\tilde P_m)=0$, we have $\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}\in (\tilde P_{m+1}^{(k-1)})^\perp$.
+We have $\Hom(\tilde P_{m+1}^{(k-1)},\tau \tilde P_{m+1}^{(k-1)})=0$ and $\Ext(\tilde P_{m+1}^{(k-1)},\tau \tilde P_{m+1}^{(k-1)})=\kk$. Since we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)=\kk$ and $\Hom(\tilde P_{m+1}^{(k-1)},\tilde P_m)=0$, we have $\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}\in (\tilde P_{m+1}^{(k-1)})^\perp$.
 
 By Lemma \ref{AR}, if $\Ext(\tilde P_{m+1}^{(k-1)},U)\neq 0$, we have $W\neq 0$. This means that $\tau\tilde P_{m+1}^{(k-1)}/W$ is a proper factor of $\tau \tilde P_{m+1}^{(k-1)}$. 
 It follows that we have $\Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)}/W)=0$. Indeed, by Auslander-Reiten theory every non-split morphism $g:\tau\tilde P_{m+1}^{(k-1)}\to \tau\tilde P_{m+1}^{(k-1)}/W$ factors through the middle term $Z$ of the AR-sequence 
 \[\ses{\tau\tilde P_{m+1}^{(k-1)}}{Z}{\tilde P_{m+1}^{(k-1)}}\]
 which means that the first map of the induced sequence
 \[\Hom(\tau\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)}/W)\to\Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)}/W)\to\Ext(Z,\tau\tilde P_{m+1}^{(k-1)}/W) \]
-is zero. As $\tau\tilde P_{m+1}^{(k-1)}$ is exceptional (on the universal cover), we are in the situation of Ringel's reflection \cite{rin} which means that $\Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=k$, $\Hom(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=0$ and $\tau\tilde P_{m+1}^{(k-1)}\in ~^\perp(\tilde P_{m+1}^{(k-1)})$ yields $\Ext(Z,\tau\tilde P_{m+1}^{(k-1)})=0$. Thus we obtain $\Ext(Z,\tau\tilde P_{m+1}^{(k-1)}/W)=0$
+is zero. As $\tau\tilde P_{m+1}^{(k-1)}$ is exceptional (on the universal cover), we are in the situation of Ringel's reflection \cite{rin} which means that $\Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=\kk$, $\Hom(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=0$ and $\tau\tilde P_{m+1}^{(k-1)}\in ~^\perp(\tilde P_{m+1}^{(k-1)})$ yields $\Ext(Z,\tau\tilde P_{m+1}^{(k-1)})=0$. Thus we obtain $\Ext(Z,\tau\tilde P_{m+1}^{(k-1)}/W)=0$
 
 Since we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k})=0$, it follows $\Ext(\tilde P_{m+1}^{(k-1)},(\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k})/V)=0$. This yields the claim.
 
@@ -284,7 +284,7 @@ Since we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_{m-1}^{n-1}\oplus \tilde P_{
 \end{proof}
 
 \begin{proposition}
-  Consider $\psi:Gr^{\tilde Q}_\tbfe(\tilde P_m)\to\bigsqcup_{\tbff+\tbfg=\tbfe} Gr^{\tilde Q}_\tbff(\bigoplus_{i=1}^k \tilde P_{m-1,i})\times Gr^{\tilde Q}_\tbfg(\tilde P_m^{(k)}$.  Then the following hold:
+  Consider $\psi:Gr^{\tilde Q}_\tbfe(\tilde P_m)\to\bigsqcup_{\tbff+\tbfg=\tbfe} Gr^{\tilde Q}_\tbff(\bigoplus_{i=1}^k \tilde P_{m-1,i})\times Gr^{\tilde Q}_\tbfg(\tilde P_m^{(k)})$.  Then the following hold:
   \begin{enumerate}
     \item For $V\subsetneq \tilde P_m^{(k)}$ and $U\subset\bigoplus_{i=1}^k\tilde P_{m-1,i}$, we have $\psi^{-1}(U,V)=\AA^{\langle V,\bigoplus_{i=1}^k\tilde P_{m-1,i}/U\rangle}$.
     \item If $V=\tilde P_m^{(k)}$, the fibre $\psi^{-1}(U,V)$ is non-empty and of constant dimension if and only if $\Ext(\tilde P_m^{(k)},U)\neq 0$.
