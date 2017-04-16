@@ -92,12 +92,11 @@ If $X\in\Rep(Q)$ can be lifted, $d:\tilde Q_0\to\ZZ$ induces a torus action on $
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Representation Theory of $K(n)$}
 
-Denote by $K(n)$ the \emph{$n$-Kronecker quiver} $1\stackrel{n}{\longleftarrow}2$ with vertices $K(n)_0=\{1,2\}$ and $n$ arrows from vertex $2$ to vertex $1$.  
+Denote by $K(n)$ the \emph{$n$-Kronecker quiver} $1\stackrel{n}{\longleftarrow}2$ with vertices $K(n)_0=\{1,2\}$ and $n$ arrows from vertex $2$ to vertex $1$. By $S_1$ and $S_2$ we denote the BGP-reflection functor corresponding to the sink and source of $K(n)$ respectively \cite{bgp}. Note that the quiver $K(n)$ itself does not change when applying the reflection functors, but the vertices $1$ and $2$ are exchanged. Let $$\mathcal S:=\begin{cases}S_1\text{ if }1 \text{ is a source }\\S_2\text{ if }$2$ \text{ is a source }\end{cases}$$
 
 Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=1$, $u_{k+1}=nu_k-u_{k-1}$.
 \begin{theorem}
-  For each $m\ge1$, there exist unique (up to isomorphism) indecomposable rigid representations $P_m$ and $I_m$ of $K(n)$ with dimension vectors $(u_m,u_{m-1})$ and $(u_{m-1},u_m)$ respectively.
-  Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}P_{m+1}^{a_2}$ or $I_m^{a_1}I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
+  For each $m\ge1$, there exist unique (up to isomorphism) indecomposable rigid representations $P_m=\mathcal S^{m-1} P_1$ and $I_m=\mathcal S^{-m+1} I_1$ of $K(n)$ with dimension vectors $(u_m,u_{m-1})$ and $(u_{m-1},u_m)$ respectively. Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}\oplus P_{m+1}^{a_2}$ or $I_m^{a_1}\oplus I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
 \end{theorem}
 The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
 
@@ -203,8 +202,8 @@ Each such sequence has the following almost-split property for subrepresentation
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quiver Grassmannians of $\widetilde{K(n)}$}
-
-Let $\tilde P_m$ be a fixed lift of $P_m$ to the universal cover $\widetilde{K(n)}$.
+\noindent 
+Let $\tilde P_m$ be a fixed lift of $P_m$ to the universal cover $\widetilde{K(n)}$. Note that the group $W_Q$ acts naturally on $\widetilde{K(n)}_0$ via translation, i.e. $w.(q,w')=(q,ww')$. Up to this action a lift $\tilde P_m$ of $P_m$ is unique.
 \begin{lemma}
   \label{le:preprojective lifts}
   There exist lifts $\tilde P_{m-1,i}$ for $1\le i\le n$ of $P_{m-1}$ to $\widetilde{K(n)}$ so that:
@@ -216,12 +215,18 @@ Let $\tilde P_m$ be a fixed lift of $P_m$ to the universal cover $\widetilde{K(n
     \item All nontrivial proper subrepresentations of $\tilde P_m^{i_1,\ldots,i_k}$ are preprojective.
   \end{enumerate}
 \end{lemma}
+\begin{proof}
+Most of the things should directly follow from \cite{gab}, the fact that $F_Q$ is a covering functor and the considerations of the last section.
+\end{proof}
 
 We will always choose the subset $\{1,\ldots,k\}$ when using Lemma~\ref{le:preprojective lifts}.2 and thus we denote the cokernel simply by $\tilde P_m^{(k)}$.
 
 \begin{lemma}
-  If each $Gr^{\tilde Q}_\tbfe(\tilde P_{m-1,i})$ has a cell decomposition, then $Gr^{\tilde Q}_\tbfe(\bigoplus\tilde P_{m-1,i_j})$ has a cell decomposition.
+  If each $Gr^{\tilde Q}_\tbfe(\tilde P_{m-1,i})$ has a cell decomposition, then $Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^k\tilde P_{m-1,i_j})$ has a cell decomposition.
 \end{lemma}
+\begin{proof}
+This follows by induction and by considering the Caldero-Chapoton map. Then we can use the fact that every subrepresentation $U$ of $\tilde P_{m-1}$ is preprojective whence every proper factor is preinjective $V$ which means that we have $\Ext(U,V)=0$.  
+\end{proof}
 
 \begin{lemma}
   \begin{enumerate}
@@ -231,28 +236,40 @@ We will always choose the subset $\{1,\ldots,k\}$ when using Lemma~\ref{le:prepr
       where $\tilde P_{m-1}^{(k)}$ above denotes the cokernel of the inclusion.
   \end{enumerate}
 \end{lemma}
+\begin{proof}
+The first statement follows by the last section.
+\end{proof}
 \begin{lemma}\label{AR}
-Consider $\ses{\tilde P_m}{\tilde P_{m+1}^{(k)}}{\tilde P_{m+1}^{(k-1)}}$
+Let $m\geq 3$. Consider the short exact sequence $\ses{\tilde P_m}{\tilde P_{m+1}^{(k)}}{\tilde P_{m+1}^{(k-1)}}$.
 There exists a short exact sequence 
 \[\ses{\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}}{\tilde P_m}{\tau\tilde P_{m+1}^{(k-1)}}\]
-where $\tau$ denotes the Auslander-Reiten translate. Moreover, we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)\cong \Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=k$ and $\Hom(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=0$.
-\footnote{introduce/consider/check indices, we have to mod out the corresponding reps in the covering} 
+where $\tau$ denotes the Auslander-Reiten translate. Here the lifts of $P_{m-1}$ and $P_{m-2}$ have to be chosen appropriately. Moreover, we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)\cong \Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=k$, $\Hom(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=0$ and $\tau\tilde P_{m+1}^{(k-1)}\in ~^\perp(\tilde P_{m+1}^{(k-1)})$. Finally, we have $\Ext(\tilde P_{m+1}^{(k-1)},V)=0$ for every subrepresentation $V$ of $\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}$.
+%\footnote{introduce/consider/check indices, we have to mod out the corresponding reps in the covering} 
 \end{lemma}
 \begin{proof}
-Idea: Check this for $m=1$ or $m=2$ and apply BGP-reflections.
+Actually, we have $(\mathcal  S \tilde P_m)^t=\tilde P_{m+1}$ where $(\quad)^t$ is the functor induced by turning around the arrows (or taking the transpose representation). This means that it is enough to show the statement for $m=3$ as all representations appearing are not isomorphic to the simple injective representation $S_1$. 
+
+The last statement needs to be checked and should follow by construction.
+
 \end{proof}
 \begin{lemma}\label{quotient}
  Consider $\ses{\tilde P_m}{\tilde P_{m+1}^{(k)}}{\tilde P_{m+1}^{(k-1)}}$. If $U\subset \tilde P_m$ such that $\Ext(\tilde P_{m+1}^{(k-1)},U)\neq 0$, then we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)= 0$.
 \end{lemma}
 \begin{proof}
-Idea: Every $U\subset \tilde P_m$ gives rise to a diagram
+Every $U\subset \tilde P_m$ gives rise to a commutative diagram
   \[\xymatrix{0\ar[r] &\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}\ar[r] &  \tilde P_m\ar[r] & \tau\tilde P_{m+1}^{(k-1)}\ar[r] & 0 \\
   0\ar[r]& V\ar[r]\ar[u] & U\ar[u]\ar[r]& W\ar[r]\ar[u]& 0}\]
-	
-	If $\Ext(\tilde P_{m+1}^{(k-1)},U)\neq 0$, we have $W\neq 0$. Thus $\tau\tilde P_{m+1}^{(k-1)}/W$ is a proper factor. It follows that we have $\Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)}/W)=0$ by Auslander-Reiten-theory and because 
-$\Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=k$. 
 
-Since we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k})=0$, it follows $\Ext(\tilde P_{m+1}^{(k-1)},(\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k})/V)=0$. The first statement should be a consequence of Lemma \ref{AR}. This yields the claim.
+We have $\Hom(\tilde P_{m+1}^{(k-1)},\tau \tilde P_{m+1}^{(k-1)})=0$ and $\Ext((\tilde P_{m+1}^{(k-1)},\tau \tilde P_{m+1}^{(k-1)})=k$. Since we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)=k$ and $\Hom(\tilde P_{m+1}^{(k-1)},\tilde P_m)=0$, we have $\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}\in (\tilde P_{m+1}^{(k-1)})^\perp$.
+
+By Lemma \ref{AR}, if $\Ext(\tilde P_{m+1}^{(k-1)},U)\neq 0$, we have $W\neq 0$. This means that $\tau\tilde P_{m+1}^{(k-1)}/W$ is a proper factor of $\tau \tilde P_{m+1}^{(k-1)}$. 
+It follows that we have $\Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)}/W)=0$. Indeed, by Auslander-Reiten theory every non-split morphism $g:\tau\tilde P_{m+1}^{(k-1)}\to \tau\tilde P_{m+1}^{(k-1)}/W$ factors through the middle term $Z$ of the AR-sequence 
+\[\ses{\tau\tilde P_{m+1}^{(k-1)}}{Z}{\tilde P_{m+1}^{(k-1)}}\]
+which means that the first map of the induced sequence
+\[\Hom(\tau\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)}/W)\to\Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)}/W)\to\Ext(Z,\tau\tilde P_{m+1}^{(k-1)}/W) \]
+is zero. As $\tau\tilde P_{m+1}^{(k-1)}$ is exceptional (on the universal cover), we are in the situation of Ringel's reflection \cite{rin} which means that $\Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=k$, $\Hom(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=0$ and $\tau\tilde P_{m+1}^{(k-1)}\in ~^\perp(\tilde P_{m+1}^{(k-1)})$ yields $\Ext(Z,\tau\tilde P_{m+1}^{(k-1)})=0$. Thus we obtain $\Ext(Z,\tau\tilde P_{m+1}^{(k-1)}/W)=0$
+
+Since we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k})=0$, it follows $\Ext(\tilde P_{m+1}^{(k-1)},(\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k})/V)=0$. This yields the claim.
 
 %First observe that $\tilde P_m\in ~^\perp \tilde P_{m+1}^{(k-1)}$ and $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)=k$. Assume that $U$ is preprojective with $\Hom(U,\tilde P_{m+1}^{(k-1)})=0$ (check again). This yields $\Ext(\tilde P_m/U,\tilde P_{m+1}^{(k-1)})=0$. Consider
 %\[0\longrightarrow[\tilde P_{m+1}^{(k-1)},\tilde P_m/U]\longrightarrow[\tilde P_{m+1}^{(k-1)},U]^1\xlongrightarrow{\pi}[\tilde P_{m+1}^{(k-1)},\tilde P_m]^1\longrightarrow[\tilde P_{m+1}^{(k-1)},\tilde P_m/U]^1\longrightarrow 0.\]
@@ -297,7 +314,9 @@ $\Ext(\tilde P_{m+1}^{(k-1)},U)\xlongrightarrow{\pi}\Ext(\tilde P_{m+1}^{(k-1)},
 Assem, I., Simson, D., Skowronski, A.: Elements of the Representation Theory of Associative Algebras. Cambridge University Press, Cambridge 2007.
 \bibitem{bgp}
 Bernstein, I.~N., Gelfand, I.~M., Ponomarev, V.~A.: Coxeter functors, and Gabriel's theorem. Russian Mathematical Surveys \textbf{28}(2), 17-32 (1973).
+\bibitem{gab} Gabriel, P.: The universal cover of a finite-dimensional algebra. Representations of algebras. Lecture Notes in Mathematics {\bf 903}, 68-105 (1981).
 \bibitem{hr} Happel, D., Ringel, C.M.: Tilted Algebras. Transactions of the American Mathematical Society {\bf 274}, no.2, 399-443 (1982).
+\bibitem{rin} Ringel, C.M.: Reflection functors for hereditary algebras. Journal of the London Mathematical Society (2) {\bf 21}, no. 3, 465-479 (1980).
 
 \bibitem{sch} Schofield, A.: General representations of quivers. Proceedings of the London Mathematical Society (3) \textbf{65}(1), 46-64 (1992).
 
