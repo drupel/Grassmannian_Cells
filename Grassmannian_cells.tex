@@ -19,6 +19,9 @@
 \newcommand{\tbff}{{\tilde\bff}}
 \newcommand{\tbfg}{{\tilde\bfg}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\ui}{\underline i}
+\newcommand{\uj}{\underline j}
+\newcommand\udim{{\underline{\dim}\, }}
 
 \newcommand{\Rep}{\mathrm{Rep}}
 \newcommand{\Gr}{\mathrm{Gr}}
@@ -28,6 +31,7 @@
 \newcommand{\Ext}{\operatorname{Ext}}
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\ses}[3]{0\rightarrow #1\rightarrow #2\rightarrow#3\rightarrow 0}
+\newcommand{\Sc}[2]{\langle #1,#2\rangle}
 
 \title{Cell Decomposition of Rank 2 Quiver Grassmannians}
 
@@ -203,20 +207,33 @@ Each such sequence has the following almost-split property for subrepresentation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quiver Grassmannians of $\widetilde{K(n)}$}
 \noindent 
-Let $\tilde P_m$ be a fixed lift of $P_m$ to the universal cover $\widetilde{K(n)}$. Note that the group $W_Q$ acts naturally on $\widetilde{K(n)}_0$ via translation, i.e. $w.(q,w')=(q,ww')$. Up to this action a lift $\tilde P_m$ of $P_m$ is unique.
+Let $\tilde P_m$ be a fixed lift of $P_m$ to the universal cover $\widetilde{K(n)}$. Note that the group $W_Q$ acts naturally on $\widetilde{K(n)}_0$ via translation, i.e. $w.(q,w')=(q,ww')$. Up to this action a lift $\tilde P_m$ of $P_m$ is unique. On the universal covering, every preprojective representation $\tilde P_m$ has $n$ subrepresentation $\tilde P_{m-1,1},\ldots,\tilde P_{m-1,n}$. Each of them corresponds (inductively) to one of the $n$ different arrows of $K(n)$. In turn, with every sequence of natural numbers $\uj=(j_1,\ldots,j_k)$ with $j_i\leq n$ and $k\leq m-1$ we can associate a preprojective subrepresentation $\tilde P_{m-k,\uj}$ of dimension $(u_{m-k-1},u_{m-k})$. For $\{i_1,\ldots,i_k\}\subset \{1,\ldots,n\}$ and $k\leq n-1$, there exist exact sequences of the form
+\[\ses{\bigoplus_{j=1}^k\tilde P_{m-1,i_j}}{\tilde P_m}{\tilde P_{m}^{(i_1,\ldots,i_k)}},\quad\quad\ses{\tilde P_{m-1,i_k}}{\tilde P_{m}^{(i_1,\ldots,i_{k-1})}}{\tilde P_{m}^{(i_1,\ldots,i_k)}}.\]
+
+Using this notation, we obtain the following lemma:
 \begin{lemma}
   \label{le:preprojective lifts}
-  There exist lifts $\tilde P_{m-1,i}$ for $1\le i\le n$ of $P_{m-1}$ to $\widetilde{K(n)}$ so that:
   \begin{enumerate}
     \item $\Hom_Q(P_{m-1},P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$, where each $\Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$ is one-dimensional;
-    \item For any proper subset $\{i_1,\ldots,i_k\}\subset\{1,\ldots,n\}$, there exists a short exact sequence
-      \[0\longrightarrow \tilde P_{m-1,i_1}\oplus\cdots\oplus\tilde P_{m-1,i_k}\longrightarrow\tilde P_m\longrightarrow \tilde P_m^{i_1,\ldots,i_k}\longrightarrow 0;\]
-    \item The lifts $\tilde P_{m-1,i}$ are pairwise orthogonal. 
-    \item All nontrivial proper subrepresentations of $\tilde P_m^{i_1,\ldots,i_k}$ are preprojective.
+   % \item For any proper subset $\{i_1,\ldots,i_k\}\subset\{1,\ldots,n\}$, there exists a short exact sequence
+   %   \[0\longrightarrow \tilde P_{m-1,i_1}\oplus\cdots\oplus\tilde P_{m-1,i_k}\longrightarrow\tilde P_m\longrightarrow \tilde P_m^{i_1,\ldots,i_k}\longrightarrow 0;\]
+    \item The representations $\tilde P_{m-1,i}$ are pairwise orthogonal. 
+    \item All nontrivial proper subrepresentations of $\tilde P_m^{(i_1,\ldots,i_k)}$ are preprojective.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-Most of the things should directly follow from \cite{gab}, the fact that $F_Q$ is a covering functor and the considerations of the last section.
+The first statement should directly follow from \cite{gab} and the fact that $F_Q$ is a covering functor (precise reference). The second part follows for instance recursively by applying BGP-reflections.
+
+For the third part, we proceed by induction. Clearly $\tilde P_m$ has only preprojective subrepresentations. We can assume without loss of generality that the subrepresentation $U$ is indecomposable. If $U\subsetneq P_m^{(i_1,\ldots,i_k)}$ were not preprojective, the embedding would not factor through $P_m^{(i_1,\ldots,i_{k-1})}$ by induction hypothesis.  Thus we get a commutative diagram
+
+\[\xymatrix{0\ar[r] &\tilde P_{m-1,i_k}\ar[r] &  \tilde P_{m}^{(i_1,\ldots,i_k)}\ar[r] & \tilde P_{m}^{(i_1,\ldots,i_{k-1})}\ar[r] & 0 \\
+  0\ar[r]&\tilde P_{m-1,i_k} \ar[r]\ar[u] & U'\ar[u]\ar[r]& U\ar[r]\ar[u]& 0}\]
+where the vertical maps are injective. Then we have $U\in\tilde P_{m-1,i_k}^\perp$
+because $$\Hom(\tilde P_{m-1,i_k},U)=\Hom(\tilde P_{m-1,i_k},\tilde P_{m}^{(i_1,\ldots,i_{k-1})})=0$$ and $\tilde P_{m-1,i_k}$ is preprojective and $U$ is not. Moreover, we have $\Hom(U,\tilde P_{m-1,i_k})=0$ for the same reason. Thus $U'$ is an indecomposable subrepresentation of $\tilde P_{m}^{(i_1,\ldots,i_{k})}$ (reference) such that
+\[\Sc{\udim U'}{\udim U'}=\Sc{\udim U}{\udim U}+\Sc{\udim \tilde P_{m-1,i_k} }{\udim \tilde P_{m-1,i_k} }+\Sc{\udim U}{\tilde P_{m-1,i_k}}=1+\Sc{\udim U}{\tilde P_{m-1,i_k}}\leq 0\]
+because we have $\Ext(U,\tilde P_{m-1,i_k})\neq 0$ as the bottom does not split.
+But this contradicts the induction hypothesis because preprojective representations do not have self-extensions.
+
 \end{proof}
 
 We will always choose the subset $\{1,\ldots,k\}$ when using Lemma~\ref{le:preprojective lifts}.2 and thus we denote the cokernel simply by $\tilde P_m^{(k)}$.
@@ -253,7 +270,7 @@ The last statement needs to be checked and should follow by construction.
 
 \end{proof}
 \begin{lemma}\label{quotient}
- Consider the non-split short exact sequence $\ses{\tilde P_m}{\tilde P_{m+1}^{(k)}}{\tilde P_{m+1}^{(k-1)}}$. If $U\subset \tilde P_m$ such that $\Ext(\tilde P_{m+1}^{(k-1)},U)\neq 0$, then we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)= 0$.
+ Consider the non-split short exact sequence $\ses{\tilde P_m}{\tilde P_{m+1}^{(k)}}{\tilde P_{m+1}^{(k-1)}}$. If $U\subset \tilde P_m$ such that $\Ext(\tilde P_{m+1}^{(k-1)},U)\neq 0$, then we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)= 0$ or the fiber $\Psi^{-1}(U,\tilde P_{m+1}^{(k-1)})$ is empty.
 \end{lemma}
 \begin{proof}
 Every $U\subset \tilde P_m$ gives rise to a commutative diagram
