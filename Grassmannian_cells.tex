@@ -15,9 +15,11 @@
 \newcommand{\bfe}{\mathbf{e}}
 \newcommand{\bff}{\mathbf{f}}
 \newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
 \newcommand{\tbfe}{{\tilde\bfe}}
 \newcommand{\tbff}{{\tilde\bff}}
 \newcommand{\tbfg}{{\tilde\bfg}}
+\newcommand{\tbfh}{{\tilde\bfh}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\ui}{\underline i}
 \newcommand{\uj}{\underline j}
@@ -226,10 +228,10 @@ The first statement should directly follow from \cite{gab} and the fact that $F_
 
 For the third part, we proceed by induction. Clearly $\tilde P_m$ has only preprojective subrepresentations. We can assume without loss of generality that the subrepresentation $U$ is indecomposable. If $U\subsetneq P_m^{(i_1,\ldots,i_k)}$ were not preprojective, the embedding would not factor through $P_m^{(i_1,\ldots,i_{k-1})}$ by induction hypothesis.  Thus we get a commutative diagram
 
-\[\xymatrix{0\ar[r] &\tilde P_{m-1,i_k}\ar[r] &  \tilde P_{m}^{(i_1,\ldots,i_k)}\ar[r] & \tilde P_{m}^{(i_1,\ldots,i_{k-1})}\ar[r] & 0 \\
+\[\xymatrix{0\ar[r] &\tilde P_{m-1,i_k}\ar[r] &  \tilde P_{m}^{(i_1,\ldots,i_{k-1})}\ar[r] & \tilde P_{m}^{(i_1,\ldots,i_{k})}\ar[r] & 0 \\
   0\ar[r]&\tilde P_{m-1,i_k} \ar[r]\ar[u] & U'\ar[u]\ar[r]& U\ar[r]\ar[u]& 0}\]
 where the vertical maps are injective. Then we have $U\in\tilde P_{m-1,i_k}^\perp$
-because $$\Hom(\tilde P_{m-1,i_k},U)=\Hom(\tilde P_{m-1,i_k},\tilde P_{m}^{(i_1,\ldots,i_{k-1})})=0$$ and $\tilde P_{m-1,i_k}$ is preprojective and $U$ is not. Moreover, we have $\Hom(U,\tilde P_{m-1,i_k})=0$ for the same reason. Thus $U'$ is an indecomposable subrepresentation of $\tilde P_{m}^{(i_1,\ldots,i_{k})}$ (reference) such that
+because $$\Hom(\tilde P_{m-1,i_k},U)=\Hom(\tilde P_{m-1,i_k},\tilde P_{m}^{(i_1,\ldots,i_{k})})=0$$ and $\tilde P_{m-1,i_k}$ is preprojective and $U$ is not. Moreover, we have $\Hom(U,\tilde P_{m-1,i_k})=0$ for the same reason. Thus $U'$ is an indecomposable subrepresentation of $\tilde P_{m}^{(i_1,\ldots,i_{k})}$ (reference) such that
 \[\Sc{\udim U'}{\udim U'}=\Sc{\udim U}{\udim U}+\Sc{\udim \tilde P_{m-1,i_k} }{\udim \tilde P_{m-1,i_k} }+\Sc{\udim U}{\tilde P_{m-1,i_k}}=1+\Sc{\udim U}{\tilde P_{m-1,i_k}}\leq 0\]
 because we have $\Ext(U,\tilde P_{m-1,i_k})\neq 0$ as the bottom does not split.
 But this contradicts the induction hypothesis because preprojective representations do not have self-extensions.
@@ -237,21 +239,23 @@ But this contradicts the induction hypothesis because preprojective representati
 \end{proof}
 If we choose subset $\{i_1,\ldots,i_k\}=\{1,\ldots,k\}$, we denote the cokernel simply by $\tilde P_m^{(k)}$. 
 
-\begin{lemma}
-  If each $Gr^{\tilde Q}_\tbfe(\tilde P_{m})$ has a cell decomposition into affine spaces, then $Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})$ has a cell decomposition into affine spaces where $l_j\geq 1$.
+\begin{lemma}\label{directsums}
+  If each $Gr^{\tilde Q}_\tbfe(\tilde P_{m})$ and $Gr^{\tilde Q}_\tbfe(\tilde P_{m-1})$ has a cell decomposition into affine spaces, then we have that $Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^s\tilde P^{t_j}_{m-1,i_j}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})$ has a cell decomposition into affine spaces where $l_j,t_j\geq 1$.
 \end{lemma}
 \begin{proof}The claim follows by induction whence considering the map $$\Psi:Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})\to\bigsqcup_{\tbff+\tbfg=\tbfe}  Gr^{\tilde Q}_\tbff(\tilde P_{m,i_1})\times Gr^{\tilde Q}_\tbfg(\tilde P^{l_1-1}_{m,i_1}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j}),\,U\mapsto (U\cap \tilde P_{m-1,i_1},\pi(U))$$
 which is also sometimes called Caldero-Chapoton map.
 
 Indeed, we can use the fact that every subrepresentation $U$ of $\tilde P^{l_1-1}_{m,i_1}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j}$ is preprojective whence every proper factor $\tilde P_{m,i_1}/V$ is not which means that we have $\Ext(U,\tilde P_{m,i_1}/V)=0$. But since $U$ has only direct summands which are isomorphic to $\tilde P_{m-k}$ for some $k\geq 0$, we also have $\Ext(U,\tilde P_{m-1,i_1})=0$. Thus by the results of \cite[Section 3]{cc} it follows that $\psi^{-1}(U,V)=\mathbb{A}^{\Sc{\udim U}{\udim \tilde P_{m-1,i_1}/V}}$ for all pairs of subrepresentations $(U,V)\in Gr^{\tilde Q}_\tbff(\tilde P_{m,i_1})\times Gr^{\tilde Q}_\tbfg(\tilde P^{l_1-1}_{m,i_1}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})$. In particular, the fibres of $\Psi$ are constant over every affine cell $A$ of the right hand side. Thus we can consider the restriction of $\Psi$ to $\Psi^{-1}(A)$. By \cite[Proposition 4]{cj}, it follows that this restriction is a subbundle of a trivial bundle (write this bundle down) and thus itself trivial as a vector bundle over an affine space.
+
+In the same manner, we can proceed by inductively adding the summands $\tilde P_{m-1,i}$ in order to see that $Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^s\tilde P^{t_j}_{m-1,i_j}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})$ has a cell decomposition.
 \end{proof}
 
-\begin{lemma}\footnote{do we need this?}
+\begin{lemma}
   \begin{enumerate}
     \item $\tilde P_m^{(i_1,\ldots,i_{n-1})}\cong\tilde P_{m-1}^{(i_n)}$
     \item The subrepresentation $\bigoplus_{i=1}^{k-1}\tilde P_{m-1,i}\oplus\bigoplus_{i=1}^k\tilde P_{m-2,i}\subset\bigoplus_{i=1}^k\tilde P_{m-1,i}$ is in $(\tilde P_m^{(k)})^\perp$ and
       \[\Ext(\bigoplus_{i=1}^k\tilde P_{m-1,i},\tilde P_m^{(k)})\cong\Ext(\tilde P_{m-1}^{(k)},\tilde P_m^{(k)})\]
-      where $\tilde P_{m-1}^{(k)}$ above denotes the cokernel of the inclusion.
+      where $\tilde P_{m-1}^{(k)}$ above denotes the cokernel of the inclusion.\footnote{do we need this? See also proof of Lemma 4.5}
   \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -265,78 +269,87 @@ Let $m\geq 3$ and $n\geq k\geq 2$. Consider the short exact sequence $\ses{\tild
 where $\tau$ denotes the Auslander-Reiten translate where
 $\tau\tilde P_{m+1}^{(k)}=\tilde P_{m-1}^{(k)}$. 
 \item Moreover, we have $\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k})\cong \Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)})=\kk$, $\Hom(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)})=0$. 
-\item We have $\tau\tilde P_{m+1}^{(k)}\in ~^\perp(\tilde P_{m+1}^{(k)})$\footnote{do we need this?}. 
+\item We have $\tau\tilde P_{m+1}^{(k)}\in ~^\perp(\tilde P_{m+1}^{(k)})$.
 %\item Finally, we have $\Ext(\tilde P_{m+1}^{(k-1)},V)=0$ for every subrepresentation $V$ of $\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}$.
 \end{enumerate}%\footnote{introduce/consider/check indices, we have to mod out the corresponding reps in the covering} 
 \end{lemma}
 \begin{proof}
-Actually, we have $(\mathcal  S \tilde P_m)^t=\tilde P_{m+1}$ where $(\quad)^t$ is the functor induced by turning around the arrows (or taking the transpose representation). This means that it is enough to show the statement for $m=3$ as all representations appearing are not isomorphic to the simple injective representation $S_2$. In this case, the first statement is straightforward (maybe a diagram?!).
+Actually, we have $(\mathcal  S \tilde P_m)^t=\tilde P_{m+1}$ where $(\quad)^t$ is the functor induced by turning around the arrows (or taking the transpose representation). This means that it is enough to show the statement for $m=3$ as all representations appearing are not isomorphic to the simple injective representation $S_2$. In this case, the first statement is straightforward as well as the third one (insert a diagram).
 
 It is also straightforward to check that $\bigoplus_{j\neq k}\tilde P_{2,(k,j)}\oplus \bigoplus_{j=1}^k\tilde P_{1,(k,k,j)}\in (\tilde P_{4}^{(k)})^\perp$ and, moreover, that $\Hom(\tilde P_{4}^{(k)},\tilde P_{3,k})=0$ which yields the second claim when considering the long exact sequence obtained when applying $\Hom(\tilde P_{4}^{(k)},\underline{\quad})$.
 
 
 \end{proof}
-The short exact sequence $\ses{\tilde P_{m-1,k}}{\tilde P_{m}^{(k-1)}}{\tilde P_{m}^{(k)}}$ induces a map between quiver Grassmannians
-$$\Psi_1:Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{(k-1)})\to\bigsqcup_{\tbff+\tbfg=\tbfe} Gr^{\tilde Q}_\tbff( \tilde P_{m-1,k})\times Gr^{\tilde Q}_\tbfg(\tilde P_m^{(k)}).$$
+The short exact sequence $\ses{\tilde P_{m,k}}{\tilde P_{m+1}^{(k-1)}}{\tilde P_{m+1}^{(k)}}$ induces a map between quiver Grassmannians
+$$\Psi_1:Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})\to\bigsqcup_{\tbff+\tbfg=\tbfe} Gr^{\tilde Q}_\tbff( \tilde P_{m,k})\times Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^{(k)}).$$
 Let $P(m,k):=\bigoplus_{\substack{1\leq j\leq n\\j\neq k}}\tilde P_{m-1,(k,j)}\oplus \bigoplus_{j=1}^k\tilde P_{m-2,(k,k,j)}$.
 
-By Lemma \ref{AR}, every $U\subset \tilde P_m$ gives rise to a commutative diagram
+By Lemma \ref{AR}, every $U\subset \tilde P_{m,k}$ gives rise to a commutative diagram
  
- \[\xymatrix{0\ar[r] &P(m,k)\ar[r] &  \tilde P_m\ar[r] & \tau\tilde P_{m+1}^{(k-1)}\ar[r] & 0 \\
+ \[\xymatrix{0\ar[r] &P(m,k)\ar[r] &  \tilde P_{m,k}\ar[r] & \tau\tilde P_{m+1}^{(k)}\ar[r] & 0 \\
   0\ar[r]& V\ar[r]\ar[u] & U\ar[u]\ar[r]& W\ar[r]\ar[u]& 0}\]
 By $\Psi_2$ we denote the corresponding map of quiver Grassmannians.
 Using this notation, we obtain:
 \begin{lemma}\label{quotient}
- Consider the non-split short exact sequence $\ses{\tilde P_m}{\tilde P_{m+1}^{(k)}}{\tilde P_{m+1}^{(k-1)}}$. Let $U\subset \tilde P_m$ such that $\Ext(\tilde P_{m+1}^{(k-1)},U)\neq 0$. Then we have
+ Consider the non-split short exact sequence $\ses{\tilde P_{m,k}}{\tilde P_{m+1}^{(k-1)}}{\tilde P_{m+1}^{(k)}}$. Then we have:
 \begin{enumerate}
-\item The fibre $\Psi^{-1}(U,\tilde P_{m+1}^{(k-1)})$ is empty the case if and only if $U\in\Psi^{-1}_2(0,W)$ for some $W\neq 0$.
-\item If the fibre is not empty, we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)= 0$.
+\item The fibre $\Psi_1^{-1}(U,\tilde P_{m+1}^{(k)})$ is empty if and only if $U\in\Psi^{-1}_2(V,0)$, i.e. $U$ is already a subrepresentation of $P(m,k)$.
+\item If the fibre $\Psi_1^{-1}(U,\tilde P_{m+1}^{(k)})$ is not empty, we have $\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k}/U)= 0$.
 \end{enumerate} 
 \end{lemma}
 \begin{proof}
+If $W=0$, we get an exact sequence
+\[\ses{\Ext(\tilde P_{m+1}^{(k)},P(m,k)/V)}{\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k}/U)}{\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)})}.\]
+Since $\Ext(\tilde P_{m+1}^{(k)},P(m,k))=0$, we have $\Ext(\tilde P_{m+1}^{(k)},P(m,k)/V)=0$. This yields $\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k}/U)\cong\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k})=\kk$ which means that the induced map
+\[\Ext(\tilde P_{m+1}^{(k)},U)\to\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k})\]
+is zero. This means that the induced exact sequence splits. On the other hand, every subrepresentation $U\subset \tilde P_{m,k}$ such that $\Psi_1^{-1}(U,\tilde P_{m+1}^{(k)})$ is not empty comes with a commutative diagram
+ \[\xymatrix{0\ar[r] &\tilde P_{m,k}\ar[r] &  \tilde P_{m+1}^{(k-1)}\ar[r] & \tilde P_{m+1}^{(k)}\ar[r] & 0 \\
+  0\ar[r]& U\ar[r]\ar[u] & U'\ar[u]\ar[r]& \tilde P_{m+1}^{(k)}\ar[r]\ar[u]& 0}\]
+which means that the induced sequence in $\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k})$ does not split. This yields that the fibre is empty.
 
-We have $\Hom(\tilde P_{m+1}^{(k-1)},\tau \tilde P_{m+1}^{(k-1)})=0$ and $\Ext(\tilde P_{m+1}^{(k-1)},\tau \tilde P_{m+1}^{(k-1)})=\kk$. Since we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)=\kk$ and $\Hom(\tilde P_{m+1}^{(k-1)},\tilde P_m)=0$, we have $\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}\in (\tilde P_{m+1}^{(k-1)})^\perp$.
 
-By Lemma \ref{AR}, if $\Ext(\tilde P_{m+1}^{(k-1)},U)\neq 0$, we have $W\neq 0$. This means that $\tau\tilde P_{m+1}^{(k-1)}/W$ is a proper factor of $\tau \tilde P_{m+1}^{(k-1)}$. 
-It follows that we have $\Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)}/W)=0$. Indeed, by Auslander-Reiten theory every non-split morphism $g:\tau\tilde P_{m+1}^{(k-1)}\to \tau\tilde P_{m+1}^{(k-1)}/W$ factors through the middle term $Z$ of the AR-sequence 
-\[\ses{\tau\tilde P_{m+1}^{(k-1)}}{Z}{\tilde P_{m+1}^{(k-1)}}\]
+Thus assume that $U\in\Psi_2^{-1}(V,W)$ with $W\neq 0$. We first show that $\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k}/U)= 0$. Clearly, $\tau\tilde P_{m+1}^{(k)}/W$ is a proper factor of $\tau \tilde P_{m+1}^{(k)}$ if $W\neq 0$. 
+It follows that we have $\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)}/W)=0$. Indeed, by Auslander-Reiten theory every non-split morphism $g:\tau\tilde P_{m+1}^{(k)}\to \tau\tilde P_{m+1}^{(k)}/W$ factors through the middle term $Z$ of the AR-sequence 
+\[\ses{\tau\tilde P_{m+1}^{(k)}}{Z}{\tilde P_{m+1}^{(k)}}\]
 which means that the first map of the induced sequence
-\[\Hom(\tau\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)}/W)\to\Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)}/W)\to\Ext(Z,\tau\tilde P_{m+1}^{(k-1)}/W) \]
-is zero. As $\tau\tilde P_{m+1}^{(k-1)}$ is exceptional (on the universal cover), we are in the situation of Ringel's reflection \cite{rin} which means that $\Ext(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=\kk$, $\Hom(\tilde P_{m+1}^{(k-1)},\tau\tilde P_{m+1}^{(k-1)})=0$ and $\tau\tilde P_{m+1}^{(k-1)}\in ~^\perp(\tilde P_{m+1}^{(k-1)})$ yields $\Ext(Z,\tau\tilde P_{m+1}^{(k-1)})=0$. Thus we obtain $\Ext(Z,\tau\tilde P_{m+1}^{(k-1)}/W)=0$
+\[\Hom(\tau\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)}/W)\to\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)}/W)\to\Ext(Z,\tau\tilde P_{m+1}^{(k)}/W) \]
+is zero. As $\tau\tilde P_{m+1}^{(k)}$ is exceptional (on the universal cover), we are in the situation of Ringel's reflection \cite{rin} which means that $\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)})=\kk$, $\Hom(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)})=0$ and $\tau\tilde P_{m+1}^{(k)}\in ~^\perp(\tilde P_{m+1}^{(k)})$, i.e. Lemma \ref{AR}, yields $\Ext(Z,\tau\tilde P_{m+1}^{(k)})=0$ as the AR-sequence does not split. In conclusion, we obtain $\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)}/W)=0$. 
 
-Since we have $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k})=0$, it follows $\Ext(\tilde P_{m+1}^{(k-1)},(\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k})/V)=0$. This yields the claim.
+By Lemma \ref{AR}, we have $\Hom(\tilde P_{m+1}^{(k)},\tau \tilde P_{m+1}^{(k)})=0$ and $\Ext(\tilde P_{m+1}^{(k)},\tau \tilde P_{m+1}^{(k)})\cong\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k})=\kk$ and $\Hom(\tilde P_{m+1}^{(k)},\tilde P_{m,k})=0$ and thus $P(m,k)\in (\tilde P_{m+1}^{(k)})^\perp$. Since this means $\Ext(\tilde P_{m+1}^{(k)},P(m,k))=0$, we get $\Ext(\tilde P_{m+1}^{(k)},P(m,k)/V)=0$. Together with $\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)}/W)=0$, this yields the claim.
 
-%First observe that $\tilde P_m\in ~^\perp \tilde P_{m+1}^{(k-1)}$ and $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)=k$. Assume that $U$ is preprojective with $\Hom(U,\tilde P_{m+1}^{(k-1)})=0$ (check again). This yields $\Ext(\tilde P_m/U,\tilde P_{m+1}^{(k-1)})=0$. Consider
-%\[0\longrightarrow[\tilde P_{m+1}^{(k-1)},\tilde P_m/U]\longrightarrow[\tilde P_{m+1}^{(k-1)},U]^1\xlongrightarrow{\pi}[\tilde P_{m+1}^{(k-1)},\tilde P_m]^1\longrightarrow[\tilde P_{m+1}^{(k-1)},\tilde P_m/U]^1\longrightarrow 0.\]
-%Since $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)=k$, we have that $\pi$ is surjective if $\pi\neq 0$. If $U=U_1\oplus\ldots\oplus U_r$ is a decomposition into indecomposable representations, we can write $\pi=(\pi_1,\ldots,\pi_r)$ and it suffices to show that $\pi_j\neq 0$ for at least one $j=1,\ldots,r$. Thus we can without loss of generality assume that $U$ is indecomposable (check again). This means that $U\cong \tilde P_{i}$ for some $i=1,\ldots,m$. Moreover, $\tilde P_{m+1}/U$ is indecomposable (details).
-%
-%If $\tilde P_{m+1}/U$ is exceptional, $\Ext(\tilde P_m/U,\tilde P_{m+1}^{(k-1)})=0$ together with \cite[Theorem 4.1]{sch} yields that either $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)=0$ or $\Hom(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)=0$. Thus $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)\neq 0$ would imply that $\Ext(\tilde P_{m+1}^{(k-1)},U)=0$. But this contradicts the assumption and the claim follows.
-%
-%Thus assume that $\tilde P_{m+1}/U$ has self-extensions. Since $\Ext(\tilde P_m/U,\tilde P_{m+1}^{(k-1)})= 0$, from \cite[Lemma 4.1]{hr} we obtain that every homomorphism $\tilde P_{m+1}^{(k-1)}\to \tilde P_m/U$ is injective or surjective. By a dimension count it needs to be surjective (case $k=1$?). Such a homomorphism would yield $\Ext(\tilde P_m/U,\tilde P_{m+1}^{(k-1)})\twoheadrightarrow\Ext(\tilde P_m/U,\tilde P_m/U)\neq 0$ which contradicts the further observations. Thus $\Ext(\tilde P_{m+1}^{(k-1)},U)\neq 0$, already yields $\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m/U)= 0$ in this case.
-%
-%Case $\Hom(U,P)\neq 0$?
-
+Thus it remains to show that $\Psi^{-1}_1(U,\tilde P_{m+1}^{(k)})$ is not empty if $W\neq 0$. Since $\Ext(\tilde P_{m+1}^{(k)},\tilde P_m/U)= 0$, we can conclude that the map $\Ext(\tilde P_{m+1}^{(k)},U)\to\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k})$ is surjective which already means that there exists a commutative diagram as above which, in turn, means that the fiber is not empty.
 \end{proof}
-
-\begin{proposition}
-  Consider $\psi:Gr^{\tilde Q}_\tbfe(\tilde P_m)\to\bigsqcup_{\tbff+\tbfg=\tbfe} Gr^{\tilde Q}_\tbff(\bigoplus_{i=1}^k \tilde P_{m-1,i})\times Gr^{\tilde Q}_\tbfg(\tilde P_m^{(k)})$.  Then the following hold:
+Now we are able to state the following result concerning the fibers of $\Psi_1$:
+\begin{proposition}\label{fibers}\footnote{maybe formulate this in terms of $\Psi$ (see below)}
+ The following hold:
   \begin{enumerate}
-    \item For $V\subsetneq \tilde P_m^{(k)}$ and $U\subset\bigoplus_{i=1}^k\tilde P_{m-1,i}$, we have $\psi^{-1}(U,V)=\AA^{\langle V,\bigoplus_{i=1}^k\tilde P_{m-1,i}/U\rangle}$.
-    \item If $V=\tilde P_m^{(k)}$, the fibre $\psi^{-1}(U,V)$ is non-empty and of constant dimension if and only if $\Ext(\tilde P_m^{(k)},U)\neq 0$.
+    \item For $V\subsetneq \tilde P_{m+1}^{(k)}$ and $U\subseteq\tilde P_{m,k}$, we have $\Psi_1^{-1}(U,V)=\AA^{\langle V,\tilde P_{m,k}/U\rangle}$.
+    \item If $V=\tilde P_{m+1}^{(k)}$, the fiber $\Psi_1^{-1}(U,V)$ is not empty if and only if $\Psi_2(U)\neq (U,0)$. In this case, we have $\Psi_1^{-1}(U,V)=\AA^{\langle V,\tilde P_{m,k}/U\rangle}$.
+		\item Every quiver Grassmannian $Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})$ admits a cell decomposition into affine spaces.
   \end{enumerate}
 \end{proposition}
-\begin{proof}
-  (1) $V$ is preprojective but $\bigoplus_{i=1}^k\tilde P_{m-1,i}/U$ is not unless $U=0$
+\begin{proof}By Lemma \ref{le:preprojective lifts}.3, any subrepresentation $V\subsetneq \tilde P_{m+1}^{(k)}$ is preprojective. But the representation $\tilde P_{m,k}/U$ is not as a quotient of a preprojective representation unless $U=0$. Thus we have $\Ext(V,\tilde P_{m,k}/U)=0$. If $U=0$, we have $\Ext(V,\tilde P_{m,k})=0$ because for dimension reasons every indecomposable direct summand of $V$ is isomorphic to some $\tilde P_l$ with $l\leq m$.
 
-  (2) 
-If $\Ext(\tilde P_m^{(k)},U)= 0$, the fibre is empty because the sequence is non-split. If $\Ext(\tilde P_m^{(k)},U)\neq 0$, Lemma \ref{quotient} yields $\Ext(\tilde P_m^{(k)},\tilde P_{m-1}/U)=0$. In particular, the dimension is constant if it is not empty and
-$\Ext(\tilde P_{m+1}^{(k-1)},U)\xlongrightarrow{\pi}\Ext(\tilde P_{m+1}^{(k-1)},\tilde P_m)$ is surjective. But this already means that the fibre is not empty.
+The second statement follows directly from Lemma \ref{quotient}.
+
+For the third statement, we proceed by induction and combine the two maps $\Psi_1$ and $\Psi_2$ and obtain a map
+\[\Psi:Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})\to\bigsqcup_{\tbff+\tbfg+\tbfh=\tbfe} Gr^{\tilde Q}_\tbff( P(m,k))\times Gr^{\tilde Q}_\tbfg(\tau\tilde P_{m+1}^{(k)})\times Gr^{\tilde Q}_\tbfh(\tilde P_{m+1}^{(k)}).\]
+
+By Lemma \ref{directsums} and induction hypothesis every quiver Grassmannian on the right hand side has a cell decomposition. The second part of the Proposition says that the fibres are empty if and only if $\tbfg=0$ and $\tbfh=\udim \tilde P_{m+1}^{(k)}$. In all other cases, the fiber dimension only depend on the dimension vector $\tbff, \tbfg,\tbfh$ which means that they are constant over $Gr^{\tilde Q}_\tbff( P(m,k))\times Gr^{\tilde Q}_\tbfg(\tau\tilde P_{m+1}^{(k)})\times Gr^{\tilde Q}_\tbfh(\tilde P_{m+1}^{(k)})$\footnote{actually this should already say that this is a vector bundle as the base space is smooth (all reps are exceptional)}. Analogously to Lemma \ref{directsums}, we can conclude that this induces trivial bundles over every affine cell. In total, this yields a cell decomposition of the quiver Grassmannian $Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})$.
 \end{proof}
+
+
+
+Note that we can also consider 
+$\Psi_1:Gr^{\tilde Q}_\tbfe(\tilde P_{m})\to\bigsqcup_{\tbff+\tbfg=\tbfe} Gr^{\tilde Q}_\tbff(\bigoplus_{i=1}^{k}\tilde P_{m-1,i})\times Gr^{\tilde Q}_\tbfg(\tilde P_m^{(k)})$ where $\tilde P_m^{(n-1)}=\tilde P_{m-1}^{(1)}$ (up to renumbering the arrows). But then one needs to adjust $\Psi_2$ as the factor $\bigoplus_{i=1}^{k}\tilde P_{m-1,i}$ were $(\tau\tilde P_m^{(k)})^k$.
+
 
 \begin{theorem}
   Every quiver Grassmannian of a preprojective or preinjective representation of $K(n)$ and $\widetilde{K(n)}$ has a cell decomposition.
 \end{theorem}
-
+\begin{proof}
+This follows by combining the results of Section 2 and Proposition \ref{fibers}.
+\end{proof}
 \begin{question}
   cells of $Gr^{\tilde Q}_\tbfe(\tilde P_m)$ are in one-to-one correspondence with certain tuples of subgraphs for smaller $\tilde P_\ell^{i_1,\ldots,i_k}$
 \end{question}
