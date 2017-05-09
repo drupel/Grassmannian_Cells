@@ -21,6 +21,7 @@
 \newcommand{\tbfg}{{\tilde\bfg}}
 \newcommand{\tbfh}{{\tilde\bfh}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\cC}{\mathcal{C}}
 \newcommand{\ui}{\underline i}
 \newcommand{\uj}{\underline j}
 \newcommand\udim{{\underline{\dim}\, }}
@@ -48,7 +49,9 @@
 \maketitle
 
 \section{Introduction}
--something about cluster algebras
+A cluster algebra is a subalgebra of a rational function field where generators are defined by an explicit recursion.
+Although the generators of the cluster algebra are given as rational functions they actually turn out to be Laurent polynomials.
+
 -something about categorification and quiver Grassmannians
 -something about compatible pairs and combinatorial construction of cluster variables
 -statement of our results
@@ -364,6 +367,30 @@ This follows by combining the results of Section 2 and Proposition \ref{fibers}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Compatible Pairs Label Cells in $Gr^Q_\bfe(P_m)$}
+For $m\ge1$, let $D_m$ denote the maximal Dyck path in the lattice rectangle with corner vertices $(0,0)$ and $(u_m,u_{m-1})$.  
+More precisely, $D_m$ is the lattice path which begins at $(0,0)$, takes East and North steps to end at $(u_m,u_{m-1})$, and never passes above the main diagonal joining $(0,0)$ and $(u_m,u_{m-1})$.  
+It is maximal in the sense that any lattice point lying strictly above $D_m$ also lies above the main diagonal.  
+Identify the edges of $D_m$ with the poset $E_m=\{1,\ldots,u_m+u_{m-1}\}$ where edges of $D_m$ are taken in the natural order beginning from $(0,0)$.
+Given edges $e,e'\in E_m$ with $e<e'$, write $ee'$ for the smallest subpath of $D_m$ containing $e$ and $e'$, in particular $ee$ is the subpath containing the single edge $e$.
+
+Let $H_m=\{h_1,\ldots,h_{u_m}\}$ and $V_m=\{v_1,\ldots,v_{u_{m-1}}\}$ denote the horizontal and vertical edges of $D_m$ respectively.
+\begin{definition}
+  A pair of subsets $S_H\subset H_m$ and $S_V\subset V_m$ is called compatible if: 
+  for each pair $(h,v)\in S_H\times S_V$ with $h<v$ there exists an edge $e\in hv$ so that at least one of the following holds
+  \[e\ne v\qquad\text{and}\qquad |he\cap S_V|=n|he\cap S_H|\]
+  or
+  \[e\ne h\qquad\text{and}\qquad |ev\cap S_H|=n|ev\cap S_V|.\]
+  Write $\cC_m$ for the collection of all pairs $(S_H,S_V)$ which are compatible as above.
+\end{definition}
+
+The following result is an immediate consequence of the combinatorial construction of rank 2 cluster variables \cite{lee-li-zelevinsky} and the categorification of these variables using representations of $K(n)$ \cite{cc,caldero-keller}.
+\begin{theorem}\cite{lee-li-zelevinsky}
+  For each $m\ge1$ and $\bfe\in\ZZ_{\ge0}^2$, we have $\chi\big(Gr_\bfe(P_m)\big)=\big|\{(S_H,S_V)\in\cC_m:|S_H|=u_m-e_1,|S_V|=e_2\}\big|$.
+\end{theorem}
+
+Our goal is to show that the compatible pairs provide a natural labelling for the cells of $\chi\big(Gr^Q_\bfe(P_m)\big)$ found in Theorem~\ref{???}.
+
+
 \begin{thebibliography}{10}
 \bibitem{ass}
 Assem, I., Simson, D., Skowronski, A.: Elements of the Representation Theory of Associative Algebras. Cambridge University Press, Cambridge 2007.
@@ -372,10 +399,13 @@ Bernstein, I.~N., Gelfand, I.~M., Ponomarev, V.~A.: Coxeter functors, and Gabrie
 \bibitem{cc}
 Caldero, P., Chapoton, F.: Cluster algebras as {H}all algebras of quiver representations.
 Commentarii Mathematici Helvetici \textbf{81}(3), 595-616 (2006).
+\bibitem{ck}
+  P. Caldero, B. Keller: From triangulated categories to cluster algebras II.  Ann. Sci. \'Ecole Norm. Sup. (4) \textbf{39} (2006), no. 6, pp.~983--1009.
 \bibitem{cj} Crawley-Boevey, W., Jensen, Bernt Tore: A note on sub-bundles of vector bundles. Glasgow Mathematical Journal \textbf{48}, 459-462 (2006).
 
 \bibitem{gab} Gabriel, P.: The universal cover of a finite-dimensional algebra. Representations of algebras. Lecture Notes in Mathematics {\bf 903}, 68-105 (1981).
 \bibitem{hr} Happel, D., Ringel, C.M.: Tilted Algebras. Transactions of the American Mathematical Society {\bf 274}, no.2, 399-443 (1982).
+\bibitem{llz} K. Lee, L. Li, A. Zelevinsky: Greedy elements in rank 2 cluster algebras. Selecta Math. \textbf{20} (2014) pp.~57--82.
 \bibitem{rin} Ringel, C.M.: Reflection functors for hereditary algebras. Journal of the London Mathematical Society (2) {\bf 21}, no. 3, 465-479 (1980).
 
 \bibitem{sch} Schofield, A.: General representations of quivers. Proceedings of the London Mathematical Society (3) \textbf{65}(1), 46-64 (1992).
