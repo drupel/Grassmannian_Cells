@@ -74,13 +74,31 @@ We choose a map $d:\tilde Q_0\to\ZZ$ and fix a representation $X\in\Rep(Q)$. In 
 \begin{lemma}Fix an integer $c_\alpha\in\ZZ$ for every $\alpha\in Q_1$.
 If $X\in\Rep(Q)$ can be lifted, $d:\tilde Q_0\to\ZZ$ induces a torus action on $\Gr_\bfe(X)$ if we have $d(j,w\alpha)-d(i,w)=c_\alpha$ for all $\alpha:i\to j$ and $w\in W_{Q}$.
 \end{lemma}
-\begin{proof} Since $X$ can be lifted, we can write $X_\alpha:X_i\to X_j$ as block matrix consisting of linear maps $X_{(\alpha,w)}:X_{(i,w)}\to X_{(j,w\alpha)}$. Then the condition $X_{\alpha}(t.U_i)\in t.U_j$ translates into ...to be continued.
+\begin{proof} Let $U\in \Gr_\bfe(X)$. Since $X$ can be lifted, we can write $X_\alpha:X_i\to X_j$ as block matrix consisting of linear maps $X_{(\alpha,w)}:X_{(i,w)}\to X_{(j,w\alpha)}$. Let $u_{(i,w)}\in U_{(i,w)}$ and $\alpha:i\to j\in Q_1$. Then we have $X_\alpha(u_{(i,w)})\in U_{(j,w\alpha)}$ because $X$ can be lifted to the universal cover. Then it follows
+\[X_\alpha(t.u_{(i,w)})=X_\alpha(t^{d(q,w)}u_{(i,w)})=t^{d(q,w)}X_\alpha(u_{(i,w)})=t^{d(q,w)}u_{(j,w\alpha)}=t^{-c_\alpha}t.u_{(j,w\alpha)}\]
+for some $u_{(j,w\alpha)}\in U_{(j,w\alpha)}$.
+Now we have \[\bigoplus_{w\in W_Q} t.U_{(j,w)}=\bigoplus_{w\in W_Q}t^{c(j,w)}t.U_{(j,w)}\]
+for every $t\in\C^\ast$ if $c(j,w)$ is constant. This yields  
+\[t.U_j=\bigoplus_{w\in W_Q} t.U_{(j,w)}=\bigoplus_{w\in W_Q}t^{-c_\alpha}t.U_{(j,w)}\]
+for every $t\in \C^\ast$.
 \end{proof}
 
-\begin{lemma}
-  There exists $d:\tilde Q_0\to\ZZ$ such that $d(q,w)\ne d(q',w')$ for all $q,q',w,w'$ with $\dim X_{q,w}\ne0$ and $\dim X_{q',w'}\ne0$.
-\end{lemma}
 
+\begin{lemma} Let $X$ be an indecomposable representation of $\tilde Q$. There exists $d:\mathrm{supp} (X)\to\ZZ$ and $c_\alpha\in\mathbb N_+$ for each $\alpha\in Q_1$ such that $d(i,w)\ne d(j,w')$ if $i\neq j$ or $w\neq w'$ and such that $d(j,w')-d(i,w)=c_\alpha$ if and only if $w'=w\alpha$ and $(i,w),\,(j,w\alpha)\in \mathrm{supp}(X)$. 
+\end{lemma}
+\begin{proof}
+Since $X$ is finite-dimensional, $\mathrm{supp}( X)$ is a connected finite tree. In order to prove the statement, we assume that $d(q,1)=0$ and that $(q,1)\in \mathrm{supp}(X)$ and, moreover, fix the numbers $c_\alpha$ in such a way that the two conditions are satisfied. To do so, let $K$ be the maximal length of a path in $\mathrm{supp}(X)$. Let $|Q_1|=n$. Set $c_{\alpha_1}=1$ and inductively 
+\[c_{\alpha_n}> (K+1)\sum_{i=1}^{n-1}c_{\alpha_i}.\]
+Note that if $A_Q$ is the free abelian group in the generators $\alpha_1,\ldots,\alpha_n$ and $f:W_Q\to A_Q$ is the group homomorphism induced by $f(\alpha)=\alpha$ and $f(\alpha^{-1})=-\alpha$ and $g:A_Q\to \ZZ$ the one defined by $g(\alpha)=c_\alpha$ for all $\alpha\in Q_1$,  we have $d(q,w)=(g\circ f)(w)$ where $q$ is uniquely determined by $w$ on every connected component. In particular, we have
+\[d(q,w)=\sum_{i=1}^nd_ic_{\alpha_i}\]
+where $d_i$ counts the number of appearances of the arrow $\alpha_i$ in $w$ taking orientations into account. 
+First note that we obviously have $d(j,w\alpha)-d(i,w)=c_\alpha$. Now assume that $d(i,w)=d(j,w')$ which means that $\sum_{i=1}^{n}d_ic_{\alpha_i}=\sum_{i=1}^{n}e_ic_{\alpha_i}$
+which implies
+\[\sum_{i=1}^{n-1}(d_i-e_i)c_{\alpha_i}=(e_{n}-d_{n})c_{\alpha_{n}}.\]
+Since we have $|d_i-e_i|\leq K$, we obtain $$|\sum_{i=1}^{n-1}(d_i-e_i)c_{\alpha_i}|\leq K\sum_{i=1}^{n-1}c_{\alpha_i}<c_{\alpha_n}$$
+This inductively yields $d_i=e_i$ for $i=n,\ldots,1$ by the choice of $c_{\alpha_{i}}$. An analogous proof applies to show that $d(j,w')-d(i,w)\neq c_\alpha$ if $w'\neq w\alpha$ using that, actually, $c_{\alpha_n}> (K+1)\sum_{i=1}^{n-1}c_{\alpha_i}$. 
+
+\end{proof}
 \begin{theorem}
   $Gr^Q_\bfe(X)^T\cong\bigsqcup_{\tilde\bfe of type \bfe} Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$
 \end{theorem}
