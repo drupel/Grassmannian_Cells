@@ -467,17 +467,53 @@ This follows by combining the results of Section 2 and Proposition \ref{fibers}.
 For $m\ge1$, let $D_m$ denote the maximal Dyck path in the lattice rectangle with corner vertices $(0,0)$ and $(u_m,u_{m-1})$.  
 More precisely, $D_m$ is the lattice path which begins at $(0,0)$, takes East and North steps to end at $(u_m,u_{m-1})$, and never passes above the main diagonal joining $(0,0)$ and $(u_m,u_{m-1})$.  
 It is maximal in the sense that any lattice point lying strictly above $D_m$ also lies above the main diagonal.  
-Identify the edges of $D_m$ with the poset $E_m=\{1,\ldots,u_m+u_{m-1}\}$ where edges of $D_m$ are taken in the natural order beginning from $(0,0)$.
-Given edges $e,e'\in E_m$ with $e<e'$, write $ee'$ for the smallest subpath of $D_m$ containing $e$ and $e'$, in particular $ee$ is the subpath containing the single edge $e$.
 
-Let $H_m=\{h_1,\ldots,h_{u_m}\}$ and $V_m=\{v_1,\ldots,v_{u_{m-1}}\}$ denote the horizontal and vertical edges of $D_m$ respectively.
+The maximal Dyck paths $D_m$, $m\ge1$, exhibit the following recursive structure.
+In what follows we assume $n\ge2$.
+\begin{theorem}
+  \cite[Corollary 2.4]{rupel}
+  \label{th:dyck path recursion}
+  For $n\ge2$, the maximal Dyck path $D_m$, $m\ge1$, can be constructed recursively as follows:
+  \begin{enumerate}
+    \item $D_1$ consists of a single horizontal edge;
+    \item $D_2$ consists of $n$ consecutive horizontal edges followed by a vertical edge;
+    \item $D_m$, $m\ge3$, consists of $n-1$ copies of $D_{m-1}$ followed by a copy of $D_{m-1}$ with its first $D_{m-2}$ removed.
+  \end{enumerate}
+\end{theorem}
+
+For $m\ge2$ and $1\le r\le n-1$, write $D_m^{(r)}$ for the maximal Dyck path obtained from $D_m$ by removing the first $r$ copies of $D_{m-1}$.
+Note that by Theorem~\ref{th:dyck path recursion}, we have a natural identification of $D_m^{(n-1)}$, $m\ge3$, with $D_{m-1}^{(1)}$.
+For fixed $m\ge2$ and $1\le r\le n-1$, we write $D_{m-1,r}$ for the $r$-th copy of $D_{m-1}$ inside $D_m$.
+For notational convenience we also set $D_{m-1,n}:=D_m^{(n-1)}$  even though this maximal Dyck path does not identify with a copy of $D_{m-1}$.
+
+We identify the edges of $D_m$ with the ordered set $E_m=\{1,\ldots,u_m+u_{m-1}\}$, where edges of $D_m$ are taken in the natural order beginning from $(0,0)$.
+Let $E_m=H_m\sqcup V_m$, where $H_m=\{h_1,\ldots,h_{u_m}\}$ and $V_m=\{v_1,\ldots,v_{u_{m-1}}\}$ denote the horizontal and vertical edges of $D_m$ respectively.
+Following Theorem~\ref{th:dyck path recursion}, we partition the edges as $E_m=\bigsqcup_{r=1}^n E_{m-1,r}$, where $E_{m-1,r}$ denotes the edges of $D_{m-1,r}$.
+The set $E_{m-1,r}$ is naturally partitioned into its subsets $H_{m-1,r}$ and $V_{m-1,r}$ of horizontal and vertical edges.
+
+Given edges $e,e'\in E_m$ with $e<e'$, write $ee'$ for the shortest subpath of $D_m$ containing $e$ and $e'$, in particular $ee$ is the subpath containing the single edge $e$.
 \begin{definition}
-  A pair of subsets $S_H\subset H_m$ and $S_V\subset V_m$ is called compatible if: 
+  A pair of subsets $S_H\subset H_m$ and $S_V\subset V_m$ is called \emph{compatible} if: 
   for each pair $(h,v)\in S_H\times S_V$ with $h<v$ there exists an edge $e\in hv$ so that at least one of the following holds
-  \[e\ne v\qquad\text{and}\qquad |he\cap S_V|=n|he\cap S_H|\]
+  \begin{equation}
+    \label{eq:hgc}
+    e\ne v\qquad\text{and}\qquad |he\cap S_V|=n|he\cap S_H|
+  \end{equation}
   or
-  \[e\ne h\qquad\text{and}\qquad |ev\cap S_H|=n|ev\cap S_V|.\]
+  \begin{equation}
+    \label{eq:vgc}
+    e\ne h\qquad\text{and}\qquad |ev\cap S_H|=n|ev\cap S_V|.
+  \end{equation}
   Write $\cC_m$ for the collection of all pairs $(S_H,S_V)$ which are compatible as above.
+\end{definition}
+\begin{remark}
+  This notion of compatibility extends naturally to the maximal Dyck paths $D_m^{(r)}$, $1\le r\le n-1$.  Write $\cC_m^{(r)}$ for the set of all compatible pairs in $D_m^{(r)}$.
+\end{remark}
+
+The recursive structure of the maximal Dyck paths from Theorem~\ref{th:dyck path recursion} gives rise to a recursive characterization of compatible pairs.
+\begin{definition}
+  \cite[Definition 3.11]{rupel}
+  A pair of subsets $S_H\subset H_m$ and $S_V\subset V_m$ is called \emph{piecewise compatible} if one of the conditions \eqref{eq:hgc} or \eqref{eq:vgc} is satisfied for each pair $(h,v)\in(S_H\cap H_{m-1,r})\times(S_V\cap V_{m-1,r})$ $h\in H_{m-1,r}$ and $v\in V_{m-1,r}$ for some $1\le r\le n-1$.
 \end{definition}
 
 The following result is an immediate consequence of the combinatorial construction of rank 2 cluster variables \cite{lee-li-zelevinsky} and the categorification of these variables using representations of $K(n)$ \cite{cc,caldero-keller}.
@@ -508,6 +544,8 @@ Journal of Pure and Applied Algebra \textbf{212}(11), 2369-2380 (2008).
 \bibitem{hr} Happel, D., Ringel, C.M.: Tilted Algebras. Transactions of the American Mathematical Society {\bf 274}, no.2, 399-443 (1982).
 \bibitem{llz} K. Lee, L. Li, A. Zelevinsky: Greedy elements in rank 2 cluster algebras. Selecta Math. \textbf{20} (2014) pp.~57--82.
 \bibitem{rin} Ringel, C.M.: Reflection functors for hereditary algebras. Journal of the London Mathematical Society (2) {\bf 21}, no. 3, 465-479 (1980).
+
+\bibitem{rupel} Rupel, D.: Rank 2 Non-Commutative Laurent Phenomenon and Pseudo-Positivity, arXiv.
 
 \bibitem{sch} Schofield, A.: General representations of quivers. Proceedings of the London Mathematical Society (3) \textbf{65}(1), 46-64 (1992).
 	\bibitem{wei} Weist, T.: Localization of quiver moduli spaces. Representation Theory \textbf{17}(13), 382-425 (2013).
