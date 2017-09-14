@@ -3,4 +3,5 @@
 *.pdf
 *.bbl
 *.blg
+*.out
 *.synctex
