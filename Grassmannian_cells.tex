@@ -509,7 +509,7 @@ Each such sequence has the following almost-split property for proper subreprese
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Quiver Grassmannians of $\widetilde{K(n)}$}
+\section{Quiver Grassmannians of $\widetilde{K(n)}$}\label{QG}
 \noindent 
 Let $\tilde P_m$ be a fixed lift of $P_m$ to the universal cover $\widetilde{K(n)}$. Note that the group $W_Q$ acts naturally on $\widetilde{K(n)}_0$ via translation, i.e. $w.(q,w')=(q,ww')$. Up to this action a lift $\tilde P_m$ of $P_m$ is unique. On the universal covering, every preprojective representation $\tilde P_m$ has $n$ subrepresentation $\tilde P_{m-1,1},\ldots,\tilde P_{m-1,n}$. Each of them corresponds (inductively) to one of the $n$ different arrows of $K(n)$. In turn, with every sequence of natural numbers $\uj=(j_1,\ldots,j_l)$ with $j_i\leq n$ and $l\leq m-1$ we can associate a preprojective subrepresentation $\tilde P_{m-k,\uj}$ of dimension $(u_{m-k},u_{m-k-1})$. For $\{i_1,\ldots,i_k\}\subset \{1,\ldots,n\}$ and $1\leq k\leq n-1$, there exist exact sequences of the form
 \[\ses{\bigoplus_{j=1}^k\tilde P_{m-1,i_j}}{\tilde P_m}{\tilde P_{m}^{(i_1,\ldots,i_k)}},\quad\quad\ses{\tilde P_{m-1,i_k}}{\tilde P_{m}^{(i_1,\ldots,i_{k-1})}}{\tilde P_{m}^{(i_1,\ldots,i_k)}}.\]
@@ -819,6 +819,28 @@ The following result is an immediate consequence of the combinatorial constructi
 \end{theorem}
 
 Our goal is to show that the compatible pairs provide a natural labeling for the cells of $\chi\big(Gr^Q_\bfe(P_m)\big)$ found in Theorem~\ref{???}.
+\section{Combinatorial description of non-empty cells}
+                                   
+\begin{definition}\begin{enumerate}
+\item A $2$-quiver is a triple $Q=(Q_0,Q_1,Q_2)$ consisting of a set of vertices $Q_0$, a set of (usual) arrows $Q_1$ and a set of $2$-arrows which are arrows between full subquivers of the quiver $(Q_0,Q_1)$.
+
+\item We call a subset $\beta\subset Q_0$ successor closed if for every arrow $v:p\to q$ we have: if $p\in \beta$, then $q\in\beta$.
+
+\item We call a subset $\beta\subset Q_0$ strong successor closed if it is successor closed and, moreover, for every $2$-arrow $V:\Gamma(1)\to\Gamma(2)$, we have: if $\Gamma(1)_0\subset \beta$, then there exists a vertex $q\in\Gamma(2)_0$ such that $q\in\beta$.
+\end{enumerate}
+\end{definition}
+
+The aim is to associate a $2$-quiver with every preprojective representation $\tilde P_m$ and with their quotients $\tilde P_m^{(k)}$ defined in section \ref{QG}. These $2$-quivers are related to certain coefficient quivers of these representations. The upshot is that the non-empty cells of $\Gr_e(P_m)$ and $\Gr_e(P_m^{(k)})$ are in one-to-one correspondence with the strong successor closed subsets $\beta$ of type $e$. Hence the corresponding Euler characteristic can be computed when counting these subsets. A feature of this description is that it does not take care of the colouring of the different arrows induced by the arrows of $K(n)$.
+
+\begin{remark} 
+Lemma \ref{AR} can be generalized to the cases $m\leq 2$. The only technical problem is that $\tau \tilde P^{(k)}_{m+1}$ is no quotient of $\tilde P_{m,k}$ and we have to replace it by the image of the unique morphism to $\tau \tilde P^{(k)}_{m+1}$ which induces the exact sequence. 
+\end{remark}
+
+We call the following quivers with $n$ sinks, which are coefficient quivers of the indecomposable representations of dimension $(1,k)$ which can be lifted to the universal covering, basic and denote them by $\mathcal K_k$, i.e. the quivers of the form
+\[\xymatrix{&&\bullet\\\bullet\ar[rru]\ar[rrd] &&\vdots\\&&\bullet}\]
+The quiver $\mathcal K_{n-k}$ is also the $2$-quivers corresponding to the representations $\tilde P_2^{(k)}$. Now we can recursively define the $2$-quivers of the representations $\tilde P_3^{(n-1)}=\tilde P_2^{(1)},\ldots,\tilde P_3^{(0)}=\tilde P_3$ where $\udim \tilde P_2^{(1)}=(1,n-1)$ and $\udim\tilde P_3^{(k)}=(1,n-1)+(n-k-1)(1,n)$. This can be done by glueing the $2$-quiver of $\tilde P_3^{(k)}$ to the one of $\tilde P_2$ by a $2$-arrow. Note that one can find the image of the Auslander-Reiten translate of $\tilde P_3^{(k)}$ in $\tilde P_2$ as a full subquiver of dimension $(1,1)$. Thus the $2$-arrow goes from the whole $2$-quiver corresponding to $\tilde P_3^{(k)}$ to this subquiver. As we did not choose a colouring, the target $(1,1)$ can be chosen arbitrary (INSERT DIAGRAM).
+
+Now we can recursively define the $2$-quivers of the representations $\tilde P_m^{(n-1)}=\tilde P_{m-1}^{(1)},\ldots,\tilde P_m^{(0)}=\tilde P_m$ where $\udim\tilde P_m^{(k)}=\udim \tilde P_{m-1}^{(1)}+(n-k-1)\udim \tilde P_{m-1}$. To obtain the $2$-quiver of $\tilde P_{m}^{(k-1)}$ we glue the $2$-quiver of $\tilde P_m^{(k)}$ to the one of $\tilde P_{m-1}$ by a $2$-arrow. This $2$-arrow connects $\tilde P_m^{(k)}$ to its Auslander-Reiten-translate $\tau\tilde P_m^{(k)}=P_{m-2}^{(k)}$ (up to colouring) which can be found as full subquiver of {\it the} $\tilde P_{m-2}$ to which $\tilde P_{m-1}^{(1)}$ was glued in the last step (more precise). This construction is unique (in a sense sufficient for us). INSERT DIAGRAM.
 
 
 \begin{thebibliography}{10}
