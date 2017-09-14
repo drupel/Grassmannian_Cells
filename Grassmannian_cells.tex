@@ -7,6 +7,7 @@
 \xyoption{all}
 
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{claim}[theorem]{Claim}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -25,6 +26,7 @@
 \newcommand{\tbfh}{{\tilde\bfh}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\cC}{\mathcal{C}}
+\newcommand{\cP}{\mathcal{P}}
 \newcommand{\ui}{\underline i}
 \newcommand{\uj}{\underline j}
 \newcommand\udim{{\underline{\dim}\, }}
@@ -33,12 +35,18 @@
 \newcommand{\rep}{\operatorname{rep}}
 \newcommand{\Gr}{\mathrm{Gr}}
 \renewcommand{\AA}{\mathbb{A}}
+\newcommand{\CC}{\mathbb{C}}
 \newcommand{\kk}{\Bbbk}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\Ext}{\operatorname{Ext}}
 \newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\into}{\hookrightarrow}
+\newcommand{\onto}{\to\!\!\!\!\!\to}
 \newcommand{\ses}[3]{0\rightarrow #1\rightarrow #2\rightarrow#3\rightarrow 0}
 \newcommand{\Sc}[2]{\langle #1,#2\rangle}
+\newcommand{\spn}{\operatorname{span}}
 \setcounter{MaxMatrixCols}{20}
 \title{Cell Decomposition of Rank 2 Quiver Grassmannians}
 
@@ -189,7 +197,8 @@ Let $X$ be a representation which can be lifted to $\tilde Q$. Then there exists
 
 \noindent Denote by $K(n)$ the \emph{$n$-Kronecker quiver} $1\stackrel{n}{\longleftarrow}2$ with vertices $K_0(n)=\{1,2\}$ and $n$ arrows from vertex $2$ to vertex $1$. 
 Write $\Sigma_1$ and $\Sigma_2$ for the BGP-reflection functors of $K(n)$ \cite{bgp}. 
-Note that (up to relabeling vertices) the quiver $K(n)$ itself does not change when applying the reflection functors and thus we view them as endofunctors acting on the category $\rep K(n)$ of finite-dimensional representations.%, but the vertices $1$ and $2$ are exchanged. 
+Note that (up to relabeling vertices) the quiver $K(n)$ itself does not change when applying the reflection functors and thus we view them as endofunctors acting on the category $\rep K(n)$ of finite-dimensional representations. %, but the vertices $1$ and $2$ are exchanged. 
+With this identification of $K(n)$ and $K(n)^{op}$, the endofunctors $\Sigma_1\Sigma_2$ and $\Sigma_2\Sigma_1$ are each naturally isomorphic to the identity.
 %Let $$\Sigma:=\begin{cases}\Sigma_1\text{ if vertex }1 \text{ is a source;}\\\Sigma_2\text{ if vertex }$2$ \text{ is a source.}\end{cases}$$
 
 Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=1$, $u_{k+1}=nu_k-u_{k-1}$.
@@ -200,111 +209,303 @@ Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=
 The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
 \begin{remark}
   These representations satisfy the following recursions using the reflection functors:
-  \[P_1=S_1,\quad P_m=\Sigma_1 P_{m-1},\quad I_1=S_2,\quad I_m=\Sigma_1 I_{m-1}\]
+  \[P_1=S_1,\quad P_m=\Sigma_2 P_{m-1},\quad I_1=S_2,\quad I_m=\Sigma_1 I_{m-1}\]
   for $m\ge2$.
 \end{remark}
 
+Write $H_m:=\Hom(P_m,P_{m+1})$ for $m\ge1$.  
+For each $m\ge2$, there is an Auslander-Reiten sequence \cite{auslander-reiten-smalo}
+\begin{equation}
+  \label{eq:AR sequence}
+  0\longrightarrow P_{m-1}\stackrel{\iota_{m-1}}{\longrightarrow} P_m\otimes H_m\stackrel{ev}{\longrightarrow} P_{m+1}\longrightarrow 0,
+\end{equation}
+where the right-hand morphism is the natural evaluation map.
+
+Write $Gr(H_m)$ for the \emph{total Grassmannian} of $H_m$ whose elements are nontrivial proper subspaces $V\subset H_m$.
+Some results below remain true if we allow $H_m$ or $0$ as elements of $Gr(H_m)$, but not all, so for uniformity of exposition we omit these possibilities.
 \begin{lemma}
-  For any $m\ge1$, we have 
-  \[\dim\Hom(P_m,P_m)=1,\quad \dim\Hom(P_m,P_{m+1})=n,\quad \dim\Hom(P_{m+1},P_m)=0, \quad\dim\Ext(P_{m+1},P_m)=0.\]  
-  Moreover, for $1\le k<n$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, the map $[f_1\ \cdots\ f_k]:P_m^k\to P_{m+1}$ is injective. 
+  \label{le:injective evaluation maps}
+  For any $V\in Gr(H_m)$, the natural evaluation map $ev_V:P_m\otimes V\to P_{m+1}$ is injective.
 \end{lemma}
-\begin{proof} 
-  Note that we have an Auslander-Reiten sequence
+
+%%%%%%%%%%%%%%%%%%%
+% needs polishing %
+%%%%%%%%%%%%%%%%%%%
+%\begin{proof}
+%  A nonzero element $f\in V$ corresponds to an irreducible morphism $f:P_m\to P_{m+1}$ and thus does not factor through any representation $Z\ne P_m$, in particular $f$ is injective.
+%  But any nonzero element of $\ker ev_V$ gives rise to a nonzero $f\in V$ which is not injective and thus $ev_V$ must be an injective map.
+%\end{proof}
+
+%\begin{lemma}
+%  For any $m\ge1$, we have 
+%  \[\dim\Hom(P_m,P_m)=1,\quad \dim\Hom(P_m,P_{m+1})=n,\quad \dim\Hom(P_{m+1},P_m)=0, \quad\dim\Ext(P_{m+1},P_m)=0.\]  
+%  Moreover, for $1\le k<n$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, the map $[f_1\ \cdots\ f_k]:P_m^k\to P_{m+1}$ is injective. 
+%\end{lemma}
+%\begin{proof} 
+%  Note that we have an Auslander-Reiten sequence
+%  \begin{equation}
+%    \label{eq:AR sequence}
+%    0\longrightarrow P_{m-1}\stackrel{\iota_{m-1}}{\longrightarrow} P_m^n\stackrel{[f_1\ \cdots\ f_n]}{\longrightarrow} P_{m+1}\longrightarrow 0
+%  \end{equation}
+%  with irreducible homomorphisms $f_i$ which are also linearly independent. 
+%  Thus they do not factor through a representation $Z\neq P_{m}$ which already means that they are injective, see for instance \cite[Lemma 1.6]{ass}. 
+%  If we pick $k<n$ linearly independent homomorphisms $f_{i_1},\ldots, f_{i_k}$, this also means that $[f_{i_1}\ \cdots\ f_{i_k}]:P_m^k\to P_{m+1}$ is injective. 
+%  Indeed otherwise, at least one of the homomorphisms would be forced to factor through a representation $Z\neq P_{m}$.
+%\end{proof}
+%\begin{remark}
+%  Fix a basis $\{f_{m,1},\ldots,f_{m,n}\}$ for $\Hom(P_m,P_{m+1})$, $m\ge2$.
+%  Define a basis $\{f_{\ell,1},\ldots,f_{\ell,n}\}$ for each $\Hom(P_\ell,P_{\ell+1})$, $1\le\ell\le m-1$, by downward induction as follows.  
+%  Write $\iota_\ell:P_\ell\to P_{\ell+1}^n$ for the left-hand morphism from the sequence \eqref{eq:AR sequence} computed using $f_k=f_{\ell+1,k}$, $1\le k\le n$. 
+%  Then the basis element $f_{\ell,k}$ is given by composing $\iota_\ell$ with the coordinate projection $\pi_k:P_{\ell+1}^n\to P_{\ell+1}$ onto the $k$-th factor.
+%  Indeed, applying $\Hom(-,P_{\ell+1})$ to this sequence \eqref{eq:AR sequence} gives an isomorphism $\Hom(P_{\ell+1}^n,P_{\ell+1})\cong\Hom(P_\ell,P_{\ell+1})$ whereby the natural basis of coordinate projections on the left is taken to the basis $\{f_{\ell,k}\}$ on the right.
+%\end{remark}
+\begin{corollary}
+  \label{cor:preprojective homomorphism duality}
+  The sequence \eqref{eq:AR sequence} gives rise to an isomorphism $H_m^*\cong H_{m-1}$.
+\end{corollary}
+\begin{proof}
+  Define a map $\Theta:H_m^*\to H_{m-1}$ by $\Theta(\varphi)=(id\overline{\otimes}\varphi)\circ\iota_{m-1}$, in words $\Theta(\varphi)$ acts on $x\in P_{m-1}$ by contracting with the second factor in $\iota_{m-1}(x)$ to give an element of $P_m$.
+  Suppose $\varphi\in H_m^*$ is a nonzero functional on $H_m$ and let $V\subsetneq H_m$ denote the kernel of $\varphi$.
+  Then $\Theta(\varphi)=0\in H_{m-1}$ if and only if the image of $\iota_{m-1}$ is contained in $P_m\otimes V\subsetneq P_m\otimes H_m$.
+  But then Lemma~\ref{le:injective evaluation maps} implies $\iota_{m-1}$ is the zero map, a contradiction.
+  Thus $\Theta:H_m^*\to H_{m-1}$ must be injective and hence an isomorphism.
+\end{proof}
+\begin{remark}
+  The set $Gr(H_m)$ is naturally a poset and Corollary~\ref{cor:preprojective homomorphism duality} gives an identification of the opposite poset $Gr(H_m)^{op}\cong Gr(H_m^*)$ with $Gr(H_{m-1})$.
+  We write $\bar{V}\subset H_{m-1}$ for the subspace corresponding to $V\subset H_m$ under this identification.
+  Under the isomorphism of $H_{m-1}$ with $H_m^*$, we have $\bar{V}=(H_m/V)^*$.
+\end{remark}
+
+\begin{definition}
+  For $V\in Gr(H_m)$, define the \emph{truncated preprojective} $P_{m+1}^V$ to be the cokernel of the map $ev_V:P_m\otimes V\to P_{m+1}$, i.e.\ we have a short exact sequence
   \begin{equation}
-    \label{eq:AR sequence}
-    0\longrightarrow P_{m-1}\stackrel{\iota}{\longrightarrow} P_m^n\stackrel{[f_1\ \cdots\ f_n]}{\longrightarrow} P_{m+1}\longrightarrow 0
+    \label{eq:truncated preprojectives}
+    0\longrightarrow P_m\otimes V\stackrel{ev_V}{\longrightarrow} P_{m+1}\stackrel{\pi_V}{\longrightarrow} P_{m+1}^V\longrightarrow 0.
   \end{equation}
-  with irreducible homomorphisms $f_i$ which are also linearly independent. 
-  Thus they do not factor through a representation $Z\neq P_{m}$ which already means that they are injective, see for instance \cite[Lemma 1.6]{ass}. 
-  If we pick $k<n$ linearly independent homomorphisms $f_{i_1},\ldots, f_{i_k}$, this also means that $[f_{i_1}\ \cdots\ f_{i_k}]:P_m^k\to P_{m+1}$ is injective. 
-  Indeed otherwise, at least one of the homomorphisms would be forced to factor through a representation $Z\neq P_{m}$.
+\end{definition}
+\begin{remark}
+  It will be convenient to also set $P_{m+1}^0=P_{m+1}$, observe that this notation is consistent with taking $V=0$ in the sequence \eqref{eq:truncated preprojectives}.
+\end{remark}
+
+\begin{lemma}
+  \label{le:basic homological properties}
+  For $V\in Gr(H_m)$, $m\ge1$, we have $\Hom(P_{m+1}^V,P_\ell)=0=\Ext(P_\ell,P_{m+1}^V)$ for all $\ell\ge1$.
+  Moreover, $\Hom(P_{m+1},P_{m+1}^V)$ is the one-dimensional space spanned by the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
+\end{lemma}
+\begin{proof}
+  The first claim is immediate since $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some $\ell\ge1$ implies all indecomposable summands of $X$ are preprojectives of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$), whereas $P_{m+1}^V$ is not preprojective.
+  For the second claim we apply the functor $\Hom(P_{m+1},-)$ to the sequence \eqref{eq:truncated preprojectives} and obtain an isomorphism $\Hom(P_{m+1},P_{m+1})\cong\Hom(P_{m+1},P_{m+1}^V)$ by which the identity map on $P_{m+1}$ is taken to the projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
 \end{proof}
 
-Write $P_{m+1}^{\{f_1,\ldots,f_k\}}$ for the cokernel of the map $[f_1\ \cdots\ f_k]:P_m^k\to P_{m+1}$, i.e. we have a short exact sequence
-\begin{equation}
-\label{eq:truncated preprojectives}
-  0\longrightarrow P_m^k\stackrel{[f_1\ \cdots\ f_k]}{\longrightarrow} P_{m+1}\longrightarrow P_{m+1}^{\{f_1,\ldots,f_k\}}\longrightarrow 0.
-\end{equation}
+\begin{corollary}
+  For $V\in Gr(H_m)$, $m\ge1$, the truncated preprojective $P_{m+1}^V$ is indecomposable.
+\end{corollary}
+\begin{proof}
+  Applying the functor $\Hom(-,P_{m+1}^V)$ to the sequence \eqref{eq:truncated preprojectives} gives an injective map from $\Hom(P_{m+1}^V,P_{m+1}^V)$ to the one-dimensional space $\Hom(P_{m+1},P_{m+1}^V)$.
+  In particular, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable.
+\end{proof}
+
+The total Grassmannian $Gr(H_m)$ is naturally a poset under inclusion which we extend to a $\CC$-linear category $\CC Gr(H_m)$ with objects the elements of $Gr(H_m)$ and at most one morphism (up to scalars) between any two objects.
+Write $\cP_{m+1}$ for the full subcategory of $\rep K(n)$ with objects the truncated preprojectives $P_{m+1}^V$ for $V\in Gr(H_m)$.
+\begin{lemma}
+  \label{le:unique morphisms}
+  The functor $V\mapsto P_{m+1}^V$ gives an isomorphism of categories $\CC Gr(H_m)\cong\cP_{m+1}$.
+  In particular, there exists a morphism $P_{m+1}^W\to P_{m+1}^V$ for $V,W\in Gr(H_m)$ if and only if $W\subset V$ and this morphism is unique (up to scalars) when it exists.
+\end{lemma}
+\begin{proof}
+  Given $V,W\in Gr(H_m)$, we apply the functor $\Hom(-,P_{m+1}^V)$ to the sequence \eqref{eq:truncated preprojectives} for $W$ to get an exact sequence
+  \[0\longrightarrow \Hom(P_{m+1}^W,P_{m+1}^V)\longrightarrow \Hom(P_{m+1},P_{m+1}^V)\stackrel{-\circ ev_W}{\longrightarrow} \Hom(P_m\otimes W,P_{m+1}^V).\]
+  But the space $\Hom(P_{m+1},P_{m+1}^V)$ is one-dimensional, spanned by the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$, and thus $\Hom(P_{m+1}^W,P_{m+1}^V)$ is nonzero if and only if the right hand morphism of the above sequence is zero.
+  But this occurs exactly when the image of $ev_W:P_m\otimes W\to P_{m+1}$ is contained in the kernel of $\pi_V$, i.e.\ in the image of $ev_V:P_m\otimes V\to P_{m+1}$, and this occurs if and only if $W\subset V$. 
+\end{proof}
 
 \begin{lemma}
-  For $m\ge1$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, the following hold:
+  \label{le:irreducible morphisms}
+  For $V\in Gr(H_m)$, $m\ge1$, and $W\subsetneq V$ with $\codim_V W=1$, the unique morphism $P_{m+1}^W\to P_{m+1}^V$ is irreducible.
+\end{lemma}
+In particular, the poset $Gr(H_m)$, thought of as a directed graph, can be identified with a subset of the Auslander-Reiten quiver of $K(n)$.
+
+\begin{lemma}
+  \label{le:truncated homomorphisms}
+  For $V\in Gr(H_m)$, $m\ge1$, we have $\Hom(P_m,P_{m+1}^V)\cong H_m/V$.
+\end{lemma}
+\begin{proof}
+  Applying the functor $\Hom(P_m,-)$ to the sequence \eqref{eq:truncated preprojectives} gives an exact sequence
+  \[\xymatrix{0 \ar[r] & \Hom(P_m,P_m\otimes V) \ar[r] & \Hom(P_m,P_{m+1}) \ar[r] & \Hom(P_m,P_{m+1}^V) \ar[r] & 0}.\]
+  But there is a natural isomorphism $\Hom(P_m,P_m\otimes V)\cong V$ and the result follows.
+\end{proof}
+  
+\begin{corollary}
+    For $V,W\in Gr(H_m)$ with $V\subset W$, we have $\Ext(P_{m+1}^V,P_{m+1}^W)\cong V^*\otimes(H_m/W)$.
+\end{corollary}
+\begin{proof}
+  Applying the functor $\Hom(-,P_{m+1}^W)$ to the sequence \eqref{eq:truncated preprojectives} gives an injective map $\Hom(P_{m+1}^V,P_{m+1}^W)\to\Hom(P_{m+1},P_{m+1}^W)$ which is an isomorphism by Lemma~\ref{le:basic homological properties} and Lemma~\ref{le:unique morphisms}.
+  Since $\Ext(P_{m+1},P_{m+1}^W)=0$ again by Lemma~\ref{le:basic homological properties}, it follows that there is an isomorphism 
+  \[\Ext(P_{m+1}^V,P_{m+1}^W)\cong\Hom(P_m\otimes V,P_{m+1}^W)\cong V^*\otimes H_m/W,\]
+  where the last isomorphism is immediate from Lemma~\ref{le:truncated homomorphisms}.
+\end{proof}
+
+\begin{lemma}
+  \label{le:truncated extensions}
+  For $V\in Gr(H_m)$, $m\ge1$, we have $\Ext(P_{m+1}^V,P_m)\cong V^*$, where each nontrivial extension naturally corresponds to a codimension 1 subspace $U\subset V$. 
+  More precisely, each element of $\Ext(P_{m+1}^V,P_m)$ corresponds to an exact sequence
+  \[\xymatrix{0 \ar[r] & P_m \ar[r] & P_{m+1}^U \ar[r] & P_{m+1}^V \ar[r] & 0},\]
+where $U\subset V$ satisfies $\dim(V/U)=1$.
+\end{lemma}
+\begin{proof}
+  Consider a nonzero map $\varphi\in V^*$ and set $U=\ker\varphi\subset V$.
+  There is a natural isomorphism $V^*\cong\Hom(P_m\otimes V,P_m)$ which takes $\varphi$ to $id\overline{\otimes}\varphi$.
+  This gives rise to the following commutative diagram:
+  \[\xymatrix{ & 0 \ar[d] & 0 \ar[d] & & \\
+    & P_m\otimes U \ar@{=}[r]\ar[d] & P_m\otimes U \ar[d] & & \\
+    0 \ar[r] & P_m\otimes V \ar[d]^{id\overline{\otimes}\varphi}\ar[r]\ar@{}[dr]|(.7){\lrcorner}\ar@{}[dr]|(.3){\ulcorner} & P_{m+1} \ar[r]\ar[d] & P_{m+1}^V \ar[r]\ar@{=}[d] & 0\\
+    0 \ar[r] & P_m \ar[r]\ar[d] & P_{m+1}^U \ar[r]\ar[d] & P_{m+1}^V \ar[r] & 0\\
+   & 0 & 0 & & }\]
+  By Lemma~\ref{le:basic homological properties}, we may apply the functor $\Hom(-,P_m)$ to the sequence \eqref{eq:truncated preprojectives} to get the isomorphism 
+  \[\Ext(P_{m+1}^V,P_m)\cong\Hom(P_m\otimes V,P_m)\cong V^*.\]
+  Under this isomorphism, the functional $\varphi$ corresponds to the lower pushout sequence in the above diagram.
+\end{proof}
+
+\begin{lemma}
+  \label{le:unique truncated extension}
+  For $V\in Gr(H_m)$, $m\ge2$, the space $\Ext(P_{m+1}^V,P_{m-1})$ is one-dimensional and spanned by the extension
+  \begin{equation}
+    \label{eq:unique extension}
+    \xymatrix{0 \ar[r] & P_{m-1} \ar[r]^(.375){\kappa_V} & P_m\otimes(H_m/V) \ar[r] & P_{m+1}^V \ar[r] & 0}.
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  Applying the functor $\Hom(-,P_{m-1})$ to the sequence \eqref{eq:truncated preprojectives} gives an isomorphism $\Ext(P_{m+1}^V,P_{m-1})\cong\Ext(P_{m+1},P_{m-1})$ with a one-dimensional space.
+  Writing $X$ for the unique extension of $P_{m+1}^V$ by $P_{m-1}$, this isomorphism gives rise to the following pullback diagram:
+  \[\xymatrix{ & & 0 \ar[d] & 0\ar[d] & \\
+    & & P_m\otimes V \ar@{=}[r]\ar[d] & P_m\otimes V\ar[d] & \\
+    0 \ar[r] & P_{m-1} \ar@{=}[d]\ar[r]^(.425){\iota_{m-1}} & P_m\otimes H_m \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & P_{m+1} \ar[r]\ar[d] & 0\\
+    0 \ar[r] & P_{m-1} \ar[r]^{\kappa_V} & X \ar[r]\ar[d] & P_{m+1}^V \ar[r]\ar[d] & 0\\
+    & & 0 & 0 & }\]
+  from which we immediately obtain the isomorphism $X\cong P_m\otimes(H_m/V)$.
+\end{proof}
+\begin{corollary}
+  Suppose $V\in Gr(H_m)$ has codimension one in $H_m$.  Then $P_{m+1}^V\cong P_m^{\bar{V}}$.
+\end{corollary}
+\begin{proof}
+  By Lemma~\ref{le:unique truncated extension}, we have the exact sequence
+  \[\xymatrix{0 \ar[r] & P_{m-1} \ar[r]^(.35){\kappa_V} & P_m\otimes(H_m/V) \ar[r] & P_{m+1}^V \ar[r] & 0}.\]
+  But $H_m/V$ is a one-dimensional vector space and so $P_m\otimes(H_m/V)\cong P_m$.
+  Under this identification, the left hand morphism $\kappa_V$ in the sequence above identifies with a generator of $\bar{V}$ and thus $P_{m+1}^V\cong P_m^{\bar{V}}$.
+\end{proof}
+
+\begin{lemma}
+  \label{le:more truncated homomorphisms}
+  For $W\in Gr(H_m)$, $m\ge2$, the following hold:
   \begin{enumerate}
-    \item $\Hom(P_m,P_{m+1}^{\{f_1,\ldots,f_k\}})$ is naturally isomorphic to $\Hom(P_m,P_{m+1})/\kk f_1\oplus\cdots\oplus\kk f_k$;
-    \item $\Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m)$ is naturally isomorphic to $\kk f_1\oplus\cdots\oplus\kk f_k$;
-    \item $\Hom(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m)=0$.
+    \item $\Hom(P_{m-1},P_m^{\bar{W}})\cong W^*$;
+    \item $\Hom(P_{m+1},P_m^{\bar{W}})\cong (H_m/W)^*$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  Applying the functor $\Hom(P_m,-)$ to the sequence \eqref{eq:truncated preprojectives} gives the exact sequence
-  \[0\longrightarrow \Hom(P_m,P_m^k)\stackrel{[f_1\ \cdots\ f_k]\circ}{\longrightarrow} \Hom(P_m,P_{m+1})\longrightarrow \Hom(P_m,P_{m+1}^{\{f_1,\ldots,f_k\}})\longrightarrow 0,\]
-  establishing (1).  
-  
-  To see (2), we apply the functor $\Hom(-,P_m)$ to the sequence \eqref{eq:truncated preprojectives} to get an isomorphism $\Hom(P_m^k,P_m)\cong\Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m)$.
-  Observe that $\Hom(P_m^k,P_m)$ is spanned by the coordinate projections $\pi_i:P_m^k\to P_m$ for $1\le i\le k$ and each of these gives rise to a commutative diagram
-  \[\xymatrix{ & 0\ar[d] & 0\ar[d] & & \\ & P_m^{k-1}\ar[d]\ar@{=}[r]& P_m^{k-1}\ar[d]^{[f_1\ \cdots\ \widehat{f_i}\ \cdots\ f_k]}& & \\
-    0\ar[r]& P_m^k\ar[r]^{[f_1\ \cdots\ f_k]}\ar[d]^{\pi_i}\ar@{}[dr]|(.35){\ulcorner}& P_{m+1}\ar[r]\ar[d]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]\ar@{=}[d]& 0 \\
-    0\ar[r]& P_m\ar[r]^(.35){f_i}\ar[d]& P_{m+1}^{\{f_1,\ldots,\widehat{f_i},\ldots,f_k\}}\ar[r]\ar[d]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]& 0\\
-     & 0 & 0 & & }\]
-  where $\hat f_i$ above indicates that the function $f_i$ has been omitted.
-  The bottom row of this diagram is the extension from $\Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m)$ which is naturally identified with the generator $f_i$ of $\kk f_1\oplus\cdots\oplus\kk f_k$.
+  By Corollary~\ref{cor:preprojective homomorphism duality}, we have $H_{m-1}\cong H_m^*$ and $\bar{W}\cong(H_m/W)^*$.
+  Then Lemma~\ref{le:truncated homomorphisms} gives the isomorphism
+  \[\Hom(P_{m-1},P_m^{\bar{W}})\cong H_{m-1}/\bar{W}\cong H_m^*/(H_m/W)^*\cong W^*.\]
 
-  Part (3) follows immediately from $\Hom(P_{m+1},P_m)=0$.
-	%(2) and the observation that 
-  %\[\langle P_{m+1}^{\{f_1,\ldots,f_k\}},P_m\rangle=\langle P_{m+1},P_m\rangle-k\langle P_m,P_m\rangle=-k.\]
+  Applying the functor $\Hom(-,P_m^{\bar{W}})$ to the sequence \eqref{eq:AR sequence} we get an exact sequence 
+  \[\xymatrix{0 \ar[r] & \Hom(P_{m+1},P_m^{\bar{W}}) \ar[r] & \Hom(P_m\otimes H_m,P_m^{\bar{W}}) \ar[r] & \Hom(P_{m-1},P_m^{\bar{W}}) \ar[r] & 0}.\]
+  By Lemma~\ref{le:basic homological properties}, the middle space above is isomorphic to $H_m^*$ and thus $\Hom(P_{m+1},P_m^{\bar{W}})$ can be identified with the kernel of the natural map $H_m^*\to W^*$, i.e.\ with the space $(H_m/W)^*$.
+\end{proof}
+\begin{corollary}
+  For $V,W\in Gr(H_m)$, $m\ge2$, we have natural isomorphisms 
+  \[\Hom(P_{m+1}^V,P_m^{\bar{W}})\cong\big(H_m/(V+W)\big)^*\quad\text{and}\quad\Ext(P_{m+1}^V,P_m^{\bar{W}})\cong(V\cap W)^*.\]
+\end{corollary}
+\begin{proof}
+  Applying the functor $\Hom(-,P_m^{\bar{W}})$ to the sequence \eqref{eq:truncated preprojectives} we get an exact sequence
+  \[\xymatrix{0 \ar[r] & \Hom(P_{m+1}^V,P_m^{\bar{W}}) \ar[r] & \Hom(P_{m+1},P_m^{\bar{W}}) \ar[r] & \Hom(P_m\otimes V,P_m^{\bar{W}}) \ar[r] & \Ext(P_{m+1}^V,P_m^{\bar{W}}) \ar[r] & 0}.\]
+  By Lemma~\ref{le:more truncated homomorphisms}, we may identify $\Hom(P_{m+1}^V,P_m^{\bar{W}})$ and $\Ext(P_{m+1}^V,P_m^{\bar{W}})$ with the kernel and cokernel of the natural map $(H_m/W)^*\to V^*$.
+  The result immediately follows from this.
+\end{proof}
+\begin{remark}
+  It is slightly easier to understand the dual of the diagram figuring in the proof above, in particular it is immediate that the kernel of the natural morphism $V\to H_m/W$ is $V\cap W$ while the cokernel of this morphism is $H_m/(V+W)$.
+\end{remark}
+
+Let $\tau:\rep K(n)\to\rep K(n)$ denote the Auslander-Reiten translation.
+\begin{lemma}
+  For $m\ge2$ and $V\in Gr(H_m)$, the Auslander-Reiten translate of the truncated preprojective $P_{m+1}^V$ is again a truncated preprojective representation of $K(n)$.  More precisely, we have $\tau(P_{m+1}^V)=P_{m-1}^{\bar{\bar{V}}}$.
+\end{lemma}
+\begin{proof}
+  Under the Auslander-Reiten translation, the subspace $V\subset H_m$ is taken to a subspace $\tilde V\subset H_{m-2}$ of the same dimension.
+  It follows that the evaluation morphism $P_m\otimes V\stackrel{ev_V}{\longrightarrow} P_{m+1}$ transforms via $\tau$ to the evaluation morphism $P_{m-2}\otimes\tilde V\stackrel{ev_{\tilde V}}{\longrightarrow} P_{m-1}$.
+  Thus the sequence \eqref{eq:truncated preprojectives} transforms via $\tau$ to the exact sequence
+  \[0\longrightarrow P_{m-2}\otimes \tilde V\stackrel{ev_{\tilde V}}{\longrightarrow} P_{m-1}\stackrel{\pi_{\tilde V}}{\longrightarrow} P_{m-1}^{\tilde V}\longrightarrow 0.\]
+  This proves the first claim.
+
+  It remains to show that $\tilde V=\bar{\bar{V}}$.
 \end{proof}
 
 \begin{lemma}
-  Let $f_1,\ldots,f_n\in\Hom(P_m,P_{m+1})$ be linearly independent morphisms and write $g:P_{m-1}\to P_m$ for the composition of the inclusion $\iota:P_{m-1}\hookrightarrow P_m^n$ from \eqref{eq:AR sequence} with the projection $\pi_n:P_m^n\to P_m$ to the $n$-th factor.  Then $P_{m+1}^{\{f_1,\ldots,f_{n-1}\}}=P_m^{\{g\}}$.
+  \label{le:truncated exact sequences}
+  For $V\in Gr(H_m)$, $m\ge2$, each nontrivial direct sum decomposition $V=U\oplus W$ gives rise to an exact sequence
+  \[\xymatrix{0 \ar[r] & P_{m+1} \ar[r] & P_{m+1}^U\oplus P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
+  representing a distinct class in $\Ext(P_{m+1}^V,P_{m+1})$.
 \end{lemma}
 \begin{proof}
-  We have the following commutative diagram
-  \[\xymatrix{0\ar[r]& P_m^{n-1}\ar@{=}[d]\ar[r]& P_m^n\ar[r]^{\pi_n}\ar[d]^{[f_1\ \cdots\ f_n]}\ar@{}[dr]|(.65){\lrcorner}& P_m\ar[r]\ar[d]^{f_n}& 0 \\
-  0\ar[r]& P_m^{n-1}\ \ \ \ar[r]^{[f_1\ \cdots\ f_{n-1}]}&\ \ \ P_{m+1}\ar[r]& P_{m+1}^{\{f_1,\ldots,f_{n-1}\}}\ar[r]& 0}\]
-  Since the vertical morphism on the left is an equality, the right hand square is a pullback.  
-  But this implies the kernels of the vertical morphisms coincide.  
+  Given a nontrivial direct sum decomposition $V=U\oplus W$, we may identify $U=V/W$ and $W=V/U$ to get the following commutative diagram:
+  \[\xymatrix{ & & 0 \ar[d] & 0 \ar[d] & \\
+    & & P_m\otimes U \ar@{=}[r]\ar[d] & P_m\otimes(V/W) \ar[d] & \\
+    0 \ar[r] & P_m\otimes W \ar@{=}[d]\ar[r] & P_{m+1}\ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & P_{m+1}^W \ar[d]\ar[r] & 0 \\
+    0 \ar[r] & P_m\otimes(V/U) \ar[r] & P_{m+1}^U \ar[r]\ar[d] & P_{m+1}^V \ar[r]\ar[d] & 0\\
+    & & 0 & 0 & }\]
+  Since the left vertical morphism (or upper horizontal morphism) is an equality, the lower right square is a pullback.
+  It follows that the sequence
+  \[\xymatrix{0 \ar[r] & P_{m+1} \ar[r] & P_{m+1}^U\oplus P_{m+1}^W \ar[r] & P_{m+1}^V}\]
+  is exact.
+  But the morphism $P_{m+1}^U\oplus P_{m+1}^W\to P_{m+1}^V$ is clearly surjective and thus we obtain an element of $\Ext(P_{m+1}^V,P_{m+1})$.
 
-  The middle vertical morphism fits into the exact sequence \eqref{eq:AR sequence} and so its kernel is $P_{m-1}$.
-  It follows that the resulting morphism $g:P_{m-1}\to P_m$, which is the kernel of the right-hand vertical morphism, satisfies $P_m^{\{g\}}=P_{m+1}^{\{f_1,\ldots,f_{n-1}\}}$.
+  For the final claim we observe that, for another direct sum decomposition $V=U'\oplus W'$, the representations $P_{m+1}^U\oplus P_{m+1}^W$ and $P_{m+1}^{U'}\oplus P_{m+1}^{W'}$ are isomorphic if and only if the direct sum decompositions $V=U\oplus W$ and $V=U'\oplus W'$ are the same up to permutation of summands.
 \end{proof}
 
-For any nonempty subset $I\subset[1,k]$, say with $|I|=\ell$, we get an exact sequence
-\[0\longrightarrow P_m^\ell\stackrel{[f_i]_{i\in I}}{\longrightarrow} P_{m+1}^{\{f_j\}_{j\in[1,k]\setminus I}}\longrightarrow P_{m+1}^{\{f_1,\ldots,f_k\}}\longrightarrow 0.\]
-Each such sequence has the following almost-split property for subrepresentations of $P_{m+1}^{\{f_1,\ldots,f_k\}}$.
+For $V\in Gr(H_m)$, $m\ge1$, any subspace $W\subset V$ gives rise to an exact sequence
+\[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar[r]^(.6){ev} & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0},\]
+where the left hand morphism above is the natural evaluation morphism coming from Lemma~\ref{le:truncated homomorphisms}.
+Each such sequence has the following almost-split property for proper subrepresentations of $P_{m+1}^V$.
 \begin{lemma}
-  For $m\ge1$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, given any proper subrepresentation $V\subsetneq P_{m+1}^{\{f_1,\ldots,f_k\}}$, the upper pullback sequence
-  \[\xymatrix{0\ar[r] & P_m^\ell\ar@{=}[d]\ar[r] & V^I\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & V\ar[d]\ar[r] & 0 \\
-  0\ar[r]& P_m^\ell\ar[r]^(.35){[f_i]_{i\in I}} & P_{m+1}^{\{f_j\}_{j\in[1,k]\setminus I}}\ar[r]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]& 0}\]
-  splits for every $I\subset[1,k]$.
+  For $V\in Gr(H_m)$, $m\ge1$, given any proper subrepresentation $X\subsetneq P_{m+1}^V$, the upper pullback sequence
+  \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar@{=}[d]\ar[r] & Y\ar[r] \ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\ar[r] & 0 \\
+    0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
+  splits for every proper subspace $W\subsetneq V$.
 \end{lemma}
 \begin{proof}
-  When $I=\varnothing$, we have $\ell=0$ and there is nothing to show, so assume $I$ is a nontrivial subset of $[1,k]$.  
-  
-  We proceed by simultaneous induction on $k$ and $\ell=|I|$.  For any nonzero $f\in\Hom(P_m,P_{m+1})$ the exact sequence
-  \[\xymatrix{0\ar[r] & P_m\ar[r]^f & P_{m+1}\ar[r] & P_{m+1}^{\{f\}}\ar[r] & 0}\]
-  is almost split, giving the claim in the case $k=\ell=1$.  For $k>1$ and a nontrivial proper subset $I\subsetneq[1,k]$, we have the following commutative diagram
-  \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & P_m^{k-\ell}\ar@{=}[r]\ar[d]^{[f_j]_{j\in[1,k]\setminus I}} & P_m^{k-\ell}\ar[d]^{[f_j]_{j\in[1,k]\setminus I}}\ar[r] & 0 \\
-  0\ar[r] & P_m^\ell\ar@{=}[d]\ar[r]^{[f_i]_{i\in I}} & P_{m+1}\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & P_{m+1}^{\{f_i\}_{i\in I}}\ar[d]\ar[r] & 0 \\
-  0\ar[r]& P_m^\ell\ar[r]^(.35){[f_i]_{i\in I}}\ar[d] & P_{m+1}^{\{f_j\}_{j\in[1,k]\setminus I}}\ar[r]\ar[d] & P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]\ar[d]& 0\\ & 0 & 0 & 0 & }\]
-  A proper subrepresentation $V\subsetneq P_{m+1}^{\{f_1,\ldots,f_k\}}$ gives rise, via pullbacks, to the following commutative diagram
-  \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & P_m^{k-\ell}\ar@{=}[r]\ar[d]^{[f_j]_{j\in[1,k]\setminus I}} & P_m^{k-\ell}\ar[d]^{[f_j]_{j\in[1,k]\setminus I}}\ar[r] & 0 \\
-  0\ar[r] & P_m^\ell\ar@{=}[d]\ar[r]^{[f_i]_{i\in I}} & V^{[1,k]}\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & V^{[1,k]\setminus I}\ar[d]\ar[r] & 0 \\
-  0\ar[r]& P_m^\ell\ar[r]^(.35){[f_i]_{i\in I}}\ar[d] & V^I\ar[r]\ar[d] & V\ar[r]\ar[d]& 0\\ & 0 & 0 & 0 & }\]
-  in which the middle vertical sequence and the middle horizontal sequence split by induction.  
-  But the images of $[f_i]_{i\in I}$ and $[f_j]_{j\in[1,k]\setminus I}$ intersect trivially inside $V^{[1,k]}$ and thus the lower horizontal sequence must split as well, establishing the claim for $I\subsetneq[1,k]$.
+  We proceed by induction on $\codim_V W$.  
+  When $\codim_V W=1$, we have an exact sequence
+  \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\] 
+  with both morphisms irreducible by Lemma~\ref{le:irreducible morphisms} and the claim immediately follows.
 
-  For $I=[1,k]$, we consider the commutative diagram
-  \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & P_{m+1}\ar@{=}[r]\ar[d] & P_{m+1}\ar[d]\ar[r] & 0 \\
-  0\ar[r] & P_m^{k-1}\oplus P_m\ar@{=}[d]\ar[r] & P_{m+1}\oplus P_{m+1}\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & P_{m+1}^{\{f_1\ \cdots\ f_{k-1}\}}\oplus P_{m+1}^{\{f_k\}}\ar[d]\ar[r] & 0 \\
-  0\ar[r]& P_m^k\ar[r]^{[f_1\ \cdots\ f_k]}\ar[d] & P_{m+1}\ar[r]\ar[d] & P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]\ar[d]& 0\\ & 0 & 0 & 0 & }\]
-  A proper subrepresentation $V\subsetneq P_{m+1}^{\{f_1,\ldots,f_k\}}$ then gives rise to the following commutative diagram
-  \[\xymatrix{ & & 0\ar[d] & 0\ar[d] & \\   & 0\ar[r]\ar[d] & V^{[1,k]}\ar@{=}[r]\ar[d]^{\Delta} & V^{[1,k]}\ar[d]\ar[r] & 0 \\
-  0\ar[r] & P_m^{k-1}\oplus P_m\ar@{=}[d]\ar[r] & V^{[1,k]}\oplus V^{[1,k]}\ar[r]\ar[d]\ar@{}[dr]|{\lrcorner} & V^{[1,k]\setminus I}\oplus V^I\ar[d]\ar[r] & 0 \\
-  0\ar[r]& P_m^k\ar[r]\ar[d] & V^{[1,k]}\ar[r]\ar[d] & V\ar[r]\ar[d]& 0\\ & 0 & 0 & 0 & }\]
-  in which the middle vertical sequence splits and the middle horizontal sequence is split by induction.  
-  But the image of $[f_1\ \cdots\ f_k]:P_m^{k-1}\oplus P_m\to V^{[1,k]}\oplus V^{[1,k]}$ and the diagonal $\Delta:V^{[1,k]}\to V^{[1,k]}\oplus V^{[1,k]}$ intersect trivially because $f_1,\ldots,f_k$ are linearly independent.
-  As above the lower horizontal sequence also splits, establishing the claim for $I=[1,k]$.
+  Suppose $W\subsetneq V$ with $\codim_V W>1$ and choose an intermediate subspace $W\subsetneq T\subsetneq V$.
+  Given $X\subsetneq P_{m+1}^V$, we have the pullback diagram
+  \[\xymatrix{ Y \ar[d]\ar[r]\ar@{}[dr]|(.7){\lrcorner} & Y'\ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\\
+  P_{m+1}^W \ar[r] & P_{m+1}^T \ar[r] & P_{m+1}^V}\]
+  in which all horizontal morphisms of the upper row are split epimorphisms by induction.
+  The result now follows since the outer square is also a pullback.
 \end{proof}
+
+
+%\begin{lemma}
+%  For $m\ge1$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, a subrepresentation $V\subset P_m$ fits into a commutative diagram
+%  \[\xymatrix{0\ar[r] & V\ar[d]\ar[r]\ar@{}[dr]|(.3){\ulcorner} & W\ar[d]\ar[r] & P_{m+1}^{\{f_1,\ldots,f_k\}}\ar@{=}[d]\ar[r] & 0 \\
+%  0\ar[r]& P_m\ar[r]^(.35){f_k} & P_{m+1}^{\{f_1,\ldots,f_{k-1}\}}\ar[r]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]& 0}\]
+%  if and only if the lower pushout sequence below splits: 
+%  \[\xymatrix{0\ar[r]& P_m\ar[r]^(.35){f_k}\ar[d]\ar@{}[dr]|(.3){\ulcorner} & P_{m+1}^{\{f_1,\ldots,f_{k-1}\}}\ar[r]\ar[d]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar@{=}[d]\ar[r]& 0\\ 0\ar[r]& P_m/V\ar[r] & X\ar[r] & P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r] & 0}.\]
+%  This occurs (?) if and only if the composed morphism
+%  \[\xymatrix{V\ar[r] & P_m\ar[r] & P_m^{\{g_2,\ldots,g_n\}}\ar@{=}[r] & P_{m-1}^{\{g_1\}}\ar[r] & P_{m-1}^{\{g_1,\ldots,g_k\}}}\]
+%  is nonzero.
+%  
+%  there is a commutative diagram
+%\end{lemma}
+%\begin{proof}
+%  For a proper subrepresentation $V\subset P_m$ we have
+%  \[0\longrightarrow \Hom(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m/V)\longrightarrow \Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},V)\longrightarrow \Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m)\longrightarrow \Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m/V)\longrightarrow 0\]
+%  and
+%  \[0\longrightarrow \Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},V)\longrightarrow \Ext(P_{m+1},V)\longrightarrow \Ext(P_m^k,V)\longrightarrow 0.\]
+%\end{proof}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
