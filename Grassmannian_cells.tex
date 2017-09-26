@@ -34,7 +34,7 @@
 \newcommand{\ui}{\underline i}
 \newcommand{\uj}{\underline j}
 \newcommand\udim{{\underline{\dim}\, }}
-
+\newcommand{\pt}{\mathrm{pt}}
 \newcommand{\Rep}{\mathrm{Rep}}
 \newcommand{\rep}{\operatorname{rep}}
 \newcommand{\Gr}{\mathrm{Gr}}
@@ -103,10 +103,18 @@ As $F_Q$ and $G_Q$ are covering functors when restricting to one connected compo
 \begin{theorem}\label{covering}
 The functors $F_Q$ and $G_Q$ preserve indecomposability. Moreover, for all representations $\hat X,\hat Y \in\Rep(\hat Q)$, we have 
 \[\Hom_Q(F_Q\hat X, F_Q\hat Y)\cong \bigoplus_{\chi\in A_Q}\Hom_{\tilde Q}(\hat X_\chi,\hat Y)\cong\bigoplus_{\chi\in A_Q}\Hom_{\tilde Q}(\hat X,\hat Y_\chi).\]
-The analogous statement is true when replacing $\Rep(\hat Q)$ by $\Rep(\tilde Q)$.
+The analogous statement is true when replacing $\Hom$ by $\Ext$ and $\Rep(\hat Q)$ by $\Rep(\tilde Q)$ respectively.
 \end{theorem}
+
+Recall that every tuple of linear maps $(f_v:X_{s(v)}\to Y_{t(v)})_{v\in Q_1}$ defines a short exact sequence $\ses{Y}{Z}{X}$ with middle term defined by the vector spaces $Z_q=X_q\oplus Y_q$ for all $q\in Q_0$ and linear maps $Z_v=\begin{pmatrix}Y_v &f_v\\0&X_v\end{pmatrix}$ for all $v\in Q_1$. 
+In general, considering the linear map  
+\[d_{X,Y}:\bigoplus_{q\in Q_0}\Hom_k(X_q,Y_q)\to\bigoplus_{v\in Q_1}\Hom_k(X_{s(v)},Y_{t(v)}), (f_q)_{q\in Q_0}\mapsto(f_{t(v)}\circ X_{v}-Y_{s(v)}\circ f_{s(v)})_{v\in Q_1} \]
+we have $\mathrm{ker}(d_{X,Y})=\Hom_Q(X,Y)$ and $\mathrm{coker}(d_{X,Y})=\Ext_Q(X,Y)$.
+
+
+
 \subsection{Bialynicki-Birula decomposition}
-The aim of this section is to define a torus action on quiver Grassmannians which can be used to simplify the calculation of homological invariants in general. If the quiver Grassmannian is smooth, which is for instance the case for exceptional representations by \cite{cr}, it can also be used to stratify the quiver Grassmannians using the results of Bialynicki-Birula. More detailed, let $X$ be a smooth projective variety with a $\C^\ast$-action. For a connecting component of the fixed point set $C\subset X^{\C^\ast}$, we define its attracting set as
+The aim of Section \ref{torusaction} is to define a torus action on quiver Grassmannians which can be used to simplify the calculation of homological invariants in general. If the quiver Grassmannian is smooth, which is for instance the case for exceptional representations by \cite{cr}, it can also be used to stratify the quiver Grassmannians using the results of Bialynicki-Birula. More detailed, let $X$ be a smooth projective variety with a $\C^\ast$-action. For a connecting component of the fixed point set $C\subset X^{\C^\ast}$, we define its attracting set as
 \[\mathrm{Att}(C):=\{y\in X\mid \lim_{t\to 0}t.y\in C\}\]
 
 Then we have the following statement, \cite[Section 4]{bb}:
@@ -117,14 +125,13 @@ In particular, we have $\chi(X)=\chi(X^{\C^\ast})$ for the Euler characteristic.
 \end{theorem}
 
 
-\section{Torus Actions on Quiver Grassmannians}
+\section{Torus Actions on Quiver Grassmannians}\label{torusaction}
 \noindent 
-
-Fix a vector space $X$ of dimension $n$ and let $d\leq n$. We first consider a natural torus action on usual Grassmannians coming along with any direct sum decomposition of the vector space $X$. Then we generalize the concept to quiver Grassmannians, but we will see that the torus fixed point set can be calculated in an analogous manner. Thus assume that $X=\bigoplus_{j=1}^l X_j$ is a direct sum decomposition of $X$. We choose a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of $X$ which is compatible with this decomposition, i.e. there exist number $1\leq j_1\leq j_2\ldots\leq j_{l-1}\leq n$ such that
+Fix a vector space $X$ of dimension $n$ and let $d\leq n$. We first consider a natural torus action on usual Grassmannians coming along with any direct sum decomposition of the vector space $X$. Then we generalize the concept to quiver Grassmannians, but we will see that the torus fixed point set can be calculated in an analogous manner. Thus assume that $X=\bigoplus_{j=1}^l X_j$ is a direct sum decomposition of $X$. We choose a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of $X$ which is compatible with this decomposition, i.e. there exist numbers $1\leq j_1\leq j_2\ldots\leq j_{l-1}\leq n$ such that
 \[v_1,\ldots,v_{j_1}\in X_1,\,v_{j_1+1},\ldots,v_{j_2}\in X_2,\ldots,v_{j_{l-1}+1},\ldots,v_{n}\in X_l\]
 Moreover, we choose a map $d:\{1,\ldots,n\}\to\mathbb{Z}$ such that $d(i)=d(i')$ if $v_i,v_{i'}\in X_{j}$ for some $j$. Then there exists a $\C^\ast$-action on $X$ when extending the definition $t.v_i:=t^{d(j)}v_i$ if $v_i\in X_j$ linearly to $X$. This naturally induces an action of $\C^\ast$ on the usual Grassmannians $\Gr_d(X)$. We can write every $U\in\Gr_d(X)$ uniquely in row-echelon form with respect to the basis $\mathcal B$, i.e. there exists a unique sequence $1\leq i_1\leq\ldots\leq i_d\leq n$ and a unique matrix representation of $U$ of the form
 \[M(U):=\begin{pmatrix}\ast&\ldots &\ast &1&0 &\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&0\\\ast&\ldots &\ast&0&\ast&\ldots &\ast&1&0&\ldots&\ldots&\ldots&\ldots&\ldots&0\\\vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&0&\ast&\ddots&\ddots&\ddots&\ddots&\ddots&\vdots\\\vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&\vdots&\ddots&\ddots&\ddots&\ddots&\ddots&\ddots&\vdots\\\ast&\ldots &\ast&0&\ast&\ldots &\ast&0&\ast&\ldots&\ast&1&0&\ldots&0\end{pmatrix}\in M_{d,n}(k)\]
-where the unit vectors are in the columns $i_1,\ldots,i_d$. All matrix representations of this form define a Schubert cell $X_{\bfi}$ where $\bfi=(i_1,\ldots,i_d)$. The $\C^\ast$-action is then given by multiplying the $w^{\mathrm{th}}$ column with $t^{d(w)}$ where $v_w\in X_j$, i.e. we have
+where the unit vectors are in the columns $i_1,\ldots,i_d$. All matrix representations of this form define a Schubert cell $X_{\bfi}$ where $\bfi=(i_1,\ldots,i_d)$. The $\C^\ast$-action is then given by multiplying the $w^{\mathrm{th}}$ column with $t^{d(w)}$, i.e. we have
 \[(t.M(U))_{u,w}=t^{d(w)}\cdot M(U)_{u,w}.\]
 Every Schubert cell is invariant under the torus action, i.e. $t.M(U)\in X_\bfi$ for all $M(U)\in X_{\bfi}$. 
 \begin{lemma}\label{usualGrass}
@@ -856,7 +863,7 @@ $$\Ext(P_2^{(n-1)},P_1)=\langle i^{(n-1)}_{2}\xrightarrow{v_l}j_1\mid l=2,\ldots
 This defines recursively the representation $P_{2}^{(k)}$ for $k=n-1,\ldots,0$ with $P_2^{(0)}=P_2$ when considering the short exact sequences
 \[\ses{P_1}{P_2^{(k)}}{P_2^{(k+1)}}\]
 by the coefficient quivers
-\[\xymatrix@R10pt@C20pt{&&j^{(k)}_{2,1}\\ i^{(k)}_2\ar^{v_1}[rru]\ar^{v_{n-k}}[rrd] &&\vdots\\&&j^{(k)}_{2,n-k}}.\]
+\begin{align}\label{coeff}\xymatrix@R10pt@C20pt{&&j^{(k)}_{2,1}\\ i^{(k)}_2\ar^{v_1}[rru]\ar^{v_{n-k}}[rrd] &&\vdots\\&&j^{(k)}_{2,n-k}}.\end{align}
 Note that we have a short exact sequence
 \[\ses{\Hom(P_1,P_1)}{\Ext(P_2^{(k)},P_1)}{\Ext(P_2^{(k+1)},P_1)}\]
 where a basis of $\Ext(P_2^{(k)},P_1)$ consists of the last $k$ basis elements of the basis of $\Ext(P_2^{(n-1)},P_1)$.
@@ -1095,6 +1102,14 @@ The one of $P_4$ is given by:\\
 \begin{theorem}
 The Euler characteristic $\chi(\Gr_e(P_m^{(k)}))$ is given by the number of strong successor closed subsets of type $e$ of the $2$-quiver of $P_m^{(k)}$.
 \end{theorem}
+\begin{proof}
+We proceed by induction. The strong successor closed subsets of the $2$-quivers of $P_1$, $P_2$ and $P_2^{(n-1)}$ coincide with the successor closed subsets of the coefficient quivers (\ref{coeff}) which we denote by $\Gamma_M$ for $M\in\{P_1, P_2,P_2^{(n-1)}\}$. Passing to the universal cover, we have $\Gr_e(\tilde M)\in\{\emptyset,\{\pt\}\}$ such that $\Gr_e(\tilde M)=\{\pt\}$ if and only if $e\subset (\Gamma_M)_0$ is successor closed. As the number cells of $\Gr_e(\tilde M)$ and $\Gr_e(M)$ coincide, the claim follows.
+
+Thus assume that the claim is true for $P_m$ (resp. $\tilde P_{m}$) and $P_{m+1}^{(k)}$ (resp. $\tilde P_{m+1}^{(k)}$) and consider the short exact sequence
+\[\ses{\tilde P_m}{\tilde P_{m+1}^{(k-1)}}{\tilde P_{m+1}^{(k)}}.\]
+Denote the corresponding $2$-quivers by $\Gamma_{P_m}$ and $\Gamma_{P_{m+1}^{(k)}}$ and let $\beta_1\cup\beta_2\subset (\Gamma_{P_m})_0\cup (\Gamma_{P_{m+1}^{(k)}})_0$ be a pair of strong successor closed subsets which gives rise to a pair of non-empty cell by induction hypothesis. Denote by $d(\beta_1+\beta_2)$ the dimension vector corresponding to this subset. By Proposition \ref{fibers} the pair $\beta_1\cup\beta_2$, it does not correspond to a non-empty cell of $\Gr_{d(\beta_1+\beta_2)}(\tilde P_{m+1}^{(k)})$ if and only if $\beta_2=(\Gamma_{P_{m+1}^{(k)}})_0$ and $\beta_1\cap(\Gamma_{\tau\tilde P_{m+1}^{(k)}})_0=\emptyset$. But this is precisely the condition on $\beta_1\cup\beta_2$ to be strong successor closed as $\Gamma_{P_{m+1}^{(k)}}$ is connected to $\Gamma_{\tau\tilde P_{m+1}^{(k)}}$ by a $2$-arrow.
+
+\end{proof}
 
 \begin{thebibliography}{10}
 \bibitem{ass}
