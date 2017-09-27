@@ -199,7 +199,7 @@ Let $X$ be a representation which can be lifted to $\tilde Q$. Then there exists
 Write $\Sigma_1$ and $\Sigma_2$ for the BGP-reflection functors of $K(n)$ \cite{bgp}. 
 Note that (up to relabeling vertices) the quiver $K(n)$ itself does not change when applying the reflection functors and thus we view them as endofunctors acting on the category $\rep K(n)$ of finite-dimensional representations. %, but the vertices $1$ and $2$ are exchanged. 
 With this identification of $K(n)$ and $K(n)^{op}$, the endofunctors $\Sigma_1\Sigma_2$ and $\Sigma_2\Sigma_1$ are each naturally isomorphic to the identity.
-%Let $$\Sigma:=\begin{cases}\Sigma_1\text{ if vertex }1 \text{ is a source;}\\\Sigma_2\text{ if vertex }$2$ \text{ is a source.}\end{cases}$$
+Also, following \cite{brenner-butler}, the Auslander-Reiten translation $\tau:\rep K(n)\to\rep K(n)$ may be identified with the functor $\Sigma_1^2$.
 
 Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=1$, $u_{k+1}=nu_k-u_{k-1}$.
 \begin{theorem}
@@ -208,9 +208,11 @@ Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=
 \end{theorem}
 The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
 \begin{remark}
+  \label{rem:reflection recursion}
   These representations satisfy the following recursions using the reflection functors:
   \[P_1=S_1,\quad P_m=\Sigma_2 P_{m-1},\quad I_1=S_2,\quad I_m=\Sigma_1 I_{m-1}\]
   for $m\ge2$.
+  In particular, we have $P_{m-1}=\tau P_{m+1}$ and $I_{m+1}=\tau I_{m-1}$ for $m\ge2$. 
 \end{remark}
 
 Write $H_m:=\Hom(P_m,P_{m+1})$ for $m\ge1$.  
@@ -264,17 +266,29 @@ Some results below remain true if we allow $H_m$ or $0$ as elements of $Gr(H_m)$
   The sequence \eqref{eq:AR sequence} gives rise to an isomorphism $H_m^*\cong H_{m-1}$.
 \end{corollary}
 \begin{proof}
-  Define a map $\Theta:H_m^*\to H_{m-1}$ by $\Theta(\varphi)=(id\overline{\otimes}\varphi)\circ\iota_{m-1}$, in words $\Theta(\varphi)$ acts on $x\in P_{m-1}$ by contracting with the second factor in $\iota_{m-1}(x)$ to give an element of $P_m$.
+  Define a map $H_m^*\to H_{m-1}$ by $\varphi\mapsto\bar{\varphi}:=(id\overline{\otimes}\varphi)\circ\iota_{m-1}$, in words $\bar{\varphi}$ acts on $x\in P_{m-1}$ by contracting with the second factor in $\iota_{m-1}(x)$ to give an element of $P_m$.
   Suppose $\varphi\in H_m^*$ is a nonzero functional on $H_m$ and let $V\subsetneq H_m$ denote the kernel of $\varphi$.
-  Then $\Theta(\varphi)=0\in H_{m-1}$ if and only if the image of $\iota_{m-1}$ is contained in $P_m\otimes V\subsetneq P_m\otimes H_m$.
+  Then $\bar{\varphi}=0\in H_{m-1}$ if and only if the image of $\iota_{m-1}$ is contained in $P_m\otimes V\subsetneq P_m\otimes H_m$.
   But then Lemma~\ref{le:injective evaluation maps} implies $\iota_{m-1}$ is the zero map, a contradiction.
-  Thus $\Theta:H_m^*\to H_{m-1}$ must be injective and hence an isomorphism.
+  Thus the map $H_m^*\to H_{m-1}$, $\varphi\mapsto\bar{\varphi}$ must be injective and hence an isomorphism.
 \end{proof}
 \begin{remark}
   The set $Gr(H_m)$ is naturally a poset and Corollary~\ref{cor:preprojective homomorphism duality} gives an identification of the opposite poset $Gr(H_m)^{op}\cong Gr(H_m^*)$ with $Gr(H_{m-1})$.
   We write $\bar{V}\subset H_{m-1}$ for the subspace corresponding to $V\subset H_m$ under this identification.
   Under the isomorphism of $H_{m-1}$ with $H_m^*$, we have $\bar{V}=(H_m/V)^*$.
 \end{remark}
+Following Remark~\ref{rem:reflection recursion}, the reflection functor $\Sigma_1$ provides a natural identification of $H_m$ with $H_{m-1}$ for $m\ge2$. 
+Combining with Corollary~\ref{cor:preprojective homomorphism duality} we obtain a natural isomorphism $H_m^*\cong H_m$ for $m\ge2$.
+The next observation is essential for the results to follow.
+\begin{proposition}
+  For $V\in Gr(H_m)$, $m\ge1$, we have $\bar{\bar{V}}=\tau V$.
+\end{proposition}
+\begin{proof}
+  We show that $\bar{\bar{\varphi}}=\tau\varphi$ for $\varphi\in H_m$.
+  Indeed, we have
+  \[\bar{\bar{\varphi}}=(id\overline{\otimes}\bar{\varphi})\circ\iota_{m-2}=\Big(id\overline{\otimes}\big((id\overline{\otimes}\varphi)\circ\iota_{m-1}\big)\Big)\circ\iota_{m-2}.\]
+\end{proof}
+
 
 \begin{definition}
   For $V\in Gr(H_m)$, define the \emph{truncated preprojective} $P_{m+1}^V$ to be the cokernel of the map $ev_V:P_m\otimes V\to P_{m+1}$, i.e.\ we have a short exact sequence
@@ -385,6 +399,7 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
   from which we immediately obtain the isomorphism $X\cong P_m\otimes(H_m/V)$.
 \end{proof}
 \begin{corollary}
+  \label{cor:truncated preprojective isomorphism}
   Suppose $V\in Gr(H_m)$ has codimension one in $H_m$.  Then $P_{m+1}^V\cong P_m^{\bar{V}}$.
 \end{corollary}
 \begin{proof}
@@ -393,6 +408,9 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
   But $H_m/V$ is a one-dimensional vector space and so $P_m\otimes(H_m/V)\cong P_m$.
   Under this identification, the left hand morphism $\kappa_V$ in the sequence above identifies with a generator of $\bar{V}$ and thus $P_{m+1}^V\cong P_m^{\bar{V}}$.
 \end{proof}
+\begin{corollary}
+  For $V,W\in Gr(H_m)$, $m\ge3$, the space $\Ext(P_{m+1}^V,P_{m-1}^{\bar{\bar{W}}})$ has dimension 0 or 1.. .
+\end{corollary}
 
 \begin{lemma}
   \label{le:more truncated homomorphisms}
@@ -411,6 +429,10 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
   \[\xymatrix{0 \ar[r] & \Hom(P_{m+1},P_m^{\bar{W}}) \ar[r] & \Hom(P_m\otimes H_m,P_m^{\bar{W}}) \ar[r] & \Hom(P_{m-1},P_m^{\bar{W}}) \ar[r] & 0}.\]
   By Lemma~\ref{le:basic homological properties}, the middle space above is isomorphic to $H_m^*$ and thus $\Hom(P_{m+1},P_m^{\bar{W}})$ can be identified with the kernel of the natural map $H_m^*\to W^*$, i.e.\ with the space $(H_m/W)^*$.
 \end{proof}
+\begin{remark}
+  For $W\in Gr(H_m)$, $m\ge2$, a nonzero element $\varphi\in\Hom(P_{m+1},P_m^{\bar{W}})=(H_m/W)^*$ corresponds, by taking the kernel of $\varphi$, to a codimension 1 subspace $V\subset H_m$ containing $W$.
+  Then the map $\varphi$ is (up to scalars) the composition of the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$, the isomorphism $P_{m+1}^V\cong P_m^{\bar{V}}$ from Corollary~\ref{cor:truncated preprojective isomorphism}, and the unique projection $P_m^{\bar{V}}\to P_m^{\bar{W}}$.
+\end{remark}
 \begin{corollary}
   For $V,W\in Gr(H_m)$, $m\ge2$, we have natural isomorphisms 
   \[\Hom(P_{m+1}^V,P_m^{\bar{W}})\cong\big(H_m/(V+W)\big)^*\quad\text{and}\quad\Ext(P_{m+1}^V,P_m^{\bar{W}})\cong(V\cap W)^*.\]
@@ -425,7 +447,10 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
   It is slightly easier to understand the dual of the diagram figuring in the proof above, in particular it is immediate that the kernel of the natural morphism $V\to H_m/W$ is $V\cap W$ while the cokernel of this morphism is $H_m/(V+W)$.
 \end{remark}
 
-Let $\tau:\rep K(n)\to\rep K(n)$ denote the Auslander-Reiten translation.
+\begin{lemma}
+  For $V,W\in Gr(H_m)$, $m\ge2$, with $\dim W=1$, we have $\Hom(P_{m+1}^V,P_{m-1}^{\bar{\bar{W}}})\cong\big(H_m/(V+W)\big)^*$.
+\end{lemma}
+
 \begin{lemma}
   For $m\ge2$ and $V\in Gr(H_m)$, the Auslander-Reiten translate of the truncated preprojective $P_{m+1}^V$ is again a truncated preprojective representation of $K(n)$.  More precisely, we have $\tau(P_{m+1}^V)=P_{m-1}^{\bar{\bar{V}}}$.
 \end{lemma}
@@ -449,7 +474,7 @@ Let $\tau:\rep K(n)\to\rep K(n)$ denote the Auslander-Reiten translation.
   Given a nontrivial direct sum decomposition $V=U\oplus W$, we may identify $U=V/W$ and $W=V/U$ to get the following commutative diagram:
   \[\xymatrix{ & & 0 \ar[d] & 0 \ar[d] & \\
     & & P_m\otimes U \ar@{=}[r]\ar[d] & P_m\otimes(V/W) \ar[d] & \\
-    0 \ar[r] & P_m\otimes W \ar@{=}[d]\ar[r] & P_{m+1}\ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & P_{m+1}^W \ar[d]\ar[r] & 0 \\
+    0 \ar[r] & P_m\otimes W \ar@{=}[d]\ar[r] & P_{m+1} \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & P_{m+1}^W \ar[d]\ar[r] & 0 \\
     0 \ar[r] & P_m\otimes(V/U) \ar[r] & P_{m+1}^U \ar[r]\ar[d] & P_{m+1}^V \ar[r]\ar[d] & 0\\
     & & 0 & 0 & }\]
   Since the left vertical morphism (or upper horizontal morphism) is an equality, the lower right square is a pullback.
@@ -467,7 +492,7 @@ where the left hand morphism above is the natural evaluation morphism coming fro
 Each such sequence has the following almost-split property for proper subrepresentations of $P_{m+1}^V$.
 \begin{lemma}
   For $V\in Gr(H_m)$, $m\ge1$, given any proper subrepresentation $X\subsetneq P_{m+1}^V$, the upper pullback sequence
-  \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar@{=}[d]\ar[r] & Y\ar[r] \ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\ar[r] & 0 \\
+  \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar@{=}[d]\ar[r] & Y \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\ar[r] & 0 \\
     0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
   splits for every proper subspace $W\subsetneq V$.
 \end{lemma}
@@ -479,31 +504,45 @@ Each such sequence has the following almost-split property for proper subreprese
 
   Suppose $W\subsetneq V$ with $\codim_V W>1$ and choose an intermediate subspace $W\subsetneq T\subsetneq V$.
   Given $X\subsetneq P_{m+1}^V$, we have the pullback diagram
-  \[\xymatrix{ Y \ar[d]\ar[r]\ar@{}[dr]|(.7){\lrcorner} & Y'\ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\\
+  \[\xymatrix{ Y \ar[d]\ar[r]\ar@{}[dr]|(.7){\lrcorner} & Y' \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\\
   P_{m+1}^W \ar[r] & P_{m+1}^T \ar[r] & P_{m+1}^V}\]
   in which all horizontal morphisms of the upper row are split epimorphisms by induction.
   The result now follows since the outer square is also a pullback.
 \end{proof}
+\begin{corollary}
+  Consider $V,W\in Gr(H_m)$, $m\ge1$, with $W\subset V$.
+  Given any proper subrepresentation $X\subsetneq P_{m+1}^V$ and any subrepresentation $Z\subset P_m\otimes(V/W)$, there is a subrepresentation of $P_{m+1}^W$ isomorphic to $Z\oplus X$ which fits into a commutative diagram
+  \[\xymatrix{0 \ar[r] & Z \ar[d]\ar[r] & Z\oplus X \ar[r]\ar[d] & X \ar[d]\ar[r] & 0 \\
+    0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
+\end{corollary}
 
+\begin{lemma}
+  For $V\in Gr(H_m)$, $m\ge1$, a subrepresentation $X\subset P_m$ fits into a commutative diagram
+  \[\xymatrix{0 \ar[r] & X \ar[d]\ar[r]\ar@{}[dr]|(.3){\ulcorner} & Y \ar[d]\ar[r] & P_{m+1}^V \ar@{=}[d]\ar[r] & 0 \\
+    0 \ar[r] & P_m\otimes(V/U) \ar[r] & P_{m+1}^U \ar[r] & P_{m+1}^V \ar[r] & 0}\]
+  with $\dim(V/U)=1$ if and only if the lower pushout sequence below splits: 
+  \[\xymatrix{ 0\ar[r]& P_m\otimes(V/U) \ar[r] \ar[d]\ar@{}[dr]|(.3){\ulcorner} & P_{m+1}^U \ar[r]\ar[d] & P_{m+1}^V \ar@{=}[d]\ar[r] & 0\\
+  0 \ar[r] & P_m\otimes(V/U)/X \ar[r] & Z \ar[r] & P_{m+1}^V \ar[r] & 0}.\]
+  This occurs (?) if and only if the composed morphism
+  \[\xymatrix{X \ar[r] & P_m \ar[r] & P_m^{\bar{V}} \ar[r] & P_{m-1}^{\bar{\bar{V}}}}\]
+  is nonzero.
+\end{lemma}
+\begin{proof}
+  For a proper subrepresentation $X\subsetneq P_m$ we have the following commutative diagram
+  \[\tag{$\dagger$}\xymatrix{ & 0 \ar[r]\ar[d] & \Hom(P_{m+1}^U,P_m/X) \ar[d]\\
+    0 \ar[r]\ar[d] & \Hom(P_m,P_m) \ar[r]\ar[d] & \Hom(P_m,P_m/X) \ar[d]\\
+    \Ext(P_{m+1}^V,X) \ar[r] & \Ext(P_{m+1}^V,P_m) \ar[r] & \Ext(P_{m+1}^V,P_m/X)}\]
+  From the bottom row of the diagram ($\dagger$), we see that there is a pushout diagram
+  \[\xymatrix{0 \ar[r] & X \ar[d]\ar[r]\ar@{}[dr]|(.3){\ulcorner} & Y \ar[d]\ar[r] & P_{m+1}^V \ar@{=}[d]\ar[r] & 0 \\
+    0 \ar[r] & P_m \ar[r] & P_{m+1}^U \ar[r] & P_{m+1}^V \ar[r] & 0}\]
+  if and only if the lower pushout sequence below splits: 
+  \[\xymatrix{ 0\ar[r]& P_m \ar[r]^{\epsilon}\ar[d]_{\rho}\ar@{}[dr]|(.3){\ulcorner} & P_{m+1}^U \ar[r]\ar[d] & P_{m+1}^V \ar@{=}[d]\ar[r] & 0\\
+  0 \ar[r] & P_m/X \ar[r] & Z \ar[r] & P_{m+1}^V \ar[r] & 0}.\]
+  The right hand vertical sequence of the diagram ($\dagger$) then shows that this occurs if and only if the map $\rho:P_m\to P_m/X$ factors through the map $\epsilon:P_m\to P_{m+1}^U$.
 
-%\begin{lemma}
-%  For $m\ge1$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, a subrepresentation $V\subset P_m$ fits into a commutative diagram
-%  \[\xymatrix{0\ar[r] & V\ar[d]\ar[r]\ar@{}[dr]|(.3){\ulcorner} & W\ar[d]\ar[r] & P_{m+1}^{\{f_1,\ldots,f_k\}}\ar@{=}[d]\ar[r] & 0 \\
-%  0\ar[r]& P_m\ar[r]^(.35){f_k} & P_{m+1}^{\{f_1,\ldots,f_{k-1}\}}\ar[r]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r]& 0}\]
-%  if and only if the lower pushout sequence below splits: 
-%  \[\xymatrix{0\ar[r]& P_m\ar[r]^(.35){f_k}\ar[d]\ar@{}[dr]|(.3){\ulcorner} & P_{m+1}^{\{f_1,\ldots,f_{k-1}\}}\ar[r]\ar[d]& P_{m+1}^{\{f_1,\ldots,f_k\}}\ar@{=}[d]\ar[r]& 0\\ 0\ar[r]& P_m/V\ar[r] & X\ar[r] & P_{m+1}^{\{f_1,\ldots,f_k\}}\ar[r] & 0}.\]
-%  This occurs (?) if and only if the composed morphism
-%  \[\xymatrix{V\ar[r] & P_m\ar[r] & P_m^{\{g_2,\ldots,g_n\}}\ar@{=}[r] & P_{m-1}^{\{g_1\}}\ar[r] & P_{m-1}^{\{g_1,\ldots,g_k\}}}\]
-%  is nonzero.
-%  
-%  there is a commutative diagram
-%\end{lemma}
-%\begin{proof}
-%  For a proper subrepresentation $V\subset P_m$ we have
-%  \[0\longrightarrow \Hom(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m/V)\longrightarrow \Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},V)\longrightarrow \Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m)\longrightarrow \Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},P_m/V)\longrightarrow 0\]
-%  and
-%  \[0\longrightarrow \Ext(P_{m+1}^{\{f_1,\ldots,f_k\}},V)\longrightarrow \Ext(P_{m+1},V)\longrightarrow \Ext(P_m^k,V)\longrightarrow 0.\]
-%\end{proof}
+  and
+  \[\xymatrix{0 \ar[r] & \Ext(P_{m+1}^V,X) \ar[r] & \Ext(P_{m+1},X) \ar[r] & \Ext(P_m\otimes V,X) \ar[r] &  0}.\]
+\end{proof}
 
 
 
@@ -849,6 +888,7 @@ Assem, I., Simson, D., Skowronski, A.: Elements of the Representation Theory of 
 \bibitem{bb} Bialynicki-Birula, A.: Some theorems on actions of algebraic groups. Annals of Mathematics \textbf{98}, 480-497 (1973).
 \bibitem{bgp}
 Bernstein, I.~N., Gelfand, I.~M., Ponomarev, V.~A.: Coxeter functors, and Gabriel's theorem. Russian Mathematical Surveys \textbf{28}(2), 17-32 (1973).
+\bibitem{brenner-butler} S. Benner, M.~C.~R. Butler, The equivalence of certain functors occuring in the representation theory of artin algebras and species, J. London Math. Soc., 14 (1976), 183-187.
 \bibitem{cc}
 Caldero, P., Chapoton, F.: Cluster algebras as {H}all algebras of quiver representations.
 Commentarii Mathematici Helvetici \textbf{81}(3), 595-616 (2006).
