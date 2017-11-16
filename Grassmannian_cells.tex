@@ -30,6 +30,7 @@
 \newcommand{\tbfh}{{\tilde\bfh}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\cC}{\mathcal{C}}
+\newcommand{\cG}{\mathcal{G}}
 \newcommand{\cP}{\mathcal{P}}
 \newcommand{\ui}{\underline i}
 \newcommand{\uj}{\underline j}
@@ -123,8 +124,26 @@ the natural map $\gamma_i:\mathrm{Att}(C_i)\to C_i$ is an affine vector bundle.
 
 In particular, we have $\chi(X)=\chi(X^{\C^\ast})$ for the Euler characteristic.
 \end{theorem}
+Let $\ses{M}{B}{N}$ be a short exact sequence of representations. This induces a map between quiver Grassmannians
+\[\Psi_\tbfe:Gr_\tbfe(B)\to\bigsqcup_{\tbff+\tbfg=\tbfe}  Gr_\tbff(M)\times Gr_\tbfg(N),\,U\mapsto (U\cap M,(U+M)/M)\]
+which is also called Caldero-Chapoton map.  By the results of \cite[Section 3]{cc} it follows that $\Psi^{-1}_\tbfe(A,V)=\mathbb{A}^{\dim\Hom(A,M/V)}$ for all pairs of subrepresentations $(A,V)$ for which the fibre is not empty.
+Let $\cG_{\tbff,\tbfg}:=\Psi^{-1}_\tbfe(\Gr_\tbff(M)\times \Gr_\tbfg(N))$. Then we have
+$$\Gr_\tbfe(B)=\bigsqcup_{\tbff+\tbfg=\tbfe} \cG_{\tbff,\tbfg}.$$
+The map $\Psi_\tbfe$ restricts to morphisms of projective varieties
+\[\Psi_\tbfe^{\tbff,\tbfg}:\cG_{\tbff,\tbfg}\to \Gr_\tbff(M)\times \Gr_\tbfg(N).\]
+
+The following is proved in \cite[Section 3]{cefr}.
+\begin{theorem}\label{vb}
+If the fibre dimension of $\Psi_\tbfe^{\tbff,\tbfg}$ is constant over $\mathrm{Im}(\Psi_\tbfe^{\tbff,\tbfg})$, then it an affine bundle over the image. In particular, the existence of a cell decomposition of $\mathrm{Im}(\Psi_\tbfe^{\tbff,\tbfg})$ implies a cell decomposition of $\cG_{\tbff,\tbfg}$ in this case.
+\end{theorem}
+\begin{proof}\footnote{sketch, double-check}
 
 
+As $X$ and $Y$ are projective, they are compact. As the fibres are affine spaces of constant dimension and as $X$ and $Y$ are smooth, the induced morphism on the tangent spaces is surjective for all points $x\in X$. This shows that $f$ is smooth of relative dimension $n$, see Hartshorne and thus a submersion?!
+
+
+
+\end{proof}
 \section{Torus Actions on Quiver Grassmannians}\label{torusaction}
 \noindent 
 Fix a vector space $X$ of dimension $n$ and let $d\leq n$. We first consider a natural torus action on usual Grassmannians coming along with any direct sum decomposition of the vector space $X$. Then we generalize the concept to quiver Grassmannians, but we will see that the torus fixed point set can be calculated in an analogous manner. Thus assume that $X=\bigoplus_{j=1}^l X_j$ is a direct sum decomposition of $X$. We choose a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of $X$ which is compatible with this decomposition, i.e. there exist numbers $1\leq j_1\leq j_2\ldots\leq j_{l-1}\leq n$ such that
@@ -694,7 +713,7 @@ Every quiver Grassmannian $Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})$ admits a
 We proceed by induction and combine the two maps $\Psi_1$ and $\Psi_2$ and obtain a map
 \[\Psi:Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})\to\bigsqcup_{\tbff+\tbfg+\tbfh=\tbfe} Gr^{\tilde Q}_\tbff( P(m,k))\times Gr^{\tilde Q}_\tbfg(\tau\tilde P_{m+1}^{(k)})\times Gr^{\tilde Q}_\tbfh(\tilde P_{m+1}^{(k)}).\]
 
-By Lemma \ref{directsums} and induction hypothesis every quiver Grassmannian on the right hand side has a cell decomposition. The second part of the Proposition says that the fibres are empty if and only if $\tbfg=0$ and $\tbfh=\udim \tilde P_{m+1}^{(k)}$. In all other cases, the fiber dimension only depend on the dimension vectors $\tbff, \tbfg,\tbfh$ which means that they are constant over $Gr^{\tilde Q}_\tbff( P(m,k))\times Gr^{\tilde Q}_\tbfg(\tau\tilde P_{m+1}^{(k)})\times Gr^{\tilde Q}_\tbfh(\tilde P_{m+1}^{(k)})$\footnote{actually this should already say that this is a vector bundle as the base space is smooth (all reps are exceptional)}. Analogously to Lemma \ref{directsums}, we can conclude that this induces trivial bundles over every affine cell. In total, this yields a cell decomposition of the quiver Grassmannian $Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})$.
+By Lemma \ref{directsums} and induction hypothesis every quiver Grassmannian on the right hand side has a cell decomposition. The second part of the Proposition says that the fibres are empty if and only if $\tbfg=0$ and $\tbfh=\udim \tilde P_{m+1}^{(k)}$. In all other cases, the fiber dimension only depend on the dimension vectors $\tbff, \tbfg,\tbfh$ which means that they are constant over $Gr^{\tilde Q}_\tbff( P(m,k))\times Gr^{\tilde Q}_\tbfg(\tau\tilde P_{m+1}^{(k)})\times Gr^{\tilde Q}_\tbfh(\tilde P_{m+1}^{(k)})$\footnote{actually this should already say that this is a vector bundle as the base space is smooth (all reps are exceptional), apply Lemma \ref{vb}?}. Analogously to Lemma \ref{directsums}, we can conclude that this induces trivial bundles over every affine cell. In total, this yields a cell decomposition of the quiver Grassmannian $Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})$.
 
 \end{proof}
 
@@ -1162,6 +1181,7 @@ Caldero, P., Chapoton, F.: Cluster algebras as {H}all algebras of quiver represe
 Commentarii Mathematici Helvetici \textbf{81}(3), 595-616 (2006).
 \bibitem{ck}
   P. Caldero, B. Keller: From triangulated categories to cluster algebras II.  Ann. Sci. \'Ecole Norm. Sup. (4) \textbf{39} (2006), no. 6, pp.~983--1009.
+\bibitem{cefr} Cerulli Irelli, Esposito, Franzen, Reineke: Topology of Quiver Grassmannians. Preprint 2017.
 \bibitem{cr}
 Caldero, P., Reineke, M.: On the quiver Grassmannian in the acyclic case.
 Journal of Pure and Applied Algebra \textbf{212}(11), 2369-2380 (2008).
@@ -1171,7 +1191,7 @@ Journal of Pure and Applied Algebra \textbf{212}(11), 2369-2380 (2008).
 \bibitem{hr} Happel, D., Ringel, C.M.: Tilted Algebras. Transactions of the American Mathematical Society {\bf 274}, no.2, 399-443 (1982).
 \bibitem{llz} K. Lee, L. Li, A. Zelevinsky: Greedy elements in rank 2 cluster algebras. Selecta Math. \textbf{20} (2014) pp.~57--82.
 \bibitem{rin} Ringel, C.M.: Reflection functors for hereditary algebras. Journal of the London Mathematical Society (2) {\bf 21}, no. 3, 465-479 (1980).
-
+%\bibitem{mats} Matsumura, H.: Commutative ring theory. 
 \bibitem{rupel} Rupel, D.: Rank Two Non-Commutative Laurent Phenomenon and Pseudo-Positivity, arXiv.
 
 \bibitem{sch} Schofield, A.: General representations of quivers. Proceedings of the London Mathematical Society (3) \textbf{65}(1), 46-64 (1992).
