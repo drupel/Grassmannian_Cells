@@ -53,6 +53,9 @@
 \newcommand{\Sc}[2]{\langle #1,#2\rangle}
 \newcommand{\spn}{\operatorname{span}}
 \setcounter{MaxMatrixCols}{20}
+
+\hyphenation{endo-functors}
+
 \title{Cell Decompositions for Rank Two Quiver Grassmannians}
 
 \author{Dylan Rupel}
@@ -68,10 +71,12 @@
 \section{Introduction}
 A cluster algebra is a subalgebra of a rational function field where generators are defined by an explicit recursion \cite{fomin-zelevinsky}.
 Although the generators of the cluster algebra are given as rational functions they actually turn out to be Laurent polynomials.
-These Laurent polynomial expressions for the cluster variables have been studied extensively and ultimately can be described using the representation theory of quivers \cite{caldero-chapoton,caldero-keller}.
+These Laurent polynomial expressions for the cluster variables have been studied extensively and ultimately can be described using the representation theory of quivers \cite{caldero-chapoton,caldero-keller}: the cluster variables are generating functions for Euler characteristics of quiver Grassmannians.
 
+For rank two cluster algebras, the Laurent expressions of cluster variables can also be computed using a certain Dyck path combinatorics \cite{lee-li-zelevinsky}.
+The confluence of these results gives rise to a combinatorial construction for the Euler characteristics of certain quiver Grassmannians.
+Our main result is a geometric explanation for this correspondence by constructing a decomposition of the quiver Grassmannians into affine cells which are labeled by compatible pairs.
 
--something about categorification and quiver Grassmannians
 -something about compatible pairs and combinatorial construction of cluster variables
 -statement of our results
 -something about torus actions and the universal cover
@@ -244,32 +249,46 @@ The category $\rep K(n)$ of finite-dimensional representations of $K(n)$ is equi
 As a $\CC$-vector space, the path algebra $A(n)$ can be written as $A_0\oplus A_1$, where 
 \begin{itemize}
   \item $A_0=\CC e_1\oplus \CC e_2$ is a two-dimensional semisimple algebra with orthogonal idempotents $e_1$ and $e_2$;
-  \item $A_1=\bigoplus_{i=1}^n \CC a_i$ is the $A_0$-bimodule spanned by the arrows of $K(n)$, in particular $e_ka_ie_\ell=\delta_{k1}\delta_{\ell2}a_i$ for $1\le i\le n$ and $k,\ell\in\{1,2\}$.
+  \item $A_1=\bigoplus_{i=1}^n \CC a_i$ is the $A_0$-bimodule spanned by the arrows of $K(n)$, that is $e_ka_ie_\ell=\delta_{k1}\delta_{\ell2}a_i$ for $1\le i\le n$ and $k,\ell\in\{1,2\}$.
 \end{itemize}
 Observe that $GL_n(\CC)$ naturally acts on $A_1$ and hence $GL_n(\CC)$ acts on $\rep K(n)$ via the induced action on $A(n)$.
 More precisely, given a representation $M=(M_1,M_2,M_{a_i})$ of $K(n)$ and $g=(g_{ij})\in GL_n(\CC)$, the representation $g.M$ is given by $(M_1,M_2,M'_{a_i})$ with $M'_{a_i}=\sum\limits_{j=1}^n g_{ij}M_{a_j}$.
 Note that $M$ and $g.M$ are not necessarily isomorphic as representations of $K(n)$.
 \begin{lemma}
-  For any morphism $\theta:M\to N$ between representations $M,N\in\rep K(n)$, the same maps $\theta_1:M_1\to N_1$ and $\theta_2:M_2\to N_2$ give a morphism $\theta:g.M\to g.N$ for any $g\in GL_n(\CC)$.
+  \label{le:hom equivariance}
+  For any morphism $\theta:M\to N$ between representations $M,N\in\rep K(n)$, the same maps $\theta_1:M_1\to N_1$ and $\theta_2:M_2\to N_2$ give a morphism $\theta^g:g.M\to g.N$ for any $g\in GL_n(\CC)$.
+  In particular, the hom-spaces $\Hom(M,N)$ and $\Hom(g.M,g.N)$ are canonically identified for each $g\in G$.
 \end{lemma}
 \begin{proof}
   Suppose $\theta:M\to N$ is a morphism of representations, i.e.\ $\theta_2\circ M_{a_j}=N_{a_j}\circ\theta_1$ for $1\le j\le n$.
   Then for $g=(g_{ij})\in GL_n(\CC)$, we have
-  \[\theta_2\circ M'_{a_i}=\sum\limits_{j=1}^n g_{ij} \theta_2\circ M_{a_j}=\sum\limits_{j=1}^n g_{ij} M_{a_j}\circ\theta_1=N'_{a_i}\circ\theta_1\]
-  for $1\le i\le n$ so that $\theta$ gives a morphism from $g.M$ to $g.N$. 
+  \[\theta_2\circ M'_{a_i}=\sum\limits_{j=1}^n g_{ij}(\theta_2\circ M_{a_j})=\sum\limits_{j=1}^n g_{ij}(M_{a_j}\circ\theta_1)=N'_{a_i}\circ\theta_1\]
+  for $1\le i\le n$ so that $\theta$ also gives a morphism from $g.M$ to $g.N$. 
+\end{proof}
+\begin{corollary}
+  \label{cor:indecomposability}
+  For $M\in\rep K(n)$ and $g\in GL_n(\CC)$, the representation $M$ is indecomposable if and only if $g.M$ is indecomposable.
+\end{corollary}
+\begin{proof}
+  The representation $M$ is decomposable if there exists a split epimorphism $\theta:M\onto N$ for some nonzero representation $N$.
+  But this occurs exactly when the map $\theta^g:g.M\onto g.N$ is also a split epimorphism.
 \end{proof}
 
 Write $\Sigma_1$ and $\Sigma_2$ for the BGP-reflection functors of $K(n)$ \cite{bgp}. 
-Note that (up to relabeling vertices) the quiver $K(n)$ itself does not change when applying the reflection functors and thus we view these as endofunctors acting on the category $\rep K(n)$ of finite-dimensional representations. %, but the vertices $1$ and $2$ are exchanged. 
+Note that (up to relabeling vertices) the quiver $K(n)$ itself does not change when applying the reflection functors and thus we view these as endofunctors acting on the category $\rep K(n)$. 
 With this identification of $K(n)$ and $K(n)^{op}$, the endofunctors $\Sigma_2\Sigma_1$ and $\Sigma_1\Sigma_2$ are each naturally isomorphic to the identity maps on the full subcategories $\rep_{\langle 1\rangle} K(n),\rep_{\langle 2\rangle} K(n)\subset \rep K(n)$, where the objects of $\rep_{\langle i\rangle} K(n)$ are those representations of $K(n)$ which do not contain the simple $S_i$ as a direct summand.
 Also, following \cite{brenner-butler}, the Auslander-Reiten translation $\tau:\rep K(n)\to\rep K(n)$ may be identified with the functor $\Sigma_1^2$.
 
 \begin{lemma}
+  \footnote{Is this true?}
   The reflection functors $\Sigma_i:\rep K(n)\to\rep K(n)$ are $GL_n(\CC)$-equivariant. 
 \end{lemma}
 
+
 Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=1$, $u_{k+1}=nu_k-u_{k-1}$.
+The following is well-known.
 \begin{theorem}
+  \label{th:rigids}
   For each $m\ge1$, there exist unique (up to isomorphism) indecomposable rigid representations $P_m$ and $I_m$ of $K(n)$ with dimension vectors $(u_m,u_{m-1})$ and $(u_{m-1},u_m)$ respectively. 
   Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}\oplus P_{m+1}^{a_2}$ or $I_m^{a_1}\oplus I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
 \end{theorem}
@@ -281,29 +300,84 @@ The representations $P_m$ are called the \emph{preprojective} representations of
   for $m\ge2$.
   In particular, we have $P_{m-1}=\tau P_{m+1}$ and $I_{m+1}=\tau I_{m-1}$ for $m\ge2$. 
 \end{remark}
+\begin{corollary}
+  \label{cor:preprojective stability}
+  For $m\ge1$ and $g\in G$, the representations $P_m$ and $g.P_m$ are isomorphic.
+\end{corollary}
+\begin{proof}
+  By construction, the representation $g.P_m$ also has dimension vector $(u_m,u_{m-1})$ and is indecomposable by Corollary~\ref{cor:indecomposability}.
+  Thus by Theorem~\ref{th:rigids}, $P_m$ and $g.P_m$ are isomorphic.
+\end{proof}
+For $g\in GL_n(\CC)$, write $\phi_{m,g}:P_m\to g.P_m$ for the (unique up to scalars) isomorphism from Corollary~\ref{cor:preprojective stability}.
 
-Write $H_m:=\Hom(P_m,P_{m+1})$ for $m\ge1$.  
-For each $m\ge2$, there is an Auslander-Reiten sequence \cite{auslander-reiten-smalo}
-\begin{equation}
-  \label{eq:AR sequence}
-  0\longrightarrow P_{m-1}\stackrel{\iota_{m-1}}{\longrightarrow} P_m\otimes H_m\stackrel{ev}{\longrightarrow} P_{m+1}\longrightarrow 0,
-\end{equation}
-where the right-hand morphism is the natural evaluation map.
+Set $H_m:=\Hom(P_m,P_{m+1})$ for $m\ge1$ and define an action of $GL_n(\CC)$ on $H_m$ by $g.\theta:=\phi_{m+1,g}^{-1}\circ\theta^g\circ\phi_{m,g}$.
+Note that the first $\theta$ here represents an element of $H_m$ while the second $\theta^g$ represents the corresponding element of $H_m^g:=\Hom(g.P_m,g.P_{m+1})$ from Lemma~\ref{le:hom equivariance}.
 
 Write $Gr(H_m)$ for the \emph{total Grassmannian} of $H_m$ whose elements are nontrivial proper subspaces $V\subset H_m$.
 Some results below remain true if we allow $H_m$ or $0$ as elements of $Gr(H_m)$, but not all, so for uniformity of exposition we omit these possibilities.
+Lemma~\ref{le:hom equivariance} gives an identification of $Gr(H_m)$ with $Gr(H_m^g)$ and we write $V\mapsto V^g$ for this correspondence.
+For $1\le d\le n-1$, let $Gr_d(H_m)\subset Gr(H_m)$ be the subvariety of $d$-dimensional subspaces of $H_m$.
+\begin{lemma}
+  \label{le:transitivity}
+  The action of $GL_n(\CC)$ on $H_m$ induces a transitive action of $GL_n(\CC)$ on each component $Gr_d(H_m)$.
+\end{lemma} 
+\begin{proof}
+
+\end{proof}
 \begin{lemma}
   \label{le:injective evaluation maps}
   For any $V\in Gr(H_m)$, the natural evaluation map $ev_V:P_m\otimes V\to P_{m+1}$ is injective.
 \end{lemma}
-
 %%%%%%%%%%%%%%%%%%%
 % needs polishing %
 %%%%%%%%%%%%%%%%%%%
-%\begin{proof}
-%  A nonzero element $f\in V$ corresponds to an irreducible morphism $f:P_m\to P_{m+1}$ and thus does not factor through any representation $Z\ne P_m$, in particular $f$ is injective.
-%  But any nonzero element of $\ker ev_V$ gives rise to a nonzero $f\in V$ which is not injective and thus $ev_V$ must be an injective map.
-%\end{proof}
+\begin{proof}
+  \footnote{This needs to be cleaned up, the proof seems false as written.}
+  A nonzero element $f\in V$ corresponds to an irreducible morphism $f:P_m\to P_{m+1}$ and thus does not factor through any representation $Z\ne P_m$, in particular $f$ is injective.
+  But any nonzero element of $\ker ev_V$ gives rise to a nonzero $f\in V$ which is not injective and thus $ev_V$ must be an injective map.
+\end{proof}
+
+In what follows we will not distinguish between $P_m\otimes V$ and its image under $ev_V$.
+Similarly, for $V^g\in Gr(H_m^g)$, we identify $g.P_m\otimes V^g$ with its image in $g.P_{m+1}$ under the natural evaluation map. 
+\begin{lemma}
+  \label{le:g equalities}
+  For any $g\in GL_n(\CC)$, the subrepresentation $g.(P_m\otimes V)\subset g.P_{m+1}$ is equal to $g.P_m\otimes V^g\subset g.P_{m+1}$ and the subrepresentation $\phi_{m+1,g}^{-1}(g.P_m\otimes V^g)\subset P_{m+1}$ is equal to $P_m\otimes g.V\subset P_{m+1}$.
+\end{lemma}
+\begin{proof}
+  The first equality is immediate from the definitions.
+  The second equality also follows from the definitions by observing that $\phi_{m+1,g}(P_m\otimes g.V)=g.P_m\otimes V^g$.
+\end{proof}
+  
+Following Lemma~\ref{le:injective evaluation maps} we define the following.
+\begin{definition}
+  For $V\in Gr(H_m)$, define the \emph{truncated preprojective} $P_{m+1}^V$ to be the cokernel of the map $ev_V:P_m\otimes V\to P_{m+1}$, i.e.\ we have a short exact sequence
+  \begin{equation}
+    \label{eq:truncated preprojectives}
+    0\longrightarrow P_m\otimes V\stackrel{ev_V}{\longrightarrow} P_{m+1}\stackrel{\pi_V}{\longrightarrow} P_{m+1}^V\longrightarrow 0.
+  \end{equation}
+\end{definition}
+\begin{remark}
+  It will be convenient to also set $P_{m+1}^0=P_{m+1}$, observe that this notation is consistent with taking $V=0$ in the sequence \eqref{eq:truncated preprojectives}.
+\end{remark}
+
+Any subrepresentation $E\subset P_{m+1}^V$ corresponds by taking pullbacks to a chain of inclusions $P_m\otimes V\subset\tilde E\subset P_{m+1}$.
+\begin{theorem}
+  The quiver Grassmannian $Gr_\bfe(P_{m+1}^V)$ is smooth for each dimension vector $\bfe$ and each $V\in Gr(H_m)$.
+  Moreover, for $V,W\in Gr_d(H_m)$, we have $Gr_\bfe(P_{m+1}^V)\cong Gr_\bfe(P_{m+1}^W)$ for all dimension vectors $\bfe$.
+\end{theorem}
+\begin{proof}
+  Both claims are proven via the same geometric construction.
+  For each dimension vector $\bfe$, there is a smooth variety
+  \[X_{\bfe,m}=\{(\tilde E,V):V\in Gr_d(H_m),\ P_m\otimes V\subset\tilde E\subset P_{m+1}i,\ \udim\tilde E=\bfe+d\udim P_m\}.\]
+  Under the natural projection $\pi:X_{\bfe,m}\to Gr_d(H_m)$, the fiber $\pi^{-1}(V)$ identifies with $Gr_\bfe(P_{m+1}^V)$.
+  In particular, this implies $Gr_\bfe(P_{m+1}^V)$ is smooth for each $V\in Gr_d(H_m)$.
+
+  The variety $X_{\bfe,m}$ supports an action of $GL_n(\CC)$ by setting $g.(\tilde E,V)=\big(\phi_{m+1,g}^{-1}(g.\tilde E),g.V\big)$.
+  Indeed, by Lemma~\ref{le:g equalities} we have 
+  \[P_m\otimes g.V=\phi_{m+1,g}^{-1}(g.P_m\otimes V^g)=\phi_{m+1,g}^{-1}\big(g.(P_m\otimes V)\big)\subset\phi_{m+1,g}^{-1}(g.\tilde E).\]
+  Observe that the projection map $\pi$ is $GL_n(\CC)$-equivariant and thus by Lemma~\ref{le:transitivity} the quiver Grassmannians $Gr_\bfe(P_{m+1}^V)$ and $Gr_\bfe(P_{m+1}^W)$ are isomorphic for any $V,W\in Gr_d(H_m)$.
+\end{proof}
+
 
 %\begin{lemma}
 %  For any $m\ge1$, we have 
@@ -328,6 +402,13 @@ Some results below remain true if we allow $H_m$ or $0$ as elements of $Gr(H_m)$
 %  Then the basis element $f_{\ell,k}$ is given by composing $\iota_\ell$ with the coordinate projection $\pi_k:P_{\ell+1}^n\to P_{\ell+1}$ onto the $k$-th factor.
 %  Indeed, applying $\Hom(-,P_{\ell+1})$ to this sequence \eqref{eq:AR sequence} gives an isomorphism $\Hom(P_{\ell+1}^n,P_{\ell+1})\cong\Hom(P_\ell,P_{\ell+1})$ whereby the natural basis of coordinate projections on the left is taken to the basis $\{f_{\ell,k}\}$ on the right.
 %\end{remark}
+
+For each $m\ge2$, there is an Auslander-Reiten sequence \cite{auslander-reiten-smalo}
+\begin{equation}
+  \label{eq:AR sequence}
+  0\longrightarrow P_{m-1}\stackrel{\iota_{m-1}}{\longrightarrow} P_m\otimes H_m\stackrel{ev}{\longrightarrow} P_{m+1}\longrightarrow 0,
+\end{equation}
+where the right-hand morphism is the natural evaluation map.
 \begin{corollary}
   \label{cor:preprojective homomorphism duality}
   The sequence \eqref{eq:AR sequence} gives rise to an isomorphism $H_m^*\cong H_{m-1}$.
@@ -357,16 +438,8 @@ The next observation is essential for the results to follow.
 \end{proof}
 
 
-\begin{definition}
-  For $V\in Gr(H_m)$, define the \emph{truncated preprojective} $P_{m+1}^V$ to be the cokernel of the map $ev_V:P_m\otimes V\to P_{m+1}$, i.e.\ we have a short exact sequence
-  \begin{equation}
-    \label{eq:truncated preprojectives}
-    0\longrightarrow P_m\otimes V\stackrel{ev_V}{\longrightarrow} P_{m+1}\stackrel{\pi_V}{\longrightarrow} P_{m+1}^V\longrightarrow 0.
-  \end{equation}
-\end{definition}
-\begin{remark}
-  It will be convenient to also set $P_{m+1}^0=P_{m+1}$, observe that this notation is consistent with taking $V=0$ in the sequence \eqref{eq:truncated preprojectives}.
-\end{remark}
+
+
 
 \begin{lemma}
   \label{le:basic homological properties}
@@ -648,6 +721,7 @@ But this contradicts the induction hypothesis because preprojective representati
 If we choose subset $\{i_1,\ldots,i_k\}=\{1,\ldots,k\}$, we denote the cokernel simply by $\tilde P_m^{(k)}$ and $\tilde P_m^{(0)}=\tilde P_m$ respectively. 
 
 \begin{lemma}\label{directsums}
+  \footnote{This can be proved on the quiver itself.}
   If the quiver Grassmannians $Gr^{\tilde Q}_\tbfe(\tilde P_{m})$ and $Gr^{\tilde Q}_\tbfe(\tilde P_{m-1})$ have cell decompositions into affine spaces, then we have that $Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^s\tilde P^{t_j}_{m-1,i_j}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})$ has a cell decomposition into affine spaces where $l_j,t_j\geq 1$ and $s,k\leq n$.
 \end{lemma}
 \begin{proof}The claim follows by induction when considering the map $$\Psi:Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})\to\bigsqcup_{\tbff+\tbfg=\tbfe}  Gr^{\tilde Q}_\tbff(\tilde P_{m,i_1})\times Gr^{\tilde Q}_\tbfg(\tilde P^{l_1-1}_{m,i_1}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j}),\,U\mapsto (U\cap \tilde P_{m-1,i_1},\pi(U))$$
