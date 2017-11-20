@@ -43,6 +43,8 @@
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\kk}{\Bbbk}
 \newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+
 \newcommand{\Ext}{\operatorname{Ext}}
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\im}{\operatorname{im}}
@@ -218,7 +220,7 @@ In the following, we say that $d:\mathrm{supp}(X)\to\ZZ$ satisfies the degree co
 
 \begin{theorem}Let $X$ be a representation which can be lifted to $\hat Q$ and choose $d:\mathrm{supp}(X)\to \ZZ$ such that it satisfies the degree condition for $X$. Then the torus action of $T$ on $\bigoplus_{q\in Q_0}X_q$ induced by $t.x_{(q,\chi)}=t^{d(q,\chi)}x_{(q,\chi)}$ for $x_{(q,\chi)}\in X_{(q,\chi)}$ induces
  a torus action on $Gr_\bfe^Q(X)$ such that
-  $$Gr^Q_\bfe(X)^T\cong\bigsqcup_{[\hat\bfe]} Gr^{\hat Q}_{\hat\bfe}(\hat X)$$ where $\hat\bfe$ runs through all equivalence classes of dimension vectors compatible with $\bfe$.
+  $$Gr^Q_\bfe(X)^T\cong\bigsqcup_{\hat\bfe} Gr^{\hat Q}_{\hat\bfe}(\hat X)$$ where $\hat\bfe$ runs through all dimension vectors compatible with $\bfe$.
 \end{theorem}
 \begin{proof}
 A representation $U\in\Gr_{\bfe}(X)$ is a torus fixed point if and only if $t.U=U $ for all $t\in\C^\ast$, i.e. $t.U_q=U_q$ for all $q\in Q_0$, $t\in\C^\ast$. Thus, apart from being a subrepresentation of $X$, it is a fixed point of the torus actions on the usual Grassmannians $\Gr_{\bfe_q}(X_q)$ induced by the decompositions $X_q=\bigoplus_{\chi\in A_Q} X_{q,\chi}$. A subrepresentation $U\subset X$ can be lifted to the universal abelian covering if and only if
@@ -228,16 +230,24 @@ Thus we can apply Lemma \ref{usualGrass} to obtain the claim.
 The next step is to iterate the torus action keeping in mind the following idea: every representation, which lifts to the universal covering quiver, also lifts to the universal abelian covering quiver and also to the iterated universal abelian covering quivers, i.e. to $\hat Q^{(k)}:=\widehat{\hat Q^{(k-1)}}$ with $\hat Q=\hat Q^{(1)}$. Now it is straightforward to check that there exist natural surjective morphisms $f_k:\tilde Q\to \hat Q^{(k)}$ which become injective on finite subquivers if $k\gg 0$, see also \cite[Section 3.4]{wei}. Since the support of $X$ is finite as a representation of $\tilde Q$, we can find $k\geq 1$ such that the full subquiver with vertices $\mathrm{supp}(X)\subseteq \hat Q^{(k)}_0$ is a tree. Thus, if $\hat X^{(k)}$ is the lift of $X$ to $\hat Q^{(k)}$, there exists a torus action on the vector spaces $\hat X^{(k)}_q$ which induce a torus action on the quiver Grassmannian $Gr_{\bfe}^{\hat Q^{(k)}}(\hat X^{(k)})$. If we denote the iterated torus fixed points by $Gr^Q_\bfe(X)^{T^{(k)}}$. We obtain:
 \begin{corollary}
 Let $X$ be a representation which can be lifted to $\tilde Q$. Then there exists an iterated torus action such that
-  $$Gr^Q_\bfe(X)^{T^{(k)}}\cong \bigsqcup_{[\hat\bfe^{(k-1)}]} Gr_{\hat\bfe^{(k-1)}}^{\hat Q^{(k-1)}}(\hat X^{(k-1)})^T\cong \bigsqcup_{[\hat\bfe^{(k)}]} Gr^{\hat Q}_{\hat\bfe^{(k)}}(\hat X^{(k)})\cong \bigsqcup_{[\tilde\bfe]} Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$$ where $\hat\bfe^{(k-1)},\,\hat\bfe^{(k)},\,\tilde\bfe$ run through all equivalence classes of dimension vectors compatible with $\bfe$.
+  $$Gr^Q_\bfe(X)^{T^{(k)}}\cong \bigsqcup_{\hat\bfe^{(k-1)}} Gr_{\hat\bfe^{(k-1)}}^{\hat Q^{(k-1)}}(\hat X^{(k-1)})^T\cong \bigsqcup_{\hat\bfe^{(k)}} Gr^{\hat Q}_{\hat\bfe^{(k)}}(\hat X^{(k)})\cong \bigsqcup_{\tilde\bfe} Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$$ where $\hat\bfe^{(k-1)},\,\hat\bfe^{(k)},\,\tilde\bfe$ run through all dimension vectors compatible with $\bfe$.
 \end{corollary}
 %\begin{corollary}
 %  affine bundles over $Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$ if $Gr^Q_\bfe(X)$ is smooth
 %  \[\{U\in Gr^Q_\bfe(X):\lim_{t\to0} t\cdot U\in Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)\}\]
 %\end{corollary}
+Define the $F$-polynomial of a representation $X$ by 
+$$F_X=\sum_{\bfe\in\NN^{Q_0}}\chi(\Gr_\bfe(X))x^e\in\ZZ[x_q\mid q\in Q_0].$$
 
-\begin{question}
-  What are the ranks of the bundles over the fixed point set?  Poincar\'e polynomials?
-\end{question}
+\begin{corollary}\label{fpoly}
+Let $X$ be a representation which can be lifted to the universal covering quiver.
+\begin{enumerate}
+\item 
+If  $\Gr_\bfe(X)$ is smooth and $\Gr^{\tilde Q}_{\tilde \tbfe}(\tilde X)$ has a cell decomposition into affine spaces, then $\Gr_\bfe(X)$ has a cell decomposition into affine spaces.
+\item We have $F_X=SF_{\tilde X}$ where $SF_{\tilde X}$ is obtained from $F_{\tilde X}$ by applying $S:\ZZ[x_{(q,w)}\mid q\in Q_0,w\in W_Q]\to\ZZ[x_q\mid q\in Q_0]$ given by $S(x_{(q,w)})=x_q$ for all $q\in Q_0$ and $w\in W_Q$.
+\end{enumerate} 
+\end{corollary}
+An important special case for this is the case of exceptional representations. In this case the quiver Grassmannians $\Gr_\tbfe(X)$ are smooth by \cite[Corollary 4]{cr}. Moreover, every exceptional representation is a tree module by \cite{rin1} which means that it can be lifted to the universal covering.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -716,6 +726,7 @@ Using this notation, we obtain the following lemma:
    %   \[0\longrightarrow \tilde P_{m-1,i_1}\oplus\cdots\oplus\tilde P_{m-1,i_k}\longrightarrow\tilde P_m\longrightarrow \tilde P_m^{i_1,\ldots,i_k}\longrightarrow 0;\]
     \item The representations $\tilde P_{m-1,i}$ are pairwise orthogonal;
     \item All nontrivial proper subrepresentations $U$ of $\tilde P_m^{(i_1,\ldots,i_k)}$ are preprojective.
+		
   \end{enumerate}
 \end{lemma}
 \begin{proof}
@@ -732,6 +743,9 @@ because we have $\Ext(U,\tilde P_{m-1,i_k})\neq 0$ as the bottom sequence does n
 But this contradicts the induction hypothesis because preprojective representations do not have self-extensions.
 
 \end{proof}
+
+%Fix $\ui=(i_1,\ldots,i_k)$ and $\uj=(j_1,\ldots,j_l)$ with $i$
+
 If we choose subset $\{i_1,\ldots,i_k\}=\{1,\ldots,k\}$, we denote the cokernel simply by $\tilde P_m^{(k)}$ and $\tilde P_m^{(0)}=\tilde P_m$ respectively. 
 
 \begin{lemma}\label{directsums}
@@ -776,6 +790,10 @@ It is also straightforward to check that $\bigoplus_{j\neq k}\tilde P_{2,(k,j)}\
 
 
 \end{proof}
+
+
+
+
 The short exact sequence $\ses{\tilde P_{m,k}}{\tilde P_{m+1}^{(k-1)}}{\tilde P_{m+1}^{(k)}}$ induces a map between quiver Grassmannians
 $$\Psi_1:Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})\to\bigsqcup_{\tbff+\tbfg=\tbfe} Gr^{\tilde Q}_\tbff( \tilde P_{m,k})\times Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^{(k)}).$$
 Let $P(m,k):=\bigoplus_{\substack{1\leq j\leq n\\j\neq k}}\tilde P_{m-1,(k,j)}\oplus \bigoplus_{j=1}^k\tilde P_{m-2,(k,k,j)}$.
@@ -847,15 +865,18 @@ Note that we can also consider
 $\Psi_1:Gr^{\tilde Q}_\tbfe(\tilde P^{(k-1)}_{m})\to\bigsqcup_{\tbff+\tbfg=\tbfe} Gr^{\tilde Q}_\tbff(\bigoplus_{i=1}^{k}\tilde P_{m-1,i})\times Gr^{\tilde Q}_\tbfg(\tilde P_m^{(k)})$ where $\tilde P_m^{(n-1)}=\tilde P_{m-1}^{(1)}$ (up to renumbering the arrows). But then one needs to adjust $\Psi_2$ because the factor of $\bigoplus_{i=1}^{k}\tilde P_{m-1,i}$ were $(\tau\tilde P_m^{(k)})^k$.
 
 
-\begin{theorem}
+\begin{theorem}\label{celldec}
   Every quiver Grassmannian of a preprojective or preinjective representation of $K(n)$ and $\widetilde{K(n)}$ has a cell decomposition.
 \end{theorem}
 \begin{proof}
 This follows by combining the results of Section 2 and Proposition \ref{fibers}.
 \end{proof}
-\begin{question}
-  cells of $Gr^{\tilde Q}_\tbfe(\tilde P_m)$ are in one-to-one correspondence with certain tuples of subgraphs for smaller $\tilde P_\ell^{i_1,\ldots,i_k}$
-\end{question}
+
+As the $F$-polynomial of truncated preprojective representations only depend on the dimension vector, we may denote them by $F_{\udim P_m{(k)}}$. The description of the non-empty fibres in Proposition \ref{fibers} together with Corollary \ref{fpoly} and Theorem \ref{celldec} yield the following:
+\begin{corollary}
+For $m\geq 2$ and $0\leq k\leq n-2$, we have 
+$$F_{\udim P_m^{(k)}}=F_{\udim P_m^{(k+1)}}F_{\udim P_{m-1}}-x^{\udim P_{m}^{(k)}}F_{\udim P_{m-2}^{(k)}}.$$
+\end{corollary}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1319,6 +1340,7 @@ Journal of Pure and Applied Algebra \textbf{212}(11), 2369-2380 (2008).
 \bibitem{gab} Gabriel, P.: The universal cover of a finite-dimensional algebra. Representations of algebras. Lecture Notes in Mathematics {\bf 903}, 68-105 (1981).
 \bibitem{hr} Happel, D., Ringel, C.M.: Tilted Algebras. Transactions of the American Mathematical Society {\bf 274}, no.2, 399-443 (1982).
 \bibitem{llz} K. Lee, L. Li, A. Zelevinsky: Greedy elements in rank 2 cluster algebras. Selecta Math. \textbf{20} (2014) pp.~57--82.
+\bibitem{rin1} Claus Michael Ringel. Exceptional modules are tree modules. \textit{Linear algebra and its Applications}, 275/276:471-493, 1998.
 \bibitem{rin} Ringel, C.M.: Reflection functors for hereditary algebras. Journal of the London Mathematical Society (2) {\bf 21}, no. 3, 465-479 (1980).
 %\bibitem{mats} Matsumura, H.: Commutative ring theory. 
 \bibitem{rupel} Rupel, D.: Rank Two Non-Commutative Laurent Phenomenon and Pseudo-Positivity, arXiv.
