@@ -7,6 +7,7 @@
 \usetikzlibrary{fit}
 \usepackage[margin=1in]{geometry}
 \usepackage{extarrows}
+\usepackage{verbatim}
 \input xy
 \xyoption{all}
 
@@ -52,10 +53,11 @@
 \newcommand{\into}{\hookrightarrow}
 \newcommand{\onto}{\to\!\!\!\!\!\to}
 \newcommand{\ses}[3]{0\rightarrow #1\rightarrow #2\rightarrow#3\rightarrow 0}
+\newcommand{\sesm}[4]{0\rightarrow #1\rightarrow #2\xrightarrow{#4}#3\rightarrow 0}
 \newcommand{\Sc}[2]{\langle #1,#2\rangle}
 \newcommand{\spn}{\operatorname{span}}
 \setcounter{MaxMatrixCols}{20}
-
+\newcommand{\vs}{\vspace{0.2cm}}
 \hyphenation{endo-functors}
 
 \title{Cell Decompositions for Rank Two Quiver Grassmannians}
@@ -160,14 +162,14 @@ The following is proved in \cite[Section 3]{cefr}.
 \begin{theorem}\label{vb}
 If the fibre dimension of $\Psi_\tbfe^{\tbff,\tbfg}$ is constant over $\mathrm{Im}(\Psi_\tbfe^{\tbff,\tbfg})$, then it an affine bundle over the image. In particular, the existence of a cell decomposition of $\mathrm{Im}(\Psi_\tbfe^{\tbff,\tbfg})$ implies a cell decomposition of $\cG_{\tbff,\tbfg}$ in this case.
 \end{theorem}
-\begin{proof}\footnote{sketch, double-check}
+%\begin{proof}\footnote{sketch, double-check}
 
 
-As $X$ and $Y$ are projective, they are compact. As the fibres are affine spaces of constant dimension and as $X$ and $Y$ are smooth, the induced morphism on the tangent spaces is surjective for all points $x\in X$. This shows that $f$ is smooth of relative dimension $n$, see Hartshorne and thus a submersion?!
+%As $X$ and $Y$ are projective, they are compact. As the fibres are affine spaces of constant dimension and as $X$ and $Y$ are smooth, the induced morphism on the tangent spaces is surjective for all points $x\in X$. This shows that $f$ is smooth of relative dimension $n$, see Hartshorne and thus a submersion?!
 
 
 
-\end{proof}
+%\end{proof}
 
 
 %%%
@@ -321,7 +323,7 @@ The following is well-known.
   Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}\oplus P_{m+1}^{a_2}$ or $I_m^{a_1}\oplus I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
 \end{theorem}
 The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
-\begin{remark}
+\begin{remark}\footnote{we should have $P_m=(\Sigma_iP_{m-1})^T$}
   \label{rem:reflection recursion}
   These representations satisfy the following recursions using the reflection functors:
   \[P_1=S_1,\quad P_m=\Sigma_2 P_{m-1},\quad I_1=S_2,\quad I_m=\Sigma_1 I_{m-1}\]
@@ -722,40 +724,102 @@ Each such sequence has the following almost-split property for proper subreprese
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quiver Grassmannians of $\widetilde{K(n)}$}\label{QG}
 \noindent 
-Let $\tilde P_m$ be a fixed lift of $P_m$ to the universal cover $\widetilde{K(n)}$. Note that the group $W_Q$ acts naturally on $\widetilde{K(n)}_0$ via translation, i.e. $w.(q,w')=(q,ww')$. Up to this action a lift $\tilde P_m$ of $P_m$ is unique. On the universal covering, every preprojective representation $\tilde P_m$ has $n$ subrepresentation $\tilde P_{m-1,1},\ldots,\tilde P_{m-1,n}$. Each of them corresponds (inductively) to one of the $n$ different arrows of $K(n)$. In turn, with every sequence of natural numbers $\uj=(j_1,\ldots,j_l)$ with $j_i\leq n$ and $l\leq m-1$ we can associate a preprojective subrepresentation $\tilde P_{m-k,\uj}$ of dimension $(u_{m-k},u_{m-k-1})$. For $\{i_1,\ldots,i_k\}\subset \{1,\ldots,n\}$ and $1\leq k\leq n-1$, there exist exact sequences of the form
-\[\ses{\bigoplus_{j=1}^k\tilde P_{m-1,i_j}}{\tilde P_m}{\tilde P_{m}^{(i_1,\ldots,i_k)}},\quad\quad\ses{\tilde P_{m-1,i_k}}{\tilde P_{m}^{(i_1,\ldots,i_{k-1})}}{\tilde P_{m}^{(i_1,\ldots,i_k)}}.\]
+We fix a natural number $n\geq 3$. We fix the following lifts $\tilde P_m$  of $P_m$ to the universal cover $\widetilde{K(n)}$. For $m=1$ we assume that $\dim (\tilde P_1)_{1,1}=1$ and $\dim (\tilde P_m)_{i,w}=0$ if $(i,w)\neq (1,1)$. Moreover, we assume that $\dim (\tilde P_2)_{2,1}=\dim (\tilde P_2)_{1,w}=1$ for $w=a_1,\ldots,a_n$ and $\dim (\tilde P_2)_{i,w}=0$ if $(i,w)\notin\{(2,1),(1,a_1),\ldots,(1,a_n)\}$. Recall that applying the reflection functor $\Sigma_i$ on $K(n)$ corresponds to applying $\tilde\Sigma_i:=\prod_{w\in W_Q}\Sigma_{(i,w)}$ on $\widetilde{K(n)}$.  For $m\geq 3$, we can build lifts $\tilde P_m$ recursively by applying reflection functors or as Auslander-Reiten translation, i.e. we have
+\begin{align}\label{recursive}\tilde P_m=(\tilde\Sigma_1 \tilde P_{m-1})^T,\quad\tilde P_{m+1}=\tau^{-1} \tilde P_{m-1}\text{ for }m\geq 2.\footnote{odd and even live on different components}\end{align}
+Recall that we obtain the Auslander-Reiten translate $\tau^{-1}\tilde P_m$ by applying the reflection functor to the sinks twice where the sinks become sources after each step. 
+\begin{remark}\begin{enumerate}
+\item Note that the group $W_Q$ acts naturally on $\widetilde{K(n)}_0$ via translation, i.e. $w.(q,w')=(q,ww')$ inducing an action on $\Rep(\widetilde{K(n)})$. Up to this action a lift $\tilde P_m$ of $P_m$ is unique (on isomorphism classes).
+\item Note that, the lifts $\tilde P_m$ all have the same middle vertex $(i,0)$ where $i=1$ is $m$ is odd and $i=2$ if $m$ is even.
+\end{enumerate}
+\end{remark}
+The next step is to construct filtrations of $\tilde P_m$ by smaller preprojective $w.\tilde P_{l}$ for $l<m$ and certain $w\in W_Q$. To do so, we fix $m$ and the following notation can be seen as relative to $m$\footnote{do we need this?}. 
 
-Using this notation, we obtain the following lemma:
-\begin{lemma}
+Every representation $\tilde P_m$ has $n$ subrepresentation $\tilde P_{m-1,1},\ldots,\tilde P_{m-1,n}$. Each of them corresponds to one of the $n$ different arrows of $K(n)$. More precisely, we have 
+$$\tilde P_{2l-1,i}:=a_i.\tilde P_{2l+1},\quad \tilde P_{2l,i}:=a_i^{-1}.\tilde P_{2l}$$
+for all $l\geq 1$ and for $i=1,\ldots,n$. This can be checked straightforwardly for $l=1$ and follows in general when applying the identities (\ref{recursive}). In the following, we sometimes identify the arrows with the numbers $1,\ldots,n$.
+
+We need some more notation in order to locate truncated preprojectives as quotients of other truncated preprojectives in the universal covering.
+With every sequence of natural numbers $\ui=(i_1,\ldots,i_k)$ with $i_j\leq n$ and $k\leq m-1$, we can associate a preprojective subrepresentation $\tilde P_{m-k,\uj}$ of dimension $(u_{m-k},u_{m-k-1})$. More detailed, we obtain a sequence of preprojective representations 
+$$\tilde P_{m-k,\ui}\subset P_{m-k+1,(i_1,\ldots,i_{k-1})}\subset\ldots\subset P_{m-1,(i_1,i_2)}\subset P_{m-1,i_1}\subset P_{m}.$$
+  
+Let
+$$I^n_l:=\{(i_1,\ldots,i_{l})\mid i_j\in\{1,\ldots,n\},\,i_j\neq i_k\text{ if }j\neq k\}.$$
+As we fixed the number of arrows, we drop the $n$ in what follows. For $\ui=(i_1,\ldots,i_{n-1})\in I_{n-1}$, let $i^c\in \{1,\ldots,n\}$ and $\ui^c=(i^c)$ where $i^c\neq i_j$ for $j=1,\ldots,n-1$. Clearly, $\ui^c$ is uniquely determined by $\ui$.
+
+
+
+Let $(\underline{i_1},\underline{i_2},\ldots,\underline{i_r})$ be a sequence with $\underline{i_1}\in I_{n-1}$, $\underline{i_2},\ldots,\underline{i_{r-1}}\in I_{n-2}$ and $\underline{i_r}\in I_s$ for $s\leq n-2$. Define $i_1^c$ as before and for $k\geq 2$ let $i_k^c\in\{1,\ldots,n\}$ be the unique number such that $i_k^c\neq i_{k,j}$ for $j=1,\ldots,n-2$ and $i_k^c\neq i_{k-1}^c$. We say that $(\underline{i_1},\underline{i_2},\ldots,\underline{i_r})$ is admissible if 
+$$ i_{k,j}\neq i_{k-1}^{c}\text{ for all }k=2,\ldots, r-1,\,j=1,\ldots,n-2\text{ and for }j=1,\ldots,s\text{ if }k=r.$$ 
+
+
+
+For $\ui\in I_{s}$ with $s\leq n-1$, there exist unique exact sequences of the form
+\[\ses{\bigoplus_{j=1}^s\tilde P_{m-1,i_j}}{\tilde P_m}{\tilde P_{m}^{\ui}},\quad\quad\ses{\tilde P_{m-1,i_s}}{\tilde P_{m}^{(i_1,\ldots,i_{s-1})}}{\tilde P_{m}^{\ui}}\]
+where the $\tilde P_m^{\ui}$ are truncated preprojectives (as defined in the last section). The next step is to define a unique truncated preprojective representation for each admissible sequence ${\bf i}=(\underline{i_1},\underline{i_2},\ldots,\underline{i_r})$. We define the admissible sequence $\delta {\bf i}$ (of length $r-1$) by
+\[\delta {\bf i}:=((i_1^c,\underline{i_2}),\ldots,\underline{i_r}).\]
+We recursively define $\delta^l{\bf i}$ for $l=1,\dots,r-1$.
+%In the following, we assume without loss of generality that $i_1< i_2<\ldots< i_k$.
+Note that we have $\delta\ui=(i^c)$ for $\ui\in I_{n-1}$.
+
+\begin{lemma}The following holds:
   \label{le:preprojective lifts}
   \begin{enumerate}
-    \item $\Hom_Q(P_{m-1},P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$, where each $\Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$ is one-dimensional;
+    \item $\Hom_Q(P_{m-1},P_m)\cong\bigoplus_{j=1}^n \Hom_{\tilde Q}(\tilde P_{m-1,j},\tilde P_m)$, where each $\Hom_{\tilde Q}(\tilde P_{m-1,j},\tilde P_m)$ is one-dimensional;
    % \item For any proper subset $\{i_1,\ldots,i_k\}\subset\{1,\ldots,n\}$, there exists a short exact sequence
    %   \[0\longrightarrow \tilde P_{m-1,i_1}\oplus\cdots\oplus\tilde P_{m-1,i_k}\longrightarrow\tilde P_m\longrightarrow \tilde P_m^{i_1,\ldots,i_k}\longrightarrow 0;\]
-    \item The representations $\tilde P_{m-1,i}$ are pairwise orthogonal;
-    \item All nontrivial proper subrepresentations $U$ of $\tilde P_m^{(i_1,\ldots,i_k)}$ are preprojective.
-		
+    \item The representations $\tilde P_{m,j}$ are pairwise orthogonal, i.e. for $j\neq i$ we have $$\Hom(\tilde P_{m-1,i},\tilde P_{m-1,j})=\Ext(\tilde P_{m-1,i},\tilde P_{m-1,j})=0;$$
+    \item If $\ui\in I_{n-1}$ and $m\geq 3$, we have $\tilde P_{m}^{\ui}\cong \tilde P_{m-1,i^c}^{\ui^c}= P_{m-1,i^c}/P_{m-2,(i^c,i^c)}$.
+		\item Let $m\geq 3$ and $1\leq r\leq m-1$ and let $\mathbf i:=(\underline{i_1},\ldots,\underline{i_r})$ be an admissible sequence. Let ${\bf i}(l):=(\underline{i_1},\ldots,\underline{i_l})$ for $l=2,\ldots,r-1$. Then we recursively have
+		\[\tilde P_{m-l,(i_1^c,\ldots,i_l^c)}^{\delta^l{\bf i(l)}}=\tilde P_{m-l+1,(i_1^c,\ldots,i_{l-1}^c)}^{\delta^{l-1}\bf i(l)}\]
+		for $l=1,\ldots,r$. Thus we can associate a unique truncated preprojective representation $$\tilde P^{\mathbf i}_{m-r+1}:=\tilde P_{m-r+1,(i_1^c,\ldots,i_{r-1}^c)}/\tilde P_{m-r+1,(i_1^c,\ldots,i_{r-1}^c)}^{(i_{r-1}^c,i_{r,1},\ldots,i_{r,s})}$$ with each admissible sequence ${\bf i}$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-The first statement follows from Theorem \ref{covering}. The second part follows for instance recursively by applying BGP-reflections.
+The first statement follows from Theorem \ref{covering}. For $m=2$, the second part is obvious. For $m\geq 3$, it then follows by applying the identities (\ref{recursive}).
 
-For the third part, we proceed by induction. Clearly $\tilde P_m$ has only preprojective subrepresentations. We can assume without loss of generality that the subrepresentation $U$ is indecomposable. If $U\subsetneq P_m^{(i_1,\ldots,i_k)}$ were not preprojective, the embedding would not factor through $P_m^{(i_1,\ldots,i_{k-1})}$ by induction hypothesis.  Thus we get a commutative diagram
+To prove the third part, we consider the following commutative diagram where the square on the left hand side is the corresponding Auslander-Reiten sequence:
+\[\xymatrix{0\ar[r] &\bigoplus_{j=1}^{n-1}\tilde P_{m-1,i_j}\ar[r] &  \tilde P_{m}\ar[r] & \tilde P_{m}^{\ui}\ar[r] & 0 \\
+  0\ar[r]&\tau\tilde P_m=\tilde P_{m-2} \ar[r]\ar[u] & \tilde P_{m-1,i^c}\ar[u]\ar[r]& \tilde P_{m}^{\ui}\ar[r]\ar@{=}[u]& 0}\]
 
-\[\xymatrix{0\ar[r] &\tilde P_{m-1,i_k}\ar[r] &  \tilde P_{m}^{(i_1,\ldots,i_{k-1})}\ar[r] & \tilde P_{m}^{(i_1,\ldots,i_{k})}\ar[r] & 0 \\
-  0\ar[r]&\tilde P_{m-1,i_k} \ar[r]\ar[u] & U'\ar[u]\ar[r]& U\ar[r]\ar[u]& 0}\]
-where the vertical maps are injective, the sequence on the bottom does not split and the representation $U'$ is preprojective by induction hypothesis. Then we have $U\in\tilde P_{m-1,i_k}^\perp$
-because $$\Hom(\tilde P_{m-1,i_k},U)=\Hom(\tilde P_{m-1,i_k},\tilde P_{m}^{(i_1,\ldots,i_{k})})=0$$ and $\tilde P_{m-1,i_k}$ is preprojective and $U$ is not. Moreover, we have $\Hom(U,\tilde P_{m-1,i_k})=0$ for the same reason. Thus $U'$ is an indecomposable subrepresentation of $\tilde P_{m}^{(i_1,\ldots,i_{k})}$ (reference) such that
-\[\Sc{\udim U'}{\udim U'}=\Sc{\udim U}{\udim U}+\Sc{\udim \tilde P_{m-1,i_k} }{\udim \tilde P_{m-1,i_k} }+\Sc{\udim U}{\tilde P_{m-1,i_k}}=1+\Sc{\udim U}{\tilde P_{m-1,i_k}}\leq 0\]
-because we have $\Ext(U,\tilde P_{m-1,i_k})\neq 0$ as the bottom sequence does not split.
+%Thus we see that $\tilde P_{m}^{\ui}\cong \tilde P_{m-1}^{(l)}$ for some $l\in\{1,\ldots,n\}$. But now it is straightforward to check that $l=n$. \footnote{more precise?} 
+For $m=3$, is straightforward that the injection of the lower row factors over $\tilde P_{1,i^c}$ which means that we get the same commutative diagram when replacing $\tilde P_{1}$ by $\tilde P_{1,(i^c,i^c)}$. Thus we have $\tilde P_{3}^{\ui}\cong \tilde P_{2,i^c}^{\ui^c}$. Applying the identities (\ref{recursive}) the claim follows for $m\geq 3$.
+
+The forth statement is now obtained recursively when initially considering the diagram from above replacing $\ui$ by $\underline{i_1}$.
+
+We have $\delta^{l-1}{\bf i}(l)=(i_{l-1}^c,i_{l,1},\ldots,i_{l,n-1})$. We use the third statement in order to successively obtain commutative diagrams
+\[\xymatrix{0\ar[r] &\bigoplus_{j=1}^{n-2}\tilde P_{m-l,(i_1^c,\ldots,i_{l-1}^c,i_{l,j})}\ar[r] &  \tilde P^{(i_{l-1}^c)}_{m-l+1,(i_1^c,\ldots,i_{l-1}^c)}\ar[r] & \tilde P_{m-l+1,(i_1^c,\ldots,i_{l-1}^c)}^{\delta^{l-1}{\bf i}(l)}\ar[r] & 0 \\
+  0\ar[r]&\tilde P_{m-(l+1),(i_1^c,\ldots,i_{l}^c,i_l^c)} \ar[r]\ar[u] & \tilde P_{m-l,(i_1^c,\ldots,i_{l}^c)}\ar[u]\ar[r]& \tilde P_{m-l,(i_1^c,\ldots,i_{l}^c)}^{(\underline{i_{l}^c)}}\ar[r]\ar@{=}[u]& 0}\]
+Now we have $\delta^l{\bf i}(l)=(i_l^c)$.	Finally, we consider the short exact sequence:
+
+\[\xymatrix{0\ar[r] &\bigoplus_{j=1}^{s}\tilde P_{m-r,(i_1^c,\ldots,i_{r-1}^c,i_{r,j})}\ar[r] &  \tilde P^{(i_{r-1}^c)}_{m-r+1,(i_1^c,\ldots,i_{r-1}^c)}\ar[r] & \tilde P_{m-r+1,(i_1^c,\ldots,i_{r-1}^c)}^{{\bf i}}\ar[r] & 0 }.\]
+As $\Hom(\tilde P_{m-l,(i_1^c,\ldots,i_{l-1}^c,i_{l,j})},\tilde P_{m-l+1,(i_1^c,\ldots,i_{l-1}^c)})=k$ for all $l=2,\ldots,r$ and $i=1,\ldots,n-1$, applying the second statement, we obtain that the quotient $\tilde P_{m-r+1}^{\bf i}$ is uniquely determined.
+	\end{proof}
+We denote the quotient morphism by $\pi_m^{\bf i}:\tilde P_m\to \tilde P_{m-r+1}^{\bf i}$. It is important for us that this morphism factors through all truncated preprojectives $\tilde P_m^{(1,\ldots,l)}$ where $l\leq n-1$ and $j_k\neq i_1^c$ for $k=1,\ldots, l$. We also denote the quotient morphism from $\tilde P_m^{(j_1,\ldots,j_l)}$ to $\tilde P_{m-r+1}^{\bf i}$ by $\pi_m^{\bf i}$.
+	
+ We need the following lemma analyzing the possible subrepresentations of truncated preprojective representations.
+\begin{lemma}\label{le:subrep}
+   All nontrivial proper subrepresentations $U$ of $\tilde P_m^{(i_1,\ldots,i_l)}$ are preprojective.	\footnote{Does it follow that the representations $F_{K(m)}\tilde P_m^{(j_1,\ldots,j_l)}$ are quasi-simple?}
+
+\end{lemma}
+\begin{proof}
+Without loss of generality, we choose $\{j_1,\ldots,j_l\}=\{1,\ldots,l\}$ and denote $\tilde P_m^{(l)}:=\tilde P_m^{(1,\ldots,l)}$ and define $\tilde P_m^{(0)}=\tilde P_m$ respectively.
+We proceed by induction. Clearly $\tilde P_m$ has only preprojective subrepresentations. We can assume without loss of generality that the subrepresentation $U$ is indecomposable. Assume that $U\subsetneq P_m^{(l)}$ is not preprojective. Then the embedding would not factor through $\tilde P_m^{(l-1)}$ by induction hypothesis.  Thus we get a commutative diagram
+
+\[\xymatrix{0\ar[r] &\tilde P_{m-1,l}\ar[r] &  \tilde P_{m}^{(l-1)}\ar[r] & \tilde P_{m}^{(l)}\ar[r] & 0 \\
+  0\ar[r]&\tilde P_{m-1,l} \ar[r]\ar[u] & U'\ar[u]\ar[r]& U\ar[r]\ar[u]& 0}\]
+where the vertical maps are injective, the sequence on the bottom does not split and the representation $U'$ is preprojective by induction hypothesis. Then we have $U\in\tilde P_{m-1,l}^\perp$
+because $$\Hom(\tilde P_{m-1,l},U)=\Hom(\tilde P_{m-1,l},\tilde P_{m}^{(l)})=0.$$ Moreover, $\Ext(\tilde P_{m-1,l},U)=0$ follows because the representation $\tilde P_{m-1,l}$ is preprojective and $U$ is not. We also have $\Hom(U,\tilde P_{m-1,l})=0$ for the same reason. 
+
+As the sequence does not split, this shows that $U'$ is an indecomposable  (reference) preprojective subrepresentation of $\tilde P_{m}^{(l-1)}$. Since the only exceptional representations of $K(n)$ are preprojective, we have $\Sc{\udim U}{\udim U}\leq 0$. Thus, using  $\Sc{\udim U}{\udim \tilde P_{m-1,l})}< 0$, we obtain
+\[\Sc{\udim U'}{\udim U'}=\Sc{\udim U}{\udim U}+\Sc{\udim \tilde P_{m-1,l} }{\udim \tilde P_{m-1,l} }+\Sc{\udim U}{\tilde P_{m-1,l}}\leq 1+\Sc{\udim U}{\tilde P_{m-1,l}}\leq 0.\]
 But this contradicts the induction hypothesis because preprojective representations do not have self-extensions.
 
 \end{proof}
 
 %Fix $\ui=(i_1,\ldots,i_k)$ and $\uj=(j_1,\ldots,j_l)$ with $i$
 
-If we choose subset $\{i_1,\ldots,i_k\}=\{1,\ldots,k\}$, we denote the cokernel simply by $\tilde P_m^{(k)}$ and $\tilde P_m^{(0)}=\tilde P_m$ respectively. 
 
+DO NOT NEED THIS-------FROM HERE----
 \begin{lemma}\label{directsums}
   \footnote{This can be proved on the quiver itself.}
   If the quiver Grassmannians $Gr^{\tilde Q}_\tbfe(\tilde P_{m})$ and $Gr^{\tilde Q}_\tbfe(\tilde P_{m-1})$ have cell decompositions into affine spaces, then we have that $Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^s\tilde P^{t_j}_{m-1,i_j}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})$ has a cell decomposition into affine spaces where $l_j,t_j\geq 1$ and $s,k\leq n$.
@@ -768,6 +832,8 @@ Indeed, we can use the fact that every subrepresentation $U$ of $\tilde P^{l_1-1
 In the same manner, we can proceed by inductively adding the summands $\tilde P_{m-1,i}$ in order to see that $Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^s\tilde P^{t_j}_{m-1,i_j}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})$ has a cell decomposition.
 \end{proof}
 
+
+
 \begin{lemma}
   \begin{enumerate}
     \item $\tilde P_m^{(i_1,\ldots,i_{n-1})}\cong\tilde P_{m-1}^{(i_n)}$
@@ -779,98 +845,170 @@ In the same manner, we can proceed by inductively adding the summands $\tilde P_
 \begin{proof}
 The first statement follows for instance by induction when applying BGP-reflections.
 \end{proof}
-\begin{lemma}\label{AR}
-Let $m\geq 3$ and $n\geq k\geq 1$. Consider the short exact sequence $\ses{\tilde P_{m,k}}{\tilde P_{m+1}^{(k-1)}}{\tilde P_{m+1}^{(k)}}$. 
+----TO HERE----DO NOT NEED THIS----
+
+\begin{lemma}\label{AR}\footnote{special case $m=3$}
+ Let $m\geq 4$ and $n-1\geq l\geq 1$ and let $(j_1,\ldots,j_l)$ be an admissible sequence. Consider the short exact sequence $$\sesm{\tilde P_{m-1,j_l}}{\tilde P_{m}^{(j_1,\ldots,j_{l-1})}}{\tilde P_{m}^{(j_1,\ldots,j_l)}}{\pi^{(j_1,\ldots,j_l)}_m}$$. The following holds:
 \begin{enumerate}
-\item There exists a short exact sequence 
-\[\ses{\bigoplus_{\substack{1\leq j\leq n\\j\neq k}}\tilde P_{m-1,(k,j)}\oplus \bigoplus_{j=1}^k\tilde P_{m-2,(k,k,j)}}{\tilde P_{m,k}}{\tau\tilde P_{m+1}^{(k)}}\]
-where $\tau$ denotes the Auslander-Reiten translate where
-$\tau\tilde P_{m+1}^{(k)}=\tilde P_{m-1}^{(k)}$. 
-\item Moreover, we have $\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k})\cong \Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)})=\kk$, $\Hom(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)})=0$. 
-\item We have $\tau\tilde P_{m+1}^{(k)}\in ~^\perp(\tilde P_{m+1}^{(k)})$.
+\item We have $\tau\tilde P_{m}^{(j_1,\ldots,j_l)}=\tilde P_{m-2}^{(j_1,\ldots,j_l)}$.
+%\item We have $\tau\tilde P_{m}^{(j_1,\ldots,j_l)}\in ~^\perp(\tilde P_{m}^{(j_1,\ldots,j_l)})$.\footnote{not true for $m\geq 4$. What do we need? We have $\Hom(\tau\tilde P_{m}^{(j_1,\ldots,j_l)},\tilde P_{m}^{(j_1,\ldots,j_l)})=0$}
+
+\item There exists a short exact sequences 
+\[\sesm{\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{m-2,(j_l,i)}\oplus \bigoplus_{i=1}^{l-1}\tilde P_{m-3,(j_l,j_l,i)}}{\tilde P_{m-1,j_l}}{\tau\tilde P_{m}^{(l)}}{\pi^{\bf j_l}_{m-1,j_l}}\]
+where ${\bf j}_l=((1,\ldots,j_l-1,\widehat{j_l},j_{l}+1,\ldots,n),(j_1,\ldots,j_{l-1})).$
+\item We have $\Hom(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=0$, $\Ext(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})\cong\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})$ and $\Hom(\tilde P_{m}^{\uj},\tilde P_{m,j_l})=0$ and thus $P(m,\uj)\in (\tilde P_{m}^{\uj})^\perp$. 
+\item We have $\Ext(\tilde P_{m}^{(j_1,\ldots,j_l)},\tilde P_{m-1,j_l})\cong \Ext(\tilde P_{m}^{(j_1,\ldots,j_l)},\tau\tilde P_{m}^{(j_1,\ldots,j_{l})})=\kk$, $\Hom(\tilde P_{m}^{((j_1,\ldots,j_l)},\tau\tilde P_{m}^{(j_1,\ldots,j_l)})=0$. 
 %\item Finally, we have $\Ext(\tilde P_{m+1}^{(k-1)},V)=0$ for every subrepresentation $V$ of $\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}$.
 \end{enumerate}%\footnote{introduce/consider/check indices, we have to mod out the corresponding reps in the covering} 
 \end{lemma}
 \begin{proof}
-We have $\mathcal  S \tilde P_m=\tilde P_{m+1}$ (up to permutation). This means that it is enough to show the statement for $m=3$ as all representations appearing are not isomorphic to the simple injective representation $S_2$. In this case, the first statement is straightforward as well as the third one (insert a diagram).
+Using the identities (\ref{recursive}), it suffices to prove the all statements for $m=4$ and arbitrary $1\leq l\leq n-1$. Without loss of generality, we choose $(j_1,\ldots,j_l)=(1,\ldots,l)$ and define $\tilde P_m^{(0)}=\tilde P_m$ respectively. We should point out that it is very important for this prove that we consider fixed lifts of all representations in the universal covering as defined in the beginning of this section. Note that, starting with these cases, we only reflect at sinks and no representation appearing is isomorphic to the simple injective representation $S_2$.  
 
-It is also straightforward to check that $\bigoplus_{j\neq k}\tilde P_{2,(k,j)}\oplus \bigoplus_{j=1}^k\tilde P_{1,(k,k,j)}\in (\tilde P_{4}^{(k)})^\perp$ and, moreover, that $\Hom(\tilde P_{4}^{(k)},\tilde P_{3,k})=0$ which yields the second claim when considering the long exact sequence obtained when applying $\Hom(\tilde P_{4}^{(k)},\underline{\quad})$.
+The representation $\tilde P_2$ is given determined by the following quiver and dimension vector:
+
+\begin{align*}\xymatrix@R10pt@C20pt{&&\bullet\\ \bullet\ar^{a_1}[rru]\ar^{a_{n}}[rrd] &&\vdots\\&&\bullet}\end{align*}
+The quiver of $\tilde P_2^{(i)}$, which we denote by $\mathcal A_i$ during this proof, can be obtained from this quiver by erasing the arrow $a_i$ and the corresponding sink. In turn, the quiver of $\tilde P_2^{(1,\ldots, l)}$ is obtained by erasing the arrows $a_{a_1},\ldots, a_l$. 
+
+ Using this notation the support of $\tilde P_4$ is given by
+\[\xymatrix@R40pt@C10pt{&&&&&&n-1\ar^{a_1}[llllld]\ar^{a_2}[ld]\ar^{a_n}[rrrrd]&&&&&\\&2n-3&&&&2n-3&&\hdots&&&2n-3\\
+\mathcal A_2\ar^{a_2}[ru]&\hdots&\mathcal A_n\ar^{a_n}[lu]&\mathcal A_1\ar^{a_1}[rru]&\widehat{\mathcal A_2}&\mathcal A_3\ar[u]^{a_3}&\hdots&\mathcal A_n\ar^{a_n}[llu]	&\hdots&\mathcal A_2\ar^{a_2}[ru]&\hdots&\mathcal A_{n-1}\ar^{a_{n-1}}[lu]}\]
+where the numbers correspond to the dimensions of the respective vertices. Moreover, all dimensions on the subquivers $\mathcal A_i$ are one. The arrows connecting a quiver $\mathcal A_i$ to a sink of the remaining quiver start at the unique source of $\mathcal A_i$. Now $\tilde P_{3,l}$ can be found as the representation corresponding to the subquiver
+\[\xymatrix@R40pt@C10pt{&&&&&&1\ar^{a_1}[llllld]\ar^{a_{l-1}}[ld]\ar^{a_l}[d]\ar^{a_{l+1}}[rd]\ar^{a_n}[rrrrd]&&&&&\\&1&&\hdots&&1&n-1&1&\hdots&&&1\\
+&&&\mathcal A_1\ar^{a_1}[rrru]&\hdots&\mathcal A_{l-1}\ar^{a_{l-1}}[ru]&\widehat{\mathcal A_l}&\mathcal A_{l+1}\ar^{a_{l+1}}[lu]&\hdots&\mathcal A_n\ar^{a_n}[lllu]	&&&&}\]
+
+
+Finally, the quiver corresponding to $\tilde P_4^{(1,\ldots,l)}$ is given by
+
+\[\xymatrix@R45pt@C10pt{&&&&&&n-1-l\ar_{a_1}[llllld]\ar^{a_{l}}[llld]\ar^{a_{l+1}}[lld]\ar^{a_n}[rrrrd]&&&&&\\&n-1-l&\hdots&n-1-l&2n-3-l&&\hdots&&\hdots&&2n-3-l\\
+&\mathcal A_1\ar^{a_1}[rrru]&\hdots&\mathcal A_l\ar[ru]^{a_l}&\widehat{A}_{l+1}&\mathcal A_{l+2}\ar^{a_{l+2}}[lu]	&\hdots&\mathcal A_n\ar^{a_n}[lllu]&&\mathcal A_2\ar^{a_2}[ru]&\hdots&\mathcal A_{n-1}\ar^{a_{n-1}}[lu]}\]
+
+%\begin{tikzpicture}[scale=1]
+%\draw (0,0) node (I1) {$\bullet$} +(1,1) node (J11) {$\bullet$} +(1,0) node (J12) {$\bullet$} +(1,-1) node (J13) {$\bullet$}; 
+%\draw[->] (I1)--(J11) node[pos=.7,above,sloped]{\scriptsize$a$};
+%\draw[->] (I1)--(J12) node[pos=.7,above,sloped]{\scriptsize$b$};
+%\draw[->] (I1)--(J13) node[pos=.7,above,sloped]{\scriptsize$c$};
+%\draw[->] (I1)--(J1N) node[pos=.7,above,sloped]{\scriptsize$v_{n}$};
+%\end{tikzpicture}
+Now it is straightforward that the representation $\tau \tilde P_4^{(1,\ldots,l)}=\tilde P_2^{(1,\ldots,l)}$, which is given by reflecting at all the sinks twice, is supported at the source lying in the upper row and the $n-l$ sinks connected to it by the arrows $a_{l+1},\ldots,a_n$. \footnote{say something concerning $W_Q$-translation?} This shows the first statement.
+
+Considering the quiver $\tilde P_{3,l}$ from above, it is clear that $\tilde P_2^{(1,\ldots,l)}$ is a quotient. Moreover, the representation
+$$\bigoplus_{\substack{1\leq j\leq n\\j\neq l}}\tilde P_{2,(l,j)}\oplus \bigoplus_{j=1}^{l-1}\tilde P_{1,(l,l,j)}$$
+is the kernel of the corresponding map. Actually, the first summand corresponds to the quiver $\tilde A_i$ at the bottom and the second summand to the $l-1$ sources in the second row which lying on the left. This shows the second/third statement.
+
+
+
+It is also straightforward to check that $\bigoplus_{j\neq l}\tilde P_{2,(l,j)}\oplus \bigoplus_{j=1}^{l-1}\tilde P_{1,(l,l,j)}\in (\tilde P_{4}^{(1,\ldots,l)})^\perp$ and, moreover, that $\Hom(\tilde P_{4}^{(1,\ldots,l)},\tilde P_{3,l})=0$. This yields the third claim when considering the long exact sequence obtained when applying $\Hom(\tilde P_{4}^{(1,\ldots,l)},\underline{\quad})$ to the short exact sequence considered in the second statement.
 
 
 \end{proof}
 
 
+Let $\uj=(j_1,\ldots,j_l)$ be an admissible sequence and $m\geq 3$. The short exact sequence $\ses{\tilde P_{m-1,j_l}}{\tilde P_{m}^{(j_1,\ldots,j_{l-1})}}{\tilde P_{m}^{(j_1,\ldots,j_l)}}$ induces a map between quiver Grassmannians
+$$\Psi_{m,\uj}:\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{(j_1,\ldots,j_{l-1})})\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff( \tilde P_{m-1,j_l})\times \Gr^{\tilde Q}_\tbfg(\tilde P_{m}^{\uj}).$$
+Define 
+$$P(m,\uj):=\begin{cases}\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{m-2,(j_l,i)}\oplus \bigoplus_{i=1}^{l-1}\tilde P_{m-3,(j_l,j_l,i)}\text{ if }m\geq 4\\\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{1,(j_l,i)}\text{ if }m=3\end{cases}$$
 
-
-The short exact sequence $\ses{\tilde P_{m,k}}{\tilde P_{m+1}^{(k-1)}}{\tilde P_{m+1}^{(k)}}$ induces a map between quiver Grassmannians
-$$\Psi_1:Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})\to\bigsqcup_{\tbff+\tbfg=\tbfe} Gr^{\tilde Q}_\tbff( \tilde P_{m,k})\times Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^{(k)}).$$
-Let $P(m,k):=\bigoplus_{\substack{1\leq j\leq n\\j\neq k}}\tilde P_{m-1,(k,j)}\oplus \bigoplus_{j=1}^k\tilde P_{m-2,(k,k,j)}$.
-
-By Lemma \ref{AR}, every $U\subset \tilde P_{m,k}$ gives rise to a commutative diagram
+Using Lemma \ref{AR}, for $m\geq 4$, every subrepresentation $U\subset \tilde P_{m,j_l}$ gives rise to a commutative diagram
  
- \[\xymatrix{0\ar[r] &P(m,k)\ar[r] &  \tilde P_{m,k}\ar[r] & \tau\tilde P_{m+1}^{(k)}\ar[r] & 0 \\
+ \[\xymatrix{0\ar[r] &P(m,\uj)\ar[r] &  \tilde P_{m-1,j_l}\ar[r] & \tau\tilde P_{m}^{\uj}\ar[r] & 0 \\
   0\ar[r]& V\ar[r]\ar[u] & U\ar[u]\ar[r]& W\ar[r]\ar[u]& 0}\]
-By $\Psi_2$ we denote the corresponding map of quiver Grassmannians.
-Using this notation, we obtain:
-\begin{lemma}\label{quotient}
+If $m=3$, we consider the sequence
+ \[\xymatrix{0\ar[r] &P(3,\uj)\ar[r] &  \tilde P_{2,j_l}\ar[r] & \bullet\xrightarrow{a_{j_l}}\bullet\ar[r] & 0}\]	
+	where the kernel is clearly just a direct sum of simple representations. In this case, the Auslander-Reiten translate of $\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ is given by
+	\begin{align*}\xymatrix@R10pt@C20pt{&&\bullet\ar_{a_{j_1}}[lld]\\\bullet &&\vdots\\&&\bullet\ar_{a_{j_l}}[llu]}\end{align*}
+In particular, the image of the unique homomorphism $\tilde P_{2,j_l}\to\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ has image $\bullet\xrightarrow{a_{j_l}}\bullet$.
+In all cases, we denote the corresponding map between quiver Grassmannians by $\Phi_{m,\uj}$. Using this notation, we obtain:
+\begin{lemma}\label{quotient}Let $m\geq 3$ and $\uj=(j_1,\ldots,j_l)\in I_l^n$. The following holds:
 \begin{enumerate}
-\item The fibre $\Psi_1^{-1}(U,\tilde P_{m+1}^{(k)})$ is empty if and only if $U\in\Psi^{-1}_2(V,0)$, i.e. $U$ is already a subrepresentation of $P(m,k)$.
-\item If the fibre $\Psi_1^{-1}(U,\tilde P_{m+1}^{(k)})$ is not empty, we have $\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k}/U)= 0$.
+\item The fibre $\Psi_{m,\uj}^{-1}(U,\tilde P_{m}^{\uj})$ is empty if and only if $U\in\Phi_{m,\uj}^{-1}(V,0)$, i.e. $U$ is already a subrepresentation of $P(m,\uj)$.
+\item If the fibre $\Psi_{m,\uj}^{-1}(U,\tilde P_{m}^{\uj})$ is not empty, we have $\Ext(\tilde P_{m}^{\uj},\tilde P_{m,j_l}/U)= 0$.
 \end{enumerate} 
 \end{lemma}
 \begin{proof}
-If $W=0$, we get an exact sequence
-\[\ses{\Ext(\tilde P_{m+1}^{(k)},P(m,k)/V)}{\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k}/U)}{\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)})}.\]
+In order to prove the case $m=3$, we replace $\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ by  $\bullet\xrightarrow{a_{j_l}}\bullet$ in which case all arguments hold in the same way.
+ 
+If $W=0$, from Lemma \ref{AR}, i.e. $\Hom(\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj})=0$, we obtain a commutative diagram
 
-By Lemma \ref{AR}, we have $\Hom(\tilde P_{m+1}^{(k)},\tau \tilde P_{m+1}^{(k)})=0$, $\Ext(\tilde P_{m+1}^{(k)},\tau \tilde P_{m+1}^{(k)})\cong\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k})=\kk$ and $\Hom(\tilde P_{m+1}^{(k)},\tilde P_{m,k})=0$ and thus $P(m,k)\in (\tilde P_{m+1}^{(k)})^\perp$. Since this means $\Ext(\tilde P_{m+1}^{(k)},P(m,k))=0$, we get $\Ext(\tilde P_{m+1}^{(k)},P(m,k)/V)=0$. This yields $\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k}/U)\cong\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m,k})=\kk$ which means that the induced map
-\[\Ext(\tilde P_{m+1}^{(k)},U)\to\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k})\]
-is zero. Therefore, the induced exact sequence splits. On the other hand, every subrepresentation $U\subset \tilde P_{m,k}$ such that $\Psi_1^{-1}(U,\tilde P_{m+1}^{(k)})$ is not empty comes with a commutative diagram
- \[\xymatrix{0\ar[r] &\tilde P_{m,k}\ar[r] &  \tilde P_{m+1}^{(k-1)}\ar[r] & \tilde P_{m+1}^{(k)}\ar[r] & 0 \\
-  0\ar[r]& U\ar[r]\ar[u] & U'\ar[u]\ar[r]& \tilde P_{m+1}^{(k)}\ar[r]\ar[u]& 0}\]
-which means that the induced sequence in $\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k})$ does not split. This yields that the fibre is empty.
+ \[\xymatrix{&0&0&0&\\0\ar[r] &\Ext(\tilde P_{m}^{\uj},P(m,\uj)/V)\ar[r]\ar[u] &  \Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l}/U)\ar[r]\ar[u] & \Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj})\ar[r]\ar[u] & 0 \\
+0\ar[r] &\Ext(\tilde P_{m}^{\uj},P(m,\uj))\ar[r]\ar[u] &  \Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})\ar[r]\ar[u] & \Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj})\ar[r]\ar@{=}[u] & 0\\  0\ar[r] &\Ext(\tilde P_{m}^{\uj},V)\ar[r]\ar[u] &  \Ext(\tilde P_{m}^{\uj},U)\ar[r]\ar[u] &0\ar[r]\ar[u] & 0}\]
+	
+	
+Moreover, the lemma implies that we have $\Ext(\tilde P_{m}^{\uj},P(m,\uj))=0$ and thus we get $\Ext(\tilde P_{m}^{\uj},P(m,\uj)/V)=0$. This yields $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l}/U)\cong\Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m,j_l})$ which means that the induced map
+\[\Ext(\tilde P_{m}^{\uj},U)\to\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})\]
+is zero. Therefore, the induced exact sequence splits. On the other hand, every subrepresentation $U\subset \tilde P_{m-1,j_l}$ such that $\Psi_{m,\uj}^{-1}(U,\tilde P_{m}^{\uj})$ is not empty comes with a commutative diagram
+ \[\xymatrix{0\ar[r] &\tilde P_{m-1,j_l}\ar[r] &  \tilde P_{m}^{(j_1,\ldots,j_{l-1})}\ar[r] & \tilde P_{m}^{\uj}\ar[r] & 0 \\
+  e_U: 0\ar[r]& U\ar[r]\ar[u] & U'\ar[u]\ar[r]& \tilde P_{m}^{\uj}\ar[r]\ar[u]& 0}\]
+which means that the image of $e_U$ in $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})$ does not split. Indeed, we have $\Hom(\tilde P_{m}^{\uj},\tilde P_{m}^{(j_1,\ldots,j_{l-1})})=0$ by Lemma \ref{AR}. This yields that the fibre $\Psi_{m,\uj}^{-1}(\tilde P_{m}^{\uj},U)$ is empty.
 
 
-Thus assume that $U\in\Psi_2^{-1}(V,W)$ with $W\neq 0$. We first show that $\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k}/U)= 0$. Clearly, $\tau\tilde P_{m+1}^{(k)}/W$ is a proper factor of $\tau \tilde P_{m+1}^{(k)}$ if $W\neq 0$. 
-It follows that we have $\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)}/W)=0$. Indeed, by Auslander-Reiten theory every non-split morphism $g:\tau\tilde P_{m+1}^{(k)}\to \tau\tilde P_{m+1}^{(k)}/W$ factors through the middle term $Z$ of the AR-sequence 
-\[\ses{\tau\tilde P_{m+1}^{(k)}}{Z}{\tilde P_{m+1}^{(k)}}\]
+Thus assume that $U\in\Phi_{m,\uj}^{-1}(V,W)$ with $W\neq 0$. We first show that $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l}/U)= 0$. Clearly, $\tau\tilde P_{m}^{\uj}/W$ is a proper factor of $\tau \tilde P_{m}^{\uj}$ if $W\neq 0$. 
+It follows that we have $\Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj}/W)=0$. Indeed, by Auslander-Reiten theory every non-split morphism $g:\tau\tilde P_{m}^{\uj}\to \tau\tilde P_{m}^{\uj}/W$ factors through the middle term $Z$ of the AR-sequence 
+\[\ses{\tau\tilde P_{m}^{\uj}}{Z}{\tilde P_{m}^{\uj}}\]
 which means that the first map of the induced sequence
-\[\Hom(\tau\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)}/W)\to\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)}/W)\to\Ext(Z,\tau\tilde P_{m+1}^{(k)}/W) \]
-is zero. As $\tau\tilde P_{m+1}^{(k)}$ is exceptional (on the universal cover), we are in the situation of Ringel's reflection \cite{rin} which means that $\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)})=\kk$, $\Hom(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)})=0$ and $\tau\tilde P_{m+1}^{(k)}\in ~^\perp(\tilde P_{m+1}^{(k)})$, i.e. Lemma \ref{AR}, yields $\Ext(Z,\tau\tilde P_{m+1}^{(k)})=0$ as the AR-sequence does not split. In conclusion, we obtain $\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)}/W)=0$. 
+\[\Hom(\tau\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj}/W)\to\Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj}/W)\to\Ext(Z,\tau\tilde P_{m}^{\uj}/W) \]
+is zero. As $\tilde P_m^{\uj}$ is exceptional on the universal covering by the Auslander-Reiten formulas \cite[Theorem IV.2.13]{ass}, it follows that 
+$$\dim\Hom(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=\dim\Ext(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=0 \text{ and } \dim\Ext(\tilde P_m^{\uj},\tau\tilde P_m^{j})=\dim\Hom(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=1.$$ Since the map $\kk=\Hom(\tau \tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})\to\Ext(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})$ induced by the Auslander-Reiten sequence is injective and thus bijective, together with $\Ext(\tau \tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=0$, this shows $\Ext(Z,\tau\tilde P_{m}^{\uj})=0$ and thus $\Ext(Z,\tau\tilde P_{m}^{\uj}/W)=0$.
+
+%As $\tau\tilde P_{m+1}^{(k)}$ is exceptional (on the universal cover), we are in the situation of Ringel's reflection \cite{rin} which means that $\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)})=\kk$, $\Hom(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)})=0$ and $\tau\tilde P_{m+1}^{(k)}\in ~^\perp(\tilde P_{m+1}^{(k)})$, i.e. Lemma \ref{AR}, yields $\Ext(Z,\tau\tilde P_{m+1}^{(k)})=0$ as the AR-sequence does not split. In conclusion, we obtain $\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)}/W)=0$. 
 
 
-Again we can apply Lemma \ref{AR} in order to see that $\Ext(\tilde P_{m+1}^{(k)},P(m,k)/V)=0$ as $\Ext(\tilde P_{m+1}^{(k)},P(m,k))=0$. 
- Together with $\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)}/W)=0$, this yields the claim.
+Again we can apply Lemma \ref{AR} in order to see that $\Ext(\tilde P_{m}^{\uj},P(m,\uj)/V)=0$ as $\Ext(\tilde P_{m}^{\uj},P(m,\uj))=0$. 
+ Together with $\Ext(\tilde P_{m+1}^{\uj},\tau\tilde P_{m}^{\uj}/W)=0$, this yields the claim.
 
-Thus it remains to show that $\Psi^{-1}_1(U,\tilde P_{m+1}^{(k)})$ is not empty if $W\neq 0$. Since $\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k}/U)= 0$, we can conclude that the map $\Ext(\tilde P_{m+1}^{(k)},U)\to\Ext(\tilde P_{m+1}^{(k)},\tilde P_{m,k})$ is surjective which already means that there exists a commutative diagram as above which, in turn, means that the fiber is not empty.
+Thus it remains to show that $\Psi_{m,\uj}(U,\tilde P_{m}^{\uj})$ is not empty if $W\neq 0$. Since $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l}/U)= 0$, we can conclude that the map $\Ext(\tilde P_{m}^{\uj},U)\to\Ext(\tilde P_{m}^{\uj},\tilde P_{m,j_l})$ is surjective which already means that there exists a commutative diagram as above which, in turn, shows that the fiber is not empty.
 \end{proof}
-Now we are able to state the following result concerning the fibers of $\Psi_1$:
-\begin{proposition}\label{fibers}\footnote{maybe formulate this in terms of $\Psi$ (see below)}
+Now we are able to state the following result concerning the fibers of $\Psi_{m,\uj}$:
+\begin{proposition}\label{fibers}
  The following hold:
   \begin{enumerate}
-    \item For $V\subsetneq \tilde P_{m+1}^{(k)}$ and $U\subseteq\tilde P_{m,k}$, we have $\Psi_1^{-1}(U,V)=\AA^{\langle V,\tilde P_{m,k}/U\rangle}$.
-    \item If $V=\tilde P_{m+1}^{(k)}$, the fiber $\Psi_1^{-1}(U,V)$ is not empty if and only if $\Psi_2(U)\neq (U,0)$. In this case, we have $\Psi_1^{-1}(U,V)=\AA^{\langle V,\tilde P_{m,k}/U\rangle}$.
+    \item For $V\subsetneq \tilde P_{m}^{\uj}$ and $U\subseteq\tilde P_{m-1,j_l}$, we have $\Psi_{m,\uj}^{-1}(U,V)=\AA^{\langle V,\tilde P_{m-1,j_l}/U\rangle}$.
+    \item If $V=\tilde P_{m,\uj}$, the fiber $\Psi_{m,\uj}^{-1}(U,V)$ is not empty if and only if $\Phi_{m,\uj}(U)\neq (U,0)$. In this case, we have $\Psi_{m,\uj}^{-1}(U,V)=\AA^{\langle V,\tilde P_{m-1,l_j}/U\rangle}$.
 		
   \end{enumerate}
 \end{proposition}
-\begin{proof}By Lemma \ref{le:preprojective lifts}.3, any subrepresentation $V\subsetneq \tilde P_{m+1}^{(k)}$ is preprojective. But the representation $\tilde P_{m,k}/U$ is not as it is a proper quotient of a preprojective representation unless $U=0$. Thus we have $\Ext(V,\tilde P_{m,k}/U)=0$. If $U=0$, we have $\Ext(V,\tilde P_{m,k})=0$ because for dimension reasons every indecomposable direct summand of $V$ is isomorphic to some $\tilde P_l$ with $l\leq m$.
+\begin{proof}By Lemma \ref{le:subrep}.3, any subrepresentation $V\subsetneq \tilde P_{m}^{\uj}$ is preprojective. But the representation $\tilde P_{m-1,l_j}/U$ is not as it is a proper quotient of a preprojective representation unless $U=0$. Thus we have $\Ext(V,\tilde P_{m-1,l_j}/U)=0$. If $U=0$, we have $\Ext(V,\tilde P_{m-1,l_j})=0$ because for dimension reasons every indecomposable direct summand of $V$ is isomorphic to a lift some $P_l$ with $l\leq m$ and, moreover, $\Ext(P_l,P_k)=0$ for $l\leq k+1$.
 
 The second statement follows directly from Lemma \ref{quotient}.
 
 \end{proof}
 \begin{theorem}\label{cellscover}
-Every quiver Grassmannian $Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})$ admits a cell decomposition into affine spaces.
+Let $\uj=(i_1,\ldots,i_l)$ be an admissible sequence. Every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj})$ admits a cell decomposition into affine spaces.
 \end{theorem}
 \begin{proof}
+
+In order to prove the claim, we prove the more general statement:
+\vs
+
+\noindent {\bf Claim.} Every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj})$ has a cell decomposition which is compatible with a fixed quotient map $\pi_m^{\bf j}$ with ${\bf j}_1=\uj$ in the following way: 
+ Let $U\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj})$ such that $\pi_m^{\bf j}(U)\neq 0.$
+Then we have $\pi_m^{\bf j}(U')\neq 0$ for all $U'\in C_U$ where $C_U$ is the cell which contains $U$.
+\vs
+
+
+We proceed by induction on $m$ and reverse induction on $l$. If $m=1$ or $m=2$, the statement is straightforward as all quiver Grassmannians are points.
+The short exact sequence $$\sesm{\tilde P_{m-1,j_l}}{\tilde P_{m}^{(j_1,\ldots,j_{l-1})}}{\tilde P_{m}^{\uj}}{\pi_m^{\uj}}$$ induces a map between quiver Grassmannians
+$$\Psi_{m,\uj}:\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{(j_1,\ldots,j_{l-1})})\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff( \tilde P_{m-1,j_l})\times \Gr^{\tilde Q}_\tbfg(\tilde P_{m}^{\uj}).$$
+We consider the short exact sequence
+$$\sesm{P(m,\uj)}{\tilde P_{m-1,j_l}}{\tau\tilde P_{m}^{\uj}}{\pi^{\bf j}_m}$$
+with
+$${\bf j}=((1,\ldots,j_l-1,\widehat{j_l},j_l+1,\ldots,n),(j_1,\ldots,j_{l-1}))$$
+and $\tau\tilde P_{m}^{\uj} =\tilde P^{\uj}_{m-2}=\tilde P_{m-2}^{\bf j}$.
+
+By induction hypothesis the quiver Grassmannians corresponding to the representation on the left hand side have cell decompositions which are compatible with $\pi^{\bf j}_m$. The second part of Proposition \ref{fibers} says that the fibres are empty if and only if $\pi^{\bf j}_m=0$ and $\tbfg=\udim \tilde P_{m+1}^{(k)}$. In all other cases, the fiber dimension only depend on the dimension vectors $\tbff, \tbfg$ which means that they are constant over the cells of $\Gr^{\tilde Q}_\tbff(P_{m-1,i_k})\times \Gr^{\tilde Q}_\tbfg(\tau\tilde P_{m+1}^{(\ui)})$ whose subrepresentations $U\in \Gr^{\tilde Q}_\tbff(P_{m-1,i_k})$ satisfy $\pi_m^{\bf j}(U)\neq 0$. By Theorem \ref{vb}, the claim follows.
+Thus it remains to show that there exists a cell decomposition of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{(j_1,\ldots,j_{l-1})})$ which is compatible with a fixed $\pi_m^{\bf j'}$,
+ 
+
+\begin{comment}
 We proceed by induction and combine the two maps $\Psi_1$ and $\Psi_2$ and obtain a map
 \[\Psi:Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})\to\bigsqcup_{\tbff+\tbfg+\tbfh=\tbfe} Gr^{\tilde Q}_\tbff( P(m,k))\times Gr^{\tilde Q}_\tbfg(\tau\tilde P_{m+1}^{(k)})\times Gr^{\tilde Q}_\tbfh(\tilde P_{m+1}^{(k)}).\]
 
 By Lemma \ref{directsums} and induction hypothesis every quiver Grassmannian on the right hand side has a cell decomposition. The second part of the Proposition says that the fibres are empty if and only if $\tbfg=0$ and $\tbfh=\udim \tilde P_{m+1}^{(k)}$. In all other cases, the fiber dimension only depend on the dimension vectors $\tbff, \tbfg,\tbfh$ which means that they are constant over $Gr^{\tilde Q}_\tbff( P(m,k))\times Gr^{\tilde Q}_\tbfg(\tau\tilde P_{m+1}^{(k)})\times Gr^{\tilde Q}_\tbfh(\tilde P_{m+1}^{(k)})$\footnote{actually this should already say that this is a vector bundle as the base space is smooth (all reps are exceptional), apply Lemma \ref{vb}?}. Analogously to Lemma \ref{directsums}, we can conclude that this induces trivial bundles over every affine cell. In total, this yields a cell decomposition of the quiver Grassmannian $Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})$.
-
+\end{comment}
 \end{proof}
 
 
-Note that we can also consider 
-$\Psi_1:Gr^{\tilde Q}_\tbfe(\tilde P^{(k-1)}_{m})\to\bigsqcup_{\tbff+\tbfg=\tbfe} Gr^{\tilde Q}_\tbff(\bigoplus_{i=1}^{k}\tilde P_{m-1,i})\times Gr^{\tilde Q}_\tbfg(\tilde P_m^{(k)})$ where $\tilde P_m^{(n-1)}=\tilde P_{m-1}^{(1)}$ (up to renumbering the arrows). But then one needs to adjust $\Psi_2$ because the factor of $\bigoplus_{i=1}^{k}\tilde P_{m-1,i}$ were $(\tau\tilde P_m^{(k)})^k$.
+%Note that we can also consider 
+%$\Psi_1:Gr^{\tilde Q}_\tbfe(\tilde P^{(k-1)}_{m})\to\bigsqcup_{\tbff+\tbfg=\tbfe} Gr^{\tilde Q}_\tbff(\bigoplus_{i=1}^{k}\tilde P_{m-1,i})\times Gr^{\tilde Q}_\tbfg(\tilde P_m^{(k)})$ where $\tilde P_m^{(n-1)}=\tilde P_{m-1}^{(1)}$ (up to renumbering the arrows). But then one needs to adjust $\Psi_2$ because the factor of $\bigoplus_{i=1}^{k}\tilde P_{m-1,i}$ were $(\tau\tilde P_m^{(k)})^k$.
 
 
 \begin{theorem}\label{celldec}
@@ -1334,8 +1472,7 @@ Assem, I., Simson, D., Skowronski, A.: Elements of the Representation Theory of 
 \bibitem{bgp}
 Bernstein, I.~N., Gelfand, I.~M., Ponomarev, V.~A.: Coxeter functors, and Gabriel's theorem. Russian Mathematical Surveys \textbf{28}(2), 17-32 (1973).
 \bibitem{brenner-butler} S. Benner, M.~C.~R. Butler, The equivalence of certain functors occuring in the representation theory of artin algebras and species, J. London Math. Soc., 14 (1976), 183-187.
-\bibitem{cc}
-Caldero, P., Chapoton, F.: Cluster algebras as {H}all algebras of quiver representations.
+\bibitem{cc} P., Chapoton, F.: Cluster algebras as {H}all algebras of quiver representations.
 Commentarii Mathematici Helvetici \textbf{81}(3), 595-616 (2006).
 \bibitem{ck}
   P. Caldero, B. Keller: From triangulated categories to cluster algebras II.  Ann. Sci. \'Ecole Norm. Sup. (4) \textbf{39} (2006), no. 6, pp.~983--1009.
