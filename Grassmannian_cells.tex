@@ -19,6 +19,7 @@
 \newtheorem{question}[theorem]{Question}
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
 
 \newcommand{\bfe}{\mathbf{e}}
 \newcommand{\bff}{\mathbf{f}}
@@ -716,78 +717,136 @@ Each such sequence has the following almost-split property for proper subreprese
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quiver Grassmannians of $\widetilde{K(n)}$}\label{QG}
 \noindent 
-We fix a natural number $n\geq 3$. We fix the following lifts $\tilde P_m$  of $P_m$ to the universal cover $\widetilde{K(n)}$. For $m=1$ we assume that $\dim (\tilde P_1)_{1,1}=1$ and $\dim (\tilde P_m)_{i,w}=0$ if $(i,w)\neq (1,1)$. Moreover, we assume that $\dim (\tilde P_2)_{2,1}=\dim (\tilde P_2)_{1,w}=1$ for $w=a_1,\ldots,a_n$ and $\dim (\tilde P_2)_{i,w}=0$ if $(i,w)\notin\{(2,1),(1,a_1),\ldots,(1,a_n)\}$. Recall that applying the reflection functor $\Sigma_i$ on $K(n)$ corresponds to applying $\tilde\Sigma_i:=\prod_{w\in W_Q}\Sigma_{(i,w)}$ on $\widetilde{K(n)}$.  For $m\geq 3$, we can build lifts $\tilde P_m$ recursively by applying reflection functors or as Auslander-Reiten translation, i.e. we have
-\begin{align}\label{recursive}\tilde P_m=(\tilde\Sigma_1 \tilde P_{m-1})^T,\quad\tilde P_{m+1}=\tau^{-1} \tilde P_{m-1}\text{ for }m\geq 2.\footnote{odd and even live on different components}\end{align}
-Recall that we obtain the Auslander-Reiten translate $\tau^{-1}\tilde P_m$ by applying the reflection functor to the sinks twice where the sinks become sources after each step. 
+We fix a natural number $n\geq 3$. We fix the following lifts $\tilde P_m$  of $P_m$ to the universal cover $\widetilde{K(n)}$. For $m=1$ we assume that $\dim (\tilde P_1)_{1,1}=1$ and $\dim (\tilde P_1)_{i,w}=0$ if $(i,w)\neq (1,1)$. Moreover, we assume that $\dim (\tilde P_2)_{2,1}=\dim (\tilde P_2)_{1,w}=1$ for $w=a_1,\ldots,a_n$ and $\dim (\tilde P_2)_{i,w}=0$ if $(i,w)\notin\{(2,1),(1,a_1),\ldots,(1,a_n)\}$. Recall that applying the reflection functor $\Sigma_i$ on $K(n)$ corresponds to applying $\tilde\Sigma_i:=\prod_{w\in W_Q}\Sigma_{(i,w)}$ on $\widetilde{K(n)}$. Moreover, sinks become sources and vice versa. For $m\geq 3$, we can build lifts $\tilde P_m$ recursively by applying reflection functors or as Auslander-Reiten translation, i.e. we have
+\begin{align}\label{recursive}\tilde P_m=\tilde\Sigma_2 \tilde P_{m-1},\quad\tilde P_{m+1}=\tilde\Sigma_{1}\tilde\Sigma_2\tilde P_{m-1}=\tau^{-1} \tilde P_{m-1}\text{ for }m\geq 2.\end{align}
+It is rather important that $\tilde P_{2m}$ and $\tilde P_{2m-1}$ live on two different components of the universal covering quiver.
+
 \begin{remark}\begin{enumerate}
 \item Note that the group $W_Q$ acts naturally on $\widetilde{K(n)}_0$ via translation, i.e. $w.(q,w')=(q,ww')$ inducing an action on $\Rep(\widetilde{K(n)})$. Up to this action a lift $\tilde P_m$ of $P_m$ is unique (on isomorphism classes).
-\item Note that, the lifts $\tilde P_m$ all have the same middle vertex $(i,0)$ where $i=1$ is $m$ is odd and $i=2$ if $m$ is even.
+\item Then we have 
+$$\tilde P_{2l-1,i}:=a_i.\tilde P_{2l-1},\quad \tilde P_{2l,i}:=a_i^{-1}.\tilde P_{2l}$$
+for all $l\geq 1$ and for $i=1,\ldots,n$. This can be checked straightforwardly for $l=1$ and follows in general when applying the identities (\ref{recursive}). 
+
+\item Note that, the lifts $\tilde P_m$ all have the same middle vertex $(i,1)$ where $i=1$ is $m$ is odd and $i=2$ if $m$ is even.
 \end{enumerate}
 \end{remark}
-The next step is to construct filtrations of $\tilde P_m$ by smaller preprojective $w.\tilde P_{l}$ for $l<m$ and certain $w\in W_Q$. To do so, we fix $m$ and the following notation can be seen as relative to $m$\footnote{do we need this?}. 
 
-Every representation $\tilde P_m$ has $n$ subrepresentation $\tilde P_{m-1,1},\ldots,\tilde P_{m-1,n}$. Each of them corresponds to one of the $n$ different arrows of $K(n)$. More precisely, we have 
-$$\tilde P_{2l-1,i}:=a_i.\tilde P_{2l+1},\quad \tilde P_{2l,i}:=a_i^{-1}.\tilde P_{2l}$$
-for all $l\geq 1$ and for $i=1,\ldots,n$. This can be checked straightforwardly for $l=1$ and follows in general when applying the identities (\ref{recursive}). In the following, we sometimes identify the arrows with the numbers $1,\ldots,n$.
+%To do so, we fix $m$ and the following notation can be seen as relative to $m$\footnote{do we need this?}. 
 
-We need some more notation in order to locate truncated preprojectives as quotients of other truncated preprojectives in the universal covering.
+Every representation $\tilde P_m$ has $n$ subrepresentation $\tilde P_{m-1,1},\ldots,\tilde P_{m-1,n}$. Each of them corresponds to one of the $n$ different arrows of $K(n)$. 
+
+\begin{example}\label{smallm}[The cases $m=2,3,4$]
+\end{example}
+
+
+The representation $\tilde P_2$ is given by the following coefficient quiver:
+
+\begin{align*}\xymatrix@R10pt@C20pt{&&\bullet\\ \bullet\ar^{a_1}[rru]\ar^{a_{n}}[rrd] &&\vdots\\&&\bullet}\end{align*}
+The coefficient quiver of $\tilde P_2^{(i)}$, which we denote by $\mathcal A_i$ during this proof, can be obtained from this quiver by erasing the arrow $a_i$ and the corresponding sink. In turn, the quiver of $\tilde P_2^{(j_1,\ldots,j_l)}$ is obtained by erasing the arrows $a_{j_1},\ldots, a_{j_l}$.
+
+Using this notation, we obtain that $\tilde P_3$ can be written as
+	\begin{align*}\xymatrix@R10pt@C20pt{&&\mathcal A_1\ar_{a_{1}}[lld]\\ n-1 &&\vdots\\&&\mathcal A_n\ar_{a_{n}}[llu]}\end{align*}
+	and, moreover, $\tilde P_3^{\uj}$ is obtained when erasing the subquiver $\mathcal A_{j_1},\ldots,\mathcal A_{j_l}$ and decreasing the dimension of the sink by one.  The Auslander-Reiten translate $\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ is given by
+	\begin{align*}\xymatrix@R10pt@C20pt{&&\bullet\ar_{a_{j_1}}[lld]\\\bullet &&\vdots\\&&\bullet\ar_{a_{j_l}}[llu]}\end{align*}
+In particular, the image of the unique homomorphism $\tilde P_{2,j_l}=a_{j_l}.\tilde P_2\to\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ has image $\bullet\xrightarrow{a_{j_l}}\bullet$.
+ 
+
+The support of $\tilde P_4$ is given by
+\[\xymatrix@R40pt@C10pt{&&&&&&n-1\ar^{a_1}[llllld]\ar^{a_2}[ld]\ar^{a_n}[rrrrd]&&&&&\\&2n-3&&&&2n-3&&\hdots&&&2n-3\\
+\mathcal A_2\ar^{a_2}[ru]&\hdots&\mathcal A_n\ar^{a_n}[lu]&\mathcal A_1\ar^{a_1}[rru]&\widehat{\mathcal A_2}&\mathcal A_3\ar[u]^{a_3}&\hdots&\mathcal A_n\ar^{a_n}[llu]	&\hdots&\mathcal A_2\ar^{a_2}[ru]&\hdots&\mathcal A_{n-1}\ar^{a_{n-1}}[lu]}\]
+where the numbers correspond to the dimensions of the respective vertices. Moreover, all dimensions on the subquivers $\mathcal A_i$ are one. The arrows connecting a quiver $\mathcal A_i$ to a sink of the remaining quiver start at the unique source of $\mathcal A_i$. Now $\tilde P_{3,l}$ can be found as the representation corresponding to the subquiver
+\[\xymatrix@R40pt@C10pt{&&&&&&1\ar^{a_1}[llllld]\ar^{a_{l-1}}[ld]\ar^{a_l}[d]\ar^{a_{l+1}}[rd]\ar^{a_n}[rrrrd]&&&&&\\&1&&\hdots&&1&n-1&1&\hdots&&&1\\
+&&&\mathcal A_1\ar^{a_1}[rrru]&\hdots&\mathcal A_{l-1}\ar_{a_{l-1}}[ru]&\widehat{\mathcal A_l}&\mathcal A_{l+1}\ar_{a_{l+1}}[lu]&\hdots&\mathcal A_n\ar_{a_n}[lllu]	&&&&}\]
+
+
+Finally, the quiver corresponding to $\tilde P_4^{(1,\ldots,l)}$ is given by
+
+\[\xymatrix@R45pt@C10pt{&&&&&&n-1-l\ar_{a_1}[llllld]\ar^{a_{l}}[llld]\ar^{a_{l+1}}[lld]\ar^{a_n}[rrrrd]&&&&&\\&n-1-l&\hdots&n-1-l&2n-3-l&&\hdots&&\hdots&&2n-3-l\\
+&\mathcal A_1\ar^{a_1}[rrru]&\hdots&\mathcal A_l\ar[ru]^{a_l}&\widehat{A}_{l+1}&\mathcal A_{l+2}\ar^{a_{l+2}}[lu]	&\hdots&\mathcal A_n\ar^{a_n}[lllu]&&\mathcal A_2\ar^{a_2}[ru]&\hdots&\mathcal A_{n-1}\ar^{a_{n-1}}[lu]}\]
+Now it is straightforward to see that $\tau \tilde P_4^{(1,\ldots,l)}=\tilde P_2^{(1,\ldots,l)}$, where $\tau^{-1}$ is given by reflecting at all the sinks first and at all sources afterwards. Actually, $\tilde P_2^{(1,\ldots,l)}$  is supported at the source lying in the upper row and the $n-l$ sinks connected to it by the arrows $a_{l+1},\ldots,a_n$.
+
+%\begin{tikzpicture}[scale=1]
+%\draw (0,0) node (I1) {$\bullet$} +(1,1) node (J11) {$\bullet$} +(1,0) node (J12) {$\bullet$} +(1,-1) node (J13) {$\bullet$}; 
+%\draw[->] (I1)--(J11) node[pos=.7,above,sloped]{\scriptsize$a$};
+%\draw[->] (I1)--(J12) node[pos=.7,above,sloped]{\scriptsize$b$};
+%\draw[->] (I1)--(J13) node[pos=.7,above,sloped]{\scriptsize$c$};
+%\draw[->] (I1)--(J1N) node[pos=.7,above,sloped]{\scriptsize$v_{n}$};
+%\end{tikzpicture}
+
+\begin{remark}
+Actually, these examples already show how the (truncated) preprojectives are built, also using the identities (\ref{recursive}). We should point out that the case $m=3$ is rather special because it is the only case for which the unique morphism $\tilde P_{2,j_l}\to\tau\tilde P_3^{\uj}$ is not surjective. Note that if we factor out the image of this morphism, the remaining representation is a direct sum of simple injective representations which disappear after reflecting at the source.
+\end{remark}
+
+
+The next step is to introduce notation in order to locate truncated preprojectives as quotients of other truncated preprojectives in the universal covering for general $m$.
 With every sequence of natural numbers $\ui=(i_1,\ldots,i_k)$ with $i_j\leq n$ and $k\leq m-1$, we can associate a preprojective subrepresentation $\tilde P_{m-k,\uj}$ of dimension $(u_{m-k},u_{m-k-1})$. More detailed, we obtain a sequence of preprojective representations 
 $$\tilde P_{m-k,\ui}\subset P_{m-k+1,(i_1,\ldots,i_{k-1})}\subset\ldots\subset P_{m-1,(i_1,i_2)}\subset P_{m-1,i_1}\subset P_{m}.$$
   
 Let
-$$I^n_l:=\{(i_1,\ldots,i_{l})\mid i_j\in\{1,\ldots,n\},\,i_j\neq i_k\text{ if }j\neq k\}.$$
-As we fixed the number of arrows, we drop the $n$ in what follows. For $\ui=(i_1,\ldots,i_{n-1})\in I_{n-1}$, let $i^c\in \{1,\ldots,n\}$ and $\ui^c=(i^c)$ where $i^c\neq i_j$ for $j=1,\ldots,n-1$. Clearly, $\ui^c$ is uniquely determined by $\ui$.
+$$I^n_l:=\{(j_1,\ldots,j_{l})\mid j_i\in\{1,\ldots,n\},\,j_i\neq j_k\text{ if }i\neq k\}.$$
+As we fixed the number of arrows, we drop the $n$ in what follows. For $\uj=(j_1,\ldots,j_{n-1})\in I_{n-1}$, let $j^c\in \{1,\ldots,n\}$ and $\uj^c=(j^c)$ where $j^c\neq j_i$ for $i=1,\ldots,n-1$. Clearly, $\uj^c$ is uniquely determined by $\uj$.
 
 
 
-Let $(\underline{i_1},\underline{i_2},\ldots,\underline{i_r})$ be a sequence with $\underline{i_1}\in I_{n-1}$, $\underline{i_2},\ldots,\underline{i_{r-1}}\in I_{n-2}$ and $\underline{i_r}\in I_s$ for $s\leq n-2$. Define $i_1^c$ as before and for $k\geq 2$ let $i_k^c\in\{1,\ldots,n\}$ be the unique number such that $i_k^c\neq i_{k,j}$ for $j=1,\ldots,n-2$ and $i_k^c\neq i_{k-1}^c$. We say that $(\underline{i_1},\underline{i_2},\ldots,\underline{i_r})$ is admissible if 
-$$ i_{k,j}\neq i_{k-1}^{c}\text{ for all }k=2,\ldots, r-1,\,j=1,\ldots,n-2\text{ and for }j=1,\ldots,s\text{ if }k=r.$$ 
+\begin{definition}Let ${\bf j}:=(\underline{j_1},\underline{j_2},\ldots,\underline{j_r})$ be a sequence with $\underline{j_1}\in I_{n-1}$, $\underline{j_2},\ldots,\underline{j_{r-1}}\in I_{n-2}$ and $\underline{j_r}\in I_s$ for $s\leq n-2$. Define $j_1^c$ as before.
+ We say that ${\bf j}$ is admissible if 
+$$ j_{k,i}\neq j_{k-1}^{c}\text{ for all }k=2,\ldots, r-1,\,i=1,\ldots,n-2\text{ and for }i=1,\ldots,s\text{ if }k=r$$
+where $j_k^c\in\{1,\ldots,n\}$ for $2\leq k\leq r-1$ is recursively defined as the unique number satisfying $j_k^c\neq j_{k,i}$ for $i=1,\ldots,n-2$ and $j_k^c\neq j_{k-1}^c$. 
+\end{definition}
 
 
-
-For $\ui\in I_{s}$ with $s\leq n-1$, there exist unique exact sequences of the form
-\[\ses{\bigoplus_{j=1}^s\tilde P_{m-1,i_j}}{\tilde P_m}{\tilde P_{m}^{\ui}},\quad\quad\ses{\tilde P_{m-1,i_s}}{\tilde P_{m}^{(i_1,\ldots,i_{s-1})}}{\tilde P_{m}^{\ui}}\]
-where the $\tilde P_m^{\ui}$ are truncated preprojectives (as defined in the last section). The next step is to define a unique truncated preprojective representation for each admissible sequence ${\bf i}=(\underline{i_1},\underline{i_2},\ldots,\underline{i_r})$. We define the admissible sequence $\delta {\bf i}$ (of length $r-1$) by
-\[\delta {\bf i}:=((i_1^c,\underline{i_2}),\ldots,\underline{i_r}).\]
-We recursively define $\delta^l{\bf i}$ for $l=1,\dots,r-1$.
+For $\uj\in I_{l}$ with $l\leq n-1$, there exist unique short exact sequences 
+\[\ses{\bigoplus_{i=1}^l\tilde P_{m-1,j_i}}{\tilde P_m}{\tilde P_{m}^{\uj}},\quad\quad\ses{\tilde P_{m-1,j_l}}{\tilde P_{m}^{(j_1,\ldots,j_{l-1})}}{\tilde P_{m}^{\uj}}\]
+where the $\tilde P_m^{\uj}$ are lifts of truncated preprojectives (as defined in the last section). The next step is to define a unique truncated preprojective representation for each admissible sequence ${\bf j}=(\underline{j_1},\underline{j_2},\ldots,\underline{j_r})$. We define the admissible sequence $\delta {\bf j}$ (of length $r-1$) by
+\[\delta {\bf j}:=((j_1^c,\underline{j_2}),\ldots,\underline{j_r}).\]
+We recursively define $\delta^i{\bf j}$ for $i=1,\dots,r-1$.
 %In the following, we assume without loss of generality that $i_1< i_2<\ldots< i_k$.
-Note that we have $\delta\ui=(i^c)$ for $\ui\in I_{n-1}$.
+Note that we have $\delta\uj=(j^c)$ for $\uj\in I_{n-1}$.
 
 \begin{lemma}The following holds:
   \label{le:preprojective lifts}
   \begin{enumerate}
-    \item $\Hom_Q(P_{m-1},P_m)\cong\bigoplus_{j=1}^n \Hom_{\tilde Q}(\tilde P_{m-1,j},\tilde P_m)$, where each $\Hom_{\tilde Q}(\tilde P_{m-1,j},\tilde P_m)$ is one-dimensional;
+    \item For $m\geq 2$, we have $\Hom_Q(P_{m-1},P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$, where each $\Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$ is one-dimensional;
    % \item For any proper subset $\{i_1,\ldots,i_k\}\subset\{1,\ldots,n\}$, there exists a short exact sequence
    %   \[0\longrightarrow \tilde P_{m-1,i_1}\oplus\cdots\oplus\tilde P_{m-1,i_k}\longrightarrow\tilde P_m\longrightarrow \tilde P_m^{i_1,\ldots,i_k}\longrightarrow 0;\]
-    \item The representations $\tilde P_{m,j}$ are pairwise orthogonal, i.e. for $j\neq i$ we have $$\Hom(\tilde P_{m-1,i},\tilde P_{m-1,j})=\Ext(\tilde P_{m-1,i},\tilde P_{m-1,j})=0;$$
-    \item If $\ui\in I_{n-1}$ and $m\geq 3$, we have $\tilde P_{m}^{\ui}\cong \tilde P_{m-1,i^c}^{\ui^c}= P_{m-1,i^c}/P_{m-2,(i^c,i^c)}$.
-		\item Let $m\geq 3$ and $1\leq r\leq m-1$ and let $\mathbf i:=(\underline{i_1},\ldots,\underline{i_r})$ be an admissible sequence. Let ${\bf i}(l):=(\underline{i_1},\ldots,\underline{i_l})$ for $l=2,\ldots,r-1$. Then we recursively have
-		\[\tilde P_{m-l,(i_1^c,\ldots,i_l^c)}^{\delta^l{\bf i(l)}}=\tilde P_{m-l+1,(i_1^c,\ldots,i_{l-1}^c)}^{\delta^{l-1}\bf i(l)}\]
-		for $l=1,\ldots,r$. Thus we can associate a unique truncated preprojective representation $$\tilde P^{\mathbf i}_{m-r+1}:=\tilde P_{m-r+1,(i_1^c,\ldots,i_{r-1}^c)}/\tilde P_{m-r+1,(i_1^c,\ldots,i_{r-1}^c)}^{(i_{r-1}^c,i_{r,1},\ldots,i_{r,s})}$$ with each admissible sequence ${\bf i}$.
+    \item For $m\geq 1$, the representations $\tilde P_{m,i}$ are pairwise orthogonal, i.e. for $i\neq k$ we have $$\Hom(\tilde P_{m,i},\tilde P_{m,k})=\Ext(\tilde P_{m,i},\tilde P_{m,k})=0;$$
+    \item If $\uj\in I_{n-1}$ and $m\geq 3$, we have $\tilde P_{m}^{\uj}\cong \tilde P_{m-1,j^c}^{\uj^c}= \tilde P_{m-1,j^c}/\tilde P_{m-2,(j^c,j^c)}$.
+		\item Let $m\geq 3$ and $1\leq r\leq m-1$ and let $\mathbf j:=(\underline{j_1},\ldots,\underline{j_r})$ be an admissible sequence. Let ${\bf j}(k):=(\underline{j_1},\ldots,\underline{j_k})$ for $k=2,\ldots,r-1$. Then we recursively have
+		\[\tilde P_{m-l,(j_1^c,\ldots,j_k^c)}^{\delta^k{\bf j(k)}}=\tilde P_{m-l+1,(j_1^c,\ldots,j_{k-1}^c)}^{\delta^{k-1}\bf j(k)}\]
+		for $k=1,\ldots,r$. Thus we can associate a unique truncated preprojective representation $$\tilde P^{\mathbf j}_{m-r+1}:=\tilde P_{m-r+1,(j_1^c,\ldots,j_{r-1}^c)}^{(j_{r-1}^c,j_{r,1},\ldots,j_{r,s})}$$%/\tilde P_{m-r+1,(j_1^c,\ldots,j_{r-1}^c)}$$ 
+		with each admissible sequence ${\bf j}$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-The first statement follows from Theorem \ref{covering}. For $m=2$, the second part is obvious. For $m\geq 3$, it then follows by applying the identities (\ref{recursive}).
+The first statement follows from Theorem \ref{covering}. For $m=1$, the second part is obvious. For $m\geq 2$, it then follows by applying the identities (\ref{recursive}).
 
 To prove the third part, we consider the following commutative diagram where the square on the left hand side is the corresponding Auslander-Reiten sequence:
-\[\xymatrix{0\ar[r] &\bigoplus_{j=1}^{n-1}\tilde P_{m-1,i_j}\ar[r] &  \tilde P_{m}\ar[r] & \tilde P_{m}^{\ui}\ar[r] & 0 \\
-  0\ar[r]&\tau\tilde P_m=\tilde P_{m-2} \ar[r]\ar[u] & \tilde P_{m-1,i^c}\ar[u]\ar[r]& \tilde P_{m}^{\ui}\ar[r]\ar@{=}[u]& 0}\]
+\[\xymatrix{0\ar[r] &\bigoplus_{i=1}^{n-1}\tilde P_{m-1,j_i}\ar[r] &  \tilde P_{m}\ar[r] & \tilde P_{m}^{\uj}\ar[r] & 0 \\
+  0\ar[r]&\tau\tilde P_m=\tilde P_{m-2} \ar[r]\ar[u] & \tilde P_{m-1,j^c}\ar[u]\ar[r]& \tilde P_{m}^{\uj}\ar[r]\ar@{=}[u]& 0}\]
 
 %Thus we see that $\tilde P_{m}^{\ui}\cong \tilde P_{m-1}^{(l)}$ for some $l\in\{1,\ldots,n\}$. But now it is straightforward to check that $l=n$. \footnote{more precise?} 
-For $m=3$, is straightforward that the injection of the lower row factors over $\tilde P_{1,i^c}$ which means that we get the same commutative diagram when replacing $\tilde P_{1}$ by $\tilde P_{1,(i^c,i^c)}$. Thus we have $\tilde P_{3}^{\ui}\cong \tilde P_{2,i^c}^{\ui^c}$. Applying the identities (\ref{recursive}) the claim follows for $m\geq 3$.
+For $m=3$, is straightforward that the injection of the lower row factors over $\tilde P_{1,j^c}$ which means that we get the same commutative diagram when replacing $\tilde P_{1}$ by $\tilde P_{1,(j^c,j^c)}$. Thus we have $\tilde P_{3}^{\ui}\cong \tilde P_{2,j^c}^{\uj^c}$. Applying the identities (\ref{recursive}) the claim follows for $m\geq 3$.
 
-The forth statement is now obtained recursively when initially considering the diagram from above replacing $\ui$ by $\underline{i_1}$.
+The forth statement is now obtained recursively when initially considering the commutative diagram from above replacing $\uj$ by $\underline{j_1}$. We have $\delta^{k-1}{\bf j}(k)=(j_{k-1}^c,j_{k,1},\ldots,j_{k,n-1})$. We use the third statement in order to successively obtain commutative diagrams
+\[\xymatrix{0\ar[r] &\bigoplus_{i=1}^{n-2}\tilde P_{m-k,(j_1^c,\ldots,j_{k-1}^c,j_{k,i})}\ar[r] &  \tilde P^{(j_{k-1}^c)}_{m-k+1,(j_1^c,\ldots,j_{k-1}^c)}\ar[r] & \tilde P_{m-k+1,(j_1^c,\ldots,j_{k-1}^c)}^{\delta^{k-1}{\bf j}(k)}\ar[r] & 0 \\
+  0\ar[r]&\tilde P_{m-(k+1),(j_1^c,\ldots,j_{k}^c,j_k^c)} \ar[r]\ar[u] & \tilde P_{m-k,(j_1^c,\ldots,j_{k}^c)}\ar[u]\ar[r]& \tilde P_{m-k,(j_1^c,\ldots,j_{k}^c)}^{(j_{k}^c)}\ar[r]\ar@{=}[u]& 0}\]
+Now we have $\delta^{k-1}{\bf j}(k)=(j_k^c)$.	Finally, we consider the short exact sequence:
 
-We have $\delta^{l-1}{\bf i}(l)=(i_{l-1}^c,i_{l,1},\ldots,i_{l,n-1})$. We use the third statement in order to successively obtain commutative diagrams
-\[\xymatrix{0\ar[r] &\bigoplus_{j=1}^{n-2}\tilde P_{m-l,(i_1^c,\ldots,i_{l-1}^c,i_{l,j})}\ar[r] &  \tilde P^{(i_{l-1}^c)}_{m-l+1,(i_1^c,\ldots,i_{l-1}^c)}\ar[r] & \tilde P_{m-l+1,(i_1^c,\ldots,i_{l-1}^c)}^{\delta^{l-1}{\bf i}(l)}\ar[r] & 0 \\
-  0\ar[r]&\tilde P_{m-(l+1),(i_1^c,\ldots,i_{l}^c,i_l^c)} \ar[r]\ar[u] & \tilde P_{m-l,(i_1^c,\ldots,i_{l}^c)}\ar[u]\ar[r]& \tilde P_{m-l,(i_1^c,\ldots,i_{l}^c)}^{(\underline{i_{l}^c)}}\ar[r]\ar@{=}[u]& 0}\]
-Now we have $\delta^l{\bf i}(l)=(i_l^c)$.	Finally, we consider the short exact sequence:
-
-\[\xymatrix{0\ar[r] &\bigoplus_{j=1}^{s}\tilde P_{m-r,(i_1^c,\ldots,i_{r-1}^c,i_{r,j})}\ar[r] &  \tilde P^{(i_{r-1}^c)}_{m-r+1,(i_1^c,\ldots,i_{r-1}^c)}\ar[r] & \tilde P_{m-r+1,(i_1^c,\ldots,i_{r-1}^c)}^{{\bf i}}\ar[r] & 0 }.\]
-As $\Hom(\tilde P_{m-l,(i_1^c,\ldots,i_{l-1}^c,i_{l,j})},\tilde P_{m-l+1,(i_1^c,\ldots,i_{l-1}^c)})=k$ for all $l=2,\ldots,r$ and $i=1,\ldots,n-1$, applying the second statement, we obtain that the quotient $\tilde P_{m-r+1}^{\bf i}$ is uniquely determined.
+\[\xymatrix{0\ar[r] &\bigoplus_{i=1}^{s}\tilde P_{m-r,(j_1^c,\ldots,j_{r-1}^c,j_{r,i})}\ar[r] &  \tilde P^{(j_{r-1}^c)}_{m-r+1,(j_1^c,\ldots,j_{r-1}^c)}\ar[r] & \tilde P_{m-r+1,(j_1^c,\ldots,j_{r-1}^c)}^{{\bf j}}\ar[r] & 0 }.\]
+As $\Hom(\tilde P_{m-k,(j_1^c,\ldots,j_{k-1}^c,j_{k,i})},\tilde P_{m-k+1,(j_1^c,\ldots,j_{k-1}^c)})=\kk$ for all $k=2,\ldots,r$ and $i=1,\ldots,n-1$, applying the second statement, we obtain that the quotient $\tilde P_{m-r+1}^{\bf j}$ is uniquely determined.
 	\end{proof}
-We denote the quotient morphism by $\pi_m^{\bf i}:\tilde P_m\to \tilde P_{m-r+1}^{\bf i}$. It is important for us that this morphism factors through all truncated preprojectives $\tilde P_m^{(1,\ldots,l)}$ where $l\leq n-1$ and $j_k\neq i_1^c$ for $k=1,\ldots, l$. We also denote the quotient morphism from $\tilde P_m^{(j_1,\ldots,j_l)}$ to $\tilde P_{m-r+1}^{\bf i}$ by $\pi_m^{\bf i}$.
-	
+We denote the quotient morphism by $\pi_m^{\bf j}:\tilde P_m\to \tilde P_{m-r+1}^{\bf j}$. Let $\ui=(i_{1},\ldots,i_{l})$. It is important for us that this morphism factors through all truncated preprojectives $\tilde P_m^{\ui}$ where $l\leq n-1$ and $i_k\neq j_1^c$ for $k=1,\ldots, l$. We denote the quotient morphism from $\tilde P_m^{\ui}$ to $\tilde P_{m-r+1}^{\bf j}$ by $\pi_{m,\ui}^{\bf j}$. 
+
+Our construction immediately yields the following lemma.
+\begin{lemma}\label{projections}
+Let $\tilde P_m$ be a lift of the preprojective representation $P_m$ and let ${\bf j}=(\underline{j_1},\ldots,\underline{j_r})$ with $r\leq m-1$ and $\underline{j_r}\in I_s$ be an admissible sequence with entries $j_{k,i}$ for $k=1,\ldots r$. Then we have
+\[\pi_m^{\bf j}=\pi_{m-r+1,j_{r-1}^c}^{\underline{j_r}}\circ\ldots\circ\pi^{\underline{j_2}}_{m-1,j_1^c}\circ\pi_m^{\underline{j_1}}\]
+and, for any sequence $(l_1,\ldots,l_{n-2})\in I_{n-2}$, we have
+\[\pi_{m-k+1,j_{k-1}^c}^{\underline{j_k}}=\prod_{i=1}^{n-2} \pi^{j_{k,l_{i}}}_{m-k+1,(j_{k-1}^c,j_{k,l_1},\ldots,j_{k,l_{i-1}})}\]
+for $k=1,\ldots,r-1$ where $\pi_{m,j_{-1}^c}^{\underline{j_1}}:=\pi_m^{\underline{j_1}}$ and the analogous statement for $\pi_{m-r+1,j_{r-1}^c}^{\underline{j_r}}$ and $(l_1,\ldots,l_{s-1})\in I_{s-1}$ holds.
+\end{lemma}
+We want to apply $\pi_m^{\bf j}$ also to translated representations $w.\tilde P_m$, mostly for $w\in\{a_i,a_i^{-1}\}$. Therefore, we need to apply a translated version of this morphism. In abuse of notation, we also denote this morphism $\pi_m^{\bf j}$.
+
  We need the following lemma analyzing the possible subrepresentations of truncated preprojective representations.
 \begin{lemma}\label{le:subrep}
    All nontrivial proper subrepresentations $U$ of $\tilde P_m^{(i_1,\ldots,i_l)}$ are preprojective.	\footnote{Does it follow that the representations $F_{K(m)}\tilde P_m^{(j_1,\ldots,j_l)}$ are quasi-simple?}
@@ -811,6 +870,7 @@ But this contradicts the induction hypothesis because preprojective representati
 %Fix $\ui=(i_1,\ldots,i_k)$ and $\uj=(j_1,\ldots,j_l)$ with $i$
 
 
+\begin{comment} 
 DO NOT NEED THIS-------FROM HERE----
 \begin{lemma}\label{directsums}
   \footnote{This can be proved on the quiver itself.}
@@ -838,58 +898,44 @@ In the same manner, we can proceed by inductively adding the summands $\tilde P_
 The first statement follows for instance by induction when applying BGP-reflections.
 \end{proof}
 ----TO HERE----DO NOT NEED THIS----
-
+\end{comment}
 \begin{lemma}\label{AR}\footnote{special case $m=3$}
- Let $m\geq 4$ and $n-1\geq l\geq 1$ and let $(j_1,\ldots,j_l)$ be an admissible sequence. Consider the short exact sequence $$\sesm{\tilde P_{m-1,j_l}}{\tilde P_{m}^{(j_1,\ldots,j_{l-1})}}{\tilde P_{m}^{(j_1,\ldots,j_l)}}{\pi^{(j_1,\ldots,j_l)}_m}$$. The following holds:
+ Let $m\geq 4$ and $n-1\geq l\geq 1$, $\uj=(j_1,\ldots,j_l)\in I_l$ and $\uj':=(j_1,\ldots,j_{l-1})$. Consider the short exact sequence $$\sesm{\tilde P_{m-1,j_l}}{\tilde P_{m}^{\uj'}}{\tilde P_{m}^{\uj}}{\pi^{j_l}_{m,\uj'}}$$ and define
+$$P(m,\uj):=\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{m-2,(j_l,i)}\oplus \bigoplus_{i=1}^{l-1}\tilde P_{m-3,(j_l,j_l,i)}.$$
+
+ The following holds:
 \begin{enumerate}
 \item We have $\tau\tilde P_{m}^{(j_1,\ldots,j_l)}=\tilde P_{m-2}^{(j_1,\ldots,j_l)}$.
 %\item We have $\tau\tilde P_{m}^{(j_1,\ldots,j_l)}\in ~^\perp(\tilde P_{m}^{(j_1,\ldots,j_l)})$.\footnote{not true for $m\geq 4$. What do we need? We have $\Hom(\tau\tilde P_{m}^{(j_1,\ldots,j_l)},\tilde P_{m}^{(j_1,\ldots,j_l)})=0$}
 
 \item There exists a short exact sequences 
-\[\sesm{\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{m-2,(j_l,i)}\oplus \bigoplus_{i=1}^{l-1}\tilde P_{m-3,(j_l,j_l,i)}}{\tilde P_{m-1,j_l}}{\tau\tilde P_{m}^{(l)}}{\pi^{\bf j_l}_{m-1,j_l}}\]
+\[\sesm{P(m,\uj)}{\tilde P_{m-1,j_l}}{\tau\tilde P_{m}^{\uj}}{\pi^{\bf j_l}_{m-1}}\]
 where ${\bf j}_l=((1,\ldots,j_l-1,\widehat{j_l},j_{l}+1,\ldots,n),(j_1,\ldots,j_{l-1})).$
-\item We have $\Hom(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=0$, $\Ext(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})\cong\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})$ and $\Hom(\tilde P_{m}^{\uj},\tilde P_{m,j_l})=0$ and thus $P(m,\uj)\in (\tilde P_{m}^{\uj})^\perp$. 
-\item We have $\Ext(\tilde P_{m}^{(j_1,\ldots,j_l)},\tilde P_{m-1,j_l})\cong \Ext(\tilde P_{m}^{(j_1,\ldots,j_l)},\tau\tilde P_{m}^{(j_1,\ldots,j_{l})})=\kk$, $\Hom(\tilde P_{m}^{((j_1,\ldots,j_l)},\tau\tilde P_{m}^{(j_1,\ldots,j_l)})=0$. 
+
+\item We have $\Hom(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=\Hom(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})=0$. 
+\item We have $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})\cong \Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj})=\kk$.
+\item We have $P(m,\uj)\in (\tilde P_{m}^{\uj})^\perp$ 
 %\item Finally, we have $\Ext(\tilde P_{m+1}^{(k-1)},V)=0$ for every subrepresentation $V$ of $\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}$.
 \end{enumerate}%\footnote{introduce/consider/check indices, we have to mod out the corresponding reps in the covering} 
 \end{lemma}
 \begin{proof}
-Using the identities (\ref{recursive}), it suffices to prove the all statements for $m=4$ and arbitrary $1\leq l\leq n-1$. Without loss of generality, we choose $(j_1,\ldots,j_l)=(1,\ldots,l)$ and define $\tilde P_m^{(0)}=\tilde P_m$ respectively. We should point out that it is very important for this prove that we consider fixed lifts of all representations in the universal covering as defined in the beginning of this section. Note that, starting with these cases, we only reflect at sinks and no representation appearing is isomorphic to the simple injective representation $S_2$.  
-
-The representation $\tilde P_2$ is given determined by the following quiver and dimension vector:
-
-\begin{align*}\xymatrix@R10pt@C20pt{&&\bullet\\ \bullet\ar^{a_1}[rru]\ar^{a_{n}}[rrd] &&\vdots\\&&\bullet}\end{align*}
-The quiver of $\tilde P_2^{(i)}$, which we denote by $\mathcal A_i$ during this proof, can be obtained from this quiver by erasing the arrow $a_i$ and the corresponding sink. In turn, the quiver of $\tilde P_2^{(1,\ldots, l)}$ is obtained by erasing the arrows $a_{a_1},\ldots, a_l$. 
-
- Using this notation the support of $\tilde P_4$ is given by
-\[\xymatrix@R40pt@C10pt{&&&&&&n-1\ar^{a_1}[llllld]\ar^{a_2}[ld]\ar^{a_n}[rrrrd]&&&&&\\&2n-3&&&&2n-3&&\hdots&&&2n-3\\
-\mathcal A_2\ar^{a_2}[ru]&\hdots&\mathcal A_n\ar^{a_n}[lu]&\mathcal A_1\ar^{a_1}[rru]&\widehat{\mathcal A_2}&\mathcal A_3\ar[u]^{a_3}&\hdots&\mathcal A_n\ar^{a_n}[llu]	&\hdots&\mathcal A_2\ar^{a_2}[ru]&\hdots&\mathcal A_{n-1}\ar^{a_{n-1}}[lu]}\]
-where the numbers correspond to the dimensions of the respective vertices. Moreover, all dimensions on the subquivers $\mathcal A_i$ are one. The arrows connecting a quiver $\mathcal A_i$ to a sink of the remaining quiver start at the unique source of $\mathcal A_i$. Now $\tilde P_{3,l}$ can be found as the representation corresponding to the subquiver
-\[\xymatrix@R40pt@C10pt{&&&&&&1\ar^{a_1}[llllld]\ar^{a_{l-1}}[ld]\ar^{a_l}[d]\ar^{a_{l+1}}[rd]\ar^{a_n}[rrrrd]&&&&&\\&1&&\hdots&&1&n-1&1&\hdots&&&1\\
-&&&\mathcal A_1\ar^{a_1}[rrru]&\hdots&\mathcal A_{l-1}\ar^{a_{l-1}}[ru]&\widehat{\mathcal A_l}&\mathcal A_{l+1}\ar^{a_{l+1}}[lu]&\hdots&\mathcal A_n\ar^{a_n}[lllu]	&&&&}\]
+Using the identities (\ref{recursive}), it suffices to prove the all statements for $m=4$ and arbitrary $1\leq l\leq n-1$. Without loss of generality, we choose $(j_1,\ldots,j_l)=(1,\ldots,l)$ and define $\tilde P_m^{(0)}=\tilde P_m$ respectively. We should point out that it is very important for this prove that we consider fixed lifts of all representations in the universal covering as defined in the beginning of this section. Note that, starting with these cases, we only reflect at sources and no representation appearing is isomorphic to the simple injective representation $S_2$.  
 
 
-Finally, the quiver corresponding to $\tilde P_4^{(1,\ldots,l)}$ is given by
+In Example \ref{smallm} it was shown that $\tau \tilde P_4^{(1,\ldots,l)}=\tilde P_2^{(1,\ldots,l)}$. In order to deduce the statement from (\ref{recursive}) for general $m$, it remains to show the statement for $m=5$. Therefore, we may consider the short exact sequence
+\[\ses{\bigoplus_{i=1}^l\tilde P_{2,i}}{\tilde P_3}{\tilde P_3^{(1,\ldots,l)}}\]
+and apply the reflection functor $\tilde\Sigma_2$ twice which is the same as applying $\tau^{-1}$. As we have $\tau^{-1} \tilde P_{2,i}=\tilde P_{4,i}$ and $\tau^{-1}\tilde P_3=\tilde P_5$, the statement follows for $m=5$ and thus for general $m$.
 
-\[\xymatrix@R45pt@C10pt{&&&&&&n-1-l\ar_{a_1}[llllld]\ar^{a_{l}}[llld]\ar^{a_{l+1}}[lld]\ar^{a_n}[rrrrd]&&&&&\\&n-1-l&\hdots&n-1-l&2n-3-l&&\hdots&&\hdots&&2n-3-l\\
-&\mathcal A_1\ar^{a_1}[rrru]&\hdots&\mathcal A_l\ar[ru]^{a_l}&\widehat{A}_{l+1}&\mathcal A_{l+2}\ar^{a_{l+2}}[lu]	&\hdots&\mathcal A_n\ar^{a_n}[lllu]&&\mathcal A_2\ar^{a_2}[ru]&\hdots&\mathcal A_{n-1}\ar^{a_{n-1}}[lu]}\]
+Considering the quiver $\tilde P_{3,l}$ from above, it is clear that we obtain an exact sequence
+$$\ses{P(3,(1,\ldots,l))}{P_{3,l}}{\tilde P_2^{(1,\ldots,l)}}.$$
+Actually, the first summand of $P(3,(1,\ldots,l))$ corresponds to the quivers $\tilde A_i$ at the bottom and the second summand to the $l-1$ sources in the second row lying on the left. This shows the second statement.
 
-%\begin{tikzpicture}[scale=1]
-%\draw (0,0) node (I1) {$\bullet$} +(1,1) node (J11) {$\bullet$} +(1,0) node (J12) {$\bullet$} +(1,-1) node (J13) {$\bullet$}; 
-%\draw[->] (I1)--(J11) node[pos=.7,above,sloped]{\scriptsize$a$};
-%\draw[->] (I1)--(J12) node[pos=.7,above,sloped]{\scriptsize$b$};
-%\draw[->] (I1)--(J13) node[pos=.7,above,sloped]{\scriptsize$c$};
-%\draw[->] (I1)--(J1N) node[pos=.7,above,sloped]{\scriptsize$v_{n}$};
-%\end{tikzpicture}
-Now it is straightforward that the representation $\tau \tilde P_4^{(1,\ldots,l)}=\tilde P_2^{(1,\ldots,l)}$, which is given by reflecting at all the sinks twice, is supported at the source lying in the upper row and the $n-l$ sinks connected to it by the arrows $a_{l+1},\ldots,a_n$. \footnote{say something concerning $W_Q$-translation?} This shows the first statement.
-
-Considering the quiver $\tilde P_{3,l}$ from above, it is clear that $\tilde P_2^{(1,\ldots,l)}$ is a quotient. Moreover, the representation
-$$\bigoplus_{\substack{1\leq j\leq n\\j\neq l}}\tilde P_{2,(l,j)}\oplus \bigoplus_{j=1}^{l-1}\tilde P_{1,(l,l,j)}$$
-is the kernel of the corresponding map. Actually, the first summand corresponds to the quiver $\tilde A_i$ at the bottom and the second summand to the $l-1$ sources in the second row which lying on the left. This shows the second/third statement.
+As $\tilde P_m^{\uj}$ is exceptional on the universal covering by the Auslander-Reiten formulas \cite[Theorem IV.2.13]{ass}, it follows that 
+$$\dim\Hom(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=\dim\Ext(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=0 \text{ and } \dim\Ext(\tilde P_m^{\uj},\tau\tilde P_m^{j})=\dim\Hom(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=1.$$
+As $\Hom(\tilde P_{4}^{\uj},\tilde P_{3,j_l})=0$ and $\Ext(\tilde P_{4}^{\uj},\tilde P_{3,j_l})=\kk$ by a straightforward check, applying (\ref{recursive}), it follows that $\Hom(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})=0$ and $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})=\kk$. Thus we can consider the long exact sequence obtained when applying $\Hom(\tilde P_{m}^{\uj},\underline{\quad})$ to the sequence obtained in course of the second statement. This yields the remaining results at once.
 
 
-
-It is also straightforward to check that $\bigoplus_{j\neq l}\tilde P_{2,(l,j)}\oplus \bigoplus_{j=1}^{l-1}\tilde P_{1,(l,l,j)}\in (\tilde P_{4}^{(1,\ldots,l)})^\perp$ and, moreover, that $\Hom(\tilde P_{4}^{(1,\ldots,l)},\tilde P_{3,l})=0$. This yields the third claim when considering the long exact sequence obtained when applying $\Hom(\tilde P_{4}^{(1,\ldots,l)},\underline{\quad})$ to the short exact sequence considered in the second statement.
+%It is also straightforward to check that $\bigoplus_{j\neq l}\tilde P_{2,(l,j)}\oplus \bigoplus_{j=1}^{l-1}\tilde P_{1,(l,l,j)}\in (\tilde P_{4}^{(1,\ldots,l)})^\perp$ and, moreover, that $\Hom(\tilde P_{4}^{(1,\ldots,l)},\tilde P_{3,l})=0$. This yields the third claim when considering the long exact sequence obtained when applying $\Hom(\tilde P_{4}^{(1,\ldots,l)},\underline{\quad})$ to the short exact sequence considered in the second statement.
 
 
 \end{proof}
@@ -906,7 +952,7 @@ Using Lemma \ref{AR}, for $m\geq 4$, every subrepresentation $U\subset \tilde P_
   0\ar[r]& V\ar[r]\ar[u] & U\ar[u]\ar[r]& W\ar[r]\ar[u]& 0}\]
 If $m=3$, we consider the sequence
  \[\xymatrix{0\ar[r] &P(3,\uj)\ar[r] &  \tilde P_{2,j_l}\ar[r] & \bullet\xrightarrow{a_{j_l}}\bullet\ar[r] & 0}\]	
-	where the kernel is clearly just a direct sum of simple representations. In this case, the Auslander-Reiten translate of $\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ is given by
+	where the kernel is clearly just a direct sum of simple representations. Recall that the Auslander-Reiten translate of $\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ is given by
 	\begin{align*}\xymatrix@R10pt@C20pt{&&\bullet\ar_{a_{j_1}}[lld]\\\bullet &&\vdots\\&&\bullet\ar_{a_{j_l}}[llu]}\end{align*}
 In particular, the image of the unique homomorphism $\tilde P_{2,j_l}\to\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ has image $\bullet\xrightarrow{a_{j_l}}\bullet$.
 In all cases, we denote the corresponding map between quiver Grassmannians by $\Phi_{m,\uj}$. Using this notation, we obtain:
@@ -964,30 +1010,35 @@ The second statement follows directly from Lemma \ref{quotient}.
 
 \end{proof}
 \begin{theorem}\label{cellscover}
-Let $\uj=(i_1,\ldots,i_l)$ be an admissible sequence. Every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj})$ admits a cell decomposition into affine spaces.
+Let $m\geq 2$ and let $\uj=(j_1,\ldots,j_l)\in I_l$ with $l\leq n-1$. Every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj})$ admits a cell decomposition into affine spaces.
 \end{theorem}
 \begin{proof}
 
 In order to prove the claim, we prove the more general statement:
 \vs
 
-\noindent {\bf Claim.} Every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj})$ has a cell decomposition which is compatible with a fixed quotient map $\pi_m^{\bf j}$ with ${\bf j}_1=\uj$ in the following way: 
+\noindent {\bf Claim.} Let ${\bf j}=(\underline{j_1},\ldots,\underline{j_r})$ with $r\geq 1$ be an arbitrary admissible sequence and $\underline{j_1}=(\uj,j_{1,l+1},\ldots,j_{1,n-1})\in I_{n-1}$. The quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj})$ has a cell decomposition into affine spaces which is compatible with $\pi_{m,\uj}^{\bf j}$  in the following way: 
  Let $U\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj})$ such that $\pi_m^{\bf j}(U)\neq 0.$
-Then we have $\pi_m^{\bf j}(U')\neq 0$ for all $U'\in C_U$ where $C_U$ is the cell which contains $U$.
+Then we have $\pi_{m,\uj}^{\bf j}(U')\neq 0$ for all $U'\in C_U$ where $C_U$ is the cell which contains $U$.
 \vs
 
 
-We proceed by induction on $m$ and reverse induction on $l$. If $m=1$ or $m=2$, the statement is straightforward as all quiver Grassmannians are points.
-The short exact sequence $$\sesm{\tilde P_{m-1,j_l}}{\tilde P_{m}^{(j_1,\ldots,j_{l-1})}}{\tilde P_{m}^{\uj}}{\pi_m^{\uj}}$$ induces a map between quiver Grassmannians
-$$\Psi_{m,\uj}:\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{(j_1,\ldots,j_{l-1})})\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff( \tilde P_{m-1,j_l})\times \Gr^{\tilde Q}_\tbfg(\tilde P_{m}^{\uj}).$$
-We consider the short exact sequence
-$$\sesm{P(m,\uj)}{\tilde P_{m-1,j_l}}{\tau\tilde P_{m}^{\uj}}{\pi^{\bf j}_m}$$
-with
-$${\bf j}=((1,\ldots,j_l-1,\widehat{j_l},j_l+1,\ldots,n),(j_1,\ldots,j_{l-1}))$$
-and $\tau\tilde P_{m}^{\uj} =\tilde P^{\uj}_{m-2}=\tilde P_{m-2}^{\bf j}$.
+We proceed by induction on $m$ and reverse induction on $l$. Let $\uj'=(j_1,\ldots,j_{l-1})$. If $m=1$ or $m=2$, the statement is straightforward for arbitrary $l$ as all quiver Grassmannians are points.
+For general $m$, we consider the short exact sequence $$\sesm{\tilde P_{m-1,j_l}}{\tilde P_{m}^{\uj'}}{\tilde P_{m}^{\uj}}{\pi^{j_l}_{m,\uj'}}$$ induces a map between quiver Grassmannians
+$$\Psi_{m,\uj}:\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj'})\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff( \tilde P_{m-1,j_l})\times \Gr^{\tilde Q}_\tbfg(\tilde P_{m}^{\uj}).$$
+It is important that we can choose $j_l$ arbitrarily with respect to the condition $j_l\neq j_1,\ldots, j_{l-1}$. Moreover, we consider the short exact sequence
+$$\sesm{P(m,\uj)}{\tilde P_{m-1,j_l}}{\tau\tilde P_{m}^{\uj}}{\pi^{\bf i}_m}$$
+where
+$${\bf i}=((1,\ldots,j_l-1,\widehat{j_l},j_l+1,\ldots,n),(j_1,\ldots,j_{l-1}))$$
+and $\tau\tilde P_{m}^{\uj} =\tilde P^{\uj}_{m-2}=\tilde P_{m-2}^{\bf i}$ together with the induced map on quiver Grassmannians $\Phi_{m,\uj}$.
 
-By induction hypothesis the quiver Grassmannians corresponding to the representation on the left hand side have cell decompositions which are compatible with $\pi^{\bf j}_m$. The second part of Proposition \ref{fibers} says that the fibres are empty if and only if $\pi^{\bf j}_m=0$ and $\tbfg=\udim \tilde P_{m+1}^{(k)}$. In all other cases, the fiber dimension only depend on the dimension vectors $\tbff, \tbfg$ which means that they are constant over the cells of $\Gr^{\tilde Q}_\tbff(P_{m-1,i_k})\times \Gr^{\tilde Q}_\tbfg(\tau\tilde P_{m+1}^{(\ui)})$ whose subrepresentations $U\in \Gr^{\tilde Q}_\tbff(P_{m-1,i_k})$ satisfy $\pi_m^{\bf j}(U)\neq 0$. By Theorem \ref{vb}, the claim follows.
-Thus it remains to show that there exists a cell decomposition of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{(j_1,\ldots,j_{l-1})})$ which is compatible with a fixed $\pi_m^{\bf j'}$,
+By induction hypothesis the quiver Grassmannians $\Gr^{\tilde Q}_\tbff( \tilde P_{m-1,j_l})$ have cell decompositions which are compatible with $\pi^{\bf i}_m$ and, moreover, the quiver Grassmannians $\Gr^{\tilde Q}_\tbfg(\tilde P_{m}^{\uj})$ have a cell decompositions which are compatible with $\pi^{\bf j}_{m,\uj}$. The second part of Proposition \ref{fibers} says that the fibres are empty if and only if $\pi^{\bf i}_m=0$ and $\tbfg=\udim \tilde P_{m+1}^{(k)}$. This yields a collection of cells over which the fibres are empty. Note that $\Gr^{\tilde Q}_\tbfg(\tilde P_{m}^{\uj})$ is just a point in this case.
+
+If $\tbfg\neq \udim\tilde P_{m+1}^{(k)}$, the fiber dimension only depends on the dimension vectors $\tbff, \tbfg$ which means that they are constant over the cells of $\Gr^{\tilde Q}_\tbff(P_{m-1,j_l})\times \Gr^{\tilde Q}_\tbfg(\tilde P_{m}^{\uj})$ whose subrepresentations $U\in \Gr^{\tilde Q}_\tbff(P_{m-1,i_k})$ which satisfy $\pi_m^{\bf i}(U)\neq 0$, but also over those whose subrepresentations $U\in \Gr^{\tilde Q}_\tbff(P_{m-1,i_k})$ satisfy $\pi_m^{\bf i}(U)= 0$. By Theorem \ref{vb}, the claim follows.
+
+Thus it remains to show that there exists a cell decomposition of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj'})$ which is compatible with a fixed $\pi_{m,\uj'}^{\bf j'}$ where ${\bf j'}=(\underline{j'_1},\underline{j_2},\ldots,\underline{j_r})$ with $\underline{j_1}=(\uj',j_{1,l},\ldots,j_{1,n-1})\in I_{n-1}$ and $j_{1,l}=j_l$. Recall that we have $\pi_{m,\uj'}^{\bf j'}=\pi_{m,\uj}^{\bf j}\circ\pi_{m,\uj'}^{j_l}$ by Lemma \ref{projections}.
+
+Thus let $\pi_{m,\uj'}^{\bf j'}(U)= 0$ with $U\subset \tilde P_{m}^{\uj'}$. Then we either have $\pi_{m,\uj'}^{j_l}(U)=0$ which means that $U$ comes from a subrepresentation of $\tilde P_{m,j_l}$ and $\tbfg=0$. In this case, all representations in the cell of $U$ come from a subrepresentation of $\tilde P_{m,j_l}$. Thus assume that $\pi_{m,\uj'}^{j_l}(U)\neq 0$. We have $\pi_{m,\uj'}^{j_l}(U)\neq \tilde P_{m}^{\uj}$ because otherwise we had $\pi_{m,\uj'}^{\bf j'}(U)\neq 0$. Apply induction hypothesis now.
  
 
 \begin{comment}
