@@ -41,12 +41,14 @@
 \newcommand{\Rep}{\mathrm{Rep}}
 \newcommand{\rep}{\operatorname{rep}}
 \newcommand{\Gr}{\mathrm{Gr}}
+\newcommand{\Gl}{\mathrm{Gl}}
+\newcommand{\Ind}{\mathrm{Ind}}
 \renewcommand{\AA}{\mathbb{A}}
 \newcommand{\CC}{\mathbb{C}}
 \newcommand{\kk}{\Bbbk}
 \newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\NN}{\mathbb{N}}
-
+\newcommand{\rk}{\mathrm{rk}}
 \newcommand{\Ext}{\operatorname{Ext}}
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\im}{\operatorname{im}}
@@ -293,7 +295,7 @@ With this identification of $K(n)$ and $K(n)^{op}$, the endofunctors $\Sigma_2\S
 Also, following \cite{brenner-butler}, the Auslander-Reiten translation $\tau:\rep K(n)\to\rep K(n)$ may be identified with the functor $\Sigma_1^2$.
 
 While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the following twisted equivariance.
-\begin{lemma}
+\begin{lemma}\label{compatibleGSigma}
   For $g\in G$, the reflection functors $\Sigma_i:\rep K(n)\to\rep K(n)$ satisfy $g.\Sigma_i(M)=\Sigma_i(g^{-T}.M)$. 
 \end{lemma}
 \begin{proof}
@@ -387,12 +389,43 @@ Following Lemma~\ref{le:injective evaluation maps} we define the following.
 \end{remark}
 
 %Any subrepresentation $E\subset P_{m+1}^V$ corresponds by taking pullbacks to a chain of inclusions $P_m\otimes V\subset\tilde E\subset P_{m+1}$.
+\begin{proposition}\label{indecomposables}Let $m\geq 1$. Let $\alpha(m,r)=\dim P_{m+1}-r\dim P_m$ with $0\leq r\leq n-1$. Let $R_\alpha(K(n))$ be the affine space of representations of dimension $\alpha(m,r)$. The following holds:
+\begin{enumerate}
+\item The isomorphism classes of indecomposable representations of dimension $\alpha(m,r)$ are in one-to-one correspondence to points of $\Gr_{n-r}(\CC^n)$.
+\item The set indecomposable representations of dimension $\alpha(m,r)$ ist given by a non-empty open subset of $R_\alpha(K(n))$. 
+\item The action of $\Gl_n(\CC)$ is transitive on $\mathrm{Ind}(K(n),\alpha(m,r))$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+
+As the reflection functors $\Sigma_1,\,\Sigma_2$ preserve indecomposability and as we have $\Sigma_2(\alpha(m,r))=\alpha(m+1,r)$, it suffices to prove the first statement for $m=1$. Then we have $\alpha(m,r)=(1,d)$ for $d:=n-r$. This means that $M\in R_\alpha(K(n))$ is given by a matrix $M\in\CC^{d\times n}$ where the $i^{\mathrm{th}}$ column stands for $M_{a_i}$. Now $M$ is indecomposable if and only if $\rk{M}=d$. Indeed, it is clear that $S_1^{m}$ splits up if and only if $\rk{M}=d-m$.
+
+This shows that the indecomposable representations in $R_{\alpha(1,d)}(K(n))$  are in one-to-one correspondence with matrices of maximal rank. Thus they are in one-to-one correspondence to subspaces of $\CC^n$ of dimension $d$ spanned by the column vectors of $M$. Now it straightforward to check that the $\Gl_\alpha=\CC^\ast\times\Gl_d(\CC)$-action on $R_\alpha(K(n))$ corresponds to the base change action of $\Gl_d(\CC)$ on the set of subspaces. This shows the first statement.
+
+It can be checked straightforwardly that $\alpha(1,d)$ is a Schur root because all indecomposable representations have trivial endomorphism ring. Thus the roots $\alpha(m,d)$ are also Schur roots. It follows that the set of indecomposable representations with trivial endomorphism ring form a dense open subset of $R_{\alpha(m,r)}(K(n))$, see for example \cite{sch}. This shows the second statement.
+
+For $m=1$, the action of $\Gl_n(\CC)$ on $\Gr_d(\CC^n)$ is transitive which shows that it is transitive on $\Ind_\alpha(K(n))$. As the reflection functors preserve indecomposability and isomorphism classes, by Lemma \ref{compatibleGSigma}, for every $g\in\Gl_n(\CC)$, we obtain a commutative diagram
+\[\xymatrix{\Ind(K(n),\alpha(m,r))\ar[r]^{\Sigma_2}\ar[d]^{g^{-T}}&\Ind(K(n),\alpha(m+1,r))\ar[d]^g\\
+\Ind(K(n),\alpha(m,r))\ar[r]^{\Sigma_2}&\Ind(K(n),\alpha(m+1,r))}\]
+As the $\Gl_n(\CC)$-action is transitive on the left hand side, this implies that it is also transitive on the right hand side.
+\end{proof}
+\begin{remark}There is a more elegant way to prove Proposition \ref{indecomposables} using the notion of stability and moduli spaces. Actually, fixing the standard stability induced by the linear form $\Theta(\alpha)=\alpha_2$, it can be shown that all indecomposables are stable and that the moduli space of stable representation is in fact $\Gr_d(\CC^n)$. We inserted this proof because the notion of stability were only used at this point and we wanted to keep this part as simple as possible. 
+\end{remark}
+
+
 \begin{theorem}
   The quiver Grassmannian $Gr_\bfe(P_{m+1}^V)$ is smooth for each dimension vector $\bfe$ and each $V\in Gr(H_m)$.
   Moreover, for $V,W\in Gr_d(H_m)$, we have $Gr_\bfe(P_{m+1}^V)\cong Gr_\bfe(P_{m+1}^W)$ for all dimension vectors $\bfe$.
 \end{theorem}
 \begin{proof}
-  \footnote{The proof using moduli spaces needs to be written}
+Let $g\in\Gl_n(\CC)$. We first show that $\Gr_\bfe(g.P_{m+1}^V)=\Gr_\bfe(P_{m+1}^V)$. Assume that $P_{m+1}^V$ is given by the linear maps $M_{a_i}$. Then $g.P_{m+1}^V$ is given by the matrices $M'_{a_i}=\sum\limits_{j=1}^n g_{ij}M_{a_j}$. Let $(U_1,U_2)\in\Gr_\bfe(g.P_{m+1}^V)$. Then we have  
+\[M_{a_i}(U_2)\subset U_1 \text{ for all } i=1,\ldots,n\Leftrightarrow \left(\sum\limits_{j=1}^n g_{ij}M_{a_j}\right)(U_2)\subset U_1 \text{ for all } i=1,\ldots,n.\]
+Note that we have $g^{-1}.(g.P_{m+1}^V)=P_{m+1}^V$ which shows the non-obvious direction.
+
+Together with Proposition \ref{indecomposables} this shows that all quiver Grassmannians $\Gr_\bfe(M)$ for a fixed $\bfe\in\NN^{Q_0}$ where $M\in\Ind(K(n),\udim P_{m+1}^V)$ are isomorphic. With other words we use that all indecomposables are truncated preprojectives.
+
+As the indecomposables form a dense open subset of all representations, we found a dense subset whose quiver Grassmannians for a fixed $\bfe$ are isomorphic. But now the same proof as for exceptional roots applies in order to show that these quiver Grassmannians need to be smooth, see \cite[Corollary 4]{cr}.
+ % \footnote{The proof using moduli spaces needs to be written}
   %Both claims are proven via the same geometric construction.
   %For each dimension vector $\bfe$, there is a smooth variety
   %\[X_{\bfe,m}=\{(\tilde E,V):V\in Gr_d(H_m),\ P_m\otimes V\subset\tilde E\subset P_{m+1}i,\ \udim\tilde E=\bfe+d\udim P_m\}.\]
@@ -1038,8 +1071,25 @@ If $\tbfg\neq \udim\tilde P_{m+1}^{(k)}$, the fiber dimension only depends on th
 
 Thus it remains to show that there exists a cell decomposition of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj'})$ which is compatible with a fixed $\pi_{m,\uj'}^{\bf j'}$ where ${\bf j'}=(\underline{j'_1},\underline{j_2},\ldots,\underline{j_r})$ with $\underline{j_1}=(\uj',j_{1,l},\ldots,j_{1,n-1})\in I_{n-1}$ and $j_{1,l}=j_l$. Recall that we have $\pi_{m,\uj'}^{\bf j'}=\pi_{m,\uj}^{\bf j}\circ\pi_{m,\uj'}^{j_l}$ by Lemma \ref{projections}.
 
-Thus let $\pi_{m,\uj'}^{\bf j'}(U)= 0$ with $U\subset \tilde P_{m}^{\uj'}$. Then we either have $\pi_{m,\uj'}^{j_l}(U)=0$ which means that $U$ comes from a subrepresentation of $\tilde P_{m,j_l}$ and $\tbfg=0$. In this case, all representations in the cell of $U$ come from a subrepresentation of $\tilde P_{m,j_l}$. Thus assume that $\pi_{m,\uj'}^{j_l}(U)\neq 0$. We have $\pi_{m,\uj'}^{j_l}(U)\neq \tilde P_{m}^{\uj}$ because otherwise we had $\pi_{m,\uj'}^{\bf j'}(U)\neq 0$. Apply induction hypothesis now.
+Fix $\tbff$ and $\tbfg$ together with cell decompositions 
+\[\Gr^{\tilde Q}_\tbff(P_{m-1,j_l})=\coprod_{i\in I} B_i,\quad \Gr^{\tilde Q}_\tbfg(\tilde P_{m}^{\uj})=\coprod_{k\in K} C_k\]
+such that the cell decomposition of $\Gr^{\tilde Q}_\tbfg(\tilde P_{m}^{\uj})$ is compatible with $\pi^{\bf j}_{m,\uj}$. To finish the prove, it suffices to show that the cell decomposition of for $\Gr_{\tbff+\tbfg}(\tilde P_m^{\uj'})$ is compatible with $\pi^{\bf j'}_{m,\uj'}$ because every projection onto a truncated preprojective is of this shape and we did not put (?) any restrictions on ${\bf j'}$. 
+
+We distinguish the following cases
+\begin{itemize}
+\item $\tbfg =\udim \tilde P_{m}^{\uj}$.
+\item $\tbfg \neq \udim \tilde P_{m}^{\uj}$ with cells $B_i$ and $C_k$ such that $\pi^{\bf j}_{m,\uj}(V)=0$ for all $V\in C_k$.
+ \item $\tbfg \neq \udim \tilde P_{m}^{\uj}$ with cells $B_i$ and $C_k$ such that $\pi^{\bf j}_{m,\uj}(V)\neq 0$ for all $V\in C_k$.
  
+\end{itemize}
+In the first case, we have $\Gr_\tbfg(\tilde P_{m}^{\uj})=\{\pt\}$ and thus there exists a single cell $C_0=\mathbb{A}^0$. Fix a cell $B_i\subset\Gr^{\tilde Q}_\tbff(P_{m-1,j_l})$. As the cell decomposition of $\Gr^{\tilde Q}_\tbff(P_{m-1,j_l})$ is compatible with $\pi_{m}^{\bf i}$, we either have that the fibre over $B_i\times C_0$ is empty or that the fibre is of constant dimension building a new cell $CB_i$. For all representations $U\in CB_i$ we have $\pi_{m,\uj'}^{\bf j'}(U)\neq 0$ because $\pi_{m,\uj}^{\bf j}$ is surjective and $\pi_{m,\uj'}^{j_l}(U)=\tilde P_{m}^{\uj}$.
+
+In the second case, the fibre over $B_i\times C_k$ is non empty and of constant dimension building a new cell $CB_{i,k}$. As we have $\pi^{\bf j}_{m,\uj}(V)=0$ for all $V\in C_k$, it follows that $\pi^{\bf j'}_{m,\uj'}(U)=0$ for all representations $U\in (CB)_{i,k}$.
+
+In the third case, an analogous argument shows that $\pi^{\bf j'}_{m,\uj'}(U)\neq 0$ for all $U\in (CB)_{i,k}$.
+
+%Thus let $\pi_{m,\uj'}^{\bf j'}(U)= 0$ with $U\subset \tilde P_{m}^{\uj'}$. Then we either have $\pi_{m,\uj'}^{j_l}(U)=0$ which means that $U$ comes from a subrepresentation of $\tilde P_{m,j_l}$ and $\tbfg=0$. In this case, all representations in the cell of $U$ come from a subrepresentation of $\tilde P_{m,j_l}$. Thus assume that $\pi_{m,\uj'}^{j_l}(U)\neq 0$. We have $\pi_{m,\uj'}^{j_l}(U)\neq \tilde P_{m}^{\uj}$ because otherwise we had $\pi_{m,\uj'}^{\bf j'}(U)\neq 0$. Apply induction hypothesis now.
+
 
 \begin{comment}
 We proceed by induction and combine the two maps $\Psi_1$ and $\Psi_2$ and obtain a map
