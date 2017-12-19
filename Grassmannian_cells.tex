@@ -77,14 +77,15 @@
 \end{abstract}
 \maketitle
 
+%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 A cluster algebra is a subalgebra of a rational function field where generators are defined by an explicit recursion \cite{fomin-zelevinsky}.
 Although the generators of the cluster algebra are given as rational functions they actually turn out to be Laurent polynomials.
 These Laurent polynomial expressions for the cluster variables have been studied extensively and ultimately can be described using the representation theory of quivers \cite{caldero-chapoton,caldero-keller}: the cluster variables are generating functions for Euler characteristics of quiver Grassmannians.
 
 For rank two cluster algebras, the Laurent expressions of cluster variables can also be computed using a certain Dyck path combinatorics \cite{lee-li-zelevinsky}.
-The confluence of these results gives rise to a combinatorial construction for the Euler characteristics of certain quiver Grassmannians.
-Our main result is a geometric explanation for this correspondence by constructing a decomposition of the quiver Grassmannians into affine cells which are labeled by compatible pairs.
+The confluence of these results gives rise to a combinatorial construction for the Euler characteristics and counting polynomials of certain quiver Grassmannians.
+Our main result is a geometric explanation for this correspondence by constructing a decomposition of these quiver Grassmannians into affine cells which are labeled by compatible pairs.
 
 -something about compatible pairs and combinatorial construction of cluster variables\\
 -statement of our results\\
@@ -93,7 +94,7 @@ Our main result is a geometric explanation for this correspondence by constructi
 -acknowledgements?\\
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Terminology and Preliminary results}
 
 Incorporate this into other sections...
@@ -264,7 +265,6 @@ An important special case for this is the case of exceptional representations. I
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Representation Theory of $K(n)$}
 
 \noindent Denote by $K(n)$ the \emph{$n$-Kronecker quiver} $1\stackrel{n}{\longleftarrow}2$ with vertices $K_0(n)=\{1,2\}$ and $n$ arrows from vertex $2$ to vertex $1$. 
@@ -753,10 +753,9 @@ Each such sequence has the following almost-split property for proper subreprese
 \end{proof}
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Quiver Grassmannians of $\widetilde{K(n)}$}\label{QG}
+\section{Quiver Grassmannians of $\widetilde{K(n)}$}
+\label{QG}
 \noindent 
 We fix a natural number $n\geq 3$. We fix the following lifts $\tilde P_m$  of $P_m$ to the universal cover $\widetilde{K(n)}$. For $m=1$ we assume that $\dim (\tilde P_1)_{1,1}=1$ and $\dim (\tilde P_1)_{i,w}=0$ if $(i,w)\neq (1,1)$. Moreover, we assume that $\dim (\tilde P_2)_{2,1}=\dim (\tilde P_2)_{1,w}=1$ for $w=a_1,\ldots,a_n$ and $\dim (\tilde P_2)_{i,w}=0$ if $(i,w)\notin\{(2,1),(1,a_1),\ldots,(1,a_n)\}$. Recall that applying the reflection functor $\Sigma_i$ on $K(n)$ corresponds to applying $\tilde\Sigma_i:=\prod_{w\in W_Q}\Sigma_{(i,w)}$ on $\widetilde{K(n)}$. Moreover, sinks become sources and vice versa. For $m\geq 3$, we can build lifts $\tilde P_m$ recursively by applying reflection functors or as Auslander-Reiten translation, i.e. we have
 \begin{align}\label{recursive}\tilde P_m=\tilde\Sigma_2 \tilde P_{m-1},\quad\tilde P_{m+1}=\tilde\Sigma_{1}\tilde\Sigma_2\tilde P_{m-1}=\tau^{-1} \tilde P_{m-1}\text{ for }m\geq 2.\end{align}
@@ -1126,36 +1125,47 @@ $$F_{\udim P_m^{(k)}}=F_{\udim P_m^{(k+1)}}F_{\udim P_{m-1}}-x^{\udim P_{m}^{(k)
 \end{corollary}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Combinatorial description of non-empty cells}
-                                   
-\begin{definition}\begin{enumerate}
-\item A $2$-quiver is a triple $Q=(Q_0,Q_1,Q_2)$ consisting of a set of vertices $Q_0$, a set of (usual) arrows $Q_1$ and a set of $2$-arrows which are arrows between full subquivers of the quiver $(Q_0,Q_1)$.
+In this section we provide a direct quiver theoretic description of the non-empty cells in the quiver Grassmannians of (truncated) preprojective representations of $K(n)$.
+The key concept is the following notion of $2$-quiver which is closely related to certain coefficient quivers of the corresponding representations, though it will turn out that a feature of this construction is that it is blind to the coloring of the different arrows of $\widetilde K(n)$ covering the arrows of $K(n)$.
+\begin{definition}
+  Let $Q=(Q_0,Q_1)$ be a quiver.
+  A subset $\beta\subset Q_0$ is \emph{successor closed} if for each $p\in\beta$, the existence of an arrow $v:p\to q$ in $Q_1$ implies $q\in\beta$.
 
-\item We call a subset $\beta\subset Q_0$ successor closed if for every arrow $v:p\to q$ we have: if $p\in \beta$, then $q\in\beta$.
-
-\item We call a subset $\beta\subset Q_0$ strong successor closed if it is successor closed and, moreover, for every $2$-arrow $V:\Gamma(1)\to\Gamma(2)$, we have: if $\Gamma(1)_0\subset \beta$, then there exists a vertex $q\in\Gamma(2)_0$ such that $q\in\beta$.
-
-\item Notion of equivalence of $2$-quivers to justify the transformation of $2$-arrows into usual arrows.
-
-\end{enumerate}
+  A \emph{2-arrow} of the quiver $Q$ is an ordered pair $V=\big(\Gamma(1),\Gamma(2)\big)$ of full subquivers of $Q$, these will be denoted $V:\Gamma(1)\to\Gamma(2)$.
+  A \emph{2-quiver} is a pair $\tilde Q=(Q,Q_2)$ consisting of a quiver $Q$ and a collection $Q_2$ of 2-arrows of $Q$.
+  Given a 2-quiver $\tilde Q$, we call a subset $\beta\subset Q_0$ \emph{strong successor closed} if it is successor closed and for each 2-arrow $V:\Gamma(1)\to\Gamma(2)$ with $\Gamma(1)_0\subset\beta$ we have $\Gamma(2)_0\cap\beta\ne\varnothing$.  
+  \footnote{Include a notion of equivalence of $2$-quivers to justify the transformation of $2$-arrows into usual arrows.}
 \end{definition}
 
-The aim is to associate a $2$-quiver with every preprojective representation $P_m$ and with their quotients $P_m^{(k)}$ defined in section \ref{QG}. These $2$-quivers are related to certain coefficient quivers of these representations. The upshot is that the non-empty cells of $\Gr_e(P_m)$ and $\Gr_e(P_m^{(k)})$ are in one-to-one correspondence with the strong successor closed subsets $\beta$ of type $e$. Hence the corresponding Euler characteristic can be computed when counting these subsets. It will turn out that a feature of this description is that it does not take care of the colouring of the different arrows induced by the arrows of $K(n)$.
+%The aim is to associate a $2$-quiver with every preprojective representation $P_m$ and with their quotients $P_m^{(k)}$ defined in section \ref{QG}.
+%These $2$-quivers are related to certain coefficient quivers of these representations.
+%The upshot is that the non-empty cells of $\Gr_e(P_m)$ and $\Gr_e(P_m^{(k)})$ are in one-to-one correspondence with the strong successor closed subsets $\beta$ of type $e$.
+%Hence the corresponding Euler characteristic can be computed when counting these subsets.
+%It will turn out that a feature of this description is that it does not take care of the colouring of the different arrows induced by the arrows of $K(n)$.
 
 \begin{remark}\footnote{Insert a remark that we do not work on the universal cover} 
-Lemma \ref{AR} can be generalized to the cases $m\leq 2$. The only technical problem is that $\tau \tilde P^{(k)}_{m+1}$ is no quotient of $\tilde P_{m,k}$ and we have to replace it by the image of the unique morphism to $\tau \tilde P^{(k)}_{m+1}$ which induces the exact sequence. 
-
-
+  Lemma \ref{AR} can be generalized to the cases $m\leq 2$.
+  The only technical problem is that $\tau \tilde P^{(k)}_{m+1}$ is no quotient of $\tilde P_{m,k}$ and we have to replace it by the image of the unique morphism to $\tau \tilde P^{(k)}_{m+1}$ which induces the exact sequence. 
 \end{remark}
 
-We recall the notion of Section \ref{QG} where we denote the arrows of $K(n)$ by $v_1,\ldots,v_n$. Actually, all $2$-quivers can be build from the $2$-quivers of $P_1$, $P_2$ and $P_2^{(n-1)}$ where $P_2^{(n-1)}$ depends on a choice as it is a truncated preprojective representation of dimension $(1,1)$.  Indeed, it is the cokernel of a short exact sequence
-\[\ses{ P_1^{n-1}}{ P_2}{P_2^{(n-1)}}\]
-for which we have $n-1$ choices. Without loss of generality, we make the following choice when defining
-$$P_2^{(n-1)}=j^{(n-1)}_2\xlongleftarrow{v_1}i^{(n-1)}_2=P_1^{(1)}=j^{(1)}_1\xlongleftarrow{v_1}i^{(1)}_1$$
-by its coefficient quiver. Denoting by $j_1$ the single vertex of the coefficient quiver of $P_1$, we have 
-$$\Ext(P_2^{(n-1)},P_1)=\langle i^{(n-1)}_{2}\xrightarrow{v_l}j_1\mid l=2,\ldots,n\rangle.$$
-
+We recall the notion of Section \ref{QG} where we denote the arrows of $K(n)$ by $v_1,\ldots,v_n$.
+Actually, all $2$-quivers can be built from the $2$-quivers of $P_1$, $P_2$ and $P_2^{(n-1)}$, where $P_2^{(n-1)}$ depends on a choice as it is a truncated preprojective representation of dimension $(1,1)$.
+Indeed, it is the cokernel of a short exact sequence
+\[
+  \ses{ P_1^{n-1}}{ P_2}{P_2^{(n-1)}}
+\]
+for which we have $n$ choices.
+Without loss of generality, we make the following choice when defining
+\[
+  P_2^{(n-1)}=j^{(n-1)}_2\xlongleftarrow{v_1}i^{(n-1)}_2=P_1^{(1)}=j^{(1)}_1\xlongleftarrow{v_1}i^{(1)}_1
+\]
+by its coefficient quiver.
+Denoting by $j_1$ the single vertex of the coefficient quiver of $P_1$, we have 
+\[
+  \Ext(P_2^{(n-1)},P_1)=\langle i^{(n-1)}_{2}\xrightarrow{v_l}j_1\mid l=2,\ldots,n\rangle.
+\]
 
 This defines recursively the representation $P_{2}^{(k)}$ for $k=n-1,\ldots,0$ with $P_2^{(0)}=P_2$ when considering the short exact sequences
 \[\ses{P_1}{P_2^{(k)}}{P_2^{(k+1)}}\]
@@ -1266,14 +1276,14 @@ Let us assume that we already constructed the $2$-quiver of $P_{m+1}^{(k)}$. The
 \node (Q81)[draw=black,fit={(Q71) (P11) (B1)}]{};
 \node (Q91)[draw=black,fit={(Q81) (A1)}]{};
 \draw[<-,red] (D1b)--(E1b) node[pos=.5,above] {};
-\draw[->,red] (Q11)--(B11b) node[pos=.5,above] {$$};
-\draw[->,red] (Q21)--(B1b) node[pos=.5,above] {$$};
-\draw[->,red] (Q31)--(A1b) node[pos=.5,above] {$$};
-\draw[->,red] (Q41)--(E1) node[pos=.5,above] {$$};
-\draw[->,red] (Q51)--(D1) node[pos=.5,above] {$$};
-\draw[->,red] (Q61)--(B11) node[pos=.5,above] {$$};
-\draw[->,red] (Q71)--(B1) node[pos=.5,above] {$$};
-\draw[->,red] (Q81)--(A1) node[pos=.5,above] {$$};
+\draw[->,red] (Q11)--(B11b) node[pos=.5,above] {};
+\draw[->,red] (Q21)--(B1b) node[pos=.5,above] {};
+\draw[->,red] (Q31)--(A1b) node[pos=.5,above] {};
+\draw[->,red] (Q41)--(E1) node[pos=.5,above] {};
+\draw[->,red] (Q51)--(D1) node[pos=.5,above] {};
+\draw[->,red] (Q61)--(B11) node[pos=.5,above] {};
+\draw[->,red] (Q71)--(B1) node[pos=.5,above] {};
+\draw[->,red] (Q81)--(A1) node[pos=.5,above] {};
 
 \draw (0,0) node (B) {$P_{m}$}+(0,-.8) node (P1) {\footnotesize$P_{m+1}^{(k)}$} +(2.5,0) node (B1) {$\dots$} +(5,0) node (C) {$P_{m}$} +(5,-.7) node (P3) {\footnotesize$P_{m+1}^{(n-2)}$}+(7.5,0) node (D) {$P_{m}$}  +(10,0) node (E) {$P_{m+1}^{(n-1)}=P_{m}^{(1)}$} +(7.5,-.6) node (P4) {\footnotesize$P_{m+1}^{(n-1)}$}; 
 \node (Q1) [draw=black,fit={(D) (E) (P4)}]{};
@@ -1281,9 +1291,9 @@ Let us assume that we already constructed the $2$-quiver of $P_{m+1}^{(k)}$. The
 \node (Q2b)[draw=black,fit={(Q2) (B1) }]{};
 
 \draw[<-,red] (D)--(E) node[pos=.5,above] {};
-\draw[->,red] (Q1)--(C) node[pos=.5,above] {$$};
-\draw[->,red] (Q2)--(B1) node[pos=.5,above] {$$};
-\draw[->,red] (Q2b)--(B) node[pos=.5,above] {$$};
+\draw[->,red] (Q1)--(C) node[pos=.5,above] {};
+\draw[->,red] (Q2)--(B1) node[pos=.5,above] {};
+\draw[->,red] (Q2b)--(B) node[pos=.5,above] {};
 
 \node (PMK) [draw=black, thick,fit={(Q2b) (B)}]{};
 \draw[->,red,thick] (PMK)--(Q31);
@@ -1386,29 +1396,31 @@ The one of $P_4$ is given by:\\
 \draw[->,red] (Q2c)--(Q0b) node[pos=.5,above] {\scriptsize $b$};
 \draw[->,red] (Q3c)--(Q1) node[pos=.6,above] {\scriptsize $c$};
 
-
-
-
-
-
-
 \end{tikzpicture}
 
 
 
 \begin{theorem}
-The Euler characteristic $\chi(\Gr_e(P_m^{(k)}))$ is given by the number of strong successor closed subsets of type $e$ of the $2$-quiver of $P_m^{(k)}$.
+  The Euler characteristic $\chi(\Gr_e(P_m^{(k)}))$ is given by the number of strong successor closed subsets of type $e$ of the $2$-quiver of $P_m^{(k)}$.
 \end{theorem}
 \begin{proof}
-We proceed by induction. The strong successor closed subsets of the $2$-quivers of $P_1$, $P_2$ and $P_2^{(n-1)}$ coincide with the successor closed subsets of the coefficient quivers (\ref{coeff}) which we denote by $\Gamma_M$ for $M\in\{P_1, P_2,P_2^{(n-1)}\}$. Passing to the universal cover, we have $\Gr_e(\tilde M)\in\{\emptyset,\{\pt\}\}$ such that $\Gr_e(\tilde M)=\{\pt\}$ if and only if $e\subset (\Gamma_M)_0$ is successor closed. As the number cells of $\Gr_e(\tilde M)$ and $\Gr_e(M)$ coincide, the claim follows.
+  We proceed by induction.
+  The strong successor closed subsets of the $2$-quivers of $P_1$, $P_2$ and $P_2^{(n-1)}$ coincide with the successor closed subsets of the coefficient quivers (\ref{coeff}) which we denote by $\Gamma_M$ for $M\in\{P_1, P_2,P_2^{(n-1)}\}$.
+  Passing to the universal cover, we have $\Gr_e(\tilde M)\in\{\emptyset,\{\pt\}\}$ such that $\Gr_e(\tilde M)=\{\pt\}$ if and only if $e\subset (\Gamma_M)_0$ is successor closed.
+  As the number cells of $\Gr_e(\tilde M)$ and $\Gr_e(M)$ coincide, the claim follows.
 
-Thus assume that the claim is true for $P_m$ (resp. $\tilde P_{m}$) and $P_{m+1}^{(k)}$ (resp. $\tilde P_{m+1}^{(k)}$) and consider the short exact sequence
-\[\ses{\tilde P_m}{\tilde P_{m+1}^{(k-1)}}{\tilde P_{m+1}^{(k)}}.\]
-Denote the corresponding $2$-quivers by $\Gamma_{P_m}$ and $\Gamma_{P_{m+1}^{(k)}}$ and let $\beta_1\cup\beta_2\subset (\Gamma_{P_m})_0\cup (\Gamma_{P_{m+1}^{(k)}})_0$ be a pair of strong successor closed subsets which gives rise to a pair of non-empty cell by induction hypothesis. Denote by $d(\beta_1+\beta_2)$ the dimension vector corresponding to this subset. By Proposition \ref{fibers} the pair $\beta_1\cup\beta_2$, it does not correspond to a non-empty cell of $\Gr_{d(\beta_1+\beta_2)}(\tilde P_{m+1}^{(k)})$ if and only if $\beta_2=(\Gamma_{P_{m+1}^{(k)}})_0$ and $\beta_1\cap(\Gamma_{\tau\tilde P_{m+1}^{(k)}})_0=\emptyset$. But this is precisely the condition on $\beta_1\cup\beta_2$ to be strong successor closed as $\Gamma_{P_{m+1}^{(k)}}$ is connected to $\Gamma_{\tau\tilde P_{m+1}^{(k)}}$ by a $2$-arrow.
-
+  Thus assume that the claim is true for $P_m$ (resp. $\tilde P_{m}$) and $P_{m+1}^{(k)}$ (resp. $\tilde P_{m+1}^{(k)}$) and consider the short exact sequence
+  \[
+    \ses{\tilde P_m}{\tilde P_{m+1}^{(k-1)}}{\tilde P_{m+1}^{(k)}}.
+  \]
+  Denote the corresponding $2$-quivers by $\Gamma_{P_m}$ and $\Gamma_{P_{m+1}^{(k)}}$ and let $\beta_1\cup\beta_2\subset (\Gamma_{P_m})_0\cup (\Gamma_{P_{m+1}^{(k)}})_0$ be a pair of strong successor closed subsets which gives rise to a pair of non-empty cell by induction hypothesis.
+  Denote by $d(\beta_1+\beta_2)$ the dimension vector corresponding to this subset.
+  By Proposition \ref{fibers} the pair $\beta_1\cup\beta_2$, it does not correspond to a non-empty cell of $\Gr_{d(\beta_1+\beta_2)}(\tilde P_{m+1}^{(k)})$ if and only if $\beta_2=(\Gamma_{P_{m+1}^{(k)}})_0$ and $\beta_1\cap(\Gamma_{\tau\tilde P_{m+1}^{(k)}})_0=\emptyset$.
+  But this is precisely the condition on $\beta_1\cup\beta_2$ to be strong successor closed as $\Gamma_{P_{m+1}^{(k)}}$ is connected to $\Gamma_{\tau\tilde P_{m+1}^{(k)}}$ by a $2$-arrow.
 \end{proof}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Compatible Pairs Label Cells in $Gr^Q_\bfe(P_m)$}
 For $m\ge1$, let $D_m$ denote the maximal Dyck path in the lattice rectangle with corner vertices $(0,0)$ and $(u_m,u_{m-1})$.  
 More precisely, $D_m$ is the lattice path which begins at $(0,0)$, takes East and North steps to end at $(u_m,u_{m-1})$, and never passes above the main diagonal joining $(0,0)$ and $(u_m,u_{m-1})$.  
@@ -1565,7 +1577,7 @@ The following result is an immediate consequence of the combinatorial constructi
 Our goal is to show that the compatible pairs provide a natural labeling for the cells of $\chi\big(Gr^Q_\bfe(P_m)\big)$ found in Theorem~\ref{???}.
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{10}
 \bibitem{ass}
 Assem, I., Simson, D., Skowronski, A.: Elements of the Representation Theory of Associative Algebras. Cambridge University Press, Cambridge 2007.
