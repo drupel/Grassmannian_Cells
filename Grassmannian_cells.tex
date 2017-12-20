@@ -274,6 +274,82 @@ As a $\CC$-vector space, the path algebra $A(n)$ can be written as $A_0\oplus A_
   \item $A_0=\CC e_1\oplus \CC e_2$ is a two-dimensional semisimple algebra with orthogonal idempotents $e_1$ and $e_2$;
   \item $A_1=\bigoplus_{i=1}^n \CC a_i$ is the $A_0$-bimodule spanned by the arrows of $K(n)$, that is $e_ka_ie_\ell=\delta_{k1}\delta_{\ell2}a_i$ for $1\le i\le n$ and $k,\ell\in\{1,2\}$.
 \end{itemize}
+
+Write $\Sigma_1$ and $\Sigma_2$ for the BGP-reflection functors of $K(n)$ \cite{bgp}. 
+Note that (up to relabeling vertices) the quiver $K(n)$ itself does not change when applying the reflection functors and thus we view these as endofunctors acting on the category $\rep K(n)$. 
+With this identification of $K(n)$ and $K(n)^{op}$, the endofunctors $\Sigma_2\Sigma_1$ and $\Sigma_1\Sigma_2$ are each naturally isomorphic to the identity maps on the full subcategories $\rep_{\langle 1\rangle} K(n),\rep_{\langle 2\rangle} K(n)\subset \rep K(n)$, where the objects of $\rep_{\langle i\rangle} K(n)$ are those representations of $K(n)$ which do not contain the simple $S_i$ as a direct summand.
+Also, following \cite{brenner-butler}, the Auslander-Reiten translation $\tau:\rep K(n)\to\rep K(n)$ may be identified with the functor $\Sigma_1^2$.
+
+Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=1$, $u_{k+1}=nu_k-u_{k-1}$.
+The following is well-known.
+\begin{theorem}
+  \label{th:rigids}
+  For each $m\ge1$, there exist unique (up to isomorphism) indecomposable rigid representations $P_m$ and $I_m$ of $K(n)$ with dimension vectors $(u_m,u_{m-1})$ and $(u_{m-1},u_m)$ respectively. 
+  Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}\oplus P_{m+1}^{a_2}$ or $I_m^{a_1}\oplus I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
+\end{theorem}
+The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
+\begin{remark}\footnote{we should have $P_m=(\Sigma_iP_{m-1})^T$}
+  \label{rem:reflection recursion}
+  These representations satisfy the following recursions using the reflection functors:
+  \[P_1=S_1,\quad P_m=\Sigma_2 P_{m-1},\quad I_1=S_2,\quad I_m=\Sigma_1 I_{m-1}\]
+  for $m\ge2$.
+  In particular, we have $P_{m-1}=\tau P_{m+1}$ and $I_{m+1}=\tau I_{m-1}$ for $m\ge2$. 
+\end{remark}
+
+Set $H_m:=\Hom(P_m,P_{m+1})$ for $m\ge1$. %and define an action of $GL_n(\CC)$ on $H_m$ by $g.\theta:=\phi_{m+1,g}^{-1}\circ\theta^g\circ\phi_{m,g}$.
+%Note that the first $\theta$ here represents an element of $H_m$ while the second $\theta^g$ represents the corresponding element of $H_m^g:=\Hom(g.P_m,g.P_{m+1})$ from Lemma~\ref{le:hom equivariance}.
+Write $Gr(H_m)$ for the \emph{total Grassmannian} of $H_m$ whose elements are nontrivial proper subspaces $V\subset H_m$.
+Some results below remain true if we allow $H_m$ or $0$ as elements of $Gr(H_m)$, but not all, so for uniformity of exposition we omit these possibilities.
+%Lemma~\ref{le:hom equivariance} gives an identification of $Gr(H_m)$ with $Gr(H_m^g)$ and we write $V\mapsto V^g$ for this correspondence.
+For $1\le d\le n-1$, let $Gr_d(H_m)\subset Gr(H_m)$ be the subvariety of $d$-dimensional subspaces of $H_m$.
+
+\begin{lemma}
+  \label{le:injective evaluation maps}
+  For any $V\in Gr(H_m)$, the natural evaluation map $ev_V:P_m\otimes V\to P_{m+1}$ is injective.
+\end{lemma}
+%%%%%%%%%%%%%%%%%%%
+% needs polishing %
+%%%%%%%%%%%%%%%%%%%
+\begin{proof}
+  \footnote{This needs to be cleaned up, the proof seems false as written.}
+  A nonzero element $f\in V$ corresponds to an irreducible morphism $f:P_m\to P_{m+1}$ and thus does not factor through any representation $Z\ne P_m$, in particular $f$ is injective.
+  But any nonzero element of $\ker ev_V$ gives rise to a nonzero $f\in V$ which is not injective and thus $ev_V$ must be an injective map.
+\end{proof}
+
+In what follows we will not distinguish between $P_m\otimes V$ and its image under $ev_V$.
+Following Lemma~\ref{le:injective evaluation maps} we define the following.
+\begin{definition}
+  For $V\in Gr(H_m)$, define the \emph{truncated preprojective} $P_{m+1}^V$ to be the cokernel of the map $ev_V:P_m\otimes V\to P_{m+1}$, i.e.\ we have a short exact sequence
+  \begin{equation}
+    \label{eq:truncated preprojectives}
+    0\longrightarrow P_m\otimes V\stackrel{ev_V}{\longrightarrow} P_{m+1}\stackrel{\pi_V}{\longrightarrow} P_{m+1}^V\longrightarrow 0.
+  \end{equation}
+\end{definition}
+\begin{remark}
+  It will be convenient to also set $P_{m+1}^0=P_{m+1}$, observe that this notation is consistent with taking $V=0$ in the sequence \eqref{eq:truncated preprojectives}.
+\end{remark}
+
+\begin{lemma}
+  \label{le:basic homological properties}
+  For $V\in Gr(H_m)$, $m\ge1$, we have $\Hom(P_{m+1}^V,P_\ell)=0=\Ext(P_\ell,P_{m+1}^V)$ for all $\ell\ge1$.
+  Moreover, $\Hom(P_{m+1},P_{m+1}^V)$ is the one-dimensional space spanned by the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
+\end{lemma}
+\begin{proof}
+  The first claim is immediate since $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some $\ell\ge1$ implies all indecomposable summands of $X$ are preprojectives of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$), whereas $P_{m+1}^V$ is not preprojective.
+  For the second claim we apply the functor $\Hom(P_{m+1},-)$ to the sequence \eqref{eq:truncated preprojectives} and obtain an isomorphism $\Hom(P_{m+1},P_{m+1})\cong\Hom(P_{m+1},P_{m+1}^V)$ by which the identity map on $P_{m+1}$ is taken to the projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
+\end{proof}
+
+\begin{corollary}
+  For $V\in Gr(H_m)$, $m\ge1$, the truncated preprojective $P_{m+1}^V$ is indecomposable.
+\end{corollary}
+\begin{proof}
+  Applying the functor $\Hom(-,P_{m+1}^V)$ to the sequence \eqref{eq:truncated preprojectives} gives an injective map from $\Hom(P_{m+1}^V,P_{m+1}^V)$ to the one-dimensional space $\Hom(P_{m+1},P_{m+1}^V)$.
+  In particular, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable.
+\end{proof}
+
+
+
+\subsection{Action on arrows}
 Observe that $GL_n(\CC)$ naturally acts on $A_1$ and hence $GL_n(\CC)$ acts on $\rep K(n)$ via the induced action on $A(n)$.
 More precisely, given a representation $M=(M_1,M_2,M_{a_i})$ of $K(n)$ and $g=(g_{ij})\in GL_n(\CC)$, the representation $g.M$ is given by $(M_1,M_2,M'_{a_i})$ with $M'_{a_i}=\sum\limits_{j=1}^n g_{ij}M_{a_j}$.
 Note that $M$ and $g.M$ are not necessarily isomorphic as representations of $K(n)$.
@@ -297,10 +373,10 @@ Note that $M$ and $g.M$ are not necessarily isomorphic as representations of $K(
   But this occurs exactly when the map $\theta^g:g.M\onto g.N$ is also a split epimorphism.
 \end{proof}
 
-Write $\Sigma_1$ and $\Sigma_2$ for the BGP-reflection functors of $K(n)$ \cite{bgp}. 
-Note that (up to relabeling vertices) the quiver $K(n)$ itself does not change when applying the reflection functors and thus we view these as endofunctors acting on the category $\rep K(n)$. 
-With this identification of $K(n)$ and $K(n)^{op}$, the endofunctors $\Sigma_2\Sigma_1$ and $\Sigma_1\Sigma_2$ are each naturally isomorphic to the identity maps on the full subcategories $\rep_{\langle 1\rangle} K(n),\rep_{\langle 2\rangle} K(n)\subset \rep K(n)$, where the objects of $\rep_{\langle i\rangle} K(n)$ are those representations of $K(n)$ which do not contain the simple $S_i$ as a direct summand.
-Also, following \cite{brenner-butler}, the Auslander-Reiten translation $\tau:\rep K(n)\to\rep K(n)$ may be identified with the functor $\Sigma_1^2$.
+%Write $\Sigma_1$ and $\Sigma_2$ for the BGP-reflection functors of $K(n)$ \cite{bgp}. 
+%Note that (up to relabeling vertices) the quiver $K(n)$ itself does not change when applying the reflection functors and thus we view these as endofunctors acting on the category $\rep K(n)$. 
+%With this identification of $K(n)$ and $K(n)^{op}$, the endofunctors $\Sigma_2\Sigma_1$ and $\Sigma_1\Sigma_2$ are each naturally isomorphic to the identity maps on the full subcategories $\rep_{\langle 1\rangle} K(n),\rep_{\langle 2\rangle} K(n)\subset \rep K(n)$, where the objects of $\rep_{\langle i\rangle} K(n)$ are those representations of $K(n)$ which do not contain the simple $S_i$ as a direct summand.
+%Also, following \cite{brenner-butler}, the Auslander-Reiten translation $\tau:\rep K(n)\to\rep K(n)$ may be identified with the functor $\Sigma_1^2$.
 
 While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the following twisted equivariance.
 \begin{lemma}\label{compatibleGSigma}
@@ -318,21 +394,6 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
   i.e. $g.\Sigma_2(M)=\Sigma_2(g^{-T}.M)$.
 \end{proof}
 
-Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=1$, $u_{k+1}=nu_k-u_{k-1}$.
-The following is well-known.
-\begin{theorem}
-  \label{th:rigids}
-  For each $m\ge1$, there exist unique (up to isomorphism) indecomposable rigid representations $P_m$ and $I_m$ of $K(n)$ with dimension vectors $(u_m,u_{m-1})$ and $(u_{m-1},u_m)$ respectively. 
-  Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}\oplus P_{m+1}^{a_2}$ or $I_m^{a_1}\oplus I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
-\end{theorem}
-The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
-\begin{remark}\footnote{we should have $P_m=(\Sigma_iP_{m-1})^T$}
-  \label{rem:reflection recursion}
-  These representations satisfy the following recursions using the reflection functors:
-  \[P_1=S_1,\quad P_m=\Sigma_2 P_{m-1},\quad I_1=S_2,\quad I_m=\Sigma_1 I_{m-1}\]
-  for $m\ge2$.
-  In particular, we have $P_{m-1}=\tau P_{m+1}$ and $I_{m+1}=\tau I_{m-1}$ for $m\ge2$. 
-\end{remark}
 %\begin{corollary}
 %  \label{cor:preprojective stability}
 %  For $m\ge1$ and $g\in G$, the representations $P_m$ and $g.P_m$ are isomorphic.
@@ -343,12 +404,6 @@ The representations $P_m$ are called the \emph{preprojective} representations of
 %\end{proof}
 %For $g\in GL_n(\CC)$, write $\phi_{m,g}:P_m\to g.P_m$ for the (unique up to scalars) isomorphism from Corollary~\ref{cor:preprojective stability}.
 
-Set $H_m:=\Hom(P_m,P_{m+1})$ for $m\ge1$. %and define an action of $GL_n(\CC)$ on $H_m$ by $g.\theta:=\phi_{m+1,g}^{-1}\circ\theta^g\circ\phi_{m,g}$.
-%Note that the first $\theta$ here represents an element of $H_m$ while the second $\theta^g$ represents the corresponding element of $H_m^g:=\Hom(g.P_m,g.P_{m+1})$ from Lemma~\ref{le:hom equivariance}.
-Write $Gr(H_m)$ for the \emph{total Grassmannian} of $H_m$ whose elements are nontrivial proper subspaces $V\subset H_m$.
-Some results below remain true if we allow $H_m$ or $0$ as elements of $Gr(H_m)$, but not all, so for uniformity of exposition we omit these possibilities.
-%Lemma~\ref{le:hom equivariance} gives an identification of $Gr(H_m)$ with $Gr(H_m^g)$ and we write $V\mapsto V^g$ for this correspondence.
-For $1\le d\le n-1$, let $Gr_d(H_m)\subset Gr(H_m)$ be the subvariety of $d$-dimensional subspaces of $H_m$.
 %\begin{lemma}
 %  \label{le:transitivity}
 %  The action of $GL_n(\CC)$ on $H_m$ induces a transitive action of $GL_n(\CC)$ on each component $Gr_d(H_m)$.
@@ -361,20 +416,7 @@ For $1\le d\le n-1$, let $Gr_d(H_m)\subset Gr(H_m)$ be the subvariety of $d$-dim
 %  Suppose $GL_n(\CC)\to GL(H_m)$ is surjective.
 %
 %\end{proof}
-\begin{lemma}
-  \label{le:injective evaluation maps}
-  For any $V\in Gr(H_m)$, the natural evaluation map $ev_V:P_m\otimes V\to P_{m+1}$ is injective.
-\end{lemma}
-%%%%%%%%%%%%%%%%%%%
-% needs polishing %
-%%%%%%%%%%%%%%%%%%%
-\begin{proof}
-  \footnote{This needs to be cleaned up, the proof seems false as written.}
-  A nonzero element $f\in V$ corresponds to an irreducible morphism $f:P_m\to P_{m+1}$ and thus does not factor through any representation $Z\ne P_m$, in particular $f$ is injective.
-  But any nonzero element of $\ker ev_V$ gives rise to a nonzero $f\in V$ which is not injective and thus $ev_V$ must be an injective map.
-\end{proof}
 
-In what follows we will not distinguish between $P_m\otimes V$ and its image under $ev_V$.
 %Similarly, for $V^g\in Gr(H_m^g)$, we identify $g.P_m\otimes V^g$ with its image in $g.P_{m+1}$ under the natural evaluation map. 
 %\begin{lemma}
 %  \label{le:g equalities}
@@ -384,17 +426,6 @@ In what follows we will not distinguish between $P_m\otimes V$ and its image und
 %  The first equality is immediate from the definitions.
 %  The second equality also follows from the definitions by observing that $\phi_{m+1,g}(P_m\otimes g.V)=g.P_m\otimes V^g$.
 %\end{proof}
-Following Lemma~\ref{le:injective evaluation maps} we define the following.
-\begin{definition}
-  For $V\in Gr(H_m)$, define the \emph{truncated preprojective} $P_{m+1}^V$ to be the cokernel of the map $ev_V:P_m\otimes V\to P_{m+1}$, i.e.\ we have a short exact sequence
-  \begin{equation}
-    \label{eq:truncated preprojectives}
-    0\longrightarrow P_m\otimes V\stackrel{ev_V}{\longrightarrow} P_{m+1}\stackrel{\pi_V}{\longrightarrow} P_{m+1}^V\longrightarrow 0.
-  \end{equation}
-\end{definition}
-\begin{remark}
-  It will be convenient to also set $P_{m+1}^0=P_{m+1}$, observe that this notation is consistent with taking $V=0$ in the sequence \eqref{eq:truncated preprojectives}.
-\end{remark}
 
 %Any subrepresentation $E\subset P_{m+1}^V$ corresponds by taking pullbacks to a chain of inclusions $P_m\otimes V\subset\tilde E\subset P_{m+1}$.
 \begin{proposition}\label{indecomposables}Let $m\geq 1$. Let $\alpha(m,r)=\dim P_{m+1}-r\dim P_m$ with $0\leq r\leq n-1$. Let $R_\alpha(K(n))$ be the affine space of representations of dimension $\alpha(m,r)$. The following holds:
@@ -471,6 +502,9 @@ As the indecomposables form a dense open subset of all representations, we found
 %  Indeed, applying $\Hom(-,P_{\ell+1})$ to this sequence \eqref{eq:AR sequence} gives an isomorphism $\Hom(P_{\ell+1}^n,P_{\ell+1})\cong\Hom(P_\ell,P_{\ell+1})$ whereby the natural basis of coordinate projections on the left is taken to the basis $\{f_{\ell,k}\}$ on the right.
 %\end{remark}
 
+
+\subsection{Understanding Truncated Preprojectives}
+
 For each $m\ge2$, there is an Auslander-Reiten sequence \cite{auslander-reiten-smalo}
 \begin{equation}
   \label{eq:AR sequence}
@@ -508,24 +542,6 @@ The next observation is essential for the results to follow.
 
 
 
-
-\begin{lemma}
-  \label{le:basic homological properties}
-  For $V\in Gr(H_m)$, $m\ge1$, we have $\Hom(P_{m+1}^V,P_\ell)=0=\Ext(P_\ell,P_{m+1}^V)$ for all $\ell\ge1$.
-  Moreover, $\Hom(P_{m+1},P_{m+1}^V)$ is the one-dimensional space spanned by the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
-\end{lemma}
-\begin{proof}
-  The first claim is immediate since $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some $\ell\ge1$ implies all indecomposable summands of $X$ are preprojectives of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$), whereas $P_{m+1}^V$ is not preprojective.
-  For the second claim we apply the functor $\Hom(P_{m+1},-)$ to the sequence \eqref{eq:truncated preprojectives} and obtain an isomorphism $\Hom(P_{m+1},P_{m+1})\cong\Hom(P_{m+1},P_{m+1}^V)$ by which the identity map on $P_{m+1}$ is taken to the projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
-\end{proof}
-
-\begin{corollary}
-  For $V\in Gr(H_m)$, $m\ge1$, the truncated preprojective $P_{m+1}^V$ is indecomposable.
-\end{corollary}
-\begin{proof}
-  Applying the functor $\Hom(-,P_{m+1}^V)$ to the sequence \eqref{eq:truncated preprojectives} gives an injective map from $\Hom(P_{m+1}^V,P_{m+1}^V)$ to the one-dimensional space $\Hom(P_{m+1},P_{m+1}^V)$.
-  In particular, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable.
-\end{proof}
 
 The total Grassmannian $Gr(H_m)$ is naturally a poset under inclusion which we extend to a $\CC$-linear category $\CC Gr(H_m)$ with objects the elements of $Gr(H_m)$ and at most one morphism (up to scalars) between any two objects.
 Write $\cP_{m+1}$ for the full subcategory of $\rep K(n)$ with objects the truncated preprojectives $P_{m+1}^V$ for $V\in Gr(H_m)$.
