@@ -1,15 +1,22 @@
 \documentclass{amsart}
+
+% Commands for marginal notes
+\usepackage[draft]{say}
+\newcommand{\sayD}[1]{\say[D]{#1}}
+\newcommand{\sayT}[1]{\say[T]{#1}}
+
 \usepackage{amsmath,amssymb,latexsym,color}
 \usepackage[bookmarks=true,colorlinks=true, linkcolor=blue, citecolor=cyan]{hyperref}
 \usepackage{tikz}
 \usepackage{pgflibraryarrows}
 \usepackage{pgflibrarysnakes}
 \usetikzlibrary{fit}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=1in,marginparwidth=0.8in, marginparsep=0.1in]{geometry}
 \usepackage{extarrows}
 \usepackage{verbatim}
 \input xy
 \xyoption{all}
+
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{claim}[theorem]{Claim}
@@ -154,113 +161,9 @@ As $F_Q$ and $G_Q$ are covering functors when restricting to one connected compo
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Torus Actions on Quiver Grassmannians}
-\label{torusaction}
-
-
-
-\subsection{Bialynicki-Birula decomposition}
-The aim of Section \ref{torusaction} is to define a torus action on quiver Grassmannians which can be used to simplify the calculation of homological invariants in general. If the quiver Grassmannian is smooth, which is for instance the case for exceptional representations by \cite{cr}, it can also be used to stratify the quiver Grassmannians using the results of Bialynicki-Birula. More detailed, let $X$ be a smooth projective variety with a $\C^\ast$-action. For a connecting component of the fixed point set $C\subset X^{\C^\ast}$, we define its attracting set as
-\[\mathrm{Att}(C):=\{y\in X\mid \lim_{t\to 0}t.y\in C\}\]
-
-Then we have the following statement, \cite[Section 4]{bb}:
-\begin{theorem}Let $\coprod_{i=1}^r C_i= X^{\C^\ast}$ be the decomposition into connected components. Then $\mathrm{Att}(C_i)$ is a locally closed smooth $\C^\ast$-invariant subvariety of $X$ where $C_i$ is a subvariety of $\mathrm{Att}(C_i)$. Moreover, we have $X=\coprod_{i=1}^r\mathrm{Att}(C_i)$ and
-the natural map $\gamma_i:\mathrm{Att}(C_i)\to C_i$ is an affine vector bundle. 
-
-In particular, we have $\chi(X)=\chi(X^{\C^\ast})$ for the Euler characteristic.
-\end{theorem}
-
-
-
-\noindent 
-Fix a vector space $X$ of dimension $n$ and let $d\leq n$. We first consider a natural torus action on usual Grassmannians coming along with any direct sum decomposition of the vector space $X$. Then we generalize the concept to quiver Grassmannians, but we will see that the torus fixed point set can be calculated in an analogous manner. Thus assume that $X=\bigoplus_{j=1}^l X_j$ is a direct sum decomposition of $X$. We choose a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of $X$ which is compatible with this decomposition, i.e. there exist numbers $1\leq j_1\leq j_2\ldots\leq j_{l-1}\leq n$ such that
-\[v_1,\ldots,v_{j_1}\in X_1,\,v_{j_1+1},\ldots,v_{j_2}\in X_2,\ldots,v_{j_{l-1}+1},\ldots,v_{n}\in X_l\]
-Moreover, we choose a map $d:\{1,\ldots,n\}\to\mathbb{Z}$ such that $d(i)=d(i')$ if $v_i,v_{i'}\in X_{j}$ for some $j$. Then there exists a $\C^\ast$-action on $X$ when extending the definition $t.v_i:=t^{d(j)}v_i$ if $v_i\in X_j$ linearly to $X$. This naturally induces an action of $\C^\ast$ on the usual Grassmannians $\Gr_d(X)$. We can write every $U\in\Gr_d(X)$ uniquely in row-echelon form with respect to the basis $\mathcal B$, i.e. there exists a unique sequence $1\leq i_1\leq\ldots\leq i_d\leq n$ and a unique matrix representation of $U$ of the form
-\[M(U):=\begin{pmatrix}\ast&\ldots &\ast &1&0 &\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&0\\\ast&\ldots &\ast&0&\ast&\ldots &\ast&1&0&\ldots&\ldots&\ldots&\ldots&\ldots&0\\\vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&0&\ast&\ddots&\ddots&\ddots&\ddots&\ddots&\vdots\\\vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&\vdots&\ddots&\ddots&\ddots&\ddots&\ddots&\ddots&\vdots\\\ast&\ldots &\ast&0&\ast&\ldots &\ast&0&\ast&\ldots&\ast&1&0&\ldots&0\end{pmatrix}\in M_{d,n}(k)\]
-where the unit vectors are in the columns $i_1,\ldots,i_d$. All matrix representations of this form define a Schubert cell $X_{\bfi}$ where $\bfi=(i_1,\ldots,i_d)$. The $\C^\ast$-action is then given by multiplying the $w^{\mathrm{th}}$ column with $t^{d(w)}$, i.e. we have
-\[(t.M(U))_{u,w}=t^{d(w)}\cdot M(U)_{u,w}.\]
-Every Schubert cell is invariant under the torus action, i.e. $t.M(U)\in X_\bfi$ for all $M(U)\in X_{\bfi}$. 
-\begin{lemma}\label{usualGrass}
-Choose $d$ in such a way that $d(i)\neq d(i')$ if $v_i\in X_j$, $v_{i'}\in X_{j'}$ and $j\neq j'$.
-Then we have $U\in X_{\bfi}^{\C^\ast}$ if and only if $U=\bigoplus_{i=1}^l U\cap X_i$.
-\end{lemma}
-\begin{proof}If $U=\bigoplus_{i=1}^l U\cap X_i$, we have 
-\[t.U=\bigoplus_{i=1}^l t.(U\cap X_i)=\bigoplus_{i=1}^l t^{d(j_i+1)}(U\cap X_i)=U\]
-where $j_0=0$.
-
-Assume that $U$ is a torus fixed with $M(U)\in X_{\bfi}$. Fix the $w^{\mathrm{th}}$ column $M(U)_w$ and assume that $v_{i_w}\in X_s$. As the matrix representation $M(U)$ is uniquely determined, by the assumption on $d$, it follows that all matrix coefficients corresponding to a basis element $v_i$ such that $v_i\notin X_s$ are zero. This means that $\widehat{M(U)}_w\in X_s$ where $\widehat{M(U)}_w$ is the vector of $U$ corresponding to $M(U)_w$. As the colums are linear independent, this already shows the claim.
-\end{proof}
-The next step is to generalize this to quiver Grassmannians.
-
-Let $Q$ be an acyclic quiver. We choose a map $d:\hat Q_0\to\ZZ$ and fix a representation $X\in\Rep(Q)$ which can be lifted to $\hat Q$. We can consider the decomposition $X_q=\bigoplus_{(q,\chi)\in A_Q} X_{(q,\chi)}$. We define a torus action on each $X_{(q,\chi)}$ via $t.x_{(q,\chi)}=t^{d(q,\chi)}x_{(q,\chi)}$ which can be extended linearly to each $X_q$. For a fixed a subspace $U_q$, we can define the subspace $t.U_q$. In general, this torus action induces no torus action on the Quiver Grassmannians $\Gr_{\bfe}(X)$ as $t.U=(t.U_q)_{q\in Q_0}$ is no subrepresentation of $X$ for every $U\in \Gr_{\bfe}(X)$. Actually, such an action has to satisfy $X_{\alpha}(t.U_i)\in t.U_j$ for every $\alpha:i\to j$. 
-\begin{lemma}Fix an integer $c_\alpha\in\ZZ$ for every $\alpha\in Q_1$.
-If $X\in\Rep(Q)$ can be lifted, $d:\hat Q_0\to\ZZ$ induces a torus action on $\Gr_\bfe(X)$ if we have $d(j,\chi+e_\alpha)-d(i,\chi)=c_\alpha$ for all $\alpha:i\to j$ and $\chi\in A_{Q}$.
-\end{lemma}
-\begin{proof} Let $U\in \Gr_\bfe(X)$. Since $X$ can be lifted, we can write $X_\alpha:X_i\to X_j$ as block matrix consisting of linear maps $X_{(\alpha,\chi)}:X_{(i,\chi)}\to X_{(j,\chi+e_\alpha)}$. Let $u_{(i,\chi)}\in U_{(i,\chi)}$ and $\alpha:i\to j\in Q_1$. Then we have $X_\alpha(u_{(i,\chi)})\in U_{(j,\chi+e_\alpha)}$ because $X$ can be lifted to the universal cover. Then it follows
-\[X_\alpha(t.u_{(i,\chi)})=X_\alpha(t^{d(i,\chi)}u_{(i,\chi)})=t^{d(i,\chi)}X_\alpha(u_{(i,\chi)})=t^{d(i,\chi)}u_{(j,\chi+e_\alpha)}=t^{-c_\alpha}t.u_{(j,\chi+e_\alpha)}\]
-for some $u_{(j,\chi+e_\alpha)}\in U_{(j,\chi+e_\alpha)}$.
-Now we have \[\bigoplus_{\chi\in A_Q} t.U_{(j,\chi)}=\bigoplus_{\chi\in A_Q}t^{c(j,\chi)}t.U_{(j,\chi)}\]
-for every $t\in\C^\ast$ if $c(j,\chi)$ is constant along $(j,\chi)\in \{j\}\times A_Q$. This yields  
-\[t.U_j=\bigoplus_{\chi\in A_Q} t.U_{(j,\chi)}=\bigoplus_{\chi\in A_Q}t^{-c_\alpha}t.U_{(j,\chi)}\]
-for every $t\in \C^\ast$.
-\end{proof}
-
-
-\begin{lemma}\label{degreecondition} Let $X$ be an indecomposable representation of $\hat Q$. There exists $d:\mathrm{supp} (X)\to\ZZ$ and $c_\alpha\in\mathbb N_+$ for each $\alpha\in Q_1$ such that $d(i,\chi)\ne d(j,\chi')$ if $i\neq j$ or $\chi\neq \chi'$ and such that $d(j,\chi')-d(i,\chi)=c_\alpha$ if and only if $\chi'=\chi+e_\alpha$ and $(i,\chi),\,(j,\chi+e_\alpha)\in \mathrm{supp}(X)$. 
-\end{lemma}
-\begin{proof}
-Since $X$ is finite-dimensional, $\mathrm{supp}( X)$ is a connected finite tree. In order to prove the statement, we may assume that $d(q,0)=0$ and that $(q,0)\in \mathrm{supp}(X)$. We now fix numbers $c_\alpha$ and show that the two conditions are satisfied. To do so, let $K$ be the maximal length of a path in $\mathrm{supp}(X)$ and assume that $|Q_1|=n$. Set $c_{\alpha_1}=1$ and inductively 
-\[c_{\alpha_n}> (K+1)\sum_{i=1}^{n-1}c_{\alpha_i}.\]
-Note that if $A_Q$ is the free abelian group in the generators $\alpha_1,\ldots,\alpha_n$ and $f:A_Q\to \ZZ$ the group homomorphism defined by $f(\alpha)=c_\alpha$ for all $\alpha\in Q_1$,  we have $d(q,\chi)=f(\chi)$. In particular, there exist $d_i$ with $|d_i|\leq K$ such that we have
-\[d(q,\chi)=\sum_{i=1}^nd_ic_{\alpha_i}.\]
-
-First note that we obviously have $d(j,\chi+\alpha)-d(i,\chi)=c_\alpha$. Now assume that $d(i,\chi)=d(j,\chi')$ which means that $d(i,\chi)=\sum_{i=1}^{n}d_ic_{\alpha_i}=\sum_{i=1}^{n}e_ic_{\alpha_i}=d(j,\chi')$
-which implies
-\[\sum_{i=1}^{n-1}(d_i-e_i)c_{\alpha_i}=(e_{n}-d_{n})c_{\alpha_{n}}.\]
-Since we have $|d_i-e_i|\leq K$, we obtain $$|\sum_{i=1}^{n-1}(d_i-e_i)c_{\alpha_i}|\leq K\sum_{i=1}^{n-1}c_{\alpha_i}<c_{\alpha_n}$$
-This inductively yields $d_i=e_i$ for $i=n,\ldots,1$ by the choice of $c_{\alpha_{i}}$. An analogous proof applies to show that $d(j,\chi')-d(i,\chi)\neq c_\alpha$ if $\chi'\neq \chi+e_\alpha$ using that, actually, $c_{\alpha_n}> (K+1)\sum_{i=1}^{n-1}c_{\alpha_i}$. 
-
-\end{proof}
-In the following, we say that $d:\mathrm{supp}(X)\to\ZZ$ satisfies the degree condition for $X$ if it has the properties of Lemma \ref{degreecondition}.
-
-
-
-\begin{theorem}Let $X$ be a representation which can be lifted to $\hat Q$ and choose $d:\mathrm{supp}(X)\to \ZZ$ such that it satisfies the degree condition for $X$. Then the torus action of $T$ on $\bigoplus_{q\in Q_0}X_q$ induced by $t.x_{(q,\chi)}=t^{d(q,\chi)}x_{(q,\chi)}$ for $x_{(q,\chi)}\in X_{(q,\chi)}$ induces
- a torus action on $Gr_\bfe^Q(X)$ such that
-  $$Gr^Q_\bfe(X)^T\cong\bigsqcup_{\hat\bfe} Gr^{\hat Q}_{\hat\bfe}(\hat X)$$ where $\hat\bfe$ runs through all dimension vectors compatible with $\bfe$.
-\end{theorem}
-\begin{proof}
-A representation $U\in\Gr_{\bfe}(X)$ is a torus fixed point if and only if $t.U=U $ for all $t\in\C^\ast$, i.e. $t.U_q=U_q$ for all $q\in Q_0$, $t\in\C^\ast$. Thus, apart from being a subrepresentation of $X$, it is a fixed point of the torus actions on the usual Grassmannians $\Gr_{\bfe_q}(X_q)$ induced by the decompositions $X_q=\bigoplus_{\chi\in A_Q} X_{q,\chi}$. A subrepresentation $U\subset X$ can be lifted to the universal abelian covering if and only if
-\[X_q\cap U_q=\bigoplus_{\chi\in A_Q} X_{(q,\chi)}\cap U_{(q,\chi)}=\bigoplus_{\chi\in A_Q}U_{(q,\chi)}.\]
-Thus we can apply Lemma \ref{usualGrass} to obtain the claim.
-\end{proof}
-The next step is to iterate the torus action keeping in mind the following idea: every representation, which lifts to the universal covering quiver, also lifts to the universal abelian covering quiver and also to the iterated universal abelian covering quivers, i.e. to $\hat Q^{(k)}:=\widehat{\hat Q^{(k-1)}}$ with $\hat Q=\hat Q^{(1)}$. Now it is straightforward to check that there exist natural surjective morphisms $f_k:\tilde Q\to \hat Q^{(k)}$ which become injective on finite subquivers if $k\gg 0$, see also \cite[Section 3.4]{wei}. Since the support of $X$ is finite as a representation of $\tilde Q$, we can find $k\geq 1$ such that the full subquiver with vertices $\mathrm{supp}(X)\subseteq \hat Q^{(k)}_0$ is a tree. Thus, if $\hat X^{(k)}$ is the lift of $X$ to $\hat Q^{(k)}$, there exists a torus action on the vector spaces $\hat X^{(k)}_q$ which induce a torus action on the quiver Grassmannian $Gr_{\bfe}^{\hat Q^{(k)}}(\hat X^{(k)})$. If we denote the iterated torus fixed points by $Gr^Q_\bfe(X)^{T^{(k)}}$. We obtain:
-\begin{corollary}
-Let $X$ be a representation which can be lifted to $\tilde Q$. Then there exists an iterated torus action such that
-  $$Gr^Q_\bfe(X)^{T^{(k)}}\cong \bigsqcup_{\hat\bfe^{(k-1)}} Gr_{\hat\bfe^{(k-1)}}^{\hat Q^{(k-1)}}(\hat X^{(k-1)})^T\cong \bigsqcup_{\hat\bfe^{(k)}} Gr^{\hat Q}_{\hat\bfe^{(k)}}(\hat X^{(k)})\cong \bigsqcup_{\tilde\bfe} Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$$ where $\hat\bfe^{(k-1)},\,\hat\bfe^{(k)},\,\tilde\bfe$ run through all dimension vectors compatible with $\bfe$.
-\end{corollary}
-%\begin{corollary}
-%  affine bundles over $Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$ if $Gr^Q_\bfe(X)$ is smooth
-%  \[\{U\in Gr^Q_\bfe(X):\lim_{t\to0} t\cdot U\in Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)\}\]
-%\end{corollary}
-Define the $F$-polynomial of a representation $X$ by 
-$$F_X=\sum_{\bfe\in\NN^{Q_0}}\chi(\Gr_\bfe(X))x^e\in\ZZ[x_q\mid q\in Q_0].$$
-
-\begin{corollary}\label{fpoly}
-Let $X$ be a representation which can be lifted to the universal covering quiver.
-\begin{enumerate}
-\item 
-If  $\Gr_\bfe(X)$ is smooth and $\Gr^{\tilde Q}_{\tilde \tbfe}(\tilde X)$ has a cell decomposition into affine spaces, then $\Gr_\bfe(X)$ has a cell decomposition into affine spaces.
-\item We have $F_X=SF_{\tilde X}$ where $SF_{\tilde X}$ is obtained from $F_{\tilde X}$ by applying $S:\ZZ[x_{(q,w)}\mid q\in Q_0,w\in W_Q]\to\ZZ[x_q\mid q\in Q_0]$ given by $S(x_{(q,w)})=x_q$ for all $q\in Q_0$ and $w\in W_Q$.
-\end{enumerate} 
-\end{corollary}
-An important special case for this is the case of exceptional representations. In this case the quiver Grassmannians $\Gr_\tbfe(X)$ are smooth by \cite[Corollary 4]{cr}. Moreover, every exceptional representation is a tree module by \cite{rin1} which means that it can be lifted to the universal covering.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Representation Theory of $K(n)$}
 
-\noindent Denote by $K(n)$ the \emph{$n$-Kronecker quiver} $1\stackrel{n}{\longleftarrow}2$ with vertices $K_0(n)=\{1,2\}$ and $n$ arrows from vertex $2$ to vertex $1$. 
+Fix $n\ge3$. Denote by $K(n)$ the \emph{$n$-Kronecker quiver} $1\stackrel{n}{\longleftarrow}2$ with vertices $K_0(n)=\{1,2\}$ and $n$ arrows from vertex $2$ to vertex $1$. 
 The category $\rep K(n)$ of finite-dimensional representations of $K(n)$ is equivalent to the category of modules over the path algebra $A(n)$ of $K(n)$.
 As a $\CC$-vector space, the path algebra $A(n)$ can be written as $A_0\oplus A_1$, where 
 \begin{itemize}
@@ -308,8 +211,11 @@ For $1\le d\le n-1$, let $Gr_d(H_m)\subset Gr(H_m)$ be the subvariety of $d$-dim
   A nonzero element $f\in V$ corresponds to an irreducible morphism $f:P_m\to P_{m+1}$ and thus does not factor through any representation $Z\ne P_m$, in particular $f$ is injective.
   But any nonzero element of $\ker ev_V$ gives rise to a nonzero $f\in V$ which is not injective and thus $ev_V$ must be an injective map.
 \end{proof}
-
 In what follows we will not distinguish between $P_m\otimes V$ and its image under $ev_V$.
+
+
+\subsection{Truncated Preprojectives}
+\label{sec:truncated preprojectives}
 Following Lemma~\ref{le:injective evaluation maps} we define the following.
 \begin{definition}
   For $V\in Gr(H_m)$, define the \emph{truncated preprojective} $P_{m+1}^V$ to be the cokernel of the map $ev_V:P_m\otimes V\to P_{m+1}$, i.e.\ we have a short exact sequence
@@ -342,7 +248,6 @@ Following Lemma~\ref{le:injective evaluation maps} we define the following.
 
 
 
-\subsection{Understanding Truncated Preprojectives}
 
 For each $m\ge2$, there is an Auslander-Reiten sequence \cite{auslander-reiten-smalo}
 \begin{equation}
@@ -603,7 +508,7 @@ Each such sequence has the following almost-split property for proper subreprese
 \end{proof}
 
 
-\subsection{Results on the universal cover $\widetilde{K(n)}$}
+\subsection{Lifting to $\widetilde{K(n)}$}
 
 We fix a natural number $n\geq 3$. We fix the following lifts $\tilde P_m$  of $P_m$ to the universal cover $\widetilde{K(n)}$. For $m=1$ we assume that $\dim (\tilde P_1)_{1,1}=1$ and $\dim (\tilde P_1)_{i,w}=0$ if $(i,w)\neq (1,1)$. Moreover, we assume that $\dim (\tilde P_2)_{2,1}=\dim (\tilde P_2)_{1,w}=1$ for $w=a_1,\ldots,a_n$ and $\dim (\tilde P_2)_{i,w}=0$ if $(i,w)\notin\{(2,1),(1,a_1),\ldots,(1,a_n)\}$. Recall that applying the reflection functor $\Sigma_i$ on $K(n)$ corresponds to applying $\tilde\Sigma_i:=\prod_{w\in W_Q}\Sigma_{(i,w)}$ on $\widetilde{K(n)}$. Moreover, sinks become sources and vice versa. For $m\geq 2$, we can build lifts $\tilde P_m$ recursively by applying reflection functors or as Auslander-Reiten translation, i.e. we have
 \begin{align}
@@ -669,13 +574,19 @@ As the lifts of all (truncated) preprojectives are exceptional as representation
 
 The representation $\tilde P_2$ is defined by the following quiver:
 
-\begin{align*}\xymatrix@R10pt@C20pt{&&(1,a_1)\\(2,1)\ar^{a_1}[rru]\ar^{a_{n}}[rrd] &&\vdots\\&&(1,a_n)}\end{align*}
+\begin{align*}
+  \xymatrix@R10pt@C20pt{&&(1,a_1)\\(2,1)\ar^{a_1}[rru]\ar^{a_{n}}[rrd] &&\vdots\\&&(1,a_n)}
+\end{align*}
 The support of $\tilde P_2^{(i)}$, which we denote by $\mathcal A_i$ during this proof, can be obtained from this quiver by erasing the arrow $a_i$ and the corresponding sink. In turn, the quiver of $\tilde P_2^{(j_1,\ldots,j_l)}$ is obtained by erasing the arrows $a_{j_1},\ldots, a_{j_l}$.
 
 The representation $\tilde P_3$ is given by the quiver
-	\begin{align*}\xymatrix@R10pt@C20pt{&&\mathcal A_1\ar_{a_{1}}[lld]\\ n-1 &&\vdots\\&&\mathcal A_n\ar_{a_{n}}[llu]}\end{align*}
+	\begin{align*}
+          \xymatrix@R10pt@C20pt{&&\mathcal A_1\ar_{a_{1}}[lld]\\ n-1 &&\vdots\\&&\mathcal A_n\ar_{a_{n}}[llu]}
+        \end{align*}
 	where the vertex of dimension $n-1$ is the middle vertex $(2,1)$.  Moreover, for $\uj\in I_l$, the representation $\tilde P_3^{\uj}$ is obtained when erasing the subquivers $\mathcal A_{j_1},\ldots,\mathcal A_{j_l}$ and decreasing the dimension of $(2,1)$ by one.  The Auslander-Reiten translate $\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ is given by
-	\begin{align*}\xymatrix@R10pt@C20pt{&&(2,a_{j_1}^{-1})\ar_{a_{j_1}}[lld]\\(1,1) &&\vdots\\&&(2,a_{j_l}^{-1})\ar_{a_{j_l}}[llu]}\end{align*}
+	\begin{align*}
+          \xymatrix@R10pt@C20pt{&&(2,a_{j_1}^{-1})\ar_{a_{j_1}}[lld]\\(1,1) &&\vdots\\&&(2,a_{j_l}^{-1})\ar_{a_{j_l}}[llu]}
+        \end{align*}
 In particular, the image of the unique homomorphism $\tilde P_{2,j_i}=a^{-1}_{j_i}.\tilde P_2\to\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ has image $(2,a_{j_i}^{-1})\xrightarrow{a_{j_i}}(1,1)$ for $i=1,\ldots,l$.
  
 
@@ -869,7 +780,114 @@ for $k=2,\ldots,r-1$. The analogous statements hold for $\pi_m^{\underline{j_1}}
 \section{Quiver Grassmannians}
 \label{QG}
 
-\subsection{Action on arrows}
+\subsection{Bialynicki-Birula decomposition}
+The aim of Section \ref{torusaction} is to define a torus action on quiver Grassmannians which can be used to simplify the calculation of homological invariants in general.
+If the quiver Grassmannian is smooth, which is for instance the case for exceptional representations by \cite{cr}, it can also be used to stratify the quiver Grassmannians using the results of Bialynicki-Birula.
+More specifically, let $X$ be a smooth projective variety with a $\C^\ast$-action.
+For a connected component of the fixed point set $C\subset X^{\C^\ast}$, we define its attracting set as
+\[
+  \mathrm{Att}(C):=\{y\in X\mid \lim_{t\to 0}t.y\in C\}
+\]
+
+The following result of Bialynicki-Birula relates the geometry of $X$ to the geometry of its torus fixed points.
+\begin{theorem}
+  \cite[Section 4]{bb}
+  Let $\coprod_{i=1}^r C_i= X^{\C^\ast}$ be the decomposition into connected components.
+  Then $\mathrm{Att}(C_i)$ is a locally closed smooth $\C^\ast$-invariant subvariety of $X$, where $C_i$ is a subvariety of $\mathrm{Att}(C_i)$.
+  Moreover, we have $X=\coprod_{i=1}^r\mathrm{Att}(C_i)$ and the natural map $\gamma_i:\mathrm{Att}(C_i)\to C_i$ is an affine vector bundle. 
+
+  In particular, we have an equality of Euler characteristics $\chi(X)=\chi(X^{\C^\ast})$.
+\end{theorem}
+
+\subsection{Torus Actions}
+\label{torusaction}
+
+Fix a vector space $X$ of dimension $n$ and let $d\leq n$. We first consider a natural torus action on usual Grassmannians coming along with any direct sum decomposition of the vector space $X$. Then we generalize the concept to quiver Grassmannians, but we will see that the torus fixed point set can be calculated in an analogous manner. Thus assume that $X=\bigoplus_{j=1}^l X_j$ is a direct sum decomposition of $X$. We choose a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of $X$ which is compatible with this decomposition, i.e. there exist numbers $1\leq j_1\leq j_2\ldots\leq j_{l-1}\leq n$ such that
+\[v_1,\ldots,v_{j_1}\in X_1,\,v_{j_1+1},\ldots,v_{j_2}\in X_2,\ldots,v_{j_{l-1}+1},\ldots,v_{n}\in X_l\]
+Moreover, we choose a map $d:\{1,\ldots,n\}\to\mathbb{Z}$ such that $d(i)=d(i')$ if $v_i,v_{i'}\in X_{j}$ for some $j$. Then there exists a $\C^\ast$-action on $X$ when extending the definition $t.v_i:=t^{d(j)}v_i$ if $v_i\in X_j$ linearly to $X$. This naturally induces an action of $\C^\ast$ on the usual Grassmannians $\Gr_d(X)$. We can write every $U\in\Gr_d(X)$ uniquely in row-echelon form with respect to the basis $\mathcal B$, i.e. there exists a unique sequence $1\leq i_1\leq\ldots\leq i_d\leq n$ and a unique matrix representation of $U$ of the form
+\[M(U):=\begin{pmatrix}\ast&\ldots &\ast &1&0 &\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&0\\\ast&\ldots &\ast&0&\ast&\ldots &\ast&1&0&\ldots&\ldots&\ldots&\ldots&\ldots&0\\\vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&0&\ast&\ddots&\ddots&\ddots&\ddots&\ddots&\vdots\\\vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&\vdots&\ddots&\ddots&\ddots&\ddots&\ddots&\ddots&\vdots\\\ast&\ldots &\ast&0&\ast&\ldots &\ast&0&\ast&\ldots&\ast&1&0&\ldots&0\end{pmatrix}\in M_{d,n}(k)\]
+where the unit vectors are in the columns $i_1,\ldots,i_d$. All matrix representations of this form define a Schubert cell $X_{\bfi}$ where $\bfi=(i_1,\ldots,i_d)$. The $\C^\ast$-action is then given by multiplying the $w^{\mathrm{th}}$ column with $t^{d(w)}$, i.e. we have
+\[(t.M(U))_{u,w}=t^{d(w)}\cdot M(U)_{u,w}.\]
+Every Schubert cell is invariant under the torus action, i.e. $t.M(U)\in X_\bfi$ for all $M(U)\in X_{\bfi}$. 
+\begin{lemma}\label{usualGrass}
+Choose $d$ in such a way that $d(i)\neq d(i')$ if $v_i\in X_j$, $v_{i'}\in X_{j'}$ and $j\neq j'$.
+Then we have $U\in X_{\bfi}^{\C^\ast}$ if and only if $U=\bigoplus_{i=1}^l U\cap X_i$.
+\end{lemma}
+\begin{proof}If $U=\bigoplus_{i=1}^l U\cap X_i$, we have 
+\[t.U=\bigoplus_{i=1}^l t.(U\cap X_i)=\bigoplus_{i=1}^l t^{d(j_i+1)}(U\cap X_i)=U\]
+where $j_0=0$.
+
+Assume that $U$ is a torus fixed with $M(U)\in X_{\bfi}$. Fix the $w^{\mathrm{th}}$ column $M(U)_w$ and assume that $v_{i_w}\in X_s$. As the matrix representation $M(U)$ is uniquely determined, by the assumption on $d$, it follows that all matrix coefficients corresponding to a basis element $v_i$ such that $v_i\notin X_s$ are zero. This means that $\widehat{M(U)}_w\in X_s$ where $\widehat{M(U)}_w$ is the vector of $U$ corresponding to $M(U)_w$. As the colums are linear independent, this already shows the claim.
+\end{proof}
+The next step is to generalize this to quiver Grassmannians.
+
+Let $Q$ be an acyclic quiver. We choose a map $d:\hat Q_0\to\ZZ$ and fix a representation $X\in\Rep(Q)$ which can be lifted to $\hat Q$. We can consider the decomposition $X_q=\bigoplus_{(q,\chi)\in A_Q} X_{(q,\chi)}$. We define a torus action on each $X_{(q,\chi)}$ via $t.x_{(q,\chi)}=t^{d(q,\chi)}x_{(q,\chi)}$ which can be extended linearly to each $X_q$. For a fixed a subspace $U_q$, we can define the subspace $t.U_q$. In general, this torus action induces no torus action on the Quiver Grassmannians $\Gr_{\bfe}(X)$ as $t.U=(t.U_q)_{q\in Q_0}$ is no subrepresentation of $X$ for every $U\in \Gr_{\bfe}(X)$. Actually, such an action has to satisfy $X_{\alpha}(t.U_i)\in t.U_j$ for every $\alpha:i\to j$. 
+\begin{lemma}Fix an integer $c_\alpha\in\ZZ$ for every $\alpha\in Q_1$.
+If $X\in\Rep(Q)$ can be lifted, $d:\hat Q_0\to\ZZ$ induces a torus action on $\Gr_\bfe(X)$ if we have $d(j,\chi+e_\alpha)-d(i,\chi)=c_\alpha$ for all $\alpha:i\to j$ and $\chi\in A_{Q}$.
+\end{lemma}
+\begin{proof} Let $U\in \Gr_\bfe(X)$. Since $X$ can be lifted, we can write $X_\alpha:X_i\to X_j$ as block matrix consisting of linear maps $X_{(\alpha,\chi)}:X_{(i,\chi)}\to X_{(j,\chi+e_\alpha)}$. Let $u_{(i,\chi)}\in U_{(i,\chi)}$ and $\alpha:i\to j\in Q_1$. Then we have $X_\alpha(u_{(i,\chi)})\in U_{(j,\chi+e_\alpha)}$ because $X$ can be lifted to the universal cover. Then it follows
+\[X_\alpha(t.u_{(i,\chi)})=X_\alpha(t^{d(i,\chi)}u_{(i,\chi)})=t^{d(i,\chi)}X_\alpha(u_{(i,\chi)})=t^{d(i,\chi)}u_{(j,\chi+e_\alpha)}=t^{-c_\alpha}t.u_{(j,\chi+e_\alpha)}\]
+for some $u_{(j,\chi+e_\alpha)}\in U_{(j,\chi+e_\alpha)}$.
+Now we have \[\bigoplus_{\chi\in A_Q} t.U_{(j,\chi)}=\bigoplus_{\chi\in A_Q}t^{c(j,\chi)}t.U_{(j,\chi)}\]
+for every $t\in\C^\ast$ if $c(j,\chi)$ is constant along $(j,\chi)\in \{j\}\times A_Q$. This yields  
+\[t.U_j=\bigoplus_{\chi\in A_Q} t.U_{(j,\chi)}=\bigoplus_{\chi\in A_Q}t^{-c_\alpha}t.U_{(j,\chi)}\]
+for every $t\in \C^\ast$.
+\end{proof}
+
+
+\begin{lemma}\label{degreecondition} Let $X$ be an indecomposable representation of $\hat Q$. There exists $d:\mathrm{supp} (X)\to\ZZ$ and $c_\alpha\in\mathbb N_+$ for each $\alpha\in Q_1$ such that $d(i,\chi)\ne d(j,\chi')$ if $i\neq j$ or $\chi\neq \chi'$ and such that $d(j,\chi')-d(i,\chi)=c_\alpha$ if and only if $\chi'=\chi+e_\alpha$ and $(i,\chi),\,(j,\chi+e_\alpha)\in \mathrm{supp}(X)$. 
+\end{lemma}
+\begin{proof}
+Since $X$ is finite-dimensional, $\mathrm{supp}( X)$ is a connected finite tree. In order to prove the statement, we may assume that $d(q,0)=0$ and that $(q,0)\in \mathrm{supp}(X)$. We now fix numbers $c_\alpha$ and show that the two conditions are satisfied. To do so, let $K$ be the maximal length of a path in $\mathrm{supp}(X)$ and assume that $|Q_1|=n$. Set $c_{\alpha_1}=1$ and inductively 
+\[c_{\alpha_n}> (K+1)\sum_{i=1}^{n-1}c_{\alpha_i}.\]
+Note that if $A_Q$ is the free abelian group in the generators $\alpha_1,\ldots,\alpha_n$ and $f:A_Q\to \ZZ$ the group homomorphism defined by $f(\alpha)=c_\alpha$ for all $\alpha\in Q_1$,  we have $d(q,\chi)=f(\chi)$. In particular, there exist $d_i$ with $|d_i|\leq K$ such that we have
+\[d(q,\chi)=\sum_{i=1}^nd_ic_{\alpha_i}.\]
+
+First note that we obviously have $d(j,\chi+\alpha)-d(i,\chi)=c_\alpha$. Now assume that $d(i,\chi)=d(j,\chi')$ which means that $d(i,\chi)=\sum_{i=1}^{n}d_ic_{\alpha_i}=\sum_{i=1}^{n}e_ic_{\alpha_i}=d(j,\chi')$
+which implies
+\[\sum_{i=1}^{n-1}(d_i-e_i)c_{\alpha_i}=(e_{n}-d_{n})c_{\alpha_{n}}.\]
+Since we have $|d_i-e_i|\leq K$, we obtain $$|\sum_{i=1}^{n-1}(d_i-e_i)c_{\alpha_i}|\leq K\sum_{i=1}^{n-1}c_{\alpha_i}<c_{\alpha_n}$$
+This inductively yields $d_i=e_i$ for $i=n,\ldots,1$ by the choice of $c_{\alpha_{i}}$. An analogous proof applies to show that $d(j,\chi')-d(i,\chi)\neq c_\alpha$ if $\chi'\neq \chi+e_\alpha$ using that, actually, $c_{\alpha_n}> (K+1)\sum_{i=1}^{n-1}c_{\alpha_i}$. 
+
+\end{proof}
+In the following, we say that $d:\mathrm{supp}(X)\to\ZZ$ satisfies the degree condition for $X$ if it has the properties of Lemma \ref{degreecondition}.
+
+
+
+\begin{theorem}Let $X$ be a representation which can be lifted to $\hat Q$ and choose $d:\mathrm{supp}(X)\to \ZZ$ such that it satisfies the degree condition for $X$. Then the torus action of $T$ on $\bigoplus_{q\in Q_0}X_q$ induced by $t.x_{(q,\chi)}=t^{d(q,\chi)}x_{(q,\chi)}$ for $x_{(q,\chi)}\in X_{(q,\chi)}$ induces
+ a torus action on $Gr_\bfe^Q(X)$ such that
+  $$Gr^Q_\bfe(X)^T\cong\bigsqcup_{\hat\bfe} Gr^{\hat Q}_{\hat\bfe}(\hat X)$$ where $\hat\bfe$ runs through all dimension vectors compatible with $\bfe$.
+\end{theorem}
+\begin{proof}
+A representation $U\in\Gr_{\bfe}(X)$ is a torus fixed point if and only if $t.U=U $ for all $t\in\C^\ast$, i.e. $t.U_q=U_q$ for all $q\in Q_0$, $t\in\C^\ast$. Thus, apart from being a subrepresentation of $X$, it is a fixed point of the torus actions on the usual Grassmannians $\Gr_{\bfe_q}(X_q)$ induced by the decompositions $X_q=\bigoplus_{\chi\in A_Q} X_{q,\chi}$. A subrepresentation $U\subset X$ can be lifted to the universal abelian covering if and only if
+\[X_q\cap U_q=\bigoplus_{\chi\in A_Q} X_{(q,\chi)}\cap U_{(q,\chi)}=\bigoplus_{\chi\in A_Q}U_{(q,\chi)}.\]
+Thus we can apply Lemma \ref{usualGrass} to obtain the claim.
+\end{proof}
+The next step is to iterate the torus action keeping in mind the following idea: every representation, which lifts to the universal covering quiver, also lifts to the universal abelian covering quiver and also to the iterated universal abelian covering quivers, i.e. to $\hat Q^{(k)}:=\widehat{\hat Q^{(k-1)}}$ with $\hat Q=\hat Q^{(1)}$. Now it is straightforward to check that there exist natural surjective morphisms $f_k:\tilde Q\to \hat Q^{(k)}$ which become injective on finite subquivers if $k\gg 0$, see also \cite[Section 3.4]{wei}. Since the support of $X$ is finite as a representation of $\tilde Q$, we can find $k\geq 1$ such that the full subquiver with vertices $\mathrm{supp}(X)\subseteq \hat Q^{(k)}_0$ is a tree. Thus, if $\hat X^{(k)}$ is the lift of $X$ to $\hat Q^{(k)}$, there exists a torus action on the vector spaces $\hat X^{(k)}_q$ which induce a torus action on the quiver Grassmannian $Gr_{\bfe}^{\hat Q^{(k)}}(\hat X^{(k)})$. If we denote the iterated torus fixed points by $Gr^Q_\bfe(X)^{T^{(k)}}$. We obtain:
+\begin{corollary}
+Let $X$ be a representation which can be lifted to $\tilde Q$. Then there exists an iterated torus action such that
+  $$Gr^Q_\bfe(X)^{T^{(k)}}\cong \bigsqcup_{\hat\bfe^{(k-1)}} Gr_{\hat\bfe^{(k-1)}}^{\hat Q^{(k-1)}}(\hat X^{(k-1)})^T\cong \bigsqcup_{\hat\bfe^{(k)}} Gr^{\hat Q}_{\hat\bfe^{(k)}}(\hat X^{(k)})\cong \bigsqcup_{\tilde\bfe} Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$$ where $\hat\bfe^{(k-1)},\,\hat\bfe^{(k)},\,\tilde\bfe$ run through all dimension vectors compatible with $\bfe$.
+\end{corollary}
+%\begin{corollary}
+%  affine bundles over $Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$ if $Gr^Q_\bfe(X)$ is smooth
+%  \[\{U\in Gr^Q_\bfe(X):\lim_{t\to0} t\cdot U\in Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)\}\]
+%\end{corollary}
+Define the $F$-polynomial of a representation $X$ by 
+$$F_X=\sum_{\bfe\in\NN^{Q_0}}\chi(\Gr_\bfe(X))x^e\in\ZZ[x_q\mid q\in Q_0].$$
+
+\begin{corollary}\label{fpoly}
+Let $X$ be a representation which can be lifted to the universal covering quiver.
+\begin{enumerate}
+\item 
+If  $\Gr_\bfe(X)$ is smooth and $\Gr^{\tilde Q}_{\tilde \tbfe}(\tilde X)$ has a cell decomposition into affine spaces, then $\Gr_\bfe(X)$ has a cell decomposition into affine spaces.
+\item We have $F_X=SF_{\tilde X}$ where $SF_{\tilde X}$ is obtained from $F_{\tilde X}$ by applying $S:\ZZ[x_{(q,w)}\mid q\in Q_0,w\in W_Q]\to\ZZ[x_q\mid q\in Q_0]$ given by $S(x_{(q,w)})=x_q$ for all $q\in Q_0$ and $w\in W_Q$.
+\end{enumerate} 
+\end{corollary}
+An important special case for this is the case of exceptional representations. In this case the quiver Grassmannians $\Gr_\tbfe(X)$ are smooth by \cite[Corollary 4]{cr}. Moreover, every exceptional representation is a tree module by \cite{rin1} which means that it can be lifted to the universal covering.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{$GL_n$ Action on Arrows of $K(n)$}
 Observe that $GL_n(\CC)$ naturally acts on $A_1$ and hence $GL_n(\CC)$ acts on $\rep K(n)$ via the induced action on $A(n)$.
 More precisely, given a representation $M=(M_1,M_2,M_{a_i})$ of $K(n)$ and $g=(g_{ij})\in GL_n(\CC)$, the representation $g.M$ is given by $(M_1,M_2,M'_{a_i})$ with $M'_{a_i}=\sum\limits_{j=1}^n g_{ij}M_{a_j}$.
 Note that $M$ and $g.M$ are not necessarily isomorphic as representations of $K(n)$.
@@ -948,12 +966,18 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
 %\end{proof}
 
 %Any subrepresentation $E\subset P_{m+1}^V$ corresponds by taking pullbacks to a chain of inclusions $P_m\otimes V\subset\tilde E\subset P_{m+1}$.
-\begin{proposition}\label{indecomposables}Let $m\geq 1$. Let $\alpha(m,r)=\dim P_{m+1}-r\dim P_m$ with $0\leq r\leq n-1$. Let $R_\alpha(K(n))$ be the affine space of representations of dimension $\alpha(m,r)$. The following holds:
-\begin{enumerate}
-\item The isomorphism classes of indecomposable representations of dimension $\alpha(m,r)$ are in one-to-one correspondence to points of $\Gr_{n-r}(\CC^n)$.
-\item The set indecomposable representations of dimension $\alpha(m,r)$ ist given by a non-empty open subset of $R_\alpha(K(n))$. 
-\item The action of $\Gl_n(\CC)$ is transitive on $\mathrm{Ind}(K(n),\alpha(m,r))$.
-\end{enumerate}
+\begin{proposition}
+  \label{indecomposables}
+  Let $m\geq 1$.
+  Let $\alpha(m,r)=\dim P_{m+1}-r\dim P_m$ with $0\leq r\leq n-1$.
+  Let $R_\alpha(K(n))$ be the affine space of representations of dimension $\alpha(m,r)$.
+  The following hold:
+  \sayD{Move the first two of these into section~\ref{sec:truncated preprojectives}?}
+  \begin{enumerate}
+    \item The isomorphism classes of indecomposable representations of dimension $\alpha(m,r)$ are in one-to-one correspondence to points of $\Gr_{n-r}(\CC^n)$.
+    \item The set indecomposable representations of dimension $\alpha(m,r)$ is given by a non-empty open subset of $R_\alpha(K(n))$. 
+    \item The action of $\Gl_n(\CC)$ is transitive on $\mathrm{Ind}(K(n),\alpha(m,r))$.
+  \end{enumerate}
 \end{proposition}
 \begin{proof}
 
@@ -1201,8 +1225,14 @@ $$F_{\udim P_m^{(k)}}=F_{\udim P_m^{(k+1)}}F_{\udim P_{m-1}}-x^{\udim P_{m}^{(k)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Combinatorial description of non-empty cells}
-In this section we provide a direct quiver theoretic description of the non-empty cells in the quiver Grassmannians of (truncated) preprojective representations of $K(n)$.
-The key concept is the following notion of $2$-quiver which is closely related to certain coefficient quivers of the corresponding representations, though it will turn out that a feature of this construction is that it is blind to the coloring of the different arrows of $\widetilde K(n)$ covering the arrows of $K(n)$.
+In this section, we provide two combinatorial descriptions of the non-empty cells in the quiver Grassmannians of (truncated) preprojective representations of $K(n)$.
+The first is quiver theoretic and follows directly from the recursive construction of the cell decomposition.
+The second is the notion of compatible pairs in a maximal Dyck path.
+We give a bijection between these which provides a partial answer to a question of the first author.
+
+\subsection{$2$-Quivers}
+
+The key concept for describing the cell decompositions is the following notion of $2$-quiver which is closely related to certain coefficient quivers of the corresponding representations, though it will turn out that a feature of this construction is that it is blind to the coloring of the different arrows of $\widetilde K(n)$ covering the arrows of $K(n)$.
 \begin{definition}
   Let $Q=(Q_0,Q_1)$ be a quiver.
   A subset $\beta\subset Q_0$ is \emph{successor closed} if for each $p\in\beta$, the existence of an arrow $v:p\to q$ in $Q_1$ implies $q\in\beta$.
@@ -1244,7 +1274,9 @@ Denoting by $j_1$ the single vertex of the coefficient quiver of $P_1$, we have
 This defines recursively the representation $P_{2}^{(k)}$ for $k=n-1,\ldots,0$ with $P_2^{(0)}=P_2$ when considering the short exact sequences
 \[\ses{P_1}{P_2^{(k)}}{P_2^{(k+1)}}\]
 by the coefficient quivers
-\begin{align}\label{coeff}\xymatrix@R10pt@C20pt{&&j^{(k)}_{2,1}\\ i^{(k)}_2\ar^{v_1}[rru]\ar^{v_{n-k}}[rrd] &&\vdots\\&&j^{(k)}_{2,n-k}}.\end{align}
+\begin{align}
+  \label{coeff}\xymatrix@R10pt@C20pt{&&j^{(k)}_{2,1}\\ i^{(k)}_2\ar^{v_1}[rru]\ar^{v_{n-k}}[rrd] &&\vdots\\&&j^{(k)}_{2,n-k}}.
+\end{align}
 Note that we have a short exact sequence
 \[\ses{\Hom(P_1,P_1)}{\Ext(P_2^{(k)},P_1)}{\Ext(P_2^{(k+1)},P_1)}\]
 where a basis of $\Ext(P_2^{(k)},P_1)$ consists of the last $k$ basis elements of the basis of $\Ext(P_2^{(n-1)},P_1)$.
@@ -1495,7 +1527,7 @@ The one of $P_4$ is given by:\\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Compatible Pairs Label Cells in $Gr^Q_\bfe(P_m)$}
+\subsection{Compatible Pairs}
 For $m\ge1$, let $D_m$ denote the maximal Dyck path in the lattice rectangle with corner vertices $(0,0)$ and $(u_m,u_{m-1})$.  
 More precisely, $D_m$ is the lattice path which begins at $(0,0)$, takes East and North steps to end at $(u_m,u_{m-1})$, and never passes above the main diagonal joining $(0,0)$ and $(u_m,u_{m-1})$.  
 It is maximal in the sense that any lattice point lying strictly above $D_m$ also lies above the main diagonal.  
