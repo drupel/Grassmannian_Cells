@@ -199,6 +199,14 @@ Some results below remain true if we allow $H_m$ or $0$ as elements of $Gr(H_m)$
 %Lemma~\ref{le:hom equivariance} gives an identification of $Gr(H_m)$ with $Gr(H_m^g)$ and we write $V\mapsto V^g$ for this correspondence.
 For $1\le d\le n-1$, let $Gr_d(H_m)\subset Gr(H_m)$ be the subvariety of $d$-dimensional subspaces of $H_m$.
 
+
+For each $m\ge2$, there is an Auslander-Reiten sequence \cite[Section V]{ars}
+\begin{equation}
+  \label{eq:AR sequence}
+  0\longrightarrow P_{m-1}\stackrel{\iota_{m-1}}{\longrightarrow} P_m\otimes H_m\stackrel{ev}{\longrightarrow} P_{m+1}\longrightarrow 0,
+\end{equation}
+where the right-hand morphism is the natural evaluation map.
+
 \begin{lemma}
   \label{le:injective evaluation maps}
   For any $V\in Gr(H_m)$, the natural evaluation map $ev_V:P_m\otimes V\to P_{m+1}$ is injective.
@@ -207,9 +215,15 @@ For $1\le d\le n-1$, let $Gr_d(H_m)\subset Gr(H_m)$ be the subvariety of $d$-dim
 % needs polishing %
 %%%%%%%%%%%%%%%%%%%
 \begin{proof}
-  \footnote{This needs to be cleaned up, the proof seems false as written.}
-  A nonzero element $f\in V$ corresponds to an irreducible morphism $f:P_m\to P_{m+1}$ and thus does not factor through any representation $Z\ne P_m$, in particular $f$ is injective.
-  But any nonzero element of $\ker ev_V$ gives rise to a nonzero $f\in V$ which is not injective and thus $ev_V$ must be an injective map.
+As $\Ext(P_m\otimes V,P_{m-1})=0$, we obtain a commutative diagram
+\[\xymatrix{0 \ar[r] & P_{m-1}\ar[r]^{\iota_{m-1}} & P_m\otimes H_m \ar[r]^{ev} &P_{m+1} \ar[r] & 0\\0 \ar[r] & P_{m-1}\ar@{=}[u]\ar[r] &P_{m-1}\oplus P_m\otimes V \ar[r]\ar[u]^{(\iota_{m-1},\mathrm{id}_{P_m}\otimes \iota_V)} &P_{m}\otimes V \ar[r]\ar^{ev_V}[u] & 0}.\]
+
+
+
+
+% \footnote{This needs to be cleaned up, the proof seems false as written.}
+ % A nonzero element $f\in V$ corresponds to an irreducible morphism $f:P_m\to P_{m+1}$ and thus does not factor through any representation $Z\ne P_m$, in particular $f$ is injective.
+ % But any nonzero element of $\ker ev_V$ gives rise to a nonzero $f\in V$ which is not injective and thus $ev_V$ must be an injective map.
 \end{proof}
 In what follows we will not distinguish between $P_m\otimes V$ and its image under $ev_V$.
 
@@ -249,12 +263,6 @@ Following Lemma~\ref{le:injective evaluation maps} we define the following.
 
 
 
-For each $m\ge2$, there is an Auslander-Reiten sequence \cite{auslander-reiten-smalo}
-\begin{equation}
-  \label{eq:AR sequence}
-  0\longrightarrow P_{m-1}\stackrel{\iota_{m-1}}{\longrightarrow} P_m\otimes H_m\stackrel{ev}{\longrightarrow} P_{m+1}\longrightarrow 0,
-\end{equation}
-where the right-hand morphism is the natural evaluation map.
 \begin{corollary}
   \label{cor:preprojective homomorphism duality}
   The sequence \eqref{eq:AR sequence} gives rise to an isomorphism $H_m^*\cong H_{m-1}$.
@@ -1687,6 +1695,7 @@ Our goal is to show that the compatible pairs provide a natural labeling for the
 \begin{thebibliography}{10}
 \bibitem{ass}
 Assem, I., Simson, D., Skowronski, A.: Elements of the Representation Theory of Associative Algebras. Cambridge University Press, Cambridge 2007.
+\bibitem{ars} Auslander, M., Reiten, I., Smalo S.O.: Representation theory of Artin algebras {\bf 36}. Cambridge University Press, Cambridge 1997.
 \bibitem{bb} Bialynicki-Birula, A.: Some theorems on actions of algebraic groups. Annals of Mathematics \textbf{98}, 480-497 (1973).
 \bibitem{bgp}
 Bernstein, I.~N., Gelfand, I.~M., Ponomarev, V.~A.: Coxeter functors, and Gabriel's theorem. Russian Mathematical Surveys \textbf{28}(2), 17-32 (1973).
