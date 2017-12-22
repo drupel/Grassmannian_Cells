@@ -17,6 +17,7 @@
 \input xy
 \xyoption{all}
 
+%\usepackage[marginal]{showlabels}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{claim}[theorem]{Claim}
@@ -184,7 +185,9 @@ The following is well-known.
   Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}\oplus P_{m+1}^{a_2}$ or $I_m^{a_1}\oplus I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
 \end{theorem}
 The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
-\begin{remark}\footnote{we should have $P_m=(\Sigma_iP_{m-1})^T$}
+\begin{remark}
+  \footnote{we should have $P_m=(\Sigma_iP_{m-1})^T$}
+  \sayD{We need to change the conventions above to include notation for the equivalence between $\rep K(n)$ and $\rep K(n)^{op}$.}
   \label{rem:reflection recursion}
   These representations satisfy the following recursions using the reflection functors:
   \[P_1=S_1,\quad P_m=\Sigma_2 P_{m-1},\quad I_1=S_2,\quad I_m=\Sigma_1 I_{m-1}\]
@@ -227,7 +230,6 @@ As $\Ext(P_m\otimes V,P_{m-1})=0$, we obtain a commutative diagram
 \end{proof}
 In what follows we will not distinguish between $P_m\otimes V$ and its image under $ev_V$.
 
-
 \subsection{Truncated Preprojectives}
 \label{sec:truncated preprojectives}
 Following Lemma~\ref{le:injective evaluation maps} we define the following.
@@ -252,55 +254,9 @@ Following Lemma~\ref{le:injective evaluation maps} we define the following.
   For the second claim we apply the functor $\Hom(P_{m+1},-)$ to the sequence \eqref{eq:truncated preprojectives} and obtain an isomorphism $\Hom(P_{m+1},P_{m+1})\cong\Hom(P_{m+1},P_{m+1}^V)$ by which the identity map on $P_{m+1}$ is taken to the projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
 \end{proof}
 
-\begin{corollary}
-  For $V\in Gr(H_m)$, $m\ge1$, the truncated preprojective $P_{m+1}^V$ is indecomposable.
-\end{corollary}
-\begin{proof}
-  Applying the functor $\Hom(-,P_{m+1}^V)$ to the sequence \eqref{eq:truncated preprojectives} gives an injective map from $\Hom(P_{m+1}^V,P_{m+1}^V)$ to the one-dimensional space $\Hom(P_{m+1},P_{m+1}^V)$.
-  In particular, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable.
-\end{proof}
-
-
-
-
-\begin{corollary}
-  \label{cor:preprojective homomorphism duality}
-  The sequence \eqref{eq:AR sequence} gives rise to an isomorphism $H_m^*\cong H_{m-1}$.
-\end{corollary}
-\begin{proof}
-  Define a map $H_m^*\to H_{m-1}$ by $\varphi\mapsto\bar{\varphi}:=(id\overline{\otimes}\varphi)\circ\iota_{m-1}$, in words $\bar{\varphi}$ acts on $x\in P_{m-1}$ by contracting with the second factor in $\iota_{m-1}(x)$ to give an element of $P_m$.
-  Suppose $\varphi\in H_m^*$ is a nonzero functional on $H_m$ and let $V\subsetneq H_m$ denote the kernel of $\varphi$.
-  Then $\bar{\varphi}=0\in H_{m-1}$ if and only if the image of $\iota_{m-1}$ is contained in $P_m\otimes V\subsetneq P_m\otimes H_m$.
-  But then Lemma~\ref{le:injective evaluation maps} implies $\iota_{m-1}$ is the zero map, a contradiction.
-  Thus the map $H_m^*\to H_{m-1}$, $\varphi\mapsto\bar{\varphi}$ must be injective and hence an isomorphism.
-\end{proof}
-\begin{remark}
-  The set $Gr(H_m)$ is naturally a poset and Corollary~\ref{cor:preprojective homomorphism duality} gives an identification of the opposite poset $Gr(H_m)^{op}\cong Gr(H_m^*)$ with $Gr(H_{m-1})$.
-  We write $\bar{V}\subset H_{m-1}$ for the subspace corresponding to $V\subset H_m$ under this identification.
-  Under the isomorphism of $H_{m-1}$ with $H_m^*$, we have $\bar{V}=(H_m/V)^*$.
-\end{remark}
-Following Remark~\ref{rem:reflection recursion}, the reflection functor $\Sigma_1$ provides a natural identification of $H_m$ with $H_{m-1}$ for $m\ge2$. 
-Combining with Corollary~\ref{cor:preprojective homomorphism duality} we obtain a natural isomorphism $H_m^*\cong H_m$ for $m\ge2$.
-The next observation is essential for the results to follow.
-\begin{proposition}
-  For $V\in Gr(H_m)$, $m\ge1$, we have $\bar{\bar{V}}=\tau V$.
-\end{proposition}
-\begin{proof}
-  We show that $\bar{\bar{\varphi}}=\tau\varphi$ for $\varphi\in H_m$.
-  Indeed, we have
-  \[\bar{\bar{\varphi}}=(id\overline{\otimes}\bar{\varphi})\circ\iota_{m-2}=\Big(id\overline{\otimes}\big((id\overline{\otimes}\varphi)\circ\iota_{m-1}\big)\Big)\circ\iota_{m-2}.\]
-\end{proof}
-
-
-
-
-
-The total Grassmannian $Gr(H_m)$ is naturally a poset under inclusion which we extend to a $\CC$-linear category $\CC Gr(H_m)$ with objects the elements of $Gr(H_m)$ and at most one morphism (up to scalars) between any two objects.
-Write $\cP_{m+1}$ for the full subcategory of $\rep K(n)$ with objects the truncated preprojectives $P_{m+1}^V$ for $V\in Gr(H_m)$.
 \begin{lemma}
   \label{le:unique morphisms}
-  The functor $V\mapsto P_{m+1}^V$ gives an isomorphism of categories $\CC Gr(H_m)\cong\cP_{m+1}$.
-  In particular, there exists a morphism $P_{m+1}^W\to P_{m+1}^V$ for $V,W\in Gr(H_m)$ if and only if $W\subset V$ and this morphism is unique (up to scalars) when it exists.
+  There exists a morphism $P_{m+1}^W\to P_{m+1}^V$ for $V,W\in Gr(H_m)$ if and only if $W\subset V$ and this morphism is unique (up to scalars) when it exists.
 \end{lemma}
 \begin{proof}
   Given $V,W\in Gr(H_m)$, we apply the functor $\Hom(-,P_{m+1}^V)$ to the sequence \eqref{eq:truncated preprojectives} for $W$ to get an exact sequence
@@ -309,6 +265,18 @@ Write $\cP_{m+1}$ for the full subcategory of $\rep K(n)$ with objects the trunc
   But this occurs exactly when the image of $ev_W:P_m\otimes W\to P_{m+1}$ is contained in the kernel of $\pi_V$, i.e.\ in the image of $ev_V:P_m\otimes V\to P_{m+1}$, and this occurs if and only if $W\subset V$. 
 \end{proof}
 
+\begin{corollary}
+  For $V\in Gr(H_m)$, $m\ge1$, the truncated preprojective $P_{m+1}^V$ is indecomposable.
+\end{corollary}
+\begin{proof}
+  By Lemma~\ref{le:unique morphisms}, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable.
+\end{proof}
+
+\begin{remark}
+  The total Grassmannian $Gr(H_m)$ is naturally a poset under inclusion which we extend to a $\CC$-linear category $\CC Gr(H_m)$ with objects the elements of $Gr(H_m)$ and at most one morphism (up to scalars) between any two objects.
+  Write $\cP_{m+1}$ for the full subcategory of $\rep K(n)$ with objects the truncated preprojectives $P_{m+1}^V$ for $V\in Gr(H_m)$.
+  By Lemma~\ref{le:unique morphisms}, the functor $V\mapsto P_{m+1}^V$ gives an isomorphism of categories $\CC Gr(H_m)\cong\cP_{m+1}$.
+\end{remark}
 
 \begin{lemma}
   \label{le:truncated homomorphisms}
@@ -328,6 +296,66 @@ Write $\cP_{m+1}$ for the full subcategory of $\rep K(n)$ with objects the trunc
   Since $\Ext(P_{m+1},P_{m+1}^W)=0$ again by Lemma~\ref{le:basic homological properties}, it follows that there is an isomorphism 
   \[\Ext(P_{m+1}^V,P_{m+1}^W)\cong\Hom(P_m\otimes V,P_{m+1}^W)\cong V^*\otimes H_m/W,\]
   where the last isomorphism is immediate from Lemma~\ref{le:truncated homomorphisms}.
+\end{proof}
+
+\begin{lemma}
+  \label{le:unique truncated extension}
+  For $V\in Gr(H_m)$, $m\ge2$, the space $\Ext(P_{m+1}^V,P_{m-1})$ is one-dimensional and spanned by the extension
+  \begin{equation}
+    \label{eq:unique extension}
+    \xymatrix{0 \ar[r] & P_{m-1} \ar[r]^(.375){\kappa_V} & P_m\otimes(H_m/V) \ar[r]^(.625){ev} & P_{m+1}^V \ar[r] & 0}.
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  Applying the functor $\Hom(-,P_{m-1})$ to the sequence \eqref{eq:truncated preprojectives} gives an isomorphism $\Ext(P_{m+1}^V,P_{m-1})\cong\Ext(P_{m+1},P_{m-1})$ with a one-dimensional space.
+  Writing $X$ for the unique extension of $P_{m+1}^V$ by $P_{m-1}$, this isomorphism gives rise to the following pullback diagram:
+  \[\xymatrix{ & & 0 \ar[d] & 0\ar[d] & \\
+    & & P_m\otimes V \ar@{=}[r]\ar[d] & P_m\otimes V\ar[d] & \\
+    0 \ar[r] & P_{m-1} \ar@{=}[d]\ar[r]^(.425){\iota_{m-1}} & P_m\otimes H_m \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & P_{m+1} \ar[r]\ar[d] & 0\\
+    0 \ar[r] & P_{m-1} \ar[r]^{\kappa_V} & X \ar[r]\ar[d] & P_{m+1}^V \ar[r]\ar[d] & 0\\
+    & & 0 & 0 & }\]
+  from which we immediately obtain the isomorphism $X\cong P_m\otimes(H_m/V)$.
+\end{proof}
+
+\begin{lemma}
+  \label{le:preprojective homomorphism duality}
+  The sequence \eqref{eq:AR sequence} gives rise to an isomorphism $H_m^*\cong H_{m-1}$.
+\end{lemma}
+\begin{proof}
+  Define a map $H_m^*\to H_{m-1}$ by $\varphi\mapsto\bar{\varphi}:=(id\overline{\otimes}\varphi)\circ\iota_{m-1}$, in words $\bar{\varphi}$ acts on $x\in P_{m-1}$ by contracting with the second factor in $\iota_{m-1}(x)$ to give an element of $P_m$.
+  Suppose $\varphi\in H_m^*$ is a nonzero functional on $H_m$ and let $V\subsetneq H_m$ denote the kernel of $\varphi$.
+  Then $\bar{\varphi}=0\in H_{m-1}$ if and only if the image of $\iota_{m-1}$ is contained in $P_m\otimes V\subsetneq P_m\otimes H_m$.
+  But then Lemma~\ref{le:injective evaluation maps} implies $\iota_{m-1}$ is the zero map, a contradiction.
+  Thus the map $H_m^*\to H_{m-1}$, $\varphi\mapsto\bar{\varphi}$ must be injective and hence an isomorphism.
+\end{proof}
+\begin{remark}
+  The set $Gr(H_m)$ is naturally a poset and Lemma~\ref{le:preprojective homomorphism duality} gives an identification of the opposite poset $Gr(H_m)^{op}\cong Gr(H_m^*)$ with $Gr(H_{m-1})$.
+  We write $\bar{V}\subset H_{m-1}$ for the subspace corresponding to $V\subset H_m$ under this identification.
+  Under the isomorphism of $H_{m-1}$ with $H_m^*$, we have $\bar{V}=(H_m/V)^*$.
+\end{remark}
+
+\begin{corollary}
+  \label{cor:truncated preprojective isomorphism}
+  Suppose $V\in Gr(H_m)$ has codimension-one in $H_m$.  Then $P_{m+1}^V\cong P_m^{\bar{V}}$.
+\end{corollary}
+\begin{proof}
+  By Lemma~\ref{le:unique truncated extension}, we have the exact sequence
+  \[\xymatrix{0 \ar[r] & P_{m-1} \ar[r]^(.35){\kappa_V} & P_m\otimes(H_m/V) \ar[r]^(.625){ev} & P_{m+1}^V \ar[r] & 0}.\]
+  But $H_m/V$ is a one-dimensional vector space and so $P_m\otimes(H_m/V)\cong P_m$.
+  Under this identification, the left hand morphism $\kappa_V$ in the sequence above identifies with a generator of $\bar{V}$ and thus $P_{m+1}^V\cong P_m^{\bar{V}}$.
+\end{proof}
+
+Following Remark~\ref{rem:reflection recursion}, the reflection functor $\Sigma_1$ provides a natural identification of $H_m$ with $H_{m-1}$ for $m\ge2$. 
+Combining with Lemma~\ref{le:preprojective homomorphism duality} we obtain a natural isomorphism $H_m^*\cong H_m$ for $m\ge2$.
+The next observation is essential for the results to follow.
+\begin{proposition}
+  For $V\in Gr(H_m)$, $m\ge1$, we have $\bar{\bar{V}}=\tau V$.
+\end{proposition}
+\begin{proof}
+  \sayD{Proof needed}
+  We show that $\bar{\bar{\varphi}}=\tau\varphi$ for $\varphi\in H_m$.
+  Indeed, we have
+  \[\bar{\bar{\varphi}}=(id\overline{\otimes}\bar{\varphi})\circ\iota_{m-2}=\Big(id\overline{\otimes}\big((id\overline{\otimes}\varphi)\circ\iota_{m-1}\big)\Big)\circ\iota_{m-2}.\]
 \end{proof}
 
 \begin{lemma}
@@ -351,34 +379,6 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
   Under this isomorphism, the functional $\varphi$ corresponds to the lower pushout sequence in the above diagram.
 \end{proof}
 
-\begin{lemma}
-  \label{le:unique truncated extension}
-  For $V\in Gr(H_m)$, $m\ge2$, the space $\Ext(P_{m+1}^V,P_{m-1})$ is one-dimensional and spanned by the extension
-  \begin{equation}
-    \label{eq:unique extension}
-    \xymatrix{0 \ar[r] & P_{m-1} \ar[r]^(.375){\kappa_V} & P_m\otimes(H_m/V) \ar[r] & P_{m+1}^V \ar[r] & 0}.
-  \end{equation}
-\end{lemma}
-\begin{proof}
-  Applying the functor $\Hom(-,P_{m-1})$ to the sequence \eqref{eq:truncated preprojectives} gives an isomorphism $\Ext(P_{m+1}^V,P_{m-1})\cong\Ext(P_{m+1},P_{m-1})$ with a one-dimensional space.
-  Writing $X$ for the unique extension of $P_{m+1}^V$ by $P_{m-1}$, this isomorphism gives rise to the following pullback diagram:
-  \[\xymatrix{ & & 0 \ar[d] & 0\ar[d] & \\
-    & & P_m\otimes V \ar@{=}[r]\ar[d] & P_m\otimes V\ar[d] & \\
-    0 \ar[r] & P_{m-1} \ar@{=}[d]\ar[r]^(.425){\iota_{m-1}} & P_m\otimes H_m \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & P_{m+1} \ar[r]\ar[d] & 0\\
-    0 \ar[r] & P_{m-1} \ar[r]^{\kappa_V} & X \ar[r]\ar[d] & P_{m+1}^V \ar[r]\ar[d] & 0\\
-    & & 0 & 0 & }\]
-  from which we immediately obtain the isomorphism $X\cong P_m\otimes(H_m/V)$.
-\end{proof}
-\begin{corollary}
-  \label{cor:truncated preprojective isomorphism}
-  Suppose $V\in Gr(H_m)$ has codimension one in $H_m$.  Then $P_{m+1}^V\cong P_m^{\bar{V}}$.
-\end{corollary}
-\begin{proof}
-  By Lemma~\ref{le:unique truncated extension}, we have the exact sequence
-  \[\xymatrix{0 \ar[r] & P_{m-1} \ar[r]^(.35){\kappa_V} & P_m\otimes(H_m/V) \ar[r] & P_{m+1}^V \ar[r] & 0}.\]
-  But $H_m/V$ is a one-dimensional vector space and so $P_m\otimes(H_m/V)\cong P_m$.
-  Under this identification, the left hand morphism $\kappa_V$ in the sequence above identifies with a generator of $\bar{V}$ and thus $P_{m+1}^V\cong P_m^{\bar{V}}$.
-\end{proof}
 \begin{corollary}
   For $V,W\in Gr(H_m)$, $m\ge3$, the space $\Ext(P_{m+1}^V,P_{m-1}^{\bar{\bar{W}}})$ has dimension 0 or 1.. .
 \end{corollary}
@@ -392,7 +392,7 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  By Corollary~\ref{cor:preprojective homomorphism duality}, we have $H_{m-1}\cong H_m^*$ and $\bar{W}\cong(H_m/W)^*$.
+  By Lemma~\ref{le:preprojective homomorphism duality}, we have $H_{m-1}\cong H_m^*$ and $\bar{W}\cong(H_m/W)^*$.
   Then Lemma~\ref{le:truncated homomorphisms} gives the isomorphism
   \[\Hom(P_{m-1},P_m^{\bar{W}})\cong H_{m-1}/\bar{W}\cong H_m^*/(H_m/W)^*\cong W^*.\]
 
@@ -401,7 +401,7 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
   By Lemma~\ref{le:basic homological properties}, the middle space above is isomorphic to $H_m^*$ and thus $\Hom(P_{m+1},P_m^{\bar{W}})$ can be identified with the kernel of the natural map $H_m^*\to W^*$, i.e.\ with the space $(H_m/W)^*$.
 \end{proof}
 \begin{remark}
-  For $W\in Gr(H_m)$, $m\ge2$, a nonzero element $\varphi\in\Hom(P_{m+1},P_m^{\bar{W}})=(H_m/W)^*$ corresponds, by taking the kernel of $\varphi$, to a codimension 1 subspace $V\subset H_m$ containing $W$.
+  For $W\in Gr(H_m)$, $m\ge2$, a nonzero element $\varphi\in\Hom(P_{m+1},P_m^{\bar{W}})=(H_m/W)^*$ corresponds, by taking the kernel of $\varphi$, to a codimension-one subspace $V\subset H_m$ containing $W$.
   Then the map $\varphi$ is (up to scalars) the composition of the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$, the isomorphism $P_{m+1}^V\cong P_m^{\bar{V}}$ from Corollary~\ref{cor:truncated preprojective isomorphism}, and the unique projection $P_m^{\bar{V}}\to P_m^{\bar{W}}$.
 \end{remark}
 \begin{corollary}
@@ -461,6 +461,7 @@ For $V\in Gr(H_m)$, $m\ge1$, any subspace $W\subset V$ gives rise to an exact se
 \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar[r]^(.6){ev} & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0},\]
 where the left hand morphism above is the natural evaluation morphism coming from Lemma~\ref{le:truncated homomorphisms}.
 Each such sequence has the following almost-split property for proper subrepresentations of $P_{m+1}^V$.
+\sayD{The next results need some serious clean-up, can they be proven for $K(n)$ without passing to the universal cover?}
 \begin{lemma}
   For $V\in Gr(H_m)$, $m\ge1$, given any proper subrepresentation $X\subsetneq P_{m+1}^V$, the upper pullback sequence
   \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar@{=}[d]\ar[r] & Y \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\ar[r] & 0 \\
@@ -518,6 +519,9 @@ Each such sequence has the following almost-split property for proper subreprese
 
 \subsection{Lifting to $\widetilde{K(n)}$}
 
+In this section, we fix compatible bases for each $H_m=\Hom(P_{m-1},P_m)$ and use these to lift the (truncated) preprojectives to the universal cover of $K(n)$.
+This lifting will rigidify the situation and allow more precise control over these representations and their subrepresentation structure.
+
 We fix a natural number $n\geq 3$. We fix the following lifts $\tilde P_m$  of $P_m$ to the universal cover $\widetilde{K(n)}$. For $m=1$ we assume that $\dim (\tilde P_1)_{1,1}=1$ and $\dim (\tilde P_1)_{i,w}=0$ if $(i,w)\neq (1,1)$. Moreover, we assume that $\dim (\tilde P_2)_{2,1}=\dim (\tilde P_2)_{1,w}=1$ for $w=a_1,\ldots,a_n$ and $\dim (\tilde P_2)_{i,w}=0$ if $(i,w)\notin\{(2,1),(1,a_1),\ldots,(1,a_n)\}$. Recall that applying the reflection functor $\Sigma_i$ on $K(n)$ corresponds to applying $\tilde\Sigma_i:=\prod_{w\in W_Q}\Sigma_{(i,w)}$ on $\widetilde{K(n)}$. Moreover, sinks become sources and vice versa. For $m\geq 2$, we can build lifts $\tilde P_m$ recursively by applying reflection functors or as Auslander-Reiten translation, i.e. we have
 \begin{align}
   \label{recursive}
@@ -547,27 +551,30 @@ $$\tilde P_{m-k,\ui}\subset \tilde P_{m-k+1,(i_1,\ldots,i_{k-1})}\subset\ldots\s
 
 
 
-\begin{lemma}\label{le:properties}The following holds:
-\begin{enumerate}
- \item For $m\geq 2$, we have $\Hom_Q(P_{m-1},P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$, where each $\Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$ is one-dimensional;
-   % \item For any proper subset $\{i_1,\ldots,i_k\}\subset\{1,\ldots,n\}$, there exists a short exact sequence
-   %   \[0\longrightarrow \tilde P_{m-1,i_1}\oplus\cdots\oplus\tilde P_{m-1,i_k}\longrightarrow\tilde P_m\longrightarrow \tilde P_m^{i_1,\ldots,i_k}\longrightarrow 0;\]
+\begin{lemma}
+  \label{le:properties}
+  \sayD{Parts (2) and (3) should follow directly from Lemma~\ref{le:unique morphisms} and the definition of truncated preprojectives for $K(n)$.} 
+  The following holds:
+  \begin{enumerate}
+    \item For $m\geq 2$, we have $\Hom_Q(P_{m-1},P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$, where each $\Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$ is one-dimensional;
+    % \item For any proper subset $\{i_1,\ldots,i_k\}\subset\{1,\ldots,n\}$, there exists a short exact sequence
+    %   \[0\longrightarrow \tilde P_{m-1,i_1}\oplus\cdots\oplus\tilde P_{m-1,i_k}\longrightarrow\tilde P_m\longrightarrow \tilde P_m^{i_1,\ldots,i_k}\longrightarrow 0;\]
     \item For $m\geq 1$, the representations $\tilde P_{m,i}$ are pairwise orthogonal, i.e. for $i\neq k$ we have $$\Hom(\tilde P_{m,i},\tilde P_{m,k})=\Ext(\tilde P_{m,i},\tilde P_{m,k})=0;$$
-		\item For every $\uj\in I_l$, there exists a truncated preprojective representation $\tilde P_{m}^{\uj}$ which is the cokernel of
-		\[\ses{\bigoplus_{i=1}^l \tilde P_{m-1,j_i}}{\tilde P_m}{\tilde P_{m}^{\uj}}.\]
-		On the universal covering, we have $\Hom(\tilde P_{m-1,k},\tilde P_m)\cong\Hom(\tilde P_{m-1,k},\tilde P_m^{\uj})=\kk$  where $k\neq j_i$ for $i=1,\ldots,l$, $\Hom(\tilde P_m,\tilde P_m^{\uj})=\kk$, $\Ext(\tilde P_{m},\tilde P_{m}^{\uj})=0$ and $\Ext(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=0$.
-		
-		\end{enumerate}
+    \item For every $\uj\in I_l$, there exists a truncated preprojective representation $\tilde P_{m}^{\uj}$ which is the cokernel of
+      \[\ses{\bigoplus_{i=1}^l \tilde P_{m-1,j_i}}{\tilde P_m}{\tilde P_{m}^{\uj}}.\]
+      On the universal covering, we have $\Hom(\tilde P_{m-1,k},\tilde P_m)\cong\Hom(\tilde P_{m-1,k},\tilde P_m^{\uj})=\kk$  where $k\neq j_i$ for $i=1,\ldots,l$, $\Hom(\tilde P_m,\tilde P_m^{\uj})=\kk$, $\Ext(\tilde P_{m},\tilde P_{m}^{\uj})=0$ and $\Ext(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=0$.
+  \end{enumerate}
 \end{lemma} 
-\begin{proof}The first statement follows from Theorem \ref{covering}. For $m=1$, the second part is obvious. For $m\geq 2$, it then follows by applying the identities (\ref{recursive}).
+\begin{proof}
+  The first statement follows from Theorem \ref{covering}.
+  For $m=1$, the second part is obvious.
+  For $m\geq 2$, it then follows by applying the identities (\ref{recursive}).
 
-The first identity of the last statement follows when applying $\Hom(\tilde P_{m-1,k},\underline{\quad})$ to the short exact sequence under consideration together with the first statement of this lemma.
+  The first identity of the last statement follows when applying $\Hom(\tilde P_{m-1,k},\underline{\quad})$ to the short exact sequence under consideration together with the first statement of this lemma.
 
-As $\Ext(\tilde P_{m},\tilde P_{m-1,j_i})=\Hom(\tilde P_{m},\tilde P_{m-1,j_i})=0$ and $\Hom(\tilde P_m,\tilde P_m)=\kk$, the second and third identity follows when applying $\Hom(\tilde P_{m},\underline{\quad})$.
+  As $\Ext(\tilde P_{m},\tilde P_{m-1,j_i})=\Hom(\tilde P_{m},\tilde P_{m-1,j_i})=0$ and $\Hom(\tilde P_m,\tilde P_m)=\kk$, the second and third identity follows when applying $\Hom(\tilde P_{m},\underline{\quad})$.
 
-
-For every $i=1,\ldots,l$, we have $\Hom(\tilde P_{m-1,j_i},\bigoplus_{i=1}^l \tilde P_{m-1,j_i})\cong\Hom(\tilde P_{m-1,j_i},\tilde P_m)=\kk$. Thus it follows that $\Hom(\bigoplus_{i=1}^l \tilde P_{m-1,j_i},\tilde P^{\uj}_{m})=0$ because the representations $\tilde P_{m-1,j_i}$ are exceptional. Thus we obtain the last identity when applying $\Hom(\underline{\quad},\tilde P^{\uj}_{m})$.
-
+  For every $i=1,\ldots,l$, we have $\Hom(\tilde P_{m-1,j_i},\bigoplus_{i=1}^l \tilde P_{m-1,j_i})\cong\Hom(\tilde P_{m-1,j_i},\tilde P_m)=\kk$. Thus it follows that $\Hom(\bigoplus_{i=1}^l \tilde P_{m-1,j_i},\tilde P^{\uj}_{m})=0$ because the representations $\tilde P_{m-1,j_i}$ are exceptional. Thus we obtain the last identity when applying $\Hom(\underline{\quad},\tilde P^{\uj}_{m})$.
 \end{proof} 
 %To do so, we fix $m$ and the following notation can be seen as relative to $m$\footnote{do we need this?}. 
 
@@ -623,9 +630,11 @@ Actually, these examples already show how the (truncated) preprojectives are bui
 \end{remark}
 
  We need the following lemma analyzing the possible subrepresentations of truncated preprojective representations.
-\begin{lemma}\label{le:subrep}
-  Let $\uj\in I_l$. All non-trivial proper subrepresentations $U$ of $\tilde P_m^{\uj}$ are preprojective.	
-
+\begin{lemma}
+  \label{le:subrep}
+  \sayD{This should be moved to a statement on $K(n)$ and then deduced from that one.}
+  Let $\uj\in I_l$.
+  All non-trivial proper subrepresentations $U$ of $\tilde P_m^{\uj}$ are preprojective.	
 \end{lemma}
 \begin{proof}
 Without loss of generality, we choose $\{j_1,\ldots,j_l\}=\{1,\ldots,l\}$ and denote $\tilde P_m^{(l)}:=\tilde P_m^{(1,\ldots,l)}$ where $\tilde P_m^{(0)}=\tilde P_m$.
@@ -678,26 +687,28 @@ The first statement follows for instance by induction when applying BGP-reflecti
 
 
 
+\newpage
 
+\begin{lemma}
+  \label{AR}
+  \footnote{special case $m=3$}
+  \sayD{Part (1) should follow from Corollary~\ref{cor:truncated preprojective isomorphism}.  Do parts (2), (3), (4) have analogues for $K(n)$?  The second half of (3) and part (5) should follow from Lemma~\ref{le:basic homological properties}.  The first half of (4) is roughly the same as Lemma~\ref{le:truncated extensions}.}
+  Let $m\geq 4$ and $n-1\geq l\geq 1$, $\uj=(j_1,\ldots,j_l)\in I_l$ and $\uj':=(j_1,\ldots,j_{l-1})$.
+  Consider the short exact sequence $$\sesm{\tilde P_{m-1,j_l}}{\tilde P_{m}^{\uj'}}{\tilde P_{m}^{\uj}}{\pi^{j_l}_{m,\uj'}}$$ and define
+  $$P(m,\uj):=\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{m-2,(j_l,i)}\oplus \bigoplus_{i=1}^{l-1}\tilde P_{m-3,(j_l,j_l,i)}.$$
 
-\begin{lemma}\label{AR}\footnote{special case $m=3$}
- Let $m\geq 4$ and $n-1\geq l\geq 1$, $\uj=(j_1,\ldots,j_l)\in I_l$ and $\uj':=(j_1,\ldots,j_{l-1})$. Consider the short exact sequence $$\sesm{\tilde P_{m-1,j_l}}{\tilde P_{m}^{\uj'}}{\tilde P_{m}^{\uj}}{\pi^{j_l}_{m,\uj'}}$$ and define
-$$P(m,\uj):=\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{m-2,(j_l,i)}\oplus \bigoplus_{i=1}^{l-1}\tilde P_{m-3,(j_l,j_l,i)}.$$
-
- The following holds:
-\begin{enumerate}
-\item We have $\tau\tilde P_{m}^{(j_1,\ldots,j_l)}=\tilde P_{m-2}^{(j_1,\ldots,j_l)}$.
-%\item We have $\tau\tilde P_{m}^{(j_1,\ldots,j_l)}\in ~^\perp(\tilde P_{m}^{(j_1,\ldots,j_l)})$.\footnote{not true for $m\geq 4$. What do we need? We have $\Hom(\tau\tilde P_{m}^{(j_1,\ldots,j_l)},\tilde P_{m}^{(j_1,\ldots,j_l)})=0$}
-
-\item There exists a short exact sequences 
-\[\sesm{P(m,\uj)}{\tilde P_{m-1,j_l}}{\tau\tilde P_{m}^{\uj}}{\pi^{\bf j_l}_{m-1}}\]
-where ${\bf j}_l=((1,\ldots,j_l-1,\widehat{j_l},j_{l}+1,\ldots,n),(j_1,\ldots,j_{l-1})).$
-
-\item We have $\Hom(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=\Hom(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})=0$. 
-\item We have $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})\cong \Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj})=\kk$.
-\item We have $P(m,\uj)\in (\tilde P_{m}^{\uj})^\perp$.
-%\item Finally, we have $\Ext(\tilde P_{m+1}^{(k-1)},V)=0$ for every subrepresentation $V$ of $\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}$.
-\end{enumerate}%\footnote{introduce/consider/check indices, we have to mod out the corresponding reps in the covering} 
+  The following holds:
+  \begin{enumerate}
+    \item We have $\tau\tilde P_{m}^{(j_1,\ldots,j_l)}=\tilde P_{m-2}^{(j_1,\ldots,j_l)}$.
+    %\item We have $\tau\tilde P_{m}^{(j_1,\ldots,j_l)}\in ~^\perp(\tilde P_{m}^{(j_1,\ldots,j_l)})$.\footnote{not true for $m\geq 4$. What do we need? We have $\Hom(\tau\tilde P_{m}^{(j_1,\ldots,j_l)},\tilde P_{m}^{(j_1,\ldots,j_l)})=0$}
+    \item There exists a short exact sequences 
+      \[\sesm{P(m,\uj)}{\tilde P_{m-1,j_l}}{\tau\tilde P_{m}^{\uj}}{\pi^{\bf j_l}_{m-1}}\]
+      where ${\bf j}_l=((1,\ldots,j_l-1,\widehat{j_l},j_{l}+1,\ldots,n),(j_1,\ldots,j_{l-1})).$
+    \item We have $\Hom(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=\Hom(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})=0$. 
+    \item We have $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})\cong \Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj})=\kk$.
+    \item We have $P(m,\uj)\in (\tilde P_{m}^{\uj})^\perp$.
+    %\item Finally, we have $\Ext(\tilde P_{m+1}^{(k-1)},V)=0$ for every subrepresentation $V$ of $\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}$.
+  \end{enumerate}%\footnote{introduce/consider/check indices, we have to mod out the corresponding reps in the covering} 
 \end{lemma}
 \begin{proof}
 Using the identities (\ref{recursive}), it suffices to prove the all statements for $m=4$ and arbitrary $1\leq l\leq n-1$. Without loss of generality, we choose $(j_1,\ldots,j_l)=(1,\ldots,l)$ and define $\tilde P_m^{(0)}=\tilde P_m$ respectively. We should point out that it is very important for this prove that we consider fixed lifts of all representations in the universal covering as defined in the beginning of this section. Note that, starting with these cases, we only reflect at sources and no representation appearing is isomorphic to the simple injective representation $S_2$.  
