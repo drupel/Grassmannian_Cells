@@ -173,9 +173,10 @@ As a $\CC$-vector space, the path algebra $A(n)$ can be written as $A_0\oplus A_
 \end{itemize}
 
 Write $\Sigma_1$ and $\Sigma_2$ for the BGP-reflection functors of $K(n)$ \cite{bgp}. 
-Note that (up to relabeling vertices) the quiver $K(n)$ itself does not change when applying the reflection functors and thus we view these as endofunctors acting on the category $\rep K(n)$. 
-With this identification of $K(n)$ and $K(n)^{op}$, the endofunctors $\Sigma_2\Sigma_1$ and $\Sigma_1\Sigma_2$ are each naturally isomorphic to the identity maps on the full subcategories $\rep_{\langle 1\rangle} K(n),\rep_{\langle 2\rangle} K(n)\subset \rep K(n)$, where the objects of $\rep_{\langle i\rangle} K(n)$ are those representations of $K(n)$ which do not contain the simple $S_i$ as a direct summand.
-Also, following \cite{brenner-butler}, the Auslander-Reiten translation $\tau:\rep K(n)\to\rep K(n)$ may be identified with the functor $\Sigma_1^2$.
+Note that (up to relabeling vertices) the quiver $K(n)$ itself does not change when applying the reflection functors and thus we can view these as endofunctors acting on the category $\rep K(n)$. 
+
+The endofunctors $\Sigma_1^2$ and $\Sigma_2^2$ are each naturally isomorphic to the identity maps on the full subcategories $\rep_{\langle 1\rangle} K(n),\rep_{\langle 2\rangle} K(n)\subset \rep K(n)$, where the objects of $\rep_{\langle i\rangle} K(n)$ are those representations of $K(n)$ which do not contain the simple $S_i$ as a direct summand.
+Also, following \cite{brenner-butler}, the Auslander-Reiten translation $\tau:\rep K(n)\to\rep K(n)$ may be identified with the functor $\Sigma_2\Sigma_1$.
 
 Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=1$, $u_{k+1}=nu_k-u_{k-1}$.
 The following is well-known.
@@ -185,15 +186,47 @@ The following is well-known.
   Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}\oplus P_{m+1}^{a_2}$ or $I_m^{a_1}\oplus I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
 \end{theorem}
 The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
-\begin{remark}
-  \footnote{we should have $P_m=(\Sigma_iP_{m-1})^T$}
-  \sayD{We need to change the conventions above to include notation for the equivalence between $\rep K(n)$ and $\rep K(n)^{op}$.}
+\begin{remark} \sayD{We need to change the conventions above to include notation for the equivalence between $\rep K(n)$ and $\rep K(n)^{op}$.}	\sayT{Changed it a bit}
   \label{rem:reflection recursion}
-  These representations satisfy the following recursions using the reflection functors:
+   \begin{enumerate}
+	\item   These representations satisfy the following recursions using the reflection functors:
   \[P_1=S_1,\quad P_m=\Sigma_2 P_{m-1},\quad I_1=S_2,\quad I_m=\Sigma_1 I_{m-1}\]
   for $m\ge2$.
-  In particular, we have $P_{m-1}=\tau P_{m+1}$ and $I_{m+1}=\tau I_{m-1}$ for $m\ge2$. 
+  In particular, we have $P_{m-1}=\tau P_{m+1}$ and $I_{m+1}=\tau I_{m-1}$ for $m\ge2$.
+	\item If $\ses{M}{B}{N}$ is a short exact sequence such that no direct summand of $M$, $B$ and $N$ is preinjective, then $\ses{(\Sigma_1\Sigma_2)^nM}{(\Sigma_1\Sigma_2)^nB}{(\Sigma_1\Sigma_2)^nN}$ and $\ses{\Sigma_2(\Sigma_1\Sigma_2)^nM}{\Sigma_2(\Sigma_1\Sigma_2)^nB}{\Sigma_2(\Sigma_1\Sigma_2)^nN}$ are short exact sequences without any preinjective direct summands. Without the assumption on the direct summands, it is not clear that short exact sequences are preserved. This is because $\Sigma_2 S_2=0$.
+	\end{enumerate}
+	
 \end{remark}
+ We will see that the indecomposable representations of dimension $\alpha(m,r):=\dim P_{m+1}-r\dim P_m$ with $0\leq r\leq n-1$ play an important role as they appear as quotients of morphisms between preprojective representations.
+\begin{proposition}
+  \label{pro:indecomposables}
+  Let $m\geq 1$. Let $R_\alpha(K(n))$ be the affine space of representations of dimension $\alpha(m,r)$.
+  The following hold:
+  %\sayD{Move the first two of these into section~\ref{sec:truncated preprojectives}?}
+  \begin{enumerate}
+    \item The isomorphism classes of indecomposable representations of dimension $\alpha(m,r)$ are in one-to-one correspondence to points of $\Gr_{n-r}(\CC^n)$.
+    \item The set indecomposable representations of dimension $\alpha(m,r)$ is given by a non-empty open subset of $R_\alpha(K(n))$. 
+   % \item The action of $\Gl_n(\CC)$ is transitive on $\mathrm{Ind}(K(n),\alpha(m,r))$.
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+
+As the reflection functors $\Sigma_1,\,\Sigma_2$ preserve indecomposability and as we have $\Sigma_2(\alpha(m,r))=\alpha(m+1,r)$, it suffices to prove the first statement for $m=1$. Then we have $\alpha(m,r)=(1,d)$ for $d:=n-r$. This means that $M\in R_\alpha(K(n))$ is given by a matrix $M\in\CC^{d\times n}$ where the $i^{\mathrm{th}}$ column stands for $M_{a_i}$. Now $M$ is indecomposable if and only if $\rk{M}=d$. Indeed, it is clear that $S_1^{m}$ splits up if and only if $\rk{M}=d-m$.
+
+This shows that the indecomposable representations in $R_{\alpha(1,d)}(K(n))$  are in one-to-one correspondence with matrices of maximal rank. Thus they are in one-to-one correspondence to subspaces of $\CC^n$ of dimension $d$ spanned by the column vectors of $M$. Now it straightforward to check that the $\Gl_\alpha=\CC^\ast\times\Gl_d(\CC)$-action on $R_\alpha(K(n))$ corresponds to the base change action of $\Gl_d(\CC)$ on the set of subspaces. This shows the first statement.
+
+It can be checked straightforwardly that $\alpha(1,d)$ is a Schur root because all indecomposable representations have trivial endomorphism ring. Thus the roots $\alpha(m,d)$ are also Schur roots. It follows that the set of indecomposable representations with trivial endomorphism ring form a dense open subset of $R_{\alpha(m,r)}(K(n))$, see for example \cite{sch}. This shows the second statement.
+
+%For $m=1$, the action of $\Gl_n(\CC)$ on $\Gr_d(\CC^n)$ is transitive which shows that it is transitive on $\Ind_\alpha(K(n))$. As the reflection functors preserve indecomposability and isomorphism classes, by Lemma \ref{compatibleGSigma}, for every $g\in\Gl_n(\CC)$, we obtain a commutative diagram
+%\[\xymatrix{\Ind(K(n),\alpha(m,r))\ar[r]^{\Sigma_2}\ar[d]^{g^{-T}}&\Ind(K(n),\alpha(m+1,r))\ar[d]^g\\
+%\Ind(K(n),\alpha(m,r))\ar[r]^{\Sigma_2}&\Ind(K(n),\alpha(m+1,r))}\]
+%As the $\Gl_n(\CC)$-action is transitive on the left hand side, this implies that it is also transitive on the right hand side.
+\end{proof}
+\begin{remark}There is a more elegant way to prove Proposition \ref{pro:indecomposables} using the notion of stability and moduli spaces. Actually, fixing the standard stability induced by the linear form $\Theta(\alpha)=\alpha_2$, it can be shown that all indecomposables are stable and that the moduli space of stable representation is in fact $\Gr_d(\CC^n)$. We inserted this proof because the notion of stability were only used at this point and we wanted to keep this part as simple as possible. 
+\end{remark}
+
+
+
 
 Set $H_m:=\Hom(P_m,P_{m+1})$ for $m\ge1$. %and define an action of $GL_n(\CC)$ on $H_m$ by $g.\theta:=\phi_{m+1,g}^{-1}\circ\theta^g\circ\phi_{m,g}$.
 %Note that the first $\theta$ here represents an element of $H_m$ while the second $\theta^g$ represents the corresponding element of $H_m^g:=\Hom(g.P_m,g.P_{m+1})$ from Lemma~\ref{le:hom equivariance}.
@@ -212,14 +245,22 @@ where the right-hand morphism is the natural evaluation map.
 
 \begin{lemma}
   \label{le:injective evaluation maps}
-  For any $V\in Gr(H_m)$, the natural evaluation map $ev_V:P_m\otimes V\to P_{m+1}$ is injective.
+Let $m\geq 1$.  For any $V\in Gr(H_m)$, the natural evaluation map $ev_V:P_m\otimes V\to P_{m+1}$ is injective.
 \end{lemma}
 %%%%%%%%%%%%%%%%%%%
 % needs polishing %
 %%%%%%%%%%%%%%%%%%%
-\begin{proof}
-As $\Ext(P_m\otimes V,P_{m-1})=0$, we obtain a commutative diagram
-\[\xymatrix{0 \ar[r] & P_{m-1}\ar[r]^{\iota_{m-1}} & P_m\otimes H_m \ar[r]^{ev} &P_{m+1} \ar[r] & 0\\0 \ar[r] & P_{m-1}\ar@{=}[u]\ar[r] &P_{m-1}\oplus P_m\otimes V \ar[r]\ar[u]^{(\iota_{m-1},\mathrm{id}_{P_m}\otimes \iota_V)} &P_{m}\otimes V \ar[r]\ar^{ev_V}[u] & 0}.\]
+\begin{proof}\sayT{Maybe we can shorten the proof. I don't see a  proof which does not use reflection functors at the moment.}
+
+As $\Ext(P_m\otimes V,P_{m-1})=0$ and $\Hom(P_1,I_1)=0$ respectively, we obtain a commutative diagram 
+\[\xymatrix{0 \ar[r] & P_{m-1}\ar[r]^{\iota_{m-1}} & P_m\otimes H_m \ar[r]^{ev} &P_{m+1} \ar[r] & I_{2-m}\ar[r]&0\\0 \ar[r] & P_{m-1}\ar@{=}[u]\ar[r] &P_{m-1}\oplus P_m\otimes V \ar[r]\ar[u]^{(\iota_{m-1},\mathrm{id}_{P_m}\otimes \iota_V)} &P_{m}\otimes V \ar[r]\ar^{ev_V}[u] & 0}.\]
+where $P_0=0$ and $I_{l}=0$ for $l\leq 0$. The snake lemma shows that $ev_V$ is injective if $m=1$ because $\mathrm{id}_{P_1}\otimes \iota_V$ is injective. In view of Remark \ref{rem:reflection recursion}, it is enough to show that the cokernel of $ev_V$ does not have a preinjective direct summand if $m=1$. Clearly the cokernel of $\mathrm{id}_{P_1}\otimes \iota_V$ is isomorphic to $P_1\otimes H_1/V$.
+
+Thus we obtain the following commutative diagram induced by the cokernels of the above vertical maps where the vertical maps are surjective
+\[\xymatrix{0\ar[r] & P_1\otimes H_1/V \ar[r] &K\ar[r]& I_{1}\ar[r]&0\\0 \ar[r]  & P_1\otimes H_1 \ar[u]\ar[r]^{ev} &P_{2}\ar[u] \ar[r] & I_{1}\ar@{=}[u]\ar[r]&0}\]
+We need to show that $K$ has no preinjective direct summand. As $\Hom(P_2,P_1)=0$, the representation $K$ has no direct summand which is isomorphic to $P_1=S_1$. But this already shows that $K$ is indecomposable as $\udim K=(\dim H_1/V,1)$. Since $V$ is a proper subspace of $H_1$, $\udim K$ is not the dimension vector of a preinjective representation and the claim follows.
+
+
 
 
 
@@ -250,8 +291,7 @@ Following Lemma~\ref{le:injective evaluation maps} we define the following.
   Moreover, $\Hom(P_{m+1},P_{m+1}^V)$ is the one-dimensional space spanned by the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
 \end{lemma}
 \begin{proof}
-  The first claim is immediate since $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some $\ell\ge1$ implies all indecomposable summands of $X$ are preprojectives of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$), whereas $P_{m+1}^V$ is not preprojective.
-  For the second claim we apply the functor $\Hom(P_{m+1},-)$ to the sequence \eqref{eq:truncated preprojectives} and obtain an isomorphism $\Hom(P_{m+1},P_{m+1})\cong\Hom(P_{m+1},P_{m+1}^V)$ by which the identity map on $P_{m+1}$ is taken to the projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
+  The first claim is immediate since $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some $\ell\ge1$ implies all indecomposable summands of $X$ are preprojectives of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$), whereas $P_{m+1}^V$ is not preprojective.\sayT{this is maybe not clear as we do not know that $P_{m+1}^V$ is indecomposable?! Therefore, I added a sentence.} Note that $\udim P_{m+1}^V <\udim P_{m+1}$, but $\udim P_r\geq \udim P_{m+1}$ if $\Hom(P_{m+1},P_r)\neq 0.$  For the second claim we apply the functor $\Hom(P_{m+1},-)$ to the sequence \eqref{eq:truncated preprojectives} and obtain an isomorphism $\Hom(P_{m+1},P_{m+1})\cong\Hom(P_{m+1},P_{m+1}^V)$ by which the identity map on $P_{m+1}$ is taken to the projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
 \end{proof}
 
 \begin{lemma}
@@ -266,11 +306,13 @@ Following Lemma~\ref{le:injective evaluation maps} we define the following.
 \end{proof}
 
 \begin{corollary}
-  For $V\in Gr(H_m)$, $m\ge1$, the truncated preprojective $P_{m+1}^V$ is indecomposable.
+  For $V\in Gr(H_m)$, $m\ge1$, the truncated preprojective $P_{m+1}^V$ is indecomposable. Moreover, every indecomposable of dimension $\udim P_{m+1}^V$ is truncated preprojective.
 \end{corollary}
 \begin{proof}
-  By Lemma~\ref{le:unique morphisms}, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable.
+  By Lemma~\ref{le:unique morphisms}, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable. The second part follows from Proposition \ref{pro:indecomposables} together with Lemma \ref{le:unique morphisms}.
 \end{proof}
+
+
 
 \begin{remark}
   The total Grassmannian $Gr(H_m)$ is naturally a poset under inclusion which we extend to a $\CC$-linear category $\CC Gr(H_m)$ with objects the elements of $Gr(H_m)$ and at most one morphism (up to scalars) between any two objects.
@@ -382,6 +424,8 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
 \begin{corollary}
   For $V,W\in Gr(H_m)$, $m\ge3$, the space $\Ext(P_{m+1}^V,P_{m-1}^{\bar{\bar{W}}})$ has dimension 0 or 1.. .
 \end{corollary}
+
+
 
 \begin{lemma}
   \label{le:more truncated homomorphisms}
@@ -520,7 +564,7 @@ Each such sequence has the following almost-split property for proper subreprese
 \subsection{Lifting to $\widetilde{K(n)}$}
 
 In this section, we fix compatible bases for each $H_m=\Hom(P_{m-1},P_m)$ and use these to lift the (truncated) preprojectives to the universal cover of $K(n)$.
-This lifting will rigidify the situation and allow more precise control over these representations and their subrepresentation structure.
+This lifting will rigidify the situation and allow more precise control over these representations and their subrepresentation structure. A big advantage of this lifting is that those truncated preprojectives which can be lifted are exceptional representations on the universal covering.
 
 We fix a natural number $n\geq 3$. We fix the following lifts $\tilde P_m$  of $P_m$ to the universal cover $\widetilde{K(n)}$. For $m=1$ we assume that $\dim (\tilde P_1)_{1,1}=1$ and $\dim (\tilde P_1)_{i,w}=0$ if $(i,w)\neq (1,1)$. Moreover, we assume that $\dim (\tilde P_2)_{2,1}=\dim (\tilde P_2)_{1,w}=1$ for $w=a_1,\ldots,a_n$ and $\dim (\tilde P_2)_{i,w}=0$ if $(i,w)\notin\{(2,1),(1,a_1),\ldots,(1,a_n)\}$. Recall that applying the reflection functor $\Sigma_i$ on $K(n)$ corresponds to applying $\tilde\Sigma_i:=\prod_{w\in W_Q}\Sigma_{(i,w)}$ on $\widetilde{K(n)}$. Moreover, sinks become sources and vice versa. For $m\geq 2$, we can build lifts $\tilde P_m$ recursively by applying reflection functors or as Auslander-Reiten translation, i.e. we have
 \begin{align}
@@ -549,32 +593,48 @@ As we fixed the number of arrows, we drop the $n$ in what follows.
 With every sequence of natural numbers $\ui=(i_1,\ldots,i_k)$ with $i_j\leq n$ and $k\leq m-1$, we can associate a preprojective subrepresentation $\tilde P_{m-k,\uj}$ of dimension $(u_{m-k},u_{m-k-1})$. More detailed, we obtain a sequence of preprojective representations 
 $$\tilde P_{m-k,\ui}\subset \tilde P_{m-k+1,(i_1,\ldots,i_{k-1})}\subset\ldots\subset \tilde P_{m-2,(i_1,i_2)}\subset \tilde P_{m-1,i_1}\subset\tilde P_{m}.$$
 
+\begin{lemma}\label{le:homdecomposition}\sayT{I split up some lemmas. Check references}
+Let $m\geq 2$. The following holds:
+\begin{enumerate}
+\item We have $\Hom_Q(P_{m-1},P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$, where each $\Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$ is one-dimensional. 
+\item For every $\uj\in I_l$, there exists a truncated preprojective representation $\tilde P_{m}^{\uj}$ which is the cokernel of
+      \begin{align}\label{ses1}\ses{\bigoplus_{i=1}^l \tilde P_{m-1,j_i}}{\tilde P_m}{\tilde P_{m}^{\uj}}.\end{align}
+  \item For $m\geq 1$, the representations $\tilde P_{m,i}$ are pairwise orthogonal, i.e. for $i\neq k$ we have $$\Hom(\tilde P_{m,i},\tilde P_{m,k})=\Ext(\tilde P_{m,i},\tilde P_{m,k})=0.$$
 
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The first part is a consequence of Theorem \ref{covering}. Now the observations of Section \ref{sec:truncated preprojectives} immediately yield the second part. The last part is also a consequence of Theorem \ref{covering} as, for $1\leq i\neq k\leq n$, we have 
+$$\kk= \Hom_{\tilde Q}(\tilde P_{m,k},\tilde P_{m,k})\cong \Hom_Q(P_{m},P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m,i},\tilde P_{m,k})$$
+which implies $\Hom_{\tilde Q}(\tilde P_{m,i},\tilde P_{m,k})=0$ for $i\neq k$. Now $\Ext(\tilde P_{m,i},\tilde P_{m,k})=0$ follows in the same manner using that $P_m$ is exceptional.
 
+\end{proof}
+In the following, we make use of this lemma and fix a basis of $\Hom(P_{m-1},P_m)$ which is compatible with this direct sum decomposition. Note that, we can quotient out the lifted preproctives successively, i.e. we have short exact sequences
+\[\ses{ \tilde P_{m-1,j_l}}{\tilde P^{(j_1,\ldots,j_{l-1})}_m}{\tilde P_{m}^{\uj}}.\]
 \begin{lemma}
   \label{le:properties}
   \sayD{Parts (2) and (3) should follow directly from Lemma~\ref{le:unique morphisms} and the definition of truncated preprojectives for $K(n)$.} 
-  The following holds:
+  Let $m\geq 2$ and let $\uj\in I_l$. The following holds:
   \begin{enumerate}
-    \item For $m\geq 2$, we have $\Hom_Q(P_{m-1},P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$, where each $\Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$ is one-dimensional;
+    \item 
     % \item For any proper subset $\{i_1,\ldots,i_k\}\subset\{1,\ldots,n\}$, there exists a short exact sequence
     %   \[0\longrightarrow \tilde P_{m-1,i_1}\oplus\cdots\oplus\tilde P_{m-1,i_k}\longrightarrow\tilde P_m\longrightarrow \tilde P_m^{i_1,\ldots,i_k}\longrightarrow 0;\]
-    \item For $m\geq 1$, the representations $\tilde P_{m,i}$ are pairwise orthogonal, i.e. for $i\neq k$ we have $$\Hom(\tilde P_{m,i},\tilde P_{m,k})=\Ext(\tilde P_{m,i},\tilde P_{m,k})=0;$$
-    \item For every $\uj\in I_l$, there exists a truncated preprojective representation $\tilde P_{m}^{\uj}$ which is the cokernel of
-      \[\ses{\bigoplus_{i=1}^l \tilde P_{m-1,j_i}}{\tilde P_m}{\tilde P_{m}^{\uj}}.\]
-      On the universal covering, we have $\Hom(\tilde P_{m-1,k},\tilde P_m)\cong\Hom(\tilde P_{m-1,k},\tilde P_m^{\uj})=\kk$  where $k\neq j_i$ for $i=1,\ldots,l$, $\Hom(\tilde P_m,\tilde P_m^{\uj})=\kk$, $\Ext(\tilde P_{m},\tilde P_{m}^{\uj})=0$ and $\Ext(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=0$.
+
+     We have $\Hom(\tilde P_{m-1,k},\tilde P_m)\cong\Hom(\tilde P_{m-1,k},\tilde P_m^{\uj})=\kk$  for $k\neq j_i$ for $i=1,\ldots,l$. 
+		\item We have $\Hom(\tilde P_m,\tilde P_m^{\uj})=\kk$ and $\Ext(\tilde P_{m},\tilde P_{m}^{\uj})=0$. 
+		\item We have $\Ext(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=0$.
+	
   \end{enumerate}
 \end{lemma} 
 \begin{proof}
-  The first statement follows from Theorem \ref{covering}.
-  For $m=1$, the second part is obvious.
-  For $m\geq 2$, it then follows by applying the identities (\ref{recursive}).
 
-  The first identity of the last statement follows when applying $\Hom(\tilde P_{m-1,k},\underline{\quad})$ to the short exact sequence under consideration together with the first statement of this lemma.
 
-  As $\Ext(\tilde P_{m},\tilde P_{m-1,j_i})=\Hom(\tilde P_{m},\tilde P_{m-1,j_i})=0$ and $\Hom(\tilde P_m,\tilde P_m)=\kk$, the second and third identity follows when applying $\Hom(\tilde P_{m},\underline{\quad})$.
+  The first identity of the last statement follows when applying $\Hom(\tilde P_{m-1,k},\underline{\quad})$ to the short exact sequence (\ref{ses1}) using the results of Lemma \ref{le:homdecomposition}.
 
-  For every $i=1,\ldots,l$, we have $\Hom(\tilde P_{m-1,j_i},\bigoplus_{i=1}^l \tilde P_{m-1,j_i})\cong\Hom(\tilde P_{m-1,j_i},\tilde P_m)=\kk$. Thus it follows that $\Hom(\bigoplus_{i=1}^l \tilde P_{m-1,j_i},\tilde P^{\uj}_{m})=0$ because the representations $\tilde P_{m-1,j_i}$ are exceptional. Thus we obtain the last identity when applying $\Hom(\underline{\quad},\tilde P^{\uj}_{m})$.
+The second identities are an immediate consequence of Lemma \ref{le:basic homological properties}, but can also be obtained when applying $\Hom(\tilde P_{m},\underline{\quad})$ to (\ref{ses1}).
+%  As $\Hom(\tilde P_{m},\tilde P_{m-1,j_i})=\Ext(\tilde P_{m},\tilde P_{m-1,j_i})=\Ext(\tilde P_{m},\tilde P_{m})=0$ and $\Hom(\tilde P_m,\tilde P_m)=\kk$, the identities in the second statement follow when applying $\Hom(\tilde P_{m},\underline{\quad})$ to (\ref{ses1}).
+
+  For every $i=1,\ldots,l$, we have $\Hom(\tilde P_{m-1,j_i},\bigoplus_{i=1}^l \tilde P_{m-1,j_i})\cong\Hom(\tilde P_{m-1,j_i},\tilde P_m)=\kk$. Thus applying $\Hom(\bigoplus_{i=1}^l \tilde P_{m-1,j_i},\underline{\quad})$ to (\ref{ses1}) yields $\Hom(\bigoplus_{i=1}^l \tilde P_{m-1,j_i},\tilde P^{\uj}_{m})=0$ because the representations $\tilde P_{m-1,j_i}$ are exceptional. In view of the second identity, we obtain the third identity when applying $\Hom(\underline{\quad},\tilde P^{\uj}_{m})$ to (\ref{ses1}).
 \end{proof} 
 %To do so, we fix $m$ and the following notation can be seen as relative to $m$\footnote{do we need this?}. 
 
@@ -632,7 +692,7 @@ Actually, these examples already show how the (truncated) preprojectives are bui
  We need the following lemma analyzing the possible subrepresentations of truncated preprojective representations.
 \begin{lemma}
   \label{le:subrep}
-  \sayD{This should be moved to a statement on $K(n)$ and then deduced from that one.}
+  \sayD{This should be moved to a statement on $K(n)$ and then deduced from that one.}\sayT{The proof seems to be more complicated in general because we cannot assume that $U'$ is indecomposable which means that it may have self-extensions. This is because $U\notin\tilde P_{m-1,l}^\perp$}
   Let $\uj\in I_l$.
   All non-trivial proper subrepresentations $U$ of $\tilde P_m^{\uj}$ are preprojective.	
 \end{lemma}
@@ -687,12 +747,12 @@ The first statement follows for instance by induction when applying BGP-reflecti
 
 
 
-\newpage
 
 \begin{lemma}
   \label{AR}
   \footnote{special case $m=3$}
-  \sayD{Part (1) should follow from Corollary~\ref{cor:truncated preprojective isomorphism}.  Do parts (2), (3), (4) have analogues for $K(n)$?  The second half of (3) and part (5) should follow from Lemma~\ref{le:basic homological properties}.  The first half of (4) is roughly the same as Lemma~\ref{le:truncated extensions}.}
+  \sayD{Part (1) should follow from Corollary~\ref{cor:truncated preprojective isomorphism}.  Do parts (2), (3), (4) have analogues for $K(n)$?  The second half of (3) and part (5) should follow from Lemma~\ref{le:basic homological properties}.  The first half of (4) is roughly the same as Lemma~\ref{le:truncated extensions}.}\sayT{The sequence (6) should have an analogue on $K(n)$. I would be happy with a direct proof of (1) and (2). I did not check the details so far.
+	(4) and the first half of (3) hold only on the universal cover. We should also have $\Ext(\tilde P_m^{\uj},P(m,\uj))\neq 0$ on $K(n)$.}
   Let $m\geq 4$ and $n-1\geq l\geq 1$, $\uj=(j_1,\ldots,j_l)\in I_l$ and $\uj':=(j_1,\ldots,j_{l-1})$.
   Consider the short exact sequence $$\sesm{\tilde P_{m-1,j_l}}{\tilde P_{m}^{\uj'}}{\tilde P_{m}^{\uj}}{\pi^{j_l}_{m,\uj'}}$$ and define
   $$P(m,\uj):=\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{m-2,(j_l,i)}\oplus \bigoplus_{i=1}^{l-1}\tilde P_{m-3,(j_l,j_l,i)}.$$
@@ -702,11 +762,11 @@ The first statement follows for instance by induction when applying BGP-reflecti
     \item We have $\tau\tilde P_{m}^{(j_1,\ldots,j_l)}=\tilde P_{m-2}^{(j_1,\ldots,j_l)}$.
     %\item We have $\tau\tilde P_{m}^{(j_1,\ldots,j_l)}\in ~^\perp(\tilde P_{m}^{(j_1,\ldots,j_l)})$.\footnote{not true for $m\geq 4$. What do we need? We have $\Hom(\tau\tilde P_{m}^{(j_1,\ldots,j_l)},\tilde P_{m}^{(j_1,\ldots,j_l)})=0$}
     \item There exists a short exact sequences 
-      \[\sesm{P(m,\uj)}{\tilde P_{m-1,j_l}}{\tau\tilde P_{m}^{\uj}}{\pi^{\bf j_l}_{m-1}}\]
+      \begin{align}\label{ses3}\sesm{P(m,\uj)}{\tilde P_{m-1,j_l}}{\tau\tilde P_{m}^{\uj}}{\pi^{\bf j_l}_{m-1}}\end{align}
       where ${\bf j}_l=((1,\ldots,j_l-1,\widehat{j_l},j_{l}+1,\ldots,n),(j_1,\ldots,j_{l-1})).$
     \item We have $\Hom(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=\Hom(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})=0$. 
     \item We have $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})\cong \Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj})=\kk$.
-    \item We have $P(m,\uj)\in (\tilde P_{m}^{\uj})^\perp$.
+
     %\item Finally, we have $\Ext(\tilde P_{m+1}^{(k-1)},V)=0$ for every subrepresentation $V$ of $\tilde P_{m-1}^{n-1}\oplus \tilde P_{m-2}^{n-k}$.
   \end{enumerate}%\footnote{introduce/consider/check indices, we have to mod out the corresponding reps in the covering} 
 \end{lemma}
@@ -724,11 +784,32 @@ Actually, the first summand of $P(3,(1,\ldots,l))$ corresponds to the quivers $\
 
 As $\tilde P_m^{\uj}$ is exceptional on the universal covering by Lemma \ref{le:properties}, the Auslander-Reiten formulas \cite[Theorem IV.2.13]{ass} imply 
 $$\dim\Hom(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=\dim\Ext(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=0 \text{ and } \dim\Ext(\tilde P_m^{\uj},\tau\tilde P_m^{j})=\dim\Hom(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=1.$$
-As $\Hom(\tilde P_{4}^{\uj},\tilde P_{3,j_l})=0$ and $\Ext(\tilde P_{4}^{\uj},\tilde P_{3,j_l})=\kk$ by a straightforward check, applying (\ref{recursive}), it follows that $\Hom(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})=0$ and $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})=\kk$. Thus we can consider the long exact sequence obtained when applying $\Hom(\tilde P_{m}^{\uj},\underline{\quad})$ to the sequence obtained in course of the second statement. This yields the remaining results at once.\footnote{Lemma 5.2 and (3)-(5) zusammen}
 
+We have $\Hom(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})=0$ by Lemma \ref{le:basic homological properties}. As $\Ext(\tilde P_{4}^{\uj},\tilde P_{3,j_l})=\kk$ by a straightforward check, applying (\ref{recursive}), it follows that $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})=\kk$. This yields the third and forth identity.
+
+
+
+%As $\Hom(\tilde P_{4}^{\uj},\tilde P_{3,j_l})=0$ and $\Ext(\tilde P_{4}^{\uj},\tilde P_{3,j_l})=\kk$ by a straightforward check, applying (\ref{recursive}), it follows that $\Hom(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})=0$ and $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})=\kk$. Thus we can consider the long exact sequence obtained when applying $\Hom(\tilde P_{m}^{\uj},\underline{\quad})$ to the sequence obtained in course of the second statement. This yields the remaining results at once.
 
 %It is also straightforward to check that $\bigoplus_{j\neq l}\tilde P_{2,(l,j)}\oplus \bigoplus_{j=1}^{l-1}\tilde P_{1,(l,l,j)}\in (\tilde P_{4}^{(1,\ldots,l)})^\perp$ and, moreover, that $\Hom(\tilde P_{4}^{(1,\ldots,l)},\tilde P_{3,l})=0$. This yields the third claim when considering the long exact sequence obtained when applying $\Hom(\tilde P_{4}^{(1,\ldots,l)},\underline{\quad})$ to the short exact sequence considered in the second statement.
 
+
+\end{proof}
+Define 
+$$P(m,\uj):=\begin{cases}\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{m-2,(j_l,i)}\oplus \bigoplus_{i=1}^{l-1}\tilde P_{m-3,(j_l,j_l,i)}\text{ if }m\geq 4\\\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{1,(j_l,i)}\text{ if }m=3\end{cases}$$
+
+If $m=3$, we replace the short exact sequence (\ref{ses3}) by
+ \begin{align}\label{ses4}\xymatrix{0\ar[r] &P(3,\uj)\ar[r] &  \tilde P_{2,j_l}\ar[r] & \left((2,1)\xrightarrow{a_{j_l}}(1,a_{j_l})\right)\ar[r] & 0}.\end{align}
+ Recall that the image of the unique homomorphism $\tilde P_{2,j_l}\to\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ is just $\tau'\tilde P_3^{\uj}:=\left((2,1)\xrightarrow{a_{j_l}}(1,a_{j_l})\right)$, see also Example \ref{smallm}. 
+
+\begin{corollary}\label{cor: perpendicular}
+For $m\geq 3$ and $\uj\in I_l$, we have $P(m,\uj)\in (\tilde P_{m}^{\uj})^\perp$.
+\end{corollary}
+\begin{proof}
+If $m\geq 4$, we consider the long exact sequence obtained when applying $\Hom(\tilde P_{m}^{\uj},\underline{\quad})$ to the sequence (\ref{ses3}). Using the identities of Lemma \ref{AR}, the result follows.
+
+If $m=3$, we have $\Hom(\tilde P_{3}^{\uj},P(3,\uj))=0$ because $P(3,\uj)$ is a direct sum of simple projective representations. Moreover, it is straightforward that 
+$\Ext(\tilde P_{3}^{\uj},\tilde P_{1,(j_l,i)})=0$ for $i\neq j_l$. This is because $\tilde P_{1,(j_l,i)}$ is supported at a  vertex which is not a neighbour of the support of $\tilde P_{3}^{\uj}$, see also Example  \ref{smallm}.
 
 \end{proof}
 
@@ -985,34 +1066,18 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
 %\end{proof}
 
 %Any subrepresentation $E\subset P_{m+1}^V$ corresponds by taking pullbacks to a chain of inclusions $P_m\otimes V\subset\tilde E\subset P_{m+1}$.
-\begin{proposition}
-  \label{indecomposables}
-  Let $m\geq 1$.
-  Let $\alpha(m,r)=\dim P_{m+1}-r\dim P_m$ with $0\leq r\leq n-1$.
-  Let $R_\alpha(K(n))$ be the affine space of representations of dimension $\alpha(m,r)$.
-  The following hold:
+\begin{proposition} \label{indecomposables}
   \sayD{Move the first two of these into section~\ref{sec:truncated preprojectives}?}
-  \begin{enumerate}
-    \item The isomorphism classes of indecomposable representations of dimension $\alpha(m,r)$ are in one-to-one correspondence to points of $\Gr_{n-r}(\CC^n)$.
-    \item The set indecomposable representations of dimension $\alpha(m,r)$ is given by a non-empty open subset of $R_\alpha(K(n))$. 
-    \item The action of $\Gl_n(\CC)$ is transitive on $\mathrm{Ind}(K(n),\alpha(m,r))$.
-  \end{enumerate}
+  \sayT{moved}  Let $m\geq 1$ and $\alpha(m,r)=\dim P_{m+1}-r\dim P_m$ with $0\leq r\leq n-1$. The action of $\Gl_n(\CC)$ is transitive on $\mathrm{Ind}(K(n),\alpha(m,r))$.
+  
 \end{proposition}
 \begin{proof}
-
-As the reflection functors $\Sigma_1,\,\Sigma_2$ preserve indecomposability and as we have $\Sigma_2(\alpha(m,r))=\alpha(m+1,r)$, it suffices to prove the first statement for $m=1$. Then we have $\alpha(m,r)=(1,d)$ for $d:=n-r$. This means that $M\in R_\alpha(K(n))$ is given by a matrix $M\in\CC^{d\times n}$ where the $i^{\mathrm{th}}$ column stands for $M_{a_i}$. Now $M$ is indecomposable if and only if $\rk{M}=d$. Indeed, it is clear that $S_1^{m}$ splits up if and only if $\rk{M}=d-m$.
-
-This shows that the indecomposable representations in $R_{\alpha(1,d)}(K(n))$  are in one-to-one correspondence with matrices of maximal rank. Thus they are in one-to-one correspondence to subspaces of $\CC^n$ of dimension $d$ spanned by the column vectors of $M$. Now it straightforward to check that the $\Gl_\alpha=\CC^\ast\times\Gl_d(\CC)$-action on $R_\alpha(K(n))$ corresponds to the base change action of $\Gl_d(\CC)$ on the set of subspaces. This shows the first statement.
-
-It can be checked straightforwardly that $\alpha(1,d)$ is a Schur root because all indecomposable representations have trivial endomorphism ring. Thus the roots $\alpha(m,d)$ are also Schur roots. It follows that the set of indecomposable representations with trivial endomorphism ring form a dense open subset of $R_{\alpha(m,r)}(K(n))$, see for example \cite{sch}. This shows the second statement.
 
 For $m=1$, the action of $\Gl_n(\CC)$ on $\Gr_d(\CC^n)$ is transitive which shows that it is transitive on $\Ind_\alpha(K(n))$. As the reflection functors preserve indecomposability and isomorphism classes, by Lemma \ref{compatibleGSigma}, for every $g\in\Gl_n(\CC)$, we obtain a commutative diagram
 \[\xymatrix{\Ind(K(n),\alpha(m,r))\ar[r]^{\Sigma_2}\ar[d]^{g^{-T}}&\Ind(K(n),\alpha(m+1,r))\ar[d]^g\\
 \Ind(K(n),\alpha(m,r))\ar[r]^{\Sigma_2}&\Ind(K(n),\alpha(m+1,r))}\]
 As the $\Gl_n(\CC)$-action is transitive on the left hand side, this implies that it is also transitive on the right hand side.
 \end{proof}
-\begin{remark}There is a more elegant way to prove Proposition \ref{indecomposables} using the notion of stability and moduli spaces. Actually, fixing the standard stability induced by the linear form $\Theta(\alpha)=\alpha_2$, it can be shown that all indecomposables are stable and that the moduli space of stable representation is in fact $\Gr_d(\CC^n)$. We inserted this proof because the notion of stability were only used at this point and we wanted to keep this part as simple as possible. 
-\end{remark}
 
 
 \begin{theorem}
@@ -1024,7 +1089,7 @@ Let $g\in\Gl_n(\CC)$. We first show that $\Gr_\bfe(g.P_{m+1}^V)=\Gr_\bfe(P_{m+1}
 \[M_{a_i}(U_2)\subset U_1 \text{ for all } i=1,\ldots,n\Leftrightarrow \left(\sum\limits_{j=1}^n g_{ij}M_{a_j}\right)(U_2)\subset U_1 \text{ for all } i=1,\ldots,n.\]
 Note that we have $g^{-1}.(g.P_{m+1}^V)=P_{m+1}^V$ which shows the non-obvious direction.
 
-Together with Proposition \ref{indecomposables} this shows that all quiver Grassmannians $\Gr_\bfe(M)$ for a fixed $\bfe\in\NN^{Q_0}$ where $M\in\Ind(K(n),\udim P_{m+1}^V)$ are isomorphic. With other words we use that all indecomposables are truncated preprojectives.
+Proposition \ref{pro:indecomposables} and \ref{indecomposables} imply that all quiver Grassmannians $\Gr_\bfe(M)$ for a fixed $\bfe\in\NN^{Q_0}$ where $M\in\Ind(K(n),\udim P_{m+1}^V)$ are isomorphic. With other words we use that all indecomposables are truncated preprojectives.
 
 As the indecomposables form a dense open subset of all representations, we found a dense subset whose quiver Grassmannians for a fixed $\bfe$ are isomorphic. But now the same proof as for exceptional roots applies in order to show that these quiver Grassmannians need to be smooth, see \cite[Corollary 4]{cr}.
  % \footnote{The proof using moduli spaces needs to be written}
@@ -1094,16 +1159,7 @@ If the fibre dimension of $\Psi_\tbfe^{\tbff,\tbfg}$ is constant over $\mathrm{I
 
 Let $\uj=(j_1,\ldots,j_l)$ be an admissible sequence and $m\geq 3$. The short exact sequence $\ses{\tilde P_{m-1,j_l}}{\tilde P_{m}^{(j_1,\ldots,j_{l-1})}}{\tilde P_{m}^{(j_1,\ldots,j_l)}}$ induces a map between quiver Grassmannians
 $$\Psi_{m,\uj}:\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{(j_1,\ldots,j_{l-1})})\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff( \tilde P_{m-1,j_l})\times \Gr^{\tilde Q}_\tbfg(\tilde P_{m}^{\uj}).$$
-Define 
-$$P(m,\uj):=\begin{cases}\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{m-2,(j_l,i)}\oplus \bigoplus_{i=1}^{l-1}\tilde P_{m-3,(j_l,j_l,i)}\text{ if }m\geq 4\\\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{1,(j_l,i)}\text{ if }m=3\end{cases}$$
 
-Using Lemma \ref{AR}, for $m\geq 4$, every subrepresentation $U\subset \tilde P_{m,j_l}$ gives rise to a commutative diagram
- 
- \[\xymatrix{0\ar[r] &P(m,\uj)\ar[r] &  \tilde P_{m-1,j_l}\ar[r] & \tau\tilde P_{m}^{\uj}\ar[r] & 0 \\
-  0\ar[r]& V\ar[r]\ar[u] & U\ar[u]\ar[r]& W\ar[r]\ar[u]& 0}\]
-If $m=3$, we consider the sequence
- \[\xymatrix{0\ar[r] &P(3,\uj)\ar[r] &  \tilde P_{2,j_l}\ar[r] & (2,1)\xrightarrow{a_{j_l}}(1,a_{j_l})\ar[r] & 0}\]	
-instead. Recall that the image of the unique homomorphism $\tilde P_{2,j_l}\to\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ is just $\tau'\tilde P_3^{\uj}:=(2,1)\xrightarrow{a_{j_l}}(1,a_{j_l})$, see also Example \ref{smallm}. 
 	
 	%The Auslander-Reiten translate of $\tilde P_{3}^{(j_1,\ldots,j_l)}$ is given by
 	%\begin{align*}\xymatrix@R10pt@C20pt{&&\bullet\ar_{a_{j_1}}[lld]\\\bullet &&\vdots\\&&\bullet\ar_{a_{j_l}}[llu]}\end{align*}
@@ -1119,21 +1175,20 @@ For $m=3$, we obtain also a map $\Phi_{3,\uj}$ when replacing $\tau\tilde P_{m}^
 \end{enumerate} 
 \end{proposition}
 \begin{proof}
-In order to prove the case $m=3$, we replace $\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ by  $\tau'\tilde P_{3}^{(j_1,\ldots,j_l)}$ in which case all arguments hold in the same way.\footnote{das anders}
- 
+In order to prove the case $m=3$, we replace $\tau\tilde P_{3}^{\uj}$ by  $\tau'\tilde P_{3}^{\uj}$ in which case all arguments hold in the same way. In particular, we make use of $\Ext(\tau' P_3^{\uj},\tau' P_3^{\uj})=0$.
+
 If $W=0$,  we consider the following commutative diagram
 
  \[\xymatrix{&0&0&0&\\0\ar[r] &\Ext(\tilde P_{m}^{\uj},P(m,\uj)/V)\ar[r]\ar[u] &  \Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l}/U)\ar[r]\ar[u] & \Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj})\ar[r]\ar[u] & 0 \\
 0\ar[r] &\Ext(\tilde P_{m}^{\uj},P(m,\uj))\ar[r]\ar[u] &  \Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})\ar[r]\ar[u] & \Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj})\ar[r]\ar@{=}[u] & 0\\  0\ar[r] &\Ext(\tilde P_{m}^{\uj},V)\ar[r]\ar[u] &  \Ext(\tilde P_{m}^{\uj},U)\ar[r]\ar[u] &0\ar[r]\ar[u] & 0}\]
 	
-Lemma \ref{AR}.(5) implies that we have $\Ext(\tilde P_{m}^{\uj},P(m,\uj))=0$ and thus we get $\Ext(\tilde P_{m}^{\uj},P(m,\uj)/V)=0$.  This yields $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l}/U)\cong\Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m,j_l})$. Using Lemma \ref{AR}.(5), this means that the induced map
+Corollary \ref{cor: perpendicular} implies that we have $\Ext(\tilde P_{m}^{\uj},P(m,\uj))=0$ and thus we get $\Ext(\tilde P_{m}^{\uj},P(m,\uj)/V)=0$.  This yields $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l}/U)\cong\Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m,j_l})$ and thus $$\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})\cong\Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj})\cong  \Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l}/U).$$ This means that the induced map
 \[\Ext(\tilde P_{m}^{\uj},U)\to\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})\]
 is zero. Therefore, the induced exact sequence splits. 
-
-On the other hand, every subrepresentation $U\subset \tilde P_{m-1,j_l}$ such that $\Psi_{m,\uj}^{-1}(U,\tilde P_{m}^{\uj})$ is not empty comes with a commutative diagram
- \[\xymatrix{0\ar[r] &\tilde P_{m-1,j_l}\ar[r] &  \tilde P_{m}^{(j_1,\ldots,j_{l-1})}\ar[r] & \tilde P_{m}^{\uj}\ar[r] & 0 \\
+Let $\uj'=(j_1,\ldots,j_{l-1})$. On the other hand, every subrepresentation $U\subset \tilde P_{m-1,j_l}$ such that $\Psi_{m,\uj}^{-1}(U,\tilde P_{m}^{\uj})$ is not empty comes with a commutative diagram
+ \[\xymatrix{0\ar[r] &\tilde P_{m-1,j_l}\ar[r] &  \tilde P_{m}^{\uj'}\ar[r] & \tilde P_{m}^{\uj}\ar[r] & 0 \\
   e_U: 0\ar[r]& U\ar[r]\ar[u] & U'\ar[u]\ar[r]& \tilde P_{m}^{\uj}\ar[r]\ar@{=}[u]& 0}\]
-which means that the image of $e_U$ in $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})$ does not split. This is because we have $\Hom(\tilde P_{m}^{\uj},\tilde P_{m}^{(j_1,\ldots,j_{l-1})})=0$ by Lemma ???. This yields that the fibre $\Psi_{m,\uj}^{-1}(\tilde P_{m}^{\uj},U)$ is empty.
+which means that the image of $e_U$ in $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})$ does not split. This is because we have $\Hom(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj'})=0$ by Lemma \ref{le:unique morphisms}. This yields that the fibre $\Psi_{m,\uj}^{-1}(\tilde P_{m}^{\uj},U)$ is empty.
 
 
 Thus assume that $U\in\Phi_{m,\uj}^{-1}(V,W)$ with $W\neq 0$. We first show that $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l}/U)= 0$. Clearly, $\tau\tilde P_{m}^{\uj}/W$ is a proper factor of $\tau \tilde P_{m}^{\uj}$ if $W\neq 0$. 
@@ -1141,13 +1196,16 @@ It follows that we have $\Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj}/W)=0$. I
 \[\ses{\tau\tilde P_{m}^{\uj}}{Z}{\tilde P_{m}^{\uj}}\]
 which means that the first map of the induced sequence
 \[\Hom(\tau\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj}/W)\to\Ext(\tilde P_{m}^{\uj},\tau\tilde P_{m}^{\uj}/W)\to\Ext(Z,\tau\tilde P_{m}^{\uj}/W) \]
-is zero. As $\tilde P_m^{\uj}$ is exceptional on the universal covering by Lemma \ref{le:properties}, the Auslander-Reiten formulas \cite[Theorem IV.2.13]{ass} yield  
-$$\dim\Hom(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=\dim\Ext(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=0 \text{ and } \dim\Ext(\tilde P_m^{\uj},\tau\tilde P_m^{j})=\dim\Hom(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=1.$$ Since the map $\kk=\Hom(\tau \tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})\to\Ext(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})$ induced by the Auslander-Reiten sequence is injective and thus bijective, together with $\Ext(\tau \tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=0$, this shows $\Ext(Z,\tau\tilde P_{m}^{\uj})=0$ and thus $\Ext(Z,\tau\tilde P_{m}^{\uj}/W)=0$.
+is zero. By Lemmas \ref{le:properties} and \ref{AR}, we have 
+$$\Ext(\tau\tilde P_m^{\uj},\tau\tilde P_m^{\uj})=0,\quad \Ext(\tilde P_m^{\uj},\tau\tilde P_m^{\uj})=\kk$$
+for $m\geq 4$. The same identities hold for $m=3$ when replacing $\tau$ by $\tau'$. The second identity follows for instance when using $\Ext(\tilde P_{3}^{\uj},\tilde P_{2,j_l})=\kk$, which is straightforward by Example \ref{smallm}, together with the isomorphism $\Ext(\tilde P_{3}^{\uj},\tilde P_{2,j_l})\cong\Ext(\tilde P_{3}^{\uj},\tau'\tilde P_{3}^{\uj})$ obtained above.
+
+Thus the injective map $\kk=\Hom(\tau \tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})\to\Ext(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})$ induced by the Auslander-Reiten sequence is injective is bijective. Together with $\Ext(\tau \tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=0$, this shows $\Ext(Z,\tau\tilde P_{m}^{\uj})=0$ and thus $\Ext(Z,\tau\tilde P_{m}^{\uj}/W)=0$.
 
 %As $\tau\tilde P_{m+1}^{(k)}$ is exceptional (on the universal cover), we are in the situation of Ringel's reflection \cite{rin} which means that $\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)})=\kk$, $\Hom(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)})=0$ and $\tau\tilde P_{m+1}^{(k)}\in ~^\perp(\tilde P_{m+1}^{(k)})$, i.e. Lemma \ref{AR}, yields $\Ext(Z,\tau\tilde P_{m+1}^{(k)})=0$ as the AR-sequence does not split. In conclusion, we obtain $\Ext(\tilde P_{m+1}^{(k)},\tau\tilde P_{m+1}^{(k)}/W)=0$. 
 
 
-Again we can apply Lemma \ref{AR} in order to see that $\Ext(\tilde P_{m}^{\uj},P(m,\uj)/V)=0$ as $\Ext(\tilde P_{m}^{\uj},P(m,\uj))=0$. 
+Again we can apply Corollary \ref{cor: perpendicular} in order to see that $\Ext(\tilde P_{m}^{\uj},P(m,\uj)/V)=0$ as $\Ext(\tilde P_{m}^{\uj},P(m,\uj))=0$. 
  Together with $\Ext(\tilde P_{m+1}^{\uj},\tau\tilde P_{m}^{\uj}/W)=0$, this yields the claim.
 
 Thus it remains to show that $\Psi_{m,\uj}(U,\tilde P_{m}^{\uj})$ is not empty if $W\neq 0$. Since $\Ext(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l}/U)= 0$, we can conclude that the map $\Ext(\tilde P_{m}^{\uj},U)\to\Ext(\tilde P_{m}^{\uj},\tilde P_{m,j_l})$ is surjective which already means that there exists a commutative diagram as above. This shows that the fiber is not empty.
