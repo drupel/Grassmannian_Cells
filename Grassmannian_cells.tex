@@ -177,11 +177,9 @@ As a $\CC$-vector space, the path algebra $A(n)$ can be written as $A_0\oplus A_
 \end{itemize}
 
 Write $\Sigma_1$ and $\Sigma_2$ for the BGP-reflection functors of $K(n)$ \cite{bgp}. 
-Note that (up to relabeling vertices) the quiver $K(n)$ itself does not change when applying the reflection functors and thus we can view these as endofunctors acting on the category $\rep K(n)$. 
-
-The endofunctors $\Sigma_1^2$ and $\Sigma_2^2$ are each naturally isomorphic to the identity maps on the full subcategories $\rep_{\langle 1\rangle} K(n),\rep_{\langle 2\rangle} K(n)\subset \rep K(n)$, where the objects of $\rep_{\langle i\rangle} K(n)$ are those representations of $K(n)$ which do not contain the simple $S_i$ as a direct summand.
+We use the same symbols $\Sigma_1$, $\Sigma_2$ for the BGP-reflection functors of $K(n)^{op}$, this should not lead to any confusion. 
+Then the endofunctors $\Sigma_1^2$ and $\Sigma_2^2$ are each naturally isomorphic to the identity maps on the full subcategories $\rep_{\langle 1\rangle} K(n),\rep_{\langle 2\rangle} K(n)\subset \rep K(n)$, where the objects of $\rep_{\langle i\rangle} K(n)$ are those representations of $K(n)$ which do not contain the simple $S_i$ as a direct summand.
 Also, following \cite{brenner-butler}, the Auslander-Reiten translation $\tau:\rep K(n)\to\rep K(n)$ may be identified with the functor $\Sigma_2\Sigma_1$.
-\sayD{These edits make the statements false.  By viewing the reflection functors as endofunctors, we have to interchange the vertex labels so that the inverse of $\Sigma_1$ is $\Sigma_2$.  Maybe we want to explicitly introduce the functor identifying $\rep K(n)$ with $\rep K(n)^{op}$, is there a standard notation for this?}
 
 Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=1$, $u_{k+1}=nu_k-u_{k-1}$.
 The following is well-known.
@@ -193,42 +191,58 @@ The following is well-known.
 The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
 \begin{remark}
   \label{rem:reflection recursion}
+  We may identify the quiver $K(n)$ with $K(n)^{op}$ by interchanging the vertex labels.
+  This induces an isomorphism of categories $\rep K(n)\cong\rep K(n)^{op}$ which we write as $M\mapsto M^\sigma$.
+  Note that $\Sigma_1(M^\sigma)=(\Sigma_2 M)^\sigma$ and $\Sigma_2(M^\sigma)=(\Sigma_1 M)^\sigma$.
   \begin{enumerate}
-    \item These representations satisfy the following recursions using the reflection functors:
-      \[P_1=S_1,\quad P_m=\Sigma_2 P_{m-1},\quad I_1=S_2,\quad I_m=\Sigma_1 I_{m-1}\]
+    \item The preprojective and preinjective representations satisfy the following recursions using the reflection functors:
+      \[P_1=S_1,\quad P_m^\sigma=\Sigma_2 P_{m-1},\quad I_1=S_2,\quad I_m^\sigma=\Sigma_1 I_{m-1}\]
       for $m\ge2$.
       In particular, we have $P_{m-1}=\tau P_{m+1}$ and $I_{m+1}=\tau I_{m-1}$ for $m\ge2$.
-    \item If $\ses{M}{B}{N}$ is a short exact sequence such that no direct summand of $M$, $B$ and $N$ is preinjective, then $\ses{(\Sigma_1\Sigma_2)^nM}{(\Sigma_1\Sigma_2)^nB}{(\Sigma_1\Sigma_2)^nN}$ and $\ses{\Sigma_2(\Sigma_1\Sigma_2)^nM}{\Sigma_2(\Sigma_1\Sigma_2)^nB}{\Sigma_2(\Sigma_1\Sigma_2)^nN}$ are short exact sequences without any preinjective direct summands.
-      Without the assumption on the direct summands, it is not clear that short exact sequences are preserved.
-      This is because $\Sigma_2 S_2=0$.
+    \item If $\ses{M}{B}{N}$ is a short exact sequence such that no direct summand of $M$, $B$, nor $N$ is preinjective, then $\ses{(\Sigma_1\Sigma_2)^nM}{(\Sigma_1\Sigma_2)^nB}{(\Sigma_1\Sigma_2)^nN}$ and $\ses{\Sigma_2(\Sigma_1\Sigma_2)^nM}{\Sigma_2(\Sigma_1\Sigma_2)^nB}{\Sigma_2(\Sigma_1\Sigma_2)^nN}$ are short exact sequences without any preinjective direct summands.
+      %Without the assumption on the direct summands, it is not clear that short exact sequences are preserved.
+      %This is because $\Sigma_2 S_2=0$.
   \end{enumerate}
 \end{remark}
 We will see that the indecomposable representations of dimension $\alpha(m,r):=\dim P_{m+1}-r\dim P_m$ with $0\leq r\leq n-1$ play an important role as they appear as quotients of morphisms between preprojective representations.
+For a dimension vector $\alpha$, write $R_\alpha(K(n))$ for the affine space of representations of dimension $\alpha$.
 \begin{proposition}
   \label{pro:indecomposables}
-  Let $m\geq 1$. Let $R_\alpha(K(n))$ be the affine space of representations of dimension $\alpha(m,r)$.
+  Let $m\geq 1$ and $0\le r\le n-1$.
   The following hold:
   %\sayD{Move the first two of these into section~\ref{sec:truncated preprojectives}?}
   \begin{enumerate}
     \item The isomorphism classes of indecomposable representations of dimension $\alpha(m,r)$ are in one-to-one correspondence to points of $\Gr_{n-r}(\CC^n)$.
-    \item The set indecomposable representations of dimension $\alpha(m,r)$ is given by a non-empty open subset of $R_\alpha(K(n))$. 
+    \item The set of indecomposable representations of dimension $\alpha(m,r)$ is given by a non-empty open subset of $R_{\alpha(m,r)}(K(n))$. 
    % \item The action of $\Gl_n(\CC)$ is transitive on $\mathrm{Ind}(K(n),\alpha(m,r))$.
   \end{enumerate}
 \end{proposition}
 \begin{proof}
+  As the reflection functors $\Sigma_1,\,\Sigma_2$ preserve indecomposability and as we have $\Sigma_2(\alpha(m,r))=\alpha(m+1,r)$, it suffices to prove the first statement for $m=1$.
+  Then we have $\alpha(m,r)=(1,d)$ for $d:=n-r$.
+  This means that $X\in R_\alpha(K(n))$ is given by a matrix $M_X\in\CC^{d\times n}$, where the $i^{\mathrm{th}}$ column stands for $X_{\alpha_i}$.
+  Now $X$ is indecomposable if and only if $\rk(M_X)=d$.
+  Indeed, $X$ admits a summand isomorphic to $S_1^m$ exactly when $\rk(M_X)=d-m$.
 
-As the reflection functors $\Sigma_1,\,\Sigma_2$ preserve indecomposability and as we have $\Sigma_2(\alpha(m,r))=\alpha(m+1,r)$, it suffices to prove the first statement for $m=1$. Then we have $\alpha(m,r)=(1,d)$ for $d:=n-r$. This means that $M\in R_\alpha(K(n))$ is given by a matrix $M\in\CC^{d\times n}$ where the $i^{\mathrm{th}}$ column stands for $M_{a_i}$. Now $M$ is indecomposable if and only if $\rk{M}=d$. Indeed, it is clear that $S_1^{m}$ splits up if and only if $\rk{M}=d-m$.
+  This shows that the indecomposable representations in $R_{\alpha(1,d)}(K(n))$ are in one-to-one correspondence with $d\times n$ matrices of maximal rank.
+  Thus they are in one-to-one correspondence to subspaces of $\CC^n$ of dimension $d$ spanned by the column vectors of $M_X$.
+  Now it is straightforward to check that the $\Gl_\alpha=\CC^\ast\times\Gl_d(\CC)$-action on $R_\alpha(K(n))$ corresponds to the base change action of $\Gl_d(\CC)$ on the set of subspaces.
+  This shows the first statement.
 
-This shows that the indecomposable representations in $R_{\alpha(1,d)}(K(n))$  are in one-to-one correspondence with matrices of maximal rank. Thus they are in one-to-one correspondence to subspaces of $\CC^n$ of dimension $d$ spanned by the column vectors of $M$. Now it straightforward to check that the $\Gl_\alpha=\CC^\ast\times\Gl_d(\CC)$-action on $R_\alpha(K(n))$ corresponds to the base change action of $\Gl_d(\CC)$ on the set of subspaces. This shows the first statement.
-
-It can be checked straightforwardly that $\alpha(1,d)$ is a Schur root because all indecomposable representations have trivial endomorphism ring. Thus the roots $\alpha(m,d)$ are also Schur roots. It follows that the set of indecomposable representations with trivial endomorphism ring form a dense open subset of $R_{\alpha(m,r)}(K(n))$, see for example \cite{sch}. This shows the second statement.
+  It can be checked straightforwardly that $\alpha(1,d)$ is a Schur root because all indecomposable representations have trivial endomorphism ring.
+  Thus the roots $\alpha(m,d)$ are also Schur roots.
+  It follows that the set of indecomposable representations with trivial endomorphism ring form a dense open subset of $R_{\alpha(m,r)}(K(n))$, see for example \cite{sch}.
+  This shows the second statement.
 
 %For $m=1$, the action of $\Gl_n(\CC)$ on $\Gr_d(\CC^n)$ is transitive which shows that it is transitive on $\Ind_\alpha(K(n))$. As the reflection functors preserve indecomposability and isomorphism classes, by Lemma \ref{compatibleGSigma}, for every $g\in\Gl_n(\CC)$, we obtain a commutative diagram
 %\[\xymatrix{\Ind(K(n),\alpha(m,r))\ar[r]^{\Sigma_2}\ar[d]^{g^{-T}}&\Ind(K(n),\alpha(m+1,r))\ar[d]^g\\
 %\Ind(K(n),\alpha(m,r))\ar[r]^{\Sigma_2}&\Ind(K(n),\alpha(m+1,r))}\]
 %As the $\Gl_n(\CC)$-action is transitive on the left hand side, this implies that it is also transitive on the right hand side.
 \end{proof}
-\begin{remark}There is a more elegant way to prove Proposition \ref{pro:indecomposables} using the notion of stability and moduli spaces. Actually, fixing the standard stability induced by the linear form $\Theta(\alpha)=\alpha_2$, it can be shown that all indecomposables are stable and that the moduli space of stable representation is in fact $\Gr_d(\CC^n)$. We inserted this proof because the notion of stability were only used at this point and we wanted to keep this part as simple as possible. 
+\begin{remark}
+  There is a more elegant way to prove Proposition \ref{pro:indecomposables} using the notion of stability and moduli spaces.
+  Actually, fixing the standard stability induced by the linear form $\Theta(\alpha)=\alpha_2$, it can be shown that all indecomposables are stable and that the moduli space of stable representation is in fact $\Gr_d(\CC^n)$.
+  We opted for the proof above because the notion of stability would only be used at this point and we wanted to keep the exposition as simple as possible. 
 \end{remark}
 
 
