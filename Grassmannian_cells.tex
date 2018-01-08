@@ -584,22 +584,28 @@ Each such sequence has the following almost-split property for proper subreprese
 \subsection{Lifting to $\widetilde{K(n)}$}
 
 In this section, we fix compatible bases for each $H_m=\Hom(P_{m-1},P_m)$ and use these to lift the (truncated) preprojectives to the universal cover of $K(n)$.
-This lifting will rigidify the situation and allow more precise control over these representations and their subrepresentation structure. A big advantage of this lifting is that those truncated preprojectives which can be lifted are exceptional representations on the universal covering.
+This lifting will rigidify the situation and allow more precise control over these representations and their subrepresentation structure.
+The main advantage of this lifting is that those truncated preprojectives which can be lifted are exceptional representations on the universal covering.
 
-We fix a natural number $n\geq 3$. We fix the following lifts $\tilde P_m$  of $P_m$ to the universal cover $\widetilde{K(n)}$. For $m=1$ we assume that $\dim (\tilde P_1)_{1,1}=1$ and $\dim (\tilde P_1)_{i,w}=0$ if $(i,w)\neq (1,1)$. Moreover, we assume that $\dim (\tilde P_2)_{2,1}=\dim (\tilde P_2)_{1,w}=1$ for $w=a_1,\ldots,a_n$ and $\dim (\tilde P_2)_{i,w}=0$ if $(i,w)\notin\{(2,1),(1,a_1),\ldots,(1,a_n)\}$. Recall that applying the reflection functor $\Sigma_i$ on $K(n)$ corresponds to applying $\tilde\Sigma_i:=\prod_{w\in W_Q}\Sigma_{(i,w)}$ on $\widetilde{K(n)}$. Moreover, sinks become sources and vice versa. For $m\geq 2$, we can build lifts $\tilde P_m$ recursively by applying reflection functors or as Auslander-Reiten translation, i.e. we have
+Fix a natural number $n\geq 3$ and consider the following lifts $\tilde P_m$  of $P_m$ to the universal cover $\widetilde{K(n)}$.
+For $m=1$, we assume that $\dim(\tilde P_1)_{1,1}=1$ and $\dim (\tilde P_1)_{i,w}=0$ if $(i,w)\neq (1,1)$.
+Moreover, we assume that $\dim (\tilde P_2)_{2,1}=\dim (\tilde P_2)_{1,w}=1$ for $w=\alpha_1,\ldots,\alpha_n$ and $\dim (\tilde P_2)_{i,w}=0$ if $(i,w)\notin\{(2,1),(1,\alpha_1),\ldots,(1,\alpha_n)\}$.
+Recall that applying the BGP-reflection functor $\Sigma_i$ on $K(n)$ corresponds to applying $\tilde\Sigma_i:=\prod_{w\in W_Q}\Sigma_{(i,w)}$ on $\widetilde{K(n)}$.
+Moreover, sinks become sources and vice versa.
+For $m\geq 2$, we build lifts $\tilde P_m$ recursively by applying reflection functors or as Auslander-Reiten translates, i.e. we have
 \begin{align}
   \label{recursive}
   \tilde P_m=\tilde\Sigma_2 \tilde P_{m-1},\quad\tilde P_{m+1}=\tilde\Sigma_{1}\tilde\Sigma_2\tilde P_{m-1}=\tau^{-1} \tilde P_{m-1}.
 \end{align}
 It is rather important that $\tilde P_{2l}$ and $\tilde P_{2l-1}$ live on two different components of the universal covering quiver.
- 
 
 \begin{remark}
+  \mbox{}
   \begin{enumerate}
-    \item Note that the group $W_Q$ acts naturally on $\widetilde{K(n)}_0$ via translation, i.e. $w.(q,w')=(q,ww')$ inducing an action on $\Rep(\widetilde{K(n)})$. 
+    \item Note that the group $W_Q$ acts naturally on $\widetilde{K(n)}_0$ via translation, i.e. $w.(i,w')=(i,ww')$, and this induces an action of $W_Q$ on $\Rep(\widetilde{K(n)})$. 
       %Up to this action a lift $\tilde P_m$ of $P_m$ is unique (on isomorphism classes).
     \item We have 
-      $$\tilde P_{2l-1,i}:=a_i.\tilde P_{2l-1},\quad \tilde P_{2l,i}:=a_i^{-1}.\tilde P_{2l}$$
+      $$\tilde P_{2l-1,i}:=\alpha_i.\tilde P_{2l-1},\quad \tilde P_{2l,i}:=\alpha_i^{-1}.\tilde P_{2l}$$
       for all $l\geq 1$ and for $i=1,\ldots,n$. This can be checked straightforwardly for $l=1$ and follows in general when applying the identities (\ref{recursive}). 
 
       Now every representation $\tilde P_m$ has $n$ subrepresentation $\tilde P_{m-1,1},\ldots,\tilde P_{m-1,n}$. Each of them corresponds to one of the $n$ different arrows of $K(n)$. 
@@ -613,90 +619,91 @@ As we fixed the number of arrows, we drop the $n$ in what follows.
 With every sequence of natural numbers $\ui=(i_1,\ldots,i_k)$ with $i_j\leq n$ and $k\leq m-1$, we can associate a preprojective subrepresentation $\tilde P_{m-k,\uj}$ of dimension $(u_{m-k},u_{m-k-1})$. More detailed, we obtain a sequence of preprojective representations 
 $$\tilde P_{m-k,\ui}\subset \tilde P_{m-k+1,(i_1,\ldots,i_{k-1})}\subset\ldots\subset \tilde P_{m-2,(i_1,i_2)}\subset \tilde P_{m-1,i_1}\subset\tilde P_{m}.$$
 
-\begin{lemma}\label{le:homdecomposition}\sayT{I split up some lemmas. Check references}
-Let $m\geq 2$. The following holds:
-\begin{enumerate}
-  \item We have $\Hom_Q(P_{m-1},P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$, where each $\Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$ is one-dimensional. 
-  \item For every $\uj\in I_l$, there exists a truncated preprojective representation $\tilde P_{m}^{\uj}$ which is the cokernel of
+\begin{lemma}
+  \label{le:homdecomposition}
+  \sayT{I split up some lemmas. Check references}
+  Let $m\geq 2$. The following holds:
+  \begin{enumerate}
+    \item We have $\Hom_Q(P_{m-1},P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$, where each $\Hom_{\tilde Q}(\tilde P_{m-1,i},\tilde P_m)$ is one-dimensional. 
+    \item For every $\uj\in I_l$, there exists a truncated preprojective representation $\tilde P_{m}^{\uj}$ which is the cokernel of
       \begin{align}
         \label{ses1}
         \ses{\bigoplus_{i=1}^l \tilde P_{m-1,j_i}}{\tilde P_m}{\tilde P_{m}^{\uj}}.
       \end{align}
-  \item For $m\geq 1$, the representations $\tilde P_{m,i}$ are pairwise orthogonal, i.e. for $i\neq k$ we have $$\Hom(\tilde P_{m,i},\tilde P_{m,k})=\Ext(\tilde P_{m,i},\tilde P_{m,k})=0.$$
-\end{enumerate}
+    \item For $m\geq 1$, the representations $\tilde P_{m,i}$ are pairwise orthogonal, i.e. for $i\neq k$ we have 
+      $$\Hom(\tilde P_{m,i},\tilde P_{m,k})=0=\Ext(\tilde P_{m,i},\tilde P_{m,k}).$$
+  \end{enumerate}
 \end{lemma}
 \begin{proof}
-The first part is a consequence of Theorem \ref{covering}. Now the observations of Section \ref{sec:truncated preprojectives} immediately yield the second part. The last part is also a consequence of Theorem \ref{covering} as, for $1\leq i\neq k\leq n$, we have 
-$$\kk= \Hom_{\tilde Q}(\tilde P_{m,k},\tilde P_{m,k})\cong \Hom_Q(P_{m},P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m,i},\tilde P_{m,k})$$
-which implies $\Hom_{\tilde Q}(\tilde P_{m,i},\tilde P_{m,k})=0$ for $i\neq k$. Now $\Ext(\tilde P_{m,i},\tilde P_{m,k})=0$ follows in the same manner using that $P_m$ is exceptional.
-
+  The first part is immediate from Theorem \ref{covering}.
+  Now the observations of Section \ref{sec:truncated preprojectives} immediately yield the second part.
+  The last part is also a consequence of Theorem \ref{covering}.
+  Indeed, for $1\leq k\leq n$, we have 
+  $$\CC=\Hom_Q(P_m,P_m)\cong\bigoplus_{i=1}^n \Hom_{\tilde Q}(\tilde P_{m,i},\tilde P_{m,k}).$$
+  But $\Hom_{\tilde Q}(\tilde P_{m,k},\tilde P_{m,k})\cong\CC$ and so we must have $\Hom_{\tilde Q}(\tilde P_{m,i},\tilde P_{m,k})=0$ for $i\neq k$.
+  The vanishing of $\Ext(\tilde P_{m,i},\tilde P_{m,k})$ follows in the same manner using that $P_m$ is exceptional.
 \end{proof}
-In the following, we make use of this lemma and fix a basis of $\Hom(P_{m-1},P_m)$ which is compatible with this direct sum decomposition. Note that, we can quotient out the lifted preproctives successively, i.e. we have short exact sequences
+In the following, we make use of this lemma and fix a basis of $\Hom(P_{m-1},P_m)$ which is compatible with this direct sum decomposition.
+Note that, we can quotient out the lifted preprojectives successively, i.e. we have short exact sequences
 \[\ses{ \tilde P_{m-1,j_l}}{\tilde P^{(j_1,\ldots,j_{l-1})}_m}{\tilde P_{m}^{\uj}}.\]
 \begin{lemma}
   \label{le:properties}
   \sayD{Parts (2) and (3) should follow directly from Lemma~\ref{le:unique morphisms} and the definition of truncated preprojectives for $K(n)$.} 
-  Let $m\geq 2$ and let $\uj\in I_l$. The following holds:
+  For $m\geq 2$ and $\uj\in I_l$, the following hold:
   \begin{enumerate}
-    \item 
-    % \item For any proper subset $\{i_1,\ldots,i_k\}\subset\{1,\ldots,n\}$, there exists a short exact sequence
-    %   \[0\longrightarrow \tilde P_{m-1,i_1}\oplus\cdots\oplus\tilde P_{m-1,i_k}\longrightarrow\tilde P_m\longrightarrow \tilde P_m^{i_1,\ldots,i_k}\longrightarrow 0;\]
-
-      We have $\Hom(\tilde P_{m-1,k},\tilde P_m)\cong\Hom(\tilde P_{m-1,k},\tilde P_m^{\uj})=\kk$  for $k\neq j_i$ for $i=1,\ldots,l$. 
-    \item We have $\Hom(\tilde P_m,\tilde P_m^{\uj})=\kk$ and $\Ext(\tilde P_{m},\tilde P_{m}^{\uj})=0$. 
+    \item We have $\Hom(\tilde P_{m-1,k},\tilde P_m)\cong\Hom(\tilde P_{m-1,k},\tilde P_m^{\uj})=\CC$  for $k\neq j_i$ for $i=1,\ldots,l$. 
+    \item We have $\Hom(\tilde P_m,\tilde P_m^{\uj})=\CC$ and $\Ext(\tilde P_{m},\tilde P_{m}^{\uj})=0$. 
     \item We have $\Ext(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=0$.
   \end{enumerate}
 \end{lemma} 
 \begin{proof}
+  The first identity of the last statement follows when applying $\Hom(\tilde P_{m-1,k},-)$ to the short exact sequence (\ref{ses1}) using the results of Lemma \ref{le:homdecomposition}.
 
-
-  The first identity of the last statement follows when applying $\Hom(\tilde P_{m-1,k},\underline{\quad})$ to the short exact sequence (\ref{ses1}) using the results of Lemma \ref{le:homdecomposition}.
-
-The second identities are an immediate consequence of Lemma \ref{le:basic homological properties}, but can also be obtained when applying $\Hom(\tilde P_{m},\underline{\quad})$ to (\ref{ses1}).
+  The second identities are an immediate consequence of Lemma \ref{le:basic homological properties}, but can also be obtained when applying $\Hom(\tilde P_{m},\underline{\quad})$ to (\ref{ses1}).
 %  As $\Hom(\tilde P_{m},\tilde P_{m-1,j_i})=\Ext(\tilde P_{m},\tilde P_{m-1,j_i})=\Ext(\tilde P_{m},\tilde P_{m})=0$ and $\Hom(\tilde P_m,\tilde P_m)=\kk$, the identities in the second statement follow when applying $\Hom(\tilde P_{m},\underline{\quad})$ to (\ref{ses1}).
 
-  For every $i=1,\ldots,l$, we have $\Hom(\tilde P_{m-1,j_i},\bigoplus_{i=1}^l \tilde P_{m-1,j_i})\cong\Hom(\tilde P_{m-1,j_i},\tilde P_m)=\kk$. Thus applying $\Hom(\bigoplus_{i=1}^l \tilde P_{m-1,j_i},\underline{\quad})$ to (\ref{ses1}) yields $\Hom(\bigoplus_{i=1}^l \tilde P_{m-1,j_i},\tilde P^{\uj}_{m})=0$ because the representations $\tilde P_{m-1,j_i}$ are exceptional. In view of the second identity, we obtain the third identity when applying $\Hom(\underline{\quad},\tilde P^{\uj}_{m})$ to (\ref{ses1}).
+  For every $i=1,\ldots,l$, we have $\Hom(\tilde P_{m-1,j_i},\bigoplus_{i=1}^l \tilde P_{m-1,j_i})\cong\Hom(\tilde P_{m-1,j_i},\tilde P_m)=\CC$. Thus applying $\Hom(\bigoplus_{i=1}^l \tilde P_{m-1,j_i},\underline{\quad})$ to (\ref{ses1}) yields $\Hom(\bigoplus_{i=1}^l \tilde P_{m-1,j_i},\tilde P^{\uj}_{m})=0$ because the representations $\tilde P_{m-1,j_i}$ are exceptional. In view of the second identity, we obtain the third identity when applying $\Hom(\underline{\quad},\tilde P^{\uj}_{m})$ to (\ref{ses1}).
 \end{proof} 
 %To do so, we fix $m$ and the following notation can be seen as relative to $m$\footnote{do we need this?}. 
 
-In the same way as for the preprojective lifts $\tilde P_{m-k}$, we can define truncated preprojective quotients $\tilde P_{m-k,\ui}^{\uj}$ of $\tilde P_{m-k,\ui}$ where $\uj\in I_s$ with $s\leq n-1$. Therefore, we quotient out the translations of $\tilde P_{m-k-1,(\ui,j_t)}$ for $t=1,\ldots,s$. These quotients are unique in the sense that $\Hom(\tilde P_{m-k,\ui},\tilde P_{m-k,\ui}^{\uj})=\kk$.
+In the same way as for the preprojective lifts $\tilde P_{m-k}$, we can define truncated preprojective quotients $\tilde P_{m-k,\ui}^{\uj}$ of $\tilde P_{m-k,\ui}$ where $\uj\in I_s$ with $s\leq n-1$. Therefore, we quotient out the translations of $\tilde P_{m-k-1,(\ui,j_t)}$ for $t=1,\ldots,s$. These quotients are unique in the sense that $\Hom(\tilde P_{m-k,\ui},\tilde P_{m-k,\ui}^{\uj})=\CC$.
 
 
 \begin{example}\label{smallm}[The cases $m=2,3,4$]
 \end{example}
 
 
-As the lifts of all (truncated) preprojectives are exceptional as representations of $\widetilde{K(m)}$, they are uniquely determined by its dimension vector. We use this fact and do not state the particular maps defining the lifts. In this example, we just state the support of the representation including those dimensions which are not one. We call it the quiver of the representations.
+As the lifts of all (truncated) preprojectives are exceptional as representations of $\widetilde{K(n)}$, they are uniquely determined by its dimension vector. We use this fact and do not state the particular maps defining the lifts. In this example, we just state the support of the representation including those dimensions which are not one. We call it the quiver of the representations.
 
 The representation $\tilde P_2$ is defined by the following quiver:
 
 \begin{align*}
-  \xymatrix@R10pt@C20pt{&&(1,a_1)\\(2,1)\ar^{a_1}[rru]\ar^{a_{n}}[rrd] &&\vdots\\&&(1,a_n)}
+  \xymatrix@R10pt@C20pt{&&(1,\alpha_1)\\(2,1)\ar^{\alpha_1}[rru]\ar^{\alpha_{n}}[rrd] &&\vdots\\&&(1,\alpha_n)}
 \end{align*}
-The support of $\tilde P_2^{(i)}$, which we denote by $\mathcal A_i$ during this proof, can be obtained from this quiver by erasing the arrow $a_i$ and the corresponding sink. In turn, the quiver of $\tilde P_2^{(j_1,\ldots,j_l)}$ is obtained by erasing the arrows $a_{j_1},\ldots, a_{j_l}$.
+The support of $\tilde P_2^{(i)}$, which we denote by $\mathcal A_i$ during this proof, can be obtained from this quiver by erasing the arrow $\alpha_i$ and the corresponding sink. In turn, the quiver of $\tilde P_2^{(j_1,\ldots,j_l)}$ is obtained by erasing the arrows $\alpha_{j_1},\ldots,\alpha_{j_l}$.
 
 The representation $\tilde P_3$ is given by the quiver
 	\begin{align*}
-          \xymatrix@R10pt@C20pt{&&\mathcal A_1\ar_{a_{1}}[lld]\\ n-1 &&\vdots\\&&\mathcal A_n\ar_{a_{n}}[llu]}
+          \xymatrix@R10pt@C20pt{&&\mathcal A_1\ar_{\alpha_1}[lld]\\ n-1 &&\vdots\\&&\mathcal A_n\ar_{\alpha_n}[llu]}
         \end{align*}
 	where the vertex of dimension $n-1$ is the middle vertex $(2,1)$.  Moreover, for $\uj\in I_l$, the representation $\tilde P_3^{\uj}$ is obtained when erasing the subquivers $\mathcal A_{j_1},\ldots,\mathcal A_{j_l}$ and decreasing the dimension of $(2,1)$ by one.  The Auslander-Reiten translate $\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ is given by
 	\begin{align*}
-          \xymatrix@R10pt@C20pt{&&(2,a_{j_1}^{-1})\ar_{a_{j_1}}[lld]\\(1,1) &&\vdots\\&&(2,a_{j_l}^{-1})\ar_{a_{j_l}}[llu]}
+          \xymatrix@R10pt@C20pt{&&(2,\alpha_{j_1}^{-1})\ar_{\alpha_{j_1}}[lld]\\(1,1) &&\vdots\\&&(2,\alpha_{j_l}^{-1})\ar_{\alpha_{j_l}}[llu]}
         \end{align*}
-In particular, the image of the unique homomorphism $\tilde P_{2,j_i}=a^{-1}_{j_i}.\tilde P_2\to\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ has image $(2,a_{j_i}^{-1})\xrightarrow{a_{j_i}}(1,1)$ for $i=1,\ldots,l$.
+In particular, the image of the unique homomorphism $\tilde P_{2,j_i}=\alpha^{-1}_{j_i}.\tilde P_2\to\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ has image $(2,\alpha_{j_i}^{-1})\xrightarrow{\alpha_{j_i}}(1,1)$ for $i=1,\ldots,l$.
  
 
 The representation $\tilde P_4$ is defined by
-\[\xymatrix@R40pt@C10pt{&&&&&&n-1\ar^{a_1}[llllld]\ar^{a_2}[ld]\ar^{a_n}[rrrrd]&&&&&\\&2n-3&&&&2n-3&&\hdots&&&2n-3\\
-\mathcal A_2\ar^{a_2}[ru]&\hdots&\mathcal A_n\ar^{a_n}[lu]&\mathcal A_1\ar^{a_1}[rru]&\widehat{\mathcal A_2}&\mathcal A_3\ar[u]^{a_3}&\hdots&\mathcal A_n\ar^{a_n}[llu]	&\hdots&\mathcal A_2\ar^{a_2}[ru]&\hdots&\mathcal A_{n-1}\ar^{a_{n-1}}[lu]}\]
+\[\xymatrix@R40pt@C10pt{&&&&&&n-1\ar^{\alpha_1}[llllld]\ar^{\alpha_2}[ld]\ar^{\alpha_n}[rrrrd]&&&&&\\&2n-3&&&&2n-3&&\hdots&&&2n-3\\
+\mathcal A_2\ar^{\alpha_2}[ru]&\hdots&\mathcal A_n\ar^{\alpha_n}[lu]&\mathcal A_1\ar^{\alpha_1}[rru]&\widehat{\mathcal A_2}&\mathcal A_3\ar[u]^{\alpha_3}&\hdots&\mathcal A_n\ar^{\alpha_n}[llu]	&\hdots&\mathcal A_2\ar^{\alpha_2}[ru]&\hdots&\mathcal A_{n-1}\ar^{\alpha_{n-1}}[lu]}\]
 where the middle vertex is $(2,1)$. Moreover, all dimensions on the subquivers $\mathcal A_i$ are one. The arrows connecting a quiver $\mathcal A_i$ to a sink of the remaining quiver start at the unique source of $\mathcal A_i$. Now $\tilde P_{3,l}$ can be found as the representation corresponding to the subquiver
-\[\xymatrix@R40pt@C10pt{&&&&&&1\ar^{a_1}[llllld]\ar^{a_{l-1}}[ld]\ar^{a_l}[d]\ar^{a_{l+1}}[rd]\ar^{a_n}[rrrrd]&&&&&\\&1&&\hdots&&1&n-1&1&\hdots&&&1\\
-&&&\mathcal A_1\ar^{a_1}[rrru]&\hdots&\mathcal A_{l-1}\ar_{a_{l-1}}[ru]&\widehat{\mathcal A_l}&\mathcal A_{l+1}\ar_{a_{l+1}}[lu]&\hdots&\mathcal A_n\ar_{a_n}[lllu]	&&&&}\]
-where the middle vertex is $(1,a_l)$. Thus the representation $\tilde P_4^{(1,\ldots,l)}$ is defined by
+\[\xymatrix@R40pt@C10pt{&&&&&&1\ar^{\alpha_1}[llllld]\ar^{\alpha_{l-1}}[ld]\ar^{\alpha_l}[d]\ar^{\alpha_{l+1}}[rd]\ar^{\alpha_n}[rrrrd]&&&&&\\&1&&\hdots&&1&n-1&1&\hdots&&&1\\
+&&&\mathcal A_1\ar^{\alpha_1}[rrru]&\hdots&\mathcal A_{l-1}\ar_{\alpha_{l-1}}[ru]&\widehat{\mathcal A_l}&\mathcal A_{l+1}\ar_{\alpha_{l+1}}[lu]&\hdots&\mathcal A_n\ar_{\alpha_n}[lllu]	&&&&}\]
+where the middle vertex is $(1,\alpha_l)$. Thus the representation $\tilde P_4^{(1,\ldots,l)}$ is defined by
 
-\[\xymatrix@R45pt@C10pt{&&&&&&n-1-l\ar_{a_1}[llllld]\ar^{a_{l}}[llld]\ar^{a_{l+1}}[lld]\ar^{a_n}[rrrrd]&&&&&\\&n-1-l&\hdots&n-1-l&2n-3-l&&\hdots&&\hdots&&2n-3-l\\
-&\mathcal A_1\ar^{a_1}[rrru]&\hdots&\mathcal A_l\ar[ru]^{a_l}&\widehat{A}_{l+1}&\mathcal A_{l+2}\ar^{a_{l+2}}[lu]	&\hdots&\mathcal A_n\ar^{a_n}[lllu]&&\mathcal A_2\ar^{a_2}[ru]&\hdots&\mathcal A_{n-1}\ar^{a_{n-1}}[lu]}\]
-where the upper vertex is again $(2,1)$. Now it is straightforward to see that $\tau \tilde P_4^{(1,\ldots,l)}=\tilde P_2^{(1,\ldots,l)}$, where $\tau$ is given by reflecting at all the sinks first and at all sources afterwards. Actually, $\tilde P_2^{(1,\ldots,l)}$  is supported at the source lying in the upper row and the $n-l$ sinks connected to it by the arrows $a_{l+1},\ldots,a_n$.
+\[\xymatrix@R45pt@C10pt{&&&&&&n-1-l\ar_{\alpha_1}[llllld]\ar^{\alpha_{l}}[llld]\ar^{\alpha_{l+1}}[lld]\ar^{\alpha_n}[rrrrd]&&&&&\\&n-1-l&\hdots&n-1-l&2n-3-l&&\hdots&&\hdots&&2n-3-l\\
+&\mathcal A_1\ar^{\alpha_1}[rrru]&\hdots&\mathcal A_l\ar[ru]^{\alpha_l}&\widehat{A}_{l+1}&\mathcal A_{l+2}\ar^{\alpha_{l+2}}[lu]	&\hdots&\mathcal A_n\ar^{\alpha_n}[lllu]&&\mathcal A_2\ar^{\alpha_2}[ru]&\hdots&\mathcal A_{n-1}\ar^{\alpha_{n-1}}[lu]}\]
+where the upper vertex is again $(2,1)$. Now it is straightforward to see that $\tau \tilde P_4^{(1,\ldots,l)}=\tilde P_2^{(1,\ldots,l)}$, where $\tau$ is given by reflecting at all the sinks first and at all sources afterwards. Actually, $\tilde P_2^{(1,\ldots,l)}$  is supported at the source lying in the upper row and the $n-l$ sinks connected to it by the arrows $\alpha_{l+1},\ldots,\alpha_n$.
 
 %\begin{tikzpicture}[scale=1]
 %\draw (0,0) node (I1) {$\bullet$} +(1,1) node (J11) {$\bullet$} +(1,0) node (J12) {$\bullet$} +(1,-1) node (J13) {$\bullet$}; 
