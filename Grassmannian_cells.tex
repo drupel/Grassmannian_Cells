@@ -166,7 +166,7 @@ As $F_Q$ and $G_Q$ are covering functors when restricting to one connected compo
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Representation Theory of $K(n)$}
+\section{Representation Theory of $K(n)$}\label{sec:RepK(n)}
 
 Fix $n\ge3$. Denote by $K(n)$ the \emph{$n$-Kronecker quiver} $1\stackrel{n}{\longleftarrow}2$ with vertices $K_0(n)=\{1,2\}$ and $n$ arrows from vertex $2$ to vertex $1$. 
 The category $\rep K(n)$ of finite-dimensional representations of $K(n)$ is equivalent to the category of modules over the path algebra $A(n)$ of $K(n)$.
@@ -594,8 +594,9 @@ Moreover, sinks become sources and vice versa.
 For $m\geq 2$, we build lifts $\tilde P_m$ recursively by applying reflection functors or as Auslander-Reiten translates, i.e. we have
 \begin{align}
   \label{recursive}
-  \tilde P_m=\tilde\Sigma_2 \tilde P_{m-1},\quad\tilde P_{m+1}=\tilde\Sigma_{1}\tilde\Sigma_2\tilde P_{m-1}=\tau^{-1} \tilde P_{m-1}.
+  \tilde P_m=(\tilde\Sigma_2 \tilde P_{m-1})^{\sigma},\quad\tilde P_{m+1}=\tilde\Sigma_{1}\tilde\Sigma_2\tilde P_{m-1}=\tau^{-1} \tilde P_{m-1}.
 \end{align}
+
 It is rather important that $\tilde P_{2l}$ and $\tilde P_{2l-1}$ live on two different components of the universal covering quiver.
 
 \begin{remark}
@@ -734,7 +735,7 @@ We proceed by induction. Clearly $\tilde P_m$ has only preprojective subrepresen
 where the vertical maps are injective, the sequence on the bottom does not split and the representation $U'$ is preprojective by induction hypothesis. Then we have $U\in\tilde P_{m-1,l}^\perp$
 because $$\Hom(\tilde P_{m-1,l},U)=\Hom(\tilde P_{m-1,l},\tilde P_{m}^{(l)})=0.$$ Moreover, $\Ext(\tilde P_{m-1,l},U)=0$ follows because the representation $\tilde P_{m-1,l}$ is preprojective and $U$ is not. We also have $\Hom(U,\tilde P_{m-1,l})=0$ for the same reason. 
 
-As the sequence does not split, this shows that $U'$ is an indecomposable preprojective subrepresentation of $\tilde P_{m}^{(l-1)}$ where the indecomposability follows from \cite[Lemma 3.12]{wei2}. Since the only exceptional representations of $K(n)$ are preprojective, we have $\Sc{\udim U}{\udim U}\leq 0$. Thus, using  $\Sc{\udim U}{\udim \tilde P_{m-1,l})}< 0$, we obtain
+As the sequence does not split, this shows that $U'$ is an indecomposable preprojective subrepresentation of $\tilde P_{m}^{(l-1)}$ where the indecomposability follows from \cite[Lemma 3.12]{wei2}. Since the only exceptional representations of $K(n)$ are preprojective, we have $\Sc{\udim U}{\udim U}\leq 0$. Thus, using  $\Sc{\udim U}{\udim \tilde P_{m-1,l}}< 0$, we obtain
 \[\Sc{\udim U'}{\udim U'}=\Sc{\udim U}{\udim U}+\Sc{\udim \tilde P_{m-1,l} }{\udim \tilde P_{m-1,l} }+\Sc{\udim U}{\tilde P_{m-1,l}}\leq 1+\Sc{\udim U}{\tilde P_{m-1,l}}\leq 0.\]
 But this contradicts the induction hypothesis because preprojective representations do not have self-extensions.
 
@@ -772,27 +773,25 @@ The first statement follows for instance by induction when applying BGP-reflecti
 \end{proof}
 ----TO HERE----DO NOT NEED THIS----
 \end{comment}
+Define 
+$$P(m,\uj):=\begin{cases}\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{m-2,(j_l,i)}\oplus \bigoplus_{i=1}^{l-1}\tilde P_{m-3,(j_l,j_l,i)}\text{ if }m\geq 4\\\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{1,(j_l,i)}\text{ if }m=3\end{cases}$$
 
 
 
 
 \begin{lemma}
   \label{AR}
-  \footnote{special case $m=3$}
   \sayD{Part (1) should follow from Corollary~\ref{cor:truncated preprojective isomorphism}.  Do parts (2), (3), (4) have analogues for $K(n)$?  The second half of (3) and part (5) should follow from Lemma~\ref{le:basic homological properties}.  The first half of (4) is roughly the same as Lemma~\ref{le:truncated extensions}.}\sayT{The sequence (6) should have an analogue on $K(n)$. I would be happy with a direct proof of (1) and (2). I did not check the details so far.
 	(4) and the first half of (3) hold only on the universal cover. We should also have $\Ext(\tilde P_m^{\uj},P(m,\uj))\neq 0$ on $K(n)$.}
   Let $m\geq 4$ and $n-1\geq l\geq 1$, $\uj=(j_1,\ldots,j_l)\in I_l$ and $\uj':=(j_1,\ldots,j_{l-1})$.
-  Consider the short exact sequence $$\sesm{\tilde P_{m-1,j_l}}{\tilde P_{m}^{\uj'}}{\tilde P_{m}^{\uj}}{\pi^{j_l}_{m,\uj'}}$$ and define
-  $$P(m,\uj):=\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{m-2,(j_l,i)}\oplus \bigoplus_{i=1}^{l-1}\tilde P_{m-3,(j_l,j_l,i)}.$$
-
-  The following holds:
+  Consider the short exact sequence $$\ses{\tilde P_{m-1,j_l}}{\tilde P_{m}^{\uj'}}{\tilde P_{m}^{\uj}}.$$ The following holds:
   \begin{enumerate}
     \item We have $\tau\tilde P_{m}^{(j_1,\ldots,j_l)}=\tilde P_{m-2}^{(j_1,\ldots,j_l)}$.
     %\item We have $\tau\tilde P_{m}^{(j_1,\ldots,j_l)}\in ~^\perp(\tilde P_{m}^{(j_1,\ldots,j_l)})$.\footnote{not true for $m\geq 4$. What do we need? We have $\Hom(\tau\tilde P_{m}^{(j_1,\ldots,j_l)},\tilde P_{m}^{(j_1,\ldots,j_l)})=0$}
     \item There exists a short exact sequences 
       \begin{align}
         \label{ses3}
-        \sesm{P(m,\uj)}{\tilde P_{m-1,j_l}}{\tau\tilde P_{m}^{\uj}}{\pi^{\bf j_l}_{m-1}}
+        \ses{P(m,\uj)}{\tilde P_{m-1,j_l}}{\tau\tilde P_{m}^{\uj}}%{\pi^{\bf j_l}_{m-1}}
       \end{align}
       where ${\bf j}_l=((1,\ldots,j_l-1,\widehat{j_l},j_{l}+1,\ldots,n),(j_1,\ldots,j_{l-1})).$
     \item We have $\Hom(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=\Hom(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})=0$. 
@@ -802,16 +801,18 @@ The first statement follows for instance by induction when applying BGP-reflecti
   \end{enumerate}%\footnote{introduce/consider/check indices, we have to mod out the corresponding reps in the covering} 
 \end{lemma}
 \begin{proof}
-Using the identities (\ref{recursive}), it suffices to prove the all statements for $m=4$ and arbitrary $1\leq l\leq n-1$. Without loss of generality, we choose $(j_1,\ldots,j_l)=(1,\ldots,l)$ and define $\tilde P_m^{(0)}=\tilde P_m$ respectively. We should point out that it is very important for this prove that we consider fixed lifts of all representations in the universal covering as defined in the beginning of this section. Note that, starting with these cases, we only reflect at sources and no representation appearing is isomorphic to the simple injective representation $S_2$.  
+Using the identities (\ref{recursive}), it suffices to prove all statements for $m=4$ and arbitrary $1\leq l\leq n-1$. Without loss of generality, we choose $(j_1,\ldots,j_l)=(1,\ldots,l)$ and define $\tilde P_m^{(0)}=\tilde P_m$ respectively. We should point out that it is very important for this proof that we consider fixed lifts of all representations in the universal covering as defined in the beginning of this section. Note that, starting with these cases, we only reflect at sources and no representation appearing is isomorphic to the simple injective representation $S_2$.  
 
 
-In Example \ref{smallm} it was shown that $\tau \tilde P_4^{(1,\ldots,l)}=\tilde P_2^{(1,\ldots,l)}$. In order to deduce the statement from (\ref{recursive}) for general $m$, it remains to show the statement for $m=5$. Therefore, we consider the short exact sequence
+In Example \ref{smallm} it was shown that $\tau \tilde P_4^{(1,\ldots,l)}=\tilde P_2^{(1,\ldots,l)}$. For $m=5$,  we consider the short exact sequence
 \[\ses{\bigoplus_{i=1}^l\tilde P_{2,i}}{\tilde P_3}{\tilde P_3^{(1,\ldots,l)}}\]
-and apply the reflection functor $\tilde\Sigma_2$ twice which is the same as applying $\tau^{-1}$. As we have $\tau^{-1} \tilde P_{2,i}=\tilde P_{4,i}$ and $\tau^{-1}\tilde P_3=\tilde P_5$, the statement follows for $m=5$ and thus for general $m$.
+and apply the reflection functor $\tilde\Sigma_1\tilde\Sigma_2$ which is the same as applying $\tau^{-1}$. As we have $\tau^{-1} \tilde P_{2,i}=\tilde P_{4,i}$ and $\tau^{-1}\tilde P_3=\tilde P_5$, it follows that $\tau^{-1}\tilde P_3^{(1,\ldots,l)}=\tilde P_5^{(1,\ldots,l)}$ which is statement for $m=5$. The general statement follows from the identities (\ref{recursive}). Note that this also shows that
+\[(\tilde \Sigma_2\tilde P_{m}^{(1,\ldots,l)})^\sigma=\tau^{-1}\tilde P^{(1,\ldots,l)}_{m-1}.\]
+
 
 Considering the quiver $\tilde P_{3,l}$ from Example \ref{smallm}, it is clear that we obtain an exact sequence
-$$\ses{P(3,(1,\ldots,l))}{P_{3,l}}{\tilde P_2^{(1,\ldots,l)}}.$$
-Actually, the first summand of $P(3,(1,\ldots,l))$ corresponds to the quivers $\tilde A_i$ at the bottom and the second summand to the $l-1$ sources in the second row lying on the left. This shows the second statement.
+$$\ses{P(4,(1,\ldots,l))}{P_{3,l}}{\tilde P_2^{(1,\ldots,l)}}.$$
+Actually, the first summand of $P(4,(1,\ldots,l))$ corresponds to the quivers $\tilde A_i$ at the bottom and the second summand to the $l-1$ sources in the second row lying on the left. Together with the first statement and the identities (\ref{recursive}), this shows the second statement.
 
 As $\tilde P_m^{\uj}$ is exceptional on the universal covering by Lemma \ref{le:properties}, the Auslander-Reiten formulas \cite[Theorem IV.2.13]{ass} imply 
 $$\dim\Hom(\tilde P_{m}^{\uj},\tau \tilde P_{m}^{\uj})=\dim\Ext(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=0 \text{ and } \dim\Ext(\tilde P_m^{\uj},\tau\tilde P_m^{j})=\dim\Hom(\tilde P_{m}^{\uj},\tilde P_{m}^{\uj})=1.$$
@@ -826,15 +827,15 @@ We have $\Hom(\tilde P_{m}^{\uj},\tilde P_{m-1,j_l})=0$ by Lemma \ref{le:basic h
 
 
 \end{proof}
-Define 
-$$P(m,\uj):=\begin{cases}\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{m-2,(j_l,i)}\oplus \bigoplus_{i=1}^{l-1}\tilde P_{m-3,(j_l,j_l,i)}\text{ if }m\geq 4\\\bigoplus_{\substack{1\leq i\leq n\\i\neq j_l}}\tilde P_{1,(j_l,i)}\text{ if }m=3\end{cases}$$
+
+
 
 If $m=3$, we replace the short exact sequence (\ref{ses3}) by
  \begin{align}
    \label{ses4}
-   \xymatrix{0\ar[r] &P(3,\uj)\ar[r] &  \tilde P_{2,j_l}\ar[r] & \left((2,1)\xrightarrow{a_{j_l}}(1,a_{j_l})\right)\ar[r] & 0}.
+   \xymatrix{0\ar[r] &P(3,\uj)\ar[r] &  \tilde P_{2,j_l}\ar[r] & \left((2,1)\xrightarrow{\alpha_{j_l}}(1,\alpha_{j_l})\right)\ar[r] & 0}.
  \end{align}
- Recall that the image of the unique homomorphism $\tilde P_{2,j_l}\to\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ is just $\tau'\tilde P_3^{\uj}:=\left((2,1)\xrightarrow{a_{j_l}}(1,a_{j_l})\right)$, see also Example \ref{smallm}. 
+ Recall that the image of the unique homomorphism $\tilde P_{2,j_l}\to\tau\tilde P_{3}^{(j_1,\ldots,j_l)}$ is just $\tau'\tilde P_3^{\uj}:=\left((2,1)\xrightarrow{\alpha_{j_l}}(1,\alpha_{j_l})\right)$, see also Example \ref{smallm}. 
 
 \begin{corollary}\label{cor: perpendicular}
 For $m\geq 3$ and $\uj\in I_l$, we have $P(m,\uj)\in (\tilde P_{m}^{\uj})^\perp$.
@@ -860,13 +861,13 @@ where $j_{k}^c\in\{1,\ldots,n\}$ for $2\leq k\leq r-1$ is recursively defined as
 \end{definition}
 
 
-For $\uj\in I_{l}$ with $l\leq n-1$, there exist unique short exact sequences 
-\[\ses{\bigoplus_{i=1}^l\tilde P_{m-1,j_i}}{\tilde P_m}{\tilde P_{m}^{\uj}},\quad\quad\ses{\tilde P_{m-1,j_l}}{\tilde P_{m}^{(j_1,\ldots,j_{l-1})}}{\tilde P_{m}^{\uj}}.\]
+%For $\uj\in I_{l}$ with $l\leq n-1$, there exist unique short exact sequences 
+%\[\ses{\bigoplus_{i=1}^l\tilde P_{m-1,j_i}}{\tilde P_m}{\tilde P_{m}^{\uj}},\quad\quad\ses{\tilde P_{m-1,j_l}}{\tilde P_{m}^{(j_1,\ldots,j_{l-1})}}{\tilde P_{m}^{\uj}}.\]
 The next step is to define a unique truncated preprojective representation for each admissible sequence ${\bf j}=(\underline{j_1},\underline{j_2},\ldots,\underline{j_r})$. We define the admissible sequence $\delta {\bf j}$ by
 \[\delta {\bf j}:=((j_1^c,\underline{j_2}),\underline{j_3},\ldots,\underline{j_r}).\]
 We recursively define $\delta^i{\bf j}$ for $i=1,\dots,r$.
 %In the following, we assume without loss of generality that $i_1< i_2<\ldots< i_k$.
-Note that we have $\delta\uj=(j^c)$ for $\uj\in I_{n-1}$.
+Note that we have $\delta\uj=(j^c)$ for $\uj\in I_{n-1}$. We obtain the following analogue of Lemma \ref{cor:truncated preprojective isomorphism}.
 
 \begin{lemma}The following holds:
   \label{le:preprojective lifts}
@@ -874,7 +875,7 @@ Note that we have $\delta\uj=(j^c)$ for $\uj\in I_{n-1}$.
     \item If $\uj\in I_{n-1}$ and $m\geq 3$, we have $\tilde P_{m}^{\uj}\cong \tilde P_{m-1,j^c}^{\uj^c}= \tilde P_{m-1,j^c}/\tilde P_{m-2,(j^c,j^c)}$.
 		\item Let $m\geq 3$ and $1\leq r\leq m-1$ and let $\mathbf j:=(\underline{j_1},\ldots,\underline{j_r})$ be an admissible sequence. The truncated preprojective representation
 		$$\tilde P^{\mathbf j}_{m-r+1}:=\tilde P_{m-r+1,(j_1^c,\ldots,j_{r-1}^c)}^{(j_{r-1}^c,j_{r,1},\ldots,j_{r,s})}$$
-	 is a quotient of $\tilde P_m$ such that $\Hom(\tilde P_m,\tilde P^{\mathbf j}_{m-r+1})=\kk$. Defining ${\bf j}(k):=(\underline{j_1},\ldots,\underline{j_k})$ for $k=2,\ldots,r-1$, these quotients satisfy the relation
+	 is a quotient of $\tilde P_m$ such that $\Hom(\tilde P_m,\tilde P^{\mathbf j}_{m-r+1})=\CC$. Defining ${\bf j}(k):=(\underline{j_1},\ldots,\underline{j_k})$ for $k=2,\ldots,r-1$, these quotients satisfy the relation
 		\[\tilde P_{m-k,(j_1^c,\ldots,j_k^c)}^{\delta^k{\bf j(k)}}=\tilde P_{m-k+1,(j_1^c,\ldots,j_{k-1}^c)}^{\delta^{k-1}\bf j(k)}\]
 		for $k=1,\ldots,r$.
   \end{enumerate}
@@ -888,7 +889,7 @@ To prove the first part, we consider the following commutative diagram where the
 %Thus we see that $\tilde P_{m}^{\ui}\cong \tilde P_{m-1}^{(l)}$ for some $l\in\{1,\ldots,n\}$. But now it is straightforward to check that $l=n$. \footnote{more precise?} 
 For $m=3$, it is straightforward that the injection of the lower row factors over $\tilde P_{1,(j^c,j^c)}$ which means that we get the same commutative diagram when replacing $\tilde P_{1}$ by $\tilde P_{1,(j^c,j^c)}$. Thus we have $\tilde P_{3}^{\uj}\cong \tilde P_{2,j^c}^{\uj^c}/\tilde P_{1,(j^c,j^c)}=\tilde P_{2,j^c}^{(j^c)}$. Applying the identities (\ref{recursive}) the claim follows for $m\geq 3$.
 
-The second statement is now obtained recursively when initially considering the commutative diagram from above replacing $\uj$ by $\underline{j_1}$. We have $\delta^{k-1}{\bf j}(k)=(j_{k-1}^c,j_{k,1},\ldots,j_{k,n-1})$ and $\delta^{k}{\bf j}(k)=(j_k^c)$. We use the third statement in order to successively obtain commutative diagrams
+The second statement is now obtained recursively when initially considering the commutative diagram from above replacing $\uj$ by $\underline{j_1}$. We have $\delta^{k-1}{\bf j}(k)=(j_{k-1}^c,j_{k,1},\ldots,j_{k,n-1})$ and $\delta^{k}{\bf j}(k)=(j_k^c)$. We successively obtain commutative diagrams
 \[\xymatrix{0\ar[r] &\bigoplus_{i=1}^{n-2}\tilde P_{m-k,(j_1^c,\ldots,j_{k-1}^c,j_{k,i})}\ar[r] &  \tilde P^{(j_{k-1}^c)}_{m-k+1,(j_1^c,\ldots,j_{k-1}^c)}\ar[r] & \tilde P_{m-k+1,(j_1^c,\ldots,j_{k-1}^c)}^{\delta^{k-1}{\bf j}(k)}\ar[r] & 0 \\
   0\ar[r]&\tilde P_{m-(k+1),(j_1^c,\ldots,j_{k}^c,j_k^c)} \ar[r]\ar[u] & \tilde P_{m-k,(j_1^c,\ldots,j_{k}^c)}\ar[u]\ar[r]& \tilde P_{m-k,(j_1^c,\ldots,j_{k}^c)}^{(j_{k}^c)}\ar[r]\ar@{=}[u]& 0}\]
 
@@ -896,18 +897,18 @@ The second statement is now obtained recursively when initially considering the 
 Finally, we consider the short exact sequence:
 
 \[\xymatrix{0\ar[r] &\bigoplus_{i=1}^{s}\tilde P_{m-r,(j_1^c,\ldots,j_{r-1}^c,j_{r,i})}\ar[r] &  \tilde P^{(j_{r-1}^c)}_{m-r+1,(j_1^c,\ldots,j_{r-1}^c)}\ar[r] & \tilde P_{m-r+1,(j_1^c,\ldots,j_{r-1}^c)}^{{\bf j}}\ar[r] & 0 }.\]
-Using Lemma \ref{le:properties}.(3), we recursively obtain	$\Hom(\tilde P_m,\tilde P^{\mathbf j}_{m-r+1})\cong\Hom(\tilde P_m,\tilde P_{m-k,(j_1^c,\ldots,j_{k}^c)}^{(j_{k}^c)})=\kk$.
+Using Lemma \ref{le:properties}.(2), we recursively obtain	$\Hom(\tilde P_m,\tilde P^{\mathbf j}_{m-r+1})\cong\Hom(\tilde P_m,\tilde P_{m-k,(j_1^c,\ldots,j_{k}^c)}^{(j_{k}^c)})=\kk$.
 %As $\Hom(\tilde P_{m-k,(j_1^c,\ldots,j_{k-1}^c,j_{k,i})},\tilde P_{m-k+1,(j_1^c,\ldots,j_{k-1}^c)})=\kk$ for all $k=2,\ldots,r$ and $i=1,\ldots,n-1$, applying the second statement, we obtain that the quotient $\tilde P_{m-r+1}^{\bf j}$ is uniquely determined.
 	\end{proof}
-The lemma implies that there is a morphism by $\pi_m^{\bf j}:\tilde P_m\to \tilde P_{m-r+1}^{\bf j}$ which is unique up to scalars. Let $\uj=(j_{1},\ldots,j_{l})\in I_l$. It is important for us that this morphism factors through the truncated preprojective $\tilde P_m^{\uj}$. We denote the quotient morphism from $\tilde P_m^{\uj}$ to $\tilde P_{m-r+1}^{\bf j}$ by $\pi_{m,\uj}^{\bf j}$. We want to apply $\pi_m^{\bf j}$ also to translated representations $w.\tilde P_m$, mostly for $w\in\{a_i,a_i^{-1}\}$. Therefore, we need to apply a translated version of this morphism. In abuse of notation, we also denote these morphisms by $\pi_m^{\bf j}$ and $\pi_{m,\uj}^{\bf j}$.
+The lemma implies that there is a morphism by $\pi_m^{\bf j}:\tilde P_m\to \tilde P_{m-r+1}^{\bf j}$ which is unique up to scalars. Let $\underline{j_1}=(j_{1,1},\ldots,j_{1,n-1})$ and $\uj=(j_{1,1},\ldots,j_{1,l})\in I_l$. It is important for us that this morphism factors through the truncated preprojective $\tilde P_m^{\uj}$. We denote the quotient morphism from $\tilde P_m^{\uj}$ to $\tilde P_{m-r+1}^{\bf j}$ by $\pi_{m,\uj}^{\bf j}$. We want to apply $\pi_m^{\bf j}$ also to translated representations $w.\tilde P_m$, mostly for $w\in\{a_i,a_i^{-1}\}$. Therefore, we need to apply a translated version of this morphism. In abuse of notation, we also denote these morphisms by $\pi_m^{\bf j}$ and $\pi_{m,\uj}^{\bf j}$.
 
 Our construction immediately yields the following lemma.
 \begin{lemma}\label{projections}
-Let $\tilde P_m$ be a lift of the preprojective representation $P_m$ and let ${\bf j}=(\underline{j_1},\ldots,\underline{j_r})$ with $r\leq m-1$ and $\underline{j_r}\in I_s$ be an admissible sequence with entries $j_{k,i}$ for $k=1,\ldots r$. Then we have
-\[\pi_m^{\bf j}=\pi_{m-r+1,j_{r-1}^c}^{\underline{j_r}}\circ\ldots\circ\pi^{\underline{j_2}}_{m-1,j_1^c}\circ\pi_m^{\underline{j_1}}.\]
+Let ${\bf j}=(\underline{j_1},\ldots,\underline{j_r})$ with $r\leq m-1$ and $\underline{j_r}\in I_s$ be an admissible sequence with entries $j_{k,i}$ for $k=1,\ldots r$. Then we have
+\[\pi_m^{\bf j}=\pi_{m-r+1,(j_{r-1}^c)}^{(j_{r-1}^c,\underline{j_r})}\circ\ldots\circ\pi^{(j_{2}^c,\underline{j_2})}_{m-1,(j_1^c)}\circ\pi_m^{\underline{j_1}}.\]
 Moreover, for every sequence $(l_1,\ldots,l_{n-2})\in I_{n-2}$, we have
-\[\pi_{m-k+1,j_{k-1}^c}^{\underline{j_k}}=\prod_{i=1}^{n-2} \pi^{j_{k,l_{i}}}_{m-k+1,(j_{k-1}^c,j_{k,l_1},\ldots,j_{k,l_{i-1}})}\]
-for $k=2,\ldots,r-1$. The analogous statements hold for $\pi_m^{\underline{j_1}}$ and  $\pi_{m-r+1,j_{r-1}^c}^{\underline{j_r}}$ when replacing $n-2$ by $n-1$ and $s-1$ respectively.
+\[\pi_{m-k+1,(j_{k-1}^c)}^{(j_{k-1}^c,\underline{j_k})}=\prod_{i=1}^{n-2} \pi^{(j_{k-1}^c,j_{k,l_1},\ldots, j_{k,l_{i}})}_{m-k+1,(j_{k-1}^c,j_{k,l_1},\ldots,j_{k,l_{i-1}})}\]
+for $k=2,\ldots,r-1$. The analogous statements hold for $\pi_m^{\underline{j_1}}$ and  $\pi_{m-r+1,(j_{r-1}^c)}^{(j_{r-1}^c,\underline{j_r})}$ when replacing $n-2$ by $n-1$ and $s-1$ respectively.
 \end{lemma}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -936,13 +937,13 @@ The following result of Bialynicki-Birula relates the geometry of $X$ to the geo
 \subsection{Torus Actions}
 \label{torusaction}
 
-Fix a vector space $X$ of dimension $n$ and let $d\leq n$. We first consider a natural torus action on usual Grassmannians coming along with any direct sum decomposition of the vector space $X$. Then we generalize the concept to quiver Grassmannians, but we will see that the torus fixed point set can be calculated in an analogous manner. Thus assume that $X=\bigoplus_{j=1}^l X_j$ is a direct sum decomposition of $X$. We choose a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of $X$ which is compatible with this decomposition, i.e. there exist numbers $1\leq j_1\leq j_2\ldots\leq j_{l-1}\leq n$ such that
+Fix a vector space $X$ of dimension $n$ and let $k\leq n$. We first consider a natural torus action on usual Grassmannians coming along with any direct sum decomposition of the vector space $X$. Then we generalize the concept to quiver Grassmannians, but we will see that the torus fixed point set can be calculated in an analogous manner. Thus assume that $X=\bigoplus_{j=1}^l X_j$ is a direct sum decomposition of $X$. We choose a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of $X$ which is compatible with this decomposition, i.e. there exist numbers $1\leq j_1\leq j_2\ldots\leq j_{l-1}\leq n$ such that
 \[v_1,\ldots,v_{j_1}\in X_1,\,v_{j_1+1},\ldots,v_{j_2}\in X_2,\ldots,v_{j_{l-1}+1},\ldots,v_{n}\in X_l\]
-Moreover, we choose a map $d:\{1,\ldots,n\}\to\mathbb{Z}$ such that $d(i)=d(i')$ if $v_i,v_{i'}\in X_{j}$ for some $j$. Then there exists a $\C^\ast$-action on $X$ when extending the definition $t.v_i:=t^{d(j)}v_i$ if $v_i\in X_j$ linearly to $X$. This naturally induces an action of $\C^\ast$ on the usual Grassmannians $\Gr_d(X)$. We can write every $U\in\Gr_d(X)$ uniquely in row-echelon form with respect to the basis $\mathcal B$, i.e. there exists a unique sequence $1\leq i_1\leq\ldots\leq i_d\leq n$ and a unique matrix representation of $U$ of the form
-\[M(U):=\begin{pmatrix}\ast&\ldots &\ast &1&0 &\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&0\\\ast&\ldots &\ast&0&\ast&\ldots &\ast&1&0&\ldots&\ldots&\ldots&\ldots&\ldots&0\\\vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&0&\ast&\ddots&\ddots&\ddots&\ddots&\ddots&\vdots\\\vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&\vdots&\ddots&\ddots&\ddots&\ddots&\ddots&\ddots&\vdots\\\ast&\ldots &\ast&0&\ast&\ldots &\ast&0&\ast&\ldots&\ast&1&0&\ldots&0\end{pmatrix}\in M_{d,n}(k)\]
-where the unit vectors are in the columns $i_1,\ldots,i_d$. All matrix representations of this form define a Schubert cell $X_{\bfi}$ where $\bfi=(i_1,\ldots,i_d)$. The $\C^\ast$-action is then given by multiplying the $w^{\mathrm{th}}$ column with $t^{d(w)}$, i.e. we have
-\[(t.M(U))_{u,w}=t^{d(w)}\cdot M(U)_{u,w}.\]
-Every Schubert cell is invariant under the torus action, i.e. $t.M(U)\in X_\bfi$ for all $M(U)\in X_{\bfi}$. 
+Moreover, we choose a map $d:\{1,\ldots,n\}\to\mathbb{Z}$ such that $d(i)=d(i')$ if $v_i,v_{i'}\in X_{j}$ for some $j$. Then there exists a $\C^\ast$-action on $X$ when extending the definition $t.v_i:=t^{d(i)}v_i$ for $i=1,\ldots,n$ linearly to $X$. This naturally induces an action of $\C^\ast$ on the usual Grassmannians $\Gr_k(X)$. We can write every $U\in\Gr_k(X)$ uniquely in row-echelon form with respect to the basis $\mathcal B$, i.e. there exists a unique sequence $1\leq i_1\leq\ldots\leq i_k\leq n$ and a unique matrix representation of $U$ of the form
+\[M(U):=\begin{pmatrix}\ast&\ldots &\ast &1&0 &\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&0\\\ast&\ldots &\ast&0&\ast&\ldots &\ast&1&0&\ldots&\ldots&\ldots&\ldots&\ldots&0\\\vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&0&\ast&\ddots&\ddots&\ddots&\ddots&\ddots&\vdots\\\vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&\vdots&\ddots&\ddots&\ddots&\ddots&\ddots&\ddots&\vdots\\\ast&\ldots &\ast&0&\ast&\ldots &\ast&0&\ast&\ldots&\ast&1&0&\ldots&0\end{pmatrix}\in M_{k,n}(k)\]
+where the unit vectors are in the columns $i_1,\ldots,i_k$. All matrix representations of this form define a Schubert cell $X_{\bfi}$ where $\bfi=(i_1,\ldots,i_k)$. The $\C^\ast$-action is then given by multiplying the $w^{\mathrm{th}}$ column with $t^{d(w)}$, i.e. we have
+\[(t.M(U))_{u,w}=t^{d(w)}\cdot M(U)_{u,w}\]
+for $w=1,\ldots,k$. Every Schubert cell is invariant under the torus action, i.e. $t.M(U)\in X_\bfi$ for all $M(U)\in X_{\bfi}$. 
 \begin{lemma}
   \label{usualGrass}
   Choose $d$ in such a way that $d(i)\neq d(i')$ if $v_i\in X_j$, $v_{i'}\in X_{j'}$ and $j\neq j'$.
@@ -950,19 +951,17 @@ Every Schubert cell is invariant under the torus action, i.e. $t.M(U)\in X_\bfi$
 \end{lemma}
 \begin{proof}
   If $U=\bigoplus_{i=1}^l U\cap X_i$, we have 
-\[t.U=\bigoplus_{i=1}^l t.(U\cap X_i)=\bigoplus_{i=1}^l t^{d(j_i+1)}(U\cap X_i)=U\]
+\[t.U=\bigoplus_{i=1}^l t.(U\cap X_i)=\bigoplus_{i=1}^l t^{d(j_{i-1}+1)}(U\cap X_i)=U\]
 where $j_0=0$.
 
-Assume that $U$ is a torus fixed with $M(U)\in X_{\bfi}$. Fix the $w^{\mathrm{th}}$ column $M(U)_w$ and assume that $v_{i_w}\in X_s$. As the matrix representation $M(U)$ is uniquely determined, by the assumption on $d$, it follows that all matrix coefficients corresponding to a basis element $v_i$ such that $v_i\notin X_s$ are zero. This means that $\widehat{M(U)}_w\in X_s$ where $\widehat{M(U)}_w$ is the vector of $U$ corresponding to $M(U)_w$. As the colums are linear independent, this already shows the claim.
+Assume that $U$ is a torus fixed with $M(U)\in X_{\bfi}$. Fix the $w^{\mathrm{th}}$ column $M(U)_w$ and assume that $v_{w}\in X_s$. As the matrix representation $M(U)$ is uniquely determined, by the assumption on $d$, it follows that all matrix coefficients corresponding to a basis element $v_i$ such that $v_i\notin X_s$ are zero. This means that $\widehat{M(U)}_w\in X_s$ where $\widehat{M(U)}_w$ is the vector of $U$ corresponding to $M(U)_w$. As the colums are linear independent, this already shows the claim.
 \end{proof}
-The next step is to generalize this to quiver Grassmannians.
-
-Let $Q$ be an acyclic quiver. We choose a map $d:\hat Q_0\to\ZZ$ and fix a representation $X\in\rep Q$ which can be lifted to $\hat Q$. We can consider the decomposition $X_q=\bigoplus_{(q,\chi)\in A_Q} X_{(q,\chi)}$. We define a torus action on each $X_{(q,\chi)}$ via $t.x_{(q,\chi)}=t^{d(q,\chi)}x_{(q,\chi)}$ which can be extended linearly to each $X_q$. For a fixed a subspace $U_q$, we can define the subspace $t.U_q$. In general, this torus action induces no torus action on the Quiver Grassmannians $\Gr_{\bfe}(X)$ as $t.U=(t.U_q)_{q\in Q_0}$ is no subrepresentation of $X$ for every $U\in \Gr_{\bfe}(X)$. Actually, such an action has to satisfy $X_{\alpha}(t.U_i)\in t.U_j$ for every $\alpha:i\to j$. 
+The next step is to generalize this to quiver Grassmannians. Let $Q$ be an acyclic quiver. We choose a map $d:\hat Q_0\to\ZZ$ and fix a representation $X\in\rep Q$ which can be lifted to $\hat Q$. We can consider the decomposition $X_q=\bigoplus_{(q,\chi)\in A_Q} X_{(q,\chi)}$. We define a torus action on each $X_{(q,\chi)}$ via $t.x_{(q,\chi)}=t^{d(q,\chi)}x_{(q,\chi)}$ which can be extended linearly to each $X_q$. For a fixed a subspace $U_q$, we can define the subspace $t.U_q$. In general, this torus action induces no torus action on the quiver Grassmannians $\Gr_{\bfe}(X)$ as $t.U=(t.U_q)_{q\in Q_0}$ is no subrepresentation of $X$ for every $U\in \Gr_{\bfe}(X)$. Actually, such an action has to satisfy $X_{\alpha}(t.U_i)\in t.U_j$ for every $\alpha:i\to j$. 
 \begin{lemma}Fix an integer $c_\alpha\in\ZZ$ for every $\alpha\in Q_1$.
 If $X\in\rep Q$ can be lifted, $d:\hat Q_0\to\ZZ$ induces a torus action on $\Gr_\bfe(X)$ if we have $d(j,\chi+e_\alpha)-d(i,\chi)=c_\alpha$ for all $\alpha:i\to j$ and $\chi\in A_{Q}$.
 \end{lemma}
 \begin{proof} 
-  Let $U\in \Gr_\bfe(X)$. Since $X$ can be lifted, we can write $X_\alpha:X_i\to X_j$ as block matrix consisting of linear maps $X_{(\alpha,\chi)}:X_{(i,\chi)}\to X_{(j,\chi+e_\alpha)}$. Let $u_{(i,\chi)}\in U_{(i,\chi)}$ and $\alpha:i\to j\in Q_1$. Then we have $X_\alpha(u_{(i,\chi)})\in U_{(j,\chi+e_\alpha)}$ because $X$ can be lifted to the universal cover. Then it follows
+  Let $U\in \Gr_\bfe(X)$. Since $X$ can be lifted, we can write $X_\alpha:X_i\to X_j$ as block matrix consisting of linear maps $X_{(\alpha,\chi)}:X_{(i,\chi)}\to X_{(j,\chi+e_\alpha)}$. Let $u_{(i,\chi)}\in U_{(i,\chi)}$ and $\alpha:i\to j\in Q_1$. Then we have $X_\alpha(u_{(i,\chi)})\in U_{(j,\chi+e_\alpha)}$ because $X$ can be lifted to the universal cover. It follows
 \[X_\alpha(t.u_{(i,\chi)})=X_\alpha(t^{d(i,\chi)}u_{(i,\chi)})=t^{d(i,\chi)}X_\alpha(u_{(i,\chi)})=t^{d(i,\chi)}u_{(j,\chi+e_\alpha)}=t^{-c_\alpha}t.u_{(j,\chi+e_\alpha)}\]
 for some $u_{(j,\chi+e_\alpha)}\in U_{(j,\chi+e_\alpha)}$.
 Now we have \[\bigoplus_{\chi\in A_Q} t.U_{(j,\chi)}=\bigoplus_{\chi\in A_Q}t^{c(j,\chi)}t.U_{(j,\chi)}\]
@@ -974,19 +973,29 @@ for every $t\in \C^\ast$.
 
 \begin{lemma}
   \label{degreecondition} 
-  Let $X$ be an indecomposable representation of $\hat Q$. There exists $d:\mathrm{supp} (X)\to\ZZ$ and $c_\alpha\in\mathbb N_+$ for each $\alpha\in Q_1$ such that $d(i,\chi)\ne d(j,\chi')$ if $i\neq j$ or $\chi\neq \chi'$ and such that $d(j,\chi')-d(i,\chi)=c_\alpha$ if and only if $\chi'=\chi+e_\alpha$ and $(i,\chi),\,(j,\chi+e_\alpha)\in \mathrm{supp}(X)$. 
+  Let $X$ be an indecomposable representation of $\hat Q$. There exists $d:\mathrm{supp} (X)\to\ZZ$ and $c_\alpha\in\mathbb N_+$ for each $\alpha\in Q_1$ such that
+	\begin{enumerate}
+	\item for $(i,\chi),\,(j,\chi')\in\mathrm{supp}(X)$ with $(i,\chi)\neq (j,\chi')$ we have $d(i,\chi)\ne d(j,\chi')$;
+	\item for $(i,\chi),\,(j,\chi')\in\mathrm{supp}(X)$, we have $d(j,\chi')-d(i,\chi)=c_\alpha$ if and only if $\chi'=\chi+e_\alpha$.
+	\end{enumerate}
 \end{lemma}
-\begin{proof}
-Since $X$ is finite-dimensional, $\mathrm{supp}( X)$ is a connected finite tree. In order to prove the statement, we may assume that $d(q,0)=0$ and that $(q,0)\in \mathrm{supp}(X)$. We now fix numbers $c_\alpha$ and show that the two conditions are satisfied. To do so, let $K$ be the maximal length of a path in $\mathrm{supp}(X)$ and assume that $|Q_1|=n$. Set $c_{\alpha_1}=1$ and inductively 
-\[c_{\alpha_n}> (K+1)\sum_{i=1}^{n-1}c_{\alpha_i}.\]
-Note that if $A_Q$ is the free abelian group in the generators $\alpha_1,\ldots,\alpha_n$ and $f:A_Q\to \ZZ$ the group homomorphism defined by $f(\alpha)=c_\alpha$ for all $\alpha\in Q_1$,  we have $d(q,\chi)=f(\chi)$. In particular, there exist $d_i$ with $|d_i|\leq K$ such that we have
-\[d(q,\chi)=\sum_{i=1}^nd_ic_{\alpha_i}.\]
+\begin{proof}Assume that $|Q_1|=n$. Since $X$ is finite-dimensional and indecomposable, $\mathrm{supp}( X)$ is a connected and finite subquiver of $\hat Q$. In order to prove the statement, we may assume that $(q,0)\in \mathrm{supp}(X)$ for some $q\in Q_0$. We fix $c_\alpha\in\NN$ and show that we can choose a degree such that the two conditions are satisfied for this choice. Let $K$ be the maximal length of a path in $\mathrm{supp}(X)$ starting or ending in $(q,0)$ such that the underlying graph of the path has no cycles. This implies that, for $(q',\chi)\in\mathrm{supp}(X)$ with $\chi=\sum_{i=1}^nd_i\alpha_i$, we have $|d_i|\leq K$.
 
-First note that we obviously have $d(j,\chi+\alpha)-d(i,\chi)=c_\alpha$. Now assume that $d(i,\chi)=d(j,\chi')$ which means that $d(i,\chi)=\sum_{i=1}^{n}d_ic_{\alpha_i}=\sum_{i=1}^{n}e_ic_{\alpha_i}=d(j,\chi')$
-which implies
+Set $c_{\alpha_1}=1$ and choose $c_{\alpha_j}$ recursively in such way that 
+\[c_{\alpha_j}\geq 2(K+1)\sum_{i=1}^{j-1}c_{\alpha_i}\]
+for $j=2,\ldots,n$.  
+
+Let $f:A_Q\to \ZZ$ be the group homomorphism defined by $f(\alpha)=c_\alpha$ for all $\alpha\in Q_1$ and define $d(q',\chi):=f(\chi)$ for $(q',\chi)\in\mathrm{supp}(X)$. In particular, for $(q',\chi)$ with $\chi=\sum_{i=1}^nd_i\alpha_i$, we have
+\[d(q',\chi)=\sum_{i=1}^nd_ic_{\alpha_i}.\]
+
+
+
+First note that we have $d(j,\chi+\alpha)-d(i,\chi)=c_\alpha$. Now assume that $d(i,\chi)=d(j,\chi')$ which means that $d(i,\chi)=\sum_{i=1}^{n}d_ic_{\alpha_i}=\sum_{i=1}^{n}e_ic_{\alpha_i}=d(j,\chi')$ if $\chi=\sum_{i=1}^{n}d_ic_{\alpha_i}$ and $\chi'=\sum_{i=1}^{n}e_ic_{\alpha_i}$. This implies
 \[\sum_{i=1}^{n-1}(d_i-e_i)c_{\alpha_i}=(e_{n}-d_{n})c_{\alpha_{n}}.\]
-Since we have $|d_i-e_i|\leq K$, we obtain $$|\sum_{i=1}^{n-1}(d_i-e_i)c_{\alpha_i}|\leq K\sum_{i=1}^{n-1}c_{\alpha_i}<c_{\alpha_n}$$
-This inductively yields $d_i=e_i$ for $i=n,\ldots,1$ by the choice of $c_{\alpha_{i}}$. An analogous proof applies to show that $d(j,\chi')-d(i,\chi)\neq c_\alpha$ if $\chi'\neq \chi+e_\alpha$ using that, actually, $c_{\alpha_n}> (K+1)\sum_{i=1}^{n-1}c_{\alpha_i}$. 
+Since we have $|d_i-e_i|\leq 2K$ as $|d_i|,|e_i|\leq K$, we obtain $$|\sum_{i=1}^{n-1}(d_i-e_i)c_{\alpha_i}|<2K\sum_{i=1}^{n-1}c_{\alpha_i}\leq c_{\alpha_n}$$
+This inductively yields $d_i=e_i$ for $i=n,\ldots,1$ by the choice of $c_{\alpha_{i}}$. 
+
+Finally, assume that $d(j,\chi')-d(i,\chi)=c_\alpha$. Then we have $d(j,\chi')=d(j,\chi+e_\alpha)$. An analogous proof as the one above shows that $\chi'=\chi+e_\alpha$. Note that it is a priori possible that $(j,\chi+e_\alpha)\notin\mathrm{supp}(X)$. Thus we chose $c_{\alpha_j}$ in such a way that it is greater than $2(K+1)\sum_{i=1}^{j-1}c_{\alpha_i}$. 
 
 \end{proof}
 In the following, we say that $d:\mathrm{supp}(X)\to\ZZ$ satisfies the degree condition for $X$ if it has the properties of Lemma \ref{degreecondition}.
@@ -1018,7 +1027,7 @@ $$F_X=\sum_{\bfe\in\NN^{Q_0}}\chi(\Gr_\bfe(X))x^e\in\ZZ[x_q\mid q\in Q_0].$$
 Let $X$ be a representation which can be lifted to the universal covering quiver.
 \begin{enumerate}
 \item 
-If  $\Gr_\bfe(X)$ is smooth and $\Gr^{\tilde Q}_{\tilde \tbfe}(\tilde X)$ has a cell decomposition into affine spaces, then $\Gr_\bfe(X)$ has a cell decomposition into affine spaces.
+If  $\Gr_\bfe(X)$ is smooth and $\Gr^{\tilde Q}_{ \tbfe}(\tilde X)$ has a cell decomposition into affine spaces, then $\Gr_\bfe(X)$ has a cell decomposition into affine spaces.
 \item We have $F_X=SF_{\tilde X}$ where $SF_{\tilde X}$ is obtained from $F_{\tilde X}$ by applying $S:\ZZ[x_{(q,w)}\mid q\in Q_0,w\in W_Q]\to\ZZ[x_q\mid q\in Q_0]$ given by $S(x_{(q,w)})=x_q$ for all $q\in Q_0$ and $w\in W_Q$.
 \end{enumerate} 
 \end{corollary}
