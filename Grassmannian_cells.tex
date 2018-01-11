@@ -189,8 +189,7 @@ The following is well-known.
   Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}\oplus P_{m+1}^{a_2}$ or $I_m^{a_1}\oplus I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
 \end{theorem}
 The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
-\begin{remark}
-  \label{rem:reflection recursion}
+\begin{remark}\label{rem:reflection recursion}
   We may identify the quiver $K(n)$ with $K(n)^{op}$ by interchanging the vertex labels.
   This induces an isomorphism of categories $\rep K(n)\cong\rep K(n)^{op}$ which we write as $M\mapsto M^\sigma$.
   Note that $\Sigma_1(M^\sigma)=(\Sigma_2 M)^\sigma$ and $\Sigma_2(M^\sigma)=(\Sigma_1 M)^\sigma$.
@@ -311,7 +310,7 @@ Following Lemma~\ref{le:injective evaluation maps} we define the following.
   Moreover, $\Hom(P_{m+1},P_{m+1}^V)$ is the one-dimensional space spanned by the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
 \end{lemma}
 \begin{proof}
-  The first claim is immediate since $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some $\ell\ge1$ implies all indecomposable summands of $X$ are preprojectives of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$), whereas $P_{m+1}^V$ is not preprojective.\sayT{The proof as written seems to be false as $\Hom(X,P_\ell)\ne0$ does not imply $\Hom(Y,P_\ell)\neq 0$ for all direct summands $Y$ of $X$. } Note that $\udim P_{m+1}^V <\udim P_{m+1}$, but $\udim P_r\geq \udim P_{m+1}$ if $\Hom(P_{m+1},P_r)\neq 0.$  For the second claim we apply the functor $\Hom(P_{m+1},-)$ to the sequence \eqref{eq:truncated preprojectives} and obtain an isomorphism $\Hom(P_{m+1},P_{m+1})\cong\Hom(P_{m+1},P_{m+1}^V)$ by which the identity map on $P_{m+1}$ is taken to the projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
+  The first claim is immediate since $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some $\ell\ge1$ implies all indecomposable summands of $X$ are preprojectives of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$), whereas $P_{m+1}^V$ is not preprojective.\sayT{The proof as written seems to be false as $\Hom(X,P_\ell)\ne0$ does not imply $\Hom(Y,P_\ell)\neq 0$ for all direct summands $Y$ of $X$. The easiest way would be to reorganize 3.8-3.10 in such way that we can assume that $X=P_m^V$ is indecomposable.} Note that $\udim P_{m+1}^V <\udim P_{m+1}$, but $\udim P_r\geq \udim P_{m+1}$ if $\Hom(P_{m+1},P_r)\neq 0.$  For the second claim we apply the functor $\Hom(P_{m+1},-)$ to the sequence \eqref{eq:truncated preprojectives} and obtain an isomorphism $\Hom(P_{m+1},P_{m+1})\cong\Hom(P_{m+1},P_{m+1}^V)$ by which the identity map on $P_{m+1}$ is taken to the projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
 \end{proof}
 
 \begin{lemma}
@@ -350,7 +349,7 @@ Following Lemma~\ref{le:injective evaluation maps} we define the following.
   But there is a natural isomorphism $\Hom(P_m,P_m\otimes V)\cong V$ and the result follows.
 \end{proof}
   
-\begin{corollary}
+\begin{corollary}\sayT{exchange $W$ and $V$?}
     For $V,W\in Gr(H_m)$ with $V\subset W$, we have $\Ext(P_{m+1}^V,P_{m+1}^W)\cong V^*\otimes(H_m/W)$.
 \end{corollary}
 \begin{proof}
@@ -387,13 +386,13 @@ Following Lemma~\ref{le:injective evaluation maps} we define the following.
   Define a map $H_m^*\to H_{m-1}$ by $\varphi\mapsto\bar{\varphi}:=(id\overline{\otimes}\varphi)\circ\iota_{m-1}$, in words $\bar{\varphi}$ acts on $x\in P_{m-1}$ by contracting with the second factor in $\iota_{m-1}(x)$ to give an element of $P_m$.
   Suppose $\varphi\in H_m^*$ is a nonzero functional on $H_m$ and let $V\subsetneq H_m$ denote the kernel of $\varphi$.
   Then $\bar{\varphi}=0\in H_{m-1}$ if and only if the image of $\iota_{m-1}$ is contained in $P_m\otimes V\subsetneq P_m\otimes H_m$.
-  But then Lemma~\ref{le:injective evaluation maps} implies $\iota_{m-1}$ is the zero map, a contradiction.
+  But then Lemma~\ref{le:injective evaluation maps} implies $\iota_{m-1}$ is the zero map, a contradiction.\sayT{why does this imply that $\iota_{m-1}=0$? This should contradict the fact that \eqref{eq:AR sequence} is an AR-sequence.}
   Thus the map $H_m^*\to H_{m-1}$, $\varphi\mapsto\bar{\varphi}$ must be injective and hence an isomorphism.
 \end{proof}
 \begin{remark}
   The set $Gr(H_m)$ is naturally a poset and Lemma~\ref{le:preprojective homomorphism duality} gives an identification of the opposite poset $Gr(H_m)^{op}\cong Gr(H_m^*)$ with $Gr(H_{m-1})$.
   We write $\bar{V}\subset H_{m-1}$ for the subspace corresponding to $V\subset H_m$ under this identification.
-  Under the isomorphism of $H_{m-1}$ with $H_m^*$, we have $\bar{V}=(H_m/V)^*$.
+  Under the isomorphism of $H_{m-1}$ with $H_m^*$, we have $\bar{V}=(H_m/V)^*$.\sayT{more details?}
 \end{remark}
 
 \begin{corollary}
@@ -414,7 +413,7 @@ The next observation is essential for the results to follow.
   For $V\in Gr(H_m)$, $m\ge1$, we have $\bar{\bar{V}}=\tau V$.
 \end{proposition}
 \begin{proof}
-  \sayD{Proof needed}
+  \sayD{Proof needed}\sayT{explain $\tau V$. Do we need this?}
   We show that $\bar{\bar{\varphi}}=\tau\varphi$ for $\varphi\in H_m$.
   Indeed, we have
   \[\bar{\bar{\varphi}}=(id\overline{\otimes}\bar{\varphi})\circ\iota_{m-2}=\Big(id\overline{\otimes}\big((id\overline{\otimes}\varphi)\circ\iota_{m-1}\big)\Big)\circ\iota_{m-2}.\]
@@ -441,7 +440,7 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
   Under this isomorphism, the functional $\varphi$ corresponds to the lower pushout sequence in the above diagram.
 \end{proof}
 
-\begin{corollary}
+\begin{corollary}\sayT{proof?}
   For $V,W\in Gr(H_m)$, $m\ge3$, the space $\Ext(P_{m+1}^V,P_{m-1}^{\bar{\bar{W}}})$ has dimension 0 or 1.. .
 \end{corollary}
 
@@ -482,7 +481,7 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
   It is slightly easier to understand the dual of the diagram figuring in the proof above, in particular it is immediate that the kernel of the natural morphism $V\to H_m/W$ is $V\cap W$ while the cokernel of this morphism is $H_m/(V+W)$.
 \end{remark}
 
-\begin{lemma}
+\begin{lemma}\sayT{proof? Special case of 3.23?}
   For $V,W\in Gr(H_m)$, $m\ge2$, with $\dim W=1$, we have $\Hom(P_{m+1}^V,P_{m-1}^{\bar{\bar{W}}})\cong\big(H_m/(V+W)\big)^*$.
 \end{lemma}
 
@@ -604,11 +603,12 @@ It is rather important that $\tilde P_{2l}$ and $\tilde P_{2l-1}$ live on two di
   \begin{enumerate}
     \item Note that the group $W_Q$ acts naturally on $\widetilde{K(n)}_0$ via translation, i.e. $w.(i,w')=(i,ww')$, and this induces an action of $W_Q$ on $\rep\widetilde{K(n)}$. 
       %Up to this action a lift $\tilde P_m$ of $P_m$ is unique (on isomorphism classes).
-    \item We have 
+    \item  Every representation $\tilde P_m$ has $n$ subrepresentation $\tilde P_{m-1,1},\ldots,\tilde P_{m-1,n}$. Each of them corresponds to one of the $n$ different arrows of $K(n)$. 	
+		We have 
       $$\tilde P_{2l-1,i}:=\alpha_i.\tilde P_{2l-1},\quad \tilde P_{2l,i}:=\alpha_i^{-1}.\tilde P_{2l}$$
       for all $l\geq 1$ and for $i=1,\ldots,n$. This can be checked straightforwardly for $l=1$ and follows in general when applying the identities (\ref{recursive}). 
 
-      Now every representation $\tilde P_m$ has $n$ subrepresentation $\tilde P_{m-1,1},\ldots,\tilde P_{m-1,n}$. Each of them corresponds to one of the $n$ different arrows of $K(n)$. 
+     
     \item Note that, the dimension vector of $\tilde P_m$ are symmetric. They all have the same middle vertex $(1,1)$ if $m$ is odd and $(2,1)$ if $m$ is even.
 \end{enumerate}
 \end{remark}
@@ -680,7 +680,7 @@ The representation $\tilde P_2$ is defined by the following quiver:
 \begin{align*}
   \xymatrix@R10pt@C20pt{&&(1,\alpha_1)\\(2,1)\ar^{\alpha_1}[rru]\ar^{\alpha_{n}}[rrd] &&\vdots\\&&(1,\alpha_n)}
 \end{align*}
-The support of $\tilde P_2^{(i)}$, which we denote by $\mathcal A_i$ during this proof, can be obtained from this quiver by erasing the arrow $\alpha_i$ and the corresponding sink. In turn, the quiver of $\tilde P_2^{(j_1,\ldots,j_l)}$ is obtained by erasing the arrows $\alpha_{j_1},\ldots,\alpha_{j_l}$.
+The support of $\tilde P_2^{(i)}$, which we denote by $\mathcal A_i$, can be obtained from this quiver by erasing the arrow $\alpha_i$ and the corresponding sink. In turn, the quiver of $\tilde P_2^{(j_1,\ldots,j_l)}$ is obtained by erasing the arrows $\alpha_{j_1},\ldots,\alpha_{j_l}$ and the corresponding sinks.
 
 The representation $\tilde P_3$ is given by the quiver
 	\begin{align*}
