@@ -302,7 +302,7 @@ Following Lemma~\ref{le:injective evaluation maps}, we define the following.
 
 \begin{lemma}
   \label{le:truncated homomorphisms}
-  For $V\in Gr(H_m)$, $m\ge1$, we have $\Hom(P_m,P_{m+1}^V)\cong H_m/V$ and $\Ext(P_m,P_{m+1}^V=0$.
+  For $V\in Gr(H_m)$, $m\ge1$, we have $\Hom(P_m,P_{m+1}^V)\cong H_m/V$ and $\Ext(P_m,P_{m+1}^V)=0$.
 \end{lemma}
 \begin{proof}
   Applying the functor $\Hom(P_m,-)$ to the sequence \eqref{eq:truncated preprojectives} gives an exact sequence
@@ -345,6 +345,12 @@ Following Lemma~\ref{le:injective evaluation maps}, we define the following.
   where the last isomorphism is immediate from Lemma~\ref{le:truncated homomorphisms}.
 \end{proof}
 
+\begin{remark}
+  The total Grassmannian $Gr(H_m)$ is naturally a poset under inclusion.
+  This structure gives rise to a $\CC$-linear category $\CC Gr(H_m)$ with objects the elements of $Gr(H_m)$ and at most one morphism (up to scalars) between any two objects.
+  Write $\cP_{m+1}$ for the full subcategory of $\rep K(n)$ with objects the truncated preprojectives $P_{m+1}^V$ for $V\in Gr(H_m)$.
+  By Lemma~\ref{le:unique morphisms}(1), the functor $V\mapsto P_{m+1}^V$ gives an isomorphism of categories $\CC Gr(H_m)\cong\cP_{m+1}$.
+\end{remark}
 
 \begin{corollary}
   \label{cor:indecomposable truncated} 
@@ -362,17 +368,9 @@ Following Lemma~\ref{le:injective evaluation maps}, we define the following.
 \end{lemma}
 \begin{proof}
   Recall that $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some $\ell\ge1$ implies all indecomposable summands of $X$ are preprojectives of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$).
-  whereas $P_{m+1}^V$ is not preprojective.\sayT{The proof as written seems to be false as $\Hom(X,P_\ell)\ne0$ does not imply $\Hom(Y,P_\ell)\neq 0$ for all direct summands $Y$ of $X$. The easiest way would be to reorganize 3.8-3.10 in such way that we can assume that $X=P_m^V$ is indecomposable.}
-  Note that $\udim P_{m+1}^V <\udim P_{m+1}$, but $\udim P_r\geq \udim P_{m+1}$ if $\Hom(P_{m+1},P_r)\neq 0$.
+  However, $P_{m+1}^V$ cannot be preprojective as it is not rigid by Lemma~\ref{le:unique morphisms}.
+  %Note that $\udim P_{m+1}^V <\udim P_{m+1}$, but $\udim P_r\geq \udim P_{m+1}$ if $\Hom(P_{m+1},P_r)\neq 0$.
 \end{proof}
-
-
-
-\begin{remark}
-  The total Grassmannian $Gr(H_m)$ is naturally a poset under inclusion which we extend to a $\CC$-linear category $\CC Gr(H_m)$ with objects the elements of $Gr(H_m)$ and at most one morphism (up to scalars) between any two objects.
-  Write $\cP_{m+1}$ for the full subcategory of $\rep K(n)$ with objects the truncated preprojectives $P_{m+1}^V$ for $V\in Gr(H_m)$.
-  By Lemma~\ref{le:unique morphisms}, the functor $V\mapsto P_{m+1}^V$ gives an isomorphism of categories $\CC Gr(H_m)\cong\cP_{m+1}$.
-\end{remark}
 
 \begin{lemma}
   \label{le:unique truncated extension}
@@ -401,7 +399,7 @@ Following Lemma~\ref{le:injective evaluation maps}, we define the following.
   Define a map $H_m^*\to H_{m-1}$ by $\varphi\mapsto\bar{\varphi}:=(id\overline{\otimes}\varphi)\circ\iota_{m-1}$, in words $\bar{\varphi}$ acts on $x\in P_{m-1}$ by contracting with the second factor in $\iota_{m-1}(x)$ to give an element of $P_m$.
   Suppose $\varphi\in H_m^*$ is a nonzero functional on $H_m$ and let $V\subsetneq H_m$ denote the kernel of $\varphi$.
   Then $\bar{\varphi}=0\in H_{m-1}$ if and only if the image of $\iota_{m-1}$ is contained in $P_m\otimes V\subsetneq P_m\otimes H_m$.
-  But then Lemma~\ref{le:injective evaluation maps} implies $\iota_{m-1}$ is the zero map, a contradiction.\sayT{why does this imply that $\iota_{m-1}=0$? This should contradict the fact that \eqref{eq:AR sequence} is an AR-sequence.}
+  But then Lemma~\ref{le:injective evaluation maps} implies $ev\circ\iota_{m-1}=ev_V\circ\iota_{m-1}\ne0$, a contradiction.\sayT{why does this imply that $\iota_{m-1}=0$? This should contradict the fact that \eqref{eq:AR sequence} is an AR-sequence.}\sayD{is this better?}
   Thus the map $H_m^*\to H_{m-1}$, $\varphi\mapsto\bar{\varphi}$ must be injective and hence an isomorphism.
 \end{proof}
 \begin{remark}
@@ -541,12 +539,24 @@ where the left hand morphism above is the natural evaluation morphism coming fro
 Each such sequence has the following almost-split property for proper subrepresentations of $P_{m+1}^V$.
 \sayD{The next results need some serious clean-up, can they be proven for $K(n)$ without passing to the universal cover?}
 \begin{lemma}
-  For $V\in Gr(H_m)$, $m\ge1$, given any proper subrepresentation $X\subsetneq P_{m+1}^V$, the upper pullback sequence
+  For $V\in Gr(H_m)$, $m\ge1$, any proper subrepresentation $X\subsetneq P_{m+1}^V$ can be written as a direct sum of preprojective representations $P_r$ with $1\le r\le m$.
+  Moreover, the upper pullback sequence
   \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar@{=}[d]\ar[r] & Y \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\ar[r] & 0 \\
     0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
   splits for every proper subspace $W\subsetneq V$.
 \end{lemma}
 \begin{proof}
+  We proceed by simultaneous induction on $m$ and $\codim_{H_m} V$.
+
+  When $m=1$, the dimension vector of $P_{m+1}^V$ is $(\codim_{H_m} V,1)$.
+  In particular, it is immediate that each proper subrepresentation of $P_{m+1}^V$ is isomorphic to $P_1^k$ for some $0\le k\le l$ which gives both claims in this case.
+
+  By Corollary~\ref{cor:truncated preprojective isomorphism}, the first claim for $m\ge2$ and $\codim_{H_m} V = 1$ follows from the first claim for $m-1$.
+  
+  Now we show that the first claim implies the second.
+  Consider $W\subsetneq V$ and suppose the first claim holds for $P_{m+1}^V$.
+  Observe that $\Ext(P_r,P_m)=0$ for $1\le r\le m$ and so the upper pullback sequence above will split giving the second claim.
+
   We proceed by induction on $\codim_V W$.  
   When $\codim_V W=1$, we have an exact sequence
   \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\] 
