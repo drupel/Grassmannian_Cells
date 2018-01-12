@@ -189,7 +189,8 @@ The following is well-known.
   Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}\oplus P_{m+1}^{a_2}$ or $I_m^{a_1}\oplus I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
 \end{theorem}
 The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
-\begin{remark}\label{rem:reflection recursion}
+\begin{remark}
+  \label{rem:reflection recursion}
   We may identify the quiver $K(n)$ with $K(n)^{op}$ by interchanging the vertex labels.
   This induces an isomorphism of categories $\rep K(n)\cong\rep K(n)^{op}$ which we write as $M\mapsto M^\sigma$.
   Note that $\Sigma_1(M^\sigma)=(\Sigma_2 M)^\sigma$ and $\Sigma_2(M^\sigma)=(\Sigma_1 M)^\sigma$.
@@ -230,6 +231,7 @@ For a dimension vector $d\in\NN^{Q_0}$, write $R_d(K(n))$ for the affine space o
 
   It is easy to see that $(l,1)$ is a Schur root since all indecomposable representations with this dimension vector have trivial endomorphism ring.
   Thus the roots $d(m,r)$ are also Schur roots.
+  \sayD{This can also be seen as a consequence of Corollary~\ref{cor:indecomposable truncated}, would it be better if we reorganize?}
   It follows that the set of indecomposable representations with trivial endomorphism ring form a dense open subset of $R_{d(m,r)}(K(n))$, see for example \cite{sch}.
   This shows the second statement.
 
@@ -299,30 +301,69 @@ Following Lemma~\ref{le:injective evaluation maps}, we define the following.
 \end{remark}
 
 \begin{lemma}
-  \label{le:basic homological properties}
-  For $V\in Gr(H_m)$, $m\ge1$, we have $\Hom(P_{m+1}^V,P_\ell)=0=\Ext(P_\ell,P_{m+1}^V)$ for all $\ell\ge1$.
-  Moreover, $\Hom(P_{m+1},P_{m+1}^V)$ is the one-dimensional space spanned by the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
+  \label{le:truncated homomorphisms}
+  For $V\in Gr(H_m)$, $m\ge1$, we have $\Hom(P_m,P_{m+1}^V)\cong H_m/V$ and $\Ext(P_m,P_{m+1}^V=0$.
 \end{lemma}
 \begin{proof}
-  The first claim is immediate since $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some $\ell\ge1$ implies all indecomposable summands of $X$ are preprojectives of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$), whereas $P_{m+1}^V$ is not preprojective.\sayT{The proof as written seems to be false as $\Hom(X,P_\ell)\ne0$ does not imply $\Hom(Y,P_\ell)\neq 0$ for all direct summands $Y$ of $X$. The easiest way would be to reorganize 3.8-3.10 in such way that we can assume that $X=P_m^V$ is indecomposable.} Note that $\udim P_{m+1}^V <\udim P_{m+1}$, but $\udim P_r\geq \udim P_{m+1}$ if $\Hom(P_{m+1},P_r)\neq 0.$  For the second claim we apply the functor $\Hom(P_{m+1},-)$ to the sequence \eqref{eq:truncated preprojectives} and obtain an isomorphism $\Hom(P_{m+1},P_{m+1})\cong\Hom(P_{m+1},P_{m+1}^V)$ by which the identity map on $P_{m+1}$ is taken to the projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
+  Applying the functor $\Hom(P_m,-)$ to the sequence \eqref{eq:truncated preprojectives} gives an exact sequence
+  \[\xymatrix{0 \ar[r] & \Hom(P_m,P_m\otimes V) \ar[r] & \Hom(P_m,P_{m+1}) \ar[r] & \Hom(P_m,P_{m+1}^V) \ar[r] & 0}\]
+  and a surjective map
+  \[\Ext(P_m,P_{m+1})\onto\Ext(P_m,P_{m+1}^V).\]
+  But there is a natural isomorphism $\Hom(P_m,P_m\otimes V)\cong V$ and the first claim follows.
+  The final claim follows from Remark~\ref{rem:reflection recursion}.
+\end{proof}
+
+\begin{lemma}
+  \label{le:unique preprojective morphism}
+  For $V\in Gr(H_m)$, $m\ge1$, the space $\Hom(P_{m+1},P_{m+1}^V)$ is one-dimensional spanned by the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
+  Moreover, $\Ext(P_{m+1},P_{m+1}^V)=0$.
+\end{lemma}
+\begin{proof}
+  Applying the functor $\Hom(P_{m+1},-)$ to the sequence \eqref{eq:truncated preprojectives}, we obtain an isomorphism 
+  \[\Hom(P_{m+1},P_{m+1})\cong\Hom(P_{m+1},P_{m+1}^V)\]
+  and a surjective map
+  \[\Ext(P_{m+1},P_{m+1})\onto\Ext(P_{m+1},P_{m+1}^V).\]
+  The identity map on $P_{m+1}$ is taken to the projection $\pi_V:P_{m+1}\to P_{m+1}^V$ under the isomorphism.
+  The rigidity of $P_{m+1}$ gives the final claim.
 \end{proof}
 
 \begin{lemma}
   \label{le:unique morphisms}
-  There exists a morphism $P_{m+1}^W\to P_{m+1}^V$ for $V,W\in Gr(H_m)$ if and only if $W\subset V$ and this morphism is unique (up to scalars) when it exists.
+  Consider $V,W\in Gr(H_m)$, $m\ge1$.
+  \begin{enumerate}
+    \item There exists a morphism $P_{m+1}^W\to P_{m+1}^V$ if and only if $W\subset V$ and this morphism is unique (up to scalars) when it exists.
+    \item For $W\subset V$, we have $\Ext(P_{m+1}^W,P_{m+1}^V)\cong W^*\otimes(H_m/V)$.
+  \end{enumerate}
 \end{lemma}
 \begin{proof}
-  Given $V,W\in Gr(H_m)$, we apply the functor $\Hom(-,P_{m+1}^V)$ to the sequence \eqref{eq:truncated preprojectives} for $W$ to get an exact sequence
-  \[0\longrightarrow \Hom(P_{m+1}^W,P_{m+1}^V)\longrightarrow \Hom(P_{m+1},P_{m+1}^V)\stackrel{-\circ ev_W}{\longrightarrow} \Hom(P_m\otimes W,P_{m+1}^V).\]
-  But the space $\Hom(P_{m+1},P_{m+1}^V)$ is one-dimensional, spanned by the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$, and thus $\Hom(P_{m+1}^W,P_{m+1}^V)$ is nonzero if and only if the right hand morphism of the above sequence is zero.
+  We apply the functor $\Hom(-,P_{m+1}^V)$ to the sequence \eqref{eq:truncated preprojectives} for $W$ to get an exact sequence
+  \[0\longrightarrow \Hom(P_{m+1}^W,P_{m+1}^V)\longrightarrow \Hom(P_{m+1},P_{m+1}^V)\stackrel{-\circ ev_W}{\longrightarrow} \Hom(P_m\otimes W,P_{m+1}^V)\longrightarrow \Ext(P_{m+1}^W,P_{m+1}^V)\longrightarrow 0.\]
+  But the space $\Hom(P_{m+1},P_{m+1}^V)$ is one-dimensional and thus $\Hom(P_{m+1}^W,P_{m+1}^V)$ is nonzero if and only if the right hand morphism of the above sequence is zero.
   But this occurs exactly when the image of $ev_W:P_m\otimes W\to P_{m+1}$ is contained in the kernel of $\pi_V$, i.e.\ in the image of $ev_V:P_m\otimes V\to P_{m+1}$, and this occurs if and only if $W\subset V$. 
+  In this case, there is an isomorphism 
+  \[\Ext(P_{m+1}^W,P_{m+1}^V)\cong\Hom(P_m\otimes W,P_{m+1}^V)\cong W^*\otimes H_m/V,\]
+  where the last isomorphism is immediate from Lemma~\ref{le:truncated homomorphisms}.
 \end{proof}
 
+
 \begin{corollary}
-  For $V\in Gr(H_m)$, $m\ge1$, the truncated preprojective $P_{m+1}^V$ is indecomposable. Moreover, every indecomposable of dimension $\udim P_{m+1}^V$ is truncated preprojective.
+  \label{cor:indecomposable truncated} 
+  For $V\in Gr(H_m)$, $m\ge1$, the truncated preprojective $P_{m+1}^V$ is indecomposable.
+  Moreover, every indecomposable of dimension $\udim P_{m+1}^V$ is truncated preprojective.
 \end{corollary}
 \begin{proof}
-  By Lemma~\ref{le:unique morphisms}, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable. The second part follows from Proposition \ref{pro:indecomposables} together with Lemma \ref{le:unique morphisms}.
+  By Lemma~\ref{le:unique morphisms}, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable.
+  The second part follows from Proposition \ref{pro:indecomposables} together with Lemma \ref{le:unique morphisms}.
+\end{proof}
+
+\begin{lemma}
+  \label{le:basic homological properties}
+  For $V\in Gr(H_m)$, $m\ge1$, we have $\Hom(P_{m+1}^V,P_\ell)=0=\Ext(P_\ell,P_{m+1}^V)$ for all $\ell\ge1$.
+\end{lemma}
+\begin{proof}
+  Recall that $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some $\ell\ge1$ implies all indecomposable summands of $X$ are preprojectives of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$).
+  whereas $P_{m+1}^V$ is not preprojective.\sayT{The proof as written seems to be false as $\Hom(X,P_\ell)\ne0$ does not imply $\Hom(Y,P_\ell)\neq 0$ for all direct summands $Y$ of $X$. The easiest way would be to reorganize 3.8-3.10 in such way that we can assume that $X=P_m^V$ is indecomposable.}
+  Note that $\udim P_{m+1}^V <\udim P_{m+1}$, but $\udim P_r\geq \udim P_{m+1}$ if $\Hom(P_{m+1},P_r)\neq 0$.
 \end{proof}
 
 
@@ -332,26 +373,6 @@ Following Lemma~\ref{le:injective evaluation maps}, we define the following.
   Write $\cP_{m+1}$ for the full subcategory of $\rep K(n)$ with objects the truncated preprojectives $P_{m+1}^V$ for $V\in Gr(H_m)$.
   By Lemma~\ref{le:unique morphisms}, the functor $V\mapsto P_{m+1}^V$ gives an isomorphism of categories $\CC Gr(H_m)\cong\cP_{m+1}$.
 \end{remark}
-
-\begin{lemma}
-  \label{le:truncated homomorphisms}
-  For $V\in Gr(H_m)$, $m\ge1$, we have $\Hom(P_m,P_{m+1}^V)\cong H_m/V$.
-\end{lemma}
-\begin{proof}
-  Applying the functor $\Hom(P_m,-)$ to the sequence \eqref{eq:truncated preprojectives} gives an exact sequence
-  \[\xymatrix{0 \ar[r] & \Hom(P_m,P_m\otimes V) \ar[r] & \Hom(P_m,P_{m+1}) \ar[r] & \Hom(P_m,P_{m+1}^V) \ar[r] & 0}.\]
-  But there is a natural isomorphism $\Hom(P_m,P_m\otimes V)\cong V$ and the result follows.
-\end{proof}
-  
-\begin{corollary}\sayT{exchange $W$ and $V$?}
-    For $V,W\in Gr(H_m)$ with $V\subset W$, we have $\Ext(P_{m+1}^V,P_{m+1}^W)\cong V^*\otimes(H_m/W)$.
-\end{corollary}
-\begin{proof}
-  Applying the functor $\Hom(-,P_{m+1}^W)$ to the sequence \eqref{eq:truncated preprojectives} gives an injective map $\Hom(P_{m+1}^V,P_{m+1}^W)\to\Hom(P_{m+1},P_{m+1}^W)$ which is an isomorphism by Lemma~\ref{le:basic homological properties} and Lemma~\ref{le:unique morphisms}.
-  Since $\Ext(P_{m+1},P_{m+1}^W)=0$ again by Lemma~\ref{le:basic homological properties}, it follows that there is an isomorphism 
-  \[\Ext(P_{m+1}^V,P_{m+1}^W)\cong\Hom(P_m\otimes V,P_{m+1}^W)\cong V^*\otimes H_m/W,\]
-  where the last isomorphism is immediate from Lemma~\ref{le:truncated homomorphisms}.
-\end{proof}
 
 \begin{lemma}
   \label{le:unique truncated extension}
@@ -455,7 +476,7 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
 
   Applying the functor $\Hom(-,P_m^{\bar{W}})$ to the sequence \eqref{eq:AR sequence} we get an exact sequence 
   \[\xymatrix{0 \ar[r] & \Hom(P_{m+1},P_m^{\bar{W}}) \ar[r] & \Hom(P_m\otimes H_m,P_m^{\bar{W}}) \ar[r] & \Hom(P_{m-1},P_m^{\bar{W}}) \ar[r] & 0}.\]
-  By Lemma~\ref{le:basic homological properties}, the middle space above is isomorphic to $H_m^*$ and thus $\Hom(P_{m+1},P_m^{\bar{W}})$ can be identified with the kernel of the natural map $H_m^*\to W^*$, i.e.\ with the space $(H_m/W)^*$.
+  By Lemma~\ref{le:unique preprojective morphism}, the middle space above is isomorphic to $H_m^*$ and thus $\Hom(P_{m+1},P_m^{\bar{W}})$ can be identified with the kernel of the natural map $H_m^*\to W^*$, i.e.\ with the space $(H_m/W)^*$.
 \end{proof}
 \begin{remark}
   For $W\in Gr(H_m)$, $m\ge2$, a nonzero element $\varphi\in\Hom(P_{m+1},P_m^{\bar{W}})=(H_m/W)^*$ corresponds, by taking the kernel of $\varphi$, to a codimension-one subspace $V\subset H_m$ containing $W$.
