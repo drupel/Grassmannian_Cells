@@ -248,10 +248,10 @@ For a dimension vector $d\in\NN^{Q_0}$, write $R_d(K(n))$ for the affine space o
 
 Set $H_m:=\Hom(P_m,P_{m+1})$ for $m\ge1$. %and define an action of $GL_n(\CC)$ on $H_m$ by $g.\theta:=\phi_{m+1,g}^{-1}\circ\theta^g\circ\phi_{m,g}$.
 %Note that the first $\theta$ here represents an element of $H_m$ while the second $\theta^g$ represents the corresponding element of $H_m^g:=\Hom(g.P_m,g.P_{m+1})$ from Lemma~\ref{le:hom equivariance}.
-Write $Gr(H_m)$ for the \emph{total Grassmannian} of $H_m$ whose elements are nontrivial proper subspaces $V\subset H_m$.
-Some results below remain true if we allow $H_m$ or $0$ as elements of $Gr(H_m)$, but not all, so for uniformity of exposition we omit these possibilities.
-%Lemma~\ref{le:hom equivariance} gives an identification of $Gr(H_m)$ with $Gr(H_m^g)$ and we write $V\mapsto V^g$ for this correspondence.
-For $1\le r\le n-1$, let $Gr_r(H_m)\subset Gr(H_m)$ be the subvariety of $r$-dimensional subspaces of $H_m$.
+Write $\Gr(H_m)$ for the \emph{total Grassmannian} of $H_m$ whose elements are nontrivial proper subspaces $V\subset H_m$.
+Some results below remain true if we allow $H_m$ or $0$ as elements of $\Gr(H_m)$, but not all, so for uniformity of exposition we omit these possibilities.
+%Lemma~\ref{le:hom equivariance} gives an identification of $\Gr(H_m)$ with $\Gr(H_m^g)$ and we write $V\mapsto V^g$ for this correspondence.
+For $1\le r\le n-1$, let $\Gr_r(H_m)\subset \Gr(H_m)$ be the subvariety of $r$-dimensional subspaces of $H_m$.
 
 For each $m\ge2$, there is an Auslander-Reiten sequence \cite[Section V]{ars}
 \begin{equation}
@@ -262,7 +262,7 @@ where the right-hand morphism is the natural evaluation map.
 
 \begin{lemma}
   \label{le:injective evaluation maps}
-Let $m\geq 1$.  For any $V\in Gr(H_m)$, the natural evaluation map $ev_V:P_m\otimes V\to P_{m+1}$ is injective.
+Let $m\geq 1$.  For any $V\in \Gr(H_m)$, the natural evaluation map $ev_V:P_m\otimes V\to P_{m+1}$ is injective.
 \end{lemma}
 %%%%%%%%%%%%%%%%%%%
 % needs polishing %
@@ -290,7 +290,7 @@ In what follows we will not distinguish between $P_m\otimes V$ and its image und
 \label{sec:truncated preprojectives}
 Following Lemma~\ref{le:injective evaluation maps}, we define the following.
 \begin{definition}
-  For $V\in Gr(H_m)$, define the \emph{truncated preprojective} $P_{m+1}^V$ to be the cokernel of the map $ev_V:P_m\otimes V\to P_{m+1}$, i.e.\ we have a short exact sequence
+  For $V\in \Gr(H_m)$, define the \emph{truncated preprojective} $P_{m+1}^V$ to be the cokernel of the map $ev_V:P_m\otimes V\to P_{m+1}$, i.e.\ we have a short exact sequence
   \begin{equation}
     \label{eq:truncated preprojectives}
     0\longrightarrow P_m\otimes V\stackrel{ev_V}{\longrightarrow} P_{m+1}\stackrel{\pi_V}{\longrightarrow} P_{m+1}^V\longrightarrow 0.
@@ -302,7 +302,7 @@ Following Lemma~\ref{le:injective evaluation maps}, we define the following.
 
 \begin{lemma}
   \label{le:truncated homomorphisms}
-  For $V\in Gr(H_m)$, $m\ge1$, we have $\Hom(P_m,P_{m+1}^V)\cong H_m/V$ and $\Ext(P_m,P_{m+1}^V)=0$.
+  For $V\in \Gr(H_m)$, $m\ge1$, we have $\Hom(P_m,P_{m+1}^V)\cong H_m/V$ and $\Ext(P_m,P_{m+1}^V)=0$.
 \end{lemma}
 \begin{proof}
   Applying the functor $\Hom(P_m,-)$ to the sequence \eqref{eq:truncated preprojectives} gives an exact sequence
@@ -315,7 +315,7 @@ Following Lemma~\ref{le:injective evaluation maps}, we define the following.
 
 \begin{lemma}
   \label{le:unique preprojective morphism}
-  For $V\in Gr(H_m)$, $m\ge1$, the space $\Hom(P_{m+1},P_{m+1}^V)$ is one-dimensional spanned by the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
+  For $V\in \Gr(H_m)$, $m\ge1$, the space $\Hom(P_{m+1},P_{m+1}^V)$ is one-dimensional spanned by the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
   Moreover, $\Ext(P_{m+1},P_{m+1}^V)=0$.
 \end{lemma}
 \begin{proof}
@@ -329,7 +329,7 @@ Following Lemma~\ref{le:injective evaluation maps}, we define the following.
 
 \begin{lemma}
   \label{le:unique morphisms}
-  Consider $V,W\in Gr(H_m)$, $m\ge1$.
+  Consider $V,W\in \Gr(H_m)$, $m\ge1$.
   \begin{enumerate}
     \item There exists a morphism $P_{m+1}^W\to P_{m+1}^V$ if and only if $W\subset V$ and this morphism is unique (up to scalars) when it exists.
     \item For $W\subset V$, we have $\Ext(P_{m+1}^W,P_{m+1}^V)\cong W^*\otimes(H_m/V)$.
@@ -346,15 +346,15 @@ Following Lemma~\ref{le:injective evaluation maps}, we define the following.
 \end{proof}
 
 \begin{remark}
-  The total Grassmannian $Gr(H_m)$ is naturally a poset under inclusion.
-  This structure gives rise to a $\CC$-linear category $\CC Gr(H_m)$ with objects the elements of $Gr(H_m)$ and at most one morphism (up to scalars) between any two objects.
-  Write $\cP_{m+1}$ for the full subcategory of $\rep K(n)$ with objects the truncated preprojectives $P_{m+1}^V$ for $V\in Gr(H_m)$.
-  By Lemma~\ref{le:unique morphisms}(1), the functor $V\mapsto P_{m+1}^V$ gives an isomorphism of categories $\CC Gr(H_m)\cong\cP_{m+1}$.
+  The total Grassmannian $\Gr(H_m)$ is naturally a poset under inclusion.
+  This structure gives rise to a $\CC$-linear category $\CC \Gr(H_m)$ with objects the elements of $\Gr(H_m)$ and at most one morphism (up to scalars) between any two objects.
+  Write $\cP_{m+1}$ for the full subcategory of $\rep K(n)$ with objects the truncated preprojectives $P_{m+1}^V$ for $V\in \Gr(H_m)$.
+  By Lemma~\ref{le:unique morphisms}(1), the functor $V\mapsto P_{m+1}^V$ gives an isomorphism of categories $\CC \Gr(H_m)\cong\cP_{m+1}$.
 \end{remark}
 
 \begin{corollary}
   \label{cor:indecomposable truncated} 
-  For $V\in Gr(H_m)$, $m\ge1$, the truncated preprojective $P_{m+1}^V$ is indecomposable.
+  For $V\in \Gr(H_m)$, $m\ge1$, the truncated preprojective $P_{m+1}^V$ is indecomposable.
   Moreover, every indecomposable of dimension $\udim P_{m+1}^V$ is truncated preprojective.
 \end{corollary}
 \begin{proof}
@@ -364,7 +364,7 @@ Following Lemma~\ref{le:injective evaluation maps}, we define the following.
 
 \begin{lemma}
   \label{le:basic homological properties}
-  For $V\in Gr(H_m)$, $m\ge1$, we have $\Hom(P_{m+1}^V,P_\ell)=0=\Ext(P_\ell,P_{m+1}^V)$ for all $\ell\ge1$.
+  For $V\in \Gr(H_m)$, $m\ge1$, we have $\Hom(P_{m+1}^V,P_\ell)=0=\Ext(P_\ell,P_{m+1}^V)$ for all $\ell\ge1$.
 \end{lemma}
 \begin{proof}
   Recall that $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some $\ell\ge1$ implies all indecomposable summands of $X$ are preprojectives of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$).
@@ -374,7 +374,7 @@ Following Lemma~\ref{le:injective evaluation maps}, we define the following.
 
 \begin{lemma}
   \label{le:unique truncated extension}
-  For $V\in Gr(H_m)$, $m\ge2$, the space $\Ext(P_{m+1}^V,P_{m-1})$ is one-dimensional and spanned by the extension
+  For $V\in \Gr(H_m)$, $m\ge2$, the space $\Ext(P_{m+1}^V,P_{m-1})$ is one-dimensional and spanned by the extension
   \begin{equation}
     \label{eq:unique extension}
     \xymatrix{0 \ar[r] & P_{m-1} \ar[r]^(.375){\kappa_V} & P_m\otimes(H_m/V) \ar[r]^(.625){ev} & P_{m+1}^V \ar[r] & 0}.
@@ -403,14 +403,14 @@ Following Lemma~\ref{le:injective evaluation maps}, we define the following.
   Thus the map $H_m^*\to H_{m-1}$, $\varphi\mapsto\bar{\varphi}$ must be injective and hence an isomorphism.
 \end{proof}
 \begin{remark}
-  The set $Gr(H_m)$ is naturally a poset and Lemma~\ref{le:preprojective homomorphism duality} gives an identification of the opposite poset $Gr(H_m)^{op}\cong Gr(H_m^*)$ with $Gr(H_{m-1})$.
+  The set $\Gr(H_m)$ is naturally a poset and Lemma~\ref{le:preprojective homomorphism duality} gives an identification of the opposite poset $\Gr(H_m)^{op}\cong \Gr(H_m^*)$ with $\Gr(H_{m-1})$.
   We write $\bar{V}\subset H_{m-1}$ for the subspace corresponding to $V\subset H_m$ under this identification.
   Under the isomorphism of $H_{m-1}$ with $H_m^*$, we have $\bar{V}=(H_m/V)^*$.\sayT{more details?}
 \end{remark}
 
 \begin{corollary}
   \label{cor:truncated preprojective isomorphism}
-  Suppose $V\in Gr(H_m)$ has codimension-one in $H_m$.  Then $P_{m+1}^V\cong P_m^{\bar{V}}$.
+  Suppose $V\in \Gr(H_m)$ has codimension-one in $H_m$.  Then $P_{m+1}^V\cong P_m^{\bar{V}}$.
 \end{corollary}
 \begin{proof}
   By Lemma~\ref{le:unique truncated extension}, we have the exact sequence
@@ -423,7 +423,7 @@ Following Remark~\ref{rem:reflection recursion}, the reflection functor $\Sigma_
 Combining with Lemma~\ref{le:preprojective homomorphism duality} we obtain a natural isomorphism $H_m^*\cong H_m$ for $m\ge2$.
 The next observation is essential for the results to follow.
 \begin{proposition}
-  For $V\in Gr(H_m)$, $m\ge1$, we have $\bar{\bar{V}}=\tau V$.
+  For $V\in \Gr(H_m)$, $m\ge1$, we have $\bar{\bar{V}}=\tau V$.
 \end{proposition}
 \begin{proof}
   \sayD{Proof needed}\sayT{explain $\tau V$. Do we need this?}
@@ -434,7 +434,7 @@ The next observation is essential for the results to follow.
 
 \begin{lemma}
   \label{le:truncated extensions}
-  For $V\in Gr(H_m)$, $m\ge1$, we have $\Ext(P_{m+1}^V,P_m)\cong V^*$, where each nontrivial extension naturally corresponds to a codimension 1 subspace $U\subset V$. 
+  For $V\in \Gr(H_m)$, $m\ge1$, we have $\Ext(P_{m+1}^V,P_m)\cong V^*$, where each nontrivial extension naturally corresponds to a codimension 1 subspace $U\subset V$. 
   More precisely, each element of $\Ext(P_{m+1}^V,P_m)$ corresponds to an exact sequence
   \[\xymatrix{0 \ar[r] & P_m \ar[r] & P_{m+1}^U \ar[r] & P_{m+1}^V \ar[r] & 0},\]
 where $U\subset V$ satisfies $\dim(V/U)=1$.
@@ -454,14 +454,14 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
 \end{proof}
 
 \begin{corollary}\sayT{proof?}
-  For $V,W\in Gr(H_m)$, $m\ge3$, the space $\Ext(P_{m+1}^V,P_{m-1}^{\bar{\bar{W}}})$ has dimension 0 or 1.. .
+  For $V,W\in \Gr(H_m)$, $m\ge3$, the space $\Ext(P_{m+1}^V,P_{m-1}^{\bar{\bar{W}}})$ has dimension 0 or 1.. .
 \end{corollary}
 
 
 
 \begin{lemma}
   \label{le:more truncated homomorphisms}
-  For $W\in Gr(H_m)$, $m\ge2$, the following hold:
+  For $W\in \Gr(H_m)$, $m\ge2$, the following hold:
   \begin{enumerate}
     \item $\Hom(P_{m-1},P_m^{\bar{W}})\cong W^*$;
     \item $\Hom(P_{m+1},P_m^{\bar{W}})\cong (H_m/W)^*$.
@@ -477,11 +477,11 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
   By Lemma~\ref{le:unique preprojective morphism}, the middle space above is isomorphic to $H_m^*$ and thus $\Hom(P_{m+1},P_m^{\bar{W}})$ can be identified with the kernel of the natural map $H_m^*\to W^*$, i.e.\ with the space $(H_m/W)^*$.
 \end{proof}
 \begin{remark}
-  For $W\in Gr(H_m)$, $m\ge2$, a nonzero element $\varphi\in\Hom(P_{m+1},P_m^{\bar{W}})=(H_m/W)^*$ corresponds, by taking the kernel of $\varphi$, to a codimension-one subspace $V\subset H_m$ containing $W$.
+  For $W\in \Gr(H_m)$, $m\ge2$, a nonzero element $\varphi\in\Hom(P_{m+1},P_m^{\bar{W}})=(H_m/W)^*$ corresponds, by taking the kernel of $\varphi$, to a codimension-one subspace $V\subset H_m$ containing $W$.
   Then the map $\varphi$ is (up to scalars) the composition of the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$, the isomorphism $P_{m+1}^V\cong P_m^{\bar{V}}$ from Corollary~\ref{cor:truncated preprojective isomorphism}, and the unique projection $P_m^{\bar{V}}\to P_m^{\bar{W}}$.
 \end{remark}
 \begin{corollary}
-  For $V,W\in Gr(H_m)$, $m\ge2$, we have natural isomorphisms 
+  For $V,W\in \Gr(H_m)$, $m\ge2$, we have natural isomorphisms 
   \[\Hom(P_{m+1}^V,P_m^{\bar{W}})\cong\big(H_m/(V+W)\big)^*\quad\text{and}\quad\Ext(P_{m+1}^V,P_m^{\bar{W}})\cong(V\cap W)^*.\]
 \end{corollary}
 \begin{proof}
@@ -495,11 +495,11 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
 \end{remark}
 
 \begin{lemma}\sayT{proof? Special case of 3.23?}
-  For $V,W\in Gr(H_m)$, $m\ge2$, with $\dim W=1$, we have $\Hom(P_{m+1}^V,P_{m-1}^{\bar{\bar{W}}})\cong\big(H_m/(V+W)\big)^*$.
+  For $V,W\in \Gr(H_m)$, $m\ge2$, with $\dim W=1$, we have $\Hom(P_{m+1}^V,P_{m-1}^{\bar{\bar{W}}})\cong\big(H_m/(V+W)\big)^*$.
 \end{lemma}
 
 \begin{lemma}
-  For $m\ge2$ and $V\in Gr(H_m)$, the Auslander-Reiten translate of the truncated preprojective $P_{m+1}^V$ is again a truncated preprojective representation of $K(n)$.  More precisely, we have $\tau(P_{m+1}^V)=P_{m-1}^{\bar{\bar{V}}}$.
+  For $m\ge2$ and $V\in \Gr(H_m)$, the Auslander-Reiten translate of the truncated preprojective $P_{m+1}^V$ is again a truncated preprojective representation of $K(n)$.  More precisely, we have $\tau(P_{m+1}^V)=P_{m-1}^{\bar{\bar{V}}}$.
 \end{lemma}
 \begin{proof}
   Under the Auslander-Reiten translation, the subspace $V\subset H_m$ is taken to a subspace $\tilde V\subset H_{m-2}$ of the same dimension.
@@ -513,7 +513,7 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
 
 \begin{lemma}
   \label{le:truncated exact sequences}
-  For $V\in Gr(H_m)$, $m\ge2$, each nontrivial direct sum decomposition $V=U\oplus W$ gives rise to an exact sequence
+  For $V\in \Gr(H_m)$, $m\ge2$, each nontrivial direct sum decomposition $V=U\oplus W$ gives rise to an exact sequence
   \[\xymatrix{0 \ar[r] & P_{m+1} \ar[r] & P_{m+1}^U\oplus P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
   representing a distinct class in $\Ext(P_{m+1}^V,P_{m+1})$.
 \end{lemma}
@@ -533,13 +533,13 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
   For the final claim we observe that, for another direct sum decomposition $V=U'\oplus W'$, the representations $P_{m+1}^U\oplus P_{m+1}^W$ and $P_{m+1}^{U'}\oplus P_{m+1}^{W'}$ are isomorphic if and only if the direct sum decompositions $V=U\oplus W$ and $V=U'\oplus W'$ are the same up to permutation of summands.
 \end{proof}
 
-For $V\in Gr(H_m)$, $m\ge1$, any subspace $W\subset V$ gives rise to an exact sequence
+For $V\in \Gr(H_m)$, $m\ge1$, any subspace $W\subset V$ gives rise to an exact sequence
 \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar[r]^(.6){ev} & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0},\]
 where the left hand morphism above is the natural evaluation morphism coming from Lemma~\ref{le:truncated homomorphisms}.
 Each such sequence has the following almost-split property for proper subrepresentations of $P_{m+1}^V$.
 \sayD{The next results need some serious clean-up, can they be proven for $K(n)$ without passing to the universal cover?}
 \begin{lemma}
-  For $V\in Gr(H_m)$, $m\ge1$, any proper subrepresentation $X\subsetneq P_{m+1}^V$ can be written as a direct sum of preprojective representations $P_r$ with $1\le r\le m$.
+  For $V\in \Gr(H_m)$, $m\ge1$, any proper subrepresentation $X\subsetneq P_{m+1}^V$ can be written as a direct sum of preprojective representations $P_r$ with $1\le r\le m$.
   Moreover, the upper pullback sequence
   \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar@{=}[d]\ar[r] & Y \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\ar[r] & 0 \\
     0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
@@ -570,14 +570,14 @@ Each such sequence has the following almost-split property for proper subreprese
   The result now follows since the outer square is also a pullback.
 \end{proof}
 \begin{corollary}
-  Consider $V,W\in Gr(H_m)$, $m\ge1$, with $W\subset V$.
+  Consider $V,W\in \Gr(H_m)$, $m\ge1$, with $W\subset V$.
   Given any proper subrepresentation $X\subsetneq P_{m+1}^V$ and any subrepresentation $Z\subset P_m\otimes(V/W)$, there is a subrepresentation of $P_{m+1}^W$ isomorphic to $Z\oplus X$ which fits into a commutative diagram
   \[\xymatrix{0 \ar[r] & Z \ar[d]\ar[r] & Z\oplus X \ar[r]\ar[d] & X \ar[d]\ar[r] & 0 \\
     0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
 \end{corollary}
 
 \begin{lemma}
-  For $V\in Gr(H_m)$, $m\ge1$, a subrepresentation $X\subset P_m$ fits into a commutative diagram
+  For $V\in \Gr(H_m)$, $m\ge1$, a subrepresentation $X\subset P_m$ fits into a commutative diagram
   \[\xymatrix{0 \ar[r] & X \ar[d]\ar[r]\ar@{}[dr]|(.3){\ulcorner} & Y \ar[d]\ar[r] & P_{m+1}^V \ar@{=}[d]\ar[r] & 0 \\
     0 \ar[r] & P_m\otimes(V/U) \ar[r] & P_{m+1}^U \ar[r] & P_{m+1}^V \ar[r] & 0}\]
   with $\dim(V/U)=1$ if and only if the lower pushout sequence below splits: 
@@ -773,14 +773,14 @@ But this contradicts the induction hypothesis because preprojective representati
 DO NOT NEED THIS-------FROM HERE----
 \begin{lemma}\label{directsums}
   \footnote{This can be proved on the quiver itself.}
-  If the quiver Grassmannians $Gr^{\tilde Q}_\tbfe(\tilde P_{m})$ and $Gr^{\tilde Q}_\tbfe(\tilde P_{m-1})$ have cell decompositions into affine spaces, then we have that $Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^s\tilde P^{t_j}_{m-1,i_j}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})$ has a cell decomposition into affine spaces where $l_j,t_j\geq 1$ and $s,k\leq n$.
+  If the quiver Grassmannians $\Gr^{\tilde Q}_\tbfe(\tilde P_{m})$ and $\Gr^{\tilde Q}_\tbfe(\tilde P_{m-1})$ have cell decompositions into affine spaces, then we have that $\Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^s\tilde P^{t_j}_{m-1,i_j}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})$ has a cell decomposition into affine spaces where $l_j,t_j\geq 1$ and $s,k\leq n$.
 \end{lemma}
-\begin{proof}The claim follows by induction when considering the map $$\Psi:Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})\to\bigsqcup_{\tbff+\tbfg=\tbfe}  Gr^{\tilde Q}_\tbff(\tilde P_{m,i_1})\times Gr^{\tilde Q}_\tbfg(\tilde P^{l_1-1}_{m,i_1}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j}),\,U\mapsto (U\cap \tilde P_{m-1,i_1},\pi(U))$$
+\begin{proof}The claim follows by induction when considering the map $$\Psi:\Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})\to\bigsqcup_{\tbff+\tbfg=\tbfe}  \Gr^{\tilde Q}_\tbff(\tilde P_{m,i_1})\times \Gr^{\tilde Q}_\tbfg(\tilde P^{l_1-1}_{m,i_1}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j}),\,U\mapsto (U\cap \tilde P_{m-1,i_1},\pi(U))$$
 which is also sometimes called Caldero-Chapoton map.
 
-Indeed, we can use the fact that every subrepresentation $U$ of $\tilde P^{l_1-1}_{m,i_1}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j}$ is preprojective whence every proper factor $\tilde P_{m,i_1}/V$ is not which means that we have $\Ext(U,\tilde P_{m,i_1}/V)=0$. But since $U$ has only direct summands which are isomorphic to $\tilde P_{m-k}$ for some $k\geq 0$, we also have $\Ext(U,\tilde P_{m-1,i_1})=0$. Thus by the results of \cite[Section 3]{cc} it follows that $\psi^{-1}(U,V)=\mathbb{A}^{\Sc{\udim U}{\udim \tilde P_{m-1,i_1}/V}}$ for all pairs of subrepresentations $(U,V)\in Gr^{\tilde Q}_\tbff(\tilde P_{m,i_1})\times Gr^{\tilde Q}_\tbfg(\tilde P^{l_1-1}_{m,i_1}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})$. In particular, the fibres of $\Psi$ are constant over every affine cell $A$ of the right hand side. Thus we can consider the restriction of $\Psi$ to $\Psi^{-1}(A)$. By \cite[Proposition 4]{cj}, it follows that this restriction is a subbundle of a trivial bundle (write this trivial bundle down) and thus it is itself trivial as a vector bundle over an affine space.
+Indeed, we can use the fact that every subrepresentation $U$ of $\tilde P^{l_1-1}_{m,i_1}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j}$ is preprojective whence every proper factor $\tilde P_{m,i_1}/V$ is not which means that we have $\Ext(U,\tilde P_{m,i_1}/V)=0$. But since $U$ has only direct summands which are isomorphic to $\tilde P_{m-k}$ for some $k\geq 0$, we also have $\Ext(U,\tilde P_{m-1,i_1})=0$. Thus by the results of \cite[Section 3]{cc} it follows that $\psi^{-1}(U,V)=\mathbb{A}^{\Sc{\udim U}{\udim \tilde P_{m-1,i_1}/V}}$ for all pairs of subrepresentations $(U,V)\in \Gr^{\tilde Q}_\tbff(\tilde P_{m,i_1})\times \Gr^{\tilde Q}_\tbfg(\tilde P^{l_1-1}_{m,i_1}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})$. In particular, the fibres of $\Psi$ are constant over every affine cell $A$ of the right hand side. Thus we can consider the restriction of $\Psi$ to $\Psi^{-1}(A)$. By \cite[Proposition 4]{cj}, it follows that this restriction is a subbundle of a trivial bundle (write this trivial bundle down) and thus it is itself trivial as a vector bundle over an affine space.
 
-In the same manner, we can proceed by inductively adding the summands $\tilde P_{m-1,i}$ in order to see that $Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^s\tilde P^{t_j}_{m-1,i_j}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})$ has a cell decomposition.
+In the same manner, we can proceed by inductively adding the summands $\tilde P_{m-1,i}$ in order to see that $\Gr^{\tilde Q}_\tbfe(\bigoplus_{j=1}^s\tilde P^{t_j}_{m-1,i_j}\oplus\bigoplus_{j=1}^k\tilde P^{l_j}_{m,i_j})$ has a cell decomposition.
 \end{proof}
 
 
@@ -1028,22 +1028,22 @@ In the following, we say that $d:\mathrm{supp}(X)\to\ZZ$ satisfies the degree co
 
 
 \begin{theorem}Let $X$ be a representation which can be lifted to $\hat Q$ and choose $d:\mathrm{supp}(X)\to \ZZ$ such that it satisfies the degree condition for $X$. Then the torus action of $T$ on $\bigoplus_{q\in Q_0}X_q$ induced by $t.x_{(q,\chi)}=t^{d(q,\chi)}x_{(q,\chi)}$ for $x_{(q,\chi)}\in X_{(q,\chi)}$ induces
- a torus action on $Gr_\bfe^Q(X)$ such that
-  $$Gr^Q_\bfe(X)^T\cong\bigsqcup_{\hat\bfe} Gr^{\hat Q}_{\hat\bfe}(\hat X)$$ where $\hat\bfe$ runs through all dimension vectors compatible with $\bfe$.
+ a torus action on $\Gr_\bfe^Q(X)$ such that
+  $$\Gr^Q_\bfe(X)^T\cong\bigsqcup_{\hat\bfe} \Gr^{\hat Q}_{\hat\bfe}(\hat X)$$ where $\hat\bfe$ runs through all dimension vectors compatible with $\bfe$.
 \end{theorem}
 \begin{proof}
 A representation $U\in\Gr_{\bfe}(X)$ is a torus fixed point if and only if $t.U=U $ for all $t\in\C^\ast$, i.e. $t.U_q=U_q$ for all $q\in Q_0$, $t\in\C^\ast$. Thus, apart from being a subrepresentation of $X$, it is a fixed point of the torus actions on the usual Grassmannians $\Gr_{\bfe_q}(X_q)$ induced by the decompositions $X_q=\bigoplus_{\chi\in A_Q} X_{q,\chi}$. A subrepresentation $U\subset X$ can be lifted to the universal abelian covering if and only if
 \[X_q\cap U_q=\bigoplus_{\chi\in A_Q} X_{(q,\chi)}\cap U_{(q,\chi)}=\bigoplus_{\chi\in A_Q}U_{(q,\chi)}.\]
 Thus we can apply Lemma \ref{usualGrass} to obtain the claim.
 \end{proof}
-The next step is to iterate the torus action keeping in mind the following idea: every representation, which lifts to the universal covering quiver, also lifts to the universal abelian covering quiver and also to the iterated universal abelian covering quivers, i.e. to $\hat Q^{(k)}:=\widehat{\hat Q^{(k-1)}}$ with $\hat Q=\hat Q^{(1)}$. Now it is straightforward to check that there exist natural surjective morphisms $f_k:\tilde Q\to \hat Q^{(k)}$ which become injective on finite subquivers if $k\gg 0$, see also \cite[Section 3.4]{wei}. Since the support of $X$ is finite as a representation of $\tilde Q$, we can find $k\geq 1$ such that the full subquiver with vertices $\mathrm{supp}(X)\subseteq \hat Q^{(k)}_0$ is a tree. Thus, if $\hat X^{(k)}$ is the lift of $X$ to $\hat Q^{(k)}$, there exists a torus action on the vector spaces $\hat X^{(k)}_q$ which induce a torus action on the quiver Grassmannian $Gr_{\bfe}^{\hat Q^{(k)}}(\hat X^{(k)})$. If we denote the iterated torus fixed points by $Gr^Q_\bfe(X)^{T^{(k)}}$. We obtain:
+The next step is to iterate the torus action keeping in mind the following idea: every representation, which lifts to the universal covering quiver, also lifts to the universal abelian covering quiver and also to the iterated universal abelian covering quivers, i.e. to $\hat Q^{(k)}:=\widehat{\hat Q^{(k-1)}}$ with $\hat Q=\hat Q^{(1)}$. Now it is straightforward to check that there exist natural surjective morphisms $f_k:\tilde Q\to \hat Q^{(k)}$ which become injective on finite subquivers if $k\gg 0$, see also \cite[Section 3.4]{wei}. Since the support of $X$ is finite as a representation of $\tilde Q$, we can find $k\geq 1$ such that the full subquiver with vertices $\mathrm{supp}(X)\subseteq \hat Q^{(k)}_0$ is a tree. Thus, if $\hat X^{(k)}$ is the lift of $X$ to $\hat Q^{(k)}$, there exists a torus action on the vector spaces $\hat X^{(k)}_q$ which induce a torus action on the quiver Grassmannian $\Gr_{\bfe}^{\hat Q^{(k)}}(\hat X^{(k)})$. If we denote the iterated torus fixed points by $\Gr^Q_\bfe(X)^{T^{(k)}}$. We obtain:
 \begin{corollary}
 Let $X$ be a representation which can be lifted to $\tilde Q$. Then there exists an iterated torus action such that
-  $$Gr^Q_\bfe(X)^{T^{(k)}}\cong \bigsqcup_{\hat\bfe^{(k-1)}} Gr_{\hat\bfe^{(k-1)}}^{\hat Q^{(k-1)}}(\hat X^{(k-1)})^T\cong \bigsqcup_{\hat\bfe^{(k)}} Gr^{\hat Q}_{\hat\bfe^{(k)}}(\hat X^{(k)})\cong \bigsqcup_{\tilde\bfe} Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$$ where $\hat\bfe^{(k-1)},\,\hat\bfe^{(k)},\,\tilde\bfe$ run through all dimension vectors compatible with $\bfe$.
+  $$\Gr^Q_\bfe(X)^{T^{(k)}}\cong \bigsqcup_{\hat\bfe^{(k-1)}} \Gr_{\hat\bfe^{(k-1)}}^{\hat Q^{(k-1)}}(\hat X^{(k-1)})^T\cong \bigsqcup_{\hat\bfe^{(k)}} \Gr^{\hat Q}_{\hat\bfe^{(k)}}(\hat X^{(k)})\cong \bigsqcup_{\tilde\bfe} \Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$$ where $\hat\bfe^{(k-1)},\,\hat\bfe^{(k)},\,\tilde\bfe$ run through all dimension vectors compatible with $\bfe$.
 \end{corollary}
 %\begin{corollary}
-%  affine bundles over $Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$ if $Gr^Q_\bfe(X)$ is smooth
-%  \[\{U\in Gr^Q_\bfe(X):\lim_{t\to0} t\cdot U\in Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)\}\]
+%  affine bundles over $\Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$ if $\Gr^Q_\bfe(X)$ is smooth
+%  \[\{U\in \Gr^Q_\bfe(X):\lim_{t\to0} t\cdot U\in \Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)\}\]
 %\end{corollary}
 Define the $F$-polynomial of a representation $X$ by 
 $$F_X=\sum_{\bfe\in\NN^{Q_0}}\chi(\Gr_\bfe(X))x^e\in\ZZ[x_q\mid q\in Q_0].$$
@@ -1117,7 +1117,7 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
 
 %\begin{lemma}
 %  \label{le:transitivity}
-%  The action of $GL_n(\CC)$ on $H_m$ induces a transitive action of $GL_n(\CC)$ on each component $Gr_d(H_m)$.
+%  The action of $GL_n(\CC)$ on $H_m$ induces a transitive action of $GL_n(\CC)$ on each component $\Gr_d(H_m)$.
 %\end{lemma} 
 %\begin{proof}
 %  The map $\theta\mapsto g.\theta$ for $\theta\in H_m$ induces a group homomorphism $GL_n(\CC)\to GL(H_m)$ which we denote by $g\mapsto\tilde g_m$.
@@ -1128,7 +1128,7 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
 %
 %\end{proof}
 
-%Similarly, for $V^g\in Gr(H_m^g)$, we identify $g.P_m\otimes V^g$ with its image in $g.P_{m+1}$ under the natural evaluation map. 
+%Similarly, for $V^g\in \Gr(H_m^g)$, we identify $g.P_m\otimes V^g$ with its image in $g.P_{m+1}$ under the natural evaluation map. 
 %\begin{lemma}
 %  \label{le:g equalities}
 %  For any $g\in GL_n(\CC)$, the subrepresentation $g.(P_m\otimes V)\subset g.P_{m+1}$ is equal to $g.P_m\otimes V^g\subset g.P_{m+1}$ and the subrepresentation $\phi_{m+1,g}^{-1}(g.P_m\otimes V^g)\subset P_{m+1}$ is equal to $P_m\otimes g.V\subset P_{m+1}$.
@@ -1152,8 +1152,8 @@ As the $\GL_n(\CC)$-action is transitive on the left hand side, this implies tha
 
 
 \begin{theorem}
-  The quiver Grassmannian $Gr_\bfe(P_{m+1}^V)$ is smooth for each dimension vector $\bfe$ and each $V\in Gr(H_m)$.
-  Moreover, for $V,W\in Gr_d(H_m)$, we have $Gr_\bfe(P_{m+1}^V)\cong Gr_\bfe(P_{m+1}^W)$ for all dimension vectors $\bfe$.
+  The quiver Grassmannian $\Gr_\bfe(P_{m+1}^V)$ is smooth for each dimension vector $\bfe$ and each $V\in \Gr(H_m)$.
+  Moreover, for $V,W\in \Gr_d(H_m)$, we have $\Gr_\bfe(P_{m+1}^V)\cong \Gr_\bfe(P_{m+1}^W)$ for all dimension vectors $\bfe$.
 \end{theorem}
 \begin{proof}
 Let $g\in\GL_n(\CC)$. We first show that $\Gr_\bfe(g.P_{m+1}^V)=\Gr_\bfe(P_{m+1}^V)$. Assume that $P_{m+1}^V$ is given by the linear maps $M_{a_i}$. Then $g.P_{m+1}^V$ is given by the matrices $M'_{a_i}=\sum\limits_{j=1}^n g_{ij}M_{a_j}$. Let $(U_1,U_2)\in\Gr_\bfe(g.P_{m+1}^V)$. Then we have  
@@ -1166,14 +1166,14 @@ As the indecomposables form a dense open subset of all representations, we found
  % \footnote{The proof using moduli spaces needs to be written}
   %Both claims are proven via the same geometric construction.
   %For each dimension vector $\bfe$, there is a smooth variety
-  %\[X_{\bfe,m}=\{(\tilde E,V):V\in Gr_d(H_m),\ P_m\otimes V\subset\tilde E\subset P_{m+1}i,\ \udim\tilde E=\bfe+d\udim P_m\}.\]
-  %Under the natural projection $\pi:X_{\bfe,m}\to Gr_d(H_m)$, the fiber $\pi^{-1}(V)$ identifies with $Gr_\bfe(P_{m+1}^V)$.
-  %In particular, this implies $Gr_\bfe(P_{m+1}^V)$ is smooth for each $V\in Gr_d(H_m)$.
+  %\[X_{\bfe,m}=\{(\tilde E,V):V\in \Gr_d(H_m),\ P_m\otimes V\subset\tilde E\subset P_{m+1}i,\ \udim\tilde E=\bfe+d\udim P_m\}.\]
+  %Under the natural projection $\pi:X_{\bfe,m}\to \Gr_d(H_m)$, the fiber $\pi^{-1}(V)$ identifies with $\Gr_\bfe(P_{m+1}^V)$.
+  %In particular, this implies $\Gr_\bfe(P_{m+1}^V)$ is smooth for each $V\in \Gr_d(H_m)$.
 
   %The variety $X_{\bfe,m}$ supports an action of $GL_n(\CC)$ by setting $g.(\tilde E,V)=\big(\phi_{m+1,g}^{-1}(g.\tilde E),g.V\big)$.
   %Indeed, by Lemma~\ref{le:g equalities} we have 
   %\[P_m\otimes g.V=\phi_{m+1,g}^{-1}(g.P_m\otimes V^g)=\phi_{m+1,g}^{-1}\big(g.(P_m\otimes V)\big)\subset\phi_{m+1,g}^{-1}(g.\tilde E).\]
-  %Observe that the projection map $\pi$ is $GL_n(\CC)$-equivariant and thus by Lemma~\ref{le:transitivity} the quiver Grassmannians $Gr_\bfe(P_{m+1}^V)$ and $Gr_\bfe(P_{m+1}^W)$ are isomorphic for any $V,W\in Gr_d(H_m)$.
+  %Observe that the projection map $\pi$ is $GL_n(\CC)$-equivariant and thus by Lemma~\ref{le:transitivity} the quiver Grassmannians $\Gr_\bfe(P_{m+1}^V)$ and $\Gr_\bfe(P_{m+1}^W)$ are isomorphic for any $V,W\in \Gr_d(H_m)$.
 \end{proof}
 
 
@@ -1205,7 +1205,7 @@ As the indecomposables form a dense open subset of all representations, we found
 
 
 Let $\ses{M}{B}{N}$ be a short exact sequence of representations. This induces a map between quiver Grassmannians
-\[\Psi_\tbfe:Gr_\tbfe(B)\to\bigsqcup_{\tbff+\tbfg=\tbfe}  Gr_\tbff(M)\times Gr_\tbfg(N),\,U\mapsto (U\cap M,(U+M)/M)\]
+\[\Psi_\tbfe:\Gr_\tbfe(B)\to\bigsqcup_{\tbff+\tbfg=\tbfe}  \Gr_\tbff(M)\times \Gr_\tbfg(N),\,U\mapsto (U\cap M,(U+M)/M)\]
 which is also called Caldero-Chapoton map.  By the results of \cite[Section 3]{cc} it follows that $\Psi^{-1}_\tbfe(A,V)=\mathbb{A}^{\dim\Hom(A,M/V)}$ for all pairs of subrepresentations $(A,V)$ for which the fibre is not empty.
 Let $\cG_{\tbff,\tbfg}:=\Psi^{-1}_\tbfe(\Gr_\tbff(M)\times \Gr_\tbfg(N))$. Then we have
 $$\Gr_\tbfe(B)=\bigsqcup_{\tbff+\tbfg=\tbfe} \cG_{\tbff,\tbfg}.$$
@@ -1346,15 +1346,15 @@ In the third case, an analogous argument shows that $\pi^{\bf j'}_{m,\uj'}(U)\ne
 
 \begin{comment}
 We proceed by induction and combine the two maps $\Psi_1$ and $\Psi_2$ and obtain a map
-\[\Psi:Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})\to\bigsqcup_{\tbff+\tbfg+\tbfh=\tbfe} Gr^{\tilde Q}_\tbff( P(m,k))\times Gr^{\tilde Q}_\tbfg(\tau\tilde P_{m+1}^{(k)})\times Gr^{\tilde Q}_\tbfh(\tilde P_{m+1}^{(k)}).\]
+\[\Psi:\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})\to\bigsqcup_{\tbff+\tbfg+\tbfh=\tbfe} \Gr^{\tilde Q}_\tbff( P(m,k))\times \Gr^{\tilde Q}_\tbfg(\tau\tilde P_{m+1}^{(k)})\times \Gr^{\tilde Q}_\tbfh(\tilde P_{m+1}^{(k)}).\]
 
-By Lemma \ref{directsums} and induction hypothesis every quiver Grassmannian on the right hand side has a cell decomposition. The second part of the Proposition says that the fibres are empty if and only if $\tbfg=0$ and $\tbfh=\udim \tilde P_{m+1}^{(k)}$. In all other cases, the fiber dimension only depend on the dimension vectors $\tbff, \tbfg,\tbfh$ which means that they are constant over $Gr^{\tilde Q}_\tbff( P(m,k))\times Gr^{\tilde Q}_\tbfg(\tau\tilde P_{m+1}^{(k)})\times Gr^{\tilde Q}_\tbfh(\tilde P_{m+1}^{(k)})$\footnote{actually this should already say that this is a vector bundle as the base space is smooth (all reps are exceptional), apply Lemma \ref{vb}?}. Analogously to Lemma \ref{directsums}, we can conclude that this induces trivial bundles over every affine cell. In total, this yields a cell decomposition of the quiver Grassmannian $Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})$.
+By Lemma \ref{directsums} and induction hypothesis every quiver Grassmannian on the right hand side has a cell decomposition. The second part of the Proposition says that the fibres are empty if and only if $\tbfg=0$ and $\tbfh=\udim \tilde P_{m+1}^{(k)}$. In all other cases, the fiber dimension only depend on the dimension vectors $\tbff, \tbfg,\tbfh$ which means that they are constant over $\Gr^{\tilde Q}_\tbff( P(m,k))\times \Gr^{\tilde Q}_\tbfg(\tau\tilde P_{m+1}^{(k)})\times \Gr^{\tilde Q}_\tbfh(\tilde P_{m+1}^{(k)})$\footnote{actually this should already say that this is a vector bundle as the base space is smooth (all reps are exceptional), apply Lemma \ref{vb}?}. Analogously to Lemma \ref{directsums}, we can conclude that this induces trivial bundles over every affine cell. In total, this yields a cell decomposition of the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})$.
 \end{comment}
 \end{proof}
 
 
 %Note that we can also consider 
-%$\Psi_1:Gr^{\tilde Q}_\tbfe(\tilde P^{(k-1)}_{m})\to\bigsqcup_{\tbff+\tbfg=\tbfe} Gr^{\tilde Q}_\tbff(\bigoplus_{i=1}^{k}\tilde P_{m-1,i})\times Gr^{\tilde Q}_\tbfg(\tilde P_m^{(k)})$ where $\tilde P_m^{(n-1)}=\tilde P_{m-1}^{(1)}$ (up to renumbering the arrows). But then one needs to adjust $\Psi_2$ because the factor of $\bigoplus_{i=1}^{k}\tilde P_{m-1,i}$ were $(\tau\tilde P_m^{(k)})^k$.
+%$\Psi_1:\Gr^{\tilde Q}_\tbfe(\tilde P^{(k-1)}_{m})\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff(\bigoplus_{i=1}^{k}\tilde P_{m-1,i})\times \Gr^{\tilde Q}_\tbfg(\tilde P_m^{(k)})$ where $\tilde P_m^{(n-1)}=\tilde P_{m-1}^{(1)}$ (up to renumbering the arrows). But then one needs to adjust $\Psi_2$ because the factor of $\bigoplus_{i=1}^{k}\tilde P_{m-1,i}$ were $(\tau\tilde P_m^{(k)})^k$.
 
 
 \begin{theorem}\label{celldec}
@@ -1825,10 +1825,10 @@ Similarly, for a vertical edge $v\in V_m$ and a subset $S_V\subset V_m$, the \em
 
 The following result is an immediate consequence of the combinatorial construction of rank 2 cluster variables \cite{lee-li-zelevinsky} and the categorification of these variables using representations of $K(n)$ \cite{cc,caldero-keller}.
 \begin{theorem}\cite{lee-li-zelevinsky}
-  For each $m\ge1$ and $\bfe\in\ZZ_{\ge0}^2$, we have $\chi\big(Gr_\bfe(P_m)\big)=\big|\{(S_H,S_V)\in\cC_m:|S_H|=u_m-e_1,|S_V|=e_2\}\big|$.
+  For each $m\ge1$ and $\bfe\in\ZZ_{\ge0}^2$, we have $\chi\big(\Gr_\bfe(P_m)\big)=\big|\{(S_H,S_V)\in\cC_m:|S_H|=u_m-e_1,|S_V|=e_2\}\big|$.
 \end{theorem}
 
-Our goal is to show that the compatible pairs provide a natural labeling for the cells of $\chi\big(Gr^Q_\bfe(P_m)\big)$ found in Theorem~\ref{???}.
+Our goal is to show that the compatible pairs provide a natural labeling for the cells of $\chi\big(\Gr^Q_\bfe(P_m)\big)$ found in Theorem~\ref{???}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
