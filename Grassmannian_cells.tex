@@ -1062,7 +1062,7 @@ An important special case for this is the case of exceptional representations. I
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$GL_n$ Action on Arrows of $K(n)$}
 Observe that $GL_n(\CC)$ naturally acts on $A_1$ and hence $GL_n(\CC)$ acts on $\rep K(n)$ via the induced action on $A(n)$.
-More precisely, given a representation $M=(M_1,M_2,M_{a_i})$ of $K(n)$ and $g=(g_{ij})\in GL_n(\CC)$, the representation $g.M$ is given by $(M_1,M_2,M'_{a_i})$ with $M'_{a_i}=\sum\limits_{j=1}^n g_{ij}M_{a_j}$.
+More precisely, given a representation $M=(M_1,M_2,M_{a_i})$ of $K(n)$ and $g=(g_{ij})\in GL_n(\CC)$, the representation $g.M$ is given by $(M_1,M_2,(g.M)_{a_i})$ with $(g.M)_{a_i}=\sum\limits_{j=1}^n g_{ij}M_{a_j}$.
 Note that $M$ and $g.M$ are not necessarily isomorphic as representations of $K(n)$.
 \begin{lemma}
   \label{le:hom equivariance}
@@ -1072,7 +1072,7 @@ Note that $M$ and $g.M$ are not necessarily isomorphic as representations of $K(
 \begin{proof}
   Suppose $\theta:M\to N$ is a morphism of representations, i.e.\ $\theta_2\circ M_{a_j}=N_{a_j}\circ\theta_1$ for $1\le j\le n$.
   Then for $g=(g_{ij})\in GL_n(\CC)$, we have
-  \[\theta_2\circ M'_{a_i}=\sum\limits_{j=1}^n g_{ij}(\theta_2\circ M_{a_j})=\sum\limits_{j=1}^n g_{ij}(M_{a_j}\circ\theta_1)=N'_{a_i}\circ\theta_1\]
+  \[\theta_2\circ (g.M)_{a_i}=\sum\limits_{j=1}^n g_{ij}(\theta_2\circ M_{a_j})=\sum\limits_{j=1}^n g_{ij}(N_{a_j}\circ\theta_1)=(g.N)_{a_i}\circ\theta_1\]
   for $1\le i\le n$ so that $\theta$ also gives a morphism from $g.M$ to $g.N$. 
 \end{proof}
 \begin{corollary}
