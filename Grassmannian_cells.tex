@@ -765,7 +765,7 @@ We proceed by induction. Clearly $\tilde P_m$ has only preprojective subrepresen
 where the vertical maps are injective, the sequence on the bottom does not split and the representation $U'$ is preprojective by induction hypothesis. Then we have $U\in\tilde P_{m-1,l}^\perp$
 because $$\Hom(\tilde P_{m-1,l},U)=\Hom(\tilde P_{m-1,l},\tilde P_{m}^{(l)})=0.$$ Moreover, $\Ext(\tilde P_{m-1,l},U)=0$ follows because the representation $\tilde P_{m-1,l}$ is preprojective and $U$ is not. We also have $\Hom(U,\tilde P_{m-1,l})=0$ for the same reason. 
 
-As the sequence does not split, this shows that $U'$ is an indecomposable preprojective subrepresentation of $\tilde P_{m}^{(l-1)}$ where the indecomposability follows from \cite[Lemma 3.12]{wei2}. Since the only exceptional representations of $K(n)$ are preprojective, we have $\Sc{\udim U}{\udim U}\leq 0$. Thus, using  $\Sc{\udim U}{\udim \tilde P_{m-1,l}}< 0$, we obtain
+As the sequence does not split, this shows that $U'$ is an indecomposable preprojective subrepresentation of $\tilde P_{m}^{(l-1)}$ where the indecomposability follows from \cite[Lemma 3.7]{wei2}. Since the only exceptional representations of $K(n)$ are preprojective, we have $\Sc{\udim U}{\udim U}\leq 0$. Thus, using  $\Sc{\udim U}{\udim \tilde P_{m-1,l}}< 0$, we obtain
 \[\Sc{\udim U'}{\udim U'}=\Sc{\udim U}{\udim U}+\Sc{\udim \tilde P_{m-1,l} }{\udim \tilde P_{m-1,l} }+\Sc{\udim U}{\tilde P_{m-1,l}}\leq 1+\Sc{\udim U}{\tilde P_{m-1,l}}\leq 0.\]
 But this contradicts the induction hypothesis because preprojective representations do not have self-extensions.
 
@@ -1066,8 +1066,8 @@ An important special case for this is the case of exceptional representations. I
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$GL_n$ Action on Arrows of $K(n)$}
-Observe that $GL_n(\CC)$ naturally acts on $A_1$ and hence $GL_n(\CC)$ acts on $\rep K(n)$ via the induced action on $A(n)$.
-More precisely, given a representation $M=(M_1,M_2,M_{a_i})$ of $K(n)$ and $g=(g_{ij})\in GL_n(\CC)$, the representation $g.M$ is given by $(M_1,M_2,(g.M)_{a_i})$ with $(g.M)_{a_i}=\sum\limits_{j=1}^n g_{ij}M_{a_j}$.
+Observe that $GL_n(\CC)$ naturally acts on the vector space $A_1=\bigoplus_{i=1}^n \CC\alpha_i$ spanned by the arrows of $K(n)$ and hence $GL_n(\CC)$ acts on $\rep K(n)$ via the induced action on the path algebra $A(n)$.
+More precisely, given a representation $M=(M_1,M_2,M_{\alpha_i})$ of $K(n)$ and $g=(g_{ij})\in GL_n(\CC)$, the representation $g.M$ is given by $(M_1,M_2,(g.M)_{\alpha_i})$ with $(g.M)_{\alpha_i}=\sum\limits_{j=1}^n g_{ij}M_{\alpha_j}$.
 Note that $M$ and $g.M$ are not necessarily isomorphic as representations of $K(n)$.
 \begin{lemma}
   \label{le:hom equivariance}
@@ -1075,10 +1075,10 @@ Note that $M$ and $g.M$ are not necessarily isomorphic as representations of $K(
   In particular, the hom-spaces $\Hom(M,N)$ and $\Hom(g.M,g.N)$ are canonically identified for each $g\in G$.
 \end{lemma}
 \begin{proof}
-  Suppose $\theta:M\to N$ is a morphism of representations, i.e.\ $\theta_2\circ M_{a_j}=N_{a_j}\circ\theta_1$ for $1\le j\le n$.
-  Then for $g=(g_{ij})\in GL_n(\CC)$, we have
-  \[\theta_2\circ (g.M)_{a_i}=\sum\limits_{j=1}^n g_{ij}(\theta_2\circ M_{a_j})=\sum\limits_{j=1}^n g_{ij}(N_{a_j}\circ\theta_1)=(g.N)_{a_i}\circ\theta_1\]
-  for $1\le i\le n$ so that $\theta$ also gives a morphism from $g.M$ to $g.N$. 
+  Suppose $\theta:M\to N$ is a morphism of representations, i.e.\ $\theta_2\circ M_{\alpha_j}=N_{\alpha_j}\circ\theta_1$ for $1\le j\le n$.
+  Then for $g=(g_{ij})\in GL_n(\CC)$ and $1\le i\le n$, we have
+  \[\theta_2\circ (g.M)_{\alpha_i}=\sum\limits_{j=1}^n g_{ij}(\theta_2\circ M_{\alpha_j})=\sum\limits_{j=1}^n g_{ij}(N_{\alpha_j}\circ\theta_1)=(g.N)_{\alpha_i}\circ\theta_1\]
+  so that $\theta$ also gives a morphism from $g.M$ to $g.N$. 
 \end{proof}
 \begin{corollary}
   \label{cor:indecomposability}
@@ -1100,13 +1100,13 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
 \end{lemma}
 \begin{proof}
   We present all the details for $\Sigma_2$, the proof for $\Sigma_1$ is similar.
-  For $M\in\rep K(n)$, we have $\Sigma_2(M)=(M_1,M'_2,M'_{a_i})$, where $M'_2$ fits into the following exact sequence:
-  \[\xymatrix{0 \ar[r] & M_2 \ar[r]^{\bigoplus\limits_{i=1}^n M_{a_i}} & \bigoplus\limits_{i=1}^n M_1 \ar[r]^\pi & M'_2 \ar[r] & 0}\]
-  and $M'_{a_i}=\pi\circ\iota_i$ for $\iota_i:M_1\to\bigoplus_{i=1}^n M_1$ the inclusion of the $i$-th factor.
-  Then for $g=(g_{ij})\in GL_n(\CC)$, we have $g.\Sigma_2(M)=(M_1,M'_2,M''_{a_i})$ with 
-  \[M''_{a_i}=\sum\limits_{j=1}^n g_{ij}M'_{a_j}=\sum\limits_{j=1}^n g_{ij}(\pi\circ\iota_j)=\pi\circ\sum\limits_{j=1}^n g_{ij}\iota_j=\pi\circ g^T\circ\iota_i.\]
+  For $M\in\rep K(n)$, we have $\Sigma_2(M)=(M_1,M'_2,M'_{\alpha_i})$, where $M'_2$ fits into the following exact sequence:
+  \[\xymatrix{0 \ar[r] & M_2 \ar[r]^{\bigoplus\limits_{i=1}^n M_{\alpha_i}} & \bigoplus\limits_{i=1}^n M_1 \ar[r]^\pi & M'_2 \ar[r] & 0}\]
+  and $M'_{\alpha_i}=\pi\circ\iota_i$ for $\iota_i:M_1\to\bigoplus_{i=1}^n M_1$ the inclusion of the $i$-th factor.
+  Then for $g=(g_{ij})\in GL_n(\CC)$, we have $g.\Sigma_2(M)=(M_1,M'_2,(g.M')_{\alpha_i})$ with 
+  \[(g.M')_{\alpha_i}=\sum\limits_{j=1}^n g_{ij}M'_{\alpha_j}=\sum\limits_{j=1}^n g_{ij}(\pi\circ\iota_j)=\pi\circ\sum\limits_{j=1}^n g_{ij}\iota_j=\pi\circ g^T\circ\iota_i.\]
   In particular, we may construct $g.\Sigma_2(M)$ using the following exact sequence:
-  \[\xymatrix{0 \ar[r] & M_2 \ar[r]^{g^{-T}\circ\bigoplus\limits_{i=1}^n M_{a_i}} & \bigoplus\limits_{i=1}^n M_1 \ar[r]^{\pi\circ g^T} & M'_2 \ar[r] & 0},\]
+  \[\xymatrix{0 \ar[r] & M_2 \ar[r]^{g^{-T}\circ\bigoplus\limits_{i=1}^n M_{\alpha_i}} & \bigoplus\limits_{i=1}^n M_1 \ar[r]^{\pi\circ g^T} & M'_2 \ar[r] & 0},\]
   i.e. $g.\Sigma_2(M)=\Sigma_2(g^{-T}.M)$.
 \end{proof}
 
@@ -1145,36 +1145,43 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
 
 %Any subrepresentation $E\subset P_{m+1}^V$ corresponds by taking pullbacks to a chain of inclusions $P_m\otimes V\subset\tilde E\subset P_{m+1}$.
 \begin{proposition} \label{indecomposables}
-  Let $m\geq 1$ and $\alpha(m,r)=\dim P_{m+1}-r\dim P_m$ with $0\leq r\leq n-1$. The action of $\GL_n(\CC)$ is transitive on $\mathrm{Ind}(K(n),\alpha(m,r))$.
+  Let $m\geq 1$ and $d(m,r)=\dim P_{m+1}-r\dim P_m$ with $0\leq r\leq n-1$. The action of $\GL_n(\CC)$ is transitive on $\mathrm{Ind}(K(n),d(m,r))$.
 \end{proposition}
 \begin{proof}
-
-For $m=1$, the action of $\GL_n(\CC)$ on $\Gr_d(\CC^n)$ is transitive which shows that it is transitive on $\Ind_\alpha(K(n))$. As the reflection functors preserve indecomposability and isomorphism classes, by Lemma \ref{compatibleGSigma}, for every $g\in\GL_n(\CC)$, we obtain a commutative diagram
-\[\xymatrix{\Ind(K(n),\alpha(m,r))\ar[r]^{\Sigma_2}\ar[d]^{g^{-T}}&\Ind(K(n),\alpha(m+1,r))\ar[d]^g\\
-\Ind(K(n),\alpha(m,r))\ar[r]^{\Sigma_2}&\Ind(K(n),\alpha(m+1,r))}\]
-As the $\GL_n(\CC)$-action is transitive on the left hand side, this implies that it is also transitive on the right hand side.
+  For $m=1$, the action of $\GL_n(\CC)$ on $\Gr_d(\CC^n)$ is transitive which shows that it is transitive on $\Ind_{d(1,r)}(K(n))$.
+  As the reflection functors preserve indecomposability and isomorphism classes, by Lemma \ref{compatibleGSigma}, for every $g\in\GL_n(\CC)$, we obtain a commutative diagram
+  \[\xymatrix{\Ind(K(n),d(m,r))\ar[r]^{\Sigma_2}\ar[d]^{g^{-T}}&\Ind(K(n),d(m+1,r))\ar[d]^g\\
+    \Ind(K(n),d(m,r))\ar[r]^{\Sigma_2}&\Ind(K(n),d(m+1,r))}.\]
+  As the $\GL_n(\CC)$-action is transitive on the left hand side, this implies that it is also transitive on the right hand side.
 \end{proof}
 
 
 \begin{theorem}
-  The quiver Grassmannian $\Gr_\bfe(P_{m+1}^V)$ is smooth for each dimension vector $\bfe$ and each $V\in \Gr(H_m)$.
-  Moreover, for $V,W\in \Gr_d(H_m)$, we have $\Gr_\bfe(P_{m+1}^V)\cong \Gr_\bfe(P_{m+1}^W)$ for all dimension vectors $\bfe$.
+  Fix a dimension vector $\bfe$.
+  The quiver Grassmannian $\Gr_\bfe(P_{m+1}^V)$ is smooth for each $V\in \Gr(H_m)$.
+  Moreover, for $V,W\in \Gr_d(H_m)$, we have $\Gr_\bfe(P_{m+1}^V)\cong \Gr_\bfe(P_{m+1}^W)$.
 \end{theorem}
 \begin{proof}
-Let $g\in\GL_n(\CC)$. We first show that $\Gr_\bfe(g.P_{m+1}^V)=\Gr_\bfe(P_{m+1}^V)$. Assume that $P_{m+1}^V$ is given by the linear maps $M_{a_i}$. Then $g.P_{m+1}^V$ is given by the matrices $M'_{a_i}=\sum\limits_{j=1}^n g_{ij}M_{a_j}$. Let $(U_1,U_2)\in\Gr_\bfe(g.P_{m+1}^V)$. Then we have  
-\[M_{a_i}(U_2)\subset U_1 \text{ for all } i=1,\ldots,n\Leftrightarrow \left(\sum\limits_{j=1}^n g_{ij}M_{a_j}\right)(U_2)\subset U_1 \text{ for all } i=1,\ldots,n.\]
-Note that we have $g^{-1}.(g.P_{m+1}^V)=P_{m+1}^V$ which shows the non-obvious direction.
+  Let $g\in\GL_n(\CC)$.
+  We first show that $\Gr_\bfe(g.P_{m+1}^V)=\Gr_\bfe(P_{m+1}^V)$.
+  Assume that $P_{m+1}^V$ is given by the linear maps $M_{\alpha_i}$.
+  Then $g.P_{m+1}^V$ is given by the matrices $(g.M)_{\alpha_i}=\sum\limits_{j=1}^n g_{ij}M_{\alpha_j}$.
+  Let $(U_1,U_2)\in\Gr_\bfe(g.P_{m+1}^V)$.
+  Then we have  
+  \[M_{\alpha_i}(U_2)\subset U_1 \text{ for all } i=1,\ldots,n\Leftrightarrow \left(\sum\limits_{j=1}^n g_{ij}M_{\alpha_j}\right)(U_2)\subset U_1 \text{ for all } i=1,\ldots,n.\]
+  Note that we have $g^{-1}.(g.P_{m+1}^V)=P_{m+1}^V$ which shows the non-obvious direction.
 
-Proposition \ref{pro:indecomposables} and \ref{indecomposables} imply that all quiver Grassmannians $\Gr_\bfe(M)$ for a fixed $\bfe\in\NN^{Q_0}$ where $M\in\Ind(K(n),\udim P_{m+1}^V)$ are isomorphic. With other words we use that all indecomposables are truncated preprojectives.
+  Proposition \ref{pro:indecomposables} and \ref{indecomposables} imply that all quiver Grassmannians $\Gr_\bfe(M)$ for a fixed $\bfe\in\NN^{Q_0}$ where $M\in\Ind(K(n),\udim P_{m+1}^V)$ are isomorphic.
+  With other words we use that all indecomposables are truncated preprojectives.
 
-As the indecomposables form a dense open subset of all representations, we found a dense subset whose quiver Grassmannians for a fixed $\bfe$ are isomorphic. But now the same proof as for exceptional roots applies in order to show that these quiver Grassmannians need to be smooth, see \cite[Corollary 4]{cr}.
+  As the indecomposables form a dense open subset of all representations, we found a dense subset whose quiver Grassmannians for a fixed $\bfe$ are isomorphic.
+  But now the same proof as for exceptional roots applies in order to show that these quiver Grassmannians need to be smooth, see \cite[Corollary 4]{cr}.
  % \footnote{The proof using moduli spaces needs to be written}
   %Both claims are proven via the same geometric construction.
   %For each dimension vector $\bfe$, there is a smooth variety
   %\[X_{\bfe,m}=\{(\tilde E,V):V\in \Gr_d(H_m),\ P_m\otimes V\subset\tilde E\subset P_{m+1}i,\ \udim\tilde E=\bfe+d\udim P_m\}.\]
   %Under the natural projection $\pi:X_{\bfe,m}\to \Gr_d(H_m)$, the fiber $\pi^{-1}(V)$ identifies with $\Gr_\bfe(P_{m+1}^V)$.
   %In particular, this implies $\Gr_\bfe(P_{m+1}^V)$ is smooth for each $V\in \Gr_d(H_m)$.
-
   %The variety $X_{\bfe,m}$ supports an action of $GL_n(\CC)$ by setting $g.(\tilde E,V)=\big(\phi_{m+1,g}^{-1}(g.\tilde E),g.V\big)$.
   %Indeed, by Lemma~\ref{le:g equalities} we have 
   %\[P_m\otimes g.V=\phi_{m+1,g}^{-1}(g.P_m\otimes V^g)=\phi_{m+1,g}^{-1}\big(g.(P_m\otimes V)\big)\subset\phi_{m+1,g}^{-1}(g.\tilde E).\]
