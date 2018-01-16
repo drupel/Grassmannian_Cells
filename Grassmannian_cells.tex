@@ -1397,11 +1397,30 @@ The key concept for describing the cell decompositions is the following notion o
   Let $Q=(Q_0,Q_1)$ be a quiver.
   A subset $\beta\subset Q_0$ is \emph{successor closed} if for each $p\in\beta$, the existence of an arrow $v:p\to q$ in $Q_1$ implies $q\in\beta$.
 
-  A \emph{2-arrow} of the quiver $Q$ is an ordered pair $V=\big(\Gamma(1),\Gamma(2)\big)$ of full subquivers of $Q$, these will be denoted $V:\Gamma(1)\to\Gamma(2)$.
+  A \emph{2-arrow} of the quiver $Q$ is an ordered pair $V=\big(\Gamma(1),\Gamma(2)\big)$ of full connected subquivers of $Q$, these will be denoted $V:\Gamma(1)\to\Gamma(2)$.
   A \emph{2-quiver} is a pair $\tilde Q=(Q,Q_2)$ consisting of a quiver $Q$ and a collection $Q_2$ of 2-arrows of $Q$.
   Given a 2-quiver $\tilde Q$, we call a subset $\beta\subset Q_0$ \emph{strong successor closed} if it is successor closed and for each 2-arrow $V:\Gamma(1)\to\Gamma(2)$ with $\Gamma(1)_0\subset\beta$ we have $\Gamma(2)_0\cap\beta\ne\varnothing$.  
-  \footnote{Include a notion of equivalence of $2$-quivers to justify the transformation of $2$-arrows into usual arrows.}
+
 \end{definition}
+We introduce a notion of equivalence of $2$-quivers.
+\begin{definition}\label{def:2equivalence}
+Let $\tilde Q=(Q,Q_2)$ be a $2$-quiver with a $2$-arrow $V:\Gamma(1)\to\Gamma(2)$ such that $\Gamma(1)$ has precisely one source $q$ and $\Gamma(2)$ has precisely one sink $q'$. Let $\tilde Q_V$ be the $2$-quiver obtained from $\tilde Q$ when replacing $V$ by a usual arrow $\alpha_V:q\to q'$. This defines a relation on the set of $2$-quivers denoted by $\tilde Q_V\to \tilde Q$. Moreover, it induces an equivalence relation $\sim$ on the set of $2$-quivers when taking the symmetric and transitive closure of this relation. 
+\end{definition}
+Observe that the set of vertices of two equivalent $2$-quivers coincide.
+\begin{lemma}
+Let $\tilde Q$ and $\tilde Q'$ be two equivalent $2$-quivers. If $\beta\subset Q_0$ is strong successor closed, it also defines a strong successor closed subset of $Q_0'$.
+The number of strong successor closed subsets of $Q_0$ coincides with the one of $ Q_0'$.
+\end{lemma}
+\begin{proof}
+We may assume that $\tilde Q'=\tilde Q_V$ where $V:\Gamma(1)\to\Gamma(2)\in Q_2$. As in Definition \ref{def:2equivalence}, we denote the unique source of $\Gamma(1)$ by $q$, the unique sink of $\Gamma(2)$ by $q'$ and the new arrow by $\alpha_V:q\to q'$.
+
+Let $\beta\subset Q_0$ be a strong successor closed subset. Let $V':\Gamma'(1)\to\Gamma'(2)\in (Q_V)_2$ be a two arrow. Then it is also a $2$-arrow of $\tilde Q$. This means that  we have $\Gamma(2)_0\cap \beta\neq\varnothing$ if $\Gamma(1)_0\subset \beta$. 
+ 
+Let $\alpha:i\to j\in (Q_V)_1$. If $\alpha\neq\alpha_V$, we have $j\in \beta$ if $i\in\beta$ as $\beta$ is successor closed as a subset of $Q_0$. Thus assume that $\alpha=\alpha_V$. If $q\in\beta$, we have $\beta\subset\Gamma(1)_0$ because $\beta$ is successor closed and $q$ is the unique source of $\Gamma(1)$ which means that for every vertex $p\in\Gamma(1)_0$ different from $q$, there exists an arrow $\alpha:q\to p$. As $\beta$ is strong successor closed, there exists a vertex $p'\in\Gamma(2)_0\cap\beta$. But then we have $q'\in\beta$ as there exists an arrow $\alpha:p'\to q'$. Thus $\beta$ is strong successor closed as a subset of $(Q_V)_0$.
+
+
+Thus assume that $\beta\subset (Q_V)_0$ is strong successor closed. The cases of arrows $\alpha\in Q_1$ and $2$-arrows $W\neq V$ can be treated as before. Thus consider the $2$-arrow $V$ and the arrow $\alpha_V$. Assume that $\Gamma(1)_0\subset\beta$. Then we have $q\in\beta$. But then we have $q'\in\beta$ as $\alpha_V:q\to q'$ and $\beta$ is successor closed as a subset of $(Q_V)_0$. It follows that $\Gamma(2)_0\cap\beta\neq\varnothing$.
+\end{proof}
 
 %The aim is to associate a $2$-quiver with every preprojective representation $P_m$ and with their quotients $P_m^{(k)}$ defined in section \ref{QG}.
 %These $2$-quivers are related to certain coefficient quivers of these representations.
@@ -1409,10 +1428,10 @@ The key concept for describing the cell decompositions is the following notion o
 %Hence the corresponding Euler characteristic can be computed when counting these subsets.
 %It will turn out that a feature of this description is that it does not take care of the colouring of the different arrows induced by the arrows of $K(n)$.
 
-\begin{remark}\footnote{Insert a remark that we do not work on the universal cover} 
-  Lemma \ref{AR} can be generalized to the cases $m\leq 2$.
-  The only technical problem is that $\tau \tilde P^{(k)}_{m+1}$ is no quotient of $\tilde P_{m,k}$ and we have to replace it by the image of the unique morphism to $\tau \tilde P^{(k)}_{m+1}$ which induces the exact sequence. 
-\end{remark}
+%\begin{remark}\footnote{Insert a remark that we do not work on the universal cover} 
+%  Lemma \ref{AR} can be generalized to the cases $m\leq 2$.
+%  The only technical problem is that $\tau \tilde P^{(k)}_{m+1}$ is no quotient of $\tilde P_{m,k}$ and we have to replace it by the image of the unique morphism to $\tau \tilde P^{(k)}_{m+1}$ which induces the exact sequence. 
+%\end{remark}
 
 We recall the notion of Section \ref{QG} where we denote the arrows of $K(n)$ by $v_1,\ldots,v_n$.
 Actually, all $2$-quivers can be built from the $2$-quivers of $P_1$, $P_2$ and $P_2^{(n-1)}$, where $P_2^{(n-1)}$ depends on a choice as it is a truncated preprojective representation of dimension $(1,1)$.
