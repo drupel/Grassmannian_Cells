@@ -1051,14 +1051,14 @@ Let $X$ be a representation which can be lifted to $\tilde Q$. Then there exists
 %  \[\{U\in \Gr^Q_\bfe(X):\lim_{t\to0} t\cdot U\in \Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)\}\]
 %\end{corollary}
 Define the $F$-polynomial of a representation $X$ by 
-$$F_X=\sum_{\bfe\in\NN^{Q_0}}\chi(\Gr_\bfe(X))x^e\in\ZZ[x_q\mid q\in Q_0].$$
+$$F_X=\sum_{\bfe\in\NN^{Q_0}}\chi(\Gr_\bfe(X))x^\bfe\in\ZZ[x_i\mid i\in Q_0].$$
 
 \begin{corollary}\label{fpoly}
 Let $X$ be a representation which can be lifted to the universal covering quiver.
 \begin{enumerate}
 \item 
 If  $\Gr_\bfe(X)$ is smooth and $\Gr^{\tilde Q}_{ \tbfe}(\tilde X)$ has a cell decomposition into affine spaces, then $\Gr_\bfe(X)$ has a cell decomposition into affine spaces.
-\item We have $F_X=SF_{\tilde X}$ where $SF_{\tilde X}$ is obtained from $F_{\tilde X}$ by applying $S:\ZZ[x_{(q,w)}\mid q\in Q_0,w\in W_Q]\to\ZZ[x_q\mid q\in Q_0]$ given by $S(x_{(q,w)})=x_q$ for all $q\in Q_0$ and $w\in W_Q$.
+\item We have $F_X=SF_{\tilde X}$ where $SF_{\tilde X}$ is obtained from $F_{\tilde X}$ by applying $S:\ZZ[x_{(i,w)}\mid i\in Q_0,w\in W_Q]\to\ZZ[x_i\mid i\in Q_0]$ given by $S(x_{(i,w)})=x_i$ for all $i\in Q_0$ and $w\in W_Q$.
 \end{enumerate} 
 \end{corollary}
 An important special case for this is the case of exceptional representations. In this case the quiver Grassmannians $\Gr_\tbfe(X)$ are smooth by \cite[Corollary 4]{cr}. Moreover, every exceptional representation is a tree module by \cite{rin1} which means that it can be lifted to the universal covering.
