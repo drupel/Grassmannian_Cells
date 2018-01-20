@@ -375,11 +375,46 @@ Following Lemma~\ref{le:injective evaluation maps}, we define the following.
 \end{proof}
 
 \begin{lemma}
-  For $V\in\Gr(H_m)$, $m\ge1$, the representation $\Sigma_2(P_{m+1}^V)^\sigma$ is also truncated preprojective.
+  \label{le:reflected truncated preprojectives}
+  For $V\in\Gr(H_m)$, $m\ge2$, the representation $\Sigma_1(P_{m+1}^V)^\sigma$ is also truncated preprojective.
 \end{lemma}
 \begin{proof}
-  Apply the functor $\Sigma_2(-)^\sigma$ to the sequence \eqref{eq:truncated preprojectives}.
+  By Corollary~\ref{cor:indecomposable truncated} and Lemma~\ref{le:unique morphisms}, $P_{m+1}^V$ is indecomposable but not rigid.
+  In particular, $P_{m+1}^V$ does not have a summand isomorphic to $S_1$.
+  Thus, following Remark~\ref{rem:reflection recursion}, we may apply the functor $\Sigma_1(-)^\sigma$ to the sequence \eqref{eq:truncated preprojectives} to get the exact sequence
+  \[0\longrightarrow P_{m-1}\otimes V\xrightarrow{\Sigma_1(ev_V)^\sigma} P_m\longrightarrow \Sigma_1(P_{m+1}^V)^\sigma\longrightarrow 0\]
+  which gives the claim.
 \end{proof}
+
+For $V\in \Gr(H_m)$, $m\ge1$, any subspace $W\subset V$ gives rise to an exact sequence
+\[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar[r]^(.6){ev} & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0},\]
+where the left hand morphism above is the natural evaluation morphism coming from Lemma~\ref{le:truncated homomorphisms}.
+Each such sequence has the following almost-split property for proper subrepresentations of $P_{m+1}^V$.
+\begin{lemma}
+  For $V\in \Gr(H_m)$, $m\ge1$, any proper subrepresentation $X\subsetneq P_{m+1}^V$ can be written as a direct sum of preprojective representations $P_r$ with $1\le r\le m$.
+  Moreover, the upper pullback sequence
+  \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar@{=}[d]\ar[r] & Y \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\ar[r] & 0 \\
+    0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
+  splits for every proper subspace $W\subsetneq V$.
+\end{lemma}
+\begin{proof}
+  For the first claim, we proceed by induction on $m$.
+  When $m=1$, the dimension vector of $P_{m+1}^V$ is $(\codim_{H_m} V,1)$.
+  In particular, it is immediate that each proper subrepresentation of $P_{m+1}^V$ is isomorphic to $P_1^k$ for some $0\le k\le l$.
+
+  For $m\ge2$, we observe by induction that Lemma~\ref{le:reflected truncated preprojectives} implies any subrepresentation of $P_{m+1}^V$ which is not isomorphic to $P_1$ must be a direct sum of preprojective representations $P_r$ with $2\le r\le m$.
+  Indeed, each of these is obtained from a subrepresentation of $\Sigma_1(P_{m+1}^V)^\sigma$ by applying the functor $\Sigma_2(-)^\sigma$ and the claim follows from the recursions in Remark~\ref{rem:reflection recursion}.
+  
+  Now we show that the first claim implies the second.
+  Consider $W\subsetneq V$ and suppose the first claim holds for $P_{m+1}^V$.
+  Observe that $\Ext(P_r,P_m)=0$ for $1\le r\le m$ and, since $X$ is a direct sum of preprojectives, the upper pullback sequence above must split.
+\end{proof}
+\begin{corollary}
+  Consider $V,W\in \Gr(H_m)$, $m\ge1$, with $W\subset V$.
+  Given any proper subrepresentation $X\subsetneq P_{m+1}^V$ and any subrepresentation $Z\subset P_m\otimes(V/W)$, there is a subrepresentation of $P_{m+1}^W$ isomorphic to $Z\oplus X$ which fits into a commutative diagram
+  \[\xymatrix{0 \ar[r] & Z \ar[d]\ar[r] & Z\oplus X \ar[r]\ar[d] & X \ar[d]\ar[r] & 0 \\
+    0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
+\end{corollary}
 
 \begin{lemma}
   \label{le:unique truncated extension}
@@ -542,48 +577,8 @@ where $U\subset V$ satisfies $\dim(V/U)=1$.
   For the final claim we observe that, for another direct sum decomposition $V=U'\oplus W'$, the representations $P_{m+1}^U\oplus P_{m+1}^W$ and $P_{m+1}^{U'}\oplus P_{m+1}^{W'}$ are isomorphic if and only if the direct sum decompositions $V=U\oplus W$ and $V=U'\oplus W'$ are the same up to permutation of summands.
 \end{proof}
 
-For $V\in \Gr(H_m)$, $m\ge1$, any subspace $W\subset V$ gives rise to an exact sequence
-\[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar[r]^(.6){ev} & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0},\]
-where the left hand morphism above is the natural evaluation morphism coming from Lemma~\ref{le:truncated homomorphisms}.
-Each such sequence has the following almost-split property for proper subrepresentations of $P_{m+1}^V$.
-\sayD{The next results need some serious clean-up, can they be proven for $K(n)$ without passing to the universal cover?}
-\begin{lemma}
-  For $V\in \Gr(H_m)$, $m\ge1$, any proper subrepresentation $X\subsetneq P_{m+1}^V$ can be written as a direct sum of preprojective representations $P_r$ with $1\le r\le m$.
-  Moreover, the upper pullback sequence
-  \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar@{=}[d]\ar[r] & Y \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\ar[r] & 0 \\
-    0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
-  splits for every proper subspace $W\subsetneq V$.
-\end{lemma}
-\begin{proof}
-  For the first claim, we proceed by induction on $m$.
-  When $m=1$, the dimension vector of $P_{m+1}^V$ is $(\codim_{H_m} V,1)$.
-  In particular, it is immediate that each proper subrepresentation of $P_{m+1}^V$ is isomorphic to $P_1^k$ for some $0\le k\le l$.
 
-  By Corollary~\ref{cor:truncated preprojective isomorphism}, the first claim for $m\ge2$ and $\codim_{H_m} V = 1$ follows from the first claim for $m-1$.
-  
-  Now we show that the first claim implies the second.
-  Consider $W\subsetneq V$ and suppose the first claim holds for $P_{m+1}^V$.
-  Observe that $\Ext(P_r,P_m)=0$ for $1\le r\le m$ and so the upper pullback sequence above will split giving the second claim.
-
-  We proceed by induction on $\codim_V W$.  
-  When $\codim_V W=1$, we have an exact sequence
-  \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\] 
-  with both morphisms irreducible by Lemma~\ref{le:irreducible morphisms} and the claim immediately follows.
-
-  Suppose $W\subsetneq V$ with $\codim_V W>1$ and choose an intermediate subspace $W\subsetneq T\subsetneq V$.
-  Given $X\subsetneq P_{m+1}^V$, we have the pullback diagram
-  \[\xymatrix{ Y \ar[d]\ar[r]\ar@{}[dr]|(.7){\lrcorner} & Y' \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\\
-  P_{m+1}^W \ar[r] & P_{m+1}^T \ar[r] & P_{m+1}^V}\]
-  in which all horizontal morphisms of the upper row are split epimorphisms by induction.
-  The result now follows since the outer square is also a pullback.
-\end{proof}
-\begin{corollary}
-  Consider $V,W\in \Gr(H_m)$, $m\ge1$, with $W\subset V$.
-  Given any proper subrepresentation $X\subsetneq P_{m+1}^V$ and any subrepresentation $Z\subset P_m\otimes(V/W)$, there is a subrepresentation of $P_{m+1}^W$ isomorphic to $Z\oplus X$ which fits into a commutative diagram
-  \[\xymatrix{0 \ar[r] & Z \ar[d]\ar[r] & Z\oplus X \ar[r]\ar[d] & X \ar[d]\ar[r] & 0 \\
-    0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
-\end{corollary}
-
+\sayD{The next result needs some serious clean-up, can they be proven for $K(n)$ without passing to the universal cover?}
 \begin{lemma}
   For $V\in \Gr(H_m)$, $m\ge1$, a subrepresentation $X\subset P_m$ fits into a commutative diagram
   \[\xymatrix{0 \ar[r] & X \ar[d]\ar[r]\ar@{}[dr]|(.3){\ulcorner} & Y \ar[d]\ar[r] & P_{m+1}^V \ar@{=}[d]\ar[r] & 0 \\
@@ -894,7 +889,7 @@ For $\uj=(j_1,\ldots,j_{n-1})\in I_{n-1}$, let $j^c\in \{1,\ldots,n\}$ be the un
 
 
 
-\begin{definition}Let ${\bf j}:=(\underline{j_1},\underline{j_2},\ldots,\underline{j_r})$ be a sequence with $\underline{j_1}\in I_{n-1}$, $\underline{j_2},\ldots,\underline{j_{r-1}}\in I_{n-2}$ and $\underline{j_r}\in I_s$ for $s\leq n-2$. Define $j_1^c$ as before.
+\begin{definition}Let ${\bf j}:=(\underline{j_1},\underline{j_2},\ldots,\underline{j_r})$ be a sequence with $\underline{j_1}\in I_{n-1}$, $\underline{j_2},\ldots,\underline{j_{r-1}}\in I_{n-2}$ and $\underline{j_r}\in I_s$ with $s\leq n-2$. Define $j_1^c$ as before.
  We say that ${\bf j}$ is admissible if 
 $$ j_{k,i}\neq j_{k-1}^{c}\text{ for all }k=2,\ldots, r-1,\,i=1,\ldots,n-2\text{ and for }i=1,\ldots,s\text{ if }k=r$$
 where $j_{k}^c\in\{1,\ldots,n\}$ for $2\leq k\leq r-1$ is recursively defined as the unique element satisfying $j_k^c\neq j_{k,i}$ for $i=1,\ldots,n-2$ and $j_k^c\neq j_{k-1}^c$. 
