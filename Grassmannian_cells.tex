@@ -392,22 +392,14 @@ where the left hand morphism above is the natural evaluation morphism coming fro
 Each such sequence has the following almost-split property for proper subrepresentations of $P_{m+1}^V$.
 \begin{lemma}
   For $V\in \Gr(H_m)$, $m\ge1$, any proper subrepresentation $X\subsetneq P_{m+1}^V$ can be written as a direct sum of preprojective representations $P_r$ with $1\le r\le m$.
-  Moreover, the upper pullback sequence
-  \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar@{=}[d]\ar[r] & Y \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\ar[r] & 0 \\
-    0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
-  splits for every proper subspace $W\subsetneq V$.
 \end{lemma}
 \begin{proof}
-  For the first claim, we proceed by induction on $m$.
+  We proceed by induction on $m$.
   When $m=1$, the dimension vector of $P_{m+1}^V$ is $(\codim_{H_m} V,1)$.
-  In particular, it is immediate that each proper subrepresentation of $P_{m+1}^V$ is isomorphic to $P_1^k$ for some $0\le k\le l$.
+  In particular, it is immediate that each proper subrepresentation of $P_{m+1}^V$ is isomorphic to $P_1^k$ for some $0\le k\le\codim_{H_m} V$.
 
-  For $m\ge2$, we observe by induction that Lemma~\ref{le:reflected truncated preprojectives} implies any subrepresentation of $P_{m+1}^V$ which is not isomorphic to $P_1$ must be a direct sum of preprojective representations $P_r$ with $2\le r\le m$.
-  Indeed, each of these is obtained from a subrepresentation of $\Sigma_1(P_{m+1}^V)^\sigma$ by applying the functor $\Sigma_2(-)^\sigma$ and the claim follows from the recursions in Remark~\ref{rem:reflection recursion}.
-  
-  Now we show that the first claim implies the second.
-  Consider $W\subsetneq V$ and suppose the first claim holds for $P_{m+1}^V$.
-  Observe that $\Ext(P_r,P_m)=0$ for $1\le r\le m$ and, since $X$ is a direct sum of preprojectives, the upper pullback sequence above must split.
+  For $m\ge2$, we observe by induction that Lemma~\ref{le:reflected truncated preprojectives} implies any subrepresentation of $P_{m+1}^V$ which has no summand isomorphic to $P_1$ must be a direct sum of preprojective representations $P_r$ with $2\le r\le m$.
+  Indeed, each of these is obtained from a subrepresentation of $\Sigma_1(P_{m+1}^V)^\sigma$ by applying the functor $\Sigma_2(-)^\sigma$ and the claim follows from the recursions in Remark~\ref{rem:reflection recursion} for preprojective representations.
 \end{proof}
 \begin{corollary}
   Consider $V,W\in \Gr(H_m)$, $m\ge1$, with $W\subset V$.
@@ -415,6 +407,13 @@ Each such sequence has the following almost-split property for proper subreprese
   \[\xymatrix{0 \ar[r] & Z \ar[d]\ar[r] & Z\oplus X \ar[r]\ar[d] & X \ar[d]\ar[r] & 0 \\
     0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
 \end{corollary}
+\begin{proof}
+  Observe that $\Ext(P_r,P_m)=0$ for $1\le r\le m$ and, since $X$ is a direct sum of preprojectives, the upper pullback sequence
+  \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar@{=}[d]\ar[r] & Y \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\ar[r] & 0 \\
+    0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
+  must split.
+  The claim for arbitrary subrepresentations $Z\subset P_m\otimes(V/W)$ is an immediate consequence of this splitting.
+\end{proof}
 
 \begin{lemma}
   \label{le:unique truncated extension}
