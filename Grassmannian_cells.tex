@@ -139,7 +139,9 @@ Note that the natural surjection $W_Q\onto A_Q$ induces a functor $H_Q:\rep \wid
 In addition, observe that every connected component of the universal covering quiver of the universal abelian covering quiver is isomorphic to a connected component of the universal covering quiver of the original quiver.
 
 \begin{lemma}
+  \label{le:lifts of transjectives}
   Every preprojective and preinjective representation of $Q$ can be lifted to $\hat Q$ and to $\widetilde Q$.
+  \sayD{This should be upgraded to ``Any lift of a preprojective (or preinjective) for $Q$ is preprojective (or preinjective).''} 
 \end{lemma}
 \begin{proof}
   This statement is clear for the simple representations $S_i$, $i\in Q_0$.
@@ -391,6 +393,7 @@ For $V\in \Gr(H_m)$, $m\ge1$, any subspace $W\subset V$ gives rise to an exact s
 where the left hand morphism above is the natural evaluation morphism coming from Lemma~\ref{le:truncated homomorphisms}.
 Each such sequence has the following almost-split property for proper subrepresentations of $P_{m+1}^V$.
 \begin{lemma}
+  \label{le:projective subrepresentations}
   For $V\in \Gr(H_m)$, $m\ge1$, any proper subrepresentation $X\subsetneq P_{m+1}^V$ can be written as a direct sum of preprojective representations $P_r$ with $1\le r\le m$.
 \end{lemma}
 \begin{proof}
@@ -752,27 +755,27 @@ where the upper vertex is again $(2,1)$. Now it is straightforward to see that $
 Actually, these examples already show how the (truncated) preprojectives are built, also using the identities \eqref{eq:recursive covers}. We should point out that the case $m=3$ is rather special because it is the only case for which the unique morphism $\tilde P_{2,j_l}\to\tau\tilde P_3^{\uj}$ is not surjective. Note that if we factor out the image of this morphism, the remaining representation is a direct sum of simple injective representations which disappear after reflecting at the source.
 \end{remark}
 
- We need the following lemma analyzing the possible subrepresentations of truncated preprojective representations.
+We need the following lemma analyzing the possible subrepresentations of truncated preprojective representations.
 \begin{lemma}
   \label{le:subrep}
-  \sayD{This should be moved to a statement on $K(n)$ and then deduced from that one.}\sayT{The proof seems to be more complicated in general because we cannot assume that $U'$ is indecomposable which means that it may have self-extensions. This is because $U\notin\tilde P_{m-1,l}^\perp$}
+  %\sayD{This should be moved to a statement on $K(n)$ and then deduced from that one.}\sayT{The proof seems to be more complicated in general because we cannot assume that $U'$ is indecomposable which means that it may have self-extensions. This is because $U\notin\tilde P_{m-1,l}^\perp$}
   Let $\uj\in I_l$.
   All non-trivial proper subrepresentations $U$ of $\tilde P_m^{\uj}$ are preprojective.	
 \end{lemma}
 \begin{proof}
-Without loss of generality, we choose $\{j_1,\ldots,j_l\}=\{1,\ldots,l\}$ and denote $\tilde P_m^{(l)}:=\tilde P_m^{(1,\ldots,l)}$ where $\tilde P_m^{(0)}=\tilde P_m$.
-
-We proceed by induction. Clearly $\tilde P_m$ has only preprojective subrepresentations. We can assume without loss of generality that the subrepresentation $U$ is indecomposable. Assume that $U\subsetneq P_m^{(l)}$ is not preprojective. Then the embedding would not factor through $\tilde P_m^{(l-1)}$ by induction hypothesis.  Thus we get a commutative diagram
-
-\[\xymatrix{0\ar[r] &\tilde P_{m-1,l}\ar[r] &  \tilde P_{m}^{(l-1)}\ar[r] & \tilde P_{m}^{(l)}\ar[r] & 0 \\
-  0\ar[r]&\tilde P_{m-1,l} \ar[r]\ar@{=}[u] & U'\ar[u]\ar[r]& U\ar[r]\ar[u]& 0}\]
-where the vertical maps are injective, the sequence on the bottom does not split and the representation $U'$ is preprojective by induction hypothesis. Then we have $U\in\tilde P_{m-1,l}^\perp$
-because $$\Hom(\tilde P_{m-1,l},U)=\Hom(\tilde P_{m-1,l},\tilde P_{m}^{(l)})=0.$$ Moreover, $\Ext(\tilde P_{m-1,l},U)=0$ follows because the representation $\tilde P_{m-1,l}$ is preprojective and $U$ is not. We also have $\Hom(U,\tilde P_{m-1,l})=0$ for the same reason. 
-
-As the sequence does not split, this shows that $U'$ is an indecomposable preprojective subrepresentation of $\tilde P_{m}^{(l-1)}$ where the indecomposability follows from \cite[Lemma 3.7]{wei2}. Since the only exceptional representations of $K(n)$ are preprojective, we have $\Sc{\udim U}{\udim U}\leq 0$. Thus, using  $\Sc{\udim U}{\udim \tilde P_{m-1,l}}< 0$, we obtain
-\[\Sc{\udim U'}{\udim U'}=\Sc{\udim U}{\udim U}+\Sc{\udim \tilde P_{m-1,l} }{\udim \tilde P_{m-1,l} }+\Sc{\udim U}{\tilde P_{m-1,l}}\leq 1+\Sc{\udim U}{\tilde P_{m-1,l}}\leq 0.\]
-But this contradicts the induction hypothesis because preprojective representations do not have self-extensions.
-
+  We begin by observing that the projected representation $G_{K(n)}(\tilde P_m^{\uj})$ is a truncated preprojective of $K(n)$.
+  Then Lemma~\ref{le:projective subrepresentations} shows that all subrepresentations of $G_{K(n)}(\tilde P_m^{\uj})$ are direct sums of preprojective representations of $K(n)$.
+  But any subrepresentation of $\tilde P_m^{\uj}$ also projects to a subrepresentation of $G_{K(n)}(\tilde P_m^{\uj})$.
+  Since, following Lemma~\ref{le:lifts of transjectives}, any lift of a preprojective of $K(n)$ will be a preprojective representation of $\widetilde{K(n)}$, this gives the result.
+  %Without loss of generality, we choose $\{j_1,\ldots,j_l\}=\{1,\ldots,l\}$ and denote $\tilde P_m^{(l)}:=\tilde P_m^{(1,\ldots,l)}$ where $\tilde P_m^{(0)}=\tilde P_m$.
+  %We proceed by induction. Clearly $\tilde P_m$ has only preprojective subrepresentations. We can assume without loss of generality that the subrepresentation $U$ is indecomposable. Assume that $U\subsetneq P_m^{(l)}$ is not preprojective. Then the embedding would not factor through $\tilde P_m^{(l-1)}$ by induction hypothesis.  Thus we get a commutative diagram
+  %\[\xymatrix{0\ar[r] &\tilde P_{m-1,l}\ar[r] &  \tilde P_{m}^{(l-1)}\ar[r] & \tilde P_{m}^{(l)}\ar[r] & 0 \\
+  %  0\ar[r]&\tilde P_{m-1,l} \ar[r]\ar@{=}[u] & U'\ar[u]\ar[r]& U\ar[r]\ar[u]& 0}\]
+  %where the vertical maps are injective, the sequence on the bottom does not split and the representation $U'$ is preprojective by induction hypothesis. Then we have $U\in\tilde P_{m-1,l}^\perp$
+  %because $$\Hom(\tilde P_{m-1,l},U)=\Hom(\tilde P_{m-1,l},\tilde P_{m}^{(l)})=0.$$ Moreover, $\Ext(\tilde P_{m-1,l},U)=0$ follows because the representation $\tilde P_{m-1,l}$ is preprojective and $U$ is not. We also have $\Hom(U,\tilde P_{m-1,l})=0$ for the same reason. 
+  %As the sequence does not split, this shows that $U'$ is an indecomposable preprojective subrepresentation of $\tilde P_{m}^{(l-1)}$ where the indecomposability follows from \cite[Lemma 3.7]{wei2}. Since the only exceptional representations of $K(n)$ are preprojective, we have $\Sc{\udim U}{\udim U}\leq 0$. Thus, using  $\Sc{\udim U}{\udim \tilde P_{m-1,l}}< 0$, we obtain
+  %\[\Sc{\udim U'}{\udim U'}=\Sc{\udim U}{\udim U}+\Sc{\udim \tilde P_{m-1,l} }{\udim \tilde P_{m-1,l} }+\Sc{\udim U}{\tilde P_{m-1,l}}\leq 1+\Sc{\udim U}{\tilde P_{m-1,l}}\leq 0.\]
+  %But this contradicts the induction hypothesis because preprojective representations do not have self-extensions.
 \end{proof}
 
 %Fix $\ui=(i_1,\ldots,i_k)$ and $\uj=(j_1,\ldots,j_l)$ with $i$
@@ -961,25 +964,35 @@ For a connected component of the fixed point set $C\subset X^{\C^\ast}$, we defi
 The following result of Bialynicki-Birula relates the geometry of $X$ to the geometry of its torus fixed points.
 \begin{theorem}\label{thm:bb}
   \cite[Section 4]{bb}
-  Let $\coprod_{i=1}^r C_i= X^{\C^\ast}$ be the decomposition into connected components.
-  Then $\mathrm{Att}(C_i)$ is a locally closed smooth $\C^\ast$-invariant subvariety of $X$, where $C_i$ is a subvariety of $\mathrm{Att}(C_i)$.
+  Let $X^{\C^\ast}=\coprod_{i=1}^r C_i$ be the decomposition of the fixed point set of $X$ into connected components.
+  Then $\mathrm{Att}(C_i)$ is a locally closed smooth $\C^\ast$-invariant subvariety of $X$ containing $C_i$ as a subvariety.
   Moreover, we have $X=\coprod_{i=1}^r\mathrm{Att}(C_i)$ and the natural map $\gamma_i:\mathrm{Att}(C_i)\to C_i$ is an affine vector bundle. 
-
   In particular, we have an equality of Euler characteristics $\chi(X)=\chi(X^{\C^\ast})$.
 \end{theorem}
 
-\subsection{Torus Actions}\label{torusaction}
 
-Fix a vector space $X$ of dimension $n$ and let $k\leq n$. We first consider a natural torus action on usual Grassmannians coming along with any direct sum decomposition of the vector space $X$. Then we generalize the concept to quiver Grassmannians, but we will see that the torus fixed point set can be calculated in an analogous manner. Thus assume that $X=\bigoplus_{j=1}^l X_j$ is a direct sum decomposition of $X$. We choose a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of $X$ which is compatible with this decomposition, i.e. there exist numbers $1\leq j_1\leq j_2\ldots\leq j_{l-1}\leq n$ such that
-\[v_1,\ldots,v_{j_1}\in X_1,\,v_{j_1+1},\ldots,v_{j_2}\in X_2,\ldots,v_{j_{l-1}+1},\ldots,v_{n}\in X_l\]
-Moreover, we choose a map $d:\{1,\ldots,n\}\to\mathbb{Z}$ such that $d(i)=d(i')$ if $v_i,v_{i'}\in X_{j}$ for some $j$. Then there exists a $\C^\ast$-action on $X$ when extending the definition $t.v_i:=t^{d(i)}v_i$ for $i=1,\ldots,n$ linearly to $X$. This naturally induces an action of $\C^\ast$ on the usual Grassmannians $\Gr_k(X)$. We can write every $U\in\Gr_k(X)$ uniquely in row-echelon form with respect to the basis $\mathcal B$, i.e. there exists a unique sequence $1\leq i_1\leq\ldots\leq i_k\leq n$ and a unique matrix representation of $U$ of the form
-\[M(U):=\begin{pmatrix}\ast&\ldots &\ast &1&0 &\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&0\\\ast&\ldots &\ast&0&\ast&\ldots &\ast&1&0&\ldots&\ldots&\ldots&\ldots&\ldots&0\\\vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&0&\ast&\ddots&\ddots&\ddots&\ddots&\ddots&\vdots\\\vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&\vdots&\ddots&\ddots&\ddots&\ddots&\ddots&\ddots&\vdots\\\ast&\ldots &\ast&0&\ast&\ldots &\ast&0&\ast&\ldots&\ast&1&0&\ldots&0\end{pmatrix}\in M_{k,n}(k)\]
-where the unit vectors are in the columns $i_1,\ldots,i_k$. All matrix representations of this form define a Schubert cell $X_{\bfi}$ where $\bfi=(i_1,\ldots,i_k)$. The $\C^\ast$-action is then given by multiplying the $w^{\mathrm{th}}$ column with $t^{d(w)}$, i.e. we have
+\subsection{Torus Actions}\label{torusaction}
+Fix a vector space $X$ of dimension $n$ and let $k\leq n$.
+We first consider a natural torus action on usual Grassmannians coming along with any direct sum decomposition of the vector space $X$.
+Then we generalize the concept to quiver Grassmannians and observe that the torus fixed point sets can be calculated in an analogous manner.
+
+Assume that $X=\bigoplus_{j=1}^l X_j$ is a direct sum decomposition of $X$.
+We choose a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of~$X$ which is compatible with this decomposition, i.e.\ there exist numbers $1\leq r_1\leq r_2\ldots\leq r_l\leq n$ such that
+\[v_1,\ldots,v_{r_1}\in X_1,\quad v_{r_1+1},\ldots,v_{r_2}\in X_2,\quad\cdots\quad v_{r_l+1},\ldots,v_n\in X_l.\]
+Moreover, we choose a map $d:\{1,\ldots,n\}\to\mathbb{Z}$ such that $d(i)=d(i')$ if $v_i,v_{i'}\in X_{j}$ for some $j$.
+Then there exists a $\C^\ast$-action on $X$ when linearly extending the definition $t.v_i:=t^{d(i)}v_i$ for $i=1,\ldots,n$ to all of~$X$.
+This naturally induces an action of $\C^\ast$ on the usual Grassmannians $\Gr_k(X)$.
+We can represent each subspace~$U\in\Gr_k(X)$ uniquely as a matrix $M(U)$ in row-echelon form with respect to the basis $\mathcal B$, i.e.\ there exists a unique sequence $1\leq i_1\leq\ldots\leq i_k\leq n$ so that $M(U)$ is of the form
+\[M(U):=\begin{pmatrix}\ast&\ldots &\ast &1&0 &\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&\ldots&0\\\ast&\ldots &\ast&0&\ast&\ldots &\ast&1&0&\ldots&\ldots&\ldots&\ldots&\ldots&0\\\vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&0&\ast&\ddots&\ddots&\ddots&\ddots&\ddots&\vdots\\\vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&\vdots&\vdots&\ddots&\ddots&\ddots&\ddots&\ddots&\vdots\\\ast&\ldots &\ast&0&\ast&\ldots &\ast&0&\ast&\ldots&\ast&1&0&\ldots&0\end{pmatrix}\in M_{k,n}(k),\]
+where the unit vectors are in the columns $\bfi=(i_1,\ldots,i_k)$.
+The set of all subspaces of $X$ represented by matrices of this fixed form define the \emph{Schubert cell} $X_\bfi$.
+The $\C^\ast$-action is then given by multiplying the $w^{\mathrm{th}}$ column with $t^{d(w)}$, i.e.\ we have
 \[(t.M(U))_{u,w}=t^{d(w)}\cdot M(U)_{u,w}\]
-for $w=1,\ldots,k$. Every Schubert cell is invariant under the torus action, i.e. $t.M(U)\in X_\bfi$ for all $M(U)\in X_{\bfi}$. 
+for $w=1,\ldots,n$.
+Every Schubert cell is invariant under the torus action, i.e.\ $t.M(U)\in X_\bfi$ for all $M(U)\in X_{\bfi}$. 
 \begin{lemma}
   \label{usualGrass}
-  Choose $d$ in such a way that $d(i)\neq d(i')$ if $v_i\in X_j$, $v_{i'}\in X_{j'}$ and $j\neq j'$.
+  Choose $d$ in such a way that $d(i)\neq d(i')$ if $v_i\in X_j$ and $v_{i'}\in X_{j'}$ with $j\neq j'$.
   Then we have $U\in X_{\bfi}^{\C^\ast}$ if and only if $U=\bigoplus_{i=1}^l U\cap X_i$.
 \end{lemma}
 \begin{proof}
