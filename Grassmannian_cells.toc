@@ -10,5 +10,5 @@
 \contentsline {subsection}{\tocsubsection {}{4.4}{Fibrations of Quiver Grassmannians}}{21}{subsection.4.4}
 \contentsline {section}{\tocsection {}{5}{Combinatorial description of non-empty cells}}{25}{section.5}
 \contentsline {subsection}{\tocsubsection {}{5.1}{$2$-Quivers}}{25}{subsection.5.1}
-\contentsline {subsection}{\tocsubsection {}{5.2}{Compatible Pairs}}{28}{subsection.5.2}
+\contentsline {subsection}{\tocsubsection {}{5.2}{Compatible Pairs}}{29}{subsection.5.2}
 \contentsline {section}{\tocsection {}{}{References}}{31}{section*.3}

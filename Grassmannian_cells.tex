@@ -1409,12 +1409,12 @@ The key concept for describing the cell decompositions is the following notion o
 \end{definition}
 We introduce a notion of equivalence of $2$-quivers.
 \begin{definition}\label{def:2equivalence}
-Let $\tilde Q=(Q,Q_2)$ be a $2$-quiver with a $2$-arrow $V:\Gamma(1)\to\Gamma(2)$ such that $\Gamma(1)$ has precisely one source $q$ and $\Gamma(2)$ has precisely one sink $q'$. Let $\tilde Q_V$ be the $2$-quiver obtained from $\tilde Q$ when replacing $V$ by a usual arrow $\alpha_V:q\to q'$. This defines a relation on the set of $2$-quivers denoted by $\tilde Q_V\to \tilde Q$. Moreover, it induces an equivalence relation $\sim$ on the set of $2$-quivers when taking the symmetric and transitive closure of this relation. 
+Let $\tilde Q=(Q,Q_2)$ be a $2$-quiver with a $2$-arrow $V:\Gamma(1)\to\Gamma(2)$ such that $\Gamma(1)$ has precisely one source $p$ and $\Gamma(2)$ has precisely one sink $q$. Let $\tilde Q_V$ be the $2$-quiver obtained from $\tilde Q$ when replacing $V$ by a usual arrow $\alpha_V:p\to q$. This defines a relation on the set of $2$-quivers denoted by $\tilde Q_V\to \tilde Q$. Moreover, it induces an equivalence relation $\sim$ on the set of $2$-quivers when taking the symmetric and transitive closure of this relation. 
 \end{definition}
 Observe that the set of vertices of two equivalent $2$-quivers coincide.
 \begin{lemma}\label{lem:2equivalence}
-Let $\tilde Q$ and $\tilde Q'$ be two equivalent $2$-quivers. If $\beta\subset Q_0$ is strong successor closed, it also defines a strong successor closed subset of $Q_0'$.
-The number of strong successor closed subsets of $Q_0$ coincides with the one of $ Q_0'$.
+Let $\tilde Q$ and $\tilde Q'$ be two equivalent $2$-quivers. A subset $\beta\subset Q_0$ is strong successor closed if and only of $\beta\subset Q_0'$ is strong successor closed.
+In particular, the number of strong successor closed subsets of $Q_0$ coincides with the one of $ Q_0'$.
 \end{lemma}
 \begin{proof}
 We may assume that $\tilde Q'=\tilde Q_V$ where $V:\Gamma(1)\to\Gamma(2)\in Q_2$. As in Definition \ref{def:2equivalence}, we denote the unique source of $\Gamma(1)$ by $q$, the unique sink of $\Gamma(2)$ by $q'$ and the new arrow by $\alpha_V:q\to q'$.
