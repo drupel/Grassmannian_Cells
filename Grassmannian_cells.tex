@@ -701,8 +701,10 @@ In the following, we make use of this lemma and fix a basis of $\Hom(P_m,P_{m+1}
 Note that by Lemma~\ref{le:properties}(1), we can quotient out the lifted preprojectives successively, i.e.\ for any proper subsets $I\subsetneq J\subsetneq\{1,\ldots,n\}$ we have a short exact sequence
 \[\ses{\bigoplus_{i\in J\setminus I}\tilde P_{m,i}}{\tilde P_m^I}{\tilde P_{m+1}^J}.\]
 
-Let $$I_s=\{(j_1,\ldots,j_s)\mid j_i\in\{1,\ldots,n\},\,j_i\neq j_k\text{ if }i\neq k\}.$$
-In the same way as for the preprojective lifts $\tilde P_{m-k}$, we can define truncated preprojective quotients $\tilde P_{m-k,\ui}^{\uj}$ of $\tilde P_{m-k,\ui}$ where $\uj\in I_s$ with $s\leq n-1$. Therefore, we quotient out the translations of $\tilde P_{m-k-1,(\ui,j_t)}$ for $t=1,\ldots,s$. These quotients are unique in the sense that $\Hom(\tilde P_{m-k,\ui},\tilde P_{m-k,\ui}^{\uj})=\CC$.
+%Let $$I_s=\{(j_1,\ldots,j_s)\mid j_i\in\{1,\ldots,n\},\,j_i\neq j_k\text{ if }i\neq k\}.$$
+In the same way as for the preprojective lifts $\tilde P_{m+1}$, $m\ge1$, we can define truncated preprojectives $\tilde P_{m+1,w}^I$ of any translate $\tilde P_{m+1,w}$, where $w\in W_n$ and $I\subsetneq\{1,\ldots,n\}$.
+That is, taking $\varepsilon=(-1)^{m+1}$ we quotient out the translations $\tilde P_{m,w\alpha_i^\varepsilon}$ for $i\in I$.
+These quotients are unique in the sense that $\Hom(\tilde P_{m+1,w},\tilde P_{m+1,w}^I)=\CC$ for all $w\in W_n$ and $I\subsetneq\{1,\ldots,n\}$.
 
 
 \begin{example}\label{smallm}[The cases $m=2,3,4$]
