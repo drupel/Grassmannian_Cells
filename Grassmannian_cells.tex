@@ -643,7 +643,7 @@ To simplify the notation, we abbreviate $\tilde P_{2l-1,i}:=\tilde P_{2l-1,\alph
 
 Now we introduce notation for locating lifted preprojectives as subrepresentations of other lifted preprojective representations.
 For $l\ge1$, set
-\[A_1^{(l)}:=\{(i_1,\ldots,i_l)\mid i_j\in\{1,\ldots,n\},\,i_j\neq i_{j+1}\text{ for } 1\le j<l\}.\]
+\[A_1^{(l)}:=\{(i_1,\ldots,i_l)\mid i_j\in\{1,\ldots,n\}\}.\]
 Depending on context (in particular, the parity of $m+1$ below), we will sometimes identify the word~$(i_1,\ldots,i_l)$ with the element $\alpha_{i_1}\alpha_{i_2}^{-1}\alpha_{i_3}\cdots\alpha_{i_l}^{(-1)^{l+1}}\in W_n$ and sometimes with the element $\alpha_{i_1}^{-1}\alpha_{i_2}\alpha_{i_3}^{-1}\cdots\alpha_{i_l}^{(-1)^l}\in W_n$.
 In this way, to each word $\ui=(i_1,\ldots,i_k)\in A_1^{(k)}$ with $1\leq k\leq m$ we associate a preprojective subrepresentation~$\tilde P_{m+1-k,\ui}\subset\tilde P_{m+1}$ which lifts $P_{m+1-k}$.
 More precisely, we obtain a sequence of preprojective representations which uniquely determines the desired inclusion:
@@ -701,6 +701,7 @@ In the following, we make use of this lemma and fix a basis of $\Hom(P_m,P_{m+1}
 Note that by Lemma~\ref{le:properties}(1), we can quotient out the lifted preprojectives successively, i.e.\ for any proper subsets $I\subsetneq J\subsetneq\{1,\ldots,n\}$ we have a short exact sequence
 \[\ses{\bigoplus_{i\in J\setminus I}\tilde P_{m,i}}{\tilde P_m^I}{\tilde P_{m+1}^J}.\]
 
+Let $$I_s=\{(j_1,\ldots,j_s)\mid j_i\in\{1,\ldots,n\},\,j_i\neq j_k\text{ if }i\neq k\}.$$
 In the same way as for the preprojective lifts $\tilde P_{m-k}$, we can define truncated preprojective quotients $\tilde P_{m-k,\ui}^{\uj}$ of $\tilde P_{m-k,\ui}$ where $\uj\in I_s$ with $s\leq n-1$. Therefore, we quotient out the translations of $\tilde P_{m-k-1,(\ui,j_t)}$ for $t=1,\ldots,s$. These quotients are unique in the sense that $\Hom(\tilde P_{m-k,\ui},\tilde P_{m-k,\ui}^{\uj})=\CC$.
 
 
@@ -1439,7 +1440,7 @@ $$F_{\udim P_m^{(k)}}=F_{\udim P_m^{(k+1)}}F_{\udim P_{m-1}}-x^{\udim P_{m}^{(k)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Combinatorial description of non-empty cells}
 In this section, we provide two combinatorial descriptions of the non-empty cells in the quiver Grassmannians of (truncated) preprojective representations of $K(n)$.
-The first is quiver theoretic and follows directly from the recursive construction of the cell decomposition.
+The first is quiver theoretic and follows directly from the recursive construction of the cell decomposition in Section \ref{sec:fibrations}.
 The second is the notion of compatible pairs in a maximal Dyck path.
 We give a bijection between these which provides a partial answer to a question of the first author.
 
@@ -1448,7 +1449,7 @@ We give a bijection between these which provides a partial answer to a question 
 The key concept for describing the cell decompositions is the following notion of $2$-quiver which is closely related to certain coefficient quivers of the corresponding representations, though it will turn out that a feature of this construction is that it is blind to the coloring of the different arrows of $\widetilde K(n)$ covering the arrows of $K(n)$.
 \begin{definition}
   Let $Q=(Q_0,Q_1)$ be a quiver.
-  A subset $\beta\subset Q_0$ is \emph{successor closed} if for each $p\in\beta$, the existence of an arrow $v:p\to q$ in $Q_1$ implies $q\in\beta$.
+  A subset $\beta\subset Q_0$ is \emph{successor closed} if for each $p\in\beta$, the existence of an arrow $\alpha:p\to q$ in $Q_1$ implies $q\in\beta$.
 
   A \emph{2-arrow} of the quiver $Q$ is an ordered pair $V=\big(\Gamma(1),\Gamma(2)\big)$ of full connected subquivers of $Q$, these will be denoted $V:\Gamma(1)\to\Gamma(2)$.
   A \emph{2-quiver} is a pair $\tilde Q=(Q,Q_2)$ consisting of a quiver $Q$ and a collection $Q_2$ of 2-arrows of $Q$.
@@ -1457,7 +1458,7 @@ The key concept for describing the cell decompositions is the following notion o
 \end{definition}
 We introduce a notion of equivalence of $2$-quivers.
 \begin{definition}\label{def:2equivalence}
-Let $\tilde Q=(Q,Q_2)$ be a $2$-quiver with a $2$-arrow $V:\Gamma(1)\to\Gamma(2)$ such that $\Gamma(1)$ has precisely one source $q$ and $\Gamma(2)$ has precisely one sink $q'$. Let $\tilde Q_V$ be the $2$-quiver obtained from $\tilde Q$ when replacing $V$ by a usual arrow $\alpha_V:q\to q'$. This defines a relation on the set of $2$-quivers denoted by $\tilde Q_V\to \tilde Q$. Moreover, it induces an equivalence relation $\sim$ on the set of $2$-quivers when taking the symmetric and transitive closure of this relation. 
+Let $\tilde Q=(Q,Q_2)$ be a $2$-quiver with a $2$-arrow $V:\Gamma(1)\to\Gamma(2)$ such that $\Gamma(1)$ has precisely one source $p$ and $\Gamma(2)$ has precisely one sink $q$. Let $\tilde Q_V$ be the $2$-quiver obtained from $\tilde Q$ when replacing $V$ by a usual arrow $\alpha_V:p\to q$. This defines a relation on the set of $2$-quivers denoted by $\tilde Q_V\to \tilde Q$. Moreover, it induces an equivalence relation $\sim$ on the set of $2$-quivers when taking the symmetric and transitive closure of this relation. 
 \end{definition}
 Observe that the set of vertices of two equivalent $2$-quivers coincide.
 \begin{lemma}\label{lem:2equivalence}
@@ -1465,14 +1466,14 @@ Let $\tilde Q$ and $\tilde Q'$ be two equivalent $2$-quivers. If $\beta\subset Q
 The number of strong successor closed subsets of $Q_0$ coincides with the one of $ Q_0'$.
 \end{lemma}
 \begin{proof}
-We may assume that $\tilde Q'=\tilde Q_V$ where $V:\Gamma(1)\to\Gamma(2)\in Q_2$. As in Definition \ref{def:2equivalence}, we denote the unique source of $\Gamma(1)$ by $q$, the unique sink of $\Gamma(2)$ by $q'$ and the new arrow by $\alpha_V:q\to q'$.
+We may assume that $\tilde Q'=\tilde Q_V$ where $V:\Gamma(1)\to\Gamma(2)\in Q_2$. As in Definition \ref{def:2equivalence}, we denote the unique source of $\Gamma(1)$ by $p$, the unique sink of $\Gamma(2)$ by $q$ and the new arrow by $\alpha_V:p\to q$.
 
-Let $\beta\subset Q_0$ be a strong successor closed subset. Let $V':\Gamma'(1)\to\Gamma'(2)\in (Q_V)_2$ be a two arrow. Then it is also a $2$-arrow of $\tilde Q$. This means that  we have $\Gamma(2)_0\cap \beta\neq\varnothing$ if $\Gamma(1)_0\subset \beta$. 
+Let $\beta\subset Q_0$ be a strong successor closed subset (of the $2$-quiver $Q$). Let $V':\Gamma'(1)\to\Gamma'(2)\in (Q_V)_2$ be a  $2$-arrow. Then it is also a $2$-arrow of $\tilde Q$. This means that  we have $\Gamma'(2)_0\cap \beta\neq\varnothing$ if $\Gamma'(1)_0\subset \beta$. 
  
-Let $\alpha:i\to j\in (Q_V)_1$. If $\alpha\neq\alpha_V$, we have $j\in \beta$ if $i\in\beta$ as $\beta$ is successor closed as a subset of $Q_0$. Thus assume that $\alpha=\alpha_V$. If $q\in\beta$, we have $\beta\subset\Gamma(1)_0$ because $\beta$ is successor closed and $q$ is the unique source of $\Gamma(1)$ which means that for every vertex $p\in\Gamma(1)_0$ different from $q$, there exists an arrow $\alpha:q\to p$. As $\beta$ is strong successor closed, there exists a vertex $p'\in\Gamma(2)_0\cap\beta$. But then we have $q'\in\beta$ as there exists an arrow $\alpha:p'\to q'$. Thus $\beta$ is strong successor closed as a subset of $(Q_V)_0$.
+Let $\alpha:i\to j\in (Q_V)_1$. If $\alpha\neq\alpha_V$, we have $j\in \beta$ if $i\in\beta$ as $\beta$ is successor closed as a subset of $Q_0$. Thus assume that $\alpha=\alpha_V$. If $p\in\beta$, we have $\beta\subset\Gamma(1)_0$ because $\beta$ is successor closed and $p$ is the unique source of $\Gamma(1)$ which means that for every vertex $q'\in\Gamma(1)_0$ different from $p$, there exists an arrow $\alpha:p\to q'$. As $\beta$ is strong successor closed, there exists a vertex $p'\in\Gamma(2)_0\cap\beta$. But then we have $q\in\beta$ as there exists an arrow $\alpha:p'\to q$ if $p'\neq q$. Thus $\beta$ is strong successor closed as a subset of $(Q_V)_0$.
 
 
-Thus assume that $\beta\subset (Q_V)_0$ is strong successor closed. The cases of arrows $\alpha\in Q_1$ and $2$-arrows $W\neq V$ can be treated as before. Thus consider the $2$-arrow $V$ and the arrow $\alpha_V$. Assume that $\Gamma(1)_0\subset\beta$. Then we have $q\in\beta$. But then we have $q'\in\beta$ as $\alpha_V:q\to q'$ and $\beta$ is successor closed as a subset of $(Q_V)_0$. It follows that $\Gamma(2)_0\cap\beta\neq\varnothing$.
+Thus assume that $\beta\subset (Q_V)_0$ is strong successor closed. The cases of arrows $\alpha\in Q_1$ and $2$-arrows $V'\neq V$ can be treated as before. Thus consider the $2$-arrow $V$ and the arrow $\alpha_V$. Assume that $\Gamma(1)_0\subset\beta$. Then we have $p\in\beta$. But then we have $q\in\beta$ as $\alpha_V:p\to q$ and $\beta$ is successor closed as a subset of $(Q_V)_0$. It follows that $\Gamma(2)_0\cap\beta\neq\varnothing$.
 \end{proof}
 
 %The aim is to associate a $2$-quiver with every preprojective representation $P_m$ and with their quotients $P_m^{(k)}$ defined in section \ref{QG}.
