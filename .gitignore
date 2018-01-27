@@ -1,3 +1,4 @@
+*.toc
 *.aux
 *.log
 *.pdf
@@ -6,4 +7,3 @@
 *.out
 *.synctex
 *.jpg
-*.toc
