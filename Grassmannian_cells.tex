@@ -687,12 +687,13 @@ To simplify the notation, we abbreviate $\tilde P_{2l-1,i}:=\tilde P_{2l-1,\alph
   \[\xymatrix@R40pt@C10pt{&&&2n-3&&&\\
     \alpha_1^{-1}.\cA_1\ar^{\alpha_1}[rrru]&\cdots&\alpha_{i-1}^{-1}.\cA_{i-1}\ar^(.35){\alpha_{i-1}}[ru]&\widehat{\alpha_i^{-1}.\cA_i}&\alpha_{i+1}^{-1}\cA_{i+1}\ar_(.35){\alpha_{i+1}}[lu]&\cdots&\alpha_n^{-1}\cA_n\ar_{\alpha_n}[lllu]}\]
   with top vertex $(1,e)$ having dimension $2n-3$.
-  Now $\tilde P_{3,i}$ can be found as the representation corresponding to the subquiver
+  Now $\tilde P_{3,i}$ can be found as the subrepresentation corresponding to the subquiver
   \[\xymatrix@R40pt@C10pt{
-    &&&1\ar_{\alpha_1}[llld]\ar_(.65){\alpha_{i-1}}[ld]\ar^{\alpha_i}[d]\ar^(.65){\alpha_{i+1}}[rd]\ar^{\alpha_n}[rrrd]&&&\\
-    1&\hdots&1&n-1&1&\hdots&1\\
+    &&&\cA_i\ar^{\alpha_i}[d]&&&\\
+    &&&n-1&&&\\
     \alpha_i\alpha_1^{-1}.\cA_1\ar^{\alpha_1}[rrru]&\cdots&\alpha_i\alpha_{i-1}^{-1}.\cA_{i-1}\ar^(.35){\alpha_{i-1}}[ru]&&\alpha_i\alpha_{i+1}^{-1}.\cA_{i+1}\ar_(.35){\alpha_{i+1}}[lu]&\cdots&\alpha_i\alpha_n^{-1}.\cA_n\ar_{\alpha_n}[lllu]}\]
-  where the top vertex is $(2,e)$ and the central vertex is $(1,\alpha_i)$.
+  where the central vertex is $(1,\alpha_i)$.
+  Note that taking the subquiver $\cA_i$ together with the image of the map $\alpha_i$ gives a subrepresentation of $\tilde P_{3,i}$ isomorphic to $\tilde P_2$ while taking the subquiver $\alpha_i\alpha_j^{-1}.\cA_j$ together with the image of the map $\alpha_j$ gives a subrepresentation of $\tilde P_{3,i}$ isomorphic to $\tilde P_{2,\alpha_i\alpha_j^{-1}}$.
 \end{example}
 
 The next result establishes some basic homological properties of the translated preprojective representations.
@@ -729,6 +730,32 @@ The next result establishes some basic homological properties of the translated 
   For part (4), observe that under the isomorphism from part (1) the subset $I\subsetneq\{1,\ldots,n\}$ corresponds to the subspace $V\subset H_m$ spanned by the generators of the direct summands $\Hom(\tilde P_{m,i},\tilde P_{m+1})$ for $i\in I$.
   The map $\bigoplus_{i\in I} \tilde P_{m,i}\to\tilde P_{m+1}$ is then a lift of the evaluation morphism $ev_V:P_m\otimes V\to P_{m+1}$ and hence is injective by Lemma~\ref{le:injective evaluation maps}.
   Taking the cokernel defines the truncated preprojective $\tilde P_{m+1}^I$ and the preceding discussion shows that $G(\tilde P_{m+1}^I)\cong P_{m+1}^V$ is truncated preprojective as well.
+\end{proof}
+
+It will be important to understand the possible subrepresentations of the truncated preprojective representations $\tilde P_{m+1}^I$.
+To describe these, we introduce notation for locating lifted preprojectives as subrepresentations of our standard lifted preprojective representations.
+Since we work only on two fixed components of $\widetilde{K(n)}$, the following notation will be useful in describing paths in these components.
+For $k\ge1$, set
+\[A_1^{(k)}:=\{(i_1,\ldots,i_k)\mid i_j\in\{1,\ldots,n\}\text{ for $1\le j\le k$}\}.\]%, i_j\ne i_{j+1}\text{ for $1\le j<l$}\}.\]
+Depending on context (in particular, the parity of $m+1$ below), we will sometimes identify the word~$(i_1,\ldots,i_k)$ with the element $\alpha_{i_1}\alpha_{i_2}^{-1}\alpha_{i_3}\cdots\alpha_{i_k}^{(-1)^{k+1}}\in W_n$ and sometimes with the element $\alpha_{i_1}^{-1}\alpha_{i_2}\alpha_{i_3}^{-1}\cdots\alpha_{i_k}^{(-1)^k}\in W_n$.
+In this way, to each word $\ui=(i_1,\ldots,i_k)\in A_1^{(k)}$ with $1\leq k\leq m$, we associate a preprojective subrepresentation~$\tilde P_{m+1-k,\ui}\subset\tilde P_{m+1}$ which lifts $P_{m+1-k}$.
+More precisely, we obtain a sequence of preprojective subrepresentations which uniquely determines the desired inclusion:
+\[\tilde P_{m+1-k,\ui}\subset\tilde P_{m+2-k,(i_1,\ldots,i_{k-1})}\subset\ldots\subset\tilde P_{m-1,(i_1,i_2)}\subset\tilde P_{m,i_1}\subset\tilde P_{m+1}.\]
+Note that, although there is a translate of $\tilde P_{m+1-k}$ corresponding to each word $\ui\in A_1^{(l)}$ for $1\le l<k$, these will not be naturally equipped with a canonical inclusion to $\tilde P_{m+1}$.
+
+To emphasize this point, consider a word $\ui\in A_1^{(k)}$ with $i_j=i_{j+1}$ for some $j$ and write $\ui'\in A_1^{(k-2)}$ for the word obtained from $\ui$ by removing the terms $i_j$ and $i_{j+1}$.
+Then the representations $\tilde P_{m+1-k,\ui}$ and $\tilde P_{m+1-k,\ui'}$ are in fact equal, however $\tilde P_{m+1-k,\ui}$ is naturally identified as a subrepresentation of $\tilde P_{m+1}$ while $\tilde P_{m+1-k,\ui'}$ is not.
+Indeed, by considering the support quiver of $\tilde P_{3,i}$ from Example~\ref{ex:lifted preprojectives}, we see that each $\tilde P_{2,(i,i)}$ is just a copy of $\tilde P_2$ when viewed as representations of $\widetilde{K(n)}$, however these provide distinct subrepresentations of $\tilde P_4$.
+\begin{lemma}
+  \label{le:subrep}
+  For $m\ge1$ and $I\subsetneq\{1,\ldots,n\}$, all non-trivial proper subrepresentations of $\tilde P_{m+1}^I$ are direct sums of shifted preprojective representations $\tilde P_{m+1-k,\ui}$ for $1\le k\le m$ and $\ui\in A_1^{(k)}$.	
+\end{lemma}
+\begin{proof}
+  \sayD{The proof needs to be improved for the new stronger statement.}
+  By Lemma~\ref{le:homdecomposition}, the projected representation $G(\tilde P_{m+1}^I)$ is a truncated preprojective of $K(n)$.
+  Then Lemma~\ref{le:projective subrepresentations} shows that all subrepresentations of $G(\tilde P_{m+1}^I)$ are direct sums of preprojective representations of $K(n)$.
+  But any subrepresentation of $\tilde P_{m+1}^I$ also projects to a subrepresentation of $G(\tilde P_{m+1}^I)$.
+  Since, following Lemma~\ref{le:lifts of transjectives}, any lift of a preprojective of $K(n)$ will be a preprojective representation of $\widetilde{K(n)}$, this gives the result.
 \end{proof}
 
 In what follows, we will need to understand the homological properties of the truncated preprojectives for $\widetilde{K(n)}$.
@@ -798,14 +825,6 @@ In what follows, we will need to understand the homological properties of the tr
   The equality $\tilde P_{m+1}^I=\tau^{-1}\tilde P_{m-1}^I$ is obtained in the same way using the functor $\tilde\Sigma_1\tilde\Sigma_2=\tau^{-1}$.
 \end{proof}
 
-Now we introduce notation for locating lifted preprojectives as subrepresentations of other lifted preprojective representations.
-Since we work only on two fixed components of $\widetilde{K(n)}$, the following notation will be useful in describing paths in these components.
-For $l\ge1$, set
-\[A_1^{(l)}:=\{(i_1,\ldots,i_l)\mid i_j\in\{1,\ldots,n\}\text{ for $1\le j\le l$}\}.\]%, i_j\ne i_{j+1}\text{ for $1\le j<l$}\}.\]
-Depending on context (in particular, the parity of $m+1$ below), we will sometimes identify the word~$(i_1,\ldots,i_l)$ with the element $\alpha_{i_1}\alpha_{i_2}^{-1}\alpha_{i_3}\cdots\alpha_{i_l}^{(-1)^{l+1}}\in W_n$ and sometimes with the element $\alpha_{i_1}^{-1}\alpha_{i_2}\alpha_{i_3}^{-1}\cdots\alpha_{i_l}^{(-1)^l}\in W_n$.
-In this way, to each word $\ui=(i_1,\ldots,i_k)\in A_1^{(k)}$ with $1\leq k\leq m$, we associate a preprojective subrepresentation~$\tilde P_{m+1-k,\ui}\subset\tilde P_{m+1}$ which lifts $P_{m+1-k}$.
-More precisely, we obtain a sequence of preprojective representations which uniquely determines the desired inclusion:
-\[\tilde P_{m+1-k,\ui}\subset \tilde P_{m+2-k,(i_1,\ldots,i_{k-1})}\subset\ldots\subset \tilde P_{m-1,(i_1,i_2)}\subset \tilde P_{m,i_1}\subset\tilde P_{m+1}.\]
 
 \begin{lemma}
   \label{le:special subrepresentations}
@@ -845,17 +864,6 @@ More precisely, we obtain a sequence of preprojective representations which uniq
 
 
 
-We need the following lemma analyzing the possible subrepresentations of truncated preprojective representations.
-\begin{lemma}
-  \label{le:subrep}
-  For $m\ge1$ and $I\subsetneq\{1,\ldots,n\}$, all non-trivial proper subrepresentations $U$ of $\tilde P_{m+1}^I$ are preprojective.	
-\end{lemma}
-\begin{proof}
-  By Lemma~\ref{le:homdecomposition}, the projected representation $G(\tilde P_{m+1}^I)$ is a truncated preprojective of $K(n)$.
-  Then Lemma~\ref{le:projective subrepresentations} shows that all subrepresentations of $G(\tilde P_{m+1}^I)$ are direct sums of preprojective representations of $K(n)$.
-  But any subrepresentation of $\tilde P_{m+1}^I$ also projects to a subrepresentation of $G(\tilde P_{m+1}^I)$.
-  Since, following Lemma~\ref{le:lifts of transjectives}, any lift of a preprojective of $K(n)$ will be a preprojective representation of $\widetilde{K(n)}$, this gives the result.
-\end{proof}
 
 
 
