@@ -640,11 +640,11 @@ The preprojective lifts we use are defined by the following analogue of the recu
 It will be rather important that our chosen lifts of $P_{2l}$ for $l\ge1$ and our chosen lifts of $P_{2l-1}$ for $l\ge1$ live on two different components of the universal covering quiver.
 Indeed, recall that the group $W_n$ naturally acts on $\widetilde{K(n)}_0$ via translation, i.e.~$w.(i,w')=(i,ww')$, and this induces an action of $W_n$ on $\rep\widetilde{K(n)}$.
 Following the notation of Section~\ref{sec:covering}, we write $\tilde P_{m,w}$ for the representation of $\widetilde{K(n)}$ obtained by translating the lifted preprojective representation~$\tilde P_m$ by the action of $w\in W_n$.
-To simplify the notation, we abbreviate $\tilde P_{2l-1,i}:=\tilde P_{2l-1,\alpha_i}$ and $\tilde P_{2l,i}:=\tilde P_{2l,\alpha_i^{-1}}$.
+To simplify the notation, we abbreviate $\tilde P_{2l-1,j}:=\tilde P_{2l-1,\alpha_j}$ and $\tilde P_{2l,j}:=\tilde P_{2l,\alpha_j^{-1}}$.
 \begin{lemma}
   \label{le:shifted subreps}
   For each $m\ge1$, the representation $\tilde P_{m+1}$ has precisely $n$ subrepresentations covering $P_m$.
-  These are the representations $\tilde P_{m,i}$ corresponding to the $n$ different arrows of $K(n)$. 
+  These are the representations $\tilde P_{m,j}$ corresponding to the $n$ different arrows of $K(n)$. 
 \end{lemma}
 \begin{proof}
   This is clear for $m=1$ and follows in general by applying the identities \eqref{eq:recursive covers}.
@@ -666,7 +666,7 @@ To simplify the notation, we abbreviate $\tilde P_{2l-1,i}:=\tilde P_{2l-1,\alph
     \label{dia:P2 quiver}
     \xymatrix@R40pt@C10pt{&(2,e)\ar_{\alpha_1}[ld]\ar^{\alpha_n}[rd]&\\ (1,\alpha_1)&\cdots&(1,\alpha_n)}
   \end{equation}
-  Then $\tilde P_{1,i}\subset\tilde P_2$ corresponds to the one-dimensional space at vertex $(1,\alpha_i)$.
+  Then $\tilde P_{1,j}\subset\tilde P_2$ corresponds to the one-dimensional space at vertex $(1,\alpha_j)$.
   Write $\cA_i$ for the quiver obtained from the one above by erasing the arrow $\alpha_i$ and the corresponding sink. 
 
   The representation $\tilde P_3$ is given by the quiver
@@ -674,9 +674,9 @@ To simplify the notation, we abbreviate $\tilde P_{2l-1,i}:=\tilde P_{2l-1,\alph
     \label{dia:P3 quiver}
     \xymatrix@R40pt@C10pt{&n-1&\\ \alpha_1^{-1}.\cA_1\ar^{\alpha_1}[ru]&\cdots&\alpha_n^{-1}.\cA_n\ar_{\alpha_n}[lu]}
   \end{equation}
-  where the top vertex of dimension $n-1$ is $(1,e)$ and the arrow from $\alpha_i^{-1}.\cA_i$ emanates from its unique source~$(2,\alpha_i^{-1})$.
-  Then $\tilde P_{2,i}\subset\tilde P_3$ has one-dimensional spaces at each vertex of the quiver
-  \[\xymatrix@R40pt@C10pt{&&&(1,e)&&&\\ &&&(2,\alpha_i^{-1})\ar_{\alpha_i}[u]\ar_{\alpha_1}[llld]\ar_(.65){\alpha_{i-1}}[ld]\ar^(.65){\alpha_{i+1}}[rd]\ar^{\alpha_n}[rrrd]&&&\\ (1,\alpha_i^{-1}\alpha_1)&\cdots&(1,\alpha_i^{-1}\alpha_{i-1})&&(1,\alpha_i^{-1}\alpha_{i+1})&\cdots&(1,\alpha_i^{-1}\alpha_n)}\]
+  where the top vertex of dimension $n-1$ is $(1,e)$ and the arrow from each $\alpha_j^{-1}.\cA_j$ emanates from its unique source~$(2,\alpha_j^{-1})$.
+  Then $\tilde P_{2,j}\subset\tilde P_3$ has one-dimensional spaces at each vertex of the quiver
+  \[\xymatrix@R40pt@C10pt{&&&(1,e)&&&\\ &&&(2,\alpha_j^{-1})\ar_{\alpha_j}[u]\ar_{\alpha_1}[llld]\ar_(.65){\alpha_{j-1}}[ld]\ar^(.65){\alpha_{j+1}}[rd]\ar^{\alpha_n}[rrrd]&&&\\ (1,\alpha_j^{-1}\alpha_1)&\cdots&(1,\alpha_j^{-1}\alpha_{j-1})&&(1,\alpha_j^{-1}\alpha_{j+1})&\cdots&(1,\alpha_j^{-1}\alpha_n)}\]
 
   The representation $\tilde P_4$ has support quiver
   \begin{equation}
@@ -687,13 +687,13 @@ To simplify the notation, we abbreviate $\tilde P_{2l-1,i}:=\tilde P_{2l-1,\alph
   \[\xymatrix@R40pt@C10pt{&&&2n-3&&&\\
     \alpha_1^{-1}.\cA_1\ar^{\alpha_1}[rrru]&\cdots&\alpha_{i-1}^{-1}.\cA_{i-1}\ar^(.35){\alpha_{i-1}}[ru]&\widehat{\alpha_i^{-1}.\cA_i}&\alpha_{i+1}^{-1}\cA_{i+1}\ar_(.35){\alpha_{i+1}}[lu]&\cdots&\alpha_n^{-1}\cA_n\ar_{\alpha_n}[lllu]}\]
   with top vertex $(1,e)$ having dimension $2n-3$.
-  Now $\tilde P_{3,i}$ can be found as the subrepresentation corresponding to the subquiver
+  Now $\tilde P_{3,j}$ can be found as the subrepresentation corresponding to the subquiver
   \[\xymatrix@R40pt@C10pt{
-    &&&\cA_i\ar^{\alpha_i}[d]&&&\\
+    &&&\cA_j\ar^{\alpha_j}[d]&&&\\
     &&&n-1&&&\\
-    \alpha_i\alpha_1^{-1}.\cA_1\ar^{\alpha_1}[rrru]&\cdots&\alpha_i\alpha_{i-1}^{-1}.\cA_{i-1}\ar^(.35){\alpha_{i-1}}[ru]&&\alpha_i\alpha_{i+1}^{-1}.\cA_{i+1}\ar_(.35){\alpha_{i+1}}[lu]&\cdots&\alpha_i\alpha_n^{-1}.\cA_n\ar_{\alpha_n}[lllu]}\]
-  where the central vertex is $(1,\alpha_i)$.
-  Note that taking the subquiver $\cA_i$ together with the image of the map $\alpha_i$ gives a subrepresentation of $\tilde P_{3,i}$ isomorphic to $\tilde P_2$ while taking the subquiver $\alpha_i\alpha_j^{-1}.\cA_j$ together with the image of the map $\alpha_j$ gives a subrepresentation of $\tilde P_{3,i}$ isomorphic to $\tilde P_{2,\alpha_i\alpha_j^{-1}}$.
+    \alpha_j\alpha_1^{-1}.\cA_1\ar^{\alpha_1}[rrru]&\cdots&\alpha_j\alpha_{j-1}^{-1}.\cA_{j-1}\ar^(.35){\alpha_{j-1}}[ru]&&\alpha_j\alpha_{j+1}^{-1}.\cA_{j+1}\ar_(.35){\alpha_{j+1}}[lu]&\cdots&\alpha_j\alpha_n^{-1}.\cA_n\ar_{\alpha_n}[lllu]}\]
+  where the central vertex is $(1,\alpha_j)$.
+  Note that taking the subquiver $\cA_j$ together with the image of the map $\alpha_j$ gives a subrepresentation of $\tilde P_{3,j}$ isomorphic to $\tilde P_2$ while taking the subquiver $\alpha_j\alpha_i^{-1}.\cA_i$ together with the image of the map $\alpha_i$ gives a subrepresentation of $\tilde P_{3,j}$ isomorphic to $\tilde P_{2,\alpha_j\alpha_i^{-1}}$.
 \end{example}
 
 The next result establishes some basic homological properties of the translated preprojective representations.
@@ -771,7 +771,6 @@ In what follows, we will need to understand the homological properties of the tr
       \[\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\CC.\] 
     \item We have $\Hom(\tilde P_{m+1}^I,\tilde P_{m+1}^I)\cong\CC$ and $\Ext(\tilde P_{m+1}^I,\tilde P_{m+1}^I)=0$.
       In particular, $\tilde P_{m+1}^I$ is an exceptional representation of $\widetilde{K(n)}$.
-    %\item We have $\Hom(\tilde P_{m+1}^I,\tau\tilde P_{m+1}^I)=0$ and $\Ext(\tilde P_{m+1}^I,\tau\tilde P_{m+1}^I)=\CC$.
   \end{enumerate}
 \end{lemma} 
 \begin{proof}
@@ -786,14 +785,8 @@ In what follows, we will need to understand the homological properties of the tr
   Then taking into account Lemma~\ref{le:homdecomposition} part (3), we get the isomorphism
   \[\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\Hom(\textstyle{\bigoplus_{i\in I}}\tilde P_{m,i},\tilde P_{m,j}).\] 
   Then Lemma~\ref{le:homdecomposition}.(2) gives the final claim of part (3).
-  %The Auslender-Reiten formulas \cite[Theorem IV.2.13]{ass} then give part (4).
 
   Part (4) follows by applying $\Hom(-,\tilde P^I_{m+1})$ to the sequence \eqref{ses1} and then using parts (1) and (2).
-  %Then the Auslander-Reiten formulas \cite[Theorem IV.2.13]{ass} imply 
-  %\[\dim\Hom(\tilde P_{m+1}^I,\tau\tilde P_{m+1}^I)=\dim\Ext(\tilde P_{m+1}^I,\tilde P_{m+1}^I)=0\]
-  %and
-  %\[\dim\Ext(\tilde P_{m+1}^I,\tau\tilde P_{m+1}^I)=\dim\Hom(\tilde P_{m+1}^I,\tilde P_{m+1}^I)=1\]
-  %which proves part (6).
 \end{proof}
 
 \begin{example}
@@ -825,35 +818,65 @@ In what follows, we will need to understand the homological properties of the tr
   The equality $\tilde P_{m+1}^I=\tau^{-1}\tilde P_{m-1}^I$ is obtained in the same way using the functor $\tilde\Sigma_1\tilde\Sigma_2=\tau^{-1}$.
 \end{proof}
 
-
+For the notation of the following result, we refer the reader to the discussion before Lemma~\ref{le:subrep}.
 \begin{lemma}
   \label{le:special subrepresentations}
   Consider a nonempty subset $I\subsetneq\{1,\ldots,n\}$ and fix an element $j\in I$. 
-  For $m\ge2$, we have $\Hom(\tilde P_{m,j},\tau\tilde P_{m+1}^I)\cong\CC$.
-  Moreover, the kernel of a nonzero morphism $\tilde P_{m,j}\to\tau\tilde P_{m+1}^I$ is the following representation 
-  \[\tilde P_m(I,j):=
-    \begin{cases}
-      \bigoplus_{\substack{1\leq i\leq n\\i\neq j}}\tilde P_{m-1,(j,i)}\oplus \bigoplus_{i\in I, i\ne j}\tilde P_{m-2,i} & \text{ if $m\geq 3$;}\\
-      \bigoplus_{\substack{1\leq i\leq n\\i\neq j}}\tilde P_{1,(j,i)} & \text{ if $m=2$.}
-    \end{cases}\]
+  \begin{enumerate}
+    \item For $m\ge2$, we have $\Hom(\tilde P_{m,j},\tau\tilde P_{m+1}^I)\cong\CC$.
+      Moreover, the kernel of a nonzero morphism $\tilde P_{m,j}\to\tau\tilde P_{m+1}^I$ is the following representation 
+      \[\tilde P_m(I,j):=
+        \begin{cases}
+          \bigoplus_{\substack{1\leq i\leq n\\i\neq j}}\tilde P_{m-1,(j,i)}\oplus \bigoplus_{i\in I, i\ne j}\tilde P_{m-2,(j,j,i)} & \text{ if $m\geq 3$;}\\
+          \bigoplus_{\substack{1\leq i\leq n\\i\neq j}}\tilde P_{1,(j,i)} & \text{ if $m=2$.}
+        \end{cases}\]
+    \item For $m\ge3$, any nonzero morphism $\tilde P_{m,j}\to\tau\tilde P_{m+1}^I$ is surjective.
+  \end{enumerate}
 \end{lemma}
 \begin{proof}
-  The first claim is immediate by applying the Auslander-Reiten formulas \cite[Theorem IV.2.13]{ass} to Lemma~\ref{le:properties}.(3).
+  The first claim of part (1) follows immediately by applying the Auslander-Reiten formulas \cite[Theorem IV.2.13]{ass} to Lemma~\ref{le:properties}.(3).
   Indeed, this gives
   \[\dim\Hom(\tilde P_{m,j},\tau\tilde P_{m+1}^I)=\dim\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})=1.\]
+  We establish the final claim of part (1) directly for $m=2,3$ and then deduce the general case by applying the reflection recursions \eqref{eq:recursive covers}.
+  Using the description in Example~\ref{ex:truncated lifts}, it is not hard to see that $\tau\tilde P_3^I$ is indecomposable with one-dimensional spaces at only the vertices $(1,e)$ and $(2,\alpha_i^{-1})$ for $i\in I$.
+  But then for~$j\in I$, the image of the unique homomorphism $\tilde P_{2,j}\to\tau\tilde P_3^I$ is the representation with support quiver
+  \[(2,\alpha_j^{-1})\xrightarrow{\alpha_j}(1,e).\]
+  From the support quiver of $\tilde P_{2,j}$ given in Example~\ref{ex:lifted preprojectives}, we see that the kernel of this map is precisely $\tilde P_2(I,j)$.
 
-  We establish the final claim directly for $m=2,3$ and then deduce the general case by applying the reflection recursions \eqref{eq:recursive covers}.
+  For the $m=3$ case, we note that $\tau\tilde P_4^I=\tilde P_2^I$ by Lemma~\ref{le:truncated tau}.
+  Then the claimed structure $\tilde P_3(I,j)$ of the kernel and the surjectivity of the map $\tilde P_{3,j}\to\tau\tilde P_4^I$ are immediate from the explicit descriptions of $\tilde P_{3,j}$ and $\tilde P_2^I$ in Example~\ref{ex:lifted preprojectives} and Example~\ref{ex:truncated lifts} respectively.
+  The general cases for parts (1) and (2) both then follow using the reflection recursions \eqref{eq:recursive covers}.
 \end{proof}
 
 \begin{remark}
-  We should point out that the case $m=3$ of Lemma~\ref{le:special subrepresentations} is rather special because it is the only one for which the unique morphism $\tilde P_{m,j}\to\tau\tilde P_{m+1}^I$ is not surjective.
-  Indeed, the image of the unique homomorphism $\tilde P_{2,j}\to\tau\tilde P_3^I$ is the representation with support quiver
+  We should point out that the case $m=2$ of Lemma~\ref{le:special subrepresentations} is rather special because it is the only one for which the unique morphism $\tilde P_{m,j}\to\tau\tilde P_{m+1}^I$ is not surjective.
+  Indeed, recall from the proof of Lemma~\ref{le:special subrepresentations} that the image of the unique homomorphism $\tilde P_{2,j}\to\tau\tilde P_3^I$ is the representation with support quiver
   \[(2,\alpha_j^{-1})\xrightarrow{\alpha_j}(1,e).\] 
   If we factor out the image of this morphism from $\tau\tilde P_3^I$, the remaining representation is a direct sum of the simple injective representations corresponding to the vertices $(2,\alpha_i^{-1})$ for $i\in I$, $i\ne j$.
   Note that these disappear after reflecting at all sources.
 \end{remark}
 
-
+The following orthogonality property is a primary reason we need to lift to the universal cover of $K(n)$.
+\begin{corollary}
+  \label{cor:perpendicular}
+  Consider a nonempty subset $I\subsetneq\{1,\ldots,n\}$ and fix an element $j\in I$.
+  For $m\geq 2$, we have $\tilde P_m(I,j)\in (\tilde P_{m+1}^I)^\perp$.
+\end{corollary}
+\begin{proof}
+  If $m\geq 3$, we consider the long exact sequence obtained when applying $\Hom(\tilde P_{m+1}^I,-)$ to the sequence
+  \[\ses{\tilde P_m(I,j)}{\tilde P_{m,j}}{\tau\tilde P_{m+1}^I}.\]
+  Following Lemma~\ref{le:properties}.(3), we have $\Hom(\tilde P_{m+1}^I,\tilde P_{m,j})=0$ and using the long exact sequence this immediately implies $\Hom(\tilde P_{m+1}^I,\tilde P_m(I,j))=0$.
+  From Lemma~\ref{le:properties}.(3) again, we have $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\CC$.
+  Using the Auslander-Reiten formulas \cite[Theorem IV.2.13]{ass} and Lemma~\ref{le:properties}.(4), we get
+  \[\dim\Ext(\tilde P_{m+1}^I,\tau\tilde P_{m+1}^I)=\dim\Hom(\tilde P_{m+1}^I,\tilde P_{m+1}^I)=1.\]
+  It follows that the surjective map $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\to\Ext(\tilde P_{m+1}^I,\tau\tilde P_{m+1}^I)$ appearing in the long exact sequence is in fact an isomorphism.
+  But the Auslander-Reiten formulas and Lemma~\ref{le:properties}.(4) again imply 
+  \[\dim\Hom(\tilde P_{m+1}^I,\tau\tilde P_{m+1}^I)=\dim\Ext(\tilde P_{m+1}^I,\tilde P_{m+1}^I)=0.\]
+  Combining with the preceding discussion, this gives $\Ext\!\big(\tilde P_{m+1}^I,\tilde P_m(I,j)\big)=0$.
+  
+  If $m=2$, we have $\Hom\!\big(\tilde P_3^I,\tilde P_2(I,j)\big)=0$ since $\tilde P_2(I,j)$ is a direct sum of simple projective representations.
+  Using the explicit description of $\tilde P_3^I$ from Example~\ref{ex:truncated lifts}, we see that each $\tilde P_{1,(j,i)}$ for $i\ne j$ is supported at a vertex which is not a neighbor of the support of $\tilde P_3^I$ and this implies $\Ext\!\big(\tilde P_3^I,\tilde P_{1,(j,i)}\big)=0$ for $i\neq j$.
+\end{proof}
 
 %Note that by Lemma~\ref{le:properties}.(1), we can quotient out the lifted preprojectives successively, i.e.\ for any proper subsets $I\subsetneq J\subsetneq\{1,\ldots,n\}$ we have a short exact sequence
 %\[\ses{\bigoplus_{i\in J\setminus I}\tilde P_{m,i}}{\tilde P_m^I}{\tilde P_{m+1}^J}.\]
@@ -861,26 +884,6 @@ In what follows, we will need to understand the homological properties of the tr
 %In the same way as for the preprojective lifts $\tilde P_{m+1}$, $m\ge1$, we can define truncated preprojectives $\tilde P_{m+1,w}^I$ of any translate $\tilde P_{m+1,w}$, where $w\in W_n$ and $I\subsetneq\{1,\ldots,n\}$.
 %That is, taking $\varepsilon=(-1)^{m+1}$ we quotient out the translations $\tilde P_{m,w\alpha_i^\varepsilon}$ for $i\in I$.
 %These quotients are unique in the sense that $\Hom(\tilde P_{m+1,w},\tilde P_{m+1,w}^I)=\CC$ for all $w\in W_n$ and $I\subsetneq\{1,\ldots,n\}$.
-
-
-
-
-
-
-\begin{corollary}
-  \label{cor:perpendicular}
-  Consider a nonempty subset $I\subsetneq\{1,\ldots,n\}$ and fix an element $j\in I$.
-  For $m\geq 2$, we have $\tilde P_m(I,j)\in (\tilde P_{m+1}^I)^\perp$.
-\end{corollary}
-\begin{proof}
-  If $m\geq 3$, we consider the long exact sequence obtained when applying $\Hom(\tilde P_{m+1}^I,-)$ to the sequence \eqref{ses3}.
-  The result then follows immediately from the identities of Lemma~\ref{AR}.
-
-  If $m=2$, we have $\Hom(\tilde P_3^I,\tilde P_2(I,j))=0$ because $\tilde P_2(I,j)$ is a direct sum of simple projective representations.
-  Moreover, it is straightforward that $\Ext(\tilde P_3^I,\tilde P_{1,(j,i)})=0$ for $i\neq j$.
-  This is because $\tilde P_{1,(j,i)}$ is supported at a vertex which is not a neighbour of the support of $\tilde P_3^I$, see also Example~\ref{smallm}.
-\end{proof}
-
 
 \newpage
 \sayD{Notation changes still needed after this point.}
