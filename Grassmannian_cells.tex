@@ -37,6 +37,7 @@
 \newcommand{\bff}{\mathbf{f}}
 \newcommand{\bfg}{\mathbf{g}}
 \newcommand{\bfi}{\mathbf{i}}
+\newcommand{\bfI}{\mathbf{I}}
 \newcommand{\bfh}{\mathbf{h}}
 \newcommand{\tbfe}{{\tilde\bfe}}
 \newcommand{\tbff}{{\tilde\bff}}
@@ -763,9 +764,10 @@ In what follows, we will need to understand the homological properties of the tr
   \label{le:properties}
   For $m\geq1$ and $I\subsetneq\{1,\ldots,n\}$, the following hold.
   \begin{enumerate}
-    \item For $j\in\{1,\ldots,n\}$, we have $\Hom(\tilde P_{m,j},\tilde P_{m+1}^I)\ne0$ if and only if $j\notin I$, in which case 
+    \item For $j\in\{1,\ldots,n\}$, we have $\Ext(\tilde P_{m,j},\tilde P_{m+1}^I)=0$.  Also, $\Hom(\tilde P_{m,j},\tilde P_{m+1}^I)\ne0$ if and only if $j\not\in I$, in which case 
       \[\Hom(\tilde P_{m,j},\tilde P_{m+1}^I)\cong\Hom(\tilde P_{m,j},\tilde P_{m+1})\cong\CC.\] 
-    \item We have $\Hom(\tilde P_{m+1},\tilde P_{m+1}^I)\cong\CC$ and $\Ext(\tilde P_{m+1},\tilde P_{m+1}^I)=0$. 
+    \item For any $I'\subsetneq\{1,\ldots,n\}$, we have $\Hom(\tilde P_{m+1}^{I'},\tilde P_{m+1}^I)\ne0$ if and only if $I'\subset I$, in which case
+      \[\Hom(\tilde P_{m+1}^{I'},\tilde P_{m+1}^I)\cong\CC\quad\text{and}\quad\Ext(\tilde P_{m+1}^{I'},\tilde P_{m+1}^I)=0.\]
     \item For $j\in\{1,\ldots,n\}$, we have $\Hom(\tilde P_{m+1}^I,\tilde P_{m,j})=0$.
       Also, $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\ne0$ if and only if $j\in I$, in which case  
       \[\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\CC.\] 
@@ -777,16 +779,24 @@ In what follows, we will need to understand the homological properties of the tr
   Applying $\Hom(\tilde P_{m,j},-)$ to the sequence \eqref{ses1} gives the exact sequence
   \[\xymatrix{0 \ar[r] & \Hom(\tilde P_{m,j},\bigoplus_{i\in I} \tilde P_{m,i}) \ar[r] & \Hom(\tilde P_{m,j},\tilde P_{m+1}) \ar[r] & \Hom(\tilde P_{m,j},\tilde P_{m+1}^I) \ar[r] & 0},\]
   where the final zero follows from Lemma~\ref{le:homdecomposition}.(2).
-  Now the middle space is one-dimensional while the left-hand space vanishes if and only if $j\notin I$, this proves part (1).
+  This also gives an isomorphism $\Ext(\tilde P_{m,j},\tilde P_{m+1}^I)\cong\Ext(\tilde P_{m,j},\tilde P_{m+1})=0$ by Lemma~\ref{le:homdecomposition}.(3).
+  Now the middle space in the sequence above is one-dimensional while the left-hand space vanishes if and only if $j\notin I$, this proves part (1).
 
-  Part (2) is an immediate consequence of Lemma~\ref{le:unique preprojective morphism} together with Theorem~\ref{covering} or can be obtained directly by applying $\Hom(\tilde P_{m+1},-)$ to the sequence \eqref{ses1}.
-  The first part of (3) follows from Theorem~\ref{covering} together with Lemma~\ref{le:basic homological properties}.
-  For the second part of (3), we apply $\Hom(-,\tilde P_{m,j})$ to the sequence \eqref{ses1}.
-  Then taking into account Lemma~\ref{le:homdecomposition} part (3), we get the isomorphism
+  The first claim of part (2) is an immediate consequence of Lemma~\ref{le:unique morphisms}.(1) together with Theorem~\ref{covering}.
+  For the second claim of part (2), we apply $\Hom(-,\tilde P_{m+1}^I)$ to the sequence \eqref{ses1} for $I'$.
+
+
+
+  Lemma~\ref{le:unique preprojective morphism} together with Theorem~\ref{covering}
+  
+
+  The first part of (4) follows from Theorem~\ref{covering} together with Lemma~\ref{le:basic homological properties}.
+  For the second part of (4), we apply $\Hom(-,\tilde P_{m,j})$ to the sequence \eqref{ses1}.
+  Then taking into account Lemma~\ref{le:homdecomposition} part (4), we get the isomorphism
   \[\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\Hom(\textstyle{\bigoplus_{i\in I}}\tilde P_{m,i},\tilde P_{m,j}).\] 
-  Then Lemma~\ref{le:homdecomposition}.(2) gives the final claim of part (3).
+  Then Lemma~\ref{le:homdecomposition}.(2) gives the final claim of part (4).
 
-  Part (4) follows by applying $\Hom(-,\tilde P^I_{m+1})$ to the sequence \eqref{ses1} and then using parts (1) and (2).
+  Part (5) follows by applying $\Hom(-,\tilde P^I_{m+1})$ to the sequence \eqref{ses1} and then using parts (1) and (2).
 \end{proof}
 
 \begin{example}
@@ -881,9 +891,6 @@ The following orthogonality property is a primary reason we need to lift to the 
 %Note that by Lemma~\ref{le:properties}.(1), we can quotient out the lifted preprojectives successively, i.e.\ for any proper subsets $I\subsetneq J\subsetneq\{1,\ldots,n\}$ we have a short exact sequence
 %\[\ses{\bigoplus_{i\in J\setminus I}\tilde P_{m,i}}{\tilde P_m^I}{\tilde P_{m+1}^J}.\]
 
-%In the same way as for the preprojective lifts $\tilde P_{m+1}$, $m\ge1$, we can define truncated preprojectives $\tilde P_{m+1,w}^I$ of any translate $\tilde P_{m+1,w}$, where $w\in W_n$ and $I\subsetneq\{1,\ldots,n\}$.
-%That is, taking $\varepsilon=(-1)^{m+1}$ we quotient out the translations $\tilde P_{m,w\alpha_i^\varepsilon}$ for $i\in I$.
-%These quotients are unique in the sense that $\Hom(\tilde P_{m+1,w},\tilde P_{m+1,w}^I)=\CC$ for all $w\in W_n$ and $I\subsetneq\{1,\ldots,n\}$.
 
 \newpage
 \sayD{Notation changes still needed after this point.}
@@ -894,12 +901,12 @@ For $\uj=(j_1,\ldots,j_{n-1})\in I_{n-1}$, let $j^c\in \{1,\ldots,n\}$ be the un
 
 
 
-\begin{definition}Let ${\bf j}:=(\underline{j_1},\underline{j_2},\ldots,\underline{j_r})$ be a sequence with $\underline{j_1}\in I_{n-1}$, $\underline{j_2},\ldots,\underline{j_{r-1}}\in I_{n-2}$ and $\underline{j_r}\in I_s$ with $s\leq n-2$. Define $j_1^c$ as before.
+\begin{definition}
+  Let ${\bf j}:=(\underline{j_1},\underline{j_2},\ldots,\underline{j_r})$ be a sequence with $\underline{j_1}\in I_{n-1}$, $\underline{j_2},\ldots,\underline{j_{r-1}}\in I_{n-2}$ and $\underline{j_r}\in I_s$ with $s\leq n-2$. Define $j_1^c$ as before.
  We say that ${\bf j}$ is admissible if 
 $$ j_{k,i}\neq j_{k-1}^{c}\text{ for all }k=2,\ldots, r-1,\,i=1,\ldots,n-2\text{ and for }i=1,\ldots,s\text{ if }k=r$$
 where $j_{k}^c\in\{1,\ldots,n\}$ for $2\leq k\leq r-1$ is recursively defined as the unique element satisfying $j_k^c\neq j_{k,i}$ for $i=1,\ldots,n-2$ and $j_k^c\neq j_{k-1}^c$. 
 \end{definition}
-
 
 %For $\uj\in I_{l}$ with $l\leq n-1$, there exist unique short exact sequences 
 %\[\ses{\bigoplus_{i=1}^l\tilde P_{m-1,j_i}}{\tilde P_m}{\tilde P_{m}^{\uj}},\quad\quad\ses{\tilde P_{m-1,j_l}}{\tilde P_{m}^{(j_1,\ldots,j_{l-1})}}{\tilde P_{m}^{\uj}}.\]
@@ -920,11 +927,50 @@ Note that we have $\delta\uj=(j^c)$ for $\uj\in I_{n-1}$. We obtain the followin
 		for $k=1,\ldots,r$.
   \end{enumerate}
 \end{lemma}
+
+\begin{definition}
+  For $I\subsetneq\{1,\ldots,n\}$, write $I^c=\{1,\ldots,n\}\setminus I$ for the complementary subset.
+  A sequence of subsets $\bfI=(I_0,I_1,\ldots,I_k)$, $k\ge1$, in $\{1,\ldots,n\}$ is \emph{admissible} if the following hold:
+  \begin{enumerate}
+    \item $|I_0|=n-1$ and $|I_l|=n-2$ for $1\le l\le k-1$;
+    \item the sets $I'_l$ defined recursively by $I'_0=I_0$ and $I'_l:=(I'_{l-1})^c\cup I_l$ for $1\le l\le k$ satisfy $(I'_{l-1})^c\cap I_l=\varnothing$ for $1\le l\le k$.
+      In particular, we have $|I'_l|=n-1$ for $0\le l\le k-1$.
+  \end{enumerate}
+  Any sequence consisting of a single nonempty subset $\bfI=(I_1)$ will also be considered admissible.
+  Given an admissible sequence $\bfI$, define a new admissible sequence $\delta\bfI=(I'_1,I_2,\ldots,I_k)$, where we set $\delta(I_1)=(I_1^c)$.
+\end{definition}
+
+In the same way as for the preprojective lifts $\tilde P_{m+1}$, $m\ge1$, we can define truncated preprojectives $\tilde P_{m+1,w}^I$ of any translate $\tilde P_{m+1,w}$, where $w\in W_n$ and $I\subsetneq\{1,\ldots,n\}$.
+That is, taking $\varepsilon=(-1)^{m+1}$ we have an exact sequence
+\[\ses{\bigoplus_{i\in I} \tilde P_{m,w\alpha_i^\varepsilon}}{\tilde P_{m+1,w}}{\tilde P_{m+1,w}^I}.\]
+These quotients are unique in the sense that $\Hom(\tilde P_{m+1,w},\tilde P_{m+1,w}^I)=\CC$ for all $w\in W_n$ and $I\subsetneq\{1,\ldots,n\}$.
+We adopt similar notation for truncated preprojectives $\tilde P_{m+1-k,\ui}^I$ for $\ui\in A_1^{(k)}$ and $I\subsetneq\{1,\ldots,n\}$.
+\begin{lemma}
+  \label{le:truncated quotients}
+  For $m\ge3$, the following hold:
+  \begin{enumerate}
+    \item For $I\subsetneq\{1,\ldots,n\}$ with $|I|=n-1$ and $I^c=\{j\}$, we have an isomorphism 
+      \[\tilde P_{m+1}^I\cong\tilde P_{m,j}^{I^c}=\tilde P_{m,j}/\tilde P_{m-1,(j,j)}.\]
+    \item Consider an admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k<m$ and write $(I'_l)^c=\{i_l\}$ for $0\le l\le k-1$.
+      For $\ui=(i_0,\ldots,i_{k-1})$, there exists a sequence of surjections
+      \[\tilde P_{m+1}\onto\tilde P_{m+1}^{I'_0}\onto\tilde P_{m,i_0}^{I'_1}\onto\tilde P_{m-1,(i_0,i_1)}^{I'_2}\onto\cdots\onto P_{m+1-k,\ui}^{I'_k}.\]
+      the truncated preprojective representation
+      \[\tilde P_{m+1}^\bfI:=\tilde P_{m+1-k,\ui}^{I'_{k+1}}\]
+      is a quotient of $\tilde P_{m+1}$ with $\Hom(\tilde P_{m+1},\tilde P_{m+1-k}^\bfI)\cong\CC$.
+      These quotients  
+  \item Let $m\geq 3$ and $1\leq r\leq m-1$ and let $\mathbf j:=(\underline{j_1},\ldots,\underline{j_r})$ be an admissible sequence. The truncated preprojective representation
+    \[\tilde P^{\mathbf j}_{m-r+1}:=\tilde P_{m-r+1,(j_1^c,\ldots,j_{r-1}^c)}^{(j_{r-1}^c,j_{r,1},\ldots,j_{r,s})}\]
+    is a quotient of $\tilde P_m$ such that $\Hom(\tilde P_m,\tilde P^{\mathbf j}_{m-r+1})=\CC$.
+    Defining ${\bf j}(k):=(\underline{j_1},\ldots,\underline{j_k})$ for $k=2,\ldots,r-1$, these quotients satisfy the relation
+    \[\tilde P_{m-k,(j_1^c,\ldots,j_k^c)}^{\delta^k{\bf j(k)}}=\tilde P_{m-k+1,(j_1^c,\ldots,j_{k-1}^c)}^{\delta^{k-1}\bf j(k)}\]
+    for $k=1,\ldots,r$.
+  \end{enumerate}
+\end{lemma}
 \begin{proof}
 
-To prove the first part, we consider the following commutative diagram where the square on the left hand side is the corresponding Auslander-Reiten sequence:
-\[\xymatrix{0\ar[r] &\bigoplus_{i=1}^{n-1}\tilde P_{m-1,j_i}\ar[r] &  \tilde P_{m}\ar[r] & \tilde P_{m}^{\uj}\ar[r] & 0 \\
-  0\ar[r]&\tau\tilde P_m=\tilde P_{m-2} \ar[r]\ar[u] & \tilde P_{m-1,j^c}\ar[u]\ar[r]& \tilde P_{m}^{\uj}\ar[r]\ar@{=}[u]& 0}\]
+For part (1), we consider the following commutative diagram, where the square on the left hand side is the corresponding Auslander-Reiten sequence:
+\[\xymatrix{0\ar[r] &\bigoplus_{i\in I}\tilde P_{m,i}\ar[r] &  \tilde P_{m+1}\ar[r] & \tilde P_{m+1}^I\ar[r] & 0 \\
+  0\ar[r]&\tau\tilde P_{m+1}=\tilde P_{m-1} \ar[r]\ar[u] & \tilde P_{m,j}\ar[u]\ar[r]& \tilde P_{m}^{\uj}\ar[r]\ar@{=}[u]& 0}\]
 
 %Thus we see that $\tilde P_{m}^{\ui}\cong \tilde P_{m-1}^{(l)}$ for some $l\in\{1,\ldots,n\}$. But now it is straightforward to check that $l=n$. \footnote{more precise?} 
 For $m=3$, it is straightforward that the injection of the lower row factors over $\tilde P_{1,(j^c,j^c)}$ which means that we get the same commutative diagram when replacing $\tilde P_{1}$ by $\tilde P_{1,(j^c,j^c)}$. Thus we have $\tilde P_{3}^{\uj}\cong \tilde P_{2,j^c}^{\uj^c}/\tilde P_{1,(j^c,j^c)}=\tilde P_{2,j^c}^{(j^c)}$. Applying the identities \eqref{eq:recursive covers} the claim follows for $m\geq 3$.
@@ -1563,7 +1609,10 @@ where the $2$-arrows are coloured red. This $2$-quiver is clearly equivalent to 
 
 For $m\geq 3$, we have
 
-\begin{align}\label{eq:homext} \Hom(P_{m-1},\tau P_m^{[k]})\cong\bigoplus_{i=k+1}^n\Hom(\alpha_{i}^{(-1)^{m}}\tilde P_{m-1},\tau\tilde P_{m}^{[k]})\cong\bigoplus_{i=k+1}^n\Ext(\tilde P_m^{[k]},\alpha_{i}^{(-1)^{m}}\tilde P_{m-1})\cong\Ext(P_m^{[k]},P_{m-1}).\end{align}  
+\begin{align}
+  \label{eq:homext} 
+  \Hom(P_{m-1},\tau P_m^{[k]})\cong\bigoplus_{i=k+1}^n\Hom(\alpha_{i}^{(-1)^{m}}\tilde P_{m-1},\tau\tilde P_{m}^{[k]})\cong\bigoplus_{i=k+1}^n\Ext(\tilde P_m^{[k]},\alpha_{i}^{(-1)^{m}}\tilde P_{m-1})\cong\Ext(P_m^{[k]},P_{m-1}).
+\end{align}  
 
 
 This means that we can choose a basis of $\Ext(P_m^{[k]},P_{m-1})$ which is compatible with the lifts to the universal covering and which gives a one-to-one correspondence between basis elements of $\Ext(P_m^{[k]},P_{m-1})$ and $\Hom(P_{m-1},\tau P_m^{[k]})$. 
