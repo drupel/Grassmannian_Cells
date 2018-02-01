@@ -752,10 +752,9 @@ Then the representations $\tilde P_{m+1-k,\ui}$ and $\tilde P_{m+1-k,\ui'}$ are 
 Indeed, by considering the support quiver of $\tilde P_{3,i}$ from Example~\ref{ex:lifted preprojectives}, we see that each $\tilde P_{2,(i,i)}$ is just a copy of $\tilde P_2$ when viewed as representations of $\widetilde{K(n)}$, however these provide distinct subrepresentations of $\tilde P_4$.
 \begin{lemma}
   \label{le:subrep}
-  For $m\ge1$ and $I\subsetneq\{1,\ldots,n\}$, all non-trivial proper subrepresentations of $\tilde P_{m+1}^I$ are direct sums of shifted preprojective representations $\tilde P_{m+1-k,\ui}$ for $1\le k\le m$ and $\ui\in A_1^{(k)}$.	
+  For $m\ge1$ and $I\subsetneq\{1,\ldots,n\}$, all non-trivial proper subrepresentations of $\tilde P_{m+1}^I$ are direct sums of preprojective representations.	
 \end{lemma}
 \begin{proof}
-  \sayD{The proof needs to be improved for the new stronger statement.}
   By Lemma~\ref{le:homdecomposition}, the projected representation $G(\tilde P_{m+1}^I)$ is a truncated preprojective of $K(n)$.
   Then Lemma~\ref{le:projective subrepresentations} shows that all subrepresentations of $G(\tilde P_{m+1}^I)$ are direct sums of preprojective representations of $K(n)$.
   But any subrepresentation of $\tilde P_{m+1}^I$ also projects to a subrepresentation of $G(\tilde P_{m+1}^I)$.
@@ -1539,7 +1538,10 @@ For building the mentioned $2$-quivers, we use the recursive construction descri
 For general $m$, we will see that every $2$-arrow $V:\Gamma(1)\to\Gamma(2)$ corresponds to a basis element of $\Ext(\tilde P_{m+1}^{[n-1]},\tilde P_m)$. If the subquivers $\Gamma(1)$ and $\Gamma(2)$ have precisely one source and precisely one sink respectively, the $2$-arrow corresponds to a unique arrow of the original quiver $K(n)$ as every arrow of the universal covering does. In these cases, we label the $2$-arrow by the corresponding arrow.
 
 Recall that, for $m\geq 3$, we have
-\begin{align}\label{eq:homext} \Hom(P_{m-1},\tau P_m^{[k]})\cong\bigoplus_{i=k+1}^n\Hom(\alpha_{i}^{(-1)^{m}}.\tilde P_{m-1},\tau\tilde P_{m}^{[k]})\cong\bigoplus_{i=k+1}^n\Ext(\tilde P_m^{[k]},\alpha_{i}^{(-1)^{m}}.\tilde P_{m-1})\cong\Ext(P_m^{[k]},P_{m-1}).\end{align}
+\begin{align}
+  \label{eq:homext} 
+  \Hom(P_{m-1},\tau P_m^{[k]})\cong\bigoplus_{i=k+1}^n\Hom(\alpha_{i}^{(-1)^{m}}.\tilde P_{m-1},\tau\tilde P_{m}^{[k]})\cong\bigoplus_{i=k+1}^n\Ext(\tilde P_m^{[k]},\alpha_{i}^{(-1)^{m}}.\tilde P_{m-1})\cong\Ext(P_m^{[k]},P_{m-1}).
+\end{align}
 This means that we can choose a basis of $\Ext(P_m^{[k]},P_{m-1})$ which is compatible with the lifts to the universal covering and which gives a one-to-one correspondence between basis elements of $\Ext(P_m^{[k]},P_{m-1})$ and $\Hom(P_{m-1},\tau P_m^{[k]})$. 
 In view of Corollary \ref{cor:perpendicular}, we have also an isomorphism $$\Ext(\tilde P_m^{[k]},\tilde P_{m-1,k})\cong\Ext(\tilde P_m^{[k]},\tau\tilde P_m^{[k]}).$$
 These isomorphisms are also present in the structure of the $2$-quivers we define.
