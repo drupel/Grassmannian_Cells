@@ -658,6 +658,15 @@ To simplify the notation, we abbreviate $\tilde P_{2l-1,j}:=\tilde P_{2l-1,\alph
   In particular, they all have the same central vertex $(1,e)$ if $m$ is odd and central vertex $(2,e)$ if $m$ is even.
 \end{remark}
 
+\begin{corollary}
+  \label{cor:AR lift}
+  For $m\ge2$, the Auslander-Reiten sequence~\eqref{eq:AR sequence} on $K(n)$ lifts to the Auslander-Reiten sequence
+  \begin{equation}
+    \label{eq:lifted AR sequence}
+    \xymatrix{0 \ar[r] & \tilde P_{m-1} \ar^(.4){\tilde\iota_{m-1}}[r] & \bigoplus_{j=1}^n \tilde P_{m,j} \ar[r] & \tilde P_{m+1} \ar[r] & 0}.
+  \end{equation}
+\end{corollary} 
+
 \begin{example}
   \label{ex:lifted preprojectives}
   Here we explicitly describe the preprojective lifts $\tilde P_m$ for $m=2,3,4$ as well as their shifted preprojective subrepresentations as in Lemma~\ref{le:shifted subreps}.
@@ -897,7 +906,7 @@ The next step is to introduce notation in order to locate truncated preprojectiv
     \item $|I_0|=n-1$ and $|I_l|=n-2$ for $1\le l\le k-1$;
     \item the sets $I'_l$ defined recursively by $I'_0=I_0$ and $I'_{l+1}:=(I'_l)^c\cup I_{l+1}$ for $0\le l\le k$ satisfy $(I'_l)^c\cap I_{l+1}=\varnothing$ for $0\le l\le k$.
   \end{enumerate}
-  Here we take $I_{k+1}=\varnothing$.
+  Here we take $I_{k+1}=\varnothing$ so that there is no condition imposed on the set $I_k$.
 
   Given an admissible sequence $\bfI$, define a new admissible sequence $\delta\bfI=(I'_1,I_2,\ldots,I_k)$, where we set $\delta(I_0)=(I'_1)$.
 \end{definition}
@@ -932,38 +941,17 @@ For $w\in W_n$, we write $\pi_{m+1,w}^{I,J}:\tilde P_{m+1,w}^I\to\tilde P_{m+1,w
   \end{enumerate}
 \end{lemma}
 \begin{proof}
+  The Auslander-Reiten sequence~\eqref{eq:lifted AR sequence} gives rise to the following commutative diagram:
+  \[\xymatrix{& & 0\ar[d]& 0\ar[d]&\\
+    & & \bigoplus_{i\in I} \tilde P_{m,i}\ar[d]\ar@{=}[r]& \bigoplus_{i\in I} \tilde P_{m,i}\ar[d]&\\
+    0\ar[r]&\tilde P_{m-1} \ar[r]\ar@{=}[d] & \bigoplus_{i=1}^n \tilde P_{m,i}\ar[d]\ar[r]\ar@{}[dr]|(.7){\lrcorner} & \tilde P_{m+1}\ar[r]\ar[d]& 0\\
+    0\ar[r] &\tilde P_{m-1}\ar[r] &  \tilde P_{m,j}\ar[r]\ar[d] & \tilde P_{m+1}^I\ar[r]\ar[d] & 0\\
+  & & 0& 0&}\]
+  The image of the inclusion $\tilde P_{m-1}\into \tilde P_{m,j}$ in the bottom row is the subrepresentation $\tilde P_{m-1,(j,j)}\subset\tilde P_{m,j}$ and part (1) follows.
 
-For part (1), we consider the following commutative diagram, where the square on the left hand side is the corresponding Auslander-Reiten sequence:
-\[\xymatrix{0\ar[r]&\tau\tilde P_{m+1}=\tilde P_{m-1} \ar[r]\ar[d] & \tilde P_{m,j}\ar[d]\ar[r]& \tilde P_{m+1}^I\ar[r]\ar@{=}[d]& 0\\
-  0\ar[r] &\bigoplus_{i\in I}\tilde P_{m,i}\ar[r] &  \tilde P_{m+1}\ar[r] & \tilde P_{m+1}^I\ar[r] & 0}\]
+  The first claim of part (2) is then immediate by repeatedly applying part (1) while the final claim of part (2) is a consequence of the definition of $\delta$.
+\end{proof}
 
-%Thus we see that $\tilde P_{m}^{\ui}\cong \tilde P_{m-1}^{(l)}$ for some $l\in\{1,\ldots,n\}$. But now it is straightforward to check that $l=n$. \footnote{more precise?} 
-For $m=3$, it is straightforward that the injection of the lower row factors over $\tilde P_{1,(j^c,j^c)}$ which means that we get the same commutative diagram when replacing $\tilde P_{1}$ by $\tilde P_{1,(j^c,j^c)}$. Thus we have $\tilde P_{3}^{\uj}\cong \tilde P_{2,j^c}^{\uj^c}/\tilde P_{1,(j^c,j^c)}=\tilde P_{2,j^c}^{(j^c)}$. Applying the identities \eqref{eq:recursive covers} the claim follows for $m\geq 3$.
-
-The second statement is now obtained recursively when initially considering the commutative diagram from above replacing $\uj$ by $\underline{j_1}$. We have $\delta^{k-1}{\bf j}(k)=(j_{k-1}^c,j_{k,1},\ldots,j_{k,n-1})$ and $\delta^{k}{\bf j}(k)=(j_k^c)$. We successively obtain commutative diagrams
-\[\xymatrix{0\ar[r] &\bigoplus_{i=1}^{n-2}\tilde P_{m-k,(j_1^c,\ldots,j_{k-1}^c,j_{k,i})}\ar[r] &  \tilde P^{(j_{k-1}^c)}_{m-k+1,(j_1^c,\ldots,j_{k-1}^c)}\ar[r] & \tilde P_{m-k+1,(j_1^c,\ldots,j_{k-1}^c)}^{\delta^{k-1}{\bf j}(k)}\ar[r] & 0 \\
-  0\ar[r]&\tilde P_{m-(k+1),(j_1^c,\ldots,j_{k}^c,j_k^c)} \ar[r]\ar[u] & \tilde P_{m-k,(j_1^c,\ldots,j_{k}^c)}\ar[u]\ar[r]& \tilde P_{m-k,(j_1^c,\ldots,j_{k}^c)}^{(j_{k}^c)}\ar[r]\ar@{=}[u]& 0}\]
-
-
-Finally, we consider the short exact sequence:
-
-\[\xymatrix{0\ar[r] &\bigoplus_{i=1}^{s}\tilde P_{m-r,(j_1^c,\ldots,j_{r-1}^c,j_{r,i})}\ar[r] &  \tilde P^{(j_{r-1}^c)}_{m-r+1,(j_1^c,\ldots,j_{r-1}^c)}\ar[r] & \tilde P_{m-r+1,(j_1^c,\ldots,j_{r-1}^c)}^{{\bf j}}\ar[r] & 0 }.\]
-Using Lemma \ref{le:properties}.(2), we recursively obtain	$\Hom(\tilde P_m,\tilde P^{\mathbf j}_{m-r+1})\cong\Hom(\tilde P_m,\tilde P_{m-k,(j_1^c,\ldots,j_{k}^c)}^{(j_{k}^c)})=\CC$.
-%As $\Hom(\tilde P_{m-k,(j_1^c,\ldots,j_{k-1}^c,j_{k,i})},\tilde P_{m-k+1,(j_1^c,\ldots,j_{k-1}^c)})=\kk$ for all $k=2,\ldots,r$ and $i=1,\ldots,n-1$, applying the second statement, we obtain that the quotient $\tilde P_{m-r+1}^{\bf j}$ is uniquely determined.
-	\end{proof}
-
-
-
-The lemma implies that there is a morphism by $\pi_m^{\bf j}:\tilde P_m\to \tilde P_{m-r+1}^{\bf j}$ which is unique up to scalars. Let $\underline{j_1}=(j_{1,1},\ldots,j_{1,n-1})$ and $\uj=(j_{1,1},\ldots,j_{1,l})\in I_l$. It is important for us that this morphism factors through the truncated preprojective $\tilde P_m^{\uj}$. We denote the quotient morphism from $\tilde P_m^{\uj}$ to $\tilde P_{m-r+1}^{\bf j}$ by $\pi_{m,\uj}^{\bf j}$. We want to apply $\pi_m^{\bf j}$ also to translated representations $w.\tilde P_m$, mostly for $w\in\{a_i,a_i^{-1}\}$. Therefore, we need to apply a translated version of this morphism. In abuse of notation, we also denote these morphisms by $\pi_m^{\bf j}$ and $\pi_{m,\uj}^{\bf j}$.
-
-Our construction immediately yields the following lemma.
-\begin{lemma}\label{projections}
-Let ${\bf j}=(\underline{j_1},\ldots,\underline{j_r})$ with $r\leq m-1$ and $\underline{j_r}\in I_s$ be an admissible sequence with entries $j_{k,i}$ for $k=1,\ldots r$. Then we have
-\[\pi_m^{\bf j}=\pi_{m-r+1,(j_{r-1}^c)}^{(j_{r-1}^c,\underline{j_r})}\circ\ldots\circ\pi^{(j_{2}^c,\underline{j_2})}_{m-1,(j_1^c)}\circ\pi_m^{\underline{j_1}}.\]
-Moreover, for every sequence $(l_1,\ldots,l_{n-2})\in I_{n-2}$, we have
-\[\pi_{m-k+1,(j_{k-1}^c)}^{(j_{k-1}^c,\underline{j_k})}=\prod_{i=1}^{n-2} \pi^{(j_{k-1}^c,j_{k,l_1},\ldots, j_{k,l_{i}})}_{m-k+1,(j_{k-1}^c,j_{k,l_1},\ldots,j_{k,l_{i-1}})}\]
-for $k=2,\ldots,r-1$. The analogous statements hold for $\pi_m^{\underline{j_1}}$ and  $\pi_{m-r+1,(j_{r-1}^c)}^{(j_{r-1}^c,\underline{j_r})}$ when replacing $n-2$ by $n-1$ and $s-1$ respectively.
-\end{lemma}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quiver Grassmannians}
@@ -1409,7 +1397,7 @@ By induction hypothesis the quiver Grassmannians $\Gr^{\tilde Q}_\tbff( \tilde P
 
 If $\tbfg\neq \udim\tilde P_{m+1}^{(k)}$, by Proposition \ref{fibers}, the fiber dimension only depends on the dimension vectors $\tbff, \tbfg$ which means that they are constant over the cells of $\Gr^{\tilde Q}_\tbff(P_{m-1,j_l})\times \Gr^{\tilde Q}_\tbfg(\tilde P_{m}^{\uj})$. In particular, they are constant over cells whose subrepresentations $U\in \Gr^{\tilde Q}_\tbff(P_{m-1,i_k})$ satisfy $\pi_m^{\bf i}(U)\neq 0$, but also over those whose subrepresentations $U\in \Gr^{\tilde Q}_\tbff(P_{m-1,i_k})$ satisfy $\pi_m^{\bf i}(U)= 0$. By Theorem \ref{vb}, it follows that $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj'})$ has a cell decomposition.
 
-Thus it remains to show that this cell decomposition of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj'})$ is compatible with $\pi_{m,\uj'}^{\bf j}$ where ${\bf j}=(\underline{j_1},\underline{j_2},\ldots,\underline{j_r})$ with $\underline{j_1}=(\uj',j_{1,l},\ldots,j_{1,n-1})\in I_{n-1}$ and $j_{1,l}=j_l$. Recall that we have $\pi_{m,\uj'}^{\bf j}=\pi_{m,\uj}^{\bf j}\circ\pi_{m,\uj'}^{j_l}$ by Lemma \ref{projections}.
+Thus it remains to show that this cell decomposition of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj'})$ is compatible with $\pi_{m,\uj'}^{\bf j}$ where ${\bf j}=(\underline{j_1},\underline{j_2},\ldots,\underline{j_r})$ with $\underline{j_1}=(\uj',j_{1,l},\ldots,j_{1,n-1})\in I_{n-1}$ and $j_{1,l}=j_l$. Recall that we have $\pi_{m,\uj'}^{\bf j}=\pi_{m,\uj}^{\bf j}\circ\pi_{m,\uj'}^{j_l}$ by Lemma \ref{le:truncated quotients}.(2).
 
 Fix $\tbff$ and $\tbfg$ together with cell decompositions 
 \[\Gr^{\tilde Q}_\tbff(P_{m-1,j_l})=\coprod_{i\in I} B_i,\quad \Gr^{\tilde Q}_\tbfg(\tilde P_{m}^{\uj})=\coprod_{k\in K} C_k\]
