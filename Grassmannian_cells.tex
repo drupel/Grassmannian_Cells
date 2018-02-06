@@ -1453,7 +1453,7 @@ $$F_{\udim P_m^{(k)}}=F_{\udim P_m^{(k+1)}}F_{\udim P_{m-1}}-x^{\udim P_{m}^{(k)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Combinatorial description of non-empty cells}
-In this section, we provide two combinatorial descriptions of the non-empty cells in the quiver Grassmannians of (truncated) preprojective representations of $K(n)$.
+\noindent In this section, we provide two combinatorial descriptions of the non-empty cells in the quiver Grassmannians of (truncated) preprojective representations of $K(n)$.
 The first is quiver theoretic and follows directly from the recursive construction of the cell decomposition in Section \ref{sec:fibrations}.
 The second is the notion of compatible pairs in a maximal Dyck path.
 We give a bijection between these which provides a partial answer to a question of the first author.
@@ -1517,14 +1517,16 @@ Thus assume that $\beta\subset (Q_V)_0$ is strong successor closed. The cases of
 %  The only technical problem is that $\tau \tilde P^{(k)}_{m+1}$ is no quotient of $\tilde P_{m,k}$ and we have to replace it by the image of the unique morphism to $\tau \tilde P^{(k)}_{m+1}$ which induces the exact sequence. 
 %\end{remark}
 In the following, we frequently use the notation and conventions of Section \ref{Lifting}.
-The next step is to associate a $2$-quiver $\mathcal Q_m^{[k]}$ with the lifted truncated preprojective representations $\tilde P_m^{[k]}:=\tilde P_m^{\{1,\ldots,k\}}$ for $m\geq 2$ and $0\leq k\leq n-1$  whose strong successor closed subsets are in one-to-one correspondence with cells of quiver Grassmannians of $\tilde P_m^{[k]}$. Recall that, by Theorem \ref{celldec}, the cells of the quiver Grassmannians attached to $P_m^{[k]}:= G_{K(n)}\tilde P_m^{[k]}$ are in one-to-one correspondence with those attached to the lift $\tilde P_m^{[k]}$. Moreover, by Theorem \ref{thm:truncpp}, the quiver Grassmannians $\Gr_{\tbfe}(P_m^V)$ of arbitrary truncated preprojective representations $P_m^V$ only depend on $\tbfe$ and $\udim P_m^V$. In short, the $2$-quivers $\mathcal Q_m^{[k]}$ can be seen as being attached to any (truncated) preprojective representation of the respective dimension.	
+The next step is to associate a $2$-quiver $\mathcal Q_m^{[k]}$ with the lifted truncated preprojective representations 
+$$\tilde P_m^{[k]}:=\begin{cases}\tilde P_m^{\{n,\ldots,n-k+1\}}\text{ if } m\text{ is even}\\\tilde P_m^{\{1,\ldots,k\}}\text{ if }m\text{ is odd}\end{cases}$$ 
+for $m\geq 2$ and $0\leq k\leq n-1$  whose strong successor closed subsets are in one-to-one correspondence with cells of quiver Grassmannians of $\tilde P_m^{[k]}$. Recall that, by Theorem \ref{celldec}, the cells of the quiver Grassmannians attached to $P_m^{[k]}:= G_{K(n)}\tilde P_m^{[k]}$ are in one-to-one correspondence with those attached to the lift $\tilde P_m^{[k]}$. Moreover, by Theorem \ref{thm:truncpp}, the quiver Grassmannians $\Gr_{\tbfe}(P_m^V)$ of arbitrary truncated preprojective representations $P_m^V$ only depend on $\tbfe$ and $\udim P_m^V$. In short, the $2$-quivers $\mathcal Q_m^{[k]}$ can be seen as being attached to any (truncated) preprojective representation of the respective dimension.	
 
-For building the mentioned $2$-quivers, we use the recursive construction described in Section \ref{Lifting}. 
+For building the mentioned $2$-quivers, we use the recursive construction described in Section \ref{Lifting}. The following remarks are meant to understand the structure of the $2$-quivers. 
 %In particular, we choose bases of the $\Ext$-groups which are compatible with the lifts to the universal covering.
 %For simplicity and in order to be in shape(?) with Sections \ref{Lifting} and \ref{sec:fibrations}, we work on the universal cover.
-\begin{remark}\begin{enumerate}\item It will turn out that every vertex of the quiver $\mathcal Q_m^{[k]}$ uniquely corresponds to a vertex of the universal covering quiver $\widetilde{K(n)}$, but that different vertices of $\cQ_m^{[k]}$ can correspond to the same vertex of $\widetilde{K(n)}$. Also every usual arrow of $\mathcal Q_m^{[k]}$ does. In particular, the quiver obtained from $\mathcal Q_m^{[k]}$ when forgetting the $2$-arrows gives rise to a (non-disjoint) union of subquivers of $\widetilde{K(n)}$.
+\begin{remark}\begin{enumerate}\item It will turn out that every vertex of the quiver $\mathcal Q_m^{[k]}$ uniquely corresponds to a vertex of the universal covering quiver $\widetilde{K(n)}$, but that different vertices of $\cQ_m^{[k]}$ can correspond to the same vertex of $\widetilde{K(n)}$. Also every usual arrow of $\mathcal Q_m^{[k]}$ does correspond to an arrow of $\widetilde{K(n)}$ and thus to an arrow of $K(n)$. In particular, the quiver obtained from $\mathcal Q_m^{[k]}$ when forgetting the $2$-arrows gives rise to a (non-disjoint) union of subquivers of $\widetilde{K(n)}$.
 
-\item The following two remarks are meant to understand the structure of the $2$-quivers. Recall that the representation $\tilde P_2^{[n-1]}$ is defined by the support quiver
+\item Recall that the representation $\tilde P_2^{[n-1]}$ is defined by the support quiver
 \[
   \tilde P_2^{[n-1]}=(1,\alpha_1)\xlongleftarrow{\alpha_1}(2,e).%=P_1^{(1)}=j^{(1)}_1\xlongleftarrow{v_1}i^{(1)}_1
 \]
@@ -1582,9 +1584,9 @@ We define the $2$-quiver $\mathcal Q_{2}^{[k]}$  of $\tilde P_2^{[k]}$ for $k=n-
 \noindent
 where the $2$-arrows are coloured red. Note that the vertices $(1,\alpha_i)$ are just the $2$-quivers $\cQ_{1,i}$ corresponding to $\tilde P_{1,i}$. The $2$-quiver $\mathcal Q_2^{[k]}$ is clearly equivalent to the support quiver (\ref{coeff}). In abuse of notation, we also denote the support quiver by $\mathcal Q_{2}^{[k]}$. In order to keep the illustrations and combinatorics simple, we will work with this quiver instead. We also define the translated two quiver $\cQ_{2,i}$ as those obtained from $\cQ_{2}$ by translating all vertices and ($2$-)arrows by $\alpha_i^{-1}$.
 
-The next step is to define the $2$-quivers $\cQ^{[k]}_3$ of the truncated preprojective lifts $\tilde P^{[k]}_3$ whence the remaining $2$-quivers attached to the truncated preprojectives $\tilde P_m^{[k]}$ can be obtained recursively. First, we define
+The next step is to define the $2$-quivers $\cQ^{[k]}_3$ of the (truncated) preprojective lifts $\tilde P^{[k]}_3$ whence the remaining $2$-quivers attached to the (truncated) preprojectives $\tilde P_m^{[k]}$ can be obtained recursively. First, we define
 $$\cQ_3^{[n-1]}:=\alpha_{n}^{-1}.\cQ_2^{[1]},$$
-i.e. we translate all vertices - understood as vertices of $\widetilde{K(n)}$ - by $\alpha_n^{-1}$. Now $\cQ_3^{[k]}$ can be found as a subquiver of $\cQ_{3}$ which is given by connecting $\cQ_3^{[n-1]}$ to $\cQ_{2,i}$ for $i=n-1,\ldots, 1$ in the following way: \\
+i.e. we translate all vertices - understood as vertices of $\widetilde{K(n)}$ - and $(2)$-arrows by $\alpha_n^{-1}$. Now $\cQ_3^{[k]}$ can be found as a subquiver of $\cQ_{3}$ which is given by connecting $\cQ_3^{[n-1]}$ to $\cQ_{2,i}$ for $i=n-1,\ldots, 1$ in the following way: \\
 
 
 \begin{tikzpicture}[scale=1.4]
@@ -1636,9 +1638,9 @@ i.e. we translate all vertices - understood as vertices of $\widetilde{K(n)}$ - 
 \end{tikzpicture}
 \\ 
 
-\noindent In abuse of notation, we did not label the vertices in the illustration. Note that the middle vertex of $\mathcal Q_3^{[n-1]}$ corresponds to $(2,\alpha_n^{-1})$ and that all $2$-arrows, which are again coloured red, end in a vertex corresponding to $(1,1)$ of $\widetilde{K(n)}$. We again define translated versions $\cQ_{3,i}:=\alpha_i.\cQ_3$ of $\cQ_3$ which again means that we translate $\cQ_{3}$ as a union subquiver contained in $\widetilde{K(n)}$.
+\noindent In abuse of notation, we did not label the vertices in the illustration. Note that the middle vertex of $\mathcal Q_3^{[n-1]}$ corresponds to $(2,\alpha_n^{-1})$ and that all $2$-arrows, which are again coloured red, end in a vertex corresponding to $(1,e)$ of $\widetilde{K(n)}$. We again define translated versions $\cQ_{3,i}:=\alpha_i.\cQ_3$ of $\cQ_3$ which again means that we translate $\cQ_{3}$ as a union subquiver contained in $\widetilde{K(n)}$.
 
-\begin{remark} Recall that $\tilde P_3^{[n-1]}=\alpha_n^{-1}\tilde P_2^{[1]}$. Moreover, (\ref{eq:homext}) for $m=3$ yields 
+\begin{remark} Recall that $\tilde P_3^{[n-1]}=\alpha_n^{-1}.\tilde P_2^{[1]}$. Moreover, (\ref{eq:homext}) for $m=3$ yields 
 $$\Ext(P_2^{[1]},P_2)\cong\Ext(P_3^{[n-1]},P_2)\cong\bigoplus_{i=1}^{n-1}\Ext(\tilde P_3^{[n-1]},\alpha_i^{-1}\tilde P_2).$$
 This decomposition induces a basis of $\Ext(P_3^{[n-1]},P_2)$, each basis element given by the linear map $$(2,\alpha_n^{-1})\xlongrightarrow{\alpha_n}(1,e)\in\Hom_{\CC}((\tilde P_2^{[1]})_{(2,\alpha_n^{-1})},(\alpha_i^{-1}\tilde P_2)_{(1,e)})$$
 for $i=1,\ldots,n-1$. Recall that the representation $\tau\tilde P_3^{[k]}$ is given by 
@@ -1654,7 +1656,7 @@ Now we can recursively build the $2$-quivers $\cQ_{m+1}^{[k]}$ of $ \tilde P_{m+
 %This construction is motivated by considering the natural basis of $\Ext(P_m^{[n-1]},P_{m-1})$ induced by the decomposition (\ref{eq:homext}). 
 %As we have a one-to-one correspondence between basis elements of $\Hom(P_{m-1},\tau P_m^{[k]})$ and $\Ext(P_m^{[k]},P_{m-1})$ when passing to the universal covering quiver, we can proceed as before.
 %Recall that we have $\udim P_m^{[k]}=\udim P_{m-1}^{[1]}+(n-k-1)\udim P_{m-1}$.
-Let us assume that we already constructed the $2$-quivers $\cQ_{l}^{[j]}$ of $ P_{l}^{[j]}$ for $l\leq m$ and $j=0,\ldots, n-1$ and $l=m+1$ and $j=n-1,\ldots,k$. As before, we define the translated $2$-quivers $\cQ_{m,i}=\alpha_i^{(-1)^{m+1}}.\cQ_m$. Moreover, we define $$\cQ_{m+1}^{[n-1]}:=\alpha_{n}^{(-1)^{m+1}}.\cQ_{m}^{[1]}.$$\sayT{check: is it always $\alpha_n$?}
+Let us assume that we already constructed the $2$-quivers $\cQ_{l}^{[j]}$ of $ P_{l}^{[j]}$ for $l\leq m$ and $j=0,\ldots, n-1$ and $l=m+1$ and $j=n-1,\ldots,k$. As before, we define the translated $2$-quivers $\cQ_{m,i}=\alpha_i^{(-1)^{m+1}}.\cQ_m$. Moreover, we define $$\cQ_{m+1}^{[n-1]}:=\begin{cases}\alpha_{n}^{(-1)}.\cQ_{m}^{[1]}\text{ if }m\text{ is even}\\\alpha_{1}.\cQ_{m}^{[1]}\text{ if }m\text{ is odd}\end{cases}.$$
 
 For $m\geq 3$, the truncated preprojective $\tau\tilde P_{m+1}^{[k]}\cong\tilde P_{m-1}^{[k]}$ can uniquely be found as a quotient of $\tilde P_{m,k}$. This can also be seen on the level of $2$-quivers, i.e. we find $\cQ_{m-1}^{[k]}$ as a subquiver of $\cQ_{m,k}$.  More precisely, this subquiver can be found at the very right of the $2$-quiver $\mathcal Q_{m,k}$.  Now the $2$-quiver $\mathcal Q_{m+1}^{[k-1]}$ of $\tilde P^{[k-1]}_{m+1}$ is given by glueing the $2$-quiver $\mathcal Q_{m+1}^{[k]}$ to $\mathcal Q_{m,k}$ by a $2$-arrow. Thereby, the $2$-arrow connects $\mathcal Q_{m+1}^{[k]}$ to the subquiver $\cQ_{m-1}^{[k]}$ in $\cQ_{m,k}$. This gives the following $2$-quiver $\mathcal Q_{m+1}^{[k-1]}$:
 \\
@@ -1680,7 +1682,7 @@ For $m\geq 3$, the truncated preprojective $\tau\tilde P_{m+1}^{[k]}\cong\tilde 
 \draw[->,red] (Q71)--(B1) node[pos=.5,above] {};
 \draw[->,red] (Q81)--(A1) node[pos=.5,above] {};
 
-\draw (0,0) node (B) {$\mathcal Q_{m,k+1}$}+(0,-.8) node (P1) {\footnotesize$\mathcal Q_{m+1}^{[k]}$} +(2.5,0) node (B1) {$\dots$} +(5,0) node (C) {$\mathcal Q_{m,n-2}$} +(5,-.7) node (P3) {\footnotesize$\mathcal Q_{m+1}^{[n-3]}$}+(7.5,0) node (D) {$\mathcal Q_{m,n-1}$}  +(11,0) node (E) {$\mathcal Q_{m+1}^{[n-1]}=\alpha_{n}^{(-1)^{m+1}}.\cQ_{m}^{[1]}$} +(7.5,-.6) node (P4) {\footnotesize$\mathcal Q_{m+1}^{[n-2]}$}; 
+\draw (0,0) node (B) {$\mathcal Q_{m,k+1}$}+(0,-.8) node (P1) {\footnotesize$\mathcal Q_{m+1}^{[k]}$} +(2.5,0) node (B1) {$\dots$} +(5,0) node (C) {$\mathcal Q_{m,n-2}$} +(5,-.7) node (P3) {\footnotesize$\mathcal Q_{m+1}^{[n-3]}$}+(7.5,0) node (D) {$\mathcal Q_{m,n-1}$}  +(10,0) node (E) {$\mathcal Q_{m+1}^{[n-1]}$} +(7.5,-.6) node (P4) {\footnotesize$\mathcal Q_{m+1}^{[n-2]}$}; 
 \node (Q1) [draw=black,fit={(D) (E) (P4)}]{};
 \node (Q2) [draw=black,fit={(Q1) (C) (P3)}]{};
 \node (Q2b)[draw=black,fit={(Q2) (B1) }]{};
@@ -1698,8 +1700,8 @@ For $m\geq 3$, the truncated preprojective $\tau\tilde P_{m+1}^{[k]}\cong\tilde 
 \noindent 
 %In order to keep the diagrams as simple as possible we did not insert the labels of the vertices. As every vertex  $q\in(\mathcal Q_m^{[k]})_0$ corresponds a vertex $\tilde q\in \widetilde{K(n)_0}$, in any case it is straightforward to associate an arrow $\alpha_i\in K(n)_1$ with every ($2$-)arrow of $\mathcal Q_m^{[k]}$. 
  As already mentioned two different vertices of $\mathcal Q_m^{[k]}$ can correspond to the same vertex of $\widetilde{K(n)}$. Writing dimension vectors $\tbfe\in\NN^{\widetilde{K(n)_0}}$ as $\tbfe=\sum_{q\in \widetilde{K(n)_0}}\tbfe_q\cdot q$, the dimension types $\tbfe (\beta)$ and  $\bfe (\beta)$ of a subset $\beta\subset (\mathcal Q_m^{[k]})_0$ are defined by
-$$\tbfe (\beta)=\sum_{q\in\beta} \tilde q\in\NN^{\widetilde{K(n)_0}},\quad \bfe (\beta)=F_{K(n)}\tbfe (\beta)$$
-where $\tilde q\in\widetilde{K(n)}_0$ is the vertex which corresponds to $q\in \beta$.
+$$\tbfe (\beta)=\sum_{q\in\beta} \tilde q\in\NN^{\widetilde{K(n)_0}},\quad \bfe (\beta)=G_{K(n)}\tbfe (\beta)\in\NN^{K(n)_0}$$
+where $\tilde q\in\widetilde{K(n)}_0$ is the vertex which corresponds to $q\in \beta\subset (\mathcal Q_m^{[k]})_0$.
 
 
 \begin{theorem}\begin{enumerate}
@@ -1709,7 +1711,7 @@ where $\tilde q\in\widetilde{K(n)}_0$ is the vertex which corresponds to $q\in \
 \end{theorem}
 \begin{proof}
 The results of Section \ref{QG} imply that the second statement follows from the first one.
-We proceed by induction on $m$ and $k$. The case of the representation $\tilde P_1$ is trivial. We have $(\tilde P_2^{[k]})_q\in\{0,1\}$ for all $q\in\widetilde{K(n)}$, whence the  subrepresentations are in one-to-one correspondence with the successor closed subsets the quiver (\ref{coeff}) which is equivalent to  $\mathcal Q_2^{[k]}$ . Equivalently, we have $\Gr_{\tbfe}(\tilde P_2^{[k]})\in\{\varnothing,\{\pt\}\}$ such that $\Gr_{\tbfe}(\tilde P_2^{[k]})=\{\pt\}$ if and only if $\tbfe\subset \mathcal Q_2^{[k]}$ is strong successor closed.
+We proceed by induction on $m$ and $k$. The case of the representation $\tilde P_1$ is trivial. We have $(\tilde P_2^{[k]})_q\in\{0,1\}$ for all $q\in\widetilde{K(n)}$, whence the  subrepresentations are in one-to-one correspondence with the successor closed subsets of the quiver (\ref{coeff}) which is equivalent to  $\mathcal Q_2^{[k]}$ . Equivalently, we have $\Gr_{\tbfe}(\tilde P_2^{[k]})\in\{\varnothing,\{\pt\}\}$ such that $\Gr_{\tbfe}(\tilde P_2^{[k]})=\{\pt\}$ if and only if $\tbfe\subset \mathcal Q_2^{[k]}$ is strong successor closed.
 
   Thus assume that the claim is true for $\tilde P_m$  and $\tilde P_{m+1}^{[k]}$ and consider the short exact sequence
   \[
@@ -1718,7 +1720,7 @@ We proceed by induction on $m$ and $k$. The case of the representation $\tilde P
   We have $(\mathcal Q_{m+1}^{[k-1]})_0=(\mathcal Q_{m+1}^{[k]})_0\coprod{}(\mathcal Q_{m,k})_0$.
 	Let $\beta_1\coprod\beta_2\subset (\mathcal Q_{m+1}^{[k-1]})_0\coprod{}(\mathcal Q_{m,k})_0$ be a pair of strong successor closed subsets which gives rise to a pair of non-empty cells by induction hypothesis.
  % Denote by $d(\beta_1+\beta_2)$ the dimension vector corresponding to this subset.
-  By Proposition \ref{quotient}, the fibre over the pair of cells corresponding to $\beta_1\coprod\beta_2$ is empty if and only if $\beta_2=(\mathcal Q_{m+1}^{[k-1]})_0$ and $\beta_1\cap(\mathcal Q_{m-1}^{[k]})_0=\varnothing$ where $\mathcal Q_{m-1}^{[k]}$ is considered as a $2$-quiver of $\mathcal Q_{m,k}$.
+  By Proposition \ref{quotient}, the fibre over the pair of cells corresponding to $\beta_1\coprod\beta_2$ is empty if and only if $\beta_2=(\mathcal Q_{m+1}^{[k]})_0$ and $\beta_1\cap(\mathcal Q_{m-1}^{[k]})_0=\varnothing$ where $\mathcal Q_{m-1}^{[k]}$ is considered as a $2$-quiver of $\mathcal Q_{m,k}$.
   But this is precisely the condition on $\beta_1\coprod\beta_2$ to be strong successor closed as $\mathcal Q_{m+1}^{[k]}$ is connected to $\mathcal Q_{m-1}^{[k]}$ by a $2$-arrow.
 \end{proof}
 
