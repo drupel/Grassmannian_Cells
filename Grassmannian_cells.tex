@@ -746,19 +746,7 @@ The next result establishes some basic homological properties of the translated 
 \end{proof}
 
 It will be important to understand the possible subrepresentations of the truncated preprojective representations $\tilde P_{m+1}^I$.
-To describe these, we introduce notation for locating lifted preprojectives as subrepresentations of our standard lifted preprojective representations.
-Since we work only on two fixed components of $\widetilde{K(n)}$, the following notation will be useful in describing paths in these components.
-For $k\ge1$, set
-\[A_1^{(k)}:=\{(i_1,\ldots,i_k)\mid i_j\in\{1,\ldots,n\}\text{ for $1\le j\le k$}\}.\]%, i_j\ne i_{j+1}\text{ for $1\le j<l$}\}.\]
-Depending on context (in particular, the parity of $m+1$ below), we will sometimes identify the word~$(i_1,\ldots,i_k)$ with the element $\alpha_{i_1}\alpha_{i_2}^{-1}\alpha_{i_3}\cdots\alpha_{i_k}^{(-1)^{k+1}}\in W_n$ and sometimes with the element $\alpha_{i_1}^{-1}\alpha_{i_2}\alpha_{i_3}^{-1}\cdots\alpha_{i_k}^{(-1)^k}\in W_n$.
-In this way, to each word $\ui=(i_1,\ldots,i_k)\in A_1^{(k)}$ with $1\leq k\leq m$, we associate a preprojective subrepresentation~$\tilde P_{m+1-k,\ui}\subset\tilde P_{m+1}$ which lifts $P_{m+1-k}$.
-More precisely, we obtain a sequence of preprojective subrepresentations which uniquely determines the desired inclusion:
-\[\tilde P_{m+1-k,\ui}\subset\tilde P_{m+2-k,(i_1,\ldots,i_{k-1})}\subset\ldots\subset\tilde P_{m-1,(i_1,i_2)}\subset\tilde P_{m,i_1}\subset\tilde P_{m+1}.\]
-Note that, although there is a translate of $\tilde P_{m+1-k}$ corresponding to each word $\ui\in A_1^{(l)}$ for $1\le l<k$, these will not be naturally equipped with a canonical inclusion to $\tilde P_{m+1}$.
 
-To emphasize this point, consider a word $\ui\in A_1^{(k)}$ with $i_j=i_{j+1}$ for some $j$ and write $\ui'\in A_1^{(k-2)}$ for the word obtained from $\ui$ by removing the terms $i_j$ and $i_{j+1}$.
-Then the representations $\tilde P_{m+1-k,\ui}$ and $\tilde P_{m+1-k,\ui'}$ are in fact equal, however $\tilde P_{m+1-k,\ui}$ is naturally identified as a subrepresentation of $\tilde P_{m+1}$ while $\tilde P_{m+1-k,\ui'}$ is not.
-Indeed, by considering the support quiver of $\tilde P_{3,i}$ from Example~\ref{ex:lifted preprojectives}, we see that each $\tilde P_{2,(i,i)}$ is just a copy of $\tilde P_2$ when viewed as representations of $\widetilde{K(n)}$, however these provide distinct subrepresentations of $\tilde P_4$.
 \begin{lemma}
   \label{le:subrep}
   For $m\ge1$ and $I\subsetneq\{1,\ldots,n\}$, all non-trivial proper subrepresentations of $\tilde P_{m+1}^I$ are direct sums of preprojective representations.	
@@ -834,7 +822,19 @@ In what follows, we will need to understand the homological properties of the tr
   The equality $\tilde P_{m+1}^I=\tau^{-1}\tilde P_{m-1}^I$ is obtained in the same way using the functor $\tilde\Sigma_1\tilde\Sigma_2=\tau^{-1}$.
 \end{proof}
 
-For the notation of the following result, we refer the reader to the discussion before Lemma~\ref{le:subrep}.
+We now introduce notation for locating specific lifted preprojectives as subrepresentations of our standard lifted preprojective representations.
+Since we work only on two fixed components of $\widetilde{K(n)}$, the following notation will be useful in describing paths in these components.
+For $k\ge1$, set
+\[A_1^{(k)}:=\{(i_1,\ldots,i_k)\mid i_j\in\{1,\ldots,n\}\text{ for $1\le j\le k$}\}.\]%, i_j\ne i_{j+1}\text{ for $1\le j<l$}\}.\]
+Depending on context (in particular, the parity of $m+1$ below), we will sometimes identify the word~$(i_1,\ldots,i_k)$ with the element $\alpha_{i_1}\alpha_{i_2}^{-1}\alpha_{i_3}\cdots\alpha_{i_k}^{(-1)^{k+1}}\in W_n$ and sometimes with the element $\alpha_{i_1}^{-1}\alpha_{i_2}\alpha_{i_3}^{-1}\cdots\alpha_{i_k}^{(-1)^k}\in W_n$.
+In this way, to each word $\ui=(i_1,\ldots,i_k)\in A_1^{(k)}$ with $1\leq k\leq m$, we associate a preprojective subrepresentation~$\tilde P_{m+1-k,\ui}\subset\tilde P_{m+1}$ which lifts $P_{m+1-k}$.
+More precisely, we obtain a sequence of preprojective subrepresentations which uniquely determines the desired inclusion:
+\[\tilde P_{m+1-k,\ui}\subset\tilde P_{m+2-k,(i_1,\ldots,i_{k-1})}\subset\ldots\subset\tilde P_{m-1,(i_1,i_2)}\subset\tilde P_{m,i_1}\subset\tilde P_{m+1}.\]
+Note that, although there is a translate of $\tilde P_{m+1-k}$ corresponding to each word $\ui\in A_1^{(l)}$ for $1\le l<k$, these will not be naturally equipped with a canonical inclusion to $\tilde P_{m+1}$.
+
+To emphasize this point, consider a word $\ui\in A_1^{(k)}$ with $i_j=i_{j+1}$ for some $j$ and write $\ui'\in A_1^{(k-2)}$ for the word obtained from $\ui$ by removing the terms $i_j$ and $i_{j+1}$.
+Then the representations $\tilde P_{m+1-k,\ui}$ and $\tilde P_{m+1-k,\ui'}$ are in fact equal, however $\tilde P_{m+1-k,\ui}$ is naturally identified as a subrepresentation of $\tilde P_{m+1}$ while $\tilde P_{m+1-k,\ui'}$ is not.
+Indeed, by considering the support quiver of $\tilde P_{3,i}$ from Example~\ref{ex:lifted preprojectives}, we see that each $\tilde P_{2,(i,i)}$ is just a copy of $\tilde P_2$ when viewed as representations of $\widetilde{K(n)}$, however these provide distinct subrepresentations of $\tilde P_4$.
 \begin{lemma}
   \label{le:special subrepresentations}
   Consider a nonempty subset $I\subsetneq\{1,\ldots,n\}$ and fix an element $j\in I$. 
@@ -885,7 +885,7 @@ The following orthogonality property is a primary reason we need to lift to the 
 \begin{proof}
   If $m\geq 3$, we consider the long exact sequence obtained when applying $\Hom(\tilde P_{m+1}^I,-)$ to the sequence
   \[\ses{\tilde P_m(I,j)}{\tilde P_{m,j}}{\tau\tilde P_{m+1}^I}.\]
-  Following Lemma~\ref{le:properties}.(3), we have $\Hom(\tilde P_{m+1}^I,\tilde P_{m,j})=0$ and using the long exact sequence this immediately implies $\Hom(\tilde P_{m+1}^I,\tilde P_m(I,j))=0$.
+  Following Lemma~\ref{le:properties}.(3), we have $\Hom(\tilde P_{m+1}^I,\tilde P_{m,j})=0$ and using the long exact sequence this immediately implies $\Hom\big(\tilde P_{m+1}^I,\tilde P_m(I,j)\big)=0$.
   From Lemma~\ref{le:properties}.(3) again, we have $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\CC$.
   Using the Auslander-Reiten formulas \cite[Theorem IV.2.13]{ass} and Lemma~\ref{le:properties}.(4), we get
   \[\dim\Ext(\tilde P_{m+1}^I,\tau\tilde P_{m+1}^I)=\dim\Hom(\tilde P_{m+1}^I,\tilde P_{m+1}^I)=1.\]
@@ -962,10 +962,7 @@ The aim of Section \ref{torusaction} is to define a torus action on quiver Grass
 If the quiver Grassmannian is smooth, which is for instance the case for exceptional representations by \cite{cr}, it can also be used to stratify the quiver Grassmannians using the results of Bialynicki-Birula.
 More specifically, let $X$ be a smooth projective variety with a $\C^\ast$-action.
 For a connected component of the fixed point set $C\subset X^{\C^\ast}$, we define its attracting set as
-\[
-  \mathrm{Att}(C):=\{y\in X\mid \lim_{t\to 0}t.y\in C\}
-\]
-
+\[\mathrm{Att}(C):=\{y\in X\mid \lim_{t\to 0}t.y\in C\}\]
 The following result of Bialynicki-Birula relates the geometry of $X$ to the geometry of its torus fixed points.
 \begin{theorem}\label{thm:bb}
   \cite[Section 4]{bb}
@@ -1021,59 +1018,62 @@ Every Schubert cell is invariant under the torus action, i.e.\ $t.M(U)\in X_\bfi
 The next step is to generalize this to quiver Grassmannians.
 Let $Q$ be an acyclic quiver.
 We choose a map $d:\hat Q_0\to\ZZ$ and fix a representation $X\in\rep Q$ which can be lifted to $\hat Q$.
-We can consider the decomposition $X_i=\bigoplus_{(i,\chi)\in A_Q} X_{(i,\chi)}$.
-We define a torus action on each $X_{(i,\chi)}$ via $t.x_{(i,\chi)}=t^{d(i,\chi)}x_{(i,\chi)}$ which can be extended linearly to each $X_q$.
-For a fixed a subspace $U_i$, we can define the subspace $t.U_i$.
-In general, this torus action induces no torus action on the quiver Grassmannians $\Gr_\bfe(X)$ as $t.U=(t.U_i)_{i\in Q_0}$ is no subrepresentation of $X$ for every $U\in\Gr_\bfe(X)$.
-Actually, such an action has to satisfy $X_\alpha(t.U_i)\in t.U_j$ for every $\alpha:i\to j$. 
+We can consider the decomposition $X_i=\bigoplus_{\chi\in A_Q} X_{(i,\chi)}$ and define a torus action on each $X_{(i,\chi)}$ via $t.x_{(i,\chi)}=t^{d(i,\chi)}x_{(i,\chi)}$ which can be extended linearly to each $X_i$.
+Associated to each subspace $U_i$, there is a corresponding subspace $t.U_i$ for each $t\in\CC^*$.
+In general, this does not induce a torus action on the quiver Grassmannians $\Gr_\bfe(X)$ since $t.U=(t.U_i)_{i\in Q_0}$ is not necessarily a subrepresentation of $X$ for every $U\in\Gr_\bfe(X)$.
+Indeed, for this such an action must satisfy $X_\alpha(t.U_i)\subset t.U_j$ for every arrow $\alpha:i\to j$ of $Q$. 
 \begin{lemma}
-  Fix an integer $c_\alpha\in\ZZ$ for every $\alpha\in Q_1$.
-  If $X\in\rep Q$ can be lifted, $d:\hat Q_0\to\ZZ$ induces a torus action on $\Gr_\bfe(X)$ if we have $d(j,\chi+e_\alpha)-d(i,\chi)=c_\alpha$ for all $\alpha:i\to j$ and $\chi\in A_Q$.
+  Let $X$ be a representation of $Q$ which can be lifted to $\hat Q$.
+  Fix an integer $c_\alpha\in\ZZ$ for each~$\alpha\in Q_1$.
+  Suppose $d:\hat Q_0\to\ZZ$ satisfies $d(j,\chi+e_\alpha)-d(i,\chi)=c_\alpha$ for each arrow $\alpha:i\to j$ of $Q$ and each $\chi\in A_Q$.
+  Then the torus action on $X$ determined by $d$ induces a torus action on $\Gr_\bfe(X)$.
 \end{lemma}
 \begin{proof} 
-  Let $U\in\Gr_\bfe(X)$. Since $X$ can be lifted, we can write $X_\alpha:X_i\to X_j$ as block matrix consisting of linear maps $X_{(\alpha,\chi)}:X_{(i,\chi)}\to X_{(j,\chi+e_\alpha)}$. Let $u_{(i,\chi)}\in U_{(i,\chi)}$ and $\alpha:i\to j\in Q_1$. Then we have $X_\alpha(u_{(i,\chi)})\in U_{(j,\chi+e_\alpha)}$ because $X$ can be lifted to the universal cover. It follows
-\[X_\alpha(t.u_{(i,\chi)})=X_\alpha(t^{d(i,\chi)}u_{(i,\chi)})=t^{d(i,\chi)}X_\alpha(u_{(i,\chi)})=t^{d(i,\chi)}u_{(j,\chi+e_\alpha)}=t^{-c_\alpha}t.u_{(j,\chi+e_\alpha)}\]
-for some $u_{(j,\chi+e_\alpha)}\in U_{(j,\chi+e_\alpha)}$.
-Now we have \[\bigoplus_{\chi\in A_Q} t.U_{(j,\chi)}=\bigoplus_{\chi\in A_Q}t^{c(j,\chi)}t.U_{(j,\chi)}\]
-for every $t\in\C^\ast$ if $c(j,\chi)$ is constant along $(j,\chi)\in \{j\}\times A_Q$. This yields  
-\[t.U_j=\bigoplus_{\chi\in A_Q} t.U_{(j,\chi)}=\bigoplus_{\chi\in A_Q}t^{-c_\alpha}t.U_{(j,\chi)}\]
-for every $t\in \C^\ast$.
+  Since $X$ can be lifted, for any arrow $\alpha\in Q_1$ we can write $X_\alpha:X_i\to X_j$ as a block matrix consisting of linear maps $X_{(\alpha,\chi)}:X_{(i,\chi)}\to X_{(j,\chi+e_\alpha)}$ for $\chi\in A_Q$.
+  Fix $U\in\Gr_\bfe(X)$ and consider $u_i\in U_i$.
+  Then we can write $u_i=\sum_{\chi\in A_Q} u_{(i,\chi)}$ for some vectors $u_{(i,\chi)}\in U_i\cap X_{(i,\chi)}$.
+  But observe that for an arrow $\alpha:i\to j$ of $Q$, we have $X_\alpha(u_{(i,\chi)})=X_{(\alpha,\chi)}(u_{(i,\chi)})\in U_j\cap X_{(j,\chi+e_\alpha)}$, say $X_{(\alpha,\chi)}(u_{(i,\chi)})=u_{(j,\chi+e_\alpha)}$.
+  It follows that
+  \begin{align*}
+    X_\alpha(t.u_i)=\sum\limits_{\chi\in A_Q}X_{(\alpha,\chi)}(t.u_{(i,\chi)})=\sum\limits_{\chi\in A_Q} t^{d(i,\chi)}X_{(\alpha,\chi)}(u_{(i,\chi)})=\sum\limits_{\chi\in A_Q} t^{d(i,\chi)}u_{(j,\chi+e_\alpha)}=t^{-c_\alpha}\sum\limits_{\chi\in A_Q} t.u_{(j,\chi+e_\alpha)}
+  \end{align*}
+  and thus $X_\alpha(t.U_i)\subset t.U_j$ for every arrow $\alpha:i\to j$ of $Q$.
 \end{proof}
 
 
 \begin{lemma}
   \label{degreecondition} 
-  Let $X$ be an indecomposable representation of $\hat Q$. There exists $d:\mathrm{supp} (X)\to\ZZ$ and $c_\alpha\in\mathbb N_+$ for each $\alpha\in Q_1$ such that
+  Let $X$ be an indecomposable representation of $\hat Q$.
+  There exists $d:\mathrm{supp}(X)\to\ZZ$ and $c_\alpha\in\mathbb N_+$ for each $\alpha\in Q_1$ such that
   \begin{enumerate}
-    \item for $(i,\chi),\,(j,\chi')\in\mathrm{supp}(X)$ with $(i,\chi)\neq (j,\chi')$ we have $d(i,\chi)\ne d(j,\chi')$;
+    \item for $(i,\chi),\,(i,\chi')\in\mathrm{supp}(X)$ with $\chi\neq\chi'$, we have $d(i,\chi)\ne d(i,\chi')$;
     \item for $(i,\chi),\,(j,\chi')\in\mathrm{supp}(X)$, we have $d(j,\chi')-d(i,\chi)=c_\alpha$ if and only if $\chi'=\chi+e_\alpha$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  Assume that $|Q_1|=n$.
+  For convenience we introduce the notation $Q_1=\{\alpha_1,\ldots,\alpha_\}$.
   Since $X$ is finite-dimensional and indecomposable, the support quiver $\mathrm{supp}(X)$ is a connected and finite subquiver of $\hat Q$.
   In order to prove the statement, we may assume that $(i,0)\in\mathrm{supp}(X)$ for some $i\in Q_0$.
-  We fix $c_\alpha\in\NN$ and show that we can choose a degree such that the two conditions are satisfied for this choice.
   Let $K$ be the maximal length of a path in $\mathrm{supp}(X)$ starting or ending in $(i,0)$ such that the underlying graph of the path has no cycles.
-  This implies that, for $(i',\chi)\in\mathrm{supp}(X)$ with $\chi=\sum_{j=1}^n d_j\alpha_j$, we have $|d_j|\leq K$.
+  This implies that, for $(i',\chi)\in\mathrm{supp}(X)$ with $\chi=\sum_{l=1}^n \kappa_l e_{\alpha_l}$, we have $|\kappa_l|\leq K$.
 
-  Set $c_{\alpha_1}=1$ and choose $c_{\alpha_j}$ recursively in such way that 
-  \[c_{\alpha_k}\geq 2(K+1)\sum_{j=1}^{k-1} c_{\alpha_j}\]
-  for $k=2,\ldots,n$.  
+  Set $c_{\alpha_1}=1$ and choose $c_{\alpha_l}$ recursively in such way that 
+  \[c_{\alpha_l}\geq 2(K+1)\sum_{k=1}^{l-1} c_{\alpha_k}\]
+  for $l=2,\ldots,n$.  
 
-  Let $f:A_Q\to\ZZ$ be the group homomorphism defined by $f(\alpha)=c_\alpha$ for all $\alpha\in Q_1$ and define $d(i',\chi):=f(\chi)$ for $(i',\chi)\in\mathrm{supp}(X)$.
-  In particular, for $(i',\chi)$ with $\chi=\sum_{j=1}^n d_j\alpha_j$, we have
-  \[d(i',\chi)=\sum_{j=1}^n d_jc_{\alpha_j}.\]
+  Let $f:A_Q\to\ZZ$ be the group homomorphism defined by $f(e_\alpha)=c_\alpha$ for all $\alpha\in Q_1$ and define $d(i',\chi):=f(\chi)$ for $(i',\chi)\in\mathrm{supp}(X)$.
+  In particular, for $(i',\chi)$ with $\chi=\sum_{l=1}^n \kappa_l e_{\alpha_l}$, we have
+  \[d(i',\chi)=\sum_{l=1}^n \kappa_l c_{\alpha_l}.\]
 
-  First note that we have $d(j,\chi+\alpha)-d(i,\chi)=c_\alpha$.
-  Now assume that $d(i,\chi)=d(j,\chi')$ which means that $d(i,\chi)=\sum_{i=1}^n d_ic_{\alpha_i}=\sum_{i=1}^n e_ic_{\alpha_i}=d(j,\chi')$ if $\chi=\sum_{i=1}^n d_ic_{\alpha_i}$ and $\chi'=\sum_{i=1}^n e_ic_{\alpha_i}$.
+  Now assume that $d(i',\chi)=d(i',\chi')$ for $\chi=\sum_{l=1}^n \kappa_l e_{\alpha_l}$ and $\chi'=\sum_{l=1}^n \kappa'_l e_{\alpha_l}$.
   This implies
-  \[\sum_{i=1}^{n-1}(d_i-e_i)c_{\alpha_i}=(e_{n}-d_{n})c_{\alpha_{n}}.\]
-  Since we have $|d_i-e_i|\leq 2K$ as $|d_i|,|e_i|\leq K$, we obtain 
-  \[|\sum_{i=1}^{n-1}(d_i-e_i)c_{\alpha_i}|<2K\sum_{i=1}^{n-1}c_{\alpha_i}\leq c_{\alpha_n}.\]
-  This inductively yields $d_i=e_i$ for $i=n,\ldots,1$ by the choice of $c_{\alpha_i}$. 
+  \[\sum_{l=1}^{n-1}(\kappa_l-\kappa'_l)c_{\alpha_l}=(\kappa'_n-\kappa_n)c_{\alpha_n}.\]
+  But we have $|\kappa_l-\kappa'_l|\leq |\kappa_l|+|\kappa'_l|\le 2K$ and thus we obtain 
+  \[|\sum_{l=1}^{n-1}(\kappa_l-\kappa'_l)c_{\alpha_l}|\le 2K\sum_{l=1}^{n-1}c_{\alpha_l} < c_{\alpha_n}.\]
+  This inductively yields $\kappa_l=\kappa'_l$ for $l=n,\ldots,1$ by the choice of the $c_{\alpha_l}$. 
 
-  Finally, assume that $d(j,\chi')-d(i,\chi)=c_\alpha$.
+  By definition, we have $d(j,\chi+e_\alpha)-d(i,\chi)=c_\alpha$.
+  Assume that $d(j,\chi')-d(i,\chi)=c_\alpha$.
   Then we have $d(j,\chi')=d(j,\chi+e_\alpha)$.
   An analogous proof as the one above shows that $\chi'=\chi+e_\alpha$.
   Note that it is a priori possible that $(j,\chi+e_\alpha)\notin\mathrm{supp}(X)$.
@@ -1083,16 +1083,16 @@ for every $t\in \C^\ast$.
 In the following, we say that $d:\mathrm{supp}(X)\to\ZZ$ satisfies the \emph{degree condition} for $X$ if it has the properties of Lemma~\ref{degreecondition}.
 \begin{theorem}
   Let $X$ be a representation which can be lifted to $\hat Q$ and choose $d:\mathrm{supp}(X)\to \ZZ$ such that it satisfies the degree condition for $X$.
-  Then the torus action of $T$ on $\bigoplus_{i\in Q_0} X_i$ induced by $t.x_{(i,\chi)}=t^{d(i,\chi)}x_{(i,\chi)}$ for $x_{(i,\chi)}\in X_{(i,\chi)}$ induces a torus action on $\Gr_\bfe^Q(X)$ such that
-  \[\Gr^Q_\bfe(X)^T\cong\bigsqcup_{\hat\bfe} \Gr^{\hat Q}_{\hat\bfe}(\hat X),\]
+  Then the torus action on $\bigoplus_{i\in Q_0} X_i$ induced by $t.x_{(i,\chi)}=t^{d(i,\chi)}x_{(i,\chi)}$ for $x_{(i,\chi)}\in X_{(i,\chi)}$ induces a torus action on $\Gr_\bfe^Q(X)$ such that
+  \[\Gr^Q_\bfe(X)^{\CC^*}\cong\bigsqcup_{\hat\bfe} \Gr^{\hat Q}_{\hat\bfe}(\hat X),\]
   where $\hat\bfe$ runs through all dimension vectors compatible with $\bfe$.
 \end{theorem}
 \begin{proof}
   A representation $U\in\Gr_{\bfe}(X)$ is a torus fixed point if and only if $t.U=U $ for all $t\in\C^\ast$, i.e.\ $t.U_i=U_i$ for all $i\in Q_0$, $t\in\C^\ast$.
-  Thus, apart from being a subrepresentation of $X$, it is a fixed point of the torus actions on the usual Grassmannians $\Gr_{\bfe_i}(X_i)$ induced by the decompositions $X_i=\bigoplus_{\chi\in A_Q} X_{i,\chi}$.
-  A subrepresentation $U\subset X$ can be lifted to the universal abelian covering if and only if
-  \[X_i\cap U_i=\bigoplus_{\chi\in A_Q} X_{(i,\chi)}\cap U_{(i,\chi)}=\bigoplus_{\chi\in A_Q} U_{(i,\chi)}.\]
-  Thus we can apply Lemma~\ref{usualGrass} to obtain the claim.
+  Thus, apart from being a subrepresentation of $X$, each component $U_i$ is a fixed point of the torus actions on the usual Grassmannian $\Gr_{\bfe_i}(X_i)$ induced by the decompositions $X_i=\bigoplus_{\chi\in A_Q} X_{(i,\chi)}$.
+  By Lemma~\ref{usualGrass}, this holds precisely when we have a decomposition 
+  \[U_i=\bigoplus_{\chi\in A_Q} U_i\cap X_{(i,\chi)}\]
+  which is equivalent to $U$ being liftable to the universal abelian covering.
 \end{proof}
 The next step is to iterate the torus action keeping in mind the following idea: every representation, which lifts to the universal covering quiver, also lifts to the universal abelian covering quiver and also to the iterated universal abelian covering quivers, i.e. to $\hat Q^{(k)}:=\widehat{\hat Q^{(k-1)}}$ with $\hat Q=\hat Q^{(1)}$. Now it is straightforward to check that there exist natural surjective morphisms $f_k:\tilde Q\to \hat Q^{(k)}$ which become injective on finite subquivers if $k\gg 0$, see also \cite[Section 3.4]{wei}. Since the support of $X$ is finite as a representation of $\tilde Q$, we can find $k\geq 1$ such that the full subquiver with vertices $\mathrm{supp}(X)\subseteq \hat Q^{(k)}_0$ is a tree. Thus, if $\hat X^{(k)}$ is the lift of $X$ to $\hat Q^{(k)}$, there exists a torus action on the vector spaces $\hat X^{(k)}_q$ which induce a torus action on the quiver Grassmannian $\Gr_{\bfe}^{\hat Q^{(k)}}(\hat X^{(k)})$. If we denote the iterated torus fixed points by $\Gr^Q_\bfe(X)^{T^{(k)}}$. We obtain:
 \begin{corollary}
