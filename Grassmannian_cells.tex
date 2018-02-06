@@ -976,16 +976,15 @@ The following result of Bialynicki-Birula relates the geometry of $X$ to the geo
 \subsection{Torus Actions}
 \label{torusaction}
 Fix a vector space $X$ of dimension $n$ and let $k\leq n$.
-We first consider a natural torus action on usual Grassmannians coming along with any direct sum decomposition of the vector space $X$.
+We first consider a natural torus action on the usual Grassmannian $\Gr_k(X)$ which is compatible with a given direct sum decomposition of the vector space $X$.
 Then we generalize the concept to quiver Grassmannians and observe that the torus fixed point sets can be calculated in an analogous manner.
 
-Assume that $X=\bigoplus_{j=1}^l X_j$ is a direct sum decomposition of $X$.
-We choose a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of~$X$ which is compatible with this decomposition, i.e.\ there exist numbers $0=r_0<r_1<r_2<\cdots<r_{l-1}<r_l=n$ such that
-\[v_{r_0+1},\ldots,v_{r_1}\in X_1,\quad v_{r_1+1},\ldots,v_{r_2}\in X_2,\quad\cdots\quad v_{r_{l-1}+1},\ldots,v_{r_l}\in X_l.\]
-Moreover, we choose a map $d:\{1,\ldots,n\}\to\ZZ$ such that $d(i)=d(i')$ if $v_i,v_{i'}\in X_j$ for some $j$.
-Then there exists a $\C^\ast$-action on $X$ when linearly extending the definition $t.v_i:=t^{d(i)}v_i$ for $i=1,\ldots,n$ to all of~$X$.
-This naturally induces an action of $\C^\ast$ on the usual Grassmannians $\Gr_k(X)$.
-We can represent each subspace~$U\in\Gr_k(X)$ uniquely as a matrix $M(U)$ in row-echelon form with respect to the basis $\mathcal B$, i.e.\ there exists a unique sequence $1\leq i_1<\ldots<i_k\leq n$ so that $M(U)$ is of the form
+Given a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of $X$ and a map $d:\{1,\ldots,n\}\to\ZZ$, we get a $\C^\ast$-action on $X$ when linearly extending the definition $t.v_r:=t^{d(r)}v_r$ for $r=1,\ldots,n$ to all of $X$.
+This naturally induces an action of $\C^\ast$ on the Grassmannian $\Gr_k(X)$.
+Our goal is to understand the fixed points of this action.
+
+For this recall that we can represent each subspace~$U\in\Gr_k(X)$ uniquely by a $k\times n$ matrix $M(U)$ whose rows provide a basis for $U$ when expanded as coefficient vectors in the basis $\mathcal B$.
+The uniqueness of $M(U)$ comes from requiring that it be in row-echelon form, i.e.\ there exists a unique sequence $1\leq i_1<\ldots<i_k\leq n$ so that $M(U)$ is of the form
 \[M(U):=
   \begin{pmatrix}
     \ast&\cdots &\ast &1&0 &\cdots& 0 & 0 & 0 &\cdots&0&0&0&\cdots&0\\
@@ -994,26 +993,30 @@ We can represent each subspace~$U\in\Gr_k(X)$ uniquely as a matrix $M(U)$ in row
     \vdots &\ddots&\vdots&\vdots&\vdots &\ddots&\vdots&\vdots&\vdots&\ddots&\vdots&\vdots&\vdots&\ddots&\vdots\\
     \ast&\cdots &\ast&0&\ast&\cdots &\ast&0&\ast&\cdots&0&0&0&\cdots&0\\
     \ast&\cdots &\ast&0&\ast&\cdots &\ast&0&\ast&\cdots&\ast&1&0&\cdots&0
-  \end{pmatrix}\in M_{k,n}(k),\]
+  \end{pmatrix}\in M_{k,n}(\CC),\]
 where the unit vectors are in the columns $\bfi=(i_1,\ldots,i_k)$.
-The set of all subspaces of $X$ represented by matrices of this fixed form define the \emph{Schubert cell} $X_\bfi$.
-The $\C^\ast$-action is then given by multiplying the $w^{\mathrm{th}}$ column with $t^{d(w)}$, i.e.\ we have
-\[(t.M(U))_{u,w}=t^{d(w)}\cdot M(U)_{u,w}\]
-for $w=1,\ldots,n$.
-Every Schubert cell is invariant under the torus action, i.e.\ $t.M(U)\in X_\bfi$ for all $M(U)\in X_{\bfi}$. 
+The set of all $U\in\Gr_k(X)$ represented by matrices of this fixed form gives the \emph{Schubert cell} $X_\bfi$.
+
+The $\C^\ast$-action on $U\in\Gr_k(X)$ can then be described in terms of the matrix representation $M(U)$, that is for $U\in X_\bfi$ we have
+\[M(t.U)_{qr}=t^{d(r)-d(i_q)} M(U)_{qr}\]
+for $q=1,\ldots,k$ and $r=1,\ldots,n$.
+Observe that each Schubert cell $X_\bfi$ is invariant under this torus action.
+
+Assume that $X=\bigoplus_{l=1}^m X_l$ is a direct sum decomposition of $X$ and fix a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of~$X$ which is compatible with this decomposition, i.e.\ there exist numbers $0=r_0<r_1<r_2<\cdots<r_{m-1}<r_m=n$ such that
+\[v_{r_0+1},\ldots,v_{r_1}\in X_1,\quad v_{r_1+1},\ldots,v_{r_2}\in X_2,\quad\cdots\quad v_{r_{m-1}+1},\ldots,v_{r_m}\in X_m.\]
 \begin{lemma}
   \label{usualGrass}
-  Consider $d:\{1,\ldots,n\}\to\ZZ$ for which $d(i)\neq d(i')$ if $v_i\in X_j$ and $v_{i'}\in X_{j'}$ with $j\neq j'$.
-  Then we have $U\in X_{\bfi}^{\C^\ast}$ if and only if $U=\bigoplus_{j=1}^l U\cap X_j$.
+  Consider a map $d:\{1,\ldots,n\}\to\ZZ$ such that $d(r)=d(r')$ if $v_r,v_{r'}\in X_l$ for some $l$ and $d(r)\neq d(r')$ if $v_r\in X_l$ and $v_{r'}\in X_{l'}$ with $l\neq l'$.
+  Then under the $\CC^*$-action determined by $d$, we have $U\in\Gr_k(X)^{\C^\ast}$ if and only if $U=\bigoplus_{l=1}^m U\cap X_l$.
 \end{lemma}
 \begin{proof}
-  If $U=\bigoplus_{j=1}^l U\cap X_j$, we have 
-  \[t.U=\bigoplus_{j=1}^l t.(U\cap X_j)=\bigoplus_{j=1}^l t^{d(r_j)}(U\cap X_j)=U.\]
-  Assume that $U$ is a torus fixed with $M(U)\in X_{\bfi}$.
-  Fix the $w^{\mathrm{th}}$ column $M(U)_w$ and assume that $v_w\in X_j$. 
-  As the matrix representation $M(U)$ is uniquely determined, the assumptions on $d$ imply that all matrix coefficients corresponding to a basis element $v_i$ with $v_i\notin X_j$ are zero.
-  This means that $\widehat{M(U)}_w\in X_j$, where~$\widehat{M(U)}_w$ is the vector of $U$ corresponding to $M(U)_w$.
-  As the colums are linearly independent, this already shows the claim.
+  Assume $U=\bigoplus_{l=1}^m U\cap X_l$.
+  Then any $u\in U$ can be written uniquely as $u=\sum_{l=1}^m u_l$ for some $u_l\in U\cap X_l$.
+  It follows that $t.u=\sum_{l=1}^m t.u_l=\sum_{l=1}^m t^{d(r_l)}u_l\in\bigoplus_{l=1}^m U\cap X_l=U$ and thus $t.U=U$. 
+
+  For the reverse direction, assume $U\in X_{\bfi}$ is a torus fixed point represented by the matrix $M(U)$.
+  Then, if~$v_{i_q}\in X_l$, the assumptions on $d$ imply $M(U)_{qr}=0$ unless $r_{l-1}+1\le r\le r_l$.
+  That is, $M(U)$ has the shape of a block matrix representing the decomposition $U=\bigoplus_{l=1}^m U\cap X_l$.
 \end{proof}
 The next step is to generalize this to quiver Grassmannians.
 Let $Q$ be an acyclic quiver.
@@ -1051,7 +1054,7 @@ Indeed, for this such an action must satisfy $X_\alpha(t.U_i)\subset t.U_j$ for 
   \end{enumerate}
 \end{lemma}
 \begin{proof}
-  For convenience we introduce the notation $Q_1=\{\alpha_1,\ldots,\alpha_\}$.
+  For convenience we introduce the notation $Q_1=\{\alpha_1,\ldots,\alpha_n\}$.
   Since $X$ is finite-dimensional and indecomposable, the support quiver $\mathrm{supp}(X)$ is a connected and finite subquiver of $\hat Q$.
   In order to prove the statement, we may assume that $(i,0)\in\mathrm{supp}(X)$ for some $i\in Q_0$.
   Let $K$ be the maximal length of a path in $\mathrm{supp}(X)$ starting or ending in $(i,0)$ such that the underlying graph of the path has no cycles.
