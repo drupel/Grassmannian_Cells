@@ -77,6 +77,7 @@
 %\newcommand{\sesm}[4]{0\rightarrow #1\rightarrow #2\xrightarrow{#4}#3\rightarrow 0}
 \newcommand{\Sc}[2]{\langle #1,#2\rangle}
 \newcommand{\spn}{\operatorname{span}}
+\newcommand{\supp}{\operatorname{supp}}
 \setcounter{MaxMatrixCols}{20}
 \newcommand{\vs}{\vspace{0.2cm}}
 \hyphenation{endo-functors}
@@ -981,7 +982,7 @@ Then we generalize the concept to quiver Grassmannians and observe that the toru
 
 Given a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of $X$ and a map $d:\{1,\ldots,n\}\to\ZZ$, we get a $\C^\ast$-action on $X$ when linearly extending the definition $t.v_r:=t^{d(r)}v_r$ for $r=1,\ldots,n$ to all of $X$.
 This naturally induces an action of $\C^\ast$ on the Grassmannian $\Gr_k(X)$.
-Our goal is to understand the fixed points of this action.
+Our goal is to understand the fixed points of such an action.
 
 For this recall that we can represent each subspace~$U\in\Gr_k(X)$ uniquely by a $k\times n$ matrix $M(U)$ whose rows provide a basis for $U$ when expanded as coefficient vectors in the basis $\mathcal B$.
 The uniqueness of $M(U)$ comes from requiring that it be in row-echelon form, i.e.\ there exists a unique sequence $1\leq i_1<\ldots<i_k\leq n$ so that $M(U)$ is of the form
@@ -1005,7 +1006,7 @@ Observe that each Schubert cell $X_\bfi$ is invariant under this torus action.
 Assume that $X=\bigoplus_{l=1}^m X_l$ is a direct sum decomposition of $X$ and fix a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of~$X$ which is compatible with this decomposition, i.e.\ there exist numbers $0=r_0<r_1<r_2<\cdots<r_{m-1}<r_m=n$ such that
 \[v_{r_0+1},\ldots,v_{r_1}\in X_1,\quad v_{r_1+1},\ldots,v_{r_2}\in X_2,\quad\cdots\quad v_{r_{m-1}+1},\ldots,v_{r_m}\in X_m.\]
 \begin{lemma}
-  \label{usualGrass}
+  \label{le:usualGrass}
   Consider a map $d:\{1,\ldots,n\}\to\ZZ$ such that $d(r)=d(r')$ if $v_r,v_{r'}\in X_l$ for some $l$ and $d(r)\neq d(r')$ if $v_r\in X_l$ and $v_{r'}\in X_{l'}$ with $l\neq l'$.
   Then under the $\CC^*$-action determined by $d$, we have $U\in\Gr_k(X)^{\C^\ast}$ if and only if $U=\bigoplus_{l=1}^m U\cap X_l$.
 \end{lemma}
@@ -1024,7 +1025,7 @@ We choose a map $d:\hat Q_0\to\ZZ$ and fix a representation $X\in\rep Q$ which c
 We can consider the decomposition $X_i=\bigoplus_{\chi\in A_Q} X_{(i,\chi)}$ and define a torus action on each $X_{(i,\chi)}$ via $t.x_{(i,\chi)}=t^{d(i,\chi)}x_{(i,\chi)}$ which can be extended linearly to each $X_i$.
 Associated to each subspace $U_i$, there is a corresponding subspace $t.U_i$ for each $t\in\CC^*$.
 In general, this does not induce a torus action on the quiver Grassmannians $\Gr_\bfe(X)$ since $t.U=(t.U_i)_{i\in Q_0}$ is not necessarily a subrepresentation of $X$ for every $U\in\Gr_\bfe(X)$.
-Indeed, for this such an action must satisfy $X_\alpha(t.U_i)\subset t.U_j$ for every arrow $\alpha:i\to j$ of $Q$. 
+Indeed, for this such an action must satisfy $X_\alpha(t.U_i)\subset t.U_j$ for every arrow $\alpha:i\to j$ of $Q$ and every $t\in\CC^*$. 
 \begin{lemma}
   Let $X$ be a representation of $Q$ which can be lifted to $\hat Q$.
   Fix an integer $c_\alpha\in\ZZ$ for each~$\alpha\in Q_1$.
@@ -1032,72 +1033,73 @@ Indeed, for this such an action must satisfy $X_\alpha(t.U_i)\subset t.U_j$ for 
   Then the torus action on $X$ determined by $d$ induces a torus action on $\Gr_\bfe(X)$.
 \end{lemma}
 \begin{proof} 
-  Since $X$ can be lifted, for any arrow $\alpha\in Q_1$ we can write $X_\alpha:X_i\to X_j$ as a block matrix consisting of linear maps $X_{(\alpha,\chi)}:X_{(i,\chi)}\to X_{(j,\chi+e_\alpha)}$ for $\chi\in A_Q$.
   Fix $U\in\Gr_\bfe(X)$ and consider $u_i\in U_i$.
-  Then we can write $u_i=\sum_{\chi\in A_Q} u_{(i,\chi)}$ for some vectors $u_{(i,\chi)}\in U_i\cap X_{(i,\chi)}$.
-  But observe that for an arrow $\alpha:i\to j$ of $Q$, we have $X_\alpha(u_{(i,\chi)})=X_{(\alpha,\chi)}(u_{(i,\chi)})\in U_j\cap X_{(j,\chi+e_\alpha)}$, say $X_{(\alpha,\chi)}(u_{(i,\chi)})=u_{(j,\chi+e_\alpha)}$.
-  It follows that
+  Since $U$ is a subrepresentation, for an arrow $\alpha:i\to j$ of $Q$ we may write $X_\alpha(u_i)=u_j$ for some $u_j\in U_j$.
+
+  As $X$ can be lifted to $\hat Q$, for any arrow $\alpha\in Q_1$ we can write $X_\alpha:X_i\to X_j$ as a block matrix consisting of linear maps $X_{(\alpha,\chi)}:X_{(i,\chi)}\to X_{(j,\chi+e_\alpha)}$ for $\chi\in A_Q$.
+  Then writing $u_i=\sum_{\chi\in A_Q} u_{(i,\chi)}$ for some vectors $u_{(i,\chi)}\in X_{(i,\chi)}$, we have $X_\alpha(u_{(i,\chi)})=X_{(\alpha,\chi)}(u_{(i,\chi)})\in X_{(j,\chi+e_\alpha)}$, say $X_{(\alpha,\chi)}(u_{(i,\chi)})=u_{(j,\chi+e_\alpha)}$.
+  It follows that $u_j=\sum_{\chi\in A_Q} u_{(j,\chi+e_\alpha)}$ and so
   \begin{align*}
-    X_\alpha(t.u_i)=\sum\limits_{\chi\in A_Q}X_{(\alpha,\chi)}(t.u_{(i,\chi)})=\sum\limits_{\chi\in A_Q} t^{d(i,\chi)}X_{(\alpha,\chi)}(u_{(i,\chi)})=\sum\limits_{\chi\in A_Q} t^{d(i,\chi)}u_{(j,\chi+e_\alpha)}=t^{-c_\alpha}\sum\limits_{\chi\in A_Q} t.u_{(j,\chi+e_\alpha)}
+    X_\alpha(t.u_i)
+    &=\sum\limits_{\chi\in A_Q} t^{d(i,\chi)}X_{(\alpha,\chi)}(u_{(i,\chi)})=\sum\limits_{\chi\in A_Q} t^{d(i,\chi)}u_{(j,\chi+e_\alpha)}=t^{-c_\alpha}\sum\limits_{\chi\in A_Q} t.u_{(j,\chi+e_\alpha)}=t^{-c_\alpha} t.u_j.
   \end{align*}
-  and thus $X_\alpha(t.U_i)\subset t.U_j$ for every arrow $\alpha:i\to j$ of $Q$.
+  Therefore $X_\alpha(t.U_i)\subset t.U_j$ for every arrow $\alpha:i\to j$ of $Q$ and we obtain a $\CC^*$-action on $\Gr_\bfe(X)$.
 \end{proof}
 
-
+The next result provides conditions required of the map $d:\hat Q_0\to\ZZ$ needed to get an analogue of Lemma~\ref{le:usualGrass}
 \begin{lemma}
-  \label{degreecondition} 
-  Let $X$ be an indecomposable representation of $\hat Q$.
-  There exists $d:\mathrm{supp}(X)\to\ZZ$ and $c_\alpha\in\mathbb N_+$ for each $\alpha\in Q_1$ such that
+  \label{le:degree condition} 
+  Let $\hat X$ be an indecomposable representation of $\hat Q$.
+  There exists $d:\supp(X)\to\ZZ$ and $c_\alpha\in\mathbb N_+$ for each $\alpha\in Q_1$ such that
   \begin{enumerate}
-    \item for $(i,\chi),\,(i,\chi')\in\mathrm{supp}(X)$ with $\chi\neq\chi'$, we have $d(i,\chi)\ne d(i,\chi')$;
-    \item for $(i,\chi),\,(j,\chi')\in\mathrm{supp}(X)$, we have $d(j,\chi')-d(i,\chi)=c_\alpha$ if and only if $\chi'=\chi+e_\alpha$.
+    \item for $(i,\chi),\,(i,\chi')\in\supp(X)$ with $\chi\neq\chi'$, we have $d(i,\chi)\ne d(i,\chi')$;
+    \item for $(i,\chi),\,(j,\chi')\in\supp(X)$, we have $d(j,\chi')-d(i,\chi)=c_\alpha$ if and only if $\chi'=\chi+e_\alpha$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
   For convenience we introduce the notation $Q_1=\{\alpha_1,\ldots,\alpha_n\}$.
-  Since $X$ is finite-dimensional and indecomposable, the support quiver $\mathrm{supp}(X)$ is a connected and finite subquiver of $\hat Q$.
-  In order to prove the statement, we may assume that $(i,0)\in\mathrm{supp}(X)$ for some $i\in Q_0$.
-  Let $K$ be the maximal length of a path in $\mathrm{supp}(X)$ starting or ending in $(i,0)$ such that the underlying graph of the path has no cycles.
-  This implies that, for $(i',\chi)\in\mathrm{supp}(X)$ with $\chi=\sum_{l=1}^n \kappa_l e_{\alpha_l}$, we have $|\kappa_l|\leq K$.
+  Since $X$ is finite-dimensional and indecomposable, the support quiver $\supp(X)$ is a connected and finite subquiver of $\hat Q$.
+  In order to prove the statement, we may assume that $(i',0)\in\supp(X)$ for some $i'\in Q_0$.
+  Let $K$ be the maximal length of a path in $\supp(X)$ starting or ending in $(i',0)$ such that the underlying graph of the path has no cycles.
+  This implies that, for $(i,\chi)\in\supp(X)$ with $\chi=\sum_{l=1}^n \kappa_l e_{\alpha_l}$, we have $|\kappa_l|\leq K$.
 
   Set $c_{\alpha_1}=1$ and choose $c_{\alpha_l}$ recursively in such way that 
   \[c_{\alpha_l}\geq 2(K+1)\sum_{k=1}^{l-1} c_{\alpha_k}\]
   for $l=2,\ldots,n$.  
+  Then let $f:A_Q\to\ZZ$ be the group homomorphism defined by $f(e_\alpha)=c_\alpha$ for all $\alpha\in Q_1$ and define $d(i,\chi):=f(\chi)$ for $(i,\chi)\in\supp(X)$.
+  %In particular, for $(i',\chi)$ with $\chi=\sum_{l=1}^n \kappa_l e_{\alpha_l}$, we have
+  %\[d(i',\chi)=\sum_{l=1}^n \kappa_l c_{\alpha_l}.\]
 
-  Let $f:A_Q\to\ZZ$ be the group homomorphism defined by $f(e_\alpha)=c_\alpha$ for all $\alpha\in Q_1$ and define $d(i',\chi):=f(\chi)$ for $(i',\chi)\in\mathrm{supp}(X)$.
-  In particular, for $(i',\chi)$ with $\chi=\sum_{l=1}^n \kappa_l e_{\alpha_l}$, we have
-  \[d(i',\chi)=\sum_{l=1}^n \kappa_l c_{\alpha_l}.\]
-
-  Now assume that $d(i',\chi)=d(i',\chi')$ for $\chi=\sum_{l=1}^n \kappa_l e_{\alpha_l}$ and $\chi'=\sum_{l=1}^n \kappa'_l e_{\alpha_l}$.
+  To check property (1), assume that $d(i,\chi)=d(i,\chi')$ for $\chi=\sum_{l=1}^n \kappa_l e_{\alpha_l}$ and $\chi'=\sum_{l=1}^n \kappa'_l e_{\alpha_l}$.
   This implies
   \[\sum_{l=1}^{n-1}(\kappa_l-\kappa'_l)c_{\alpha_l}=(\kappa'_n-\kappa_n)c_{\alpha_n}.\]
   But we have $|\kappa_l-\kappa'_l|\leq |\kappa_l|+|\kappa'_l|\le 2K$ and thus we obtain 
-  \[|\sum_{l=1}^{n-1}(\kappa_l-\kappa'_l)c_{\alpha_l}|\le 2K\sum_{l=1}^{n-1}c_{\alpha_l} < c_{\alpha_n}.\]
-  This inductively yields $\kappa_l=\kappa'_l$ for $l=n,\ldots,1$ by the choice of the $c_{\alpha_l}$. 
+  \[|\kappa'_n-\kappa_n|c_{\alpha_n}=\left|\sum_{l=1}^{n-1}(\kappa_l-\kappa'_l)c_{\alpha_l}\right|\le 2K\sum_{l=1}^{n-1}c_{\alpha_l} < c_{\alpha_n}.\]
+  This inductively yields $\kappa_l=\kappa'_l$ for $l=n,\ldots,1$ by the choice of the $c_{\alpha_l}$ and thus $\chi=\chi'$. 
 
-  By definition, we have $d(j,\chi+e_\alpha)-d(i,\chi)=c_\alpha$.
-  Assume that $d(j,\chi')-d(i,\chi)=c_\alpha$.
-  Then we have $d(j,\chi')=d(j,\chi+e_\alpha)$.
-  An analogous proof as the one above shows that $\chi'=\chi+e_\alpha$.
-  Note that it is a priori possible that $(j,\chi+e_\alpha)\notin\mathrm{supp}(X)$.
-  Thus we chose $c_{\alpha_j}$ in such a way that it is greater than $2(K+1)\sum_{i=1}^{j-1}c_{\alpha_i}$. 
+  By definition, we have $d(j,\chi+e_\alpha)-d(i,\chi)=c_\alpha$ when $(j,\chi+e_\alpha)\in\supp(X)$.
+  Now assuming $d(j,\chi')-d(i,\chi)=c_\alpha$, an analogous argument to the one above shows that $\chi'=\chi+e_\alpha$.
 \end{proof}
 
-In the following, we say that $d:\mathrm{supp}(X)\to\ZZ$ satisfies the \emph{degree condition} for $X$ if it has the properties of Lemma~\ref{degreecondition}.
+In the following, we say that $d:\supp(X)\to\ZZ$ satisfies the \emph{degree condition} for $X$ if it has the properties of Lemma~\ref{le:degree condition}.
 \begin{theorem}
-  Let $X$ be a representation which can be lifted to $\hat Q$ and choose $d:\mathrm{supp}(X)\to \ZZ$ such that it satisfies the degree condition for $X$.
+  Let $X$ be a representation of $Q$ which can be lifted to a representation $\hat X$ of $\hat Q$ and choose $d:\supp(\hat X)\to\ZZ$ such that it satisfies the degree condition for $X$.
   Then the torus action on $\bigoplus_{i\in Q_0} X_i$ induced by $t.x_{(i,\chi)}=t^{d(i,\chi)}x_{(i,\chi)}$ for $x_{(i,\chi)}\in X_{(i,\chi)}$ induces a torus action on $\Gr_\bfe^Q(X)$ such that
   \[\Gr^Q_\bfe(X)^{\CC^*}\cong\bigsqcup_{\hat\bfe} \Gr^{\hat Q}_{\hat\bfe}(\hat X),\]
   where $\hat\bfe$ runs through all dimension vectors compatible with $\bfe$.
 \end{theorem}
 \begin{proof}
-  A representation $U\in\Gr_{\bfe}(X)$ is a torus fixed point if and only if $t.U=U $ for all $t\in\C^\ast$, i.e.\ $t.U_i=U_i$ for all $i\in Q_0$, $t\in\C^\ast$.
-  Thus, apart from being a subrepresentation of $X$, each component $U_i$ is a fixed point of the torus actions on the usual Grassmannian $\Gr_{\bfe_i}(X_i)$ induced by the decompositions $X_i=\bigoplus_{\chi\in A_Q} X_{(i,\chi)}$.
-  By Lemma~\ref{usualGrass}, this holds precisely when we have a decomposition 
+  A representation $U\in\Gr_{\bfe}(X)$ is a torus fixed point if and only if $t.U=U $ for all $t\in\C^\ast$, i.e.\ $t.U_i=U_i$ for all $i\in Q_0$ and all $t\in\C^\ast$.
+  Thus, apart from being a subrepresentation of $X$, each component $U_i$ is a fixed point of the induced torus actions on the usual Grassmannian $\Gr_{\bfe_i}(X_i)$.
+  By Lemma~\ref{le:usualGrass}, this holds precisely when we have a decomposition 
   \[U_i=\bigoplus_{\chi\in A_Q} U_i\cap X_{(i,\chi)}\]
   which is equivalent to $U$ being liftable to the universal abelian covering.
 \end{proof}
-The next step is to iterate the torus action keeping in mind the following idea: every representation, which lifts to the universal covering quiver, also lifts to the universal abelian covering quiver and also to the iterated universal abelian covering quivers, i.e. to $\hat Q^{(k)}:=\widehat{\hat Q^{(k-1)}}$ with $\hat Q=\hat Q^{(1)}$. Now it is straightforward to check that there exist natural surjective morphisms $f_k:\tilde Q\to \hat Q^{(k)}$ which become injective on finite subquivers if $k\gg 0$, see also \cite[Section 3.4]{wei}. Since the support of $X$ is finite as a representation of $\tilde Q$, we can find $k\geq 1$ such that the full subquiver with vertices $\mathrm{supp}(X)\subseteq \hat Q^{(k)}_0$ is a tree. Thus, if $\hat X^{(k)}$ is the lift of $X$ to $\hat Q^{(k)}$, there exists a torus action on the vector spaces $\hat X^{(k)}_q$ which induce a torus action on the quiver Grassmannian $\Gr_{\bfe}^{\hat Q^{(k)}}(\hat X^{(k)})$. If we denote the iterated torus fixed points by $\Gr^Q_\bfe(X)^{T^{(k)}}$. We obtain:
+The next step is to iterate the torus action keeping in mind the following idea: every representation, which lifts to the universal covering quiver, also lifts to the universal abelian covering quiver and also to the iterated universal abelian covering quivers, i.e.\ to $\hat Q^{(k)}:=\widehat{\hat Q^{(k-1)}}$ with $\hat Q=\hat Q^{(1)}$.
+Now it is straightforward to check that there exist natural surjective morphisms $f_k:\widetilde Q\to \hat Q^{(k)}$ which become injective on finite subquivers if $k\gg 0$, see also \cite[Section 3.4]{wei}.
+Since the support of $X$ is finite as a representation of $\tilde Q$, we can find $k\geq 1$ such that the full subquiver with vertices $\supp(X)\subseteq \hat Q^{(k)}_0$ is a tree.
+Thus, if $\hat X^{(k)}$ is the lift of $X$ to $\hat Q^{(k)}$, there exists a torus action on the vector spaces $\hat X^{(k)}_i$ which induce a torus action on the quiver Grassmannian $\Gr_{\bfe}^{\hat Q^{(k)}}(\hat X^{(k)})$.
+If we denote the iterated torus fixed points by $\Gr^Q_\bfe(X)^{T^{(k)}}$, we obtain the following result.
 \begin{corollary}
 Let $X$ be a representation which can be lifted to $\tilde Q$. Then there exists an iterated torus action such that
   $$\Gr^Q_\bfe(X)^{T^{(k)}}\cong \bigsqcup_{\hat\bfe^{(k-1)}} \Gr_{\hat\bfe^{(k-1)}}^{\hat Q^{(k-1)}}(\hat X^{(k-1)})^T\cong \bigsqcup_{\hat\bfe^{(k)}} \Gr^{\hat Q}_{\hat\bfe^{(k)}}(\hat X^{(k)})\cong \bigsqcup_{\tilde\bfe} \Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$$ where $\hat\bfe^{(k-1)},\,\hat\bfe^{(k)},\,\tilde\bfe$ run through all dimension vectors compatible with $\bfe$.
