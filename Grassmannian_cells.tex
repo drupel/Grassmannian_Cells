@@ -65,6 +65,7 @@
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\rk}{\mathrm{rk}}
 \newcommand{\cQ}{\mathcal{Q}}
+\newcommand{\Att}{\operatorname{Att}}
 \newcommand{\Ext}{\operatorname{Ext}}
 \newcommand{\Hom}{\operatorname{Hom}}
 \newcommand{\im}{\operatorname{im}}
@@ -958,23 +959,26 @@ For $w\in W_n$, we write $\pi_{m+1,w}^{I,J}:\tilde P_{m+1,w}^I\to\tilde P_{m+1,w
 \section{Quiver Grassmannians}
 \label{QG}
 
-\subsection{Bialynicki-Birula decomposition}
+\subsection{Torus Actions and the Bialynicki-Birula Decomposition}
 The aim of Section \ref{torusaction} is to define a torus action on quiver Grassmannians which can be used to simplify the calculation of homological invariants in general.
 If the quiver Grassmannian is smooth, which is for instance the case for exceptional representations by \cite{cr}, it can also be used to stratify the quiver Grassmannians using the results of Bialynicki-Birula.
 More specifically, let $X$ be a smooth projective variety with a $\C^\ast$-action.
 For a connected component of the fixed point set $C\subset X^{\C^\ast}$, we define its attracting set as
-\[\mathrm{Att}(C):=\{y\in X\mid \lim_{t\to 0}t.y\in C\}\]
+\[\Att(C):=\{y\in X\mid \lim_{t\to 0}t.y\in C\}.\]
 The following result of Bialynicki-Birula relates the geometry of $X$ to the geometry of its torus fixed points.
-\begin{theorem}\label{thm:bb}
+\begin{theorem}
+  \label{thm:bb}
   \cite[Section 4]{bb}
-  Let $X^{\C^\ast}=\coprod_{i=1}^r C_i$ be the decomposition of the fixed point set of $X$ into connected components.
-  Then $\mathrm{Att}(C_i)$ is a locally closed smooth $\C^\ast$-invariant subvariety of $X$ containing $C_i$ as a subvariety.
-  Moreover, we have $X=\coprod_{i=1}^r\mathrm{Att}(C_i)$ and the natural map $\gamma_i:\mathrm{Att}(C_i)\to C_i$ is an affine vector bundle. 
+  Each attracting set $\Att(C)$ is a locally closed $\CC^*$-invariant subvariety of $X$ and the natural map $\Att(C)\to C$ is a vector bundle.
+  Moreover, assuming $X^{\C^\ast}=\coprod_{i=1}^r C_i$ is a decomposition of the fixed point set of $X$ into finitely many connected components, we have $X=\coprod_{i=1}^r \Att(C_i)$.
   In particular, we have an equality of Euler characteristics $\chi(X)=\chi(X^{\C^\ast})$.
 \end{theorem}
 
+If each component $C_i$ admits a decomposition into affine spaces, Theorem~\ref{thm:bb} implies the same is true of $X$.
+Indeed, we can trivialize each vector bundle $\Att(C_i)\to C_i$ over each affine piece of $C_i$ to get a decomposition of $X$ into affine spaces.
 
-\subsection{Torus Actions}
+
+\subsection{Torus Actions on Quiver Grassmannians}
 \label{torusaction}
 Fix a vector space $X$ of dimension $n$ and let $k\leq n$.
 We first consider a natural torus action on the usual Grassmannian $\Gr_k(X)$ which is compatible with a given direct sum decomposition of the vector space $X$.
@@ -1124,6 +1128,7 @@ An important special case for this is the case of exceptional representations. I
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{$GL_n$ Action on Arrows of $K(n)$}
+The goal of this section is to prove Theorem~\ref{thm:truncpp} showing that quiver Grassmannians of truncated preprojectives $P_{m+1}^V$ are smooth and only depend on the dimension of the subspace $V\subsetneq H_m$.
 We begin by observing that $GL_n(\CC)$ naturally acts on the vector space $A_1=\bigoplus_{i=1}^n \CC\alpha_i$ spanned by the arrows of $K(n)$ and hence $GL_n(\CC)$ acts on $\rep K(n)$ via the induced action on the path algebra $A(n)$.
 More precisely, given a representation $M=(M_1,M_2,M_{\alpha_i})$ of $K(n)$ and $g=(g_{ij})\in GL_n(\CC)$, the representation $g.M$ is given by $(M_1,M_2,(g.M)_{\alpha_i})$ with $(g.M)_{\alpha_i}=\sum\limits_{j=1}^n g_{ij}M_{\alpha_j}$.
 Note that $M$ and $g.M$ are not necessarily isomorphic as representations of $K(n)$.
@@ -1159,12 +1164,12 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
 \begin{proof}
   We present all the details for $\Sigma_2$, the proof for $\Sigma_1$ is similar.
   For $M\in\rep K(n)$, we have $\Sigma_2(M)=(M_1,M'_2,M'_{\alpha_i})$, where $M'_2$ fits into the following exact sequence:
-  \[\xymatrix{0 \ar[r] & M_2 \ar[r]^{\bigoplus\limits_{i=1}^n M_{\alpha_i}} & \bigoplus\limits_{i=1}^n M_1 \ar[r]^\pi & M'_2 \ar[r] & 0}\]
+  \[\xymatrix@C30pt{0 \ar[r] & M_2 \ar[r]^(.4){\bigoplus\limits_{i=1}^n M_{\alpha_i}} & \bigoplus\limits_{i=1}^n M_1 \ar[r]^\pi & M'_2 \ar[r] & 0}\]
   and $M'_{\alpha_i}=\pi\circ\iota_i$ for $\iota_i:M_1\to\bigoplus_{i=1}^n M_1$ the inclusion of the $i$-th factor.
   Then for $g=(g_{ij})\in GL_n(\CC)$, we have $g.\Sigma_2(M)=(M_1,M'_2,(g.M')_{\alpha_i})$ with 
   \[(g.M')_{\alpha_i}=\sum\limits_{j=1}^n g_{ij}M'_{\alpha_j}=\sum\limits_{j=1}^n g_{ij}(\pi\circ\iota_j)=\pi\circ\sum\limits_{j=1}^n g_{ij}\iota_j=\pi\circ g^T\circ\iota_i.\]
   In particular, we may construct $g.\Sigma_2(M)$ using the following exact sequence:
-  \[\xymatrix{0 \ar[r] & M_2 \ar[r]^{g^{-T}\circ\bigoplus\limits_{i=1}^n M_{\alpha_i}} & \bigoplus\limits_{i=1}^n M_1 \ar[r]^{\pi\circ g^T} & M'_2 \ar[r] & 0},\]
+  \[\xymatrix@C50pt{0 \ar[r] & M_2 \ar[r]^(.45){g^{-T}\circ\bigoplus\limits_{i=1}^n M_{\alpha_i}} & \bigoplus\limits_{i=1}^n M_1 \ar[r]^{\pi\circ g^T} & M'_2 \ar[r] & 0},\]
   i.e. $g.\Sigma_2(M)=\Sigma_2(g^{-T}.M)$.
 \end{proof}
 
@@ -1273,7 +1278,6 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
 
 \subsection{Fibrations of Quiver Grassmannians}
 \label{sec:fibrations}
-
 Let $\ses{M}{B}{N}$ be a short exact sequence of representations.
 This induces the so-called ``Caldero-Chapoton map'' between quiver Grassmannians
 \[\Psi_\tbfe:\Gr_\tbfe(B)\to\bigsqcup_{\tbff+\tbfg=\tbfe}  \Gr_\tbff(M)\times \Gr_\tbfg(N),\,U\mapsto (U\cap M,(U+M)/M).\]
@@ -1311,7 +1315,7 @@ Then in the same way as above we obtain the map
   The following hold for any $j\in I$:
   \begin{enumerate}
     \item The fiber $\Psi_{m+1,I,j}^{-1}(U,\tilde P_{m+1}^I)$ is not empty if and only if $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)=0$.
-    \item The fiber $\Psi_{m+1,I,j}^{-1}(U,\tilde P_{m+1}^I)$ is empty if and only if $U\in\Phi_{m,I,j}^{-1}(V,0)$ for some $V\subset\tilde P_m(I,j)$, i.e.\ $U$ is already a subrepresentation of $\tilde P_m(I,j)$.
+    \item The fiber $\Psi_{m+1,I,j}^{-1}(U,\tilde P_{m+1}^I)$ is empty if and only if $\Phi_{m,I,j}(U)=(U,0)$, i.e.\ $U$ is already a subrepresentation of $\tilde P_m(I,j)$.
   \end{enumerate} 
 \end{proposition}
 \begin{proof}
@@ -1351,7 +1355,7 @@ Then in the same way as above we obtain the map
   By Lemma~\ref{le:properties}.(4) and the Auslander-Reiten formulas, we have 
   \[\Ext(\tilde K_m,\tilde K_m)=0,\quad \Ext(\tilde P_{m+1}^I,\tilde K_m)=\CC.\]
   For $m=2$, the identities above follow immediately from the corresponding statements for $\tau\tilde P_3^I$.
-  Thus the injective map $\CC=\Hom(\tilde K_m,\tilde K_m)\to\Ext(\tilde P_{m+1}^I,\tilde K_m)$ induced by the Auslander-Reiten sequence \eqref{eq:ar2} is actually bijective and so applying $\Hom(-,\tilde K_m)$ to this sequence yeilds $\Ext(Z,\tilde K_m)=0$.
+  Thus the injective map $\CC=\Hom(\tilde K_m,\tilde K_m)\to\Ext(\tilde P_{m+1}^I,\tilde K_m)$ induced by the Auslander-Reiten sequence \eqref{eq:ar2} is actually bijective and so applying $\Hom(-,\tilde K_m)$ to this sequence yields $\Ext(Z,\tilde K_m)=0$.
   But then $\Ext(Z,\tilde K_m/W)=0$ and so $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)\cong\Ext(\tilde P_{m+1}^I,\tilde K_m/W)$ must be zero as well.
   By part (1) we see that the fiber $\Psi_{m+1,I,j}^{-1}(U,\tilde P_{m+1}^I)$ is nonempty in this case.
 \end{proof}
