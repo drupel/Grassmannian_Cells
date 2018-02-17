@@ -36,9 +36,10 @@
 \newcommand{\bfe}{\mathbf{e}}
 \newcommand{\bff}{\mathbf{f}}
 \newcommand{\bfg}{\mathbf{g}}
+\newcommand{\bfh}{\mathbf{h}}
 \newcommand{\bfi}{\mathbf{i}}
 \newcommand{\bfI}{\mathbf{I}}
-\newcommand{\bfh}{\mathbf{h}}
+\newcommand{\bfJ}{\mathbf{J}}
 \newcommand{\tbfe}{{\tilde\bfe}}
 \newcommand{\tbff}{{\tilde\bff}}
 \newcommand{\tbfg}{{\tilde\bfg}}
@@ -903,14 +904,13 @@ The following orthogonality property is a primary reason we need to lift to the 
 The next step is to introduce notation in order to locate truncated preprojectives as quotients of other truncated preprojectives in the universal covering.
 \begin{definition}
   For $I\subsetneq\{1,\ldots,n\}$, write $I^c=\{1,\ldots,n\}\setminus I$ for the complementary subset.
-  A sequence of subsets $\bfI=(I_0,I_1,\ldots,I_k)$, $k\ge1$, in $\{1,\ldots,n\}$ is \emph{admissible} if the following hold:
+  A sequence of subsets $\bfI=(I_0,I_1,\ldots,I_k)$, $k\ge0$, in $\{1,\ldots,n\}$ is \emph{admissible} if the following hold:
   \begin{enumerate}
-    \item $|I_0|=n-1$ and $|I_l|=n-2$ for $1\le l\le k-1$;
-    \item the sets $I'_l$ defined recursively by $I'_0=I_0$ and $I'_{l+1}:=(I'_l)^c\cup I_{l+1}$ for $0\le l\le k$ satisfy $(I'_l)^c\cap I_{l+1}=\varnothing$ for $0\le l\le k$.
+    \item if $k\ge1$, then $|I_0|=n-1$ and $|I_l|=n-2$ for $1\le l\le k-1$;
+    \item the sets $I'_l$ defined recursively by $I'_0=I_0$ and $I'_{l+1}:=I_{l+1}\cup (I'_l)^c$ for $0\le l\le k$ satisfy $(I'_l)^c\cap I_{l+1}=\varnothing$ for $0\le l\le k$.
   \end{enumerate}
   Here we take $I_{k+1}=\varnothing$ so that there is no condition imposed on the set $(I'_k)^c$.
-
-  Given an admissible sequence $\bfI$, define a new admissible sequence $\delta\bfI=(I'_1,I_2,\ldots,I_k)$, where we set $\delta(I_0)=(I'_1)$.
+  Given an admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k\ge1$, define a new admissible sequence $\delta\bfI=(I'_1,I_2,\ldots,I_k)$.
 \end{definition}
 
 In the same way as for the preprojective lifts $\tilde P_{m+1}$, $m\ge1$, we can define truncated preprojectives $\tilde P_{m+1,w}^I$ of any translate $\tilde P_{m+1,w}$, where $w\in W_n$ and $I\subsetneq\{1,\ldots,n\}$.
@@ -929,11 +929,11 @@ For $w\in W_n$, we write $\pi_{m+1,w}^{I,J}:\tilde P_{m+1,w}^I\to\tilde P_{m+1,w
   \begin{enumerate}
     \item For $I\subsetneq\{1,\ldots,n\}$ with $|I|=n-1$ and $I^c=\{j\}$, we have an isomorphism 
       \[\tilde P_{m+1}^I\cong\tilde P_{m,j}^{I^c}=\tilde P_{m,j}/\tilde P_{m-1,(j,j)}.\]
-    \item Consider an admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k<m$ and write $(I'_l)^c=\{i_l\}=:J_l$ for $0\le l\le k-1$.
+    \item Consider an admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $0<k<m$ and write $(I'_l)^c=\{i_l\}=:J_l$ for $0\le l\le k-1$.
       For $\ui=(i_0,\ldots,i_{k-1})$, there exists a commutative diagram:
       \begin{equation}
         \label{dia:truncated coherence}
-        \xymatrix@R40pt@C70pt{\tilde P_{m+1} \ar^(.4){\pi_{m+1}^{I_0}}[d] & \ar[l] \tilde P_{m,i_0} \ar_(.4){\pi_{m,i_0}^{J_0}}[dl]\ar^(.4){\pi_{m,i_0}^{I'_1}}[d] & \ar[l] \tilde P_{m-1,(i_0,i_1)} \ar_(.4){\pi_{m-1,(i_0,i_1)}^{J_1}\;}[dl]\ar^(.4){\pi_{m-1,(i_0,i_1)}^{I'_2}}[d] & \ar[l] \ar[dl] \cdots & \ar[l] \tilde P_{m+1-k,\ui} \ar_(.4){\pi_{m+1-k,\ui}^{J_{k-1}}\;}[dl]\ar^(.4){\pi_{m+1-k}^{I'_k}}[d]\\
+        \xymatrix@R40pt@C70pt{\tilde P_{m+1} \ar^(.4){\pi_{m+1}^{I'_0}}[d] & \ar[l] \tilde P_{m,i_0} \ar_(.4){\pi_{m,i_0}^{J_0}}[dl]\ar^(.4){\pi_{m,i_0}^{I'_1}}[d] & \ar[l] \tilde P_{m-1,(i_0,i_1)} \ar_(.4){\pi_{m-1,(i_0,i_1)}^{J_1}\;}[dl]\ar^(.4){\pi_{m-1,(i_0,i_1)}^{I'_2}}[d] & \ar[l] \ar[dl] \cdots & \ar[l] \tilde P_{m+1-k,\ui} \ar_(.4){\pi_{m+1-k,\ui}^{J_{k-1}}\;}[dl]\ar^(.4){\pi_{m+1-k}^{I'_k}}[d]\\
         \tilde P_{m+1}^{I'_0}\ar^{\pi_{m,i_0}^{J_0,I'_1}}[r] & \tilde P_{m,i_0}^{I'_1}\ar^{\pi_{m-1,(i_0,i_1)}^{J_1,I'_2}}[r] & \tilde P_{m-1,(i_0,i_1)}^{I'_2}\ar^(.6){\pi_{m-2,(i_0,i_1,i_2)}^{J_2,I'_3}}[r] & \cdots\ar^{\pi_{m+1-k,\ui}^{J_{k-1},I'_k}}[r] & \tilde P_{m+1-k,\ui}^{I'_k}}
       \end{equation}
       where the composed map $\pi_{m+1}^\bfI:\tilde P_{m+1}\to\tilde P_{m+1-k,\ui}^{I'_k}$ is unique up to scaling and therefore we write
@@ -1280,8 +1280,8 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
 \label{sec:fibrations}
 Let $\ses{M}{B}{N}$ be a short exact sequence of representations.
 This induces the so-called ``Caldero-Chapoton map'' between quiver Grassmannians
-\[\Psi_\tbfe:\Gr_\tbfe(B)\to\bigsqcup_{\tbff+\tbfg=\tbfe}  \Gr_\tbff(M)\times \Gr_\tbfg(N),\,U\mapsto (U\cap M,(U+M)/M).\]
-Following \cite[Section 3]{cc}, any nonempty fiber of $\Psi_\tbfe$ satisfies $\Psi^{-1}_\tbfe(V,W)=\mathbb{A}^{\dim\Hom(W,M/V)}$.
+\[\Psi_\tbfe:\Gr_\tbfe(B)\to\bigsqcup_{\tbff+\tbfg=\tbfe}  \Gr_\tbff(M)\times \Gr_\tbfg(N),\,V\mapsto (V\cap M,(V+M)/M).\]
+Following \cite[Section 3]{cc}, any nonempty fiber of $\Psi_\tbfe$ satisfies $\Psi^{-1}_\tbfe(U,W)=\mathbb{A}^{\dim\Hom(W,M/U)}$.
 
 Let $\cG_{\tbff,\tbfg}:=\Psi^{-1}_\tbfe(\Gr_\tbff(M)\times \Gr_\tbfg(N))$. Then we have
 $$\Gr_\tbfe(B)=\bigsqcup_{\tbff+\tbfg=\tbfe} \cG_{\tbff,\tbfg}.$$
@@ -1300,15 +1300,24 @@ The following is proved in \cite[Section 3]{cefr}.
 We will apply this result in the setting of the truncated preprojective lifts from Lemma~\ref{le:homdecomposition}.
 Fix $m\ge1$.
 For subsets $J\subsetneq I\subsetneq\{1,\ldots,n\}$ with $I\setminus J=\{j\}$, Lemma~\ref{le:properties}.(1) provides a short exact sequence 
-\[\ses{\tilde P_{m,j}}{\tilde P_{m+1}^J}{\tilde P_{m+1}^I}\]
+\begin{equation}
+  \label{eq:truncated ses}
+  \ses{\tilde P_{m,j}}{\tilde P_{m+1}^J}{\tilde P_{m+1}^I}
+\end{equation}
 which induces a map between quiver Grassmannians as above:
-\[\Psi_{m+1,I,j}:\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff(\tilde P_{m,j})\times\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I).\]
+\begin{equation}
+  \label{eq:truncated CC}
+  \Psi_{m+1,I,j}:\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff(\tilde P_{m,j})\times\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I).
+\end{equation}
 To understand the fibers of this map for $m\ge2$, we will need to make use of another map between quiver Grassmannians coming out of Lemma~\ref{le:special subrepresentations}.
 Here we consider the short exact sequence 
 \[\ses{\tilde P_m(I,j)}{\tilde P_{m,j}}{\tilde K_m},\]
 where $\tilde K_m=\tau\tilde P_{m+1}^I$ for $m\ge3$ and $\tilde K_2$ is the representation in \eqref{eq:special case} from Remark~\ref{rem:special case}.
 Then in the same way as above we obtain the map
-\[\Phi_{m,I,j}:\Gr^{\tilde Q}_\tbfe(\tilde P_{m,j})\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff(\tilde P_m(I,j))\times\Gr^{\tilde Q}_\tbfg(\tilde K_m).\]
+\begin{equation}
+  \label{eq:truncated CC2}
+  \Phi_{m,I,j}:\Gr^{\tilde Q}_\tbfe(\tilde P_{m,j})\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff(\tilde P_m(I,j))\times\Gr^{\tilde Q}_\tbfg(\tilde K_m).
+\end{equation}
 \begin{proposition}
   \label{quotient}
   For $m\geq 2$ and a nonempty subset $I\subsetneq\{1,\ldots,n\}$.
@@ -1365,28 +1374,75 @@ Now we are able to state the following result concerning the fibers of $\Psi_{m+
   \label{fibers}
   The following hold:
   \begin{enumerate}
-    \item For $V\subsetneq\tilde P_{m+1}^I$ and $U\subseteq\tilde P_{m,j}$, we have $\Psi_{m+1,I,j}^{-1}(U,V)=\AA^{\langle V,\tilde P_{m,j}/U\rangle}$.
-    \item If $V=\tilde P_{m+1}^I$, the fiber $\Psi_{m+1,I,j}^{-1}(U,V)$ is not empty if and only if $\Phi_{m,I,j}(U)\neq(U,0)$.
-      In this case, we have $\Psi_{m+1,I,j}^{-1}(U,V)=\AA^{\langle V,\tilde P_{m,j}/U\rangle}$.
+    \item For $W\subsetneq\tilde P_{m+1}^I$ and $U\subseteq\tilde P_{m,j}$, we have $\Psi_{m+1,I,j}^{-1}(U,W)=\AA^{\langle W,\tilde P_{m,j}/U\rangle}$.
+    \item If $W=\tilde P_{m+1}^I$, the fiber $\Psi_{m+1,I,j}^{-1}(U,W)$ is not empty if and only if $\Phi_{m,I,j}(U)\neq(U,0)$.
+      In this case, we have $\Psi_{m+1,I,j}^{-1}(U,W)=\AA^{\langle W,\tilde P_{m,j}/U\rangle}$.
   \end{enumerate}
 \end{proposition}
 \begin{proof}
   By Lemma~\ref{le:subrep}, any subrepresentation $V\subsetneq\tilde P_{m+1}^I$ is preprojective.
   But the representation $\tilde P_{m,j}/U$ is not preprojective as it is a proper quotient of a preprojective representation unless $U=0$.
-  Thus we have $\Ext(V,\tilde P_{m,j}/U)=0$. 
-  If $U=0$, we have $\Ext(V,\tilde P_{m,j})=0$ because for dimension reasons every indecomposable direct summand of $V$ is isomorphic to a lift of some $P_l$ with $l\leq m$ and, moreover, $\Ext(P_l,P_k)=0$ for $l\leq k+1$.
+  Thus we have $\Ext(W,\tilde P_{m,j}/U)=0$. 
+  If $U=0$, we have $\Ext(W,\tilde P_{m,j})=0$ because for dimension reasons every indecomposable direct summand of $V$ is isomorphic to a lift of some $P_l$ with $l\leq m$ and, moreover, $\Ext(P_l,P_k)=0$ for $l\leq k+1$.
 
   The second statement follows directly from Proposition \ref{quotient}.
 \end{proof}
 
 \begin{theorem}
   \label{cellscover}
-  For $m\geq 1$ and $I\subset\{1,\ldots,n\}$, every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^I)$ admits a cell decomposition into affine spaces.
+  For $m\geq 1$ and $I\subsetneq\{1,\ldots,n\}$, every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^I)$ admits a cell decomposition into affine spaces.
 \end{theorem}
 \begin{proof}
+  We work by induction on $m$.
+  When $m=1$, the claim is trivial since all quiver Grassmannians are points in this case.
+  We establish the result for $m\ge2$ by proving the following more general statement:\\
 
-In order to prove the claim, we prove the following more general statement:\\
+  \noindent{\bf Claim.}
+  For any proper subset $J\subsetneq\{1,\ldots,n\}$, the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a decomposition into affine spaces with the following property:
+  \begin{itemize}
+    \item[($\dagger$)] For any admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k<m$ and $J\subset I_0$ consider the unique map $\pi_{m+1}^{J,\bfI}:\tilde P_{m+1}^J\to\tilde P_{m+1}^\bfI$ from Lemma~\ref{le:truncated quotients}.
+      For any $V\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ such that $\pi_{m+1}^{J,\bfI}(V)\neq 0$, we have $\pi_{m+1}^{J,\bfI}(V')\neq 0$ for all $V'\in C_V$, where $C_V$ is the affine cell which contains $V$.
+  \end{itemize}
+  \vs
+  
+  In what follows, we will freely use the notation from Lemma~\ref{le:truncated quotients}.
+  We proceed by simultaneous induction on $m$ and reverse induction on $|J|$.
+  Fix an admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k<m$ and $J\subset I_0$.
 
+  To begin, we assume $|J|=n-1$ and thus $J=I_0$.
+  This gives $\tilde P_{m+1}^J\cong\tilde P_{m,i_0}^{J_0}$ and so by induction on $m$ the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)=\Gr^{\tilde Q}_\tbfe(\tilde P_{m,i_0}^{J_0})$ admits a decomposition into affine spaces so that the compatibility condition ($\dagger$) holds for the unique map $\pi_{m,i_0}^{J_0,\delta\bfI}:\tilde P_{m,i_0}^{J_0}\to\tilde P_{m,i_0}^{\delta\bfI}$.
+  But $\tilde P_{m,i_0}^{\delta\bfI}=\tilde P_{m+1}^\bfI$ so that $\pi_{m,i_0}^{J_0,\delta\bfI}$ coincides with the map $\pi_{m+1}^{J,\bfI}$ and thus the condition ($\dagger$) holds for the cell decomposition of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$.
+
+  Now suppose $|J|<n-1$.
+  If $J=I_0$, then we must have $k=0$ and $\tilde P_{m+1}^J=\tilde P_{m+1}^\bfI$ so that the compatibility condition ($\dagger$) with the map $\pi_{m+1}^{J,\bfI}$ is vacuous.
+  Thus we may assume $J\subsetneq I_0$.
+  
+  Choose any subset $I\subsetneq\{1,\ldots,n\}$ with $J\subset I$ and $|I\setminus J|=1$, say $I\setminus J=\{j\}$.
+  This gives the short exact sequence \eqref{eq:truncated ses} inducing the maps $\Psi_{m+1,I,j}$ and $\Phi_{m,I,j}$ between quiver Grassmannians from \eqref{eq:truncated CC} and \eqref{eq:truncated CC2}.
+  There are two cases to consider.
+
+  First suppose $I\subset I_0$.
+  Then by induction on $|I|$, each quiver Grassmannian $\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I)$ has a decomposition into affine spaces which is compatible with $\pi_{m+1}^{I,\bfI}$, say 
+  \[\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I)=\coprod_{k=1}^r C_k.\]
+
+  When $m=2$, each quiver Grassmannian $\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})$ is just a point.
+  For $m\ge3$, each quiver Grassmannian $\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})$ admits a decomposition into affine spaces which is compatible with the map $\pi_{m,j}^\bfJ:\tilde P_{m,j}\to\tilde P_{m-1,(j,j)}^I$, where $\bfJ=(\{1,\ldots,\widehat j,\ldots,n\},I)$, say
+  \[\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})=\coprod_{\ell=1}^s B_\ell.\] 
+  For $m=2$, we write $\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})=B_1$.
+
+  When $\tbfg=\udim\tilde P_{m+1}^I$, Proposition~\ref{fibers} shows that the fibers of $\Psi_{m+1,I,j}$ over $B_\ell\times\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I)$ are empty exactly when 
+  \begin{itemize}
+    \item $m=2$ with $\tbff_{(2,\alpha_j^{-1})}\ne0$ or $\tbff_{(1,e)}\ne0$;
+    \item $m\ge3$, with $\pi_{m,j}^\bfJ(U)=0$ for all $U\in B_\ell$.
+  \end{itemize}
+  Otherwise, for $1\le k\le r$ we obtain an affine cell in $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ of the form $B_\ell\times C_k\times\AA^d$ with~$d=\langle\tbfg,\udim\tilde P_{m,j}-\tbff\rangle$.
+  For $V\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ which is contained in such a cell, we have $\pi_{m+1}^{J,I}(V)\in C_k$.
+  But then $\pi_{m+1}^{J,\bfI}(V)\ne0$ if and only if $\pi_{m+1}^{I,\bfI}(W)\ne0$ for all $W\in C_k$ and thus $\pi_{m+1}^{J,\bfI}(V')\ne0$ for all $V'$ in this cell $B_\ell\times C_k\times\AA^d$ of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$.
+
+  It remains to consider the case $j\notin I_0$.
+  
+
+\begin{comment}
 \noindent {\bf Claim.} Let ${\bf j}=(\underline{j_1},\ldots,\underline{j_r})$ with $r\geq 1$ be an arbitrary admissible sequence and $\underline{j_1}=(\uj,j_{1,l+1},\ldots,j_{1,n-1})\in I_{n-1}$. The quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj})$ has a cell decomposition into affine spaces which is compatible with $\pi_{m,\uj}^{\bf j}$  in the following way: 
  Let $U\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj})$ such that $\pi_m^{\bf j}(U)\neq 0.$
 Then we have $\pi_{m,\uj}^{\bf j}(U')\neq 0$ for all $U'\in C_U$ where $C_U$ is the cell which contains $U$.
@@ -1428,7 +1484,6 @@ In the third case, an analogous argument shows that $\pi^{\bf j'}_{m,\uj'}(U)\ne
 %Thus let $\pi_{m,\uj'}^{\bf j'}(U)= 0$ with $U\subset \tilde P_{m}^{\uj'}$. Then we either have $\pi_{m,\uj'}^{j_l}(U)=0$ which means that $U$ comes from a subrepresentation of $\tilde P_{m,j_l}$ and $\tbfg=0$. In this case, all representations in the cell of $U$ come from a subrepresentation of $\tilde P_{m,j_l}$. Thus assume that $\pi_{m,\uj'}^{j_l}(U)\neq 0$. We have $\pi_{m,\uj'}^{j_l}(U)\neq \tilde P_{m}^{\uj}$ because otherwise we had $\pi_{m,\uj'}^{\bf j'}(U)\neq 0$. Apply induction hypothesis now.
 
 
-\begin{comment}
 We proceed by induction and combine the two maps $\Psi_1$ and $\Psi_2$ and obtain a map
 \[\Psi:\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^{(k-1)})\to\bigsqcup_{\tbff+\tbfg+\tbfh=\tbfe} \Gr^{\tilde Q}_\tbff( P(m,k))\times \Gr^{\tilde Q}_\tbfg(\tau\tilde P_{m+1}^{(k)})\times \Gr^{\tilde Q}_\tbfh(\tilde P_{m+1}^{(k)}).\]
 
@@ -1444,7 +1499,7 @@ By Lemma \ref{directsums} and induction hypothesis every quiver Grassmannian on 
 \begin{theorem}\label{celldec}The following holds:
 \begin{enumerate}
 \item Every quiver Grassmannian of any indecomposable preprojective or preinjective representation of $K(n)$ and $\widetilde{K(n)}$ has a cell decomposition into affine spaces.
-\item Let $X$ be an indecomposable representation of dimension $(d,e)$ or $(e,d)$ where $(d,e)=\udim P_m-r\udim P_{m-1}$ for $m\geq 2$ and $\leq 0\leq r\leq m-1$. Then every quiver Grassmannian $\Gr_{\tbfe}(X)$ has a cell decomposition into affine spaces.
+\item Let $X$ be an indecomposable representation of dimension $(d,e)$ or $(e,d)$ where $(d,e)=\udim P_m-r\udim P_{m-1}$ for $m\geq 2$ and $\leq 0\leq r\leq m-1$. Then every quiver Grassmannian $\Gr_{\bfe}(X)$ has a cell decomposition into affine spaces.
 \end{enumerate}
 \end{theorem}
 \begin{proof}
