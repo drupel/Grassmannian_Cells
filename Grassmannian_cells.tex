@@ -1398,10 +1398,9 @@ Now we are able to state the following result concerning the fibers of $\Psi_{m+
   We establish the result for $m\ge2$ by proving the following more general statement:\\
 
   \noindent{\bf Claim.}
-  For any proper subset $J\subsetneq\{1,\ldots,n\}$, the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a decomposition into affine spaces with the following property:
+  For any admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k<m$ and any subset $J\subset I_0$, the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a decomposition into affine spaces which are compatible with the unique map $\pi_{m+1}^{J,\bfI}:\tilde P_{m+1}^J\to\tilde P_{m+1}^\bfI$ from Lemma~\ref{le:truncated quotients} in the following sense:
   \begin{itemize}
-    \item[($\dagger$)] For any admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k<m$ and $J\subset I_0$ consider the unique map $\pi_{m+1}^{J,\bfI}:\tilde P_{m+1}^J\to\tilde P_{m+1}^\bfI$ from Lemma~\ref{le:truncated quotients}.
-      For any $V\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ such that $\pi_{m+1}^{J,\bfI}(V)\neq 0$, we have $\pi_{m+1}^{J,\bfI}(V')\neq 0$ for all $V'\in C_V$, where $C_V$ is the affine cell which contains $V$.
+    \item[($\dagger$)] For any $V\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ such that $\pi_{m+1}^{J,\bfI}(V)\neq 0$, we have $\pi_{m+1}^{J,\bfI}(V')\neq 0$ for all $V'\in C_V$, where $C_V$ is the affine cell which contains $V$.
   \end{itemize}
   \vs
   
@@ -1417,11 +1416,8 @@ Now we are able to state the following result concerning the fibers of $\Psi_{m+
   If $J=I_0$, then we must have $k=0$ and $\tilde P_{m+1}^J=\tilde P_{m+1}^\bfI$ so that the compatibility condition ($\dagger$) with the map $\pi_{m+1}^{J,\bfI}$ is vacuous.
   Thus we may assume $J\subsetneq I_0$.
   
-  Choose any subset $I\subsetneq\{1,\ldots,n\}$ with $J\subset I$ and $|I\setminus J|=1$, say $I\setminus J=\{j\}$.
+  Choose any subset $I\subset I_0$ with $J\subset I$ and $|I\setminus J|=1$, say $I\setminus J=\{j\}$.
   This gives the short exact sequence \eqref{eq:truncated ses} inducing the maps $\Psi_{m+1,I,j}$ and $\Phi_{m,I,j}$ between quiver Grassmannians from \eqref{eq:truncated CC} and \eqref{eq:truncated CC2}.
-  There are two cases to consider.
-
-  First suppose $I\subset I_0$.
   Then by induction on $|I|$, each quiver Grassmannian $\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I)$ has a decomposition into affine spaces which is compatible with $\pi_{m+1}^{I,\bfI}$, say 
   \[\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I)=\coprod_{k=1}^r C_k.\]
 
@@ -1435,13 +1431,9 @@ Now we are able to state the following result concerning the fibers of $\Psi_{m+
     \item $m=2$ with $\tbff_{(2,\alpha_j^{-1})}\ne0$ or $\tbff_{(1,e)}\ne0$;
     \item $m\ge3$, with $\pi_{m,j}^\bfJ(U)=0$ for all $U\in B_\ell$.
   \end{itemize}
-  Otherwise, for $1\le k\le r$ we obtain an affine cell in $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ of the form $B_\ell\times C_k\times\AA^d$ with~$d=\langle\tbfg,\udim\tilde P_{m,j}-\tbff\rangle$.
+  When the fibers of $\Psi_{m+1,I,j}$ are not empty, for $1\le k\le r$ we obtain an affine cell in $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ of the form $B_\ell\times C_k\times\AA^d$ with~$d=\langle\tbfg,\udim\tilde P_{m,j}-\tbff\rangle$.
   For $V\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ which is contained in such a cell, we have $\pi_{m+1}^{J,I}(V)\in C_k$.
   But then $\pi_{m+1}^{J,\bfI}(V)\ne0$ if and only if $\pi_{m+1}^{I,\bfI}(W)\ne0$ for all $W\in C_k$ and thus $\pi_{m+1}^{J,\bfI}(V')\ne0$ for all $V'$ in this cell $B_\ell\times C_k\times\AA^d$ of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$.
-
-  It remains to consider the case $j\notin I_0$.
-  
-
 \begin{comment}
 \noindent {\bf Claim.} Let ${\bf j}=(\underline{j_1},\ldots,\underline{j_r})$ with $r\geq 1$ be an arbitrary admissible sequence and $\underline{j_1}=(\uj,j_{1,l+1},\ldots,j_{1,n-1})\in I_{n-1}$. The quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj})$ has a cell decomposition into affine spaces which is compatible with $\pi_{m,\uj}^{\bf j}$  in the following way: 
  Let $U\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m}^{\uj})$ such that $\pi_m^{\bf j}(U)\neq 0.$
