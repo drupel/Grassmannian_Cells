@@ -159,7 +159,6 @@ In addition, observe that every connected component of the universal covering qu
 \begin{lemma}
   \label{le:lifts of transjectives}
   Every preprojective and preinjective representation of $Q$ can be lifted to $\hat Q$ and to $\widetilde Q$. Any lift of a preprojective (or preinjective) representation is preprojective (preinjective). 
- % \sayD{This should be upgraded to ``Any lift of a preprojective (or preinjective) for $Q$ is preprojective (or preinjective).''} 
 \end{lemma}
 \begin{proof}
   This statement is clear for the simple representations $S_i$, $i\in Q_0$.
@@ -176,7 +175,6 @@ The analogous observation can also be made for $\widetilde Q$.
 If $X$ is a representation of $\hat Q$ (resp. $\widetilde Q$), we denote by $X_\chi$ (resp. $X_w$) the representation obtained via translation by $\chi\in A_Q$ (resp. $w\in W_Q$).  
 
 As $F_Q$ and $G_Q$ are covering functors when restricting to one connected component, we obtain the following result from \cite{gab}.
-\sayD{Specific reference needed?}
 \begin{theorem}
   \label{covering}
   The functors $F_Q$ and $G_Q$ preserve indecomposability.
@@ -225,40 +223,6 @@ The representations $P_m$ are called the \emph{preprojective} representations of
     \item If $\ses{M}{B}{N}$ is a short exact sequence such that no direct summand of $M$, $B$, nor $N$ is preinjective, then the sequences $\ses{(\Sigma_1\Sigma_2)^nM}{(\Sigma_1\Sigma_2)^nB}{(\Sigma_1\Sigma_2)^nN}$ and $\ses{\Sigma_2(\Sigma_1\Sigma_2)^nM}{\Sigma_2(\Sigma_1\Sigma_2)^nB}{\Sigma_2(\Sigma_1\Sigma_2)^nN}$ are exact for any $n\ge0$ and none of these representations contain preinjective direct summands.
   \end{enumerate}
 \end{remark}
-We will see that the indecomposable representations of dimension $d(m,r):=\dim P_{m+1}-r\dim P_m$ with $0\leq r\leq n-1$ play an important role as they appear as quotients of morphisms between preprojective representations.
-For a dimension vector $d=(d_1,d_2)\in\NN^{K(n)_0}$, write $$R_d(K(n))=\bigoplus_{i=1}^n\Hom_{\CC}(\CC^{d_2},\CC^{d_1})$$ for the affine space of representations of dimension $d$.
-\begin{proposition}
-  \label{pro:indecomposables}
-  Let $m\geq 1$ and $0\le r\le n-1$.
-  The following hold:
-  \begin{enumerate}
-    \item The isomorphism classes of indecomposable representations of dimension $d(m,r)$ are in one-to-one correspondence with points of $\Gr_{n-r}(\CC^n)$.
-    \item The set of indecomposable representations of dimension $d(m,r)$ is given by a non-empty open subset of $R_{d(m,r)}(K(n))$. 
-  \end{enumerate}
-\end{proposition}
-\begin{proof}
-  As the reflection functors $\Sigma_1,\,\Sigma_2$ preserve indecomposability and $\Sigma_2(d(m,r))^\sigma=d(m+1,r)$, it suffices to prove the first statement for $m=1$.
-  Then we have $d(m,r)=(l,1)$ for $l:=n-r$.
-  This means that $X\in R_{d(m,r)}(K(n))$ can be represented by a matrix $M_X\in\CC^{l\times n}$, where the $i^{\mathrm{th}}$ column stands for $X_{\alpha_i}$.
-  Now $X$ is indecomposable if and only if $\rk(M_X)=l$.
-  Indeed, $X$ admits a summand isomorphic to $S_1^k$ exactly when $\rk(M_X)=l-k$.
-
-  This shows that the indecomposable representations in $R_{(l,1)}(K(n))$ are in one-to-one correspondence with $l\times n$ matrices of maximal rank.
-  Thus we may associate to each such representation $X$ a subspace of $\CC^n$ of dimension~$l$ spanned by the row vectors of the corresponding matrix $M_X$.
-  Now it is straightforward to check that the $\GL_{d(m,r)}=\GL_l(\CC)\times\CC^\ast$-action on $R_{d(m,r)}(K(n))$ corresponds to the base change action of $\GL_l(\CC)$ on the set of these subspaces.
-  This shows the first statement.
-
-  It is easy to see that $(l,1)$ is a Schur root since all indecomposable representations with this dimension vector have trivial endomorphism ring.
-  Thus the roots $d(m,r)$ are also Schur roots.
-  \sayD{This can also be seen as a consequence of Corollary~\ref{cor:indecomposable truncated}, would it be better if we reorganize?}
-  It follows that the set of indecomposable representations with trivial endomorphism ring form a dense open subset of $R_{d(m,r)}(K(n))$, see for example \cite[Theorem 2.2]{sch}.
-  This shows the second statement.
-\end{proof}
-\begin{remark}
-  There is a more elegant way to prove Proposition \ref{pro:indecomposables} using the notion of stability and moduli spaces.
-  Actually, fixing the standard stability induced by the linear form $\Theta(\alpha)=\alpha_2$, it can be shown that all indecomposables are stable and that the moduli space of stable representations is in fact $\Gr_l(\CC^n)$.
-  We opted for the proof above because the notion of stability would only be used at this point and we wanted to keep the exposition as simple as possible. 
-\end{remark}
 
 Set $H_m:=\Hom(P_m,P_{m+1})$ for $m\ge1$.
 Write $\Gr(H_m)$ for the \emph{total Grassmannian} of $H_m$ whose elements are nontrivial proper subspaces $V\subset H_m$.
@@ -293,6 +257,7 @@ where the right-hand morphism is the natural evaluation map.
 \end{proof}
 
 In what follows we will not distinguish between $P_m\otimes V$ and its image under $ev_V$.
+
 
 
 \subsection{Truncated Preprojectives}
@@ -370,6 +335,42 @@ Motivated by Lemma~\ref{le:injective evaluation maps}, we define the following.
   By Lemma~\ref{le:unique morphisms}, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable.
   The second part follows from Proposition \ref{pro:indecomposables} together with Lemma \ref{le:unique morphisms}.
 \end{proof}
+
+We will see that the indecomposable representations of dimension $d(m,r):=\dim P_{m+1}-r\dim P_m$ with $0\leq r\leq n-1$ play an important role as they appear as quotients of morphisms between preprojective representations.
+For a dimension vector $d=(d_1,d_2)\in\NN^{K(n)_0}$, write $$R_d(K(n))=\bigoplus_{i=1}^n\Hom_{\CC}(\CC^{d_2},\CC^{d_1})$$ for the affine space of representations of dimension $d$.
+\begin{proposition}
+  \label{pro:indecomposables}
+  Let $m\geq 1$ and $0\le r\le n-1$.
+  The following hold:
+  \begin{enumerate}
+    \item The isomorphism classes of indecomposable representations of dimension $d(m,r)$ are in one-to-one correspondence with points of $\Gr_{n-r}(\CC^n)$.
+    \item The set of indecomposable representations of dimension $d(m,r)$ is given by a non-empty open subset of $R_{d(m,r)}(K(n))$. 
+  \end{enumerate}
+\end{proposition}
+\begin{proof}
+  As the reflection functors $\Sigma_1,\,\Sigma_2$ preserve indecomposability and $\Sigma_2(d(m,r))^\sigma=d(m+1,r)$, it suffices to prove the first statement for $m=1$.
+  Then we have $d(m,r)=(l,1)$ for $l:=n-r$.
+  This means that $X\in R_{d(m,r)}(K(n))$ can be represented by a matrix $M_X\in\CC^{l\times n}$, where the $i^{\mathrm{th}}$ column stands for $X_{\alpha_i}$.
+  Now $X$ is indecomposable if and only if $\rk(M_X)=l$.
+  Indeed, $X$ admits a summand isomorphic to $S_1^k$ exactly when $\rk(M_X)=l-k$.
+
+  This shows that the indecomposable representations in $R_{(l,1)}(K(n))$ are in one-to-one correspondence with $l\times n$ matrices of maximal rank.
+  Thus we may associate to each such representation $X$ a subspace of $\CC^n$ of dimension~$l$ spanned by the row vectors of the corresponding matrix $M_X$.
+  Now it is straightforward to check that the $\GL_{d(m,r)}=\GL_l(\CC)\times\CC^\ast$-action on $R_{d(m,r)}(K(n))$ corresponds to the base change action of $\GL_l(\CC)$ on the set of these subspaces.
+  This shows the first statement.
+
+  It is easy to see that $(l,1)$ is a Schur root since all indecomposable representations with this dimension vector have trivial endomorphism ring.
+  Thus the roots $d(m,r)$ are also Schur roots.
+  \sayD{This can also be seen as a consequence of Corollary~\ref{cor:indecomposable truncated}, would it be better if we reorganize?}
+  It follows that the set of indecomposable representations with trivial endomorphism ring form a dense open subset of $R_{d(m,r)}(K(n))$, see for example \cite[Theorem 2.2]{sch}.
+  This shows the second statement.
+\end{proof}
+\begin{remark}
+  There is a more elegant way to prove Proposition \ref{pro:indecomposables} using the notion of stability and moduli spaces.
+  Actually, fixing the standard stability induced by the linear form $\Theta(\alpha)=\alpha_2$, it can be shown that all indecomposables are stable and that the moduli space of stable representations is in fact $\Gr_l(\CC^n)$.
+  We opted for the proof above because the notion of stability would only be used at this point and we wanted to keep the exposition as simple as possible. 
+\end{remark}
+
 
 \begin{lemma}
   \label{le:basic homological properties}
@@ -470,151 +471,9 @@ Each such sequence has the following almost-split property for proper subreprese
   Under this identification, the left hand morphism $\kappa_V$ in the sequence above identifies with a generator of $\bar{V}$ and thus $P_{m+1}^V\cong P_m^{\bar{V}}$.
 \end{proof}
 
-Following Remark~\ref{rem:reflection recursion}, the reflection functor $\Sigma_1$ provides a natural identification of $H_m$ with $H_{m-1}$ for $m\ge2$. 
-Combining with Lemma~\ref{le:preprojective homomorphism duality} we obtain a natural isomorphism $H_m^*\cong H_m$ for $m\ge2$.
-The next observation is essential for the results to follow.
-\begin{proposition}
-  For $V\in \Gr(H_m)$, $m\ge1$, we have $\bar{\bar{V}}=\tau V$.
-\end{proposition}
-\begin{proof}
-  \sayD{Proof needed}\sayT{explain $\tau V$. Do we need this?}
-  We show that $\bar{\bar{\varphi}}=\tau\varphi$ for $\varphi\in H_m$.
-  Indeed, we have
-  \[\bar{\bar{\varphi}}=(id\overline{\otimes}\bar{\varphi})\circ\iota_{m-2}=\Big(id\overline{\otimes}\big((id\overline{\otimes}\varphi)\circ\iota_{m-1}\big)\Big)\circ\iota_{m-2}.\]
-\end{proof}
-
-\begin{lemma}
-  \label{le:truncated extensions}
-  For $V\in \Gr(H_m)$, $m\ge1$, we have $\Ext(P_{m+1}^V,P_m)\cong V^*$, where each nontrivial extension naturally corresponds to a codimension 1 subspace $U\subset V$. 
-  More precisely, each element of $\Ext(P_{m+1}^V,P_m)$ corresponds to an exact sequence
-  \[\xymatrix{0 \ar[r] & P_m \ar[r] & P_{m+1}^U \ar[r] & P_{m+1}^V \ar[r] & 0},\]
-where $U\subset V$ satisfies $\dim(V/U)=1$.
-\end{lemma}
-\begin{proof}
-  Consider a nonzero map $\varphi\in V^*$ and set $U=\ker\varphi\subset V$.
-  There is a natural isomorphism $V^*\cong\Hom(P_m\otimes V,P_m)$ which takes $\varphi$ to $id\overline{\otimes}\varphi$.
-  This gives rise to the following commutative diagram:
-  \[\xymatrix{ & 0 \ar[d] & 0 \ar[d] & & \\
-    & P_m\otimes U \ar@{=}[r]\ar[d] & P_m\otimes U \ar[d] & & \\
-    0 \ar[r] & P_m\otimes V \ar[d]^{id\overline{\otimes}\varphi}\ar[r]\ar@{}[dr]|(.7){\lrcorner}\ar@{}[dr]|(.3){\ulcorner} & P_{m+1} \ar[r]\ar[d] & P_{m+1}^V \ar[r]\ar@{=}[d] & 0\\
-    0 \ar[r] & P_m \ar[r]\ar[d] & P_{m+1}^U \ar[r]\ar[d] & P_{m+1}^V \ar[r] & 0\\
-   & 0 & 0 & & }\]
-  But observe that we may apply the functor $\Hom(-,P_m)$ to the sequence \eqref{eq:truncated preprojectives} to get the isomorphism 
-  \[\Ext(P_{m+1}^V,P_m)\cong\Hom(P_m\otimes V,P_m)\cong V^*.\]
-  Under this isomorphism, the functional $\varphi$ corresponds to the lower pushout sequence in the above diagram.
-\end{proof}
-
-\begin{corollary}\sayT{proof?}
-  For $V,W\in \Gr(H_m)$, $m\ge3$, the space $\Ext(P_{m+1}^V,P_{m-1}^{\bar{\bar{W}}})$ has dimension 0 or 1.. .
-\end{corollary}
+               
 
 
-
-\begin{lemma}
-  \label{le:more truncated homomorphisms}
-  For $W\in \Gr(H_m)$, $m\ge2$, the following hold:
-  \begin{enumerate}
-    \item $\Hom(P_{m-1},P_m^{\bar{W}})\cong W^*$;
-    \item $\Hom(P_{m+1},P_m^{\bar{W}})\cong (H_m/W)^*$.
-  \end{enumerate}
-\end{lemma}
-\begin{proof}
-  By Lemma~\ref{le:preprojective homomorphism duality}, we have $H_{m-1}\cong H_m^*$ and $\bar{W}\cong(H_m/W)^*$.
-  Then Lemma~\ref{le:truncated homomorphisms} gives the isomorphism
-  \[\Hom(P_{m-1},P_m^{\bar{W}})\cong H_{m-1}/\bar{W}\cong H_m^*/(H_m/W)^*\cong W^*.\]
-
-  Applying the functor $\Hom(-,P_m^{\bar{W}})$ to the sequence \eqref{eq:AR sequence} we get an exact sequence 
-  \[\xymatrix{0 \ar[r] & \Hom(P_{m+1},P_m^{\bar{W}}) \ar[r] & \Hom(P_m\otimes H_m,P_m^{\bar{W}}) \ar[r] & \Hom(P_{m-1},P_m^{\bar{W}}) \ar[r] & 0}.\]
-  By Lemma~\ref{le:unique preprojective morphism}, the middle space above is isomorphic to $H_m^*$ and thus $\Hom(P_{m+1},P_m^{\bar{W}})$ can be identified with the kernel of the natural map $H_m^*\to W^*$, i.e.\ with the space $(H_m/W)^*$.
-\end{proof}
-\begin{remark}
-  For $W\in \Gr(H_m)$, $m\ge2$, a nonzero element $\varphi\in\Hom(P_{m+1},P_m^{\bar{W}})=(H_m/W)^*$ corresponds, by taking the kernel of $\varphi$, to a codimension-one subspace $V\subset H_m$ containing $W$.
-  Then the map $\varphi$ is (up to scalars) the composition of the natural projection $\pi_V:P_{m+1}\to P_{m+1}^V$, the isomorphism $P_{m+1}^V\cong P_m^{\bar{V}}$ from Corollary~\ref{cor:truncated preprojective isomorphism}, and the unique projection $P_m^{\bar{V}}\to P_m^{\bar{W}}$.
-\end{remark}
-\begin{corollary}
-  For $V,W\in \Gr(H_m)$, $m\ge2$, we have natural isomorphisms 
-  \[\Hom(P_{m+1}^V,P_m^{\bar{W}})\cong\big(H_m/(V+W)\big)^*\quad\text{and}\quad\Ext(P_{m+1}^V,P_m^{\bar{W}})\cong(V\cap W)^*.\]
-\end{corollary}
-\begin{proof}
-  Applying the functor $\Hom(-,P_m^{\bar{W}})$ to the sequence \eqref{eq:truncated preprojectives} we get an exact sequence
-  \[\xymatrix{0 \ar[r] & \Hom(P_{m+1}^V,P_m^{\bar{W}}) \ar[r] & \Hom(P_{m+1},P_m^{\bar{W}}) \ar[r] & \Hom(P_m\otimes V,P_m^{\bar{W}}) \ar[r] & \Ext(P_{m+1}^V,P_m^{\bar{W}}) \ar[r] & 0}.\]
-  By Lemma~\ref{le:more truncated homomorphisms}, we may identify $\Hom(P_{m+1}^V,P_m^{\bar{W}})$ and $\Ext(P_{m+1}^V,P_m^{\bar{W}})$ with the kernel and cokernel of the natural map $(H_m/W)^*\to V^*$.
-  The result immediately follows from this.
-\end{proof}
-\begin{remark}
-  It is slightly easier to understand the dual of the diagram figuring in the proof above, in particular it is immediate that the kernel of the natural morphism $V\to H_m/W$ is $V\cap W$ while the cokernel of this morphism is $H_m/(V+W)$.
-\end{remark}
-
-\begin{lemma}\sayT{proof? Special case of 3.23?}
-  For $V,W\in \Gr(H_m)$, $m\ge2$, with $\dim W=1$, we have $\Hom(P_{m+1}^V,P_{m-1}^{\bar{\bar{W}}})\cong\big(H_m/(V+W)\big)^*$.
-\end{lemma}
-
-\begin{lemma}
-  For $m\ge2$ and $V\in \Gr(H_m)$, the Auslander-Reiten translate of the truncated preprojective $P_{m+1}^V$ is again a truncated preprojective representation of $K(n)$.  More precisely, we have $\tau(P_{m+1}^V)=P_{m-1}^{\bar{\bar{V}}}$.
-\end{lemma}
-\begin{proof}
-  Under the Auslander-Reiten translation, the subspace $V\subset H_m$ is taken to a subspace $\tilde V\subset H_{m-2}$ of the same dimension.
-  It follows that the evaluation morphism $P_m\otimes V\stackrel{ev_V}{\longrightarrow} P_{m+1}$ transforms via $\tau$ to the evaluation morphism $P_{m-2}\otimes\tilde V\stackrel{ev_{\tilde V}}{\longrightarrow} P_{m-1}$.
-  Thus the sequence \eqref{eq:truncated preprojectives} transforms via $\tau$ to the exact sequence
-  \[0\longrightarrow P_{m-2}\otimes \tilde V\stackrel{ev_{\tilde V}}{\longrightarrow} P_{m-1}\stackrel{\pi_{\tilde V}}{\longrightarrow} P_{m-1}^{\tilde V}\longrightarrow 0.\]
-  This proves the first claim.
-
-  It remains to show that $\tilde V=\bar{\bar{V}}$.
-\end{proof}
-
-\begin{lemma}
-  \label{le:truncated exact sequences}
-  For $V\in \Gr(H_m)$, $m\ge2$, each nontrivial direct sum decomposition $V=U\oplus W$ gives rise to an exact sequence
-  \[\xymatrix{0 \ar[r] & P_{m+1} \ar[r] & P_{m+1}^U\oplus P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
-  representing a distinct class in $\Ext(P_{m+1}^V,P_{m+1})$.
-\end{lemma}
-\begin{proof}
-  Given a nontrivial direct sum decomposition $V=U\oplus W$, we may identify $U=V/W$ and $W=V/U$ to get the following commutative diagram:
-  \[\xymatrix{ & & 0 \ar[d] & 0 \ar[d] & \\
-    & & P_m\otimes U \ar@{=}[r]\ar[d] & P_m\otimes(V/W) \ar[d] & \\
-    0 \ar[r] & P_m\otimes W \ar@{=}[d]\ar[r] & P_{m+1} \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & P_{m+1}^W \ar[d]\ar[r] & 0 \\
-    0 \ar[r] & P_m\otimes(V/U) \ar[r] & P_{m+1}^U \ar[r]\ar[d] & P_{m+1}^V \ar[r]\ar[d] & 0\\
-    & & 0 & 0 & }\]
-  Since the left vertical morphism (or upper horizontal morphism) is an equality, the lower right square is a pullback.
-  It follows that the sequence
-  \[\xymatrix{0 \ar[r] & P_{m+1} \ar[r] & P_{m+1}^U\oplus P_{m+1}^W \ar[r] & P_{m+1}^V}\]
-  is exact.
-  But the morphism $P_{m+1}^U\oplus P_{m+1}^W\to P_{m+1}^V$ is clearly surjective and thus we obtain an element of $\Ext(P_{m+1}^V,P_{m+1})$.
-
-  For the final claim we observe that, for another direct sum decomposition $V=U'\oplus W'$, the representations $P_{m+1}^U\oplus P_{m+1}^W$ and $P_{m+1}^{U'}\oplus P_{m+1}^{W'}$ are isomorphic if and only if the direct sum decompositions $V=U\oplus W$ and $V=U'\oplus W'$ are the same up to permutation of summands.
-\end{proof}
-
-
-\sayD{The next result needs some serious clean-up, can they be proven for $K(n)$ without passing to the universal cover?}
-\begin{lemma}
-  For $V\in \Gr(H_m)$, $m\ge1$, a subrepresentation $X\subset P_m$ fits into a commutative diagram
-  \[\xymatrix{0 \ar[r] & X \ar[d]\ar[r]\ar@{}[dr]|(.3){\ulcorner} & Y \ar[d]\ar[r] & P_{m+1}^V \ar@{=}[d]\ar[r] & 0 \\
-    0 \ar[r] & P_m\otimes(V/U) \ar[r] & P_{m+1}^U \ar[r] & P_{m+1}^V \ar[r] & 0}\]
-  with $\dim(V/U)=1$ if and only if the lower pushout sequence below splits: 
-  \[\xymatrix{ 0\ar[r]& P_m\otimes(V/U) \ar[r] \ar[d]\ar@{}[dr]|(.3){\ulcorner} & P_{m+1}^U \ar[r]\ar[d] & P_{m+1}^V \ar@{=}[d]\ar[r] & 0\\
-  0 \ar[r] & P_m\otimes(V/U)/X \ar[r] & Z \ar[r] & P_{m+1}^V \ar[r] & 0}.\]
-  This occurs (?) if and only if the composed morphism
-  \[\xymatrix{X \ar[r] & P_m \ar[r] & P_m^{\bar{V}} \ar[r] & P_{m-1}^{\bar{\bar{V}}}}\]
-  is nonzero.
-\end{lemma}
-\begin{proof}
-  For a proper subrepresentation $X\subsetneq P_m$ we have the following commutative diagram
-  \[\tag{$\dagger$}\xymatrix{ & 0 \ar[r]\ar[d] & \Hom(P_{m+1}^U,P_m/X) \ar[d]\\
-    0 \ar[r]\ar[d] & \Hom(P_m,P_m) \ar[r]\ar[d] & \Hom(P_m,P_m/X) \ar[d]\\
-    \Ext(P_{m+1}^V,X) \ar[r] & \Ext(P_{m+1}^V,P_m) \ar[r] & \Ext(P_{m+1}^V,P_m/X)}\]
-  From the bottom row of the diagram ($\dagger$), we see that there is a pushout diagram
-  \[\xymatrix{0 \ar[r] & X \ar[d]\ar[r]\ar@{}[dr]|(.3){\ulcorner} & Y \ar[d]\ar[r] & P_{m+1}^V \ar@{=}[d]\ar[r] & 0 \\
-    0 \ar[r] & P_m \ar[r] & P_{m+1}^U \ar[r] & P_{m+1}^V \ar[r] & 0}\]
-  if and only if the lower pushout sequence below splits: 
-  \[\xymatrix{ 0\ar[r]& P_m \ar[r]^{\epsilon}\ar[d]_{\rho}\ar@{}[dr]|(.3){\ulcorner} & P_{m+1}^U \ar[r]\ar[d] & P_{m+1}^V \ar@{=}[d]\ar[r] & 0\\
-  0 \ar[r] & P_m/X \ar[r] & Z \ar[r] & P_{m+1}^V \ar[r] & 0}.\]
-  The right hand vertical sequence of the diagram ($\dagger$) then shows that this occurs if and only if the map $\rho:P_m\to P_m/X$ factors through the map $\epsilon:P_m\to P_{m+1}^U$.
-
-  and
-  \[\xymatrix{0 \ar[r] & \Ext(P_{m+1}^V,X) \ar[r] & \Ext(P_{m+1},X) \ar[r] & \Ext(P_m\otimes V,X) \ar[r] &  0}.\]
-\end{proof}
-
-                  
 \subsection{Lifting to $\widetilde{K(n)}$}
 \label{Lifting}
 
