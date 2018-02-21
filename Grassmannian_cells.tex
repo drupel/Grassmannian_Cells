@@ -104,28 +104,56 @@
 \tableofcontents
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-A cluster algebra is a subalgebra of a rational function field where generators are defined by an explicit recursion \cite{fomin-zelevinsky}.
-Although the generators of the cluster algebra are given as rational functions they actually turn out to be Laurent polynomials.
-These Laurent polynomial expressions for the cluster variables have been studied extensively and ultimately can be described using the representation theory of quivers \cite{caldero-chapoton,caldero-keller}: the cluster variables are generating functions for Euler characteristics of quiver Grassmannians.
 
+A quiver Grassmannian is a projective variety attached to a fixed quiver representation which parametrizes subrepresentations of a fixed dimension.
+In recent years, interest in quiver Grassmannians has grown considerably.
+On the one hand, this is due to the fact that generating functions for the Euler characteristics of quiver Grassmannians of exceptional representations can be found as cluster variables.
+On the other hand, they are clearly interesting on their own as they reveal many properties of the representation and its geometry.
+Although it has been shown that every projective variety can be realized as a quiver Grassmannian -- which is maybe not surprising as the classification problem of indecomposable quiver representations is wild -- it turns out that very interesting phenomena arise when restricting to certain quivers or representations with certain properties.
+For instance quiver Grassmannians attached to exceptional representations are smooth.
+For tame quivers of types $\tilde A$ or $\tilde D$, it is known that every quiver Grassmannian attached to an indecomposable representation admits a cell decomposition into affine spaces.
+It is conjectured that this is also true for exceptional representations of any quiver, in particular for preprojective and preinjective representations. 
+
+There are basically two possible ways to find cell decompositions of quiver Grassmannians if they exist.
+One is to find a non-trivial torus action on the quiver Grassmannian under consideration.
+If the quiver Grassmannian is smooth, one can apply a result of Bialynicki-Birula which shows that the quiver Grassmannian decomposes into affine bundles over the fixed point components.
+In particular, this shows that the quiver Grassmannian has a cell decomposition if the fixed point components have such a decomposition.
+
+Another method uses short exact sequences of quiver representations to induce maps between quiver Grassmannians.
+More precisely, the quiver Grassmannian of the middle term maps to the product of quiver Grassmannians of the outer terms via the ``Caldero-Chapoton map''. 
+If the short exact sequence has certain properties -- e.g. (almost) split sequences and certain generalizations -- then cell decompositions of quiver Grassmannians attached to the outer terms transfer to a decomposition of the quiver Grassmannians of the middle term.
+
+In this paper, we combine these two methods in order to show that every quiver Grassmannian attached to an exceptional representation of a generalized Kronecker quiver admits a cell decomposition into affine spaces.
+The proof also shows that this is true for so-called truncated preprojective representations which appear as certain quotients of preprojective representations.
+It turns out that these are precisely those representations which can be obtained from indecomposable representations of dimension $(d,1)$ when applying reflection functors.
+Actually, we can prove that quiver Grassmannians of truncated preprojective representations only depend on the dimension vector of the representation itself and on the dimension vector of the subrepresentations.
+
+As a first step, we show that a torus action with proper fixed point set can be defined on any quiver Grassmannian attached to liftable representations of any acyclic quiver containing parallel arrows or non-oriented cycles, that is for representations which can be lifted to the universal (abelian) covering quiver.
+These are precisely those cases where the universal covering quiver differs from the original quiver.
+This lifting property holds in particular for so-called tree modules, a class of representations which includes all exceptional representations.
+The fixed point set of this torus action consists precisely of those subrepresentations which can also be lifted to the universal (abelian) covering quiver.
+Actually, it turns out that each fixed point component is itself a quiver Grassmannian attached to the lifted representation.
+
+The next step is to investigate conditions under which the fixed point components admit a cell decomposition.
+Here the Caldero-Chapoton map comes into play.
+In the case of the generalized Kronecker quiver, it turns out that a natural filtration of a fixed preprojective representation by preprojectives of smaller dimension transfers to the universal covering quiver.
+These filtration can be successively described by short exact sequences.
+The main advantage when passing to the universal covering is that the preprojective subrepresentations of the same dimension become orthogonal, a property which rigidifies the situation in a sense.
+In the end, this machinery can be used to recursively build cell decompositions of all quiver Grassmannians of lifted (truncated) preprojective representations.
+As all the quiver Grassmannians of the (non-lifted) representation are smooth this gives rise to a cell decomposition of these quiver Grassmannians.
+
+As a benefit of this construction, we obtain a graph theoretic description of the non-empty cells.
+More precisely, with every (truncated) preprojective representation we can associate a so-called $2$-quiver.
+Essentially, such a quiver is obtained from a usual quiver by adding a collection of ``$2$-arrows'' between pairs of subquivers.
+Now with every subset of the vertices we can associate a dimension vector.
+If this subset is also strong successor closed, a condition which is easily verified in paractice, it corresponds to a cell and vice versa.
+
+As mentioned above, the Laurent polynomial expressions for cluster variables have been described using the representation theory of quivers \cite{caldero-chapoton,caldero-keller}: the cluster variables are generating functions for Euler characteristics of quiver Grassmannians.
 For rank two cluster algebras, the Laurent expressions of cluster variables can also be computed using a certain Dyck path combinatorics \cite{lee-li-zelevinsky}.
 The confluence of these results gives rise to a combinatorial construction for the Euler characteristics and counting polynomials of certain quiver Grassmannians.
-Our main result is a geometric explanation for this correspondence by constructing a decomposition of these quiver Grassmannians into affine cells which are labeled by compatible pairs.
+A consequence of our main result is a geometric explanation for these computations: we provide a one-to-one correspondence between the strong successor closed subsets and compatible pairs for an appropriate Dyck path which leads to a geometric explanation for the appearance of Dyck path combinatorics in the theory of quiver Grassmannians. 
 
-A quiver Grassmannian is a projective variety attached to a fixed quiver representation which parametrize subrepresentations of a fixed dimension. Throughout the last years, quiver Grassmannians became of growing interest. On the one hand, this is due to the fact that the generating functions of the Euler characteristics of quiver Grassmannians of exceptional representations can be found as cluster variables. On the other hand, they are clearly interesting on their own as they reveal many properties of the representation and its geometry. Even if it turned out that every projective variety can be realized as a quiver Grassmannian - which is maybe not surprising as the classification problem of indecomposable quiver representations is wild - it turns out that very interesting phenomena arise when restricting to certain quivers or representations with certain properties. For instance quiver Grassmannians attached to exceptional representations  are smooth. For tame quivers of types $\tilde A$ or $\tilde D$, it is known that every quiver Grassmannian attached to an indecomposable representation admits a cell decomposition into affine spaces. It is also conjectured that this is true for exceptional representations, i.e. particularly for preprojective and preinjective representations. 
-
-There are basically two possible ways to find cell decompositions of quiver Grassmannians if they exist. One is to find a non-trivial torus action on the quiver Grassmannian under consideration. If it is additionally smooth, one can apply a result of Bialynicki-Birula which shows that the quiver Grassmannian decomposes into affine bundles over the fixed point components. In particular, this shows that the quiver Grassmannian has a cell decomposition if the fixed point components do have it.
-Another method is to consider short exact sequences of quiver representations which induce a map between the quiver Grassmannians of the middle term and products of quiver Grassmannians of the outer terms. This map is also known as Caldero-Chapoton map. 
-If this sequence has certain properties - e.g. (almost) split and generalizations - cell decompositions of quiver Grassmannians attached to the outer terms transfer to a decomposition of quiver Grassmannians of the middle term.
-
-In this paper, we combine these two methods in order to show that every quiver Grassmannian attached to an exceptional representation of a generalized Kronecker quiver admits a cell decomposition into affine spaces. The proof also shows that this is true for so-called truncated preprojective representations which appear as certain quotients of preprojective representations. It turns out that these are precisely those representations which can be obtained from indecomposable representations of dimension $(d,1)$ when applying reflection functors. Actually, we can prove that quiver Grassmannians of truncated preprojective representations only depend on the dimension vector of the representation itself and on the dimension vector of the subrepresentations.
-
-As a first step, we show that a torus action with a proper fixed point set can be defined on every quiver Grassmannian attached to representations of any quiver with multiple arrows or non-oriented cycles which can be lifted to the universal (abelian) covering quiver. These are precisely those cases where the universal covering quiver differs from the original quiver. This lifting property holds particularly for so-called tree modules which include all exceptional representations. The fixed point set consists precisely of those subrepresentations which can also be lifted to the universal (abelian) covering quiver. Actually, it turns out that each fixed point component is itself a quiver Grassmannians attached to the lifted representation.
-
-The next step is to investigate under which conditions the fixed point components admit a cell decomposition. Here the Caldero-Chapoton map comes into play. In the case of the generalized Kronecker quiver, it turns out that a natural filtration of a fixed preprojective representation by preprojectives of smaller dimension transfers to the universal covering quiver. These filtration can be successively described by short exact sequences. The main advantage when passing to the universal covering is that the preprojective subrepresentations of the same dimension become orthogonal which rigidifies the situation in a sense. In the end, this machinery can be used to recursively build cell decompositions of all quiver Grassmannians of lifted (truncated) preprojective representations. As all the quiver Grassmannians of the (non-lifted) representation are smooth this gives rise to a cell decomposition of these quiver Grassmannians.
-
-As a benefit (?) of this construction, we obtain a graph theoretical description of the non-empty cells. More precisely, with every (truncated) preprojective representation we can associate a so-called $2$-quiver. Basically, such a quiver is obtained from a usual quiver when adding so-called $2$-arrows which connect fixed subquivers. Now with every subset of the vertices we can associate a dimension vector. If this subset is also strong successor closed, which is in fact a condition to be checked easily, it corresponds to a cell and vice versa. The upshot is that we get a one-to-one correspondence between these subsets and compatible pairs of the respective Dyck path which leads to a geometric explanation for the Dyck path combinatorics appearing in the theory of quiver Grassmannians. 
-
+\sayD{I need to include a conjecture about the dimensions of cells coming from the combinatorial construction of counting/Poincare polynomials}
 
 \sayT{references need to be included}
 
