@@ -8,8 +8,8 @@
 \usepackage{amsmath,amssymb,latexsym,color}
 \usepackage[bookmarks=true,colorlinks=true, linkcolor=blue, citecolor=cyan]{hyperref}
 \usepackage{tikz}
-\usepackage{pgflibraryarrows}
-\usepackage{pgflibrarysnakes}
+%\usepackage{pgflibraryarrows}
+%\usepackage{pgflibrarysnakes}
 \usetikzlibrary{fit}
 \usepackage[margin=1in,marginparwidth=0.8in, marginparsep=0.1in]{geometry}
 \usepackage{extarrows}
@@ -74,7 +74,7 @@
 \newcommand{\into}{\hookrightarrow}
 \newcommand{\onto}{\to\!\!\!\!\!\to}
 \newcommand{\xonto}[1]{\xrightarrow{#1}\!\!\!\!\!\to}
-\newcommand{\ses}[3]{\xymatrix{0\ar[r] & #1\ar[r] & #2\ar[r] & #3 \ar[r] & 0}}
+\newcommand{\ses}[3]{\xymatrix@C15pt{0\ar[r] & #1\ar[r] & #2\ar[r] & #3 \ar[r] & 0}}
 \newcommand{\sesm}[4]{\xymatrix{0\ar[r] & #1\ar[r] & #2\ar^{#4}[r] & #3 \ar[r] & 0}}
 %\newcommand{\sesm}[4]{0\rightarrow #1\rightarrow #2\xrightarrow{#4}#3\rightarrow 0}
 \newcommand{\Sc}[2]{\langle #1,#2\rangle}
@@ -147,17 +147,11 @@ Essentially, such a quiver is obtained from a usual quiver by adding a collectio
 Now with every subset of the vertices we can associate a dimension vector.
 If this subset is also strong successor closed, a condition which is easily verified in practice, it corresponds to a cell and vice versa.
 
-As mentioned above, the Laurent polynomial expressions for cluster variables have been described using the representation theory of quivers \cite{caldero-chapoton,caldero-keller}: the cluster variables are generating functions for Euler characteristics of quiver Grassmannians.
-For rank two cluster algebras, the Laurent expressions of cluster variables can also be computed using a certain Dyck path combinatorics \cite{lee-li-zelevinsky}.
+As mentioned above, the Laurent polynomial expressions for cluster variables have been described using the representation theory of quivers \cite{cc,ck}: the cluster variables are generating functions for Euler characteristics of quiver Grassmannians.
+For rank two cluster algebras, the Laurent expressions of cluster variables can also be computed using a certain Dyck path combinatorics \cite{llz}.
 The confluence of these results gives rise to a combinatorial construction for the Euler characteristics and counting polynomials of certain quiver Grassmannians.
 A consequence of our main result is a geometric explanation for these computations: we provide a one-to-one correspondence between the strong successor closed subsets and compatible pairs for an appropriate Dyck path which leads to a geometric explanation for the appearance of Dyck path combinatorics in the theory of quiver Grassmannians. 
-
 \sayD{I need to include a conjecture about the dimensions of cells coming from the combinatorial construction of counting/Poincare polynomials}
-
-\sayT{references need to be included}
-
-
-
 -something about compatible pairs and combinatorial construction of cluster variables\\
 -statement of our results\\
 -something about torus actions and the universal cover\\
@@ -231,7 +225,7 @@ As $F_Q$ and $G_Q$ are covering functors when restricting to one connected compo
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Representation Theory of $K(n)$}
+\section{Representation Theory of Generalized Kronecker Quivers}
 \label{sec:RepK(n)}
 
 \noindent Fix $n\ge3$. Denote by $K(n)$ the \emph{$n$-Kronecker quiver} $1\stackrel{n}{\longleftarrow}2$ with vertices $K_0(n)=\{1,2\}$ and $n$ arrows from vertex $2$ to vertex $1$. 
@@ -520,7 +514,7 @@ Each such sequence has the following almost-split property for proper subreprese
                
 
 
-\subsection{Lifting to $\widetilde{K(n)}$}
+\subsection{Lifting to \texorpdfstring{$\mathbf{\widetilde{K(n)}}$}{K(n)}}
 \label{Lifting}
 
 Fix a natural number $n\geq 3$.
@@ -1032,7 +1026,7 @@ An important special case for this is the case of exceptional representations. I
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{$GL_n$ Action on Arrows of $K(n)$}
+\subsection{\texorpdfstring{$\mathbf{GL_n}$}{Gln}-Action on Arrows of \texorpdfstring{$\mathbf{K(n)}$}{K(n)}}
 The goal of this section is to prove Theorem~\ref{thm:truncpp} showing that quiver Grassmannians of truncated preprojectives $P_{m+1}^V$ are smooth and only depend on the dimension of the subspace $V\subsetneq H_m$.
 We begin by observing that $GL_n(\CC)$ naturally acts on the vector space $A_1=\bigoplus_{i=1}^n \CC\alpha_i$ spanned by the arrows of $K(n)$ and hence $GL_n(\CC)$ acts on $\rep K(n)$ via the induced action on the path algebra $A(n)$.
 More precisely, given a representation $M=(M_1,M_2,M_{\alpha_i})$ of $K(n)$ and $g=(g_{ij})\in GL_n(\CC)$, the representation $g.M$ is given by $(M_1,M_2,(g.M)_{\alpha_i})$ with $(g.M)_{\alpha_i}=\sum\limits_{j=1}^n g_{ij}M_{\alpha_j}$.
@@ -1419,7 +1413,7 @@ The first is quiver theoretic and follows directly from the recursive constructi
 The second is the notion of compatible pairs in a maximal Dyck path.
 We give a bijection between these which provides a partial answer to a question of the first author.
 
-\subsection{$2$-Quivers}
+\subsection{2-Quivers}
 
 The key concept for describing the cell decompositions is the following notion of $2$-quiver which is closely related to certain coefficient quivers of the corresponding representations, though it will turn out that a feature of this construction is that it is blind to the coloring of the different arrows of $\widetilde K(n)$ covering the arrows of $K(n)$.
 \begin{definition}
@@ -1507,7 +1501,7 @@ Choosing the lifts $\tilde P_{1,i}$ of $P_1$ supported at $(1,\alpha_i)$ for $2\
   \label{eq:homext} 
   \bigoplus_{i=k+1}^n\Hom(\alpha_{i}^{(-1)^{m}}.\tilde P_{m-1},\tau\tilde P_{m}^{[k]})\cong\bigoplus_{i=k+1}^n\Ext(\tilde P_m^{[k]},\alpha_{i}^{(-1)^{m}}. \tilde P_{m-1})\cong \Ext(P_m^{[k]},P_{m-1}).
 \end{align}
-This means that we can choose a basis of $\Ext(P_m^{[k]},P_{m-1})$ which is compatible with the lifts to the universal covering and which gives a one-to-one correspondence between basis elements of $\Ext(P_m^{[k]},P_{m-1})$ and $\Hom(P_{m-1},\tau P_m^{[k]})$. 
+This means that we can choose a basis of $\Ext(P_m^{[k]},P_{m-1})$ which is compatible with the lifts to the universal covering and which gives a one-to-one correspondence between the basis elements of $\Ext(P_m^{[k]},P_{m-1})$ and $\Hom(P_{m-1},\tau P_m^{[k]})$. 
 In view of Corollary \ref{cor:perpendicular}, we have also an isomorphism $$\Ext(\tilde P_m^{[k]},\tilde P_{m-1,k})\cong\Ext(\tilde P_m^{[k]},\tau\tilde P_m^{[k]}).$$
 These isomorphisms will also be present in the structure of the $2$-quivers $\cQ_m^{[k]}$. Finally note that there exists a short exact sequence
 \[\ses{\Hom(P_{m-1},P_{m-1})}{\Ext(P_m^{[k]},P_{m-1})}{\Ext(P_m^{[k+1]},P_{m-1})}.\]
@@ -1550,7 +1544,7 @@ $$\cQ_3^{[n-1]}:=\alpha_{n}^{-1}.\cQ_2^{[1]},$$
 i.e. we translate all vertices - understood as vertices of $\widetilde{K(n)}$ - and $(2)$-arrows by $\alpha_n^{-1}$. Now $\cQ_3^{[k]}$ can be found as a subquiver of $\cQ_{3}$ which is given by connecting $\cQ_3^{[n-1]}$ to $\cQ_{2,i}$ for $i=n-1,\ldots, 1$ in the following way: \\
 
 
-\begin{tikzpicture}[scale=1.4]
+\begin{tikzpicture}[scale=1.35]
 \draw (0,0) node (I1) {$\bullet$} +(1,1) node (J11) {$\bullet$} +(1,.5) node (J12) {$\bullet$} +(1,0.1) node (D1) { $\vdots$}+(1,-.5) node (J1N1) {$\bullet$} +(1,-1) node (J1N) {$\bullet$} ; 
 \draw[->] (I1)--(J11) node[pos=.7,above,sloped]{\scriptsize$\alpha_1$};
 \draw[->] (I1)--(J12) node[pos=.7,above,sloped]{\scriptsize$\alpha_2$};
@@ -1621,8 +1615,8 @@ Let us assume that we already constructed the $2$-quivers $\cQ_{l}^{[j]}$ of $ P
 
 For $m\geq 3$, the truncated preprojective $\tau\tilde P_{m+1}^{[k]}\cong\tilde P_{m-1}^{[k]}$ can uniquely be found as a quotient of $\tilde P_{m,k}$. This can also be seen on the level of $2$-quivers, i.e. we find $\cQ_{m-1}^{[k]}$ as a subquiver of $\cQ_{m,k}$.  More precisely, this subquiver can be found at the very right of the $2$-quiver $\mathcal Q_{m,k}$.  Now the $2$-quiver $\mathcal Q_{m+1}^{[k-1]}$ of $\tilde P^{[k-1]}_{m+1}$ is given by glueing the $2$-quiver $\mathcal Q_{m+1}^{[k]}$ to $\mathcal Q_{m,k}$ by a $2$-arrow. Thereby, the $2$-arrow connects $\mathcal Q_{m+1}^{[k]}$ to the subquiver $\cQ_{m-1}^{[k]}$ in $\cQ_{m,k}$. This gives the following $2$-quiver $\mathcal Q_{m+1}^{[k-1]}$:
 \\
-
-\begin{tikzpicture}
+\begin{flushleft}
+\begin{tikzpicture}[scale=0.97]
 \draw (0,4) node (A1) {\footnotesize$\mathcal Q_{m-1,1}$}+(0,-1.2) node (PM) {\footnotesize$\mathcal Q_{m,k}$} +(1.6,0) node (B1) {\footnotesize$\mathcal Q_{m-1,2}$}+(1.6,-1.1) node (P11) {\footnotesize$\mathcal Q_{m}^{[1]}$} +(3.2,0) node (B11) {\footnotesize$\dots$} +(4.6,0) node (D1) {\footnotesize$\mathcal Q_{m-1,n-1}$}  +(6.4,0) node (E1) {\footnotesize$\mathcal Q_{m-2,2}$} +(4.8,-1) node (P41) {\footnotesize$\mathcal Q_{m}^{[n-2]}$}+(6.4,-.9) node (P51) {\footnotesize$\mathcal Q_{m-1}^{[1]}$}+(8.0,0) node (A1b) {\footnotesize$\dots$} +(9.6,0) node (B1b) {\footnotesize$\mathcal Q_{m-2,k+1}$}+(9.6,-.8) node (P11b) {\footnotesize$\mathcal Q_{m-1}^{[k]}$} +(11.2,0) node (B11b) {\footnotesize$\dots$} +(12.8,0) node (D1b) {\footnotesize$\mathcal Q_{m-2,n-1}$} +(12.8,-.6) node (P41b) {\footnotesize$\mathcal Q_{m-1}^{[n-2]}$} +(14.4,0) node (E1b) {\footnotesize$\mathcal Q^{[n-1]}_{m-2}$} ; 
 \node (Q11) [draw=black,fit={(D1b) (E1b) (P41b)}]{};
 \node (Q21) [draw=black,fit={(Q11) (B11b)}]{};
@@ -1657,7 +1651,7 @@ For $m\geq 3$, the truncated preprojective $\tau\tilde P_{m+1}^{[k]}\cong\tilde 
 \draw[->,red,thick] (PMK)--(Q31);
 \end{tikzpicture}
 \\
-
+\end{flushleft}
 \noindent 
 %In order to keep the diagrams as simple as possible we did not insert the labels of the vertices. As every vertex  $q\in(\mathcal Q_m^{[k]})_0$ corresponds a vertex $\tilde q\in \widetilde{K(n)_0}$, in any case it is straightforward to associate an arrow $\alpha_i\in K(n)_1$ with every ($2$-)arrow of $\mathcal Q_m^{[k]}$. 
  As already mentioned two different vertices of $\mathcal Q_m^{[k]}$ can correspond to the same vertex of $\widetilde{K(n)}$. Writing dimension vectors $\tbfe\in\NN^{\widetilde{K(n)_0}}$ as $\tbfe=\sum_{q\in \widetilde{K(n)_0}}\tbfe_q\cdot q$, the dimension types $\tbfe (\beta)$ and  $\bfe (\beta)$ of a subset $\beta\subset (\mathcal Q_m^{[k]})_0$ are defined by
@@ -1935,12 +1929,12 @@ Similarly, for a vertical edge $v\in V_m$ and a subset $S_V\subset V_m$, the \em
 \end{proof}
 
 
-The following result is an immediate consequence of the combinatorial construction of rank 2 cluster variables \cite{lee-li-zelevinsky} and the categorification of these variables using representations of $K(n)$ \cite{cc,caldero-keller}.
-\begin{theorem}\cite{lee-li-zelevinsky}
+The following result is an immediate consequence of the combinatorial construction of rank 2 cluster variables \cite{llz} and the categorification of these variables using representations of $K(n)$ \cite{cc,ck}.
+\begin{theorem}\cite{llz}
   For each $m\ge1$ and $\bfe\in\ZZ_{\ge0}^2$, we have $\chi\big(\Gr_\bfe(P_m)\big)=\big|\{(S_H,S_V)\in\cC_m:|S_H|=u_m-e_1,|S_V|=e_2\}\big|$.
 \end{theorem}
 
-Our goal is to show that the compatible pairs provide a natural labeling for the cells of $\chi\big(\Gr^Q_\bfe(P_m)\big)$ found in Theorem~\ref{???}.
+Our goal is to show that the compatible pairs provide a natural labeling for the cells of $\chi\big(\Gr^Q_\bfe(P_m)\big)$ found in Theorem~ ?%\ref{???}.
 
 \sayT{references to be unified}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
