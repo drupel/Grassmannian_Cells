@@ -94,7 +94,10 @@
   We prove that all quiver Grassmannians for preprojective representations of a generalized Kronecker quiver admit a cell decomposition into affine spaces.  
   In the process, we introduce a class of regular representations which arise as quotients of consecutive preprojective representations.
   Cell decompositions for quiver Grassmannians of these ``truncated preprojectives'' are also established. 
-  We also provide two natural combinatorial labelings for these cells. On the one hand, the cells are in bijection with compatible pairs in a maximal Dyck path as predicted by the theory of cluster algebras. On the other hand, they are labeled by certain subsets of a so-called $2$-quiver attached to a preprojective representation. As there is a natural bijection between these two labelings this gives also a geometric explanation for the Dyck path combinatorics appearing in the theory of quiver Grassmannians. 
+  We also provide two natural combinatorial labelings for these cells.
+  On the one hand, the cells are in bijection with compatible pairs in a maximal Dyck path as predicted by the theory of cluster algebras.
+  On the other hand, they are labeled by certain subsets of a so-called $2$-quiver attached to a preprojective representation.
+  As there is a natural bijection between these two labelings this gives also a geometric explanation for the appearance of Dyck path combinatorics in the theory of quiver Grassmannians. 
 \end{abstract}
 
 \setcounter{tocdepth}{2}
@@ -108,24 +111,25 @@
 In recent years, interest in quiver Grassmannians has grown considerably.
 On the one hand, this is due to the fact that generating functions for the Euler characteristics of quiver Grassmannians of exceptional representations can be found as cluster variables \cite{ck}.
 On the other hand, they are clearly interesting on their own as they reveal many properties of the representation and its geometry.
+
 Although it has been shown by various authors that every projective variety can be realized as a quiver Grassmannian -- which is maybe not surprising as the classification problem of indecomposable quiver representations is wild -- it turns out that very interesting phenomena arise when restricting to certain quivers or representations with certain properties.
-For instance quiver Grassmannians attached to exceptional representations are smooth \cite{cr}.
+For instance, quiver Grassmannians attached to exceptional representations are smooth \cite{cr}.
 For tame quivers of types $\tilde A$ or $\tilde D$, it is known that every quiver Grassmannian attached to an indecomposable representation admits a cell decomposition into affine spaces, see \cite{ce,lw} and references therein.
-It is conjectured that this is also true for exceptional representations of any quiver, in particular for preprojective and preinjective representations. 
+It has been conjectured\sayD{reference?} that this is also true for exceptional representations of any quiver, in particular for preprojective and preinjective representations. 
 
 There are basically two possible ways to find cell decompositions of quiver Grassmannians if they exist.
 One is to find a non-trivial torus action on the quiver Grassmannian under consideration.
-If the quiver Grassmannian is smooth, one can apply a result of Bialynicki-Birula \cite{bb} which shows that the quiver Grassmannian decomposes into affine bundles over the fixed point components.
+If the quiver Grassmannian is smooth, one can apply a result of Bia\l{}ynicki-Birula \cite{bb} which shows that the quiver Grassmannian decomposes into affine bundles over the fixed point components.
 In particular, this shows that the quiver Grassmannian has a cell decomposition if the fixed point components have such a decomposition.
 
 Another method uses short exact sequences of quiver representations to induce maps between quiver Grassmannians.
-More precisely, the quiver Grassmannian of the middle term maps to the product of quiver Grassmannians of the outer terms via the ``Caldero-Chapoton map'' which first appeared in \cite{cc}. 
+More precisely, the quiver Grassmannian of the middle term maps to the product of the quiver Grassmannians for the two outer terms via the ``Caldero-Chapoton map'' which first appeared in \cite{cc}. 
 If the short exact sequence has certain properties -- e.g. (almost) split sequences and certain generalizations -- then cell decompositions of quiver Grassmannians attached to the outer terms transfer to a decomposition of the quiver Grassmannians of the middle term.
 
 In this paper, we combine these two methods in order to show that every quiver Grassmannian attached to an exceptional representation of a generalized Kronecker quiver admits a cell decomposition into affine spaces.
 The proof also shows that this is true for so-called truncated preprojective representations which appear as certain quotients of preprojective representations.
 It turns out that these are precisely those representations which can be obtained from indecomposable representations of dimension $(d,1)$ when applying reflection functors.
-Actually, we can prove that quiver Grassmannians of truncated preprojective representations only depend on the dimension vector of the representation itself and on the dimension vector of the subrepresentations.
+Actually, we can prove that quiver Grassmannians of truncated preprojective representations only depend on the dimension vector of the representation itself and on the fixed dimension vector of the subrepresentations.
 
 As a first step, we show that a torus action with proper fixed point set can be defined on any quiver Grassmannian attached to liftable representations of any acyclic quiver containing parallel arrows or non-oriented cycles, that is for representations which can be lifted to the universal (abelian) covering quiver.
 These are precisely those cases where the universal covering quiver differs from the original quiver.
@@ -139,7 +143,7 @@ In the case of the generalized Kronecker quiver, it turns out that a natural fil
 These filtration can be successively described by short exact sequences.
 The main advantage when passing to the universal covering is that the preprojective subrepresentations of the same dimension become orthogonal, a property which rigidifies the situation in a sense.
 In the end, this machinery can be used to recursively build cell decompositions of all quiver Grassmannians of lifted (truncated) preprojective representations.
-As all the quiver Grassmannians of the (non-lifted) representation are smooth this gives rise to a cell decomposition of these quiver Grassmannians.
+As all the quiver Grassmannians of the (non-lifted) representation are smooth, this combines with the torus action to give a cell decomposition of these quiver Grassmannians.
 
 As a benefit of this construction, we obtain a graph theoretic description of the non-empty cells.
 More precisely, with every (truncated) preprojective representation we can associate a so-called $2$-quiver.
@@ -152,6 +156,7 @@ For rank two cluster algebras, the Laurent expressions of cluster variables can 
 The confluence of these results gives rise to a combinatorial construction for the Euler characteristics and counting polynomials of certain quiver Grassmannians.
 A consequence of our main result is a geometric explanation for these computations: we provide a one-to-one correspondence between the strong successor closed subsets and compatible pairs for an appropriate Dyck path which leads to a geometric explanation for the appearance of Dyck path combinatorics in the theory of quiver Grassmannians. 
 \sayD{I need to include a conjecture about the dimensions of cells coming from the combinatorial construction of counting/Poincare polynomials}
+
 -something about compatible pairs and combinatorial construction of cluster variables\\
 -statement of our results\\
 -something about torus actions and the universal cover\\
@@ -858,13 +863,13 @@ For $w\in W_n$, we write $\pi_{m+1,w}^{I,J}:\tilde P_{m+1,w}^I\to\tilde P_{m+1,w
 \section{Quiver Grassmannians}
 \label{QG}
 
-\subsection{Torus Actions and the Bialynicki-Birula Decomposition}
+\subsection{Torus Actions and the Bia\l{}ynicki-Birula Decomposition}
 The aim of Section \ref{torusaction} is to define a torus action on quiver Grassmannians which can be used to simplify the calculation of homological invariants in general.
-If the quiver Grassmannian is smooth, which is for instance the case for exceptional representations by \cite{cr}, it can also be used to stratify the quiver Grassmannians using the results of Bialynicki-Birula.
+If the quiver Grassmannian is smooth, which is for instance the case for exceptional representations by \cite{cr}, it can also be used to stratify the quiver Grassmannians using the results of Bia\l{}ynicki-Birula.
 More specifically, let $X$ be a smooth projective variety with a $\C^\ast$-action.
 For a connected component of the fixed point set $C\subset X^{\C^\ast}$, we define its attracting set as
 \[\Att(C):=\{y\in X\mid \lim_{t\to 0}t.y\in C\}.\]
-The following result of Bialynicki-Birula relates the geometry of $X$ to the geometry of its torus fixed points.
+The following result of Bia\l{}ynicki-Birula relates the geometry of $X$ to the geometry of its torus fixed points.
 \begin{theorem}
   \label{thm:bb}
   \cite[Section 4]{bb}
@@ -1410,8 +1415,8 @@ $$F_{\udim P_m^{(k)}}=F_{\udim P_m^{(k+1)}}F_{\udim P_{m-1}}-x^{\udim P_{m}^{(k)
 \section{Combinatorial description of non-empty cells}
 \noindent In this section, we provide two combinatorial descriptions of the non-empty cells in the quiver Grassmannians of (truncated) preprojective representations of $K(n)$.
 The first is quiver theoretic and follows directly from the recursive construction of the cell decomposition in Section \ref{sec:fibrations}.
-The second is the notion of compatible pairs in a maximal Dyck path.
-We give a bijection between these which provides a partial answer to a question of the first author.
+The second is the notion of compatible pairs in a maximal Dyck path arising in the computation of rank 2 cluster variables \cite{llz}.
+We give a bijection between these which provides a partial answer to a question of the first author \cite{rupel}.
 
 \subsection{2-Quivers}
 
@@ -1939,35 +1944,49 @@ Our goal is to show that the compatible pairs provide a natural labeling for the
 \sayT{references to be unified}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{10}
-\bibitem{ass}
-Assem, I., Simson, D., Skowronski, A.: Elements of the Representation Theory of Associative Algebras. Cambridge University Press, Cambridge 2007.
-\bibitem{ars} Auslander, M., Reiten, I., Smalo S.O.: Representation theory of Artin algebras {\bf 36}. Cambridge University Press, Cambridge 1997.
-\bibitem{bb} Bialynicki-Birula, A.: Some theorems on actions of algebraic groups. Annals of Mathematics \textbf{98}, 480-497 (1973).
-\bibitem{bgp}
-Bernstein, I.~N., Gelfand, I.~M., Ponomarev, V.~A.: Coxeter functors, and Gabriel's theorem. Russian Mathematical Surveys \textbf{28}(2), 17-32 (1973).
-\bibitem{brenner-butler} S. Benner, M.~C.~R. Butler, The equivalence of certain functors occuring in the representation theory of artin algebras and species, J. London Math. Soc., 14 (1976), 183-187.
-\bibitem{cc} P., Chapoton, F.: Cluster algebras as {H}all algebras of quiver representations.
-Commentarii Mathematici Helvetici \textbf{81}(3), 595-616 (2006).
-\bibitem{ck}
-  P. Caldero, B. Keller: From triangulated categories to cluster algebras II.  Ann. Sci. \'Ecole Norm. Sup. (4) \textbf{39} (2006), no. 6, pp.~983--1009.
-\bibitem{ce} Cerulli Irelli, G., Esposito, F.: Geometry of quiver Grassmannians of Kronecker type and applications to cluster algebras. Algebra \&  Number Theory, 5(6), 777-801.
-\bibitem{cefr} Cerulli Irelli, G., Esposito, F., Franzen, H., Reineke, M.: Topology of Quiver Grassmannians. Preprint 2017.
-\bibitem{cr}
-Caldero, P., Reineke, M.: On the quiver Grassmannian in the acyclic case.
-Journal of Pure and Applied Algebra \textbf{212}(11), 2369-2380 (2008).
-%\bibitem{cj} Crawley-Boevey, W., Jensen, Bernt Tore: A note on sub-bundles of vector bundles. Glasgow Mathematical Journal \textbf{48}, 459-462 (2006).
-\bibitem{gab} Gabriel, P.: The universal cover of a finite-dimensional algebra. Representations of algebras. Lecture Notes in Mathematics {\bf 903}, 68-105 (1981).
-\bibitem{hr} Happel, D., Ringel, C.M.: Tilted Algebras. Transactions of the American Mathematical Society {\bf 274}, no.2, 399-443 (1982).
-\bibitem{llz} K. Lee, L. Li, A. Zelevinsky: Greedy elements in rank 2 cluster algebras. Selecta Math. \textbf{20} (2014) pp.~57--82.
-\bibitem{lw} Lorscheid, O., Weist, T.: Representation type via Euler characteristics and singularities of quiver Grassmannians. Preprint 2017, arXiv:1706.00860.
-\bibitem{rin1} Claus Michael Ringel. Exceptional modules are tree modules. \textit{Linear algebra and its Applications}, 275/276:471-493, 1998.
-\bibitem{rin} Ringel, C.M.: Reflection functors for hereditary algebras. Journal of the London Mathematical Society (2) {\bf 21}, no. 3, 465-479 (1980).
-%\bibitem{mats} Matsumura, H.: Commutative ring theory. 
-\bibitem{rupel} Rupel, D.: Rank Two Non-Commutative Laurent Phenomenon and Pseudo-Positivity, arXiv.
 
-\bibitem{sch} Schofield, A.: General representations of quivers. Proceedings of the London Mathematical Society (3) \textbf{65}(1), 46-64 (1992).
-	\bibitem{wei} Weist, T.: Localization of quiver moduli spaces. Representation Theory \textbf{17}(13), 382-425 (2013).
-	\bibitem{wei2} Weist, T.: Tree modules. Bulletin of the London Mathematical Society \textbf{44}(5), 882-898 (2012).
+\bibitem{ass} 
+  I.~Assem, D.~Simson, A.~Skowronski: Elements of the Representation Theory of Associative Algebras. Cambridge University Press, Cambridge 2007.
+\bibitem{ars} 
+  M.~Auslander, I.~Reiten, S.~O.~Smalo: Representation theory of Artin algebras {\bf 36}. Cambridge University Press, Cambridge 1997.
+\bibitem{bb} 
+  A.~Bia\l{}ynicki-Birula: Some theorems on actions of algebraic groups. Annals of Mathematics \textbf{98}, 480-497 (1973).
+\bibitem{bgp} 
+  I.~N.~Bernstein, I.~M.~Gelfand, V.~A.~Ponomarev: Coxeter functors, and Gabriel's theorem. Russian Mathematical Surveys \textbf{28}(2), 17-32 (1973).
+\bibitem{brenner-butler} 
+  S.~Benner, M.~C.~R.~Butler, The equivalence of certain functors occuring in the representation theory of artin algebras and species, J. London Math. Soc., 14 (1976), 183-187.
+\bibitem{cc} 
+  P.~Caldero, F.~Chapoton: Cluster algebras as {H}all algebras of quiver representations. Commentarii Mathematici Helvetici \textbf{81}(3), 595-616 (2006).
+\bibitem{ck} 
+  P.~Caldero, B.~Keller: From triangulated categories to cluster algebras II.  Ann. Sci. \'Ecole Norm. Sup. (4) \textbf{39} (2006), no. 6, pp.~983--1009.
+\bibitem{ce} 
+  G.~Cerulli Irelli, F.~Esposito: Geometry of quiver Grassmannians of Kronecker type and applications to cluster algebras. Algebra \&  Number Theory, 5(6), 777-801.
+\bibitem{cefr} 
+  G.~Cerulli Irelli, F.~Esposito, H.~Franzen, M.~Reineke: Topology of Quiver Grassmannians. Preprint 2017.
+\bibitem{cr} 
+  P.~Caldero, M.~Reineke: On the quiver Grassmannian in the acyclic case. Journal of Pure and Applied Algebra \textbf{212}(11), 2369-2380 (2008).
+%\bibitem{cj} Crawley-Boevey, W., Jensen, Bernt Tore: A note on sub-bundles of vector bundles. Glasgow Mathematical Journal \textbf{48}, 459-462 (2006).
+\bibitem{gab} 
+  P.~Gabriel: The universal cover of a finite-dimensional algebra. Representations of algebras. Lecture Notes in Mathematics {\bf 903}, 68-105 (1981).
+\bibitem{hr} 
+  D.~Happel, C.~M.~Ringel: Tilted Algebras. Transactions of the American Mathematical Society {\bf 274}, no.2, 399-443 (1982).
+\bibitem{llz} 
+  K.~Lee, L.~Li, A.~Zelevinsky: Greedy elements in rank 2 cluster algebras. Selecta Math. \textbf{20} (2014) pp.~57--82.
+\bibitem{lw} 
+  O.~Lorscheid, T.~Weist: Representation type via Euler characteristics and singularities of quiver Grassmannians. Preprint 2017, arXiv:1706.00860.
+\bibitem{rin1} 
+  C.~M.~Ringel. Exceptional modules are tree modules. \textit{Linear algebra and its Applications}, 275/276:471-493, 1998.
+\bibitem{rin} 
+  C.~M.~Ringel: Reflection functors for hereditary algebras. Journal of the London Mathematical Society (2) {\bf 21}, no. 3, 465-479 (1980).
+%\bibitem{mats} Matsumura, H.: Commutative ring theory. 
+\bibitem{rupel} 
+  D.~Rupel: Rank Two Non-Commutative Laurent Phenomenon and Pseudo-Positivity, arXiv.
+\bibitem{sch} 
+  A.~Schofield: General representations of quivers. Proceedings of the London Mathematical Society (3) \textbf{65}(1), 46-64 (1992).
+\bibitem{wei} 
+  T.~Weist: Localization of quiver moduli spaces. Representation Theory \textbf{17}(13), 382-425 (2013).
+\bibitem{wei2} 
+  T.~Weist: Tree modules. Bulletin of the London Mathematical Society \textbf{44}(5), 882-898 (2012).
 %\bibitem{wei3} Weist, T.: On the recursive construction of indecomposable quiver representations. Journal of Algebra \textbf{443}, 49-74 (2015).
 \end{thebibliography}
 
