@@ -1425,54 +1425,71 @@ We give a bijection between these which provides a partial answer to a question 
 The key concept for describing the cell decompositions is the following notion of $2$-quiver which is closely related to certain coefficient quivers of the corresponding representations, though it will turn out that a feature of this construction is that it is blind to the coloring of the different arrows of $\widetilde K(n)$ covering the arrows of $K(n)$.
 \begin{definition}
   Let $Q=(Q_0,Q_1)$ be a quiver.
-  A subset $\beta\subset Q_0$ is \emph{successor closed} if for each $p\in\beta$, the existence of an arrow $\alpha:p\to q$ in $Q_1$ implies $q\in\beta$.
+  A subset $\beta\subset Q_0$ is \emph{successor closed in $Q$} if for each $p\in\beta$, the existence of an arrow $\alpha:p\to q$ in $Q_1$ implies $q\in\beta$.
 
   A \emph{2-arrow} of the quiver $Q$ is an ordered pair $V=\big(\Gamma(1),\Gamma(2)\big)$ of full connected subquivers of $Q$, these will be denoted $V:\Gamma(1)\to\Gamma(2)$.
   A \emph{2-quiver} is a pair $\tilde Q=(Q,Q_2)$ consisting of a quiver $Q$ and a collection $Q_2$ of 2-arrows of $Q$.
-  Given a 2-quiver $\tilde Q$, we call a subset $\beta\subset Q_0$ \emph{strong successor closed} if it is successor closed and for each 2-arrow $V:\Gamma(1)\to\Gamma(2)$ with $\Gamma(1)_0\subset\beta$ we have $\Gamma(2)_0\cap\beta\ne\varnothing$.  
-
+  Given a 2-quiver $\tilde Q$, we call a subset $\beta\subset Q_0$ \emph{strong successor closed in $\tilde Q$} if it is successor closed in $Q$ and for each 2-arrow $V:\Gamma(1)\to\Gamma(2)$ in $Q_2$ with $\Gamma(1)_0\subset\beta$ we have $\Gamma(2)_0\cap\beta\ne\varnothing$.  
 \end{definition}
+
 We introduce a notion of equivalence of $2$-quivers.
-\begin{definition}\label{def:2equivalence}
-Let $\tilde Q=(Q,Q_2)$ be a $2$-quiver with a $2$-arrow $V:\Gamma(1)\to\Gamma(2)$ such that one of the following conditions is satisfied:
-\begin{enumerate}
-\item $\Gamma(1)$ has precisely one source $p$; 
-\item $\Gamma(2)$ has precisely one sink $q$;
-\item $\Gamma(1)$ has precisely one source $p$ and $\Gamma(2)$ has precisely one sink $q$.
-\end{enumerate}
-Depending on the condition which is satisfied, we define
-\begin{enumerate}
-\item $\tilde Q_p$ as the $2$-quiver obtained from $\tilde Q$ when replacing $V$ by a $2$-arrow $V_p:p\to\Gamma(2)$;
-\item $\tilde Q_q$ as the $2$-quiver obtained from $\tilde Q$ when replacing $V$ by a $2$-arrow $V_q:\Gamma(1)\to q$;
-\item $\tilde Q_V$ as the $2$-quiver obtained from $\tilde Q$ when replacing $V$ by an usual arrow $\alpha_V:p\to q$. 
-\end{enumerate}
-
-This defines a relation on the set of $2$-quivers denoted by $\tilde Q\to \tilde Q_p$, $\tilde Q\to \tilde Q_q$ and $\tilde Q\to \tilde Q_V$ respectively. Moreover, it induces an equivalence relation $\sim$ on the set of $2$-quivers when taking the symmetric and transitive closure of this relation. 
+\begin{definition}
+  \label{def:2equivalence}
+  Let $\tilde Q=(Q,Q_2)$ be a $2$-quiver with a $2$-arrow $V:\Gamma(1)\to\Gamma(2)$ in $Q_2$ such that one of the following conditions is satisfied:
+  \begin{enumerate}
+    \item $\Gamma(1)$ has precisely one source $p$; 
+    \item $\Gamma(2)$ has precisely one sink $q$;
+    \item $\Gamma(1)=\{p\}$ and $\Gamma(2)=\{q\}$.
+  \end{enumerate}
+  Depending on the condition which is satisfied, we define
+  \begin{enumerate}
+    \item $\tilde Q_p$ as the $2$-quiver obtained from $\tilde Q$ when replacing the 2-arrow $V$ by a $2$-arrow $V_p:\{p\}\to\Gamma(2)$;
+    \item $\tilde Q_q$ as the $2$-quiver obtained from $\tilde Q$ when replacing the 2-arrow $V$ by a $2$-arrow $V_q:\Gamma(1)\to \{q\}$;
+    \item $\tilde Q_V$ as the $2$-quiver obtained from $\tilde Q$ when replacing the 2-arrow $V$ by a usual arrow $\alpha_V:p\to q$. 
+  \end{enumerate}
+  This defines a relation on the set of $2$-quivers denoted by $\tilde Q\to \tilde Q_p$, $\tilde Q\to \tilde Q_q$ and $\tilde Q\to \tilde Q_V$ respectively.
+  Moreover, it induces an equivalence relation $\sim$ on the set of $2$-quivers when taking the symmetric and transitive closure of this relation. 
 \end{definition}
-Observe that the set of vertices of two equivalent $2$-quivers coincide.
 
-\begin{lemma}\label{lem:2equivalence}
-Let $\tilde Q=(Q,Q_2)$ and $\tilde Q'=(Q',Q_2')$ be two equivalent $2$-quivers. If $\beta\subset Q_0$ is strong successor closed, it also defines a strong successor closed subset of $Q_0'$. In particular, the number of strong successor closed subsets of $Q_0$ coincides with the one of $ Q_0'$.
+Observe that the vertex sets of equivalent $2$-quivers coincide.
+\begin{lemma}
+  \label{lem:2equivalence}
+  Let $\tilde Q=(Q,Q_2)$ and $\tilde Q'=(Q',Q_2')$ be equivalent $2$-quivers.
+  If $\beta\subset Q_0$ is strong successor closed in $\tilde Q$, it also defines a strong successor closed set of vertices in $\tilde Q$.
+  In particular, the number of subsets of $Q_0$ which are strong successor closed in $\tilde Q$ coincides with the number of subsets of $Q_0'$ which are strong successor closed in $\tilde Q'$.
 \end{lemma}
+
+For the proof of this Lemma the following straightforward observation is essential: in a finite connected quiver which has precisely one source $p$, there exists a path from $p$ to every other vertex of the quiver.
+An analogous statement holds if a quiver has precisely one sink. 
+
 \begin{proof}
-For the proof of this Lemma the following straightforward observation is essential: in a finite connected quiver, which is a tree and which has precisely one source $p$, all arrows are pointing away from $p$ or equivalently there exists a path from $p$ to every vertex of the quiver. The analogous statement holds if a quiver has precisely one sink. 
+  By induction, we only need to consider the cases $\tilde Q'\in\{\tilde Q_p,\tilde Q_q,\tilde Q_V\}$ where one of the conditions of Definition~\ref{def:2equivalence} is satisfied.
 
-We may assume that $\tilde Q'\in\{\tilde Q_p,\tilde Q_q,\tilde Q_V\}$ and one of the conditions of Definition \ref{def:2equivalence} is satisfied. We again denote the unique source of $\Gamma(1)$ by $p$, the unique sink of $\Gamma(2)$ by $q$ and the new arrow by $\alpha_V:p\to q$. We only consider the case $\tilde Q'=\tilde Q_V=(Q_V,(Q_V)_2)$, the other two cases follow by the same arguments. 
+  Assume first that $\tilde Q'\in\{\tilde Q_p,\tilde Q_q\}$.
+  Then we have $Q=Q'$ from which we immediately see that $\beta\subset Q_0$ is successor closed in $Q$ if and only if $\beta$ is successor closed in $Q'$.
+  We only consider the case $\tilde Q'=\tilde Q_p$ below, the argument for $\tilde Q'=\tilde Q_q$ is dual.
 
-Let $\beta\subset Q_0$ be a strong successor closed subset. We need to show that it defines a strong successor closed subset of $(Q_V)_0$.
-Let $V':\Gamma'(1)\to\Gamma'(2)\in (Q_V)_2$ be a  $2$-arrow. Then it is also a $2$-arrow of $\tilde Q$. This means that  we have $\Gamma'(2)_0\cap \beta\neq\varnothing$ if $\Gamma'(1)_0\subset \beta$. 
- 
-Let $\alpha:i\to j\in (Q_V)_1$. If $\alpha\neq\alpha_V$, we have $j\in \beta$ if $i\in\beta$ as $\beta$ is successor closed as a subset of $ Q_0$. Thus assume that $\alpha=\alpha_V$. We need to show that $q\in\beta$ if $p\in\beta$. If $p\in\beta$, we have $\beta\subset\Gamma(1)_0$ because $\beta$ is successor closed and $p$ is the unique source of $\Gamma(1)$ which means that, for every vertex $q'\in\Gamma(1)_0$, there exists a path from $p$ to $q'$. In particular, we have $q'\in\beta$ for all $q'\in\Gamma(1)_0$ because $\beta\subset Q_0$ is successor closed. It follows that, as $\beta$ is strong successor closed, there exists a vertex $p'\in\Gamma(2)_0\cap\beta$. But then we have $q\in\beta$ as, by the same argument, there exists a path from $p'$ to $q$ if $p'\neq q$. Thus $\beta$ is strong successor closed as a subset of $(Q_V)_0$.
+  Let $\beta\subset Q_0$ be strong successor closed in $\tilde Q$.
+  To see that $\beta$ is strong successor closed in $\tilde Q_p$ it suffices to consider the 2-arrow $V_p:\{p\}\to\Gamma(2)$.
+  Suppose $\{p\}\subset\beta$.
+  As $\beta$ is successor closed in $Q$ and $p$ is a source in the connected quiver $\Gamma(1)$, we have $\Gamma(1)_0\subset\beta$ and thus $\Gamma(2)_0\cap\beta\ne\varnothing$, i.e.\ $\beta$ is strong successor closed in $\tilde Q_p$.
+  The reverse implication is immediate since $\{p\}\subset\Gamma(1)_0$.
 
+  Now assume $\tilde Q'=\tilde Q_V=\big(Q_V,(Q_V)_2\big)$. 
+  Let $\beta\subset Q_0$ be strong successor closed in $\tilde Q$.
+  Since $(Q_V)_2\subset Q_2$, to see that $\beta$ is strong successor closed in $\tilde Q_V$ we only need to show that $\beta$ is successor closed in $Q_V$.  
+  For this it suffices to consider the arrow $\alpha_V:p\to q$ for which that claim is obvious since $p\in\beta$ is equivalent to $\{p\}\subset\beta$ and similarly for $q$.
 
-Thus assume that $\beta\subset (Q_V)_0$ is strong successor closed. The cases of arrows $\alpha\in Q_1$ and $2$-arrows $V'\neq V$ can be treated as before. Thus consider the $2$-arrow $V$ and the arrow $\alpha_V$. Assume that $\Gamma(1)_0\subset\beta$. Then we have $p\in\beta$. But then we have $q\in\beta$ as $\alpha_V:p\to q$ and $\beta$ is successor closed as a subset of $(Q_V)_0$. It follows that $\Gamma(2)_0\cap\beta\neq\varnothing$.
+  Finally, let $\beta\subset(Q_V)_0$ be strong sucessor closed in $\tilde Q_V$.
+  Since $Q_1\subset(Q_V)_1$, we immediately see that $\beta$ is successor closed in $Q$.
+  To see that $\beta$ is strong successor closed in $\tilde Q$, it suffices to consider the 2-arrow $V:\{p\}\to\{q\}$ for which the claim is obvious as above.
 \end{proof}
 
 %The aim is to associate a $2$-quiver with every preprojective representation $P_m$ and with their quotients $P_m^{(k)}$ defined in section \ref{QG}.
 %These $2$-quivers are related to certain coefficient quivers of these representations.
 %The upshot is that the non-empty cells of $\Gr_e(P_m)$ and $\Gr_e(P_m^{(k)})$ are in one-to-one correspondence with the strong successor closed subsets $\beta$ of type $e$.
 %Hence the corresponding Euler characteristic can be computed when counting these subsets.
-%It will turn out that a feature of this description is that it does not take care of the colouring of the different arrows induced by the arrows of $K(n)$.
+%It will turn out that a feature of this description is that it does not take care of the coloring of the different arrows induced by the arrows of $K(n)$.
 
 %\begin{remark}\footnote{Insert a remark that we do not work on the universal cover} 
 %  Lemma \ref{AR} can be generalized to the cases $m\leq 2$.
@@ -1544,7 +1561,7 @@ We define the $2$-quiver $\mathcal Q_{2}^{[k]}$  of $\tilde P_2^{[k]}$ for $k=n-
 \\
 
 \noindent
-where the $2$-arrows are coloured red. Note that the vertices $(1,\alpha_i)$ are just the $2$-quivers $\cQ_{1,i}$ corresponding to $\tilde P_{1,i}$. The $2$-quiver $\mathcal Q_2^{[k]}$ is clearly equivalent to the support quiver (\ref{coeff}). In abuse of notation, we also denote the support quiver by $\mathcal Q_{2}^{[k]}$. In order to keep the illustrations and combinatorics simple, we will work with this quiver instead. We also define the translated two quiver $\cQ_{2,i}$ as those obtained from $\cQ_{2}$ by translating all vertices and ($2$-)arrows by $\alpha_i^{-1}$.
+where the $2$-arrows are colored red. Note that the vertices $(1,\alpha_i)$ are just the $2$-quivers $\cQ_{1,i}$ corresponding to $\tilde P_{1,i}$. The $2$-quiver $\mathcal Q_2^{[k]}$ is clearly equivalent to the support quiver (\ref{coeff}). In abuse of notation, we also denote the support quiver by $\mathcal Q_{2}^{[k]}$. In order to keep the illustrations and combinatorics simple, we will work with this quiver instead. We also define the translated two quiver $\cQ_{2,i}$ as those obtained from $\cQ_{2}$ by translating all vertices and ($2$-)arrows by $\alpha_i^{-1}$.
 
 The next step is to define the $2$-quivers $\cQ^{[k]}_3$ of the (truncated) preprojective lifts $\tilde P^{[k]}_3$ whence the remaining $2$-quivers attached to the (truncated) preprojectives $\tilde P_m^{[k]}$ can be obtained recursively. First, we define
 $$\cQ_3^{[n-1]}:=\alpha_{n}^{-1}.\cQ_2^{[1]},$$
@@ -1600,7 +1617,7 @@ i.e. we translate all vertices - understood as vertices of $\widetilde{K(n)}$ - 
 \end{tikzpicture}
 \\ 
 
-\noindent In abuse of notation, we did not label the vertices in the illustration. Note that the middle vertex of $\mathcal Q_3^{[n-1]}$ corresponds to $(2,\alpha_n^{-1})$ and that all $2$-arrows, which are again coloured red, end in a vertex corresponding to $(1,e)$ of $\widetilde{K(n)}$. We again define translated versions $\cQ_{3,i}:=\alpha_i.\cQ_3$ of $\cQ_3$ which again means that we translate $\cQ_{3}$ as a union subquiver contained in $\widetilde{K(n)}$.
+\noindent In abuse of notation, we did not label the vertices in the illustration. Note that the middle vertex of $\mathcal Q_3^{[n-1]}$ corresponds to $(2,\alpha_n^{-1})$ and that all $2$-arrows, which are again colored red, end in a vertex corresponding to $(1,e)$ of $\widetilde{K(n)}$. We again define translated versions $\cQ_{3,i}:=\alpha_i.\cQ_3$ of $\cQ_3$ which again means that we translate $\cQ_{3}$ as a union subquiver contained in $\widetilde{K(n)}$.
 
 \begin{remark} Recall that $\tilde P_3^{[n-1]}=\alpha_n^{-1}.\tilde P_2^{[1]}$. Moreover, (\ref{eq:homext}) for $m=3$ yields 
 $$\Ext(P_2^{[1]},P_2)\cong\Ext(P_3^{[n-1]},P_2)\cong\bigoplus_{i=1}^{n-1}\Ext(\tilde P_3^{[n-1]},\alpha_i^{-1}\tilde P_2).$$
