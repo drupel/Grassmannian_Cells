@@ -33,6 +33,13 @@
 
 \numberwithin{equation}{section}
 
+\renewcommand{\AA}{\mathbb{A}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\kk}{\Bbbk}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+
 \newcommand{\bfe}{\mathbf{e}}
 \newcommand{\bff}{\mathbf{f}}
 \newcommand{\bfg}{\mathbf{g}}
@@ -40,54 +47,58 @@
 \newcommand{\bfi}{\mathbf{i}}
 \newcommand{\bfI}{\mathbf{I}}
 \newcommand{\bfJ}{\mathbf{J}}
+
 \newcommand{\tbfe}{{\tilde\bfe}}
 \newcommand{\tbff}{{\tilde\bff}}
 \newcommand{\tbfg}{{\tilde\bfg}}
 \newcommand{\tbfh}{{\tilde\bfh}}
-\newcommand{\C}{\mathbb{C}}
+
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cB}{\mathcal{B}}
 \newcommand{\cC}{\mathcal{C}}
 \newcommand{\cG}{\mathcal{G}}
 \newcommand{\cP}{\mathcal{P}}
+\newcommand{\cQ}{\mathcal{Q}}
+
 \newcommand{\ui}{{\underline i}}
 \newcommand{\uj}{{\underline j}}
 \newcommand\udim{{\underline{\dim}\, }}
-\newcommand{\pt}{\mathrm{pt}}
-\newcommand{\Rep}{\mathrm{Rep}}
-\newcommand{\rep}{\operatorname{rep}}
-\newcommand{\Gr}{\mathrm{Gr}}
-\newcommand{\GL}{\mathrm{GL}}
-\newcommand{\Ind}{\mathrm{Ind}}
-\renewcommand{\AA}{\mathbb{A}}
-\newcommand{\CC}{\mathbb{C}}
-\newcommand{\kk}{\Bbbk}
-\newcommand{\ZZ}{\mathbb{Z}}
-\newcommand{\NN}{\mathbb{N}}
-\newcommand{\rk}{\mathrm{rk}}
-\newcommand{\cQ}{\mathcal{Q}}
-\newcommand{\Att}{\operatorname{Att}}
-\newcommand{\Ext}{\operatorname{Ext}}
-\newcommand{\Hom}{\operatorname{Hom}}
-\newcommand{\im}{\operatorname{im}}
-\newcommand{\codim}{\operatorname{codim}}
+
 \newcommand{\into}{\hookrightarrow}
 \newcommand{\onto}{\to\!\!\!\!\!\to}
 \newcommand{\xonto}[1]{\xrightarrow{#1}\!\!\!\!\!\to}
+
+\newcommand{\Att}{\operatorname{Att}}
+\newcommand{\codim}{\operatorname{codim}}
+\newcommand{\Ext}{\operatorname{Ext}}
+\newcommand{\Gr}{\mathrm{Gr}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\Ind}{\mathrm{Ind}}
+\newcommand{\pt}{\mathrm{pt}}
+\newcommand{\Rep}{\mathrm{Rep}}
+\newcommand{\rep}{\operatorname{rep}}
+\newcommand{\rk}{\mathrm{rk}}
+\newcommand{\Sc}[2]{\langle #1,#2\rangle}
 \newcommand{\ses}[3]{\xymatrix@C15pt{0\ar[r] & #1\ar[r] & #2\ar[r] & #3 \ar[r] & 0}}
 \newcommand{\sesm}[4]{\xymatrix{0\ar[r] & #1\ar[r] & #2\ar^{#4}[r] & #3 \ar[r] & 0}}
-%\newcommand{\sesm}[4]{0\rightarrow #1\rightarrow #2\xrightarrow{#4}#3\rightarrow 0}
-\newcommand{\Sc}[2]{\langle #1,#2\rangle}
 \newcommand{\spn}{\operatorname{span}}
 \newcommand{\supp}{\operatorname{supp}}
-\setcounter{MaxMatrixCols}{20}
 \newcommand{\vs}{\vspace{0.2cm}}
+
 \hyphenation{endo-functors}
+\setcounter{MaxMatrixCols}{20}
+
 
 \title{Cell Decompositions for Rank Two Quiver Grassmannians}
 
 \author{Dylan Rupel}
+\address[Dylan Rupel]{University of Notre Dame, Department of Mathematics, Notre Dame, IN 46556, USA}
+\email{drupel@nd.edu}
 \author{Thorsten Weist}
+\address[Thorsten Weist]{}
+\email{weist@uni-wuppertal.de}
 
 \begin{document}
 \begin{abstract}
@@ -1443,9 +1454,9 @@ We introduce a notion of equivalence of $2$-quivers.
   \end{enumerate}
   Depending on the condition which is satisfied, we define
   \begin{enumerate}
-    \item $\tilde Q_p$ as the $2$-quiver obtained from $\tilde Q$ when replacing the 2-arrow $V$ by a $2$-arrow $V_p:\{p\}\to\Gamma(2)$;
-    \item $\tilde Q_q$ as the $2$-quiver obtained from $\tilde Q$ when replacing the 2-arrow $V$ by a $2$-arrow $V_q:\Gamma(1)\to \{q\}$;
-    \item $\tilde Q_V$ as the $2$-quiver obtained from $\tilde Q$ when replacing the 2-arrow $V$ by a usual arrow $\alpha_V:p\to q$. 
+    \item $\tilde Q_p$ as the $2$-quiver obtained from $\tilde Q$ when replacing the $2$-arrow $V$ by a $2$-arrow $V_p:\{p\}\to\Gamma(2)$;
+    \item $\tilde Q_q$ as the $2$-quiver obtained from $\tilde Q$ when replacing the $2$-arrow $V$ by a $2$-arrow $V_q:\Gamma(1)\to \{q\}$;
+    \item $\tilde Q_V$ as the $2$-quiver obtained from $\tilde Q$ when replacing the $2$-arrow $V$ by a usual arrow $\alpha_V:p\to q$. 
   \end{enumerate}
   This defines a relation on the set of $2$-quivers denoted by $\tilde Q\to \tilde Q_p$, $\tilde Q\to \tilde Q_q$ and $\tilde Q\to \tilde Q_V$ respectively.
   Moreover, it induces an equivalence relation $\sim$ on the set of $2$-quivers when taking the symmetric and transitive closure of this relation. 
@@ -1485,6 +1496,11 @@ An analogous statement holds if a quiver has precisely one sink.
   To see that $\beta$ is strong successor closed in $\tilde Q$, it suffices to consider the 2-arrow $V:\{p\}\to\{q\}$ for which the claim is obvious as above.
 \end{proof}
 
+\begin{remark}
+  We will usually apply Lemma~\ref{lem:2equivalence} below after performing each of the equivalences from Definition~\ref{def:2equivalence}.
+  That is, given a 2-arrow $V:\Gamma(1)\to\Gamma(2)$ for which $\Gamma(1)$ has a unique source $p$ and $\Gamma(2)$ has a unique sink $q$, we get an equivalent 2-quiver by replacing this 2-arrow with a usual arrow $a_V:p\to q$.
+\end{remark}
+
 %The aim is to associate a $2$-quiver with every preprojective representation $P_m$ and with their quotients $P_m^{(k)}$ defined in section \ref{QG}.
 %These $2$-quivers are related to certain coefficient quivers of these representations.
 %The upshot is that the non-empty cells of $\Gr_e(P_m)$ and $\Gr_e(P_m^{(k)})$ are in one-to-one correspondence with the strong successor closed subsets $\beta$ of type $e$.
@@ -1495,15 +1511,27 @@ An analogous statement holds if a quiver has precisely one sink.
 %  Lemma \ref{AR} can be generalized to the cases $m\leq 2$.
 %  The only technical problem is that $\tau \tilde P^{(k)}_{m+1}$ is no quotient of $\tilde P_{m,k}$ and we have to replace it by the image of the unique morphism to $\tau \tilde P^{(k)}_{m+1}$ which induces the exact sequence. 
 %\end{remark}
-In the following, we frequently use the notation and conventions of Section \ref{Lifting}.
-The next step is to associate a $2$-quiver $\mathcal Q_m^{[k]}$ with the lifted truncated preprojective representations 
-$$\tilde P_m^{[k]}:=\begin{cases}\tilde P_m^{\{n,\ldots,n-k+1\}}\text{ if } m\text{ is even}\\\tilde P_m^{\{1,\ldots,k\}}\text{ if }m\text{ is odd}\end{cases}$$ 
-for $m\geq 2$ and $0\leq k\leq n-1$  whose strong successor closed subsets are in one-to-one correspondence with cells of quiver Grassmannians of $\tilde P_m^{[k]}$. Recall that, by Theorem \ref{celldec}, the cells of the quiver Grassmannians attached to $P_m^{[k]}:= G_{K(n)}\tilde P_m^{[k]}$ are in one-to-one correspondence with those attached to the lift $\tilde P_m^{[k]}$. Moreover, by Theorem \ref{thm:truncpp}, the quiver Grassmannians $\Gr_{\tbfe}(P_m^V)$ of arbitrary truncated preprojective representations $P_m^V$ only depend on $\tbfe$ and $\udim P_m^V$. In short, the $2$-quivers $\mathcal Q_m^{[k]}$ can be seen as being attached to any (truncated) preprojective representation of the respective dimension.	
+In the following, we frequently use the notation and conventions of Section~\ref{Lifting}.
+The next step is to associate a $2$-quiver $\mathcal Q_{m+1}^{[k]}$ with the lifted truncated preprojective representations 
+\[\tilde P_{m+1}^{[k]}:=
+  \begin{cases}
+    \tilde P_{m+1}^{\{n,n-1,\ldots,n-k+1\}} & \text{ if $m$ is odd;}\\
+    \tilde P_{m+1}^{\{1,2,\ldots,k\}} & \text{ if $m$ is even;}
+  \end{cases}\] 
+for $m\geq 1$ and $0\leq k\leq n-1$.
+When $k=0$ above, we take $\tilde P_{m+1}^{[0]}=\tilde P_{m+1}$.
+We aim to construct $\cQ_{m+1}^{[k]}$ so that the strong successor closed subsets are in one-to-one correspondence with cells of quiver Grassmannians of $\tilde P_{m+1}^{[k]}$.
 
-For building the mentioned $2$-quivers, we use the recursive construction described in Section \ref{Lifting}. The following remarks are meant to understand the structure of the $2$-quivers. 
-%In particular, we choose bases of the $\Ext$-groups which are compatible with the lifts to the universal covering.
-%For simplicity and in order to be in shape(?) with Sections \ref{Lifting} and \ref{sec:fibrations}, we work on the universal cover.
-\begin{remark}\begin{enumerate}\item It will turn out that every vertex of the quiver $\mathcal Q_m^{[k]}$ uniquely corresponds to a vertex of the universal covering quiver $\widetilde{K(n)}$, but that different vertices of $\cQ_m^{[k]}$ can correspond to the same vertex of $\widetilde{K(n)}$. Also every usual arrow of $\mathcal Q_m^{[k]}$ does correspond to an arrow of $\widetilde{K(n)}$ and thus to an arrow of $K(n)$. In particular, the quiver obtained from $\mathcal Q_m^{[k]}$ when forgetting the $2$-arrows gives rise to a (non-disjoint) union of subquivers of $\widetilde{K(n)}$.
+Recall that, by Theorem~\ref{celldec}, the cells of the quiver Grassmannians attached to $P_{m+1}^{[k]}:=G(\tilde P_{m+1}^{[k]})$ are in one-to-one correspondence with those attached to the lift $\tilde P_{m+1}^{[k]}$.
+Moreover, by Theorem~\ref{thm:truncpp}, the quiver Grassmannians $\Gr_{\tbfe}(P_{m+1}^V)$ of arbitrary truncated preprojective representations $P_{m+1}^V$ only depend on $\tbfe$ and $\udim P_{m+1}^V$.
+In short, the $2$-quivers $\mathcal Q_{m+1}^{[k]}$ should be viewed as being attached to any (truncated) preprojective representation of the appropriate dimension.
+
+For building the mentioned $2$-quivers, we use the recursive construction described in Section~\ref{Lifting}.
+The following remarks are meant to understand the structure of these $2$-quivers. 
+\begin{remark}\mbox{}
+  \begin{enumerate}
+    \item It will turn out that every vertex of the quiver $\mathcal Q_{m+1}^{[k]}$ uniquely corresponds to a vertex of the universal covering quiver $\widetilde{K(n)}$, but that different vertices of $\cQ_{m+1}^{[k]}$ can correspond to the same vertex of $\widetilde{K(n)}$.
+      Also every usual arrow of $\mathcal Q_m^{[k]}$ does correspond to an arrow of $\widetilde{K(n)}$ and thus to an arrow of $K(n)$. In particular, the quiver obtained from $\mathcal Q_m^{[k]}$ when forgetting the $2$-arrows gives rise to a (non-disjoint) union of subquivers of $\widetilde{K(n)}$.
 
 \item Recall that the representation $\tilde P_2^{[n-1]}$ is defined by the support quiver
 \[
@@ -1561,7 +1589,10 @@ We define the $2$-quiver $\mathcal Q_{2}^{[k]}$  of $\tilde P_2^{[k]}$ for $k=n-
 \\
 
 \noindent
-where the $2$-arrows are colored red. Note that the vertices $(1,\alpha_i)$ are just the $2$-quivers $\cQ_{1,i}$ corresponding to $\tilde P_{1,i}$. The $2$-quiver $\mathcal Q_2^{[k]}$ is clearly equivalent to the support quiver (\ref{coeff}). In abuse of notation, we also denote the support quiver by $\mathcal Q_{2}^{[k]}$. In order to keep the illustrations and combinatorics simple, we will work with this quiver instead. We also define the translated two quiver $\cQ_{2,i}$ as those obtained from $\cQ_{2}$ by translating all vertices and ($2$-)arrows by $\alpha_i^{-1}$.
+where the $2$-arrows are colored red.
+Note that the vertices $(1,\alpha_i)$ are just the $2$-quivers $\cQ_{1,i}$ corresponding to $\tilde P_{1,i}$.
+The $2$-quiver $\mathcal Q_2^{[k]}$ is clearly equivalent to the support quiver (\ref{coeff}) thought of as a 2-quiver with no 2-arrows.
+In abuse of notation, we also denote the support quiver by $\mathcal Q_{2}^{[k]}$. In order to keep the illustrations and combinatorics simple, we will work with this quiver instead. We also define the translated two quiver $\cQ_{2,i}$ as those obtained from $\cQ_{2}$ by translating all vertices and ($2$-)arrows by $\alpha_i^{-1}$.
 
 The next step is to define the $2$-quivers $\cQ^{[k]}_3$ of the (truncated) preprojective lifts $\tilde P^{[k]}_3$ whence the remaining $2$-quivers attached to the (truncated) preprojectives $\tilde P_m^{[k]}$ can be obtained recursively. First, we define
 $$\cQ_3^{[n-1]}:=\alpha_{n}^{-1}.\cQ_2^{[1]},$$
