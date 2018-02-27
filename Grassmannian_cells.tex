@@ -264,7 +264,7 @@ Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=
 The following is well-known.
 \begin{theorem}
   \label{th:rigids}
-  For each $m\ge1$, there exist unique (up to isomorphism) exceptional representations $P_m$ and $I_m$ of $K(n)$ with dimension vectors $(u_m,u_{m-1})$ and $(u_{m-1},u_m)$ respectively satisfying $\Hom(P_m,P_r)=0$ (resp. $\Hom(I_r,I_m)=0$) and $\Ext(P_r,P_m)=0 $ (resp. $\Ext(I_m,I_r)=0$) for $1\leq r\leq m$.
+  For each $m\ge1$, there exist unique (up to isomorphism) exceptional representations $P_m$ and $I_m$ of $K(n)$ with dimension vectors $(u_m,u_{m-1})$ and $(u_{m-1},u_m)$ respectively satisfying $\Hom(P_m,P_r)=0$ (resp. $\Hom(I_r,I_m)=0$) and $\Ext(P_r,P_m)=0$ (resp. $\Ext(I_m,I_r)=0$) for $1\leq r\leq m$.
   Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}\oplus P_{m+1}^{a_2}$ or $I_m^{a_1}\oplus I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
 	
 \end{theorem}
@@ -409,26 +409,18 @@ For the truncated preprojective representations $P_{m+1}^V$, we have  $\udim P_{
   Now it is straightforward to check that the $\GL_{d(m,r)}=\GL_l(\CC)\times\CC^\ast$-action on $R_{d(m,r)}(K(n))$ corresponds to the base change action of $\GL_l(\CC)$ on the set of these subspaces.
   This shows the first statement.
 
-	  By Lemma~\ref{le:unique morphisms}, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable. As both, the isomorphism classes of indecomposables and the isomorphism classes of truncated projectives of dimension $d(m,r)$, are parametrized by the same Grassmannian, this gives the second claim.
+  By Lemma~\ref{le:unique morphisms}, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable.
+  Since both the isomorphism classes of indecomposables and the isomorphism classes of truncated projectives of dimension $d(m,r)$ are parametrized by the same Grassmannian, this gives the second claim.
 
-
-
-As there exist representations with trivial endomorphism ring, the dimension vectors $d(m,r)$ are Schur roots.
-%  \sayD{This can also be seen as a consequence of Corollary~\ref{cor:indecomposable truncated}, would it be better if we reorganize?}
+  As there exist representations with trivial endomorphism ring, the dimension vectors $d(m,r)$ are Schur roots.
   It follows that the set of indecomposable representations with trivial endomorphism ring forms a dense open subset of $R_{d(m,r)}(K(n))$, see for example \cite[Theorem 2.2]{sch}.
   This shows the last claim.
-	\end{proof}
+\end{proof}
 \begin{remark}
   There is a more elegant way to prove the first part of Proposition \ref{pro:indecomposables} using the notion of stability and moduli spaces.
   Actually, fixing the standard stability induced by the linear form $\Theta:\ZZ^{Q_0}\to\ZZ$ defined by $\Theta(d)=d_2$, it can be shown that all indecomposables are stable and that the moduli space of stable representations is in fact $\Gr_l(\CC^n)$.
   We opted for the proof above because the notion of stability would only be used at this point and we wanted to keep the exposition as simple as possible. 
 \end{remark}
-
-
-
-
-
-
 
 \begin{lemma}
   \label{le:basic homological properties}
@@ -1010,7 +1002,7 @@ In the following, we say that $d:\supp(X)\to\ZZ$ satisfies the \emph{degree cond
   where $\hat\bfe$ runs through all dimension vectors compatible with $\bfe$.
 \end{theorem}
 \begin{proof}
-  A representation $U\in\Gr_{\bfe}(X)$ is a torus fixed point if and only if $t.U=U $ for all $t\in\C^\ast$, i.e.\ $t.U_i=U_i$ for all $i\in Q_0$ and all $t\in\C^\ast$.
+  A representation $U\in\Gr_{\bfe}(X)$ is a torus fixed point if and only if $t.U=U$ for all $t\in\C^\ast$, i.e.\ $t.U_i=U_i$ for all $i\in Q_0$ and all $t\in\C^\ast$.
   Thus, apart from being a subrepresentation of $X$, each component $U_i$ is a fixed point of the induced torus actions on the usual Grassmannian $\Gr_{\bfe_i}(X_i)$.
   By Lemma~\ref{le:usualGrass}, this holds precisely when we have a decomposition 
   \[U_i=\bigoplus_{\chi\in A_Q} U_i\cap X_{(i,\chi)}\]
@@ -1687,11 +1679,11 @@ Note that the image of the homomorphism corresponding to the basis element spann
 %\begin{align}\label{eq:case2}
  %\Hom(P_{m-1},\tau \tilde P_{m}^{[k]})\cong\bigoplus_{i=k+1}^{n}\Hom(\alpha_i\tilde P_{m-1},\tau \tilde P_{m}^{[k]})\cong \bigoplus_{i=k+1}^{n}\Ext(\tilde P_m^{[k]},\alpha_i\tilde P_{m-1})\cong\Ext(P_m^{[k]},P_{m-1}).
 %\end{align}
-Now we can recursively build the $2$-quivers $\cQ_{m+1}^{[k]}$ of $ \tilde P_{m+1}^{[k]}$ for $m\geq 3$ and $k=n-1,\ldots,0$. 
+Now we can recursively build the $2$-quivers $\cQ_{m+1}^{[k]}$ of $\tilde P_{m+1}^{[k]}$ for $m\geq 3$ and $k=n-1,\ldots,0$. 
 %This construction is motivated by considering the natural basis of $\Ext(P_m^{[n-1]},P_{m-1})$ induced by the decomposition (\ref{eq:homext}). 
 %As we have a one-to-one correspondence between basis elements of $\Hom(P_{m-1},\tau P_m^{[k]})$ and $\Ext(P_m^{[k]},P_{m-1})$ when passing to the universal covering quiver, we can proceed as before.
 %Recall that we have $\udim P_m^{[k]}=\udim P_{m-1}^{[1]}+(n-k-1)\udim P_{m-1}$.
-Let us assume that we already constructed the $2$-quivers $\cQ_{l}^{[j]}$ of $ P_{l}^{[j]}$ for $l\leq m$ and $j=0,\ldots, n-1$ and $l=m+1$ and $j=n-1,\ldots,k$. As before, we define the translated $2$-quivers $\cQ_{m,i}=\alpha_i^{(-1)^{m+1}}.\cQ_m$. Moreover, we define $$\cQ_{m+1}^{[n-1]}:=\begin{cases}\alpha_{n}^{(-1)}.\cQ_{m}^{[1]}\text{ if }m\text{ is even}\\\alpha_{1}.\cQ_{m}^{[1]}\text{ if }m\text{ is odd}\end{cases}.$$
+Let us assume that we already constructed the $2$-quivers $\cQ_{l}^{[j]}$ of $P_{l}^{[j]}$ for $l\leq m$ and $j=0,\ldots, n-1$ and $l=m+1$ and $j=n-1,\ldots,k$. As before, we define the translated $2$-quivers $\cQ_{m,i}=\alpha_i^{(-1)^{m+1}}.\cQ_m$. Moreover, we define $$\cQ_{m+1}^{[n-1]}:=\begin{cases}\alpha_{n}^{(-1)}.\cQ_{m}^{[1]}\text{ if }m\text{ is even}\\\alpha_{1}.\cQ_{m}^{[1]}\text{ if }m\text{ is odd}\end{cases}.$$
 
 For $m\geq 3$, the truncated preprojective $\tau\tilde P_{m+1}^{[k]}\cong\tilde P_{m-1}^{[k]}$ can uniquely be found as a quotient of $\tilde P_{m,k}$. This can also be seen on the level of $2$-quivers, i.e. we find $\cQ_{m-1}^{[k]}$ as a subquiver of $\cQ_{m,k}$.  More precisely, this subquiver can be found at the very right of the $2$-quiver $\mathcal Q_{m,k}$.  Now the $2$-quiver $\mathcal Q_{m+1}^{[k-1]}$ of $\tilde P^{[k-1]}_{m+1}$ is given by glueing the $2$-quiver $\mathcal Q_{m+1}^{[k]}$ to $\mathcal Q_{m,k}$ by a $2$-arrow. Thereby, the $2$-arrow connects $\mathcal Q_{m+1}^{[k]}$ to the subquiver $\cQ_{m-1}^{[k]}$ in $\cQ_{m,k}$. This gives the following $2$-quiver $\mathcal Q_{m+1}^{[k-1]}$:
 \\
@@ -1740,8 +1732,8 @@ where $\tilde q\in\widetilde{K(n)}_0$ is the vertex which corresponds to $q\in \
 
 
 \begin{theorem}\begin{enumerate}
-\item  For $\tbfe\in\NN^{\widetilde{K(n)_0}}$, the Euler characteristic $\chi(\Gr_{\tbfe }(\tilde P_m^{[k]}))$ is given by the number of strong successor closed subsets of dimension type $\tbfe $ of the $2$-quiver of $\mathcal Q_m^{[k]}$.
-	\item For $\bfe\in\NN^{K(n)_0}$, the Euler characteristic $\chi(\Gr_{\bfe }(P_m^{[k]}))$ is given by the number of strong successor closed subsets of dimension type $\bfe $ of the $2$-quiver of $\mathcal Q_m^{[k]}$.
+\item  For $\tbfe\in\NN^{\widetilde{K(n)_0}}$, the Euler characteristic $\chi(\Gr_{\tbfe }(\tilde P_m^{[k]}))$ is given by the number of strong successor closed subsets of dimension type $\tbfe$ of the $2$-quiver of $\mathcal Q_m^{[k]}$.
+	\item For $\bfe\in\NN^{K(n)_0}$, the Euler characteristic $\chi(\Gr_{\bfe }(P_m^{[k]}))$ is given by the number of strong successor closed subsets of dimension type $\bfe$ of the $2$-quiver of $\mathcal Q_m^{[k]}$.
 \end{enumerate}
 \end{theorem}
 \begin{proof}
