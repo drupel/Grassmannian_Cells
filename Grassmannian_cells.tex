@@ -123,7 +123,9 @@ In recent years, interest in quiver Grassmannians has grown considerably.
 On the one hand, this is due to the fact that generating functions for the Euler characteristics of quiver Grassmannians of exceptional representations can be found as cluster variables \cite{ck}.
 On the other hand, they are clearly interesting on their own as they reveal many properties of the representation and its geometry.
 
-Although it has been shown by various authors that every projective variety can be realized as a quiver Grassmannian -- which is maybe not surprising as the classification problem of indecomposable quiver representations is wild -- it turns out that very interesting phenomena arise when restricting to certain quivers or representations with certain properties.
+Although it follows from the results of Hille, Huisgen-Zimmermann and Reineke that every projective variety can be realized as a quiver Grassmannian, 
+%-- which is maybe not surprising as the classification problem of indecomposable quiver representations is wild -- 
+it turns out that very interesting phenomena arise when restricting to certain quivers or representations with certain properties.
 For instance, quiver Grassmannians attached to exceptional representations are smooth \cite{cr}.
 For tame quivers of types $\tilde A$ or $\tilde D$, it is known that every quiver Grassmannian attached to an indecomposable representation admits a cell decomposition into affine spaces, see \cite{ce,lw} and references therein.
 It has been conjectured\sayD{reference?} that this is also true for exceptional representations of any quiver, in particular for preprojective and preinjective representations. 
@@ -183,7 +185,7 @@ We refer to \cite{gab} for an introduction to covering theory.
 Let $Q$ be an acyclic quiver with vertices $Q_0$ and arrows $Q_1$ which we denote by $\alpha:s(\alpha)\to t(\alpha)$.
 A $\CC$-representation $X$ of $Q$ consists of a collection of $\CC$-vector spaces $X_i$ for $i\in Q_0$ and a collection of $\CC$-linear maps $X_\alpha:X_{s(\alpha)}\to X_{t(\alpha)}$ for $\alpha\in Q_1$.
 Given $\CC$-representations $X$ and $Y$ of $Q$, a morphism $f:X\to Y$ is a collection of $\CC$-linear maps $f_i:X_i\to Y_i$ for $i\in Q_0$ satisfying $f_{t(\alpha)}\circ X_\alpha=Y_\alpha\circ f_{s(\alpha)}$ for each $\alpha\in Q_1$.
-We write $\rep Q$ for the hereditary abelian category of finite-dimensional $\C$-representations of $Q$ and we assume in the following that all representations are finite-dimensional.\sayT{Inserted finite-dimensional as we do not need infite-dimensional one (I am also not sure if we need to be careful at some points otherwise)}
+We write $\rep Q$ for the hereditary abelian category of finite-dimensional $\C$-representations of $Q$ and we assume in the following that all representations are finite-dimensional.
 
 Recall that, given $\CC$-representations $X$ and $Y$ of $Q$, any tuple of linear maps $(g_\alpha:X_{s(\alpha)}\to Y_{t(\alpha)})_{\alpha\in Q_1}$ defines a short exact sequence $\ses{Y}{Z}{X}$ with middle term given by the vector spaces $Z_i=X_i\oplus Y_i$ for $i\in Q_0$ and the linear maps $Z_\alpha=\begin{pmatrix} X_\alpha & 0 \\ g_\alpha & Y_\alpha \end{pmatrix}$ for $\alpha\in Q_1$. 
 In general, considering the linear map  
@@ -262,7 +264,7 @@ Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=
 The following is well-known.
 \begin{theorem}
   \label{th:rigids}
-  For each $m\ge1$, there exist unique (up to isomorphism) exceptional representations $P_m$ and $I_m$ of $K(n)$ with dimension vectors $(u_m,u_{m-1})$ and $(u_{m-1},u_m)$ respectively satisfying $\Hom(P_m,P_r)=0$ (resp. $\Hom(I_r,I_m)=0$) and $\Ext(P_r,P_m)=0 $(resp. $\Ext(I_m,I_r)=0$) for $1\leq r\leq m$.
+  For each $m\ge1$, there exist unique (up to isomorphism) exceptional representations $P_m$ and $I_m$ of $K(n)$ with dimension vectors $(u_m,u_{m-1})$ and $(u_{m-1},u_m)$ respectively satisfying $\Hom(P_m,P_r)=0$ (resp. $\Hom(I_r,I_m)=0$) and $\Ext(P_r,P_m)=0 $ (resp. $\Ext(I_m,I_r)=0$) for $1\leq r\leq m$.
   Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}\oplus P_{m+1}^{a_2}$ or $I_m^{a_1}\oplus I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
 	
 \end{theorem}
@@ -388,8 +390,11 @@ For the truncated preprojective representations $P_{m+1}^V$, we have  $\udim P_{
   Let $m\geq 1$ and $0\le r\le n-1$.
   The following hold:
   \begin{enumerate}
+	
     \item The isomorphism classes of indecomposable representations of dimension $d(m,r)$ are in one-to-one correspondence with points of $\Gr_{n-r}(\CC^n)$.
-    \item The set of indecomposable representations of dimension $d(m,r)$ is given by a non-empty open subset of $R_{d(m,r)}(K(n))$. 
+  \item The indecomposable representations of dimension $d(m,r)$ are precisely the truncated preprojective representations $P_{m+1}^V$ for $V\in \Gr(H_m)$. 
+	\item The set of indecomposable representations of dimension $d(m,r)$ is given by a non-empty open subset of $R_{d(m,r)}(K(n))$. 
+
   \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -404,13 +409,17 @@ For the truncated preprojective representations $P_{m+1}^V$, we have  $\udim P_{
   Now it is straightforward to check that the $\GL_{d(m,r)}=\GL_l(\CC)\times\CC^\ast$-action on $R_{d(m,r)}(K(n))$ corresponds to the base change action of $\GL_l(\CC)$ on the set of these subspaces.
   This shows the first statement.
 
-By Lemma \ref{le:unique morphisms} the roots $d(m,r)$ are Schur roots as there exist representations with trivial endomorphism ring.
+	  By Lemma~\ref{le:unique morphisms}, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable. As both, the isomorphism classes of indecomposables and the isomorphism classes of truncated projectives of dimension $d(m,r)$, are parametrized by the same Grassmannian, this gives the second claim.
+
+
+
+As there exist representations with trivial endomorphism ring, the dimension vectors $d(m,r)$ are Schur roots.
 %  \sayD{This can also be seen as a consequence of Corollary~\ref{cor:indecomposable truncated}, would it be better if we reorganize?}
   It follows that the set of indecomposable representations with trivial endomorphism ring forms a dense open subset of $R_{d(m,r)}(K(n))$, see for example \cite[Theorem 2.2]{sch}.
-  This shows the second statement.
-\end{proof}
+  This shows the last claim.
+	\end{proof}
 \begin{remark}
-  There is a more elegant way to prove Proposition \ref{pro:indecomposables} using the notion of stability and moduli spaces.
+  There is a more elegant way to prove the first part of Proposition \ref{pro:indecomposables} using the notion of stability and moduli spaces.
   Actually, fixing the standard stability induced by the linear form $\Theta:\ZZ^{Q_0}\to\ZZ$ defined by $\Theta(d)=d_2$, it can be shown that all indecomposables are stable and that the moduli space of stable representations is in fact $\Gr_l(\CC^n)$.
   We opted for the proof above because the notion of stability would only be used at this point and we wanted to keep the exposition as simple as possible. 
 \end{remark}
@@ -419,15 +428,6 @@ By Lemma \ref{le:unique morphisms} the roots $d(m,r)$ are Schur roots as there e
 
 
 
-\begin{corollary}
-  \label{cor:indecomposable truncated} 
-  For $V\in \Gr(H_m)$, $m\ge1$, the truncated preprojective $P_{m+1}^V$ is indecomposable.
-  Moreover, every indecomposable of dimension $\udim P_{m+1}^V$ is truncated preprojective.
-\end{corollary}
-\begin{proof}
-  By Lemma~\ref{le:unique morphisms}, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable.
-  The second part follows from Proposition \ref{pro:indecomposables} together with Lemma \ref{le:unique morphisms}.
-\end{proof}
 
 
 \begin{lemma}
@@ -436,7 +436,7 @@ By Lemma \ref{le:unique morphisms} the roots $d(m,r)$ are Schur roots as there e
 \end{lemma}
 \begin{proof}
   Recall that $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some indecomposable representation $X$ and some $\ell\ge1$ implies that $X$ is preprojective of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$).
-  However, $P_{m+1}^V$ is indecomposable by Corollary \ref{cor:indecomposable truncated} and it cannot be preprojective as it is not rigid by Lemma~\ref{le:unique morphisms}.
+  However, $P_{m+1}^V$ is indecomposable by Proposition \ref{pro:indecomposables} and it cannot be preprojective as it is not rigid by Lemma~\ref{le:unique morphisms}.
   %Note that $\udim P_{m+1}^V <\udim P_{m+1}$, but $\udim P_r\geq \udim P_{m+1}$ if $\Hom(P_{m+1},P_r)\neq 0$.
 \end{proof}
 
@@ -445,7 +445,7 @@ By Lemma \ref{le:unique morphisms} the roots $d(m,r)$ are Schur roots as there e
   For $V\in\Gr(H_m)$, $m\ge2$, the representation $\Sigma_1(P_{m+1}^V)^\sigma$ is also truncated preprojective.
 \end{lemma}
 \begin{proof}
-  By Corollary~\ref{cor:indecomposable truncated} and Lemma~\ref{le:unique morphisms}, $P_{m+1}^V$ is indecomposable but not rigid.
+  By Proposition~\ref{pro:indecomposables} and Lemma~\ref{le:unique morphisms}, $P_{m+1}^V$ is indecomposable but not rigid.
   In particular, $P_{m+1}^V$ does not have a summand isomorphic to $S_1$.
   Thus, following Remark~\ref{rem:reflection recursion}, we may apply the functor $\Sigma_1(-)^\sigma$ to the sequence \eqref{eq:truncated preprojectives} to get the exact sequence
   \[0\longrightarrow P_{m-1}\otimes V\xrightarrow{\Sigma_1(ev_V)^\sigma} P_m\longrightarrow \Sigma_1(P_{m+1}^V)^\sigma\longrightarrow 0\]
@@ -781,7 +781,7 @@ Indeed, by considering the support quiver of $\tilde P_{3,i}$ from Example~\ref{
 
   For the $m=3$ case, we note that $\tau\tilde P_4^I=\tilde P_2^I$ by Lemma~\ref{le:truncated tau}.
   Then the claimed structure $\tilde P_3(I,j)$ of the kernel and the surjectivity of the map $\tilde P_{3,j}\to\tau\tilde P_4^I$ are immediate from the explicit descriptions of $\tilde P_{3,j}$ and $\tilde P_2^I$ in Example~\ref{ex:lifted preprojectives} and Example~\ref{ex:truncated lifts} respectively.
-  The general cases for parts (1) and (2) both then follow using the reflection recursions \eqref{eq:recursive covers}.
+  The general cases for parts (1) and (2) both then follow using the reflection recursions \eqref{eq:recursive covers} taking into account Remark \ref{rem:reflection recursion}.(2).
 \end{proof}
 
 \begin{remark}
@@ -1023,7 +1023,7 @@ Thus, if $\hat X^{(k)}$ is the lift of $X$ to $\hat Q^{(k)}$, there exists a tor
 If we denote the iterated torus fixed points by $\Gr^Q_\bfe(X)^{T^{(k)}}$, we obtain the following result.
 \begin{corollary}
 Let $X$ be a representation which can be lifted to $\tilde Q$. Then there exists an iterated torus action such that
-  $$\Gr^Q_\bfe(X)^{T^{(k)}}\cong \bigsqcup_{\hat\bfe^{(k-1)}} \Gr_{\hat\bfe^{(k-1)}}^{\hat Q^{(k-1)}}(\hat X^{(k-1)})^T\cong \bigsqcup_{\hat\bfe^{(k)}} \Gr^{\hat Q}_{\hat\bfe^{(k)}}(\hat X^{(k)})\cong \bigsqcup_{\tilde\bfe} \Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$$ where $\hat\bfe^{(k-1)},\,\hat\bfe^{(k)},\,\tilde\bfe$ run through all dimension vectors compatible with $\bfe$.
+  $$\Gr^Q_\bfe(X)^{T^{(k)}}\cong \bigsqcup_{\hat\bfe^{(k-1)}} \Gr_{\hat\bfe^{(k-1)}}^{\hat Q^{(k-1)}}(\hat X^{(k-1)})^T\cong \bigsqcup_{\hat\bfe^{(k)}} \Gr^{\hat Q^{(k)}}_{\hat\bfe^{(k)}}(\hat X^{(k)})\cong \bigsqcup_{\tilde\bfe} \Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$$ where $\hat\bfe^{(k-1)},\,\hat\bfe^{(k)},\,\tilde\bfe$ run through all dimension vectors compatible with $\bfe$.
 \end{corollary}
 %\begin{corollary}
 %  affine bundles over $\Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$ if $\Gr^Q_\bfe(X)$ is smooth
@@ -1124,6 +1124,7 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
 %\end{proof}
 
 %Any subrepresentation $E\subset P_{m+1}^V$ corresponds by taking pullbacks to a chain of inclusions $P_m\otimes V\subset\tilde E\subset P_{m+1}$.
+Write $\Ind(K(n),d)$ for the set of isomorphism classes of indecomposable representations of $K(n)$ of dimension $d$ for $d\in\NN^{K(n)_0}$. As the $\GL_n(\CC)$-action commutes with the natural base change action, we can define a $\GL_n(\CC)$-action on $\Ind(K(n),d)$.
 \begin{proposition} \label{indecomposables}
   Let $m\geq 1$ and $d(m,r)=\dim P_{m+1}-r\dim P_m$ with $0\leq r\leq n-1$. The action of $\GL_n(\CC)$ is transitive on $\mathrm{Ind}(K(n),d(m,r))$.
 \end{proposition}
@@ -1297,10 +1298,10 @@ Now we are able to state the following result concerning the fibers of $\Psi_{m+
   \end{enumerate}
 \end{proposition}
 \begin{proof}
-  By Lemma~\ref{le:subrep}, any subrepresentation $V\subsetneq\tilde P_{m+1}^I$ is preprojective.
+  By Lemma~\ref{le:subrep}, any subrepresentation $W\subsetneq\tilde P_{m+1}^I$ is preprojective.
   But the representation $\tilde P_{m,j}/U$ is not preprojective as it is a proper quotient of a preprojective representation unless $U=0$.
   Thus we have $\Ext(W,\tilde P_{m,j}/U)=0$. 
-  If $U=0$, we have $\Ext(W,\tilde P_{m,j})=0$ because for dimension reasons every indecomposable direct summand of $V$ is isomorphic to a lift of some $P_l$ with $l\leq m$ and, moreover, $\Ext(P_l,P_k)=0$ for $l\leq k+1$.
+  If $U=0$, we have $\Ext(W,\tilde P_{m,j})=0$ because for dimension reasons every indecomposable direct summand of $W$ is isomorphic to a lift of some $P_l$ with $l\leq m$ and, moreover, $\Ext(P_l,P_m)=0$ for $l\leq m+1$.
 
   The second statement follows directly from Proposition \ref{quotient}.
 \end{proof}
@@ -1315,7 +1316,7 @@ Now we are able to state the following result concerning the fibers of $\Psi_{m+
   We establish the result for $m\ge2$ by proving the following more general statement:\\
 
   \noindent{\bf Claim.}
-  For any admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k<m$ and any subset $J\subset I_0$, the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a decomposition into affine spaces which are compatible with the unique map $\pi_{m+1}^{J,\bfI}:\tilde P_{m+1}^J\to\tilde P_{m+1}^\bfI$ from Lemma~\ref{le:truncated quotients} in the following sense:
+  For any admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k<m$ and any subset $J\subset I_0$, the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a decomposition into affine spaces which is compatible with the unique map $\pi_{m+1}^{J,\bfI}:\tilde P_{m+1}^J\to\tilde P_{m+1}^\bfI$ from Lemma~\ref{le:truncated quotients} in the following sense:
   \begin{itemize}
     \item[($\dagger$)] For any $V\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ such that $\pi_{m+1}^{J,\bfI}(V)\neq 0$, we have $\pi_{m+1}^{J,\bfI}(V')\neq 0$ for all $V'\in C_V$, where $C_V$ is the affine cell which contains $V$.
   \end{itemize}
@@ -1330,7 +1331,7 @@ Now we are able to state the following result concerning the fibers of $\Psi_{m+
   But $\tilde P_{m,i_0}^{\delta\bfI}=\tilde P_{m+1}^\bfI$ so that $\pi_{m,i_0}^{J_0,\delta\bfI}$ coincides with the map $\pi_{m+1}^{J,\bfI}$ and thus the condition ($\dagger$) holds for the cell decomposition of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$.
 
   Now suppose $|J|<n-1$.
-  If $J=I_0$, then we must have $k=0$ and $\tilde P_{m+1}^J=\tilde P_{m+1}^\bfI$ so that the compatibility condition ($\dagger$) with the map $\pi_{m+1}^{J,\bfI}$ is vacuous.
+  If $J=I_0$, then we must have $k=0$ and $\tilde P_{m+1}^J=\tilde P_{m+1}^\bfI$ so that the compatibility condition ($\dagger$) with the map $\pi_{m+1}^{J,\bfI}$ is vacuous.\sayT{if $J=I_0$ we have $|J|=n-1$?}
   Thus we may assume $J\subsetneq I_0$.
   
   Choose any subset $I\subset I_0$ with $J\subset I$ and $|I\setminus J|=1$, say $I\setminus J=\{j\}$.
@@ -1408,13 +1409,36 @@ By Lemma \ref{directsums} and induction hypothesis every quiver Grassmannian on 
 \begin{theorem}\label{celldec}The following holds:
 \begin{enumerate}
 \item Every quiver Grassmannian of any indecomposable preprojective or preinjective representation of $K(n)$ and $\widetilde{K(n)}$ has a cell decomposition into affine spaces.
-\item Let $X$ be an indecomposable representation of dimension $(d,e)$ or $(e,d)$ where $(d,e)=\udim P_m-r\udim P_{m-1}$ for $m\geq 2$ and $\leq 0\leq r\leq n-1$. Then every quiver Grassmannian $\Gr_{\bfe}(X)$ has a cell decomposition into affine spaces.
+\item Let $X\in\rep K(n)$ be an indecomposable representation of dimension $(d,e)$ or $(e,d)$ where $(d,e)=\udim P_m-r\udim P_{m-1}$ for $m\geq 2$ and $\leq 0\leq r\leq n-1$. Then every quiver Grassmannian $\Gr_{\bfe}(X)$ has a cell decomposition into affine spaces.
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-The first part follows by combining the results of Section \ref{torusaction} and Theorems \ref{thm:bb} and \ref{cellscover}. The dual version for preinjective representations follows as $\Gr_{\tbfe}(P_m)\cong\Gr_{\udim P_m-\tbfe}(I_m)$.
+The first part follows by combining the results of Section \ref{torusaction} and Theorems \ref{thm:bb} and \ref{cellscover} taking into account that every preprojective representation of $\widetilde{ K(n)}$ is a lift of a preprojective representation which can be proven using the same argument as in the proof of Lemma \ref{le:lifts of transjectives}. The dual version for preinjective representations follows as $\Gr_{\bfe}(P_m)\cong \Gr_{\udim P_m-\bfe}(I_m)$ and $\Gr_{\tbfe}(\tilde P_m)\cong\Gr_{\udim \tilde P_m-\tbfe}(\tilde I_m)$ respectively.
 
 The second part follows in the same way, additionally, taking Theorem \ref{thm:truncpp} into account.
+\end{proof}
+
+\begin{corollary}
+Let $X\in\rep K(n)$ be a direct sum of exceptional representations. Then every quiver Grassmannian $\Gr_{\bfe}(X)$ has a cell decomposition into affine spaces. In particular, this is true for all rigid representations of $K(n)$.
+\end{corollary}
+\begin{proof}
+As every exceptional representation of $K(n)$ is either preprojective or preinjective, we have
+$$X=\bigoplus_{i=1}^rP_{j_i}\oplus\bigoplus_{i=1}^sI_{k_i}$$
+where we assume that $j_i\leq j_{i+1}$ and write
+$$P(r'):=\bigoplus_{i=1}^{r'} P_{j_i},\quad I(s'):=\bigoplus_{i=1}^{s'}I_{k_i}$$ 
+for $r'\leq r$ and $s'\leq s$. 
+
+By Theorem \ref{celldec}, the claim is true for all quiver Grassmannians attached to $P_{j_i}$ or $I_{k_i}$. Consider the short exact sequence
+\[\ses{P_{j_{r'+1}}}{P(r'+1)}{P(r')}.\]
+By induction, we can assume that all quiver Grassmannians attached to the two outer terms have a cell decomposition into affine spaces. Consider the Caldero-Chapoton map
+\[\Psi_\bfe:\Gr_\bfe(P(r'+1))\to\bigsqcup_{\bff+\bfg=\bfe} \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg(P(r')).\]
+The results of \cite[Section 3]{cc} show that $\Psi_{\tbfe}^{-1}(U,V)=\AA^{\dim\Hom(V,P_{j_{r'+1}}/U)}$  for all $(U,V)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg(P(r'))$, in particular the fibre is never empty. Now every subrepresentation $V$ of $P(r')$ is isomorphic to direct sum of preprojective representations such that for each direct summand $P_l$ we have $l\leq j_{r'}$. Moreover, the quotient $P_{j_{r'+1}}/U$ is not projective if $U\neq 0$ and equal to $P_{j_{r'+1}}$ otherwise. Together this yields $\Ext(V,P_{j_{r'+1}}/U)=0$ and thus
+$$\dim\Hom(V,P_{j_{r'+1}}/U)=\langle V, P_{j_{r'+1}}/U\rangle$$
+for all $(U,V)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg(P(r'))$. By Theorem \ref{vb}, this already shows that $\Gr_{\bfe}(P(r'))$ has a cell decomposition into affine spaces for every $1\leq r'\leq r$. By duality, the same is true for $\Gr_{\bfe}(I(s))$. 
+
+Finally consider the short exact sequence
+$$\ses{I(s)}{X}{P(r)}.$$
+As every quotient of $I(s)$ is preinjective and as every subrepresentation of $P(r')$ is preprojective, the same argument shows that every quiver Grassmannian attached to $X$ has a cell decomposition into affine spaces
 \end{proof}
 
 As the $F$-polynomial of truncated preprojective representations only depend on the dimension vector, we may denote them by $F_{\udim P_m{(k)}}$. The description of the non-empty fibers in Proposition \ref{fibers} together with Corollary \ref{fpoly} and Theorem \ref{celldec} yield the following:
