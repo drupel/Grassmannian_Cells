@@ -461,6 +461,7 @@ Each such sequence has the following almost-split property for proper subreprese
   Indeed, each of these is obtained from a subrepresentation of $\Sigma_1(P_{m+1}^V)^\sigma$ by applying the functor $\Sigma_2(-)^\sigma$ and the claim follows from the recursions in Remark~\ref{rem:reflection recursion} for preprojective representations.
 \end{proof}
 \begin{corollary}
+  \label{cor:base fibers}
   Consider $V,W\in \Gr(H_m)$, $m\ge1$, with $W\subset V$.
   Given any proper subrepresentation $X\subsetneq P_{m+1}^V$ and any subrepresentation $Z\subset P_m\otimes(V/W)$, there is a subrepresentation of $P_{m+1}^W$ isomorphic to $Z\oplus X$ which fits into a commutative diagram
   \[\xymatrix{0 \ar[r] & Z \ar[d]\ar[r] & Z\oplus X \ar[r]\ar[d] & X \ar[d]\ar[r] & 0 \\
@@ -1289,6 +1290,11 @@ Now we are able to state the following result concerning the fibers of $\Psi_{m+
       In this case, we have $\Psi_{m+1,I,j}^{-1}(U,W)=\AA^{\langle W,\tilde P_{m,j}/U\rangle}$.
   \end{enumerate}
 \end{proposition}
+\begin{remark}
+  Part (1) of Proposition~\ref{fibers} holds equally well when considering the analogues of the Caldero-Chapoton maps $\Psi_{m+1,I,j}$ for $K(n)$.
+  This follows from Corollary~\ref{cor:base fibers} and Lemma~\ref{le:projective subrepresentations}.
+  However, there does not seem to be a reasonable analogue of part (2) when considering Calcero-Chapoton maps for $K(n)$.
+\end{remark}
 \begin{proof}
   By Lemma~\ref{le:subrep}, any subrepresentation $W\subsetneq\tilde P_{m+1}^I$ is preprojective.
   But the representation $\tilde P_{m,j}/U$ is not preprojective as it is a proper quotient of a preprojective representation unless $U=0$.
