@@ -31,7 +31,7 @@
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{remark}[theorem]{Remark}
 \newtheorem{example}[theorem]{Example}
-
+\newtheorem{thm}{Theorem}
 \numberwithin{equation}{section}
 
 \renewcommand{\AA}{\mathbb{A}}
@@ -129,7 +129,7 @@ Although it follows from the results of Hille, Huisgen-Zimmermann and Reineke th
 it turns out that very interesting phenomena arise when restricting to certain quivers or representations with certain properties.
 For instance, quiver Grassmannians attached to exceptional representations are smooth \cite{cr}.
 For tame quivers of types $\tilde A$ or $\tilde D$, it is known that every quiver Grassmannian attached to an indecomposable representation admits a cell decomposition into affine spaces, see \cite{ce,lw} and references therein.
-It has been conjectured\sayD{reference?} that this is also true for exceptional representations of any quiver, in particular for preprojective and preinjective representations. 
+It has been conjectured that this is also true for exceptional representations of any quiver, in particular for preprojective and preinjective representations. 
 
 There are basically two possible ways to find cell decompositions of quiver Grassmannians if they exist.
 One is to find a non-trivial torus action on the quiver Grassmannian under consideration.
@@ -176,8 +176,24 @@ A consequence of our main result is a geometric explanation for these computatio
 -something about torus actions and the universal cover\\
 -something about cell decompositions of quiver Grassmannians\\
 -acknowledgements?\\
+The paper is organized as follows. In Section \ref{sec:covering}, we collect several results concerning quiver covering theory. In Section \ref{sec:RepK(n)}, we recall basic facts concerning the representation theory of generalized Kronecker quivers $K(n)$ which is needed to investigate the quiver Grassmannians attached to preprojective representations later. We first focus on preprojective and preinjective representations, written as $P_m$ and $I_m$, which enables us to investigate a special class of indecomposable representations in Section \ref{sec:truncated preprojectives} - we call them truncated preprojective representations. We proof that every preprojective representation admits a filtration by preprojectives of smaller dimensions such that all quotients appearing are actually truncated preprojective representations. In Section \ref{Lifting}, we use this together with the fact that every preprojective representation can be lifted to the universal covering in order to construct lifted filtrations. Throughout this section, we collect many results which will turn out to completely reveal the structure of quiver Grassmannians attached to (truncated) preprojective representations.
 
+The aim of Section \ref{QG} is to study these quiver Grassmannians and to show that they all admit a cell decomposition into affine spaces. This is obtained by combining a torus action on quiver Grassmannians which is introduced in Section \ref{torusaction} and the so-called Caldero-Chapoton map for short exact sequences of representations in Section \ref{sec:fibrations}. Our first main result is Theorem \ref{thm:torusfixedpoints} which may be formulated as follows.
+\begin{thm}
+  Let $X$ be a representation of a quiver $Q=(Q_0,Q_1)$ which can be lifted to a representation $\hat X$ of the universal abelian covering quiver $\hat Q$. Then there exists a map $d:\supp(\hat X)\to\ZZ$ - with a corresponding torus action on every $X_i=\bigoplus_{\chi\in A_{Q}} X_{(i,\chi)}$ defined by $t.x_{(i,\chi)}=t^{d(i,\chi)}x_{(i,\chi)}$ for $x_{(i,\chi)}\in X_{(i,\chi)}$ - which induces a torus action on $\Gr_\bfe^Q(X)$ such that
+  \[\Gr^Q_\bfe(X)^{\CC^*}\cong\bigsqcup_{\hat\bfe} \Gr^{\hat Q}_{\hat\bfe}(\hat X),\]
+  where $\hat\bfe$ runs through all dimension vectors compatible with $\bfe$.
+\end{thm}
+This torus action can be iterated in such a way that the remaining torus fixed points are precisely the subrepresentations which can be lifted to the universal covering quiver. As far as generalized Kronecker quivers are concerned, we can show in Theorem \ref{thm:truncpp} that all quiver Grassmannians attached to truncated representations are smooth - actually, they only depend on dimension vectors. In view of results of Bia\l{}ynicki-Birula \cite{bb} - which roughly speaking yields that cell decompositions are preserved when passing from the fixed point components to the original variety - we can use this result to lift the investigation of the quiver Grassmannians to the universal covering quiver. This is insofar important as results as Corollary \ref{cor:perpendicular} are available which do not hold on the original quiver. Analyzing the Caldero-Chapoton map applied to short exact sequences induced by lifts of the mentioned filtrations in greater detail and combining it with the torus method, we obtain the main result of this paper, see Theorems \ref{cellscover} and \ref{celldec}.
+ \begin{thm} For every $m\geq 1$ and for every point $V\neq \C^n$ of the total Grassmannian $\Gr(\C^n)$, there exists a (truncated) preprojective representation $P_{m+1}^V$ such that every quiver Grassmannian $\Gr_\bfe(P_{m+1}^V)$ admits a cell decomposition into affine spaces.
+\end{thm}
+Note that, for $V=0$, we obtain the preprojective representations $P_{m+1}$.
 
+In Section \ref{sec:combinatorics}, we reveal the combinatorics behind the obtained cell decompositions introducing the notion of $2$-quivers which is a slight generalization of the notion of usual quivers. Theorem \ref{thm:2quivercells} can be formulated as follows.\begin{thm}
+With every truncated preprojective representation $P_{m+1}^V$ we can associated a $2$-quiver $\mathcal Q_{m+1}^{[\dim V]}$ such that the cells of the cell decomposition attached to $\Gr_\bfe(P_{m+1}^V)$ are labeled by strong successor closed subsets $\beta\subset (\mathcal Q_{m+1}^{[\dim V]})_0$. In particular, the Euler characteristic $\chi(\Gr_\bfe(P_{m+1}^V))$ is given by the number of these subsets.
+\end{thm}
+\sayT{Insert something about Dyck path combinatorics and the correspondence here}
+\sayT{maybe we can erase some parts which show up twice in the introduction?}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quiver Covering Theory}
 \label{sec:covering}
@@ -871,7 +887,7 @@ For $w\in W_n$, we write $\pi_{m+1,w}^{I,J}:\tilde P_{m+1,w}^I\to\tilde P_{m+1,w
 \section{Quiver Grassmannians}
 \label{QG}
 
-\subsection{Torus Actions and the Bia\l{}ynicki-Birula Decomposition}
+\subsection{Torus Actions and the Bia\l{}ynicki-Birula Decomposition}\label{sec:bb}
 The aim of Section~\ref{torusaction} is to define a torus action on quiver Grassmannians which can be used to simplify the calculation of homological invariants in general.
 If the quiver Grassmannian is smooth, which is for instance the case for exceptional representations by \cite{cr}, it can also be used to stratify the quiver Grassmannians using the results of Bia\l{}ynicki-Birula.
 More specifically, let $X$ be a smooth projective variety with a $\C^\ast$-action.
@@ -966,7 +982,7 @@ The next result provides conditions required of the map $d:\hat Q_0\to\ZZ$ neede
 \begin{lemma}
   \label{le:degree condition} 
   Let $\hat X$ be an indecomposable representation of $\hat Q$.
-  There exists $d:\supp(X)\to\ZZ$ and $c_\alpha\in\mathbb N_+$ for each $\alpha\in Q_1$ such that
+  There exists $d:\supp(\hat X)\to\ZZ$ and $c_\alpha\in\mathbb N_+$ for each $\alpha\in Q_1$ such that
   \begin{enumerate}
     \item for $(i,\chi),\,(i,\chi')\in\supp(X)$ with $\chi\neq\chi'$, we have $d(i,\chi)\ne d(i,\chi')$;
     \item for $(i,\chi),\,(j,\chi')\in\supp(X)$, we have $d(j,\chi')-d(i,\chi)=c_\alpha$ if and only if $\chi'=\chi+e_\alpha$.
@@ -997,8 +1013,8 @@ The next result provides conditions required of the map $d:\hat Q_0\to\ZZ$ neede
   Now assuming $d(j,\chi')-d(i,\chi)=c_\alpha$, an analogous argument to the one above shows that $\chi'=\chi+e_\alpha$.
 \end{proof}
 
-In the following, we say that $d:\supp(X)\to\ZZ$ satisfies the \emph{degree condition} for $X$ if it has the properties of Lemma~\ref{le:degree condition}.
-\begin{theorem}
+In the following, we say that $d:\supp(\hat X)\to\ZZ$ satisfies the \emph{degree condition} for $X$ if it has the properties of Lemma~\ref{le:degree condition}.
+\begin{theorem}\label{thm:torusfixedpoints}
   Let $X$ be a representation of $Q$ which can be lifted to a representation $\hat X$ of $\hat Q$ and choose $d:\supp(\hat X)\to\ZZ$ such that it satisfies the degree condition for $X$.
   Then the torus action on $\bigoplus_{i\in Q_0} X_i$ induced by $t.x_{(i,\chi)}=t^{d(i,\chi)}x_{(i,\chi)}$ for $x_{(i,\chi)}\in X_{(i,\chi)}$ induces a torus action on $\Gr_\bfe^Q(X)$ such that
   \[\Gr^Q_\bfe(X)^{\CC^*}\cong\bigsqcup_{\hat\bfe} \Gr^{\hat Q}_{\hat\bfe}(\hat X),\]
@@ -1449,13 +1465,13 @@ $$F_{\udim P_m^{(k)}}=F_{\udim P_m^{(k+1)}}F_{\udim P_{m-1}}-x^{\udim P_{m}^{(k)
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Combinatorial description of non-empty cells}
+\section{Combinatorial description of non-empty cells}\label{sec:combinatorics}
 \noindent In this section, we provide two combinatorial descriptions of the non-empty cells in the quiver Grassmannians of (truncated) preprojective representations of $K(n)$.
 The first is quiver theoretic and follows directly from the recursive construction of the cell decomposition in Section~\ref{sec:fibrations}.
 The second is the notion of compatible pairs in a maximal Dyck path arising in the computation of rank 2 cluster variables \cite{llz}.
 We give a bijection between these which provides a partial geometric explanation for the combinatorial construction of counting polynomials for rank two quiver Grassmannians given in \cite{rupel}.
 
-\subsection{2-Quivers}
+\subsection{2-Quivers}\label{sec:2quivers}
 
 The key concept for describing the cell decompositions is the following notion of $2$-quiver which is closely related to certain coefficient quivers of the corresponding representations.
 This construction makes use of the support quivers from Examples~\ref{ex:lifted preprojectives} and~\ref{ex:truncated lifts}.
@@ -1830,13 +1846,17 @@ $$\tbfe (\beta)=\sum_{q\in\beta} \tilde q\in\NN^{\widetilde{K(n)_0}},\quad \bfe 
 where $\tilde q\in\widetilde{K(n)}_0$ is the vertex which corresponds to $q\in \beta\subset (\mathcal Q_m^{[k]})_0$.
 
 
-\begin{theorem}\begin{enumerate}
-\item  For $\tbfe\in\NN^{\widetilde{K(n)_0}}$, the Euler characteristic $\chi(\Gr_{\tbfe }(\tilde P_m^{[k]}))$ is given by the number of strong successor closed subsets of dimension type $\tbfe$ of the $2$-quiver of $\mathcal Q_m^{[k]}$.
-	\item For $\bfe\in\NN^{K(n)_0}$, the Euler characteristic $\chi(\Gr_{\bfe }(P_m^{[k]}))$ is given by the number of strong successor closed subsets of dimension type $\bfe$ of the $2$-quiver of $\mathcal Q_m^{[k]}$.
+\begin{theorem}\label{thm:2quivercells}
+\begin{enumerate}
+\item The cells of the cell decomposition of $\Gr_\tbfe(\tilde P_m^{[k]})$ (resp. $Gr_\bfe( P_m^{[k]})$) induced by Theorem \ref{cellscover}  can be labeled by strong successor closed subsets $\beta\subset\mathcal Q_m^{[k]}$ of dimension type $\tbfe\in\NN^{\widetilde{K(n)_0}}$ (resp. $\bfe\in\NN^{K(n)_0}$) yielding a one-to-one correspondence between cells and strong successor closed subsets.
+
+\item  For $\tbfe\in\NN^{\widetilde{K(n)_0}}$ (resp. $\bfe\in\NN^{K(n)_0}$), the Euler characteristic $\chi(\Gr_{\tbfe }(\tilde P_m^{[k]}))$ (resp. $\chi(\Gr_{\bfe }(P_m^{[k]}))$) is given by the number of strong successor closed subsets of dimension type $\tbfe$  (resp. $\bfe$) of the $2$-quiver of $\mathcal Q_m^{[k]}$.
+
 \end{enumerate}
 \end{theorem}
 \begin{proof}
-The results of Section~\ref{QG} imply that the second statement follows from the first one.
+The results of Sections~\ref{sec:bb} and \ref{torusaction} imply that the statements in parentheses follow from the respective results for the lifted representations. Moreover, the second result follows from the first one.
+
 We proceed by induction on $m$ and $k$. The case of the representation $\tilde P_1$ is trivial. We have $(\tilde P_2^{[k]})_q\in\{0,1\}$ for all $q\in\widetilde{K(n)}$, whence the  subrepresentations are in one-to-one correspondence with the successor closed subsets of the quiver (\ref{coeff}) which is equivalent to  $\mathcal Q_2^{[k]}$ . Equivalently, we have $\Gr_{\tbfe}(\tilde P_2^{[k]})\in\{\varnothing,\{\pt\}\}$ such that $\Gr_{\tbfe}(\tilde P_2^{[k]})=\{\pt\}$ if and only if $\tbfe\subset \mathcal Q_2^{[k]}$ is strong successor closed.
 
   Thus assume that the claim is true for $\tilde P_m$  and $\tilde P_{m+1}^{[k]}$ and consider the short exact sequence
@@ -1847,7 +1867,7 @@ We proceed by induction on $m$ and $k$. The case of the representation $\tilde P
 	Let $\beta_1\coprod\beta_2\subset (\mathcal Q_{m+1}^{[k-1]})_0\coprod{}(\mathcal Q_{m,k})_0$ be a pair of strong successor closed subsets which gives rise to a pair of non-empty cells by induction hypothesis.
  % Denote by $d(\beta_1+\beta_2)$ the dimension vector corresponding to this subset.
   By Proposition~\ref{quotient}, the fibre over the pair of cells corresponding to $\beta_1\coprod\beta_2$ is empty if and only if $\beta_2=(\mathcal Q_{m+1}^{[k]})_0$ and $\beta_1\cap(\mathcal Q_{m-1}^{[k]})_0=\varnothing$ where $\mathcal Q_{m-1}^{[k]}$ is considered as a $2$-quiver of $\mathcal Q_{m,k}$.
-  But this is precisely the condition on $\beta_1\coprod\beta_2$ to be strong successor closed as $\mathcal Q_{m+1}^{[k]}$ is connected to $\mathcal Q_{m-1}^{[k]}$ by a $2$-arrow.
+  But this is precisely the condition on $\beta_1\coprod\beta_2$ to be strong successor closed as $\mathcal Q_{m+1}^{[k]}$ is connected to $\mathcal Q_{m-1}^{[k]}$ by a $2$-arrow. This shows the first claim.
 \end{proof}
 
 As an example consider the case $n=3$ and $m=3$. The $2$-quiver of $\tilde P_3$ is given by:\\
