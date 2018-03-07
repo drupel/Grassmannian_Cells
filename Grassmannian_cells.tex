@@ -1705,11 +1705,14 @@ To avoid cluttering the diagram, we did not label the vertices in the illustrati
 We are now ready to define the 2-quivers $\cQ_{m+1}^{[r]}$ for $m\ge3$.
 This will be by induction, so assume we have already constructed the 2-quivers $\cQ_m^{[s]}$ for $0\le s\le n-1$ and define the 2-quivers $\cQ_{m,i}^{[s]}:=\alpha_i^{(-1)^{m+1}}.\cQ_m^{[s]}$ for $1\le i\le n$. 
 Then we may take the underlying quiver of $\cQ_{m+1}^{[r]}$ to be
-\[Q_{m+1}^{[r]}:=
+\begin{equation}
+  \label{eq:recursive 2-quivers}
+  Q_{m+1}^{[r]}:=
   \begin{cases}
     Q_{m,n}^{[1]}\sqcup\coprod\limits_{i=r+1}^{n-1} Q_{m,i} & \text{if $m$ is even;}\\
     Q_{m,1}^{[1]}\sqcup\coprod\limits_{i=2}^{n-r} Q_{m,i} & \text{if $m$ is odd.}
-  \end{cases}\]
+  \end{cases}
+\end{equation}
 For $r<s<n$, there is a 2-arrow $V_s:\Gamma_s(1)\to\Gamma_s(2)$ of $\cQ_{m+1}^{[r]}$ given by $\Gamma_s(1)=Q_{m+1}^{[s]}\subset Q_{m+1}^{[r]}$ with $\Gamma_s(2)\subset Q_{m,s}$ the subquiver $Q_{m-1}^{[s]}\subset Q_{m-1}=Q_{m-1,(s,s)}\subset Q_{m,s}$.
 \begin{remark}
   For $m\geq 3$, the truncated preprojective $\tau\tilde P_{m+1}^{[s]}\cong\tilde P_{m-1}^{[s]}$ can uniquely be found as a quotient of $\tilde P_{m,s}$.
@@ -2053,19 +2056,26 @@ The following result is an immediate consequence of the combinatorial constructi
 \begin{theorem}
   \label{th:combinatorial euler}
   \cite{llz}
-  For each $m\ge1$ and $\bfe\in\ZZ_{\ge0}^2$, we have $\chi\big(\Gr_\bfe(P_m)\big)=\big|\{(S_H,S_V)\in\cC_m:|S_H|=u_m-e_1,|S_V|=e_2\}\big|$.
+  For each $m\ge1$ and $\bfe\in\ZZ_{\ge0}^2$, we have 
+  \[\chi\big(\Gr_\bfe(P_m)\big)=\big|\{(S_H,S_V)\in\cC_m:|S_H|=u_m-e_1,|S_V|=e_2\}\big|.\]
 \end{theorem}
 
-Our goal is to give a geometric explanation for this by showing that the compatible pairs provide a natural labeling for the cells of $\chi\big(\Gr^Q_\bfe(P_m)\big)$ found in Theorem~\ref{celldec}.
+Our goal is to give a geometric explanation for this by showing that the compatible pairs provide a natural labeling for the cells of $\Gr_\bfe(P_m)$ found in Theorem~\ref{celldec}.
+In fact, we will see more: that the cells of quiver Grassmannians $\Gr_\bfe(P_m^V)$ for truncated preprojectives $P_m^V$ are also naturally labeled by compatible pairs.
 We accomplish this by providing a bijection between the compatible pairs as in Theorem~\ref{th:combinatorial euler} and the successor closed sets of vertices in the 2-quivers $\cQ_m^{[r]}$ used in Theorem~\ref{thm:2quivercells} to describe the nonempty cells.
 \begin{theorem}
   \label{th:compatible cells}
-  Compatible pairs label cells in $\Gr_\bfe(P_m^V)$.
+  \sayD{Fix abuse of notation $H_m$.}
+  For $m\ge1$ and $V\in\Gr(H_{m-1})$ or $V=0$, each quiver Grassmannian $\Gr_\bfe(P_m^V)$ admits a cell decomposition with cells labeled by compatible pairs in the maximal Dyck path $D_m^{[r]}$, where $r=\dim V$.
 \end{theorem}
 \begin{proof}
   The recursive construction of the 2-quivers $\cQ_m^{[r]}$ provides a natural ordering of the vertices in the underlying quiver $Q_m^{[r]}$.
-  This provides a bijection of these vertices with the edges of $D_m^{[r]}$ whereby vertices covering the vertex 1 (resp.\ vertex 2) of $K(n)$ correspond to horizontal edges (resp.\ vertical edges).
-  Then Corollary~\ref{cor:piecewise not compatible} shows that under this bijection a subset $\beta\in(Q_m^{[r]})_0$ is strong successor closed in $\cQ_m^{[r]}$ if and only if the corresponding pair of subsets $\big(S_H(\beta),S_V(\beta)\big)$ is compatible.
+  Indeed, when considering the recursive construction of the 2-quiver $Q_m^{[r]}$ from \eqref{eq:recursive 2-quivers}, we order the component quivers $Q_{m-1,i}$ and $Q_{m-1,*}^{[1]}$ naturally according to their indices so that $Q_{m-1,*}^{[1]}$ comes last.
+  This provides a bijection of these vertices with the edges of $D_m^{[r]}$ whereby vertices covering the vertex 1 (resp.\ vertex 2) of $K(n)$ correspond to horizontal edges (resp.\ vertical edges) of $D_m^{[r]}$.
+
+  Given a strong successor closed subset $\beta\subset(Q_m^{[r]})_0$, we define a pair of subsets $S_H(\beta)\subset H_m^{[r]}$ and $S_V(\beta)\subset V_m^{[r]}$ as follows: a vertical edge $v\in V_m^{[r]}$ is in $S_V(\beta)$ exactly when the corresponding vertex of $Q_m^{[r]}$ is in $\beta$ while a horizontal edge $h\in H_m^{[r]}$ is in $S_H(\beta)$ exactly when the corresponding vertex of $Q_m^{[r]}$ is \emph{not} in $\beta$.
+  Then Corollary~\ref{cor:piecewise not compatible} shows that under this bijection a subset $\beta\in(Q_m^{[r]})_0$ is strong successor closed in~$\cQ_m^{[r]}$ if and only if the corresponding pair of subsets $\big(S_H(\beta),S_V(\beta)\big)$ is compatible.
+  Applying Theorem~\ref{thm:2quivercells} completes the proof.
 \end{proof}
 
 \sayT{references to be unified}
