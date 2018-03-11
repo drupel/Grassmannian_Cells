@@ -582,8 +582,8 @@ To construct the lifts, first recall that applying the BGP-reflection functor $\
 Moreover, under this operation all sinks of~$\widetilde{K(n)}$ become sources and vice versa.
 The preprojective lifts we use are defined by the following analogue of the recursions of Remark~\ref{rem:reflection recursion}.
 \begin{itemize}
-  \item We consider the lift $\tilde P_1$ satisfying $\dim(\tilde P_1)_{(1,e)}=1$ and $\dim (\tilde P_1)_{(i,w)}=0$ for $(i,w)\neq (1,e)$.
-  \item We consider the lift $\tilde P_2$ satisfying $\dim (\tilde P_2)_{(2,e)}=\dim (\tilde P_2)_{(1,\alpha_i)}=1$ for $1\le i\le n$ and $\dim(\tilde P_2)_{(i,w)}=0$ for $(i,w)\notin\{(2,e),(1,\alpha_1),\ldots,(1,\alpha_n)\}$.
+  \item We consider the lift $\tilde P_1$ satisfying $\udim(\tilde P_1)_{(1,e)}=1$ and $\udim(\tilde P_1)_{(i,w)}=0$ for $(i,w)\neq (1,e)$.
+  \item We consider the lift $\tilde P_2$ satisfying $\udim(\tilde P_2)_{(2,e)}=\udim(\tilde P_2)_{(1,\alpha_i)}=1$ for $1\le i\le n$ and $\udim(\tilde P_2)_{(i,w)}=0$ for $(i,w)\notin\{(2,e),(1,\alpha_1),\ldots,(1,\alpha_n)\}$.
   \item For $m\geq 3$, we build the lifts $\tilde P_m$ recursively by applying reflection functors or as Auslander-Reiten translates.
     More precisely, we set
     \begin{align}
@@ -1162,7 +1162,7 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
 Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposable representations of $K(n)$ with dimension vector $d$ for $d\in\NN^{K(n)_0}$. As the $\GL_n(\CC)$-action commutes with the natural base change action, we can define a $\GL_n(\CC)$-action on $\Ind\big(K(n),d\big)$.
 \begin{proposition} 
   \label{indecomposables}
-  Let $m\geq 1$ and $d(m,r)=\dim P_{m+1}-r\dim P_m$ with $0\leq r\leq n-1$.
+  Let $m\geq 1$ and $d(m,r)=\udim P_{m+1}-r\udim P_m$ with $0\leq r\leq n-1$.
   The action of $\GL_n(\CC)$ is transitive on $\Ind\big(K(n),d(m,r)\big)$.
 \end{proposition}
 \begin{proof}
@@ -1234,18 +1234,18 @@ Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposabl
 \label{sec:fibrations}
 Let $\ses{M}{B}{N}$ be a short exact sequence of representations.
 This induces the so-called ``Caldero-Chapoton map'' between quiver Grassmannians
-\[\Psi_\tbfe:\Gr_\tbfe(B)\to\bigsqcup_{\tbff+\tbfg=\tbfe}  \Gr_\tbff(M)\times \Gr_\tbfg(N),\,V\mapsto (V\cap M,(V+M)/M).\]
+\[\Psi_\tbfe:\Gr_\tbfe(B)\to\bigsqcup_{\tbff+\tbfg=\tbfe}  \Gr_\tbff(M)\times \Gr_\tbfg(N),\,V\mapsto \big(V\cap M,(V+M)/M\big).\]
 Following \cite[Section 3]{cc}, any nonempty fiber of $\Psi_\tbfe$ satisfies $\Psi^{-1}_\tbfe(U,W)=\mathbb{A}^{\dim\Hom(W,M/U)}$.
 
-Let $\cG_{\tbff,\tbfg}:=\Psi^{-1}_\tbfe(\Gr_\tbff(M)\times \Gr_\tbfg(N))$. Then we have
+Let $\cG_{\tbff,\tbfg}:=\Psi^{-1}_\tbfe\big(\Gr_\tbff(M)\times \Gr_\tbfg(N)\big)$. Then we have
 $$\Gr_\tbfe(B)=\bigsqcup_{\tbff+\tbfg=\tbfe} \cG_{\tbff,\tbfg}.$$
 The map $\Psi_\tbfe$ restricts to morphisms of projective varieties
 \[\Psi_\tbfe^{\tbff,\tbfg}:\cG_{\tbff,\tbfg}\to \Gr_\tbff(M)\times \Gr_\tbfg(N).\]
 The following is proved in \cite[Section 3]{cefr}.
 \begin{theorem}
   \label{vb}
-  If the fiber dimension of $\Psi_\tbfe^{\tbff,\tbfg}$ is constant over $\mathrm{Im}(\Psi_\tbfe^{\tbff,\tbfg})$, then it is an affine bundle over the image.
-  In particular, the existence of a cell decomposition of $\mathrm{Im}(\Psi_\tbfe^{\tbff,\tbfg})$ implies a cell decomposition of $\cG_{\tbff,\tbfg}$ in this case.
+  If the fiber dimension of $\Psi_\tbfe^{\tbff,\tbfg}$ is constant over $\mathrm{Im}\big(\Psi_\tbfe^{\tbff,\tbfg}\big)$, then it is an affine bundle over the image.
+  In particular, the existence of a cell decomposition of $\mathrm{Im}\big(\Psi_\tbfe^{\tbff,\tbfg}\big)$ implies a cell decomposition of $\cG_{\tbff,\tbfg}$ in this case.
 \end{theorem}
 %\begin{proof}\footnote{sketch, double-check}
 %As $X$ and $Y$ are projective, they are compact. As the fibers are affine spaces of constant dimension and as $X$ and $Y$ are smooth, the induced morphism on the tangent spaces is surjective for all points $x\in X$. This shows that $f$ is smooth of relative dimension $n$, see Hartshorne and thus a submersion?!
@@ -1273,7 +1273,7 @@ where $\tilde K_m=\tilde K_m(I)=\tau\tilde P_{m+1}^I$ for $m\ge3$ and $\tilde K_
 Then in the same way as above we obtain the map
 \begin{equation}
   \label{eq:truncated CC2}
-  \Phi_{m,I,j}:\Gr^{\tilde Q}_\tbfe(\tilde P_{m,j})\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff(\tilde P_m(I,j))\times\Gr^{\tilde Q}_\tbfg(\tilde K_m).
+  \Phi_{m,I,j}:\Gr^{\tilde Q}_\tbfe(\tilde P_{m,j})\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff\big(\tilde P_m(I,j)\big)\times\Gr^{\tilde Q}_\tbfg(\tilde K_m).
 \end{equation}
 \begin{proposition}
   \label{quotient}
@@ -1300,10 +1300,10 @@ Then in the same way as above we obtain the map
   This gives rise to the following commutative diagram:  
   \[\xymatrix{
     0\ar[r] &\Ext(\tilde P_{m+1}^I,V)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,U)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,W)\ar[r]\ar[d] & 0\\
-    0\ar[r] &\Ext(\tilde P_{m+1}^I,\tilde P_m(I,j))\ar[r]\ar[d] &  \Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\ar[r]\ar[d] & \Ext(\tilde P_{m+1}^I,\tilde K_m)\ar[r]\ar[d] & 0\\
-    0\ar[r] &\Ext(\tilde P_{m+1}^I,\tilde P_m(I,j)/V)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde K_m/W)\ar[r]\ar[d] & 0 \\
+    0\ar[r] &\Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)\big)\ar[r]\ar[d] &  \Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\ar[r]\ar[d] & \Ext(\tilde P_{m+1}^I,\tilde K_m)\ar[r]\ar[d] & 0\\
+    0\ar[r] &\Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)/V\big)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde K_m/W)\ar[r]\ar[d] & 0 \\
     &0&0&0&}\]
-  By Corollary~\ref{cor:perpendicular}, we have $\Ext(\tilde P_{m+1}^I,\tilde P_m(I,j))=0$ and so $\Ext(\tilde P_{m+1}^I,\tilde P_m(I,j)/V)=0$ as well.
+  By Corollary~\ref{cor:perpendicular}, we have $\Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)\big)=0$ and so $\Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)/V\big)=0$ as well.
   This yields the isomorphisms
   \[\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\Ext(\tilde P_{m+1}^I,\tilde K_m)\quad\text{and}\quad\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)\cong\Ext(\tilde P_{m+1}^I,\tilde K_m/W).\]
 
@@ -1319,7 +1319,7 @@ Then in the same way as above we obtain the map
   \[\Hom(\tilde K_m,\tilde K_m/W)\to\Ext(\tilde P_{m+1}^I,\tilde K_m/W)\to\Ext(Z,\tilde K_m/W)\]
   is zero.
   By Lemma~\ref{le:properties}.(4) and the Auslander-Reiten formulas, we have 
-  \[\Ext(\tilde K_m,\tilde K_m)=0,\quad \Ext(\tilde P_{m+1}^I,\tilde K_m)=\CC.\]
+  \[\Ext(\tilde K_m,\tilde K_m)=0\qquad\text{and}\qquad\Ext(\tilde P_{m+1}^I,\tilde K_m)=\CC.\]
   For $m=2$, the identities above follow immediately from the corresponding statements for $\tau\tilde P_3^I$.
   Thus the injective map $\CC=\Hom(\tilde K_m,\tilde K_m)\to\Ext(\tilde P_{m+1}^I,\tilde K_m)$ induced by the Auslander-Reiten sequence \eqref{eq:ar2} is actually bijective and so applying $\Hom(-,\tilde K_m)$ to this sequence yields $\Ext(Z,\tilde K_m)=0$.
   But then $\Ext(Z,\tilde K_m/W)=0$ and so $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)\cong\Ext(\tilde P_{m+1}^I,\tilde K_m/W)$ must be zero as well.
@@ -1356,7 +1356,7 @@ Now we are able to state the following result concerning the fibers of $\Psi_{m+
 \end{theorem}
 \begin{proof}
   We work by induction on $m$.
-  When $m=1$, the claim is trivial since all quiver Grassmannians are points in this case.
+  When $m=1$, the claim is trivial since in this case all quiver Grassmannians are points.
   We establish the result for $m\ge2$ by proving the following more general statement:\\
 
   \noindent{\bf Claim.}
@@ -1375,7 +1375,7 @@ Now we are able to state the following result concerning the fibers of $\Psi_{m+
   But $\tilde P_{m,i_0}^{\delta\bfI}=\tilde P_{m+1}^\bfI$ so that $\pi_{m,i_0}^{J_0,\delta\bfI}$ coincides with the map $\pi_{m+1}^{J,\bfI}$ and thus the condition ($\dagger$) holds for the cell decomposition of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$.
 
   Now suppose $|J|<n-1$.
-  If $J=I_0$, then we must have $k=0$ and $\tilde P_{m+1}^J=\tilde P_{m+1}^\bfI$ so that the compatibility condition ($\dagger$) with the map $\pi_{m+1}^{J,\bfI}$ is vacuous.
+  If $J=I_0$, then we must have $k=0$ and $\tilde P_{m+1}^J=\tilde P_{m+1}^\bfI$ so that the compatibility condition ($\dagger$) with the map $\pi_{m+1}^{J,\bfI}$ is vacuous and any cell decomposition will suffice.
   Thus we may assume $J\subsetneq I_0$.
   
   Choose any subset $I\subset I_0$ with $J\subset I$ and $|I\setminus J|=1$, say $I\setminus J=\{j\}$.
@@ -1450,45 +1450,59 @@ By Lemma~\ref{directsums} and induction hypothesis every quiver Grassmannian on 
 %$\Psi_1:\Gr^{\tilde Q}_\tbfe(\tilde P^{(k-1)}_{m})\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff(\bigoplus_{i=1}^{k}\tilde P_{m-1,i})\times \Gr^{\tilde Q}_\tbfg(\tilde P_m^{(k)})$ where $\tilde P_m^{(n-1)}=\tilde P_{m-1}^{(1)}$ (up to renumbering the arrows). But then one needs to adjust $\Psi_2$ because the factor of $\bigoplus_{i=1}^{k}\tilde P_{m-1,i}$ were $(\tau\tilde P_m^{(k)})^k$.
 
 
-\begin{theorem}\label{celldec}The following holds:
-\begin{enumerate}
-\item Every quiver Grassmannian of any indecomposable preprojective or preinjective representation of $K(n)$ and $\widetilde{K(n)}$ has a cell decomposition into affine spaces.
-\item Let $X\in\rep K(n)$ be an indecomposable representation with dimension vector $(d,e)$ or $(e,d)$, where $(d,e)=\udim P_m-r\udim P_{m-1}$ for $m\geq 2$ and $\leq 0\leq r\leq n-1$. Then every quiver Grassmannian $\Gr_{\bfe}(X)$ has a cell decomposition into affine spaces.
-\end{enumerate}
+\begin{theorem}
+  \label{celldec}
+  The following hold:
+  \begin{enumerate}
+    \item Every quiver Grassmannian of any indecomposable preprojective or preinjective representation of $K(n)$ and $\widetilde{K(n)}$ has a cell decomposition into affine spaces.
+    \item Let $X\in\rep K(n)$ be an indecomposable representation with dimension vector $(d,e)$ or $(e,d)$, where $(d,e)=\udim P_{m+1}-r\udim P_m$ for $m\geq 1$ and $\leq 0\leq r\leq n-1$.
+      Then every quiver Grassmannian $\Gr_\bfe(X)$ has a cell decomposition into affine spaces.
+  \end{enumerate}
 \end{theorem}
 \begin{proof}
-The first part follows by combining the results of Section~\ref{torusaction} and Theorems~\ref{thm:bb} and~\ref{cellscover} taking into account that every preprojective representation of $\widetilde{ K(n)}$ is a lift of a preprojective representation which can be proven using the same argument as in the proof of Lemma~\ref{le:lifts of transjectives}. The dual version for preinjective representations follows as $\Gr_{\bfe}(P_m)\cong \Gr_{\udim P_m-\bfe}(I_m)$ and $\Gr_{\tbfe}(\tilde P_m)\cong\Gr_{\udim \tilde P_m-\tbfe}(\tilde I_m)$ respectively.
+  The first part follows by combining the results of Section~\ref{torusaction} and Theorems~\ref{thm:bb} and~\ref{cellscover}, taking into account that every preprojective representation of $\widetilde{ K(n)}$ is a lift of a preprojective representation (c.f.\ Lemma~\ref{le:lifts of transjectives}).
+  The dual version for preinjective representations follows immediately since $\Gr_{\bfe}(P_m)\cong \Gr_{\udim P_m-\bfe}(I_m)$ and $\Gr_{\tbfe}(\tilde P_m)\cong\Gr_{\udim \tilde P_m-\tbfe}(\tilde I_m)$.
 
-The second part follows in the same way, additionally, taking Theorem~\ref{thm:truncpp} into account.
+  The second part follows in the same way, additionally, taking Theorem~\ref{thm:truncpp} into account.
 \end{proof}
 
 \begin{corollary}
-Let $X\in\rep K(n)$ be a direct sum of exceptional representations. Then every quiver Grassmannian $\Gr_{\bfe}(X)$ has a cell decomposition into affine spaces. In particular, this is true for all rigid representations of $K(n)$.
+  Let $X\in\rep K(n)$ be a direct sum of exceptional representations.
+  Then every quiver Grassmannian $\Gr_{\bfe}(X)$ has a cell decomposition into affine spaces.
+  In particular, this is true for all rigid representations of $K(n)$.
 \end{corollary}
 \begin{proof}
-As every exceptional representation of $K(n)$ is either preprojective or preinjective, we have
-$$X=\bigoplus_{i=1}^rP_{j_i}\oplus\bigoplus_{i=1}^sI_{k_i}$$
-where we assume that $j_i\leq j_{i+1}$ and write
-$$P(r'):=\bigoplus_{i=1}^{r'} P_{j_i},\quad I(s'):=\bigoplus_{i=1}^{s'}I_{k_i}$$ 
-for $r'\leq r$ and $s'\leq s$. 
+  As every exceptional representation of $K(n)$ is either preprojective or preinjective, we have
+  \[X=\bigoplus_{i=1}^rP_{j_i}\oplus\bigoplus_{i=1}^sI_{k_i},\]
+  where we assume that $j_i\leq j_{i+1}$ and write
+  \[P(r'):=\bigoplus_{i=1}^{r'} P_{j_i},\quad I(s'):=\bigoplus_{i=1}^{s'}I_{k_i}\]
+  for $r'\leq r$ and $s'\leq s$. 
 
-By Theorem~\ref{celldec}, the claim is true for all quiver Grassmannians attached to $P_{j_i}$ or $I_{k_i}$. Consider the short exact sequence
-\[\ses{P_{j_{r'+1}}}{P(r'+1)}{P(r')}.\]
-By induction, we can assume that all quiver Grassmannians attached to the two outer terms have a cell decomposition into affine spaces. Consider the Caldero-Chapoton map
-\[\Psi_\bfe:\Gr_\bfe(P(r'+1))\to\bigsqcup_{\bff+\bfg=\bfe} \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg(P(r')).\]
-The results of \cite[Section 3]{cc} show that $\Psi_{\tbfe}^{-1}(U,V)=\AA^{\dim\Hom(V,P_{j_{r'+1}}/U)}$  for all $(U,V)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg(P(r'))$, in particular the fibre is never empty. Now every subrepresentation $V$ of $P(r')$ is isomorphic to direct sum of preprojective representations such that for each direct summand $P_l$ we have $l\leq j_{r'}$. Moreover, the quotient $P_{j_{r'+1}}/U$ is not projective if $U\neq 0$ and equal to $P_{j_{r'+1}}$ otherwise. Together this yields $\Ext(V,P_{j_{r'+1}}/U)=0$ and thus
-$$\dim\Hom(V,P_{j_{r'+1}}/U)=\langle V, P_{j_{r'+1}}/U\rangle$$
-for all $(U,V)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg(P(r'))$. By Theorem~\ref{vb}, this already shows that $\Gr_{\bfe}(P(r'))$ has a cell decomposition into affine spaces for every $1\leq r'\leq r$. By duality, the same is true for $\Gr_{\bfe}(I(s))$. 
+  By Theorem~\ref{celldec}, the claim is true for all quiver Grassmannians attached to $P_{j_i}$ or $I_{k_i}$.
+  Consider the short exact sequence
+  \[\ses{P_{j_{r'+1}}}{P(r'+1)}{P(r')}.\]
+  By induction, we can assume that all quiver Grassmannians attached to the two outer terms have a cell decomposition into affine spaces.
+  Consider the Caldero-Chapoton map
+  \[\Psi_\bfe:\Gr_\bfe\big(P(r'+1)\big)\to\bigsqcup_{\bff+\bfg=\bfe} \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg\big(P(r')\big).\]
+  The results of \cite[Section 3]{cc} show that $\Psi_{\tbfe}^{-1}(U,W)=\AA^{\dim\Hom(W,P_{j_{r'+1}}/U)}$ for all $(U,W)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg\big(P(r')\big)$, in particular the fiber is never empty.
+  Now every subrepresentation $W$ of $P(r')$ is isomorphic to a direct sum of preprojective representations such that for each direct summand $P_l$ we have $l\leq j_{r'}$.
+  Moreover, the quotient $P_{j_{r'+1}}/U$ is not projective if $U\neq 0$ and equal to $P_{j_{r'+1}}$ otherwise.
+  Together these yield $\Ext(V,P_{j_{r'+1}}/U)=0$ and thus
+  \[\dim\Hom(W,P_{j_{r'+1}}/U)=\langle W, P_{j_{r'+1}}/U\rangle\]
+  for all $(U,W)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg(P(r'))$.
+  By Theorem~\ref{vb}, this already shows that $\Gr_{\bfe}\big(P(r')\big)$ has a cell decomposition into affine spaces for every $1\leq r'\leq r$.
+  By duality, the same is true for $\Gr_{\bfe}\big(I(s)\big)$. 
 
-Finally consider the short exact sequence
-$$\ses{I(s)}{X}{P(r)}.$$
-As every quotient of $I(s)$ is preinjective and as every subrepresentation of $P(r')$ is preprojective, the same argument shows that every quiver Grassmannian attached to $X$ has a cell decomposition into affine spaces
+  Finally consider the short exact sequence
+  \[\ses{I(s)}{X}{P(r)}.\]
+  As every quotient of $I(s)$ is preinjective and as every subrepresentation of $P(r')$ is preprojective, the same argument shows that every quiver Grassmannian attached to $X$ has a cell decomposition into affine spaces.
 \end{proof}
 
-As the $F$-polynomial of truncated preprojective representations only depend on the dimension vector, we may denote them by $F_{\udim P_m{(k)}}$. The description of the non-empty fibers in Proposition~\ref{fibers} together with Corollary~\ref{fpoly} and Theorem~\ref{celldec} yield the following:
+As the $F$-polynomial of truncated preprojective representations only depend on the dimension vector, we may denote them by $F_{d(m,r)}$.
+The description of the non-empty fibers in Proposition~\ref{fibers} together with Corollary~\ref{fpoly} and Theorem~\ref{celldec} yield the following:
 \begin{corollary}
-For $m\geq 2$ and $0\leq k\leq n-2$, we have 
-$$F_{\udim P_m^{(k)}}=F_{\udim P_m^{(k+1)}}F_{\udim P_{m-1}}-x^{\udim P_{m}^{(k)}}F_{\udim P_{m-2}^{(k)}}.$$
+  For $m\geq 1$ and $0\leq r\leq n-2$, we have 
+  \[F_{d(m,r)}=F_{d(m,r+1)}F_{\udim P_m}-x^{d(m,r)}F_{d(m-2,r)}.\]
 \end{corollary}
 
 
