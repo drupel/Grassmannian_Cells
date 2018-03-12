@@ -2126,6 +2126,21 @@ We accomplish this by providing a bijection between the compatible pairs as in T
   Applying Theorem~\ref{thm:2quivercells} completes the proof.
 \end{proof}
 
+The results of \cite{rupel} provide a stronger statement than Theorem~\ref{th:combinatorial euler}.
+Indeed, the compatible pairs are shown to compute the counting polynomials of these quiver Grassmannians $\Gr_\bfe(P_{m+1})$ over a finite field (these coincide with their Poincar\'e polynomials in this case).  
+We conjecture that the torus action on $\Gr_\bfe(P_{m+1})$ can be chosen to provide a geometric explaination of this result.
+\begin{conjecture}
+  For $m\ge1$ and $V\in\Gr(H_m)$ or $V=0$, there exists a torus action on $\Gr_\bfe(P_{m+1}^V)$ such that the dimension of the cell labeled by a compatible pair $(S_H,S_V)$ in the maximal Dyck path $D_{m+1}^{[r]}$, where $r=\dim V$, is given by $\overline{\gamma}_{S_H,S_V}=\sum\limits_{e<e'\in E_{m+1}^{[r]}}\overline{\gamma}_\omega(e,e')$ for
+  \begin{equation*}
+    \overline{\gamma}_\omega(e,e')=\begin{cases}
+      -n & \text{if $e\in S_H$ and $e'\in S_V$;}\\ 
+      1 & \text{if $e\in S_H$ and $e'\in H_{m+1}^{[r]}\setminus S_H$;}\\ 
+      1 & \text{if $e\in V_{m+1}^{[r]}\setminus S_V$ and $e'\in S_V$;}\\ 
+      0 & \text{otherwise.}\\ 
+    \end{cases}
+  \end{equation*}
+\end{conjecture}
+
 \sayT{references to be unified}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{thebibliography}{10}
