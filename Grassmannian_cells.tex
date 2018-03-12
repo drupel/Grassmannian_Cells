@@ -1979,8 +1979,10 @@ Note that for $1\le r\le n-1$, the maximal Dyck paths $D_{m,i}$, $r+1\le i\le n$
 Extending the notation above, for $m\ge2$ and $1\le r\le n-1$, we write $D_{m,i}^{[r]}$ for the Dyck path obtained by removing the first $r$ copies of $D_{m-1}$ from $D_{m,i}$.
 \begin{remark}
   For notational convenience, we also set $D_{m,n}^{[1]}:=D_{m+1}^{[n-1]}$ even though there is no maximal Dyck path $D_{m,n}$ identifying with a copy of $D_m$ inside $D_{m+1}$, such notation is justified by Theorem~\ref{th:dyck path recursion}.
-  This allows to write $D_{m,n}^{[r]}$ for $1\le r\le n-1$ for the terminal subpaths of $D_{m+1}$.
   This should be compared with Corollary~\ref{cor:truncated preprojective isomorphism} and Lemma~\ref{le:truncated quotients}.
+
+  This allows to write $D_{m,n}^{[r]}$ for $1\le r\le n-1$ for the terminal subpaths of $D_{m+1}$.
+  We also iterate this notation below by identifying $D_{m,r+1}$ with $D_m$ and identifying $D_{m,r+1,n}^{[r+1]}$ with the subpath obtained by removing the first $r+1$ copies of $D_{m-2}$ from a copy of $D_{m-1}$.
 \end{remark}
 
 For $m\ge1$, we identify the edges of $D_{m+1}$ with the ordered set $E_{m+1}=\{1,\ldots,u_{m+1}+u_m\}$, where edges of $D_{m+1}$ are taken in the natural order beginning from $(0,0)$.
