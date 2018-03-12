@@ -206,12 +206,8 @@ Theorem \ref{thm:2quivercells} can be formulated as follows.
   In particular, the Euler characteristic $\chi(\Gr_\bfe(P_{m+1}^V))$ is given by the number of these subsets.
 \end{thm}
 
-The results of \cite{rupel} giving a combinatorial construction of counting polynomials for quiver Grassmannians of preprojective/preinjective representations of generalized Kronecker quivers $K(n)$ suggest the following.
-\begin{conjecture}
-  There exists a torus action on $\Gr_\bfe(P_{m+1}^V)$ such that the affine cell corresponding to a compatible pair $(S_H,S_V)$ has dimension...
-\end{conjecture}
-\sayD{I need to include a conjecture about the dimensions of cells coming from the combinatorial construction of counting/Poincare polynomials}
-\sayT{Insert something about Dyck path combinatorics and the correspondence here}
+The results of \cite{rupel} giving a combinatorial construction of counting polynomials for quiver Grassmannians of preprojective/preinjective representations of generalized Kronecker quivers $K(n)$ suggest that the dimensions of cells can be computed using this combinatorics (or the equivalent combinatorics of compatible pairs).
+This is made precise in Conjecture~\ref{conj:cell dimensions}.
 \sayT{maybe we can erase some parts which show up twice in the introduction?}
 \subsection*{Acknowledgements}We would like to thank Giovanni Cerulli Irelli, Hans Franzen, Oliver Lorscheid and Markus Reineke for very fruitful discussions related to this project.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2114,7 +2110,6 @@ In fact, we will see more: that the cells of quiver Grassmannians $\Gr_\bfe(P_{m
 We accomplish this by providing a bijection between the compatible pairs as in Theorem~\ref{th:combinatorial euler} and the successor closed sets of vertices in the 2-quivers $\cQ_{m+1}^{[r]}$ used in Theorem~\ref{thm:2quivercells} to describe the nonempty cells.
 \begin{theorem}
   \label{th:compatible cells}
-  \sayD{Fix abuse of notation $H_m$.}
   For $m\ge1$ and $V\in\Gr(\cH_m)$ or $V=0$, each quiver Grassmannian $\Gr_\bfe(P_{m+1}^V)$ admits a cell decomposition with cells labeled by compatible pairs in the maximal Dyck path $D_{m+1}^{[r]}$, where $r=\dim V$.
 \end{theorem}
 \begin{proof}
@@ -2131,6 +2126,7 @@ The results of \cite{rupel} provide a stronger statement than Theorem~\ref{th:co
 Indeed, the compatible pairs are shown to compute the counting polynomials of these quiver Grassmannians $\Gr_\bfe(P_{m+1})$ over a finite field (these coincide with their Poincar\'e polynomials in this case).  
 We conjecture that the torus action on $\Gr_\bfe(P_{m+1})$ can be chosen to provide a geometric explaination of this result.
 \begin{conjecture}
+  \label{conj:cell dimensions}
   For $m\ge1$ and $V\in\Gr(H_m)$ or $V=0$, there exists a torus action on $\Gr_\bfe(P_{m+1}^V)$ such that the dimension of the cell labeled by a compatible pair $(S_H,S_V)$ in the maximal Dyck path $D_{m+1}^{[r]}$, where $r=\dim V$, is given by $\overline{\gamma}_{S_H,S_V}=\sum\limits_{e<e'\in E_{m+1}^{[r]}}\overline{\gamma}_\omega(e,e')$ for
   \begin{equation*}
     \overline{\gamma}_\omega(e,e')=\begin{cases}
