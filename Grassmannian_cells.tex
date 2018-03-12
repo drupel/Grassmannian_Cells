@@ -1947,7 +1947,6 @@ The one of $\tilde P_4$ is given by:\\
 For $m\ge1$, let $D_m$ denote the maximal Dyck path in the lattice rectangle with corner vertices $(0,0)$ and $(u_m,u_{m-1})$.  
 More precisely, $D_m$ is the lattice path which begins at $(0,0)$, takes East and North steps to end at $(u_m,u_{m-1})$, and never passes above the main diagonal joining $(0,0)$ and $(u_m,u_{m-1})$.  
 It is maximal in the sense that any lattice point lying strictly above $D_m$ also lies above the main diagonal.  
-
 The maximal Dyck paths $D_m$, $m\ge1$, exhibit the following recursive structure.
 In what follows we assume $n\ge2$.
 \begin{theorem}
@@ -1964,7 +1963,7 @@ In what follows we assume $n\ge2$.
 We obtain the following as an immediate consequence.
 \begin{corollary}
   \label{cor:short hooks}
-  Inside $D_m$, $m\ge2$, there are precisely $u_{m-2}$ vertical edges which are immediately preceded by exactly $n-1$ horizontal edges.
+  Inside $D_m$, $m\ge2$, there are precisely $u_{m-2}$ vertical edges which are immediately preceded by exactly $n-1$ horizontal edges, all other vertical egdes are immediately preceded by exactly $n$ horizontal edges.
 \end{corollary}
 \begin{proof}
   We work by induction on $m\ge2$.
@@ -1972,123 +1971,131 @@ We obtain the following as an immediate consequence.
   For $m\ge4$, part (3) of Theorem~\ref{th:dyck path recursion} shows by induction that there are $(n-1)u_{m-3}+(u_{m-3}-u_{m-4})=u_{m-2}$ vertical edges which are immediately preceded by exactly $n-1$ horizontal edges.
 \end{proof}
 
-For $m\ge2$ and $1\le r\le n-1$, write $D_m^{[r]}$ for the maximal Dyck path obtained from $D_m$ by removing the first $r$ copies of $D_{m-1}$.
-Extending this notation we also set $D_m^{[0]}:=D_m$.
+For $m\ge1$ and $1\le r\le n-1$, write $D_{m+1}^{[r]}$ for the maximal Dyck path obtained from $D_{m+1}$ by removing the first $r$ copies of $D_m$.
+Extending this notation we also set $D_{m+1}^{[0]}:=D_{m+1}$.
+
+For $m\ge1$ and $1\le i\le n-1$, we write $D_{m,i}$ for the $i$-th copy of $D_m$ inside $D_{m+1}$.
+Note that for $1\le r\le n-1$, the maximal Dyck paths $D_{m,i}$, $r+1\le i\le n$, naturally identify with subpaths of $D_{m+1}^{[r]}$.
+Extending the notation above, for $m\ge2$ and $1\le r\le n-1$, we write $D_{m,i}^{[r]}$ for the Dyck path obtained by removing the first $r$ copies of $D_{m-1}$ from $D_{m,i}$.
 \begin{remark}
-  Note that by Theorem~\ref{th:dyck path recursion}, we have a natural identification of $D_m^{[n-1]}$, $m\ge3$, with $D_{m-1}^{[1]}$.
+  For notational convenience, we also set $D_{m,n}^{[1]}:=D_{m+1}^{[n-1]}$ even though there is no maximal Dyck path $D_{m,n}$ identifying with a copy of $D_m$ inside $D_{m+1}$, such notation is justified by Theorem~\ref{th:dyck path recursion}.
+  This allows to write $D_{m,n}^{[r]}$ for $1\le r\le n-1$ for the terminal subpaths of $D_{m+1}$.
+  This should be compared with Corollary~\ref{cor:truncated preprojective isomorphism} and Lemma~\ref{le:truncated quotients}.
 \end{remark}
-For fixed $m\ge2$ and $1\le i\le n-1$, we write $D_{m-1,i}$ for the $i$-th copy of $D_{m-1}$ inside $D_m$.
-For notational convenience we also set $D_{m-1,n}:=D_m^{[n-1]}$ even though this maximal Dyck path does not identify with a copy of $D_{m-1}$.
-For $m\ge2$ and $1\le r\le n-1$, the maximal Dyck paths $D_{m-1,i}$, $r+1\le i\le n$, naturally identify with subpaths of $D_m^{[r]}$.
 
-We identify the edges of $D_m$ with the ordered set $E_m=\{1,\ldots,u_m+u_{m-1}\}$, where edges of $D_m$ are taken in the natural order beginning from $(0,0)$.
-Let $E_m=H_m\sqcup V_m$, where $H_m=\{h_1,\ldots,h_{u_m}\}$ and $V_m=\{v_1,\ldots,v_{u_{m-1}}\}$ denote the horizontal and vertical edges of $D_m$ respectively.
-Following Theorem~\ref{th:dyck path recursion}, we partition the edges as $E_m=\bigsqcup_{i=1}^n E_{m-1,i}$, where $E_{m-1,i}$ denotes the edges of $D_{m-1,i}$.
-The set $E_{m-1,i}$ is naturally partitioned into its subsets $H_{m-1,i}$ and $V_{m-1,i}$ of horizontal and vertical edges.
+For $m\ge1$, we identify the edges of $D_{m+1}$ with the ordered set $E_{m+1}=\{1,\ldots,u_{m+1}+u_m\}$, where edges of $D_{m+1}$ are taken in the natural order beginning from $(0,0)$.
+Let $E_{m+1}=H_{m+1}\sqcup V_{m+1}$, where $H_{m+1}=\{h_1,\ldots,h_{u_{m+1}}\}$ and $V_{m+1}=\{v_1,\ldots,v_{u_m}\}$ denote the horizontal and vertical edges of $D_{m+1}$ respectively.
+Following Theorem~\ref{th:dyck path recursion}, we partition the edges as $E_{m+1}=\bigsqcup_{i=1}^n E_{m,i}$, where $E_{m,i}$ denotes the edges of $D_{m,i}$.
+The set $E_{m,i}$ is naturally partitioned into its subsets $H_{m,i}$ and $V_{m,i}$ of horizontal and vertical edges.
+The edges of $D_{m+1}^{[r]}$ are similarly partitioned as $E_{m+1}^{[r]}=\bigsqcup_{i=r+1}^n E_{m,i}=H_{m+1}^{[r]}\sqcup V_{m+1}^{[r]}$.
 
-Given edges $e,e'\in E_m$ with $e<e'$, write $ee'$ for the shortest subpath of $D_m$ containing $e$ and $e'$, in particular $ee$ is the subpath containing the single edge $e$.
+Given edges $e,e'\in E_{m+1}$ with $e<e'$, write $ee'$ for the shortest subpath of $D_{m+1}$ containing $e$ and $e'$, in particular $ee$ is the subpath containing the single edge $e$.
 \begin{definition}
   \label{def:compatibility}
-  A pair of subsets $S_H\subset H_m$ and $S_V\subset V_m$ is called \emph{compatible} if: 
-  for each pair $(h,v)\in S_H\times S_V$ with $h<v$ there exists an edge $e\in hv$ so that at least one of the following holds
+  For $m\ge1$, a pair of subsets $S_H\subset H_{m+1}$ and $S_V\subset V_{m+1}$ is called \emph{compatible} if: 
+  for each pair $(h,v)\in S_H\times S_V$ with $h<v$, there exists an edge $e\in hv$ so that at least one of the following holds
   \begin{equation}
     \label{eq:hgc}
-    e\ne v\qquad\text{and}\qquad |he\cap V_m|=n|he\cap S_H|
+    e\ne v\qquad\text{and}\qquad |he\cap V_{m+1}|=n|he\cap S_H|
   \end{equation}
   or
   \begin{equation}
     \label{eq:vgc}
-    e\ne h\qquad\text{and}\qquad |ev\cap H_m|=n|ev\cap S_V|.
+    e\ne h\qquad\text{and}\qquad |ev\cap H_{m+1}|=n|ev\cap S_V|.
   \end{equation}
-  Write $\cC_m$ for the collection of all pairs $(S_H,S_V)$ which are compatible as above.
+  Write $\cC_{m+1}$ for the collection of all pairs $(S_H,S_V)$ which are compatible as above.
 \end{definition}
 \begin{remark}
-  This notion of compatibility extends naturally to the maximal Dyck paths $D_m^{[r]}$, $1\le r\le n-1$.  Write $\cC_m^{[r]}$ for the set of all compatible pairs in $D_m^{[r]}$.
+  This notion of compatibility extends naturally to the maximal Dyck paths $D_{m+1}^{[r]}$, $1\le r\le n-1$, and trivially to the Dyck path $D_1$.
+  Write $\cC_{m+1}^{[r]}$ for the set of all compatible pairs in $D_{m+1}^{[r]}$.
 \end{remark}
 
 The recursive structure of the maximal Dyck paths from Theorem~\ref{th:dyck path recursion} gives rise to a recursive characterization of compatible pairs.
 \begin{definition}
   \cite[Definition 3.11]{rupel}
   \label{def:piecewise compatibility}
-  A pair of subsets $S_H\subset H_m$ and $S_V\subset V_m$ is called \emph{piecewise compatible} if, for each $1\le r\le n$, one of the conditions \eqref{eq:hgc} or \eqref{eq:vgc} is satisfied for each pair $(h,v)\in S_H\times S_V$ with $h\in H_{m-1,i}$ and $v\in V_{m-1,i}$.
+  A pair of subsets $S_H\subset H_{m+1}$ and $S_V\subset V_{m+1}$ is called \emph{piecewise compatible} if, for each $1\le r\le n$, one of the conditions \eqref{eq:hgc} or \eqref{eq:vgc} is satisfied for each pair $(h,v)\in S_H\times S_V$ with $h\in H_{m,i}$ and $v\in V_{m,i}$.
 \end{definition}
 \begin{remark}
-  The notion of piecewise compatibility naturally extends to the maximal Dyck paths $D_m^{[r]}$, $1\le r\le n-1$.
+  The notion of piecewise compatibility naturally extends to the maximal Dyck paths $D_{m+1}^{[r]}$, $1\le r\le n-1$.
+  Given a compatible pair $(S_H,S_V)$ in $D_{m+1}^{[r]}$, we write $S_H^{[r+1]}=S_H\cap H_{m+1}^{[r+1]}\subset H_{m+1}^{[r]}$ and $S_V^{[r+1]}=S_V\cap V_{m+1}^{[r+1]}\subset V_{m+1}^{[r]}$.
+  In particular, the pair $(S_H^{[r+1]},S_V^{[r+1]})$ is compatible in $D_{m+1}^{[r+1]}$.
+  We also write $S_{H,i}=S_H\cap H_{m,i}$ and $S_{V,i}=S_V\cap V_{m,i}$ for $r+1\le i\le n-1$.
 \end{remark}
 
 To describe precisely when a piecewise compatible pair $(S_H,S_V)$ is compatible we need more notation.
-For a horizontal edge $h\in H_m$ and a subset $S_H\subset H_m$, write $D(h;S_H)=he$ for the shortest subpath of $D_m$ for which $|he\cap V_m|=n|he\cap S_H|$, if no such subpath exists we set $D(h;S_H)=hv_{u_{m-1}}$.
+For a horizontal edge $h\in H_{m+1}$ and a subset $S_H\subset H_{m+1}$, write $D(h;S_H)=he$ for the shortest subpath of $D_{m+1}$ for which $|he\cap V_{m+1}|=n|he\cap S_H|$, if no such subpath exists we set $D(h;S_H)=hv_{u_m}$.
 The subpath $D(h;S_H)$ is called the \emph{local shadow path} of $h$ with respect to $S_H$.
-Similarly, for a vertical edge $v\in V_m$ and a subset $S_V\subset V_m$, the \emph{local shadow path} of $v$ with repect to $S_V$ is $D(v;S_V)=ev$ for the shortest subpath of $D_m$ for which $|ev\cap H_m|=n|ev\cap S_V|$ and we take $D(v;S_V)=h_1v$ if there does not exist such an edge $e$.
+Similarly, for a vertical edge $v\in V_{m+1}$ and a subset $S_V\subset V_{m+1}$, the \emph{local shadow path} of $v$ with repect to $S_V$ is $D(v;S_V)=ev$ for the shortest subpath of $D_{m+1}$ for which $|ev\cap H_{m+1}|=n|ev\cap S_V|$ and we take $D(v;S_V)=h_1v$ if there does not exist such an edge $e$.
 \begin{definition}
   \cite[Definition 3.17]{rupel}
-  A horizontal edge $h_i\in H_m$, $m\ge3$, is called \emph{blocking} for a subset $S_H\subset H_m$ if $D(h_i;S_H)=h_iv_{u_{m-1}}$ and $h_i$ is furthest to the right with this property, i.e.\ the index $i$ is maximal with this property. 
+  A horizontal edge $h_i\in H_{m+1}$, $m\ge2$, is called \emph{blocking} for a subset $S_H\subset H_{m+1}$ if $D(h_i;S_H)=h_iv_{u_m}$ and $h_i$ is furthest to the right with this property, i.e.\ the index $i$ is maximal. 
 
-  Suppose $S_H\subset H_m$ admits a blocking edge $h_i\in H_m$.
+  Suppose $S_H\subset H_{m+1}$ admits a blocking edge $h_i\in H_{m+1}$.
   Then $S_H$ is \emph{left-justified at $h_i$} if there exists $k\ge i$ so that $S_H=\{h_i,h_{i+1},\ldots,h_k\}$.
-  The subset $S_H$ is \emph{strongly left-justified at $h_i$} if $S_H$ is left-justified at $h_i$ and $|h_iv_{u_{m-1}}\cap V_m|=n|h_iv_{u_{m-1}}\cap S_H|$.
+  The subset $S_H$ is \emph{strongly left-justified at $h_i$} if $S_H$ is left-justified at $h_i$ and $|h_iv_{u_m}\cap V_{m+1}|=n|h_iv_{u_m}\cap S_H|$.
 
-  A subset $S_V\subset V_m$ is \emph{right-justified with respect to $h_i$} if there exists a vertical edge $v_s\in h_iv_{u_{m-1}}$ so that $S_V\cap h_iv_{u_{m-1}}=\{v_s,v_{s-1},\ldots,v_{u_{m-1}}\}$.
-  The subset $S_V$ is \emph{strongly right-justified with respect to $h_i$} if $S_V$ is right-justified with respect to $h_i$ and $D(v_{u_{m-1}};S_V)=h_iv_{u_{m-1}}$ with $|h_iv_{u_{m-1}}\cap H_m|=n|h_iv_{u_{m-1}}\cap S_V|$.
+  A subset $S_V\subset V_{m+1}$ is \emph{right-justified with respect to $h_i$} if there exists a vertical edge $v_s\in h_iv_{u_m}$ so that $S_V\cap h_iv_{u_m}=\{v_s,v_{s-1},\ldots,v_{u_m}\}$.
+  The subset $S_V$ is \emph{strongly right-justified with respect to $h_i$} if $S_V$ is right-justified with respect to $h_i$ and $D(v_{u_m};S_V)=h_iv_{u_m}$ with $|h_iv_{u_m}\cap H_{m+1}|=n|h_iv_{u_m}\cap S_V|$.
 \end{definition}
 
 \begin{theorem}
   \cite[Theorem 3.20 and Corollary 3.22]{rupel}
   \label{th:blocking edge conditions}
-  For $m\ge3$, suppose $S_H\subset H_m$ and $S_V\subset V_m$ are piecewise compatible. 
+  For $m\ge2$, suppose $S_H\subset H_{m+1}$ and $S_V\subset V_{m+1}$ are piecewise compatible. 
   Then the following hold:
   \begin{enumerate}
-    \item If $S_H$ does not admit a blocking edge, then $(S_H,S_V)\in\cC_m$.
-    \item Suppose $S_H$ admits a blocking edge $h_i\in H_m$ and $(S_H,S_V)$ is not compatible.
+    \item If $S_H$ does not admit a blocking edge, then $(S_H,S_V)\in\cC_{m+1}$.
+    \item Suppose $S_H$ admits a blocking edge $h_i\in H_{m+1}$ and $(S_H,S_V)$ is not compatible.
       Then $S_H$ is left-justified at $h_i$ and $S_V$ is strongly right-justified with respect to $h_i$.
-      In addition the following hold:
+      In addition, the following hold:
       \begin{enumerate}
-        \item If $m=3$, then $S_H\cap h_iv_{u_{m-1}}=\{h_i\}$.
-        \item If $m\ge4$, then $S_H$ is strongly left-justified at $h_i$.
-        \item If $m\ge5$, then either $i=1$ or $h_i$ is immediately preceded by a vertical edge in $D_m$.
+        \item If $m=2$, then $S_H\cap h_iv_{u_m}=\{h_i\}$.
+        \item If $m\ge3$, then $S_H$ is strongly left-justified at $h_i$.
+        \item If $m\ge4$, then either $i=1$ or $h_i$ is immediately preceded by a vertical edge in $D_{m+1}$.
       \end{enumerate}
   \end{enumerate}
 \end{theorem}
 
 \begin{corollary}
   \label{cor:piecewise not compatible}
-  For $m\ge4$ and $0\le r\le n-1$, consider $S_H\subset H_m^{[r]}$ and $S_V\subset V_m^{[r]}$ so that $(S_H,S_V)$ is piecewise compatible.
-  Assume $\big(S_H^{[r+1]},S_V^{[r+1]}\big)\in\cC_m^{[r+1]}$.
-  Then $(S_H,S_V)$ is not compatible if and only if $H_{m-2}^{[r+1]}\subset S_{H,r+1}$ and $V_m^{[r+1]}\subset S_V$.
+  For $m\ge3$ and $0\le r\le n-1$, consider $S_H\subset H_{m+1}^{[r]}$ and $S_V\subset V_{m+1}^{[r]}$ so that $(S_H,S_V)$ is piecewise compatible.
+  Assume $\big(S_H^{[r+1]},S_V^{[r+1]}\big)\in\cC_{m+1}^{[r+1]}$.
+  Then $(S_H,S_V)$ is not compatible if and only if $H_{m,r+1,n}^{[r+1]}\subset S_{H,r+1}$ and $V_{m+1}^{[r+1]}\subset S_V$.
 \end{corollary}
 \begin{proof}
   We begin with the reverse implication.
-  First note that there are $(n-r)u_{m-1}-u_{m-2}$ horizontal edges and $(n-r)u_{m-2}-u_{m-3}$ vertical edges in $D_m^{[r]}$. 
-  It follows that $V_{m-2}^{[r+1]}\sqcup V_m^{[r+1]}$ contains $n(n-r)u_{m-3}-nu_{m-4}$ vertical edges and $H_{m-2}^{[r+1]}\sqcup H_m^{[r+1]}$ contains $n(n-r)u_{m-2}-nu_{m-3}$ horizontal edges.
+  First note that there are $(n-r)u_m-u_{m-1}$ horizontal edges and $(n-r)u_{m-1}-u_{m-2}$ vertical edges in $D_{m+1}^{[r]}$. 
+  It follows that $H_{m,r+1,n}^{[r+1]}\sqcup H_{m+1}^{[r+1]}$ contains $n(n-r)u_{m-1}-nu_{m-2}$ horizontal edges and $V_{m-1}^{[r+1]}\sqcup V_{m+1}^{[r+1]}$ contains $n(n-r)u_{m-2}-nu_{m-3}$ vertical edges (note that $H_{m,r+1,n}^{[r+1]}$ naturally identifies with the Dyck path $H_{m-1}^{[r+1]}$).
 
-  Assuming $H_{m-2}^{[r+1]}\subset S_{H,r+1}$ and $S_V^{[r+1]}=V_m^{[r+1]}$, we have $S_V\cap V_{m-2}^{[r+1]}=\varnothing$ and $S_H\cap H_m^{[r+1]}=\varnothing$ by piecewise compatibility.
-  Let $h\in H_m^{[r]}$ be the horizontal edge corresponding to the first horizontal edge of $H_{m-2}^{[r+1]}$.
-  Then, since there are $(n-r)u_{m-3}-u_{m-4}$ horizontal edges in $H_{m-2}^{[r+1]}$, the local shadow path $D(h;S_H)$ contains $n\big((n-r)u_{m-3}-u_{m-4}\big)$ vertical edges and is thus equal to $hv_{u_{m-1}}$.
-  Similarly, the local shadow path $D(v_{u_{m-1}};S_V)$ is also equal to $hv_{u_{m-1}}$.
-  In particular, neither of the compatibility conditions of Definition~\ref{def:compatibility} are satisfied for the path $hv_{u_{m-1}}$ and so $(S_H,S_V)$ is not compatible.
+  Assuming $H_{m,r+1,n}^{[r+1]}\subset S_{H,r+1}$ and $S_V^{[r+1]}=V_{m+1}^{[r+1]}$, we have $S_V\cap V_{m,r+1,n}^{[r+1]}=\varnothing$ and $S_H\cap H_{m+1}^{[r+1]}=\varnothing$ by piecewise compatibility.
+  Let $h\in H_{m+1}^{[r]}$ be the horizontal edge corresponding to the first horizontal edge of $H_{m,r+1,n}^{[r+1]}$.
+  Then, since there are $(n-r)u_{m-2}-u_{m-3}$ horizontal edges in $H_{m,r+1,n}^{[r+1]}$, the local shadow path $D(h;S_H)$ contains $n\big((n-r)u_{m-2}-u_{m-3}\big)$ vertical edges and is thus equal to $hv_{u_m}$.
+  Similarly, the local shadow path $D(v_{u_m};S_V)$ is also equal to $hv_{u_m}$.
+  In particular, neither of the compatibility conditions of Definition~\ref{def:compatibility} are satisfied for the path $hv_{u_m}$ and so $(S_H,S_V)$ is not compatible.
 
-  For the forward implication, we work by induction on $m\ge4$.
+  For the forward implication, we work by induction on $m\ge3$.
   Consider a pair $(S_H,S_V)$ for $D_4^{[r]}$ as above which is not compatible.
   Following Theorem~\ref{th:blocking edge conditions}, write $h\in H_4^{[r]}$ for the blocking edge of $S_H$.
   Then the number of vertical edges in the local shadow path $D(h;S_H)=hv_{u_3}$ must be divisible by $n$. 
-  Since $\big(S_H^{[r+1]},S_V^{[r+1]}\big)$ is compatible, we must have $h\in H_{3,r}$.
-  But observe that $|V_m^{[r]}|=(n-r)n-1$ and so the divisibility condition above implies $h\in H_{3,r}^{[n-1]}$.
+  Since $\big(S_H^{[r+1]},S_V^{[r+1]}\big)$ is compatible, we must have $h\in H_{3,r+1}$.
+  But observe that $|V_4^{[r]}|=(n-r)n-1$ and so the divisibility condition above implies $h\in H_{3,r+1}^{[n-1]}$.
   But $S_V$ is strongly right-justified with respect to $h$ and thus the number of horizontal edges in $D(v_{u_3};S_V)=hv_{u_3}$ is divisible by $n$.
-  Identifying $H_{3,r}^{[n-1]}$ with $H_2^{[1]}$, this divisibility condition only occurs when $h$ is the first horizontal edge in $H_2^{[r+1]}\subset H_2^{[1]}$.
+  Identifying $H_{3,r+1}^{[n-1]}$ with $H_2^{[1]}$, this divisibility condition only occurs when $h$ is the first horizontal edge in $H_2^{[r+1]}\subset H_2^{[1]}$.
   Then by piecewise compatibility, the vertical edge of $H_2^{[1]}$ cannot be an element of $S_V$ and we must have $V_4^{[r+1]}\subset S_V$.
   By piecewise compatibility again, this implies $H_4^{[r+1]}\cap S_H=\varnothing$ and so $D(h;S_H)=hv_{u_3}$ implies $H_2^{[r+1]}\subset S_H$.
 
-  To continue, let $(S_H,S_V)$ be a pair for $D_m$, $m\ge5$, which is not compatible.
-  Write $\varphi:H_{m-1}\to V_m$ for the bijection given by $\varphi(h_i)=v_i$ for $1\le i\le u_{m-1}$.
-  For any subset $T\subset H_{m-1}$, set $\varphi^*(T)=V_m\setminus\varphi(T)$.
-  Clearly, the map $\varphi^*$ gives a bijection between subsets of $H_{m-1}$ and subsets of $V_m$.
-  In Section 3.2 of \cite{rupel}, a new pair of subsets $\big((\varphi^*)^{-1}S_V,\Omega^{-1}S_H\big)$ for $D_{m-1}$ is given, we refer the reder to \emph{loc. cit} for notation.
+  To continue, let $(S_H,S_V)$ be a pair for $D_{m+1}$, $m\ge4$, which is not compatible.
+  Write $\varphi:H_m\to V_{m+1}$ for the bijection given by $\varphi(h_i)=v_i$ for $1\le i\le u_m$.
+  For any subset $T\subset H_m$, set $\varphi^*(T)=V_{m+1}\setminus\varphi(T)$.
+  Clearly, the map $\varphi^*$ gives a bijection between subsets of $H_m$ and subsets of $V_{m+1}$.
+  In Section 3.2 of \cite{rupel}, a new pair of subsets $\big((\varphi^*)^{-1}S_V,\Omega^{-1}S_H\big)$ for $D_m$ is given, we refer the reader to \emph{loc. cit} for notation.
   By \cite[Proposition 3.10]{rupel}, the pair $\big((\varphi^*)^{-1}S_V,\Omega^{-1}S_H\big)$ is not compatible, but is piecewise compatible by \cite[proposition 3.16]{rupel}.
-  Thus by induction, we must have $H_{m-3}^{[r+1]}\subset(\varphi^*)^{-1}S_V$ and $V_{m-1}^{[r+1]}\subset\Omega^{-1}S_H$.
-  It follows from piecewise compatibility that $H_{m-1}^{[r+1]}\cap(\varphi^*)^{-1}S_V=\varnothing$.
-  But then by the definition of $\varphi^*$ we have $V_{m-2}^{[r+1]}\cap S_V=\varnothing$ and $S_V^{[r+1]}=V_m^{[r+1]}$ so that $D(v_{u_{m-1}};S_V)=hv_{u_{m-1}}$ with $h$ as in the first case above.
-  Since $(S_H,S_V)$ is not compatible, Theorem~\ref{th:blocking edge conditions} states that $h$ must be the blocking edge for $S_H$ and we must have $D(h;S_H)=hv_{u_{m-1}}$.
-  But this can only occur if $H_{m-2}^{[r+1]}\subset S_H$ since $H_m^{[r+1]}\cap S_H=\varnothing$ by piecewise compatibility.
+  Thus by induction, we must have $H_{m-2}^{[r+1]}\subset(\varphi^*)^{-1}S_V$ and $V_m^{[r+1]}\subset\Omega^{-1}S_H$.
+  It follows from piecewise compatibility that $H_m^{[r+1]}\cap(\varphi^*)^{-1}S_V=\varnothing$.
+  But then by the definition of $\varphi^*$ we have $V_{m-1}^{[r+1]}\cap S_V=\varnothing$ and $S_V^{[r+1]}=V_{m+1}^{[r+1]}$ so that $D(v_{u_m};S_V)=hv_{u_m}$ with $h$ as in the first case above.
+  Since $(S_H,S_V)$ is not compatible, Theorem~\ref{th:blocking edge conditions} states that $h$ must be the blocking edge for $S_H$ and we must have $D(h;S_H)=hv_{u_m}$.
+  But this can only occur if $H_{m,r+1,n}^{[r+1]}\subset S_H$ since $H_{m+1}^{[r+1]}\cap S_H=\varnothing$ by piecewise compatibility.
 \end{proof}
 
 The following result is an immediate consequence of the combinatorial construction of rank 2 cluster variables \cite{llz} and the categorification of these variables using representations of $K(n)$ \cite{cc,ck}.
@@ -2096,24 +2103,24 @@ The following result is an immediate consequence of the combinatorial constructi
   \label{th:combinatorial euler}
   \cite{llz}
   For each $m\ge1$ and $\bfe\in\ZZ_{\ge0}^2$, we have 
-  \[\chi\big(\Gr_\bfe(P_m)\big)=\big|\{(S_H,S_V)\in\cC_m:|S_H|=u_m-e_1,|S_V|=e_2\}\big|.\]
+  \[\chi\big(\Gr_\bfe(P_m)\big)=\Big|\big\{(S_H,S_V)\in\cC_m:|S_H|=u_m-e_1,|S_V|=e_2\big\}\Big|.\]
 \end{theorem}
 
-Our goal is to give a geometric explanation for this by showing that the compatible pairs provide a natural labeling for the cells of $\Gr_\bfe(P_m)$ found in Theorem~\ref{celldec}.
-In fact, we will see more: that the cells of quiver Grassmannians $\Gr_\bfe(P_m^V)$ for truncated preprojectives $P_m^V$ are also naturally labeled by compatible pairs.
-We accomplish this by providing a bijection between the compatible pairs as in Theorem~\ref{th:combinatorial euler} and the successor closed sets of vertices in the 2-quivers $\cQ_m^{[r]}$ used in Theorem~\ref{thm:2quivercells} to describe the nonempty cells.
+Our goal is to give a geometric explanation for this by showing that the compatible pairs provide a natural labeling for the cells of $\Gr_\bfe(P_{m+1})$ found in Theorem~\ref{celldec}.
+In fact, we will see more: that the cells of quiver Grassmannians $\Gr_\bfe(P_{m+1}^V)$ for truncated preprojectives $P_{m+1}^V$ are also naturally labeled by compatible pairs.
+We accomplish this by providing a bijection between the compatible pairs as in Theorem~\ref{th:combinatorial euler} and the successor closed sets of vertices in the 2-quivers $\cQ_{m+1}^{[r]}$ used in Theorem~\ref{thm:2quivercells} to describe the nonempty cells.
 \begin{theorem}
   \label{th:compatible cells}
   \sayD{Fix abuse of notation $H_m$.}
-  For $m\ge1$ and $V\in\Gr(H_{m-1})$ or $V=0$, each quiver Grassmannian $\Gr_\bfe(P_m^V)$ admits a cell decomposition with cells labeled by compatible pairs in the maximal Dyck path $D_m^{[r]}$, where $r=\dim V$.
+  For $m\ge1$ and $V\in\Gr(H_m)$ or $V=0$, each quiver Grassmannian $\Gr_\bfe(P_{m+1}^V)$ admits a cell decomposition with cells labeled by compatible pairs in the maximal Dyck path $D_{m+1}^{[r]}$, where $r=\dim V$.
 \end{theorem}
 \begin{proof}
-  The recursive construction of the 2-quivers $\cQ_m^{[r]}$ provides a natural ordering of the vertices in the underlying quiver $Q_m^{[r]}$.
-  Indeed, when considering the recursive construction of the 2-quiver $Q_m^{[r]}$ from \eqref{eq:recursive 2-quivers}, we order the component quivers $Q_{m-1,i}$ and $Q_{m-1,*}^{[1]}$ naturally according to their indices so that $Q_{m-1,*}^{[1]}$ comes last.
-  This provides a bijection of these vertices with the edges of $D_m^{[r]}$ whereby vertices covering the vertex 1 (resp.\ vertex 2) of $K(n)$ correspond to horizontal edges (resp.\ vertical edges) of $D_m^{[r]}$.
+  The recursive construction of the 2-quivers $\cQ_{m+1}^{[r]}$ provides a natural ordering of the vertices in the underlying quiver $Q_{m+1}^{[r]}$.
+  Indeed, when considering the recursive construction of the 2-quiver $Q_{m+1}^{[r]}$ from \eqref{eq:recursive 2-quivers}, we order the component quivers $Q_{m,i}$ and $Q_{m,*}^{[1]}$ naturally according to their indices so that $Q_{m,*}^{[1]}$ comes last.
+  This provides a bijection of these vertices with the edges of $D_{m+1}^{[r]}$ whereby vertices covering the vertex 1 (resp.\ vertex 2) of $K(n)$ correspond to horizontal edges (resp.\ vertical edges) of $D_{m+1}^{[r]}$.
 
-  Given a strong successor closed subset $\beta\subset(Q_m^{[r]})_0$, we define a pair of subsets $S_H(\beta)\subset H_m^{[r]}$ and $S_V(\beta)\subset V_m^{[r]}$ as follows: a vertical edge $v\in V_m^{[r]}$ is in $S_V(\beta)$ exactly when the corresponding vertex of $Q_m^{[r]}$ is in $\beta$ while a horizontal edge $h\in H_m^{[r]}$ is in $S_H(\beta)$ exactly when the corresponding vertex of $Q_m^{[r]}$ is \emph{not} in $\beta$.
-  Then Corollary~\ref{cor:piecewise not compatible} shows that under this bijection a subset $\beta\in(Q_m^{[r]})_0$ is strong successor closed in~$\cQ_m^{[r]}$ if and only if the corresponding pair of subsets $\big(S_H(\beta),S_V(\beta)\big)$ is compatible.
+  Given a strong successor closed subset $\beta\subset(Q_{m+1}^{[r]})_0$, we define a pair of subsets $S_H(\beta)\subset H_{m+1}^{[r]}$ and $S_V(\beta)\subset V_{m+1}^{[r]}$ as follows: a vertical edge $v\in V_{m+1}^{[r]}$ is in $S_V(\beta)$ exactly when the corresponding vertex of $Q_{m+1}^{[r]}$ is in $\beta$ while a horizontal edge $h\in H_{m+1}^{[r]}$ is in $S_H(\beta)$ exactly when the corresponding vertex of $Q_{m+1}^{[r]}$ is \emph{not} in $\beta$.
+  Then Corollary~\ref{cor:piecewise not compatible} shows that under this bijection a subset $\beta\in(Q_{m+1}^{[r]})_0$ is strong successor closed in~$\cQ_{m+1}^{[r]}$ if and only if the corresponding pair of subsets $\big(S_H(\beta),S_V(\beta)\big)$ is compatible.
   Applying Theorem~\ref{thm:2quivercells} completes the proof.
 \end{proof}
 
