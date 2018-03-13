@@ -208,8 +208,8 @@ Theorem \ref{thm:2quivercells} can be formulated as follows.
 
 The results of \cite{rupel} giving a combinatorial construction of counting polynomials for quiver Grassmannians of preprojective/preinjective representations of generalized Kronecker quivers $K(n)$ suggest that the dimensions of cells can be computed using this combinatorics (or the equivalent combinatorics of compatible pairs).
 This is made precise in Conjecture~\ref{conj:cell dimensions}.
-\sayT{maybe we can erase some parts which show up twice in the introduction?}
-\subsection*{Acknowledgements}We would like to thank Giovanni Cerulli Irelli, Hans Franzen, Oliver Lorscheid and Markus Reineke for very fruitful discussions related to this project.
+%\sayT{maybe we can erase some parts which show up twice in the introduction?}
+\subsubsection*{Acknowledgements}We would like to thank Giovanni Cerulli Irelli, Hans Franzen, Oliver Lorscheid and Markus Reineke for very fruitful discussions related to this project.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quiver Covering Theory}
 \label{sec:covering}
@@ -1066,7 +1066,7 @@ $$F_X=\sum_{\bfe\in\NN^{Q_0}}\chi(\Gr_\bfe(X))y^\bfe\in\ZZ[y_i\mid i\in Q_0].$$
   \label{fpoly}
   Let $X$ be a representation which can be lifted to the universal covering quiver.
   \begin{enumerate}
-    \item If $\Gr_\bfe(X)$ is smooth and $\Gr^{\tilde Q}_\tbfe(\tilde X)$ has a cell decomposition into affine spaces, then $\Gr_\bfe(X)$ has a cell decomposition into affine spaces.
+    \item If $\Gr_\bfe(X)$ is smooth and $\Gr^{\hat Q}_\tbfe(\hat X)$ has a cell decomposition into affine spaces, then $\Gr_\bfe(X)$ has a cell decomposition into affine spaces.
     \item We have $F_X=SF_{\tilde X}$ where $SF_{\tilde X}$ is obtained from $F_{\tilde X}$ by applying $S:\ZZ[y_{(i,w)}\mid i\in Q_0,w\in W_Q]\to\ZZ[y_i\mid i\in Q_0]$ given by $S(y_{(i,w)})=y_i$ for all $i\in Q_0$ and $w\in W_Q$.
   \end{enumerate} 
 \end{corollary}
@@ -1456,11 +1456,12 @@ By Lemma~\ref{directsums} and induction hypothesis every quiver Grassmannian on 
       Then every quiver Grassmannian $\Gr_\bfe(X)$ has a cell decomposition into affine spaces.
   \end{enumerate}
 \end{theorem}
-\begin{proof}
-  The first part follows by combining the results of Section~\ref{torusaction} and Theorems~\ref{thm:bb} and~\ref{cellscover}, taking into account that every preprojective representation of $\widetilde{ K(n)}$ is a lift of a preprojective representation (c.f.\ Lemma~\ref{le:lifts of transjectives}).
+\begin{proof}Both claims follow by considering iterated torus actions taking into account that all quiver Grassmannians under consideration are smooth. For the truncated preprojective representations of $K(n)$ this is Theorem~\ref{thm:truncpp}. For the truncated preprojective representations lifted to the iterated universal abelian covering quivers $\widehat{K(n)}^{(k)}$ for $k\geq 1$, it follows inductively - when applying reflection recursions similar to those stated in (\ref{eq:recursive covers}) -  that these lifts are exceptional representations of $\widehat{K(n)}^{(k)}$, which means that their quiver Grassmannians are again smooth. Note that this is indeed clear for $m= 2$.
+
+  The first part now follows by combining the results of Section~\ref{torusaction} and Theorems~\ref{thm:bb} and~\ref{cellscover}, taking into account that every preprojective representation of $\widetilde{ K(n)}$ is a lift of a preprojective representation (c.f.\ Lemma~\ref{le:lifts of transjectives}).
   The dual version for preinjective representations follows immediately since $\Gr_{\bfe}(P_m)\cong \Gr_{\udim P_m-\bfe}(I_m)$ and $\Gr_{\tbfe}(\tilde P_m)\cong\Gr_{\udim \tilde P_m-\tbfe}(\tilde I_m)$.
 
-  The second part follows in the same way, additionally, taking Theorem~\ref{thm:truncpp} into account.
+  The second part follows in the same way taking into account the initial remark.
 \end{proof}
 
 \begin{corollary}
@@ -1579,7 +1580,7 @@ An analogous statement holds if a quiver has precisely one sink.
 
 \begin{remark}
   Below we will usually apply Lemma~\ref{lem:2equivalence} after performing each of the equivalences from Definition~\ref{def:2equivalence}.
-  That is, given a 2-arrow $V:\Gamma(1)\implies\Gamma(2)$ for which $\Gamma(1)$ has a unique source $p$ and $\Gamma(2)$ has a unique sink $q$, we get an equivalent 2-quiver by replacing this 2-arrow with a usual arrow $a_V:p\to q$.
+  That is, given a 2-arrow $V:\Gamma(1)\implies\Gamma(2)$ for which $\Gamma(1)$ has a unique source $p$ and $\Gamma(2)$ has a unique sink $q$, we get an equivalent 2-quiver by replacing this 2-arrow with a usual arrow $\alpha_V:p\to q$.
 \end{remark}
 
 %The aim is to associate a $2$-quiver with every preprojective representation $P_m$ and with their quotients $P_m^{(k)}$ defined in section~\ref{QG}.
