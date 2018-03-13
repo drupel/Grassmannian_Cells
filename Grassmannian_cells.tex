@@ -1505,7 +1505,7 @@ The description of the non-empty fibers in Proposition~\ref{fibers} together wit
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Combinatorial description of non-empty cells}
+\section{Combinatorial Descriptions of Non-Empty Cells}
 \label{sec:combinatorics}
 \noindent In this section, we provide two combinatorial descriptions of the non-empty cells in the quiver Grassmannians of (truncated) preprojective representations of $K(n)$.
 The first is quiver theoretic and follows directly from the recursive construction of the cell decomposition in Section~\ref{sec:fibrations}.
@@ -2066,7 +2066,7 @@ Similarly, for a vertical edge $v\in V_{m+1}$ and a subset $S_V\subset V_{m+1}$,
 \begin{proof}
   We begin with the reverse implication.
   First note that there are $(n-r)u_m-u_{m-1}$ horizontal edges and $(n-r)u_{m-1}-u_{m-2}$ vertical edges in $D_{m+1}^{[r]}$. 
-  It follows that $H_{m,r+1,n}^{[r+1]}\sqcup H_{m+1}^{[r+1]}$ contains $n(n-r)u_{m-1}-nu_{m-2}$ horizontal edges and $V_{m-1}^{[r+1]}\sqcup V_{m+1}^{[r+1]}$ contains $n(n-r)u_{m-2}-nu_{m-3}$ vertical edges (note that $H_{m,r+1,n}^{[r+1]}$ naturally identifies with the Dyck path $H_{m-1}^{[r+1]}$).
+  It follows that $H_{m,r+1,n}^{[r+1]}\sqcup H_{m+1}^{[r+1]}$ contains $n(n-r)u_{m-1}-nu_{m-2}$ horizontal edges and $V_{m-1}^{[r+1]}\sqcup V_{m+1}^{[r+1]}$ contains $n(n-r)u_{m-2}-nu_{m-3}$ vertical edges (note that $D_{m,r+1,n}^{[r+1]}$ naturally identifies with the Dyck path $D_{m-1}^{[r+1]}$).
 
   Assuming $H_{m,r+1,n}^{[r+1]}\subset S_{H,r+1}$ and $S_V^{[r+1]}=V_{m+1}^{[r+1]}$, we have $S_V\cap V_{m,r+1,n}^{[r+1]}=\varnothing$ and $S_H\cap H_{m+1}^{[r+1]}=\varnothing$ by piecewise compatibility.
   Let $h\in H_{m+1}^{[r]}$ be the horizontal edge corresponding to the first horizontal edge of $H_{m,r+1,n}^{[r+1]}$.
@@ -2089,11 +2089,11 @@ Similarly, for a vertical edge $v\in V_{m+1}$ and a subset $S_V\subset V_{m+1}$,
   Write $\varphi:H_m\to V_{m+1}$ for the bijection given by $\varphi(h_i)=v_i$ for $1\le i\le u_m$.
   For any subset $T\subset H_m$, set $\varphi^*(T)=V_{m+1}\setminus\varphi(T)$.
   Clearly, the map $\varphi^*$ gives a bijection between subsets of $H_m$ and subsets of $V_{m+1}$.
-  In Section 3.2 of \cite{rupel}, a new pair of subsets $\big((\varphi^*)^{-1}S_V,\Omega^{-1}S_H\big)$ for $D_m$ is given, we refer the reader to \emph{loc. cit} for notation.
-  By \cite[Proposition 3.10]{rupel}, the pair $\big((\varphi^*)^{-1}S_V,\Omega^{-1}S_H\big)$ is not compatible, but is piecewise compatible by \cite[proposition 3.16]{rupel}.
-  Thus by induction, we must have $H_{m-2}^{[r+1]}\subset(\varphi^*)^{-1}S_V$ and $V_m^{[r+1]}\subset\Omega^{-1}S_H$.
+  In Section 3.2 of \cite{rupel}, a new pair of subsets $\big((\varphi^*)^{-1}S_V,\Omega^{-1}S_H\big)$ for $D_m$ is given, we refer the reader to \emph{loc.\ cit} for notation.
+  By \cite[Proposition 3.10]{rupel}, the pair $\big((\varphi^*)^{-1}S_V,\Omega^{-1}S_H\big)$ is not compatible, but is piecewise compatible by \cite[Proposition 3.16]{rupel}.
+  Thus by induction, we must have $H_{m-1,r+1,n}^{[r+1]}\subset(\varphi^*)^{-1}S_V$ and $V_m^{[r+1]}\subset\Omega^{-1}S_H$.
   It follows from piecewise compatibility that $H_m^{[r+1]}\cap(\varphi^*)^{-1}S_V=\varnothing$.
-  But then by the definition of $\varphi^*$ we have $V_{m-1}^{[r+1]}\cap S_V=\varnothing$ and $S_V^{[r+1]}=V_{m+1}^{[r+1]}$ so that $D(v_{u_m};S_V)=hv_{u_m}$ with $h$ as in the first case above.
+  But then by the definition of $\varphi^*$ we have $V_{m,r+1,n}^{[r+1]}\cap S_V=\varnothing$ and $S_V^{[r+1]}=V_{m+1}^{[r+1]}$ so that $D(v_{u_m};S_V)=hv_{u_m}$ with $h$ as in the first case above.
   Since $(S_H,S_V)$ is not compatible, Theorem~\ref{th:blocking edge conditions} states that $h$ must be the blocking edge for $S_H$ and we must have $D(h;S_H)=hv_{u_m}$.
   But this can only occur if $H_{m,r+1,n}^{[r+1]}\subset S_H$ since $H_{m+1}^{[r+1]}\cap S_H=\varnothing$ by piecewise compatibility.
 \end{proof}
