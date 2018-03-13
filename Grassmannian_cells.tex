@@ -127,8 +127,7 @@ On the one hand, this is due to the fact that generating functions for the Euler
 On the other hand, they are clearly interesting on their own as they reveal many properties of the representation and its geometry.
 
 Although it follows from the results of Hille, Huisgen-Zimmermann and Reineke that every projective variety can be realized as a quiver Grassmannian, 
-%-- which is maybe not surprising as the classification problem of indecomposable quiver representations is wild -- 
-it turns out that very interesting phenomena arise when restricting to certain quivers or representations with certain properties.
+it turns out that very interesting phenomena arise when restricting to certain quivers or to representations with certain properties.
 For instance, quiver Grassmannians attached to exceptional representations are smooth \cite{cr}.
 For tame quivers of types $\tilde A$ or $\tilde D$, it is known that every quiver Grassmannian attached to an indecomposable representation admits a cell decomposition into affine spaces, see \cite{ce,lw} and references therein.
 It has been conjectured that this is also true for exceptional representations of any quiver, in particular for preprojective and preinjective representations. 
@@ -145,9 +144,9 @@ If the short exact sequence has certain properties -- e.g. (almost) split sequen
 In this paper, we combine these two methods in order to show that every quiver Grassmannian attached to an exceptional representation of a generalized Kronecker quiver admits a cell decomposition into affine spaces.
 The proof also shows that this is true for so-called truncated preprojective representations which appear as certain quotients of preprojective representations.
 It turns out that these are precisely those representations which can be obtained from indecomposable representations with dimension vector $(d,1)$ when applying reflection functors.
-Actually, we can prove that quiver Grassmannians of truncated preprojective representations only depend on the dimension vector of the representation itself and on the fixed dimension vector of the subrepresentations.
+Actually, we prove that quiver Grassmannians of truncated preprojective representations only depend on the dimension vector of the representation itself and on the fixed dimension vector of the subrepresentations.
 
-As a first step, we show that a torus action with proper fixed point set can be defined on any quiver Grassmannian attached to liftable representations of any acyclic quiver containing parallel arrows or non-oriented cycles, that is for representations which can be lifted to the universal (abelian) covering quiver.
+As a first step, we show that a torus action with proper fixed point set can be defined on any quiver Grassmannian attached to a liftable representation of any acyclic quiver containing parallel arrows or non-oriented cycles, that is for representations which can be lifted to the universal (abelian) covering quiver.
 These are precisely those cases where the universal covering quiver differs from the original quiver.
 This lifting property holds in particular for so-called tree modules, a class of representations which includes all exceptional representations.
 The fixed point set of this torus action consists precisely of those subrepresentations which can also be lifted to the universal (abelian) covering quiver.
@@ -156,7 +155,7 @@ Actually, it turns out that each fixed point component is itself a quiver Grassm
 The next step is to investigate conditions under which the fixed point components admit a cell decomposition.
 Here the Caldero-Chapoton map comes into play.
 In the case of the generalized Kronecker quiver, it turns out that a natural filtration of a fixed preprojective representation by preprojectives of smaller dimension transfers to the universal covering quiver.
-These filtration can be successively described by short exact sequences.
+These filtrations can be successively described by short exact sequences.
 The main advantage when passing to the universal covering is that the preprojective representations covering the same dimension vector below become orthogonal, a property which rigidifies the situation in a sense.
 In the end, this machinery can be used to recursively build cell decompositions of all quiver Grassmannians of lifted (truncated) preprojective representations.
 As all the quiver Grassmannians of the (non-lifted) representation are smooth, this combines with the torus action to give a cell decomposition of these quiver Grassmannians.
@@ -181,11 +180,11 @@ In Section~\ref{Lifting}, we use this together with the fact that every preproje
 Throughout this section, we collect many results which will turn out to completely reveal the structure of quiver Grassmannians attached to (truncated) preprojective representations.
 
 The aim of Section~\ref{QG} is to study these quiver Grassmannians and to show that they all admit a cell decomposition into affine spaces.
-This is obtained in Section~\ref{sec:fibrations} by combining a torus action on quiver Grassmannians which is introduced in Section~\ref{torusaction} and the so-called Caldero-Chapoton map for short exact sequences of representations.
+This is obtained in Section~\ref{sec:fibrations} by combining a torus action on quiver Grassmannians which is introduced in Section~\ref{torusaction} and the Caldero-Chapoton map for short exact sequences of representations.
 Our first main result is Theorem~\ref{thm:torusfixedpoints} which may be formulated as follows.
 \begin{thm}
   Let $X$ be a representation of a quiver $Q=(Q_0,Q_1)$ which can be lifted to a representation $\hat X$ of the universal abelian covering quiver $\hat Q=(Q_0\times A_Q,Q_1\times A_Q)$, where $A_Q$ is the free abelian group generated by $Q_1$.
-  Then there exists a map $d:\supp(\hat X)\to\ZZ$ -- with a corresponding torus action on every $X_i=\bigoplus_{\chi\in A_{Q}} X_{(i,\chi)}$ defined by $t.x_{(i,\chi)}=t^{d(i,\chi)}x_{(i,\chi)}$ for $x_{(i,\chi)}\in X_{(i,\chi)}$ -- which induces a torus action on $\Gr_\bfe^Q(X)$ such that
+  Then there exists a map $d:\supp(\hat X)\to\ZZ$ -- with a corresponding $\CC^*$-action on every $X_i=\bigoplus_{\chi\in A_{Q}} X_{(i,\chi)}$ defined by $t.x_{(i,\chi)}=t^{d(i,\chi)}x_{(i,\chi)}$ for $x_{(i,\chi)}\in X_{(i,\chi)}$ -- which induces a $\CC^*$-action on $\Gr_\bfe^Q(X)$ such that
   \[\Gr^Q_\bfe(X)^{\CC^*}\cong\bigsqcup_{\hat\bfe} \Gr^{\hat Q}_{\hat\bfe}(\hat X),\]
   where $\hat\bfe$ runs through all dimension vectors compatible with $\bfe$.
 \end{thm}
@@ -199,7 +198,7 @@ Analyzing the Caldero-Chapoton map applied to short exact sequences induced by l
 \end{thm}
 \noindent Note that, for $V=0$, we obtain the preprojective representations $P_{m+1}$.
 
-In Section \ref{sec:combinatorics}, we reveal the combinatorics behind the obtained cell decompositions introducing the notion of $2$-quivers which is a slight generalization of the notion of usual quivers.
+In Section \ref{sec:combinatorics}, we reveal the combinatorics behind the obtained cell decompositions by introducing the notion of $2$-quivers which are a slight generalization of the usual notion of quivers.
 Theorem \ref{thm:2quivercells} can be formulated as follows.
 \begin{thm}
   With every truncated preprojective representation $P_{m+1}^V$, say with $\dim V=r$, we can associated a $2$-quiver $\mathcal Q_{m+1}^{[r]}$ such that the cells of the cell decomposition attached to $\Gr_\bfe(P_{m+1}^V)$ are labeled by strong successor closed subsets $\beta\subset (\mathcal Q_{m+1}^{[r]})_0$.
