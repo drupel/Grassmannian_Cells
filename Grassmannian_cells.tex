@@ -915,13 +915,13 @@ The following result of Bia\l{}ynicki-Birula relates the geometry of $X$ to the 
 \begin{theorem}
   \label{thm:bb}
   \cite[Section 4]{bb}
-  Each attracting set $\Att(C)$ is a locally closed $\CC^*$-invariant subvariety of $X$ and the natural map $\Att(C)\to C$ is an affine vector bundle.
+  Each attracting set $\Att(C)$ is a locally closed $\CC^*$-invariant subvariety of $X$ and the natural map $\Att(C)\to C$ is an affine bundle.
   Moreover, assuming $X^{\C^\ast}=\coprod_{i=1}^r C_i$ is a decomposition of the fixed point set of $X$ into finitely many connected components, we have $X=\coprod_{i=1}^r \Att(C_i)$.
   In particular, we have an equality of Euler characteristics $\chi(X)=\chi(X^{\C^\ast})$.
 \end{theorem}
 
 If each component $C_i$ admits a decomposition into affine spaces, Theorem~\ref{thm:bb} implies the same is true of $X$.
-Indeed, we can trivialize each affine vector bundle $\Att(C_i)\to C_i$ over each affine piece of $C_i$ to get a decomposition of $X$ into affine spaces.
+Indeed, we can trivialize each affine bundle $\Att(C_i)\to C_i$ over each affine piece of $C_i$ to get a decomposition of $X$ into affine spaces.
 
 
 \subsection{Torus Actions on Quiver Grassmannians}
@@ -1295,10 +1295,10 @@ Then in the same way as above we obtain the map
   Now consider $U\subset\tilde P_{m,j}$ with $U\in\Phi_{m,I,j}^{-1}(V,W)$.
   This gives rise to the following commutative diagram:  
   \[\xymatrix{
-    0\ar[r] &\Ext(\tilde P_{m+1}^I,V)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,U)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,W)\ar[r]\ar[d] & 0\\
-    0\ar[r] &\Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)\big)\ar[r]\ar[d] &  \Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\ar[r]\ar[d] & \Ext(\tilde P_{m+1}^I,\tilde K_m)\ar[r]\ar[d] & 0\\
-    0\ar[r] &\Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)/V\big)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde K_m/W)\ar[r]\ar[d] & 0 \\
-    &0&0&0&}\]
+    \Ext(\tilde P_{m+1}^I,V)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,U)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,W)\ar[r]\ar[d] & 0\\
+    \Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)\big)\ar[r]\ar[d] &  \Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\ar[r]\ar[d] & \Ext(\tilde P_{m+1}^I,\tilde K_m)\ar[r]\ar[d] & 0\\
+    \Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)/V\big)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde K_m/W)\ar[r]\ar[d] & 0 \\
+    0&0&0&}\]
   By Corollary~\ref{cor:perpendicular}, we have $\Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)\big)=0$ and so $\Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)/V\big)=0$ as well.
   This yields the isomorphisms
   \[\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\Ext(\tilde P_{m+1}^I,\tilde K_m)\quad\text{and}\quad\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)\cong\Ext(\tilde P_{m+1}^I,\tilde K_m/W).\]
@@ -1312,8 +1312,8 @@ Then in the same way as above we obtain the map
     \ses{\tilde K_m}{Z}{\tilde P_{m+1}^I}.
   \end{equation}
   This in particular says the first map of the induced sequence
-  \[\Hom(\tilde K_m,\tilde K_m/W)\to\Ext(\tilde P_{m+1}^I,\tilde K_m/W)\to\Ext(Z,\tilde K_m/W)\]
-  is zero.
+  \[\Hom(Z,\tilde K_m/W)\to\Hom(\tilde K_m,\tilde K_m/W)\to\Ext(\tilde P_{m+1}^I,\tilde K_m/W)\to\Ext(Z,\tilde K_m/W)\]
+  is surjective.
   By Lemma~\ref{le:properties}.(4) and the Auslander-Reiten formulas, we have 
   \[\Ext(\tilde K_m,\tilde K_m)=0\qquad\text{and}\qquad\Ext(\tilde P_{m+1}^I,\tilde K_m)=\CC.\]
   For $m=2$, the identities above follow immediately from the corresponding statements for $\tau\tilde P_3^I$.
