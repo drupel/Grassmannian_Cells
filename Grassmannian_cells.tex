@@ -772,7 +772,7 @@ We now introduce notation for locating specific lifted preprojectives as subrepr
 Since we work only on two fixed components of $\widetilde{K(n)}$, the following notation will be useful in describing paths in these components.
 For $k\ge1$, set
 \[A_1^{(k)}:=\{(i_1,\ldots,i_k)\mid i_j\in\{1,\ldots,n\}\text{ for $1\le j\le k$}\}.\]%, i_j\ne i_{j+1}\text{ for $1\le j<l$}\}.\]
-Depending on context (in particular, the parity of $m+1$ below), we will sometimes identify the word~$(i_1,\ldots,i_k)$ with the element $\alpha_{i_1}\alpha_{i_2}^{-1}\alpha_{i_3}\cdots\alpha_{i_k}^{(-1)^{k+1}}\in W_n$ and sometimes with the element $\alpha_{i_1}^{-1}\alpha_{i_2}\alpha_{i_3}^{-1}\cdots\alpha_{i_k}^{(-1)^k}\in W_n$.
+Depending on context (in particular, the parity of $m+1$), we will sometimes identify the word~$(i_1,\ldots,i_k)$ with the element $\alpha_{i_1}\alpha_{i_2}^{-1}\alpha_{i_3}\cdots\alpha_{i_k}^{(-1)^{k+1}}\in W_n$ and sometimes with the element $\alpha_{i_1}^{-1}\alpha_{i_2}\alpha_{i_3}^{-1}\cdots\alpha_{i_k}^{(-1)^k}\in W_n$.
 In this way, to each word $\ui=(i_1,\ldots,i_k)\in A_1^{(k)}$ with $1\leq k\leq m$, we associate a preprojective subrepresentation~$\tilde P_{m+1-k,\ui}\subset\tilde P_{m+1}$ which lifts $P_{m+1-k}$.
 More precisely, we obtain a sequence of preprojective subrepresentations which uniquely determines the desired inclusion:
 \[\tilde P_{m+1-k,\ui}\subset\tilde P_{m+2-k,(i_1,\ldots,i_{k-1})}\subset\ldots\subset\tilde P_{m-1,(i_1,i_2)}\subset\tilde P_{m,i_1}\subset\tilde P_{m+1}.\]
@@ -914,12 +914,12 @@ If the quiver Grassmannian is smooth, which is for instance the case for excepti
 More specifically, let $X$ be a smooth projective variety with a $\C^\ast$-action.
 For a connected component of the fixed point set $C\subset X^{\C^\ast}$, we define its attracting set as
 \[\Att(C):=\{y\in X\mid \lim_{t\to 0}t.y\in C\}.\]
-The following result of Bia\l{}ynicki-Birula relates the geometry of $X$ to the geometry of its $\CC^*$ fixed points.
+The following result of Bia\l{}ynicki-Birula relates the geometry of $X$ to the geometry of its $\CC^*$ fixed points (see \cite[Section 4]{bb} or \cite[Section 4]{ca}).
 \begin{theorem}
   \label{thm:bb}
-  \cite[Section 4]{bb}
-  Each attracting set $\Att(C)$ is a locally closed $\CC^*$-invariant subvariety of $X$ and the natural map $\Att(C)\to C$ is an affine bundle.
-  Moreover, assuming $X^{\C^\ast}=\coprod_{i=1}^r C_i$ is a decomposition of the fixed point set of $X$ into finitely many connected components, we have $X=\coprod_{i=1}^r \Att(C_i)$.
+  Let $X$ be a smooth projective complex variety with a $\C^\ast$-action.
+  Then each attracting set $\Att(C)$ is a locally closed $\CC^*$-invariant subvariety of $X$ and the natural map $\Att(C)\to C$ is an affine bundle.
+  Moreover, assuming $X^{\C^\ast}=\coprod_{i=1}^r C_i$ is a decomposition of the fixed point set of $X$ into finitely many connected components, we have $X=\coprod_{i=1}^r \Att(C_i)$, where we can choose an ordering such that $\coprod_{i=1}^s\Att(C_i)$ is closed for $1\leq s\leq r$.
   In particular, we have an equality of Euler characteristics $\chi(X)=\chi(X^{\C^\ast})$.
 \end{theorem}
 
@@ -1168,7 +1168,7 @@ Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposabl
 \end{proposition}
 \begin{proof}
   For $m=1$, the action of $\GL_n(\CC)$ on $\Gr_d(\CC^n)$ is transitive which shows that it is transitive on $\Ind\big(K(n),d(1,r)\big)$.
-  As the reflection functors preserve indecomposability and isomorphism classes, Lemma~\ref{compatibleGSigma} gives a commutative diagram as below for each $g\in\GL_n(\CC)$:
+  As reflection functors preserve indecomposability and isomorphism classes, Lemma~\ref{compatibleGSigma} gives a commutative diagram as below for each $g\in\GL_n(\CC)$:
   \[\xymatrix{\Ind\big(K(n),d(m,r)\big)\ar[r]^(.45){\Sigma_2}\ar[d]^{g^{-T}}&\Ind\big(K(n),d(m+1,r)\big)\ar[d]^g\\
     \Ind\big(K(n),d(m,r)\big)\ar[r]^(.45){\Sigma_2}&\Ind\big(K(n),d(m+1,r)\big)}.\]
   As the $\GL_n(\CC)$-action is transitive on the left hand side, this implies that it is also transitive on the right hand side.
@@ -1358,7 +1358,7 @@ Now we are able to state the following result concerning the fibers of $\Psi_{m+
 \begin{proof}
   We work by induction on $m$.
   When $m=1$, the claim is trivial since in this case all quiver Grassmannians are points.
-  We establish the result for $m\ge2$ by proving the following more general statement:\\
+  We establish the result for $m\ge2$ by proving the following more general statement:\bigskip
 
   \noindent{\bf Claim.}
   For any admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k<m$ and any subset $J\subset I_0$, the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a decomposition into affine spaces which is compatible with the unique map $\pi_{m+1}^{J,\bfI}:\tilde P_{m+1}^J\to\tilde P_{m+1}^\bfI$ from Lemma~\ref{le:truncated quotients} in the following sense:
@@ -1577,7 +1577,7 @@ An analogous statement holds if a quiver has precisely one sink.
   Since $(Q_V)_2\subset Q_2$, to see that $\beta$ is strong successor closed in $\cQ_V$ we only need to show that $\beta$ is successor closed in $Q_V$.  
   For this it suffices to consider the arrow $\alpha_V:p\to q$ for which that claim is obvious since $p\in\beta$ is equivalent to $\{p\}\subset\beta$ and similarly for $q$.
 
-  Finally, let $\beta\subset(Q_V)_0$ be strong sucessor closed in $\cQ_V$.
+  Finally, let $\beta\subset(Q_V)_0$ be strong successor closed in $\cQ_V$.
   Since $Q_1\subset(Q_V)_1$, we immediately see that $\beta$ is successor closed in $Q$.
   To see that $\beta$ is strong successor closed in $\cQ$, it suffices to consider the 2-arrow $V:\{p\}\implies\{q\}$ for which the claim is obvious as above.
 \end{proof}
@@ -1671,7 +1671,7 @@ Note that we are not taking this union as subquivers of $\widetilde{K(n)}$, in p
 For $r<s<n$, there is a 2-arrow $V_s:\Gamma_s(1)\implies\Gamma_s(2)$ of $\cQ_3^{[r]}$ given by $\Gamma_s(1)=Q_{2,n}^{[1]}\sqcup\coprod\limits_{i=s+1}^{n-1} Q_{2,i}$ with $\Gamma_s(2)\subset Q_{2,s}$ the subquiver $(2,\alpha_s^{-1})\xrightarrow{\alpha_s} (1,e)$.
 By Lemma~\ref{lem:2equivalence}, we obtain an equivalent 2-quiver by replacing each $\Gamma_s(2)$ above with the corresponding sink $(1,e)$ taken as a vertex of $Q_{2,s}$.
 By a slight abuse of notation, below we will let $\cQ_3^{[r]}$ denote this equivalent 2-quiver.
-Then $\cQ_3^{[r]}$ can be found as a sub-2-quiver of $\cQ_3$ which is constructed recursively by connecting $\cQ_3^{[i]}$ to $\cQ_{2,i}$ for $i=n-1,\ldots, 1$ in the following way: \\
+Then $\cQ_3^{[r]}$ can be found as a sub-2-quiver of $\cQ_3$ which is constructed recursively by connecting $\cQ_3^{[i]}$ to $\cQ_{2,i}$ for $i=n-1,\ldots, 1$ in the following way: \bigskip
 \[
 \begin{tikzpicture}[scale=1.35]
   \draw (0,0) node (I1) {$\bullet$} +(1,1) node (J11) {$\bullet$} +(1,.5) node (J12) {$\bullet$} +(1,0.1) node (D1) { $\vdots$}+(1,-.5) node (J1N1) {$\bullet$} +(1,-1) node (J1N) {$\bullet$} +(0.1,-1.3) node {\footnotesize$\mathcal Q_3$}; 
@@ -1843,7 +1843,7 @@ where $\tilde q\in\widetilde{K(n)}_0$ is the vertex which corresponds to $q\in\b
   But this is precisely the condition on $\beta_1\coprod\beta_2$ to be strong successor closed as $\mathcal Q_{m+1}^{[r]}$ is connected to $\mathcal Q_{m-1}^{[r]}$ by a $2$-arrow. This shows the first claim.
 \end{proof}
 
-As an example consider the case $n=3$ and $m=3$. The $2$-quiver of $\tilde P_3$ is given by:\\
+As an example consider the case $n=3$ and $m=3$. The $2$-quiver of $\tilde P_3$ is given by:\bigskip
 
 \begin{tikzpicture}[scale=1]
 \draw (0,0) node (I1) {$\bullet$} +(1,1) node (J11) {$\bullet$} +(1,0) node (J12) {$\bullet$} +(1,-1) node (J13) {$\bullet$}; 
@@ -1871,9 +1871,9 @@ As an example consider the case $n=3$ and $m=3$. The $2$-quiver of $\tilde P_3$ 
 \draw[-implies,double equal sign distance,red] (Q1)--(J22) node[pos=.5,above] {\scriptsize $c$};
 \draw[-implies,double equal sign distance,red] (Q2)--(J11) node[pos=.5,above] {´};
 \end{tikzpicture}
-\\
+\bigskip
 
-The one of $\tilde P_4$ is given by:\\
+The one of $\tilde P_4$ is given by:\bigskip
 
 \begin{tikzpicture}[scale=1]
 \draw (1.6,0) node (I1) {$\bullet$} +(1,1) node (J11) {$\bullet$} +(1,0) node (J12) {$\bullet$} +(1,-1) node (J13) {$\bullet$}; 
@@ -1939,11 +1939,7 @@ The one of $\tilde P_4$ is given by:\\
 \draw[-implies,double equal sign distance,red] (Q2c)--(Q0b) node[pos=.5,above] {};
 \draw[-implies,double equal sign distance,red] (Q3c)--(Q1) node[pos=.6,above] {};
 
-\end{tikzpicture}\\
-
-
-
-
+\end{tikzpicture}\bigskip
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Compatible Pairs}
 For $m\ge1$, let $D_m$ denote the maximal Dyck path in the lattice rectangle with corner vertices $(0,0)$ and $(u_m,u_{m-1})$.  
@@ -1965,7 +1961,7 @@ In what follows we assume $n\ge2$.
 We obtain the following as an immediate consequence.
 \begin{corollary}
   \label{cor:short hooks}
-  Inside $D_m$, $m\ge2$, there are precisely $u_{m-2}$ vertical edges which are immediately preceded by exactly $n-1$ horizontal edges, all other vertical egdes are immediately preceded by exactly $n$ horizontal edges.
+  Inside $D_m$, $m\ge2$, there are precisely $u_{m-2}$ vertical edges which are immediately preceded by exactly $n-1$ horizontal edges, all other vertical edges are immediately preceded by exactly $n$ horizontal edges.
 \end{corollary}
 \begin{proof}
   We work by induction on $m\ge2$.
@@ -2030,7 +2026,7 @@ The recursive structure of the maximal Dyck paths from Theorem~\ref{th:dyck path
 To describe precisely when a piecewise compatible pair $(S_H,S_V)$ is compatible we need more notation.
 For a horizontal edge $h\in H_{m+1}$ and a subset $S_H\subset H_{m+1}$, write $D(h;S_H)=he$ for the shortest subpath of $D_{m+1}$ for which $|he\cap V_{m+1}|=n|he\cap S_H|$, if no such subpath exists we set $D(h;S_H)=hv_{u_m}$.
 The subpath $D(h;S_H)$ is called the \emph{local shadow path} of $h$ with respect to $S_H$.
-Similarly, for a vertical edge $v\in V_{m+1}$ and a subset $S_V\subset V_{m+1}$, the \emph{local shadow path} of $v$ with repect to $S_V$ is $D(v;S_V)=ev$ for the shortest subpath of $D_{m+1}$ for which $|ev\cap H_{m+1}|=n|ev\cap S_V|$ and we take $D(v;S_V)=h_1v$ if there does not exist such an edge $e$.
+Similarly, for a vertical edge $v\in V_{m+1}$ and a subset $S_V\subset V_{m+1}$, the \emph{local shadow path} of $v$ with respect to $S_V$ is $D(v;S_V)=ev$ for the shortest subpath of $D_{m+1}$ for which $|ev\cap H_{m+1}|=n|ev\cap S_V|$ and we take $D(v;S_V)=h_1v$ if there does not exist such an edge $e$.
 \begin{definition}
   \cite[Definition 3.17]{rupel}
   A horizontal edge $h_i\in H_{m+1}$, $m\ge2$, is called \emph{blocking} for a subset $S_H\subset H_{m+1}$ if $D(h_i;S_H)=h_iv_{u_m}$ and $h_i$ is furthest to the right with this property, i.e.\ the index $i$ is maximal. 
@@ -2129,7 +2125,7 @@ We accomplish this by providing a bijection between the compatible pairs as in T
 
 The results of \cite{rupel} provide a stronger statement than Theorem~\ref{th:combinatorial euler}.
 Indeed, the compatible pairs are shown to compute the counting polynomials of these quiver Grassmannians $\Gr_\bfe(P_{m+1})$ over a finite field (these coincide with their Poincar\'e polynomials in this case).  
-We conjecture that the torus action on $\Gr_\bfe(P_{m+1})$ can be chosen to provide a geometric explaination of this result.
+We conjecture that the torus action on $\Gr_\bfe(P_{m+1})$ can be chosen to provide a geometric explanation of this result.
 \begin{conjecture}
   \label{conj:cell dimensions}
   For $m\ge1$ and $V\in\Gr(H_m)$ or $V=0$, there exists a torus action on $\Gr_\bfe(P_{m+1}^V)$ such that the dimension of the cell labeled by a compatible pair $(S_H,S_V)$ in the maximal Dyck path $D_{m+1}^{[r]}$, where $r=\dim V$, is given by $\overline{\gamma}_{S_H,S_V}=\sum\limits_{e<e'\in E_{m+1}^{[r]}}\overline{\gamma}_\omega(e,e')$ for
@@ -2155,11 +2151,13 @@ We conjecture that the torus action on $\Gr_\bfe(P_{m+1})$ can be chosen to prov
 \bibitem{bgp} 
   I.~N.~Bernstein, I.~M.~Gelfand, V.~A.~Ponomarev: Coxeter functors, and Gabriel's theorem. Russian Mathematical Surveys \textbf{28}(2), 17-32 (1973).
 \bibitem{brenner-butler} 
-  S.~Benner, M.~C.~R.~Butler: The equivalence of certain functors occuring in the representation theory of artin algebras and species. Journal of the London Mathematical Society \textbf{2}(1), 183-187 (1976).
+  S.~Brenner, M.~C.~R.~Butler: The equivalence of certain functors occuing in the representation theory of artin algebras and species. Journal of the London Mathematical Society \textbf{2}(1), 183-187 (1976).
 \bibitem{cc} 
   P.~Caldero, F.~Chapoton: Cluster algebras as {H}all algebras of quiver representations. Commentarii Mathematici Helvetici \textbf{81}(3), 595-616 (2006).
 \bibitem{ck} 
   P.~Caldero, B.~Keller: From triangulated categories to cluster algebras II.  Annales Scientifique de l'Ecole Normale Superi\'{e}ure (4) \textbf{39} (6), 983-1009 (2006).
+\bibitem{ca}	J.B.~Carrell: Torus actions and cohomology. Algebraic quotients. Torus actions and cohomology. The adjoint representation and the adjoint action, 83-158. Encyclopaedia Mathematical Science \textbf{131}, Invariant Theory and Algebraic
+Transformation Groups, Springer, Berlin, 2002.
 \bibitem{ce} 
   G.~Cerulli Irelli, F.~Esposito: Geometry of quiver Grassmannians of Kronecker type and applications to cluster algebras. Algebra \&  Number Theory \textbf{5}(6), 777-801 (2011).
 \bibitem{cefr} 
