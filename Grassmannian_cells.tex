@@ -111,7 +111,7 @@
   We also provide two natural combinatorial labelings for these cells.
   On the one hand, the cells are in bijection with compatible pairs in a maximal Dyck path as predicted by the theory of cluster algebras.
   On the other hand, they are labeled by certain subsets of a so-called $2$-quiver attached to a (truncated) preprojective representation.
-  As there is a natural bijection between these two labelings this gives also a geometric explanation for the appearance of Dyck path combinatorics in the theory of quiver Grassmannians. 
+  As there is a natural bijection between these two labelings, this also gives a geometric explanation for the appearance of Dyck path combinatorics in the theory of quiver Grassmannians. 
 \end{abstract}
 
 \setcounter{tocdepth}{2}
@@ -127,8 +127,7 @@ On the one hand, this is due to the fact that generating functions for the Euler
 On the other hand, they are clearly interesting on their own as they reveal many properties of the representation and its geometry.
 
 Although it follows from the results of Hille, Huisgen-Zimmermann and Reineke that every projective variety can be realized as a quiver Grassmannian, 
-%-- which is maybe not surprising as the classification problem of indecomposable quiver representations is wild -- 
-it turns out that very interesting phenomena arise when restricting to certain quivers or representations with certain properties.
+it turns out that very interesting phenomena arise when restricting to certain quivers or to representations with certain properties.
 For instance, quiver Grassmannians attached to exceptional representations are smooth \cite{cr}.
 For tame quivers of types $\tilde A$ or $\tilde D$, it is known that every quiver Grassmannian attached to an indecomposable representation admits a cell decomposition into affine spaces, see \cite{ce,lw} and references therein.
 It has been conjectured that this is also true for exceptional representations of any quiver, in particular for preprojective and preinjective representations. 
@@ -145,9 +144,9 @@ If the short exact sequence has certain properties -- e.g. (almost) split sequen
 In this paper, we combine these two methods in order to show that every quiver Grassmannian attached to an exceptional representation of a generalized Kronecker quiver admits a cell decomposition into affine spaces.
 The proof also shows that this is true for so-called truncated preprojective representations which appear as certain quotients of preprojective representations.
 It turns out that these are precisely those representations which can be obtained from indecomposable representations with dimension vector $(d,1)$ when applying reflection functors.
-Actually, we can prove that quiver Grassmannians of truncated preprojective representations only depend on the dimension vector of the representation itself and on the fixed dimension vector of the subrepresentations.
+Actually, we prove that quiver Grassmannians of truncated preprojective representations only depend on the dimension vector of the representation itself and on the fixed dimension vector of the subrepresentations.
 
-As a first step, we show that a torus action with proper fixed point set can be defined on any quiver Grassmannian attached to liftable representations of any acyclic quiver containing parallel arrows or non-oriented cycles, that is for representations which can be lifted to the universal (abelian) covering quiver.
+As a first step, we show that a torus action with proper fixed point set can be defined on any quiver Grassmannian attached to a liftable representation of any acyclic quiver containing parallel arrows or non-oriented cycles, that is for representations which can be lifted to the universal (abelian) covering quiver.
 These are precisely those cases where the universal covering quiver differs from the original quiver.
 This lifting property holds in particular for so-called tree modules, a class of representations which includes all exceptional representations.
 The fixed point set of this torus action consists precisely of those subrepresentations which can also be lifted to the universal (abelian) covering quiver.
@@ -156,7 +155,7 @@ Actually, it turns out that each fixed point component is itself a quiver Grassm
 The next step is to investigate conditions under which the fixed point components admit a cell decomposition.
 Here the Caldero-Chapoton map comes into play.
 In the case of the generalized Kronecker quiver, it turns out that a natural filtration of a fixed preprojective representation by preprojectives of smaller dimension transfers to the universal covering quiver.
-These filtration can be successively described by short exact sequences.
+These filtrations can be successively described by short exact sequences.
 The main advantage when passing to the universal covering is that the preprojective representations covering the same dimension vector below become orthogonal, a property which rigidifies the situation in a sense.
 In the end, this machinery can be used to recursively build cell decompositions of all quiver Grassmannians of lifted (truncated) preprojective representations.
 As all the quiver Grassmannians of the (non-lifted) representation are smooth, this combines with the torus action to give a cell decomposition of these quiver Grassmannians.
@@ -181,11 +180,11 @@ In Section~\ref{Lifting}, we use this together with the fact that every preproje
 Throughout this section, we collect many results which will turn out to completely reveal the structure of quiver Grassmannians attached to (truncated) preprojective representations.
 
 The aim of Section~\ref{QG} is to study these quiver Grassmannians and to show that they all admit a cell decomposition into affine spaces.
-This is obtained in Section~\ref{sec:fibrations} by combining a torus action on quiver Grassmannians which is introduced in Section~\ref{torusaction} and the so-called Caldero-Chapoton map for short exact sequences of representations.
+This is obtained in Section~\ref{sec:fibrations} by combining a torus action on quiver Grassmannians which is introduced in Section~\ref{torusaction} and the Caldero-Chapoton map for short exact sequences of representations.
 Our first main result is Theorem~\ref{thm:torusfixedpoints} which may be formulated as follows.
 \begin{thm}
   Let $X$ be a representation of a quiver $Q=(Q_0,Q_1)$ which can be lifted to a representation $\hat X$ of the universal abelian covering quiver $\hat Q=(Q_0\times A_Q,Q_1\times A_Q)$, where $A_Q$ is the free abelian group generated by $Q_1$.
-  Then there exists a map $d:\supp(\hat X)\to\ZZ$ -- with a corresponding torus action on every $X_i=\bigoplus_{\chi\in A_{Q}} X_{(i,\chi)}$ defined by $t.x_{(i,\chi)}=t^{d(i,\chi)}x_{(i,\chi)}$ for $x_{(i,\chi)}\in X_{(i,\chi)}$ -- which induces a torus action on $\Gr_\bfe^Q(X)$ such that
+  Then there exists a map $d:\supp(\hat X)\to\ZZ$ -- with a corresponding $\CC^*$-action on every $X_i=\bigoplus_{\chi\in A_{Q}} X_{(i,\chi)}$ defined by $t.x_{(i,\chi)}=t^{d(i,\chi)}x_{(i,\chi)}$ for $x_{(i,\chi)}\in X_{(i,\chi)}$ -- which induces a $\CC^*$-action on $\Gr_\bfe^Q(X)$ such that
   \[\Gr^Q_\bfe(X)^{\CC^*}\cong\bigsqcup_{\hat\bfe} \Gr^{\hat Q}_{\hat\bfe}(\hat X),\]
   where $\hat\bfe$ runs through all dimension vectors compatible with $\bfe$.
 \end{thm}
@@ -199,7 +198,7 @@ Analyzing the Caldero-Chapoton map applied to short exact sequences induced by l
 \end{thm}
 \noindent Note that, for $V=0$, we obtain the preprojective representations $P_{m+1}$.
 
-In Section \ref{sec:combinatorics}, we reveal the combinatorics behind the obtained cell decompositions introducing the notion of $2$-quivers which is a slight generalization of the notion of usual quivers.
+In Section \ref{sec:combinatorics}, we reveal the combinatorics behind the obtained cell decompositions by introducing the notion of $2$-quivers which are a slight generalization of the usual notion of quivers.
 Theorem \ref{thm:2quivercells} can be formulated as follows.
 \begin{thm}
   With every truncated preprojective representation $P_{m+1}^V$, say with $\dim V=r$, we can associated a $2$-quiver $\mathcal Q_{m+1}^{[r]}$ such that the cells of the cell decomposition attached to $\Gr_\bfe(P_{m+1}^V)$ are labeled by strong successor closed subsets $\beta\subset (\mathcal Q_{m+1}^{[r]})_0$.
@@ -906,6 +905,9 @@ For $w\in W_n$, we write $\pi_{m+1,w}^{I,J}:\tilde P_{m+1,w}^I\to\tilde P_{m+1,w
 \section{Quiver Grassmannians}
 \label{QG}
 
+In this section, we aim to establish the existence of cell decompositions for quiver Grassmannians of (truncated) preprojective representations of $K(n)$ and its universal covering quiver.
+By a \emph{cell decomposition} of an algebraic variety $X$, we mean a filtration $\varnothing=X_0\subset X_1\subset \cdots \subset X_k=X$ of $X$ by closed subsets $X_i\subset X$ so that each $X_i\setminus X_{i-1}$ is isomorphic to an affine space.
+
 \subsection{Torus Actions and the Bia\l{}ynicki-Birula Decomposition}\label{sec:bb}
 The aim of Section~\ref{torusaction} is to define a torus action on quiver Grassmannians which can be used to simplify the calculation of homological invariants in general.
 If the quiver Grassmannian is smooth, which is for instance the case for exceptional representations by \cite{cr}, it can also be used to stratify the quiver Grassmannians using the results of Bia\l{}ynicki-Birula.
@@ -915,15 +917,21 @@ For a connected component of the fixed point set $C\subset X^{\C^\ast}$, we defi
 The following result of Bia\l{}ynicki-Birula relates the geometry of $X$ to the geometry of its torus fixed points. The following is proved in \cite[Section 4]{bb}, see also \cite[Section 4]{ca}.
 \begin{theorem}
   \label{thm:bb}
+<<<<<<< HEAD
 Let $X$ be a smooth projective complex variety with a $\C^\ast$-action.  Then each attracting set $\Att(C)$ is a locally closed $\CC^*$-invariant subvariety of $X$ and the natural map $\Att(C)\to C$ is an affine vector bundle.
   Moreover, assuming $X^{\C^\ast}=\coprod_{i=1}^r C_i$ is a decomposition of the fixed point set of $X$ into finitely many connected components, we have $X=\coprod_{i=1}^r \Att(C_i)$ where we can choose an ordering such that $\coprod_{i=1}^s\Att(C_i)$ is closed for $1\leq s\leq r$.
 	
 	
+=======
+  \cite[Section 4]{bb}
+  Each attracting set $\Att(C)$ is a locally closed $\CC^*$-invariant subvariety of $X$ and the natural map $\Att(C)\to C$ is an affine bundle.
+  Moreover, assuming $X^{\C^\ast}=\coprod_{i=1}^r C_i$ is a decomposition of the fixed point set of $X$ into finitely many connected components, we have $X=\coprod_{i=1}^r \Att(C_i)$.
+>>>>>>> origin/master
   In particular, we have an equality of Euler characteristics $\chi(X)=\chi(X^{\C^\ast})$.
 \end{theorem}
 
 If each component $C_i$ admits a decomposition into affine spaces, Theorem~\ref{thm:bb} implies the same is true of $X$.
-Indeed, we can trivialize each affine vector bundle $\Att(C_i)\to C_i$ over each affine piece of $C_i$ to get a decomposition of $X$ into affine spaces.
+Indeed, we can trivialize each affine bundle $\Att(C_i)\to C_i$ over each affine piece of $C_i$ to get a decomposition of $X$ into affine spaces.
 
 
 \subsection{Torus Actions on Quiver Grassmannians}
@@ -1297,10 +1305,10 @@ Then in the same way as above we obtain the map
   Now consider $U\subset\tilde P_{m,j}$ with $U\in\Phi_{m,I,j}^{-1}(V,W)$.
   This gives rise to the following commutative diagram:  
   \[\xymatrix{
-    0\ar[r] &\Ext(\tilde P_{m+1}^I,V)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,U)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,W)\ar[r]\ar[d] & 0\\
-    0\ar[r] &\Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)\big)\ar[r]\ar[d] &  \Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\ar[r]\ar[d] & \Ext(\tilde P_{m+1}^I,\tilde K_m)\ar[r]\ar[d] & 0\\
-    0\ar[r] &\Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)/V\big)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde K_m/W)\ar[r]\ar[d] & 0 \\
-    &0&0&0&}\]
+    \Ext(\tilde P_{m+1}^I,V)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,U)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,W)\ar[r]\ar[d] & 0\\
+    \Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)\big)\ar[r]\ar[d] &  \Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\ar[r]\ar[d] & \Ext(\tilde P_{m+1}^I,\tilde K_m)\ar[r]\ar[d] & 0\\
+    \Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)/V\big)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde K_m/W)\ar[r]\ar[d] & 0 \\
+    0&0&0&}\]
   By Corollary~\ref{cor:perpendicular}, we have $\Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)\big)=0$ and so $\Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)/V\big)=0$ as well.
   This yields the isomorphisms
   \[\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\Ext(\tilde P_{m+1}^I,\tilde K_m)\quad\text{and}\quad\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)\cong\Ext(\tilde P_{m+1}^I,\tilde K_m/W).\]
@@ -1314,8 +1322,8 @@ Then in the same way as above we obtain the map
     \ses{\tilde K_m}{Z}{\tilde P_{m+1}^I}.
   \end{equation}
   This in particular says the first map of the induced sequence
-  \[\Hom(\tilde K_m,\tilde K_m/W)\to\Ext(\tilde P_{m+1}^I,\tilde K_m/W)\to\Ext(Z,\tilde K_m/W)\]
-  is zero.
+  \[\Hom(Z,\tilde K_m/W)\to\Hom(\tilde K_m,\tilde K_m/W)\to\Ext(\tilde P_{m+1}^I,\tilde K_m/W)\to\Ext(Z,\tilde K_m/W)\]
+  is surjective.
   By Lemma~\ref{le:properties}.(4) and the Auslander-Reiten formulas, we have 
   \[\Ext(\tilde K_m,\tilde K_m)=0\qquad\text{and}\qquad\Ext(\tilde P_{m+1}^I,\tilde K_m)=\CC.\]
   For $m=2$, the identities above follow immediately from the corresponding statements for $\tau\tilde P_3^I$.
@@ -1506,7 +1514,7 @@ The description of the non-empty fibers in Proposition~\ref{fibers} together wit
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Combinatorial description of non-empty cells}
+\section{Combinatorial Descriptions of Non-Empty Cells}
 \label{sec:combinatorics}
 \noindent In this section, we provide two combinatorial descriptions of the non-empty cells in the quiver Grassmannians of (truncated) preprojective representations of $K(n)$.
 The first is quiver theoretic and follows directly from the recursive construction of the cell decomposition in Section~\ref{sec:fibrations}.
@@ -2063,7 +2071,7 @@ Similarly, for a vertical edge $v\in V_{m+1}$ and a subset $S_V\subset V_{m+1}$,
 \begin{proof}
   We begin with the reverse implication.
   First note that there are $(n-r)u_m-u_{m-1}$ horizontal edges and $(n-r)u_{m-1}-u_{m-2}$ vertical edges in $D_{m+1}^{[r]}$. 
-  It follows that $H_{m,r+1,n}^{[r+1]}\sqcup H_{m+1}^{[r+1]}$ contains $n(n-r)u_{m-1}-nu_{m-2}$ horizontal edges and $V_{m-1}^{[r+1]}\sqcup V_{m+1}^{[r+1]}$ contains $n(n-r)u_{m-2}-nu_{m-3}$ vertical edges (note that $H_{m,r+1,n}^{[r+1]}$ naturally identifies with the Dyck path $H_{m-1}^{[r+1]}$).
+  It follows that $H_{m,r+1,n}^{[r+1]}\sqcup H_{m+1}^{[r+1]}$ contains $n(n-r)u_{m-1}-nu_{m-2}$ horizontal edges and $V_{m-1}^{[r+1]}\sqcup V_{m+1}^{[r+1]}$ contains $n(n-r)u_{m-2}-nu_{m-3}$ vertical edges (note that $D_{m,r+1,n}^{[r+1]}$ naturally identifies with the Dyck path $D_{m-1}^{[r+1]}$).
 
   Assuming $H_{m,r+1,n}^{[r+1]}\subset S_{H,r+1}$ and $S_V^{[r+1]}=V_{m+1}^{[r+1]}$, we have $S_V\cap V_{m,r+1,n}^{[r+1]}=\varnothing$ and $S_H\cap H_{m+1}^{[r+1]}=\varnothing$ by piecewise compatibility.
   Let $h\in H_{m+1}^{[r]}$ be the horizontal edge corresponding to the first horizontal edge of $H_{m,r+1,n}^{[r+1]}$.
@@ -2086,11 +2094,11 @@ Similarly, for a vertical edge $v\in V_{m+1}$ and a subset $S_V\subset V_{m+1}$,
   Write $\varphi:H_m\to V_{m+1}$ for the bijection given by $\varphi(h_i)=v_i$ for $1\le i\le u_m$.
   For any subset $T\subset H_m$, set $\varphi^*(T)=V_{m+1}\setminus\varphi(T)$.
   Clearly, the map $\varphi^*$ gives a bijection between subsets of $H_m$ and subsets of $V_{m+1}$.
-  In Section 3.2 of \cite{rupel}, a new pair of subsets $\big((\varphi^*)^{-1}S_V,\Omega^{-1}S_H\big)$ for $D_m$ is given, we refer the reader to \emph{loc. cit} for notation.
-  By \cite[Proposition 3.10]{rupel}, the pair $\big((\varphi^*)^{-1}S_V,\Omega^{-1}S_H\big)$ is not compatible, but is piecewise compatible by \cite[proposition 3.16]{rupel}.
-  Thus by induction, we must have $H_{m-2}^{[r+1]}\subset(\varphi^*)^{-1}S_V$ and $V_m^{[r+1]}\subset\Omega^{-1}S_H$.
+  In Section 3.2 of \cite{rupel}, a new pair of subsets $\big((\varphi^*)^{-1}S_V,\Omega^{-1}S_H\big)$ for $D_m$ is given, we refer the reader to \emph{loc.\ cit} for notation.
+  By \cite[Proposition 3.10]{rupel}, the pair $\big((\varphi^*)^{-1}S_V,\Omega^{-1}S_H\big)$ is not compatible, but is piecewise compatible by \cite[Proposition 3.16]{rupel}.
+  Thus by induction, we must have $H_{m-1,r+1,n}^{[r+1]}\subset(\varphi^*)^{-1}S_V$ and $V_m^{[r+1]}\subset\Omega^{-1}S_H$.
   It follows from piecewise compatibility that $H_m^{[r+1]}\cap(\varphi^*)^{-1}S_V=\varnothing$.
-  But then by the definition of $\varphi^*$ we have $V_{m-1}^{[r+1]}\cap S_V=\varnothing$ and $S_V^{[r+1]}=V_{m+1}^{[r+1]}$ so that $D(v_{u_m};S_V)=hv_{u_m}$ with $h$ as in the first case above.
+  But then by the definition of $\varphi^*$ we have $V_{m,r+1,n}^{[r+1]}\cap S_V=\varnothing$ and $S_V^{[r+1]}=V_{m+1}^{[r+1]}$ so that $D(v_{u_m};S_V)=hv_{u_m}$ with $h$ as in the first case above.
   Since $(S_H,S_V)$ is not compatible, Theorem~\ref{th:blocking edge conditions} states that $h$ must be the blocking edge for $S_H$ and we must have $D(h;S_H)=hv_{u_m}$.
   But this can only occur if $H_{m,r+1,n}^{[r+1]}\subset S_H$ since $H_{m+1}^{[r+1]}\cap S_H=\varnothing$ by piecewise compatibility.
 \end{proof}
