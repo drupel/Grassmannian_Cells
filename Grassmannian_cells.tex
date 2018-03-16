@@ -1327,6 +1327,10 @@ Then in the same way as above we obtain the map
   By part (1) we see that the fiber $\Psi_{m+1,I,j}^{-1}(U,\tilde P_{m+1}^I)$ is nonempty in this case.
 \end{proof}
 
+\begin{corollary}
+  The image of $\Psi_{m+1,I,j}$ is open for all $\tbfe$, $\tbff$, and $\tbfg$.
+\end{corollary}
+
 Now we are able to state the following result concerning the fibers of $\Psi_{m+1,I,j}$:
 \begin{proposition}
   \label{fibers}
@@ -1353,7 +1357,7 @@ Now we are able to state the following result concerning the fibers of $\Psi_{m+
 
 \begin{theorem}
   \label{cellscover}
-  For $m\geq 1$ and $I\subsetneq\{1,\ldots,n\}$, every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^I)$ admits a cell decomposition into affine spaces.
+  For $m\geq 1$ and $I\subsetneq\{1,\ldots,n\}$, every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^I)$ admits a cell decomposition.
 \end{theorem}
 \begin{proof}
   We work by induction on $m$.
@@ -1366,6 +1370,9 @@ Now we are able to state the following result concerning the fibers of $\Psi_{m+
     \item[($\dagger$)] For any $V\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ such that $\pi_{m+1}^{J,\bfI}(V)\neq 0$, we have $\pi_{m+1}^{J,\bfI}(V')\neq 0$ for all $V'\in C_V$, where $C_V$ is the affine cell which contains $V$.
   \end{itemize}
   \vs
+
+  \sayD{When $\Psi_{m+1,I,j}$ is surjective, $\cG_{\tbff,\tbfg}$ is a closed subset of the Grassmannian.
+  The map is not surjective exactly when $\tbfg=\udim \tilde P_{m+1}^I$ and so we get a cell decomposition by taking the affine cells from this $\cG_{\tbff,\tbfg}$ last.}
   
   In what follows, we will freely use the notation from Lemma~\ref{le:truncated quotients}.
   We proceed by simultaneous induction on $m$ and reverse induction on $|J|$.
