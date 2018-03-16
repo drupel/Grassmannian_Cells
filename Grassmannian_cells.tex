@@ -923,8 +923,7 @@ The following result of Bia\l{}ynicki-Birula relates the geometry of $X$ to the 
   In particular, we have an equality of Euler characteristics $\chi(X)=\chi(X^{\C^\ast})$.
 \end{theorem}
 
-If each component $C_i$ admits a decomposition into affine spaces, Theorem~\ref{thm:bb} implies the same is true of $X$.
-Indeed, we can trivialize each affine bundle $\Att(C_i)\to C_i$ over each affine piece of $C_i$ to get a decomposition of $X$ into affine spaces.
+If each component $C_i$ admits a cell decomposition, Theorem~\ref{thm:bb} implies the same is true of $X$. Indeed, we can trivialize each affine bundle $\Att(C_i)\to C_i$ over each affine piece of $C_i$ and then taking the natural ordering of the resulting affine spaces gives a cell decomposition of $X$.
 
 
 \subsection{Torus Actions on Quiver Grassmannians}
@@ -1051,7 +1050,7 @@ In the following, we say that $d:\supp(\hat X)\to\ZZ$ satisfies the \emph{degree
 The next step is to iterate the $\CC^*$-actions, keeping in mind the following idea: every representation $X$ which lifts to the universal covering quiver also lifts to the universal abelian covering quiver and to the iterated universal abelian covering quivers, i.e.\ to each $\hat Q^{(k)}:=\widehat{\hat Q^{(k-1)}}$ with $\hat Q^{(1)}:=\hat Q$.
 Now it is straightforward to check that there exist natural surjective morphisms $f_k:\widetilde Q\to \hat Q^{(k)}$ which become injective on finite subquivers if $k\gg 0$, see also \cite[Section 3.4]{wei}.
 Since the support of $X$ is finite as a representation of $\tilde Q$, we can find $k\geq 0$ such that the full subquiver with vertices $\supp(X)\subseteq \hat Q^{(k+1)}_0$ is a tree.
-Thus, writing $\hat X^{(\ell)}$ for the lift of $X$ to $\hat Q^{(\ell)}$, there exists a $\CC^*$-action on the vector spaces $\hat X^{(k)}_\beta$ for $\beta\in \hat Q^{(k-1)}_0\times A_{\hat Q^{(k-1)}_1}$ which induces $\CC^*$-actions on the quiver Grassmannians $\Gr_{\hat\bfe^{(k)}}^{\hat Q^{(k)}}\big(\hat X^{(k)}\big)$ such that the fixed point sets are precisely $\Gr_{\hat\bfe^{(k+1)}}^{\hat Q^{(k+1)}}\big(\hat X^{(k+1)}\big)$.
+Thus, writing $\hat X^{(\ell)}$ for the lift of $X$ to $\hat Q^{(\ell)}$, there exists a $\CC^*$-action on the vector spaces $\hat X^{(k)}_\beta$ for $\beta\in \hat Q^{(k-1)}_0\times A_{\hat Q^{(k-1)}}$ which induces $\CC^*$-actions on the quiver Grassmannians $\Gr_{\hat\bfe^{(k)}}^{\hat Q^{(k)}}\big(\hat X^{(k)}\big)$ such that the fixed point sets are precisely $\Gr_{\hat\bfe^{(k+1)}}^{\hat Q^{(k+1)}}\big(\hat X^{(k+1)}\big)$.
 If we denote these iterated torus fixed points by $\Gr^Q_\bfe(X)^{(k+1)}$, we obtain the following result.
 \begin{corollary}
   Let $X$ be a representation which can be lifted to $\tilde Q$.
@@ -1238,14 +1237,13 @@ This induces the so-called ``Caldero-Chapoton map'' between quiver Grassmannians
 \[\Psi_\tbfe:\Gr_\tbfe(B)\to\bigsqcup_{\tbff+\tbfg=\tbfe}  \Gr_\tbff(M)\times \Gr_\tbfg(N),\,V\mapsto \big(V\cap M,(V+M)/M\big).\]
 Following \cite[Section 3]{cc}, any nonempty fiber of $\Psi_\tbfe$ satisfies $\Psi^{-1}_\tbfe(U,W)=\mathbb{A}^{\dim\Hom(W,M/U)}$.
 
-Let $\cG_{\tbff,\tbfg}:=\Psi^{-1}_\tbfe\big(\Gr_\tbff(M)\times \Gr_\tbfg(N)\big)$. Then we have
-$$\Gr_\tbfe(B)=\bigsqcup_{\tbff+\tbfg=\tbfe} \cG_{\tbff,\tbfg}.$$
-The map $\Psi_\tbfe$ restricts to morphisms of projective varieties
+For $\cG_{\tbff,\tbfg}:=\Psi^{-1}_\tbfe\big(\Gr_\tbff(M)\times \Gr_\tbfg(N)\big)$, we have $$\Gr_\tbfe(B)=\bigsqcup_{\tbff+\tbfg=\tbfe} \cG_{\tbff,\tbfg}.$$
+Then $\Psi_\tbfe$ restricts to a map
 \[\Psi_\tbfe^{\tbff,\tbfg}:\cG_{\tbff,\tbfg}\to \Gr_\tbff(M)\times \Gr_\tbfg(N).\]
 The following is proved in \cite[Section 3]{cefr}.
 \begin{theorem}
   \label{vb}
-  If the fiber dimension of $\Psi_\tbfe^{\tbff,\tbfg}$ is constant over $\mathrm{Im}\big(\Psi_\tbfe^{\tbff,\tbfg}\big)$, then it is an affine bundle over the image.
+  If $\mathrm{Im}\big(\Psi_\tbfe^{\tbff,\tbfg}\big)$ is locally closed and the fiber dimension of $\Psi_\tbfe^{\tbff,\tbfg}$ is constant over $\mathrm{Im}\big(\Psi_\tbfe^{\tbff,\tbfg}\big)$, then $\Psi_\tbfe^{\tbff,\tbfg}:\cG_{\tbff,\tbfg}\to \mathrm{Im}\big(\Psi_\tbfe^{\tbff,\tbfg}\big)$ is an affine bundle.
   In particular, the existence of a cell decomposition of $\mathrm{Im}\big(\Psi_\tbfe^{\tbff,\tbfg}\big)$ implies a cell decomposition of $\cG_{\tbff,\tbfg}$ in this case.
 \end{theorem}
 %\begin{proof}\footnote{sketch, double-check}
