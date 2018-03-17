@@ -785,7 +785,7 @@ Then the representations $\tilde P_{m+1-k,\ui}$ and $\tilde P_{m+1-k,\ui'}$ are 
 Indeed, by considering the support quiver of $\tilde P_{3,i}$ from Example~\ref{ex:lifted preprojectives}, we see that each $\tilde P_{2,(i,i)}$ is just a copy of $\tilde P_2$ when viewed as representations of $\widetilde{K(n)}$, however these provide distinct subrepresentations of $\tilde P_4$.
 \begin{lemma}
   \label{le:special subrepresentations}
-  Consider a nonempty subset $I\subsetneq\{1,\ldots,n\}$ and fix an element $j\in I$. 
+  Consider a non-empty subset $I\subsetneq\{1,\ldots,n\}$ and fix an element $j\in I$. 
   \begin{enumerate}
     \item For $m\ge2$, we have $\Hom(\tilde P_{m,j},\tau\tilde P_{m+1}^I)\cong\CC$.
       Moreover, the kernel of a nonzero morphism $\tilde P_{m,j}\to\tau\tilde P_{m+1}^I$ is the following representation 
@@ -827,7 +827,7 @@ Indeed, by considering the support quiver of $\tilde P_{3,i}$ from Example~\ref{
 The following orthogonality property is a primary reason we need to lift to the universal cover of $K(n)$.
 \begin{corollary}
   \label{cor:perpendicular}
-  Consider a nonempty subset $I\subsetneq\{1,\ldots,n\}$ and fix an element $j\in I$.
+  Consider a non-empty subset $I\subsetneq\{1,\ldots,n\}$ and fix an element $j\in I$.
   For $m\geq 2$, we have $\tilde P_m(I,j)\in (\tilde P_{m+1}^I)^\perp$.
 \end{corollary}
 \begin{proof}
@@ -910,11 +910,11 @@ For $w\in W_n$, we write $\pi_{m+1,w}^{I,J}:\tilde P_{m+1,w}^I\to\tilde P_{m+1,w
 \noindent 
 In this section, we aim to establish the existence of cell decompositions for quiver Grassmannians of (truncated) preprojective representations of $K(n)$ and its universal covering quiver.
 By a \emph{cell decomposition} of an algebraic variety $X$, we mean a filtration $\varnothing=X_{k+1}\subset X_k\subset \cdots \subset X_2\subset X_1=X$ of $X$ by closed subsets $X_i\subset X$ so that each $X_i\setminus X_{i+1}$ is isomorphic to an affine space.
-Alternatively, a cell decomposition of $X$ is a collection of disjoint subsets $U_1,\ldots,U_k\subset X$, each isomorphic to an affine space, such that each $X_i=U_i\sqcup U_{i+1}\sqcup\cdots\sqcup U_k$ is closed in $X$ with $X_1=X$.
+Alternatively, a cell decomposition of $X$ is a collection of disjoint locally closed subsets $U_1,\ldots,U_k\subset X$, each isomorphic to an affine space, such that each $X_i=U_i\sqcup U_{i+1}\sqcup\cdots\sqcup U_k$ is closed in $X$ with $X_1=X$.
 We call the subsets $U_i\subset X$ the \emph{affine cells} for this cell decomposition.
 Given varieties $X$ and $Y$ each with cell decompositions, we may choose an ordering on products of their affine cells (e.g.\ lexicographic) to get a cell decomposition of $X\times Y$. 
-Given a variety $X$ with a cell decomposition, we call a subvariety $U\subset X$ \emph{compatible} with the cell decomposition if $U$ can be written as the union of a subset of the affine cells for $X$.
-In this case, $U$ also has a cell decomposition given by taking exactly those affine cells which are contained in $U$.
+Given a variety $X$ with a cell decomposition, we call a subvariety $U\subset X$ \emph{compatible} with the cell decomposition if $U$ can be written as the union over a subset of the affine cells for $X$.
+In this case, $U$ also has a cell decomposition given by taking exactly those affine cells for $X$ which are contained in $U$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1065,7 +1065,7 @@ The next step is to iterate the $\CC^*$-actions, keeping in mind the following i
 Now it is straightforward to check that there exist natural surjective morphisms $f_k:\widetilde Q\to \hat Q^{(k)}$ which become injective on finite subquivers if $k\gg 0$, see also \cite[Section 3.4]{wei}.
 Since the support of $X$ is finite as a representation of $\tilde Q$, we can find $k\geq 0$ such that the full subquiver with vertices $\supp(X)\subseteq \hat Q^{(k+1)}_0$ is a tree.
 Thus, writing $\hat X^{(\ell)}$ for the lift of $X$ to $\hat Q^{(\ell)}$, there exists a $\CC^*$-action on the vector spaces $\hat X^{(k)}_\beta$ for $\beta\in \hat Q^{(k-1)}_0\times A_{\hat Q^{(k-1)}}$ which induces $\CC^*$-actions on the quiver Grassmannians $\Gr_{\hat\bfe^{(k)}}^{\hat Q^{(k)}}\big(\hat X^{(k)}\big)$ such that the fixed point sets are precisely $\Gr_{\hat\bfe^{(k+1)}}^{\hat Q^{(k+1)}}\big(\hat X^{(k+1)}\big)$.
-If we denote these iterated torus fixed points by $\Gr^Q_\bfe(X)^{(k+1)}$, we obtain the following result.
+If we denote these iterated $\CC^*$-fixed points by $\Gr^Q_\bfe(X)^{(k+1)}$, we obtain the following result.
 \begin{corollary}
   Let $X$ be a representation which can be lifted to $\tilde Q$.
   Then there exists an iterated torus action such that
@@ -1179,7 +1179,7 @@ For a fixed dimension vector $\tbfe$, this induces the so-called ``Caldero-Chapo
   \Psi:\Gr_\tbfe(B)&\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr_\tbff(M)\times \Gr_\tbfg(N)\\
   E&\mapsto \big(E\cap M,(E+M)/M\big).
 \end{align*}
-Following \cite[Section 3]{cc}, any nonempty fiber of $\Psi$ satisfies $\Psi^{-1}(U,W)\cong\mathbb{A}^{\dim\Hom(W,M/U)}$.
+Following \cite[Section 3]{cc}, any non-empty fiber of $\Psi$ satisfies $\Psi^{-1}(U,W)\cong\mathbb{A}^{\dim\Hom(W,M/U)}$.
 
 For $\cG_{\tbff,\tbfg}:=\Psi^{-1}\big(\Gr_\tbff(M)\times \Gr_\tbfg(N)\big)$, we have 
 \begin{equation}
@@ -1245,7 +1245,7 @@ Then, in the same way as above, we obtain the following map for any fixed $\tbff
 \end{equation}
 \begin{proposition}
   \label{quotient}
-  For $m\geq 2$ and a nonempty subset $I\subsetneq\{1,\ldots,n\}$.
+  For $m\geq 2$ and a non-empty subset $I\subsetneq\{1,\ldots,n\}$.
   The following hold for any $j\in I$:
   \begin{enumerate}
     \item The fiber $\Psi^{-1}(U,\tilde P_{m+1}^I)$ is not empty if and only if $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)=0$.
@@ -1255,7 +1255,7 @@ Then, in the same way as above, we obtain the following map for any fixed $\tbff
 \begin{proof}
   Any subrepresentation $U\subset\tilde P_{m,j}$ produces an exact sequence
   \[\xymatrix{\Ext(\tilde P_{m+1}^I,U)\ar[r] &\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\ar[r] &\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)\ar[r] & 0}.\]
-  But note that the fiber $\Psi^{-1}(U,\tilde P_{m+1}^I)$ being nonempty gives rise to a pushout diagram
+  But note that the fiber $\Psi^{-1}(U,\tilde P_{m+1}^I)$ being non-empty gives rise to a pushout diagram
   \[\xymatrix{0\ar[r]& U\ar[r]\ar[d]\ar@{}[dr]|(.3){\ulcorner} & U'\ar[d]\ar[r]& \tilde P_{m+1}^I\ar[r]\ar@{=}[d]& 0\\
     0\ar[r] &\tilde P_{m,j}\ar[r] &  \tilde P_{m+1}^J\ar[r] & \tilde P_{m+1}^I\ar[r] & 0}\]
   in which the bottom row is not split by Lemma~\ref{le:properties}.(4).
@@ -1291,7 +1291,7 @@ Then, in the same way as above, we obtain the following map for any fixed $\tbff
   For $m=2$, the identities above follow immediately from the corresponding statements for $\tau\tilde P_3^I$.
   Thus the injective map $\CC=\Hom(\tilde K_m,\tilde K_m)\to\Ext(\tilde P_{m+1}^I,\tilde K_m)$ induced by the Auslander-Reiten sequence \eqref{eq:ar2} is actually bijective and so applying $\Hom(-,\tilde K_m)$ to this sequence yields $\Ext(Z,\tilde K_m)=0$.
   But then $\Ext(Z,\tilde K_m/W)=0$ and so $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)\cong\Ext(\tilde P_{m+1}^I,\tilde K_m/W)$ must be zero as well.
-  By part (1) we see that the fiber $\Psi^{-1}(U,\tilde P_{m+1}^I)$ is nonempty in this case.
+  By part (1) we see that the fiber $\Psi^{-1}(U,\tilde P_{m+1}^I)$ is non-empty in this case.
 \end{proof}
 
 Now we are able to state the following result concerning the fibers of $\Psi$:
@@ -2016,7 +2016,7 @@ The following result is an immediate consequence of the combinatorial constructi
 
 Our goal is to give a geometric explanation for this by showing that the compatible pairs provide a natural labeling for the cells of $\Gr_\bfe(P_{m+1})$ found in Theorem~\ref{celldec}.
 In fact, we will see more: that the cells of quiver Grassmannians $\Gr_\bfe(P_{m+1}^V)$ for truncated preprojectives $P_{m+1}^V$ are also naturally labeled by compatible pairs.
-We accomplish this by providing a bijection between the compatible pairs as in Theorem~\ref{th:combinatorial euler} and the successor closed sets of vertices in the 2-quivers $\cQ_{m+1}^{[r]}$ used in Theorem~\ref{thm:2quivercells} to describe the nonempty cells.
+We accomplish this by providing a bijection between the compatible pairs as in Theorem~\ref{th:combinatorial euler} and the successor closed sets of vertices in the 2-quivers $\cQ_{m+1}^{[r]}$ used in Theorem~\ref{thm:2quivercells} to describe the non-empty cells.
 \begin{theorem}
   \label{th:compatible cells}
   For $m\ge1$ and $V\in\Gr(\cH_m)$ or $V=0$, each quiver Grassmannian $\Gr_\bfe(P_{m+1}^V)$ admits a cell decomposition with affine cells labeled by compatible pairs in the maximal Dyck path $D_{m+1}^{[r]}$, where $r=\dim V$.
