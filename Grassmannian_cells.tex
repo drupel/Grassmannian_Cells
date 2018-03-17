@@ -1199,42 +1199,8 @@ Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposabl
 
   As the indecomposables form a dense open subset of all representations, we found a dense subset whose quiver Grassmannians for a fixed $\bfe$ are isomorphic.
   But now the same proof as for exceptional roots applies in order to show that these quiver Grassmannians need to be smooth, see \cite[Corollary 4]{cr}.
- % \footnote{The proof using moduli spaces needs to be written}
-  %Both claims are proven via the same geometric construction.
-  %For each dimension vector $\bfe$, there is a smooth variety
-  %\[X_{\bfe,m}=\{(\tilde E,V):V\in \Gr_d(\cH_m),\ P_m\otimes V\subset\tilde E\subset P_{m+1}i,\ \udim\tilde E=\bfe+d\udim P_m\}.\]
-  %Under the natural projection $\pi:X_{\bfe,m}\to \Gr_d(\cH_m)$, the fiber $\pi^{-1}(V)$ identifies with $\Gr_\bfe(P_{m+1}^V)$.
-  %In particular, this implies $\Gr_\bfe(P_{m+1}^V)$ is smooth for each $V\in \Gr_d(\cH_m)$.
-  %The variety $X_{\bfe,m}$ supports an action of $GL_n(\CC)$ by setting $g.(\tilde E,V)=\big(\phi_{m+1,g}^{-1}(g.\tilde E),g.V\big)$.
-  %Indeed, by Lemma~\ref{le:g equalities} we have 
-  %\[P_m\otimes g.V=\phi_{m+1,g}^{-1}(g.P_m\otimes V^g)=\phi_{m+1,g}^{-1}\big(g.(P_m\otimes V)\big)\subset\phi_{m+1,g}^{-1}(g.\tilde E).\]
-  %Observe that the projection map $\pi$ is $GL_n(\CC)$-equivariant and thus by Lemma~\ref{le:transitivity} the quiver Grassmannians $\Gr_\bfe(P_{m+1}^V)$ and $\Gr_\bfe(P_{m+1}^W)$ are isomorphic for any $V,W\in \Gr_d(\cH_m)$.
 \end{proof}
 
-
-%\begin{lemma}
-%  For any $m\ge1$, we have 
-%  \[\dim\Hom(P_m,P_m)=1,\quad \dim\Hom(P_m,P_{m+1})=n,\quad \dim\Hom(P_{m+1},P_m)=0, \quad\dim\Ext(P_{m+1},P_m)=0.\]  
-%  Moreover, for $1\le k<n$ and linearly independent functions $f_1,\ldots,f_k\in\Hom(P_m,P_{m+1})$, the map $[f_1\ \cdots\ f_k]:P_m^k\to P_{m+1}$ is injective. 
-%\end{lemma}
-%\begin{proof} 
-%  Note that we have an Auslander-Reiten sequence
-%  \begin{equation}
-%    \label{eq:AR sequence}
-%    0\longrightarrow P_{m-1}\stackrel{\iota_{m-1}}{\longrightarrow} P_m^n\stackrel{[f_1\ \cdots\ f_n]}{\longrightarrow} P_{m+1}\longrightarrow 0
-%  \end{equation}
-%  with irreducible homomorphisms $f_i$ which are also linearly independent. 
-%  Thus they do not factor through a representation $Z\neq P_{m}$ which already means that they are injective, see for instance \cite[Lemma 1.6]{ass}. 
-%  If we pick $k<n$ linearly independent homomorphisms $f_{i_1},\ldots, f_{i_k}$, this also means that $[f_{i_1}\ \cdots\ f_{i_k}]:P_m^k\to P_{m+1}$ is injective. 
-%  Indeed otherwise, at least one of the homomorphisms would be forced to factor through a representation $Z\neq P_{m}$.
-%\end{proof}
-%\begin{remark}
-%  Fix a basis $\{f_{m,1},\ldots,f_{m,n}\}$ for $\Hom(P_m,P_{m+1})$, $m\ge2$.
-%  Define a basis $\{f_{\ell,1},\ldots,f_{\ell,n}\}$ for each $\Hom(P_\ell,P_{\ell+1})$, $1\le\ell\le m-1$, by downward induction as follows.  
-%  Write $\iota_\ell:P_\ell\to P_{\ell+1}^n$ for the left-hand morphism from the sequence \eqref{eq:AR sequence} computed using $f_k=f_{\ell+1,k}$, $1\le k\le n$. 
-%  Then the basis element $f_{\ell,k}$ is given by composing $\iota_\ell$ with the coordinate projection $\pi_k:P_{\ell+1}^n\to P_{\ell+1}$ onto the $k$-th factor.
-%  Indeed, applying $\Hom(-,P_{\ell+1})$ to this sequence \eqref{eq:AR sequence} gives an isomorphism $\Hom(P_{\ell+1}^n,P_{\ell+1})\cong\Hom(P_\ell,P_{\ell+1})$ whereby the natural basis of coordinate projections on the left is taken to the basis $\{f_{\ell,k}\}$ on the right.
-%\end{remark}
 
 \subsection{Fibrations of Quiver Grassmannians}
 \label{sec:fibrations}
@@ -1483,7 +1449,7 @@ By induction, the compatibility condition ($\dagger$) is true for $\pi_{m,j}^\bf
   Together these yield $\Ext(V,P_{j_{r'+1}}/U)=0$ and thus
   \[\dim\Hom(W,P_{j_{r'+1}}/U)=\langle W, P_{j_{r'+1}}/U\rangle\]
   for all $(U,W)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg(P(r'))$.
-Following Remark \ref{rem:cell decompositions}, this already shows that $\Gr_{\bfe}\big(P(r')\big)$ has a cell decomposition for every $1\leq r'\leq r$.
+  Following Theorem~\ref{vb} (see Remark~\ref{rem:cell decompositions}), this already shows that $\Gr_{\bfe}\big(P(r')\big)$ has a cell decomposition for every $1\leq r'\leq r$.
   By duality, the same is true for $\Gr_{\bfe}\big(I(s)\big)$. 
 
   Finally consider the short exact sequence
