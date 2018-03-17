@@ -1433,16 +1433,21 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
   When $m=2$, each quiver Grassmannian $\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})$ is just a point.
   For $m\ge3$, each quiver Grassmannian $\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})$ admits a cell decomposition which is compatible with the map $\pi_{m,j}^\bfJ:\tilde P_{m,j}\to\tilde P_{m-1,(j,j)}^I$, where $\bfJ=(\{1,\ldots,\widehat j,\ldots,n\},I)$, say
   \[\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})=\coprod_{\ell=1}^s B_\ell.\] 
-  For $m=2$, we write $\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})=B_1$.
+ For $m=2$, we write $\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})=B_1$. In view of Remark \ref{rem:cell decompositions}, we need to show that the image of each $\Psi_{\tbff,\tbfg}$ is compatible with these cell decompositions in order to establish a cell decomposition of each $\mathcal G_{\tbff,\tbfg}$ which then gives a cell decomposition of $\Gr_{\tbfe}^{\tilde Q}(\tilde P_{m+1}^J)$.  
 
-  When $\tbfg=\udim\tilde P_{m+1}^I$, Proposition~\ref{fibers} shows that the fibers of $\Psi$ over $B_\ell\times\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I)$ are empty exactly when 
+
+ Proposition~\ref{fibers} shows that the fiber of $\Psi_{\tbff,\tbfg}$ over $(U,V)\in B_\ell\times C_k$ is empty exactly when $\tbfg=\udim\tilde P_{m+1}^I$ and one of the following conditions is satisfied
   \begin{itemize}
     \item $m=2$ with $\tbff_{(2,\alpha_j^{-1})}\ne0$ or $\tbff_{(1,e)}\ne0$;
     \item $m\ge3$, with $\pi_{m,j}^\bfJ(U)=0$ for all $U\in B_\ell$.
   \end{itemize}
-  When the fibers of $\Psi$ are not empty, for $1\le k\le r$ we obtain an affine cell in $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ of the form $B_\ell\times C_k\times\AA^d$ with~$d=\langle\tbfg,\udim\tilde P_{m,j}-\tbff\rangle$.
+By induction, the compatibility condition ($\dagger$) is true for $\pi_{m,j}^\bfJ$  which shows that either all or non fibres over $B_l\times C_k$ are empty. This shows the compatibility with the image. If the fibre is not empty, Theorem \ref{vb} gives that we obtain an affine cell in $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$  of the form $B_\ell\times C_k\times\AA^d$ with~$d=\langle\tbfg,\udim\tilde P_{m,j}-\tbff\rangle$. Altogether this establishes a cell decomposition of $\Gr_{\tbfe}^{\tilde Q}(\tilde P_{m+1}^J)$.
+
   For $V\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ which is contained in such a cell, we have $\pi_{m+1}^{J,I}(V)\in C_k$.
-  But then $\pi_{m+1}^{J,\bfI}(V)\ne0$ if and only if $\pi_{m+1}^{I,\bfI}(W)\ne0$ for all $W\in C_k$ and thus $\pi_{m+1}^{J,\bfI}(V')\ne0$ for all $V'$ in this cell $B_\ell\times C_k\times\AA^d$ of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$.
+  But then $\pi_{m+1}^{J,\bfI}(V)\ne0$ if and only if $\pi_{m+1}^{I,\bfI}(W)\ne0$ for all $W\in C_k$ and thus $\pi_{m+1}^{J,\bfI}(V')\ne0$ for all $V'$ in this cell $B_\ell\times C_k\times\AA^d$ of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$. This shows ($\dagger$) for $\pi_{m+1}^{J,\bfI}$.
+
+                                 
+	
 \end{proof}
 
 
