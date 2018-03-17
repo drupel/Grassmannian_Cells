@@ -109,7 +109,7 @@
 
 \begin{document}
 \begin{abstract}
-  We prove that all quiver Grassmannians for preprojective representations of a generalized Kronecker quiver admit a cell decomposition into affine spaces.  
+  We prove that all quiver Grassmannians for preprojective representations of a generalized Kronecker quiver admit a cell decomposition.  
   In the process, we introduce a class of regular representations which arise as quotients of consecutive preprojective representations.
   Cell decompositions for quiver Grassmannians of these ``truncated preprojectives'' are also established. 
   We also provide two natural combinatorial labelings for these cells.
@@ -133,7 +133,7 @@ On the other hand, they are clearly interesting on their own as they reveal many
 Although it follows from the results of Hille, Huisgen-Zimmermann and Reineke that every projective variety can be realized as a quiver Grassmannian, 
 it turns out that very interesting phenomena arise when restricting to certain quivers or to representations with certain properties.
 For instance, quiver Grassmannians attached to exceptional representations are smooth \cite{cr}.
-For tame quivers of types $\tilde A$ or $\tilde D$, it is known that every quiver Grassmannian attached to an indecomposable representation admits a cell decomposition into affine spaces, see \cite{ce,lw} and references therein.
+For tame quivers of types $\tilde A$ or $\tilde D$, it is known that every quiver Grassmannian attached to an indecomposable representation admits a cell decomposition, see \cite{ce,lw} and references therein.
 It has been conjectured that this is also true for exceptional representations of any quiver, in particular for preprojective and preinjective representations. 
 
 There are basically two possible ways to find cell decompositions of quiver Grassmannians if they exist.
@@ -143,9 +143,9 @@ In particular, this shows that the quiver Grassmannian has a cell decomposition 
 
 Another method uses short exact sequences of quiver representations to induce maps between quiver Grassmannians.
 More precisely, the quiver Grassmannian of the middle term maps to the product of the quiver Grassmannians for the two outer terms via the ``Caldero-Chapoton map'' which first appeared in \cite{cc}. 
-If the short exact sequence has certain properties -- e.g. (almost) split sequences and certain generalizations -- then cell decompositions of quiver Grassmannians attached to the outer terms transfer to a decomposition of the quiver Grassmannians of the middle term.
+If the short exact sequence has certain properties -- e.g. (almost) split sequences and certain generalizations -- then cell decompositions of quiver Grassmannians attached to the outer terms transfer to a cell decomposition of the quiver Grassmannians of the middle term.
 
-In this paper, we combine these two methods in order to show that every quiver Grassmannian attached to an exceptional representation of a generalized Kronecker quiver admits a cell decomposition into affine spaces.
+In this paper, we combine these two methods in order to show that every quiver Grassmannian attached to an exceptional representation of a generalized Kronecker quiver admits a cell decomposition.
 The proof also shows that this is true for so-called truncated preprojective representations which appear as certain quotients of preprojective representations.
 It turns out that these are precisely those representations which can be obtained from indecomposable representations with dimension vector $(d,1)$ when applying reflection functors.
 Actually, we prove that quiver Grassmannians of truncated preprojective representations only depend on the dimension vector of the representation itself and on the fixed dimension vector of the subrepresentations.
@@ -183,7 +183,7 @@ We prove that every preprojective representation admits a filtration by preproje
 In Section~\ref{Lifting}, we use this together with the fact that every preprojective representation can be lifted to the universal covering in order to construct lifted filtrations.
 Throughout this section, we collect many results which will turn out to completely reveal the structure of quiver Grassmannians attached to (truncated) preprojective representations.
 
-The aim of Section~\ref{QG} is to study these quiver Grassmannians and to show that they all admit a cell decomposition into affine spaces.
+The aim of Section~\ref{QG} is to study these quiver Grassmannians and to show that they each admit a cell decomposition.
 This is obtained in Section~\ref{sec:fibrations} by combining iterated $\CC^*$-actions on quiver Grassmannians, which are introduced in Section~\ref{torusaction}, with the Caldero-Chapoton map for short exact sequences of representations.
 Our first main result is Theorem~\ref{thm:torusfixedpoints} which may be formulated as follows.
 \begin{thm}
@@ -198,14 +198,14 @@ In view of results of Bia\l{}ynicki-Birula~\cite{bb} -- which roughly speaking y
 This is important insofar as results such as Corollary~\ref{cor:perpendicular} are available which do not hold on the original quiver.
 Analyzing the Caldero-Chapoton map applied to short exact sequences induced by lifts of the mentioned filtrations in greater detail, and combining it with the torus method, we obtain the main result of this paper, see Theorems~\ref{cellscover} and~\ref{celldec}.
 \begin{thm} 
-  For every $m\geq 1$ and for every point $V\neq \C^n$ of the total Grassmannian $\Gr(\C^n)$, there exists a (truncated) preprojective representation $P_{m+1}^V$ such that every quiver Grassmannian $\Gr_\bfe(P_{m+1}^V)$ admits a cell decomposition into affine spaces.
+  For every $m\geq 1$ and for every point $V\neq \C^n$ of the total Grassmannian $\Gr(\C^n)$, there exists a (truncated) preprojective representation $P_{m+1}^V$ such that every quiver Grassmannian $\Gr_\bfe(P_{m+1}^V)$ admits a cell decomposition.
 \end{thm}
 \noindent Note that, for $V=0$, we obtain the preprojective representations $P_{m+1}$.
 
 In Section \ref{sec:combinatorics}, we reveal the combinatorics behind the obtained cell decompositions by introducing the notion of $2$-quivers which are a slight generalization of the usual notion of quivers.
 Theorem \ref{thm:2quivercells} can be formulated as follows.
 \begin{thm}
-  With every truncated preprojective representation $P_{m+1}^V$, say with $\dim V=r$, we can associated a $2$-quiver $\mathcal Q_{m+1}^{[r]}$ such that the cells of the cell decomposition attached to $\Gr_\bfe(P_{m+1}^V)$ are labeled by strong successor closed subsets $\beta\subset (\mathcal Q_{m+1}^{[r]})_0$.
+  With every truncated preprojective representation $P_{m+1}^V$, say with $\dim V=r$, we can associated a $2$-quiver $\mathcal Q_{m+1}^{[r]}$ such that the affine cells of the cell decomposition attached to $\Gr_\bfe(P_{m+1}^V)$ are labeled by strong successor closed subsets $\beta\subset (\mathcal Q_{m+1}^{[r]})_0$.
   In particular, the Euler characteristic $\chi(\Gr_\bfe(P_{m+1}^V))$ is given by the number of these subsets.
 \end{thm}
 
@@ -911,6 +911,8 @@ For $w\in W_n$, we write $\pi_{m+1,w}^{I,J}:\tilde P_{m+1,w}^I\to\tilde P_{m+1,w
 
 In this section, we aim to establish the existence of cell decompositions for quiver Grassmannians of (truncated) preprojective representations of $K(n)$ and its universal covering quiver.
 By a \emph{cell decomposition} of an algebraic variety $X$, we mean a filtration $\varnothing=X_0\subset X_1\subset \cdots \subset X_k=X$ of $X$ by closed subsets $X_i\subset X$ so that each $X_i\setminus X_{i-1}$ is isomorphic to an affine space.
+Alternatively, a cell decomposition of $X$ is a collection of disjoint subsets $U_1,\ldots,U_k\subset X$, each isomorphic to an affine space, such that each $X_i=U_1\sqcup\cdots\sqcup U_i$ is closed in $X$ with $X_k=X$.
+We call the subsets $U_i$ the \emph{affine cells} for this cell decomposition.
 
 \subsection{Torus Actions and the Bia\l{}ynicki-Birula Decomposition}\label{sec:bb}
 The aim of Section~\ref{torusaction} is to define a $\CC^*$-action on quiver Grassmannians which can be used to simplify the calculation of homological invariants in general.
@@ -927,7 +929,8 @@ The following result of Bia\l{}ynicki-Birula relates the geometry of $X$ to the 
   In particular, we have an equality of Euler characteristics $\chi(X)=\chi(X^{\C^\ast})$.
 \end{theorem}
 
-If each component $C_i$ admits a cell decomposition, Theorem~\ref{thm:bb} implies the same is true of $X$. Indeed, we can trivialize each affine bundle $\Att(C_i)\to C_i$ over each affine piece of $C_i$ and then taking the natural ordering of the resulting affine spaces gives a cell decomposition of $X$.
+If each component $C_i$ admits a cell decomposition, Theorem~\ref{thm:bb} implies the same is true of $X$.
+Indeed, we can trivialize each affine bundle $\Att(C_i)\to C_i$ over each affine piece of $C_i$ and then taking the natural ordering of the resulting affine spaces gives a cell decomposition of $X$.
 
 
 \subsection{Torus Actions on Quiver Grassmannians}
@@ -1073,7 +1076,7 @@ $$F_X=\sum_{\bfe\in\NN^{Q_0}}\chi(\Gr_\bfe(X))y^\bfe\in\ZZ[y_i\mid i\in Q_0].$$
   \label{fpoly}
   Let $X$ be a representation which can be lifted to the universal covering quiver.
   \begin{enumerate}
-    \item If $\Gr_\bfe(X)$ is smooth and $\Gr^{\hat Q}_\tbfe(\hat X)$ has a cell decomposition into affine spaces, then $\Gr_\bfe(X)$ has a cell decomposition into affine spaces.
+    \item If $\Gr_\bfe(X)$ is smooth and $\Gr^{\hat Q}_\tbfe(\hat X)$ has a cell decomposition, then $\Gr_\bfe(X)$ has a cell decomposition.
     \item We have $F_X=SF_{\tilde X}$ where $SF_{\tilde X}$ is obtained from $F_{\tilde X}$ by applying $S:\ZZ[y_{(i,w)}\mid i\in Q_0,w\in W_Q]\to\ZZ[y_i\mid i\in Q_0]$ given by $S(y_{(i,w)})=y_i$ for all $i\in Q_0$ and $w\in W_Q$.
   \end{enumerate} 
 \end{corollary}
@@ -1383,7 +1386,7 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
   By Proposition~\ref{fibers}, the map $\Psi_{\tbff,\tbfg}$ is surjective for $\tbfg\ne\udim\tilde P_{m+1}^I$ and there is nothing to show in this case.
   Assume $\tbfg=\udim\tilde P_{m+1}^I$.
   By Proposition~\ref{quotient}, the image of $\Psi_{\tbff,\tbfg}$ consist precisely of those pairs $(U,\tilde P_{m+1}^I)$ for which $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)=0$.
-  But the map $U\mapsto\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)=0$ is upper semicontinuous so that its minimal value on $\Gr_\tbff(\tilde P_{m,j})$ is its generic value, i.e.\ the image of $\Psi_{\tbff,\tbfg}$ is open.
+  But the map $U\mapsto\dim\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)$ is upper semicontinuous so that its minimal value on $\Gr_\tbff(\tilde P_{m,j})$ is its generic value, i.e.\ the image of $\Psi_{\tbff,\tbfg}$ is open.
 \end{proof}
 
 \begin{theorem}
@@ -1396,7 +1399,7 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
   We establish the result for $m\ge2$ by proving the following more general statement:\bigskip
 
   \noindent{\bf Claim.}
-  For any admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k<m$ and any subset $J\subset I_0$, the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a decomposition into affine spaces which is compatible with the unique map $\pi_{m+1}^{J,\bfI}:\tilde P_{m+1}^J\to\tilde P_{m+1}^\bfI$ from Lemma~\ref{le:truncated quotients} in the following sense:
+  For any admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k<m$ and any subset $J\subset I_0$, the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a cell decomposition which is compatible with the unique map $\pi_{m+1}^{J,\bfI}:\tilde P_{m+1}^J\to\tilde P_{m+1}^\bfI$ from Lemma~\ref{le:truncated quotients} in the following sense:
   \begin{itemize}
     \item[($\dagger$)] For any $V\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ such that $\pi_{m+1}^{J,\bfI}(V)\neq 0$, we have $\pi_{m+1}^{J,\bfI}(V')\neq 0$ for all $V'\in C_V$, where $C_V$ is the affine cell which contains $V$.
   \end{itemize}
@@ -1410,7 +1413,7 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
   Fix an admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k<m$ and $J\subset I_0$.
 
   To begin, we assume $|J|=n-1$ and thus $J=I_0$.
-  This gives $\tilde P_{m+1}^J\cong\tilde P_{m,i_0}^{J_0}$ and so by induction on $m$ the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)=\Gr^{\tilde Q}_\tbfe(\tilde P_{m,i_0}^{J_0})$ admits a decomposition into affine spaces so that the compatibility condition ($\dagger$) holds for the unique map $\pi_{m,i_0}^{J_0,\delta\bfI}:\tilde P_{m,i_0}^{J_0}\to\tilde P_{m,i_0}^{\delta\bfI}$.
+  This gives $\tilde P_{m+1}^J\cong\tilde P_{m,i_0}^{J_0}$ and so by induction on $m$ the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)=\Gr^{\tilde Q}_\tbfe(\tilde P_{m,i_0}^{J_0})$ admits a cell decomposition so that the compatibility condition ($\dagger$) holds for the unique map $\pi_{m,i_0}^{J_0,\delta\bfI}:\tilde P_{m,i_0}^{J_0}\to\tilde P_{m,i_0}^{\delta\bfI}$.
   But $\tilde P_{m,i_0}^{\delta\bfI}=\tilde P_{m+1}^\bfI$ so that $\pi_{m,i_0}^{J_0,\delta\bfI}$ coincides with the map $\pi_{m+1}^{J,\bfI}$ and thus the condition ($\dagger$) holds for the cell decomposition of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$.
 
   Now suppose $|J|<n-1$.
@@ -1419,11 +1422,11 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
   
   Choose any subset $I\subset I_0$ with $J\subset I$ and $|I\setminus J|=1$, say $I\setminus J=\{j\}$.
   This gives the short exact sequence \eqref{eq:truncated ses} inducing the maps $\Psi$ and $\Phi$ between quiver Grassmannians from \eqref{eq:truncated CC} and \eqref{eq:truncated CC2}.
-  Then by induction on $|I|$, each quiver Grassmannian $\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I)$ has a decomposition into affine spaces which is compatible with $\pi_{m+1}^{I,\bfI}$, say 
+  Then by induction on $|I|$, each quiver Grassmannian $\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I)$ has a cell decomposition which is compatible with $\pi_{m+1}^{I,\bfI}$, say 
   \[\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I)=\coprod_{k=1}^r C_k.\]
 
   When $m=2$, each quiver Grassmannian $\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})$ is just a point.
-  For $m\ge3$, each quiver Grassmannian $\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})$ admits a decomposition into affine spaces which is compatible with the map $\pi_{m,j}^\bfJ:\tilde P_{m,j}\to\tilde P_{m-1,(j,j)}^I$, where $\bfJ=(\{1,\ldots,\widehat j,\ldots,n\},I)$, say
+  For $m\ge3$, each quiver Grassmannian $\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})$ admits a cell decomposition which is compatible with the map $\pi_{m,j}^\bfJ:\tilde P_{m,j}\to\tilde P_{m-1,(j,j)}^I$, where $\bfJ=(\{1,\ldots,\widehat j,\ldots,n\},I)$, say
   \[\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})=\coprod_{\ell=1}^s B_\ell.\] 
   For $m=2$, we write $\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})=B_1$.
 
@@ -1446,9 +1449,9 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
   \label{celldec}
   The following hold:
   \begin{enumerate}
-    \item Every quiver Grassmannian of any indecomposable preprojective or preinjective representation of $K(n)$ and $\widetilde{K(n)}$ has a cell decomposition into affine spaces.
+    \item Every quiver Grassmannian of any indecomposable preprojective or preinjective representation of $K(n)$ and $\widetilde{K(n)}$ has a cell decomposition.
     \item Let $X\in\rep K(n)$ be an indecomposable representation with dimension vector $(d,e)$ or $(e,d)$, where $(d,e)=\udim P_{m+1}-r\udim P_m$ for $m\geq 1$ and $\leq 0\leq r\leq n-1$.
-      Then every quiver Grassmannian $\Gr_\bfe(X)$ has a cell decomposition into affine spaces.
+      Then every quiver Grassmannian $\Gr_\bfe(X)$ has a cell decomposition.
   \end{enumerate}
 \end{theorem}
 \begin{proof}Both claims follow by considering iterated torus actions taking into account that all quiver Grassmannians under consideration are smooth. For the truncated preprojective representations of $K(n)$ this is Theorem~\ref{thm:truncpp}. For the truncated preprojective representations lifted to the iterated universal abelian covering quivers $\widehat{K(n)}^{(k)}$ for $k\geq 1$, it follows inductively - when applying reflection recursions similar to those stated in (\ref{eq:recursive covers}) -  that these lifts are exceptional representations of $\widehat{K(n)}^{(k)}$, which means that their quiver Grassmannians are again smooth. Note that this is indeed clear for $m= 2$.
@@ -1461,7 +1464,7 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
 
 \begin{corollary}
   Let $X\in\rep K(n)$ be a direct sum of exceptional representations.
-  Then every quiver Grassmannian $\Gr_{\bfe}(X)$ has a cell decomposition into affine spaces.
+  Then every quiver Grassmannian $\Gr_{\bfe}(X)$ has a cell decomposition.
   In particular, this is true for all rigid representations of $K(n)$.
 \end{corollary}
 \begin{proof}
@@ -1474,7 +1477,7 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
   By Theorem~\ref{celldec}, the claim is true for all quiver Grassmannians attached to $P_{j_i}$ or $I_{k_i}$.
   Consider the short exact sequence
   \[\ses{P_{j_{r'+1}}}{P(r'+1)}{P(r')}.\]
-  By induction, we can assume that all quiver Grassmannians attached to the two outer terms have a cell decomposition into affine spaces.
+  By induction, we can assume that all quiver Grassmannians attached to the two outer terms have a cell decomposition.
   Consider the Caldero-Chapoton map
   \[\Psi_\bfe:\Gr_\bfe\big(P(r'+1)\big)\to\bigsqcup_{\bff+\bfg=\bfe} \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg\big(P(r')\big).\]
   The results of \cite[Section 3]{cc} show that $\Psi_{\tbfe}^{-1}(U,W)=\AA^{\dim\Hom(W,P_{j_{r'+1}}/U)}$ for all $(U,W)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg\big(P(r')\big)$, in particular the fiber is never empty.
@@ -1483,12 +1486,12 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
   Together these yield $\Ext(V,P_{j_{r'+1}}/U)=0$ and thus
   \[\dim\Hom(W,P_{j_{r'+1}}/U)=\langle W, P_{j_{r'+1}}/U\rangle\]
   for all $(U,W)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg(P(r'))$.
-  By Theorem~\ref{vb}, this already shows that $\Gr_{\bfe}\big(P(r')\big)$ has a cell decomposition into affine spaces for every $1\leq r'\leq r$.
+  By Theorem~\ref{vb}, this already shows that $\Gr_{\bfe}\big(P(r')\big)$ has a cell decomposition for every $1\leq r'\leq r$.
   By duality, the same is true for $\Gr_{\bfe}\big(I(s)\big)$. 
 
   Finally consider the short exact sequence
   \[\ses{I(s)}{X}{P(r)}.\]
-  As every quotient of $I(s)$ is preinjective and as every subrepresentation of $P(r')$ is preprojective, the same argument shows that every quiver Grassmannian attached to $X$ has a cell decomposition into affine spaces.
+  As every quotient of $I(s)$ is preinjective and as every subrepresentation of $P(r')$ is preprojective, the same argument shows that every quiver Grassmannian attached to $X$ has a cell decomposition.
 \end{proof}
 
 As the $F$-polynomial of truncated preprojective representations only depend on the dimension vector, we may denote them by $F_{d(m,r)}$.
@@ -1503,7 +1506,7 @@ The description of the non-empty fibers in Proposition~\ref{fibers} together wit
 \section{Combinatorial Descriptions of Non-Empty Cells}
 \label{sec:combinatorics}
 \noindent In this section, we provide two combinatorial descriptions of the non-empty cells in the quiver Grassmannians of (truncated) preprojective representations of $K(n)$.
-The first is quiver theoretic and follows directly from the recursive construction of the cell decomposition in Section~\ref{sec:fibrations}.
+The first is quiver theoretic and follows directly from the recursive construction of the cell decomposition from Section~\ref{sec:fibrations}.
 The second is the notion of compatible pairs in a maximal Dyck path arising in the computation of rank 2 cluster variables \cite{llz}.
 We give a bijection between these which provides a partial geometric explanation for the combinatorial construction of counting polynomials for rank two quiver Grassmannians given in \cite{rupel}.
 
@@ -1812,7 +1815,7 @@ where $\tilde q\in\widetilde{K(n)}_0$ is the vertex which corresponds to $q\in\b
 \begin{theorem}\mbox{}
   \label{thm:2quivercells}
   \begin{enumerate}
-    \item The cells of the cell decomposition of $\Gr_\tbfe\big(\tilde P_{m+1}^{[r]}\big)$ (resp. $\Gr_\bfe\big(P_{m+1}^{[r]}\big)$) induced by Theorem \ref{cellscover} can be labeled by strong successor closed subsets $\beta\subset\cQ_{m+1}^{[r]}$ of dimension type $\tbfe\in\NN^{\widetilde{K(n)_0}}$ (resp. $\bfe\in\NN^{K(n)_0}$) yielding a one-to-one correspondence between cells and strong successor closed subsets.
+    \item The affine cells of the cell decomposition of $\Gr_\tbfe\big(\tilde P_{m+1}^{[r]}\big)$ (resp. $\Gr_\bfe\big(P_{m+1}^{[r]}\big)$) induced by Theorem \ref{cellscover} can be labeled by strong successor closed subsets $\beta\subset\cQ_{m+1}^{[r]}$ of dimension type $\tbfe\in\NN^{\widetilde{K(n)_0}}$ (resp. $\bfe\in\NN^{K(n)_0}$) yielding a one-to-one correspondence between cells and strong successor closed subsets.
     \item For $\tbfe\in\NN^{\widetilde{K(n)_0}}$ (resp. $\bfe\in\NN^{K(n)_0}$), the Euler characteristic $\chi(\Gr_\tbfe(\tilde P_{m+1}^{[r]}))$ (resp. $\chi(\Gr_{\bfe }(P_{m+1}^{[r]}))$) is given by the number of strong successor closed subsets of dimension type $\tbfe$ (resp. $\bfe$) of the $2$-quiver of $\cQ_{m+1}^{[r]}$.
   \end{enumerate}
 \end{theorem}
@@ -2102,7 +2105,7 @@ In fact, we will see more: that the cells of quiver Grassmannians $\Gr_\bfe(P_{m
 We accomplish this by providing a bijection between the compatible pairs as in Theorem~\ref{th:combinatorial euler} and the successor closed sets of vertices in the 2-quivers $\cQ_{m+1}^{[r]}$ used in Theorem~\ref{thm:2quivercells} to describe the nonempty cells.
 \begin{theorem}
   \label{th:compatible cells}
-  For $m\ge1$ and $V\in\Gr(\cH_m)$ or $V=0$, each quiver Grassmannian $\Gr_\bfe(P_{m+1}^V)$ admits a cell decomposition with cells labeled by compatible pairs in the maximal Dyck path $D_{m+1}^{[r]}$, where $r=\dim V$.
+  For $m\ge1$ and $V\in\Gr(\cH_m)$ or $V=0$, each quiver Grassmannian $\Gr_\bfe(P_{m+1}^V)$ admits a cell decomposition with affine cells labeled by compatible pairs in the maximal Dyck path $D_{m+1}^{[r]}$, where $r=\dim V$.
 \end{theorem}
 \begin{proof}
   The recursive construction of the 2-quivers $\cQ_{m+1}^{[r]}$ provides a natural ordering of the vertices in the underlying quiver $Q_{m+1}^{[r]}$.
