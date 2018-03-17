@@ -81,7 +81,7 @@
 \newcommand{\Gr}{\mathrm{Gr}}
 \newcommand{\GL}{\mathrm{GL}}
 \newcommand{\Hom}{\operatorname{Hom}}
-\newcommand{\im}{\operatorname{im}}
+\renewcommand{\Im}{\operatorname{Im}}
 \newcommand{\Ind}{\mathrm{Ind}}
 \newcommand{\pt}{\mathrm{pt}}
 \newcommand{\Rep}{\mathrm{Rep}}
@@ -910,9 +910,9 @@ For $w\in W_n$, we write $\pi_{m+1,w}^{I,J}:\tilde P_{m+1,w}^I\to\tilde P_{m+1,w
 \label{QG}
 
 In this section, we aim to establish the existence of cell decompositions for quiver Grassmannians of (truncated) preprojective representations of $K(n)$ and its universal covering quiver.
-By a \emph{cell decomposition} of an algebraic variety $X$, we mean a filtration $\varnothing=X_0\subset X_1\subset \cdots \subset X_k=X$ of $X$ by closed subsets $X_i\subset X$ so that each $X_i\setminus X_{i-1}$ is isomorphic to an affine space.
-Alternatively, a cell decomposition of $X$ is a collection of disjoint subsets $U_1,\ldots,U_k\subset X$, each isomorphic to an affine space, such that each $X_i=U_1\sqcup\cdots\sqcup U_i$ is closed in $X$ with $X_k=X$.
-We call the subsets $U_i$ the \emph{affine cells} for this cell decomposition.
+By a \emph{cell decomposition} of an algebraic variety $X$, we mean a filtration $\varnothing=X_{k+1}\subset X_k\subset \cdots \subset X_2\subset X_1=X$ of $X$ by closed subsets $X_i\subset X$ so that each $X_i\setminus X_{i+1}$ is isomorphic to an affine space.
+Alternatively, a cell decomposition of $X$ is a collection of disjoint subsets $U_1,\ldots,U_k\subset X$, each isomorphic to an affine space, such that each $X_i=U_i\sqcup U_{i+1}\sqcup\cdots\sqcup U_k$ is closed in $X$ with $X_1=X$.
+We call the subsets $U_i\subset X$ the \emph{affine cells} for this cell decomposition.
 
 \subsection{Torus Actions and the Bia\l{}ynicki-Birula Decomposition}\label{sec:bb}
 The aim of Section~\ref{torusaction} is to define a $\CC^*$-action on quiver Grassmannians which can be used to simplify the calculation of homological invariants in general.
@@ -1269,18 +1269,23 @@ For completeness we include a proof of the first.
   It follows that the lexicographic partial ordering on dimension vectors given by $\tbff\leq\tbff'$ when $f_i\leq f'_i$ for all $i\in Q_0$ gives a closed subset
   \[\bigsqcup_{\substack{\tbff'+\tbfg=\tbfe\\ \tbff'\geq\tbff}} \cG_{\tbff',\tbfg}\subset \Gr_\tbfe(B)\]
   for any fixed $\tbff$.
-  Any refinement of this partial order to a total order will give the claim.
+  Any refinement of this partial order to a total order $\preceq$ will give the claim.
 \end{proof}
 \begin{theorem}
   \label{vb}
-  If $\mathrm{Im}\big(\Psi_{\tbff,\tbfg}\big)$ is locally closed and the fiber dimension of $\Psi_{\tbff,\tbfg}$ is constant over $\mathrm{Im}\big(\Psi_{\tbff,\tbfg}\big)$, then $\Psi_{\tbff,\tbfg}:\cG_{\tbff,\tbfg}\to \mathrm{Im}\big(\Psi_{\tbff,\tbfg}\big)$ is an affine bundle.
-  In particular, the existence of a cell decomposition of $\mathrm{Im}\big(\Psi_{\tbff,\tbfg}\big)$ implies a cell decomposition of $\cG_{\tbff,\tbfg}$ in this case.
+  If $\Im\big(\Psi_{\tbff,\tbfg}\big)$ is locally closed and the fiber dimension of $\Psi_{\tbff,\tbfg}$ is constant over $\Im\big(\Psi_{\tbff,\tbfg}\big)$, then $\Psi_{\tbff,\tbfg}:\cG_{\tbff,\tbfg}\to\Im\big(\Psi_{\tbff,\tbfg}\big)$ is an affine bundle.
+  In particular, the existence of a cell decomposition of $\Im\big(\Psi_{\tbff,\tbfg}\big)$ implies a cell decomposition of $\cG_{\tbff,\tbfg}$ in this case.
 \end{theorem}
-%\begin{proof}\footnote{sketch, double-check}
-%As $X$ and $Y$ are projective, they are compact. As the fibers are affine spaces of constant dimension and as $X$ and $Y$ are smooth, the induced morphism on the tangent spaces is surjective for all points $x\in X$. This shows that $f$ is smooth of relative dimension $n$, see Hartshorne and thus a submersion?!
-%\end{proof}
 
-We will apply this result in the setting of the truncated preprojective lifts from Lemma~\ref{le:homdecomposition}.
+\begin{remark}
+  \label{rem:cell decompositions}
+  By Lemma~\ref{le:good partition}, the existence of cell decompositions for each $\cG_{\tbff,\tbfg}$ implies the existence of a cell decomposition for $\Gr_\tbfe(B)$.
+  Indeed, we may take the affine cells of all the $\cG_{\tbff,\tbfg}$ as affine cells of $\Gr_\tbfe(B)$ with the natural lexicographic total order induced by taking cells from $\cG_{\tbff',\tbfg'}$ after those of $\cG_{\tbff,\tbfg}$ whenever $\tbff'\succ\tbff$.
+
+  By Theorem~\ref{vb}, to establish cell decompositions for the $\cG_{\tbff,\tbfg}$ it suffices to find a cell decomposition of $\Gr_\tbff(M)\times\Gr_\tbfg(N)$ for which $\Im\big(\Psi_{\tbff,\tbfg}\big)$ is a union of affine cells.
+\end{remark}
+
+We will apply these results in the setting of the truncated preprojective lifts from Lemma~\ref{le:homdecomposition}.
 Fix $m\ge1$.
 For fixed subsets $J\subsetneq I\subsetneq\{1,\ldots,n\}$ with $I\setminus J=\{j\}$, Lemma~\ref{le:properties}.(1) provides a short exact sequence 
 \begin{equation}
