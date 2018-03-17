@@ -211,7 +211,6 @@ Theorem \ref{thm:2quivercells} can be formulated as follows.
 
 The results of \cite{rupel} giving a combinatorial construction of counting polynomials for quiver Grassmannians of preprojective/preinjective representations of generalized Kronecker quivers $K(n)$ suggest that the dimensions of cells can be computed using this combinatorics (or the equivalent combinatorics of compatible pairs).
 This is made precise in Conjecture~\ref{conj:cell dimensions}.
-%\sayT{maybe we can erase some parts which show up twice in the introduction?}
 \subsubsection*{Acknowledgements}We would like to thank Giovanni Cerulli Irelli, Hans Franzen, Oliver Lorscheid and Markus Reineke for very fruitful discussions related to this project.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quiver Covering Theory}
@@ -264,7 +263,6 @@ In addition, observe that every connected component of the universal covering qu
 The functor $F_Q$ induces a map $F_Q:\ZZ^{\hat Q_1}\to \ZZ^{Q_1}$.
 We say that a dimension vector $\hat \bfe$ of $\hat Q$ is \emph{compatible} with $\bfe$ if $F_Q(\hat\bfe)=\bfe$.
 The group $A_Q$ acts on $\hat Q$ via translation, this induces actions of $A_Q$ on $\rep\hat Q$ and on $\ZZ^{\hat Q_1}$.
-%We say two representation (resp. dimension vectors) are \emph{equivalent} if they can be related by the action of $A_Q$.
 The analogous observation can also be made for $\widetilde Q$.
 If $X$ is a representation of $\hat Q$ (resp. $\widetilde Q$), we denote by $X_\chi$ (resp. $X_w$) the representation obtained via translation by $\chi\in A_Q$ (resp. $w\in W_Q$).  
 
@@ -913,6 +911,9 @@ In this section, we aim to establish the existence of cell decompositions for qu
 By a \emph{cell decomposition} of an algebraic variety $X$, we mean a filtration $\varnothing=X_{k+1}\subset X_k\subset \cdots \subset X_2\subset X_1=X$ of $X$ by closed subsets $X_i\subset X$ so that each $X_i\setminus X_{i+1}$ is isomorphic to an affine space.
 Alternatively, a cell decomposition of $X$ is a collection of disjoint subsets $U_1,\ldots,U_k\subset X$, each isomorphic to an affine space, such that each $X_i=U_i\sqcup U_{i+1}\sqcup\cdots\sqcup U_k$ is closed in $X$ with $X_1=X$.
 We call the subsets $U_i\subset X$ the \emph{affine cells} for this cell decomposition.
+Given varieties $X$ and $Y$ each with cell decompositions, we may choose an ordering on products of their affine cells (e.g.\ lexicographic) to get a cell decomposition of $X\times Y$. 
+Given a variety $X$ with a cell decomposition, we call a subvariety $U\subset X$ \emph{compatible} with the cell decomposition if $U$ can be written as the union of a subset of the affine cells for $X$.
+In this case, $U$ also has a cell decomposition given by taking exactly those affine cells which are contained in $U$.
 
 \subsection{Torus Actions and the Bia\l{}ynicki-Birula Decomposition}\label{sec:bb}
 The aim of Section~\ref{torusaction} is to define a $\CC^*$-action on quiver Grassmannians which can be used to simplify the calculation of homological invariants in general.
@@ -1026,8 +1027,6 @@ The next result provides the conditions on the map $d:\hat Q_0\to\ZZ$ needed to 
   \[c_{\alpha_l}\geq 2(K+1)\sum_{k=1}^{l-1} c_{\alpha_k}\]
   for $l=2,\ldots,n$.  
   Then let $f:A_Q\to\ZZ$ be the group homomorphism defined by $f(e_\alpha)=c_\alpha$ for all $\alpha\in Q_1$ and define $d(i,\chi):=f(\chi)$ for $(i,\chi)\in\supp(\hat X)$.
-  %In particular, for $(i',\chi)$ with $\chi=\sum_{l=1}^n \kappa_l e_{\alpha_l}$, we have
-  %\[d(i',\chi)=\sum_{l=1}^n \kappa_l c_{\alpha_l}.\]
 
   To check property (1), assume that $d(i,\chi)=d(i,\chi')$ for $\chi=\sum_{l=1}^n \kappa_l e_{\alpha_l}$ and $\chi'=\sum_{l=1}^n \kappa'_l e_{\alpha_l}$.
   This implies
@@ -1410,9 +1409,6 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
   \end{itemize}
   \vs
 
-  \sayD{When $\Psi_{m+1,I,j}$ is surjective, $\cG_{\tbff,\tbfg}$ is a closed subset of the Grassmannian.
-  The map is not surjective exactly when $\tbfg=\udim \tilde P_{m+1}^I$ and so we get a cell decomposition by taking the affine cells from this $\cG_{\tbff,\tbfg}$ last.}
-  
   In what follows, we will freely use the notation from Lemma~\ref{le:truncated quotients}.
   We proceed by simultaneous induction on $m$ and reverse induction on $|J|$.
   Fix an admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k<m$ and $J\subset I_0$.
@@ -1435,8 +1431,7 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
   \[\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})=\coprod_{\ell=1}^s B_\ell.\] 
  For $m=2$, we write $\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})=B_1$. In view of Remark \ref{rem:cell decompositions}, we need to show that the image of each $\Psi_{\tbff,\tbfg}$ is compatible with these cell decompositions in order to establish a cell decomposition of each $\mathcal G_{\tbff,\tbfg}$ which then gives a cell decomposition of $\Gr_{\tbfe}^{\tilde Q}(\tilde P_{m+1}^J)$.  
 
-
- Proposition~\ref{fibers} shows that the fiber of $\Psi_{\tbff,\tbfg}$ over $(U,V)\in B_\ell\times C_k$ is empty exactly when $\tbfg=\udim\tilde P_{m+1}^I$ and one of the following conditions is satisfied
+  Proposition~\ref{fibers} shows that the fiber of $\Psi_{\tbff,\tbfg}$ over $(U,V)\in B_\ell\times C_k$ is empty exactly when $\tbfg=\udim\tilde P_{m+1}^I$ and one of the following conditions is satisfied
   \begin{itemize}
     \item $m=2$ with $\tbff_{(2,\alpha_j^{-1})}\ne0$ or $\tbff_{(1,e)}\ne0$;
     \item $m\ge3$, with $\pi_{m,j}^\bfJ(U)=0$.
@@ -1445,15 +1440,7 @@ By induction, the compatibility condition ($\dagger$) is true for $\pi_{m,j}^\bf
 
   For $V\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ which is contained in such a cell, we have $\pi_{m+1}^{J,I}(V)\in C_k$.
   But then $\pi_{m+1}^{J,\bfI}(V)\ne0$ if and only if $\pi_{m+1}^{I,\bfI}(W)\ne0$ for all $W\in C_k$ and thus $\pi_{m+1}^{J,\bfI}(V')\ne0$ for all $V'$ in this cell $B_\ell\times C_k\times\AA^d$ of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$. This shows ($\dagger$) for $\pi_{m+1}^{J,\bfI}$.
-
-                                 
-	
 \end{proof}
-
-
-%Note that we can also consider 
-%$\Psi_1:\Gr^{\tilde Q}_\tbfe(\tilde P^{(k-1)}_{m})\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff(\bigoplus_{i=1}^{k}\tilde P_{m-1,i})\times \Gr^{\tilde Q}_\tbfg(\tilde P_m^{(k)})$ where $\tilde P_m^{(n-1)}=\tilde P_{m-1}^{(1)}$ (up to renumbering the arrows). But then one needs to adjust $\Psi_2$ because the factor of $\bigoplus_{i=1}^{k}\tilde P_{m-1,i}$ were $(\tau\tilde P_m^{(k)})^k$.
-
 
 \begin{theorem}
   \label{celldec}
