@@ -192,7 +192,7 @@ Our first main result is Theorem~\ref{thm:torusfixedpoints} which may be formula
   \[\Gr^Q_\bfe(X)^{\CC^*}\cong\bigsqcup_{\hat\bfe} \Gr^{\hat Q}_{\hat\bfe}(\hat X),\]
   where $\hat\bfe$ runs through all dimension vectors compatible with $\bfe$.
 \end{thm}
-This $\CC^*$-action can be iterated in such a way that the remaining $\CC^*$ fixed points are precisely the subrepresentations which can be lifted to the universal covering quiver.
+This $\CC^*$-action can be iterated in such a way that the remaining $\CC^*$-fixed points are precisely the subrepresentations which can be lifted to the universal covering quiver.
 As far as generalized Kronecker quivers are concerned, we can show in Theorem~\ref{thm:truncpp} that all quiver Grassmannians attached to truncated preprojective representations are smooth -- actually, they only depend on appropriate dimension vectors.
 In view of results of Bia\l{}ynicki-Birula~\cite{bb} -- which roughly speaking yields that cell decompositions are preserved when passing from the fixed point components to the original variety -- we can use this result to lift the investigation of the geometry of quiver Grassmannians to the universal covering quiver.
 This is important insofar as results such as Corollary~\ref{cor:perpendicular} are available which do not hold on the original quiver.
@@ -921,7 +921,7 @@ If the quiver Grassmannian is smooth, which is for instance the case for excepti
 More specifically, let $X$ be a smooth projective variety with a $\C^\ast$-action.
 For a connected component of the fixed point set $C\subset X^{\C^\ast}$, we define its attracting set as
 \[\Att(C):=\{y\in X\mid \lim_{t\to 0}t.y\in C\}.\]
-The following result of Bia\l{}ynicki-Birula relates the geometry of $X$ to the geometry of its $\CC^*$ fixed points (see \cite[Section 4]{bb} or \cite[Section 4]{ca}).
+The following result of Bia\l{}ynicki-Birula relates the geometry of $X$ to the geometry of its $\CC^*$-fixed points (see \cite[Section 4]{bb} or \cite[Section 4]{ca}).
 \begin{theorem}
   \label{thm:bb}
   Let $X$ be a smooth projective complex variety with a $\C^\ast$-action.
@@ -938,7 +938,7 @@ Indeed, we can trivialize each affine bundle $\Att(C_i)\to C_i$ over each affine
 \label{torusaction}
 Fix a vector space $X$ of dimension $n$ and let $k\leq n$.
 We first consider a natural $\CC^*$-action on the usual Grassmannian $\Gr_k(X)$ which is compatible with a given direct sum decomposition of the vector space $X$.
-Then we generalize the concept to quiver Grassmannians and observe that the $\CC^*$ fixed point sets can be calculated in an analogous manner.
+Then we generalize the concept to quiver Grassmannians and observe that the $\CC^*$-fixed point sets can be calculated in an analogous manner.
 
 Given a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of $X$ and a map $d:\{1,\ldots,n\}\to\ZZ$, we get a $\C^\ast$-action on $X$ when linearly extending the definition $t.v_r:=t^{d(r)}v_r$ for $r=1,\ldots,n$ to all of $X$.
 This naturally induces an action of $\C^\ast$ on the Grassmannian $\Gr_k(X)$.
@@ -975,7 +975,7 @@ Assume that $X=\bigoplus_{l=1}^m X_l$ is a direct sum decomposition of $X$ and f
   Then any $u\in U$ can be written uniquely as $u=\sum_{l=1}^m u_l$ for some $u_l\in U\cap X_l$.
   It follows that $t.u=\sum_{l=1}^m t.u_l=\sum_{l=1}^m t^{d(r_l)}u_l\in\bigoplus_{l=1}^m U\cap X_l=U$ and thus $t.U=U$. 
 
-  For the reverse direction, assume $U\in X_{\bfi}$ is a $\CC^*$ fixed point represented by the matrix $M(U)$.
+  For the reverse direction, assume $U\in X_{\bfi}$ is a $\CC^*$-fixed point represented by the matrix $M(U)$.
   Then, if~$v_{i_q}\in X_l$, the assumptions on $d$ imply $M(U)_{qr}=0$ unless $r_{l-1}+1\le r\le r_l$.
   That is, $M(U)$ has the shape of a block matrix representing the decomposition $U=\bigoplus_{l=1}^m U\cap X_l$.
 \end{proof}
@@ -1047,7 +1047,7 @@ In the following, we say that $d:\supp(\hat X)\to\ZZ$ satisfies the \emph{degree
   where $\hat\bfe$ runs through all dimension vectors compatible with $\bfe$.
 \end{theorem}
 \begin{proof}
-  A representation $U\in\Gr_{\bfe}(X)$ is a $\CC^*$ fixed point if and only if $t.U=U$ for all $t\in\C^\ast$, i.e.\ $t.U_i=U_i$ for all $i\in Q_0$ and all $t\in\C^\ast$.
+  A representation $U\in\Gr_{\bfe}(X)$ is a $\CC^*$-fixed point if and only if $t.U=U$ for all $t\in\C^\ast$, i.e.\ $t.U_i=U_i$ for all $i\in Q_0$ and all $t\in\C^\ast$.
   Thus, apart from being a subrepresentation of $X$, each component $U_i$ is a fixed point of the induced $\CC^*$-actions on the usual Grassmannians of vector subspaces $\Gr_{\bfe_i}(X_i)$.
   By Lemma~\ref{le:usualGrass}, this holds precisely when we have a decomposition 
   \[U_i=\bigoplus_{\chi\in A_Q} U_i\cap X_{(i,\chi)}\]
@@ -1210,7 +1210,7 @@ For a fixed dimension vector $\tbfe$, this induces the so-called ``Caldero-Chapo
   \Psi:\Gr_\tbfe(B)&\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr_\tbff(M)\times \Gr_\tbfg(N)\\
   E&\mapsto \big(E\cap M,(E+M)/M\big).
 \end{align*}
-Following \cite[Section 3]{cc}, any nonempty fiber of $\Psi$ satisfies $\Psi^{-1}(U,W)=\mathbb{A}^{\dim\Hom(W,M/U)}$.
+Following \cite[Section 3]{cc}, any nonempty fiber of $\Psi$ satisfies $\Psi^{-1}(U,W)\cong\mathbb{A}^{\dim\Hom(W,M/U)}$.
 
 For $\cG_{\tbff,\tbfg}:=\Psi^{-1}\big(\Gr_\tbff(M)\times \Gr_\tbfg(N)\big)$, we have 
 \begin{equation}
@@ -1224,7 +1224,7 @@ For completeness we include a proof of the first.
 \begin{lemma}
   \label{le:good partition}
   There exists a total ordering $\preceq$ of the dimension vectors $\tbff$ appearing in the decomposition \eqref{eq:grassmannian decomposition} such that for any fixed $\tbff$ the subset 
-  \[\bigsqcup_{\substack{\tbff'+\tbfg=\tbfe\\ \tbff'\succeq\tbff}} \cG_{\tbff',\tbfg}\]
+  \[\bigsqcup_{ \tbff'\succeq\tbff} \cG_{\tbff',\tbfe-\tbff'}\]
   is closed in $\Gr_\tbfe(B)$.
 \end{lemma}
 \begin{proof}
@@ -1232,7 +1232,7 @@ For completeness we include a proof of the first.
   For each $i$, the inclusion $M_i\subset B_i$ induces an upper-semicontinuous function $\rho_i:\Gr_{e_i}(B_i)\to\ZZ$ given by $\rho_i(E_i)=\dim(E_i\cap M_i)$.
   In particular, for any fixed $f_i$ the set $\rho_i^{-1}\big(\{f_i,f_i+1,\ldots,e_i\}\big)$ is closed in $\Gr_{e_i}(B_i)$.
   It follows that the lexicographic partial ordering on dimension vectors given by $\tbff\leq\tbff'$ when $f_i\leq f'_i$ for all $i\in Q_0$ gives a closed subset
-  \[\bigsqcup_{\substack{\tbff'+\tbfg=\tbfe\\ \tbff'\geq\tbff}} \cG_{\tbff',\tbfg}\subset \Gr_\tbfe(B)\]
+  \[\bigsqcup_{ \tbff'\geq\tbff} \cG_{\tbff',\tbfe-\tbff'}\subset \Gr_\tbfe(B)\]
   for any fixed $\tbff$.
   Any refinement of this partial order to a total order $\preceq$ will give the claim.
 \end{proof}
@@ -1443,7 +1443,7 @@ By induction, the compatibility condition ($\dagger$) is true for $\pi_{m,j}^\bf
   By induction, we can assume that all quiver Grassmannians attached to the two outer terms have a cell decomposition.
   Consider the Caldero-Chapoton map
   \[\Psi_\bfe:\Gr_\bfe\big(P(r'+1)\big)\to\bigsqcup_{\bff+\bfg=\bfe} \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg\big(P(r')\big).\]
-  The results of \cite[Section 3]{cc} show that $\Psi_{\tbfe}^{-1}(U,W)=\AA^{\dim\Hom(W,P_{j_{r'+1}}/U)}$ for all $(U,W)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg\big(P(r')\big)$, in particular the fiber is never empty.
+  The results of \cite[Section 3]{cc} show that $\Psi_{\tbfe}^{-1}(U,W)\cong\AA^{\dim\Hom(W,P_{j_{r'+1}}/U)}$ for all $(U,W)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg\big(P(r')\big)$, in particular the fiber is never empty.
   Now every subrepresentation $W$ of $P(r')$ is isomorphic to a direct sum of preprojective representations such that for each direct summand $P_l$ we have $l\leq j_{r'}$.
   Moreover, the quotient $P_{j_{r'+1}}/U$ is not projective if $U\neq 0$ and equal to $P_{j_{r'+1}}$ otherwise.
   Together these yield $\Ext(V,P_{j_{r'+1}}/U)=0$ and thus
