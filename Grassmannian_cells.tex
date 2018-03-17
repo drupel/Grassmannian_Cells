@@ -9,8 +9,6 @@
 \usepackage[bookmarks=true,colorlinks=true, linkcolor=blue, citecolor=cyan]{hyperref}
 \usepackage{tikz}
 \usetikzlibrary{arrows}
-%\usepackage{pgflibraryarrows}
-%\usepackage{pgflibrarysnakes}
 \usetikzlibrary{fit}
 \usepackage[margin=1in,marginparwidth=0.8in, marginparsep=0.1in]{geometry}
 \usepackage{extarrows}
@@ -18,10 +16,9 @@
 \input xy
 \xyoption{all}
 
-\usepackage[inline]{showlabels}
-
+%\usepackage[inline]{showlabels}
 %\usepackage[marginal]{showlabels}
-%
+
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{claim}[theorem]{Claim}
 \newtheorem{conjecture}[theorem]{Conjecture}
@@ -109,13 +106,13 @@
 
 \begin{document}
 \begin{abstract}
-  We prove that all quiver Grassmannians for preprojective representations of a generalized Kronecker quiver admit a cell decomposition.  
+  We prove that all quiver Grassmannians for exceptional representations of a generalized Kronecker quiver admit a cell decomposition.  
   In the process, we introduce a class of regular representations which arise as quotients of consecutive preprojective representations.
   Cell decompositions for quiver Grassmannians of these ``truncated preprojectives'' are also established. 
   We also provide two natural combinatorial labelings for these cells.
-  On the one hand, the cells are in bijection with compatible pairs in a maximal Dyck path as predicted by the theory of cluster algebras.
-  On the other hand, they are labeled by certain subsets of a so-called $2$-quiver attached to a (truncated) preprojective representation.
-  As there is a natural bijection between these two labelings, this also gives a geometric explanation for the appearance of Dyck path combinatorics in the theory of quiver Grassmannians. 
+  On the one hand, they are labeled by certain subsets of a so-called $2$-quiver attached to a (truncated) preprojective representation.
+  On the other hand, the cells are in bijection with compatible pairs in a maximal Dyck path as predicted by the theory of cluster algebras.
+  The natural bijection between these two labelings gives a geometric explanation for the appearance of Dyck path combinatorics in the theory of quiver Grassmannians. 
 \end{abstract}
 
 \setcounter{tocdepth}{2}
@@ -132,18 +129,18 @@ On the other hand, they are clearly interesting on their own as they reveal many
 
 Although it follows from the results of Hille, Huisgen-Zimmermann and Reineke that every projective variety can be realized as a quiver Grassmannian, 
 it turns out that very interesting phenomena arise when restricting to certain quivers or to representations with certain properties.
-For instance, quiver Grassmannians attached to exceptional representations are smooth \cite{cr}.
-For tame quivers of types $\tilde A$ or $\tilde D$, it is known that every quiver Grassmannian attached to an indecomposable representation admits a cell decomposition, see \cite{ce,lw} and references therein.
+For instance, quiver Grassmannians attached to exceptional representations are smooth~\cite{cr}.
+For Dynkin quivers and tame quivers of types~$\tilde A$ or~$\tilde D$, it is known that every quiver Grassmannian attached to an indecomposable representation admits a cell decomposition, see \cite{ce,lw} and references therein.
 It has been conjectured that this is also true for exceptional representations of any quiver, in particular for preprojective and preinjective representations. 
 
 There are basically two possible ways to find cell decompositions of quiver Grassmannians if they exist.
 One is to find a non-trivial $\CC^*$-action on the quiver Grassmannian under consideration.
-If the quiver Grassmannian is smooth, one can apply a result of Bia\l{}ynicki-Birula \cite{bb} which shows that the quiver Grassmannian decomposes into affine bundles over the fixed point components.
+If the quiver Grassmannian is smooth, one can apply a result of Bia\l{}ynicki-Birula~\cite{bb} which shows that the quiver Grassmannian decomposes into affine bundles over the fixed point components.
 In particular, this shows that the quiver Grassmannian has a cell decomposition if the fixed point components have such a decomposition.
 
 Another method uses short exact sequences of quiver representations to induce maps between quiver Grassmannians.
 More precisely, the quiver Grassmannian of the middle term maps to the product of the quiver Grassmannians for the two outer terms via the ``Caldero-Chapoton map'' which first appeared in \cite{cc}. 
-If the short exact sequence has certain properties -- e.g. (almost) split sequences and certain generalizations -- then cell decompositions of quiver Grassmannians attached to the outer terms transfer to a cell decomposition of the quiver Grassmannians of the middle term.
+If the short exact sequence has certain properties -- e.g. (almost) split sequences and certain generalizations -- then cell decompositions of quiver Grassmannians attached to the outer terms transfer to cell decompositions for the quiver Grassmannians of the middle term.
 
 In this paper, we combine these two methods in order to show that every quiver Grassmannian attached to an exceptional representation of a generalized Kronecker quiver admits a cell decomposition.
 The proof also shows that this is true for so-called truncated preprojective representations which appear as certain quotients of preprojective representations.
@@ -209,9 +206,14 @@ Theorem \ref{thm:2quivercells} can be formulated as follows.
   In particular, the Euler characteristic $\chi(\Gr_\bfe(P_{m+1}^V))$ is given by the number of these subsets.
 \end{thm}
 
-The results of \cite{rupel} giving a combinatorial construction of counting polynomials for quiver Grassmannians of preprojective/preinjective representations of generalized Kronecker quivers $K(n)$ suggest that the dimensions of cells can be computed using this combinatorics (or the equivalent combinatorics of compatible pairs).
+The results of \cite{rupel} give a combinatorial construction of counting polynomials for quiver Grassmannians of preprojective/preinjective representations of generalized Kronecker quivers $K(n)$.
+This suggests that the dimensions of cells can be directly computed using this combinatorics (or the equivalent combinatorics of compatible pairs).
 This is made precise in Conjecture~\ref{conj:cell dimensions}.
-\subsubsection*{Acknowledgements}We would like to thank Giovanni Cerulli Irelli, Hans Franzen, Oliver Lorscheid and Markus Reineke for very fruitful discussions related to this project.
+
+\subsubsection*{Acknowledgements}
+We would like to thank Giovanni Cerulli Irelli, Hans Franzen, Oliver Lorscheid and Markus Reineke for very fruitful discussions related to this project.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quiver Covering Theory}
 \label{sec:covering}
@@ -276,7 +278,7 @@ As $F_Q$ and $G_Q$ are covering functors when restricting to one connected compo
 \end{theorem}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Representation Theory of Generalized Kronecker Quivers}
 \label{sec:RepK(n)}
 
@@ -318,7 +320,7 @@ The representations $P_m$ are called the \emph{preprojective} representations of
 \end{remark}
 
 Set $\cH_m:=\Hom(P_m,P_{m+1})$ for $m\ge1$.
-Write $\Gr(\cH_m)$ for the \emph{total Grassmannian} of $\cH_m$ whose elements are nontrivial proper subspaces $V\subset \cH_m$.
+Write $\Gr(\cH_m)$ for the \emph{total Grassmannian} of $\cH_m$ whose elements are non-trivial proper subspaces $V\subset \cH_m$.
 Some results below remain true if we allow $\cH_m$ or $0$ as elements of $\Gr(\cH_m)$, but not all, so for uniformity of exposition we omit these possibilities.
 
 For each $m\ge2$, there is an Auslander-Reiten sequence (cf.\ \cite[Section V]{ars})
@@ -354,6 +356,7 @@ In what follows we will not distinguish between $P_m\otimes V$ and its image und
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Truncated Preprojectives}
 \label{sec:truncated preprojectives}
+
 Motivated by Lemma~\ref{le:injective evaluation maps}, we define the following.
 \begin{definition}
   For $V\in \Gr(\cH_m)$, define the \emph{truncated preprojective} $P_{m+1}^V$ to be the cokernel of the map $ev_V:P_m\otimes V\to P_{m+1}$, i.e.\ we have a short exact sequence
@@ -465,7 +468,6 @@ for the affine space of representations of $K(n)$ with dimension vector $d$.
 \begin{proof}
   Recall that $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some indecomposable representation $X$ and some $\ell\ge1$ implies that $X$ is preprojective of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$).
   However, $P_{m+1}^V$ is indecomposable by Proposition~\ref{pro:indecomposables} and it cannot be preprojective as it is not rigid by Lemma~\ref{le:unique morphisms}.
-  %Note that $\udim P_{m+1}^V <\udim P_{m+1}$, but $\udim P_r\geq \udim P_{m+1}$ if $\Hom(P_{m+1},P_r)\neq 0$.
 \end{proof}
 
 \begin{lemma}
@@ -559,9 +561,8 @@ Each such sequence has the following almost-split property for proper subreprese
   Under this identification, the left hand morphism $\kappa_V$ in the sequence above identifies with a generator of $\bar{V}$ and thus $P_{m+1}^V\cong P_m^{\bar{V}}$.
 \end{proof}
 
-               
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Lifting to \texorpdfstring{$\mathbf{\widetilde{K(n)}}$}{K(n)}}
 \label{Lifting}
 
@@ -756,7 +757,6 @@ In what follows, we will need to carefully understand the homological properties
     \alpha_1^{-1}.\cA_1\ar^{\alpha_1}[rrru]&\cdots&\alpha_{i-1}^{-1}.\cA_{i-1}\ar^(.35){\alpha_{i-1}}[ru]&\widehat{\alpha_i^{-1}.\cA_i}&\alpha_{i+1}^{-1}.\cA_{i+1}\ar_(.35){\alpha_{i+1}}[lu]&\cdots&\alpha_n^{-1}.\cA_n.\ar_{\alpha_n}[lllu]}\]
 \end{example} 
 
-
 \begin{lemma}
   \label{le:truncated tau}
   For $m\ge3$ and $I\subsetneq\{1,\ldots,n\}$, we have $\tilde\Sigma_2(\tilde P_{m-1}^I)^\sigma=\tilde P_m^I$ and $\tau\tilde P_{m+1}^I=\tilde P_{m-1}^I$.
@@ -773,7 +773,7 @@ In what follows, we will need to carefully understand the homological properties
 We now introduce notation for locating specific lifted preprojectives as subrepresentations of our standard lifted preprojective representations.
 Since we work only on two fixed components of $\widetilde{K(n)}$, the following notation will be useful in describing paths in these components.
 For $k\ge1$, set
-\[A_1^{(k)}:=\{(i_1,\ldots,i_k)\mid i_j\in\{1,\ldots,n\}\text{ for $1\le j\le k$}\}.\]%, i_j\ne i_{j+1}\text{ for $1\le j<l$}\}.\]
+\[A_1^{(k)}:=\{(i_1,\ldots,i_k)\mid i_j\in\{1,\ldots,n\}\text{ for $1\le j\le k$}\}.\]
 Depending on context (in particular, the parity of $m+1$), we will sometimes identify the word~$(i_1,\ldots,i_k)$ with the element $\alpha_{i_1}\alpha_{i_2}^{-1}\alpha_{i_3}\cdots\alpha_{i_k}^{(-1)^{k+1}}\in W_n$ and sometimes with the element $\alpha_{i_1}^{-1}\alpha_{i_2}\alpha_{i_3}^{-1}\cdots\alpha_{i_k}^{(-1)^k}\in W_n$.
 In this way, to each word $\ui=(i_1,\ldots,i_k)\in A_1^{(k)}$ with $1\leq k\leq m$, we associate a preprojective subrepresentation~$\tilde P_{m+1-k,\ui}\subset\tilde P_{m+1}$ which lifts $P_{m+1-k}$.
 More precisely, we obtain a sequence of preprojective subrepresentations which uniquely determines the desired inclusion:
@@ -903,9 +903,10 @@ For $w\in W_n$, we write $\pi_{m+1,w}^{I,J}:\tilde P_{m+1,w}^I\to\tilde P_{m+1,w
 \end{proof}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Quiver Grassmannians}
 \label{QG}
+
 \noindent 
 In this section, we aim to establish the existence of cell decompositions for quiver Grassmannians of (truncated) preprojective representations of $K(n)$ and its universal covering quiver.
 By a \emph{cell decomposition} of an algebraic variety $X$, we mean a filtration $\varnothing=X_{k+1}\subset X_k\subset \cdots \subset X_2\subset X_1=X$ of $X$ by closed subsets $X_i\subset X$ so that each $X_i\setminus X_{i+1}$ is isomorphic to an affine space.
@@ -915,7 +916,11 @@ Given varieties $X$ and $Y$ each with cell decompositions, we may choose an orde
 Given a variety $X$ with a cell decomposition, we call a subvariety $U\subset X$ \emph{compatible} with the cell decomposition if $U$ can be written as the union of a subset of the affine cells for $X$.
 In this case, $U$ also has a cell decomposition given by taking exactly those affine cells which are contained in $U$.
 
-\subsection{Torus Actions and the Bia\l{}ynicki-Birula Decomposition}\label{sec:bb}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Torus Actions and the Bia\l{}ynicki-Birula Decomposition}
+\label{sec:bb}
+
 The aim of Section~\ref{torusaction} is to define a $\CC^*$-action on quiver Grassmannians which can be used to simplify the calculation of homological invariants in general.
 If the quiver Grassmannian is smooth, which is for instance the case for exceptional representations by \cite{cr}, it can also be used to stratify the quiver Grassmannians using the results of Bia\l{}ynicki-Birula.
 More specifically, let $X$ be a smooth projective variety with a $\C^\ast$-action.
@@ -934,8 +939,10 @@ If each component $C_i$ admits a cell decomposition, Theorem~\ref{thm:bb} implie
 Indeed, we can trivialize each affine bundle $\Att(C_i)\to C_i$ over each affine piece of $C_i$ and then taking the natural ordering of the resulting affine spaces gives a cell decomposition of $X$.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Torus Actions on Quiver Grassmannians}
 \label{torusaction}
+
 Fix a vector space $X$ of dimension $n$ and let $k\leq n$.
 We first consider a natural $\CC^*$-action on the usual Grassmannian $\Gr_k(X)$ which is compatible with a given direct sum decomposition of the vector space $X$.
 Then we generalize the concept to quiver Grassmannians and observe that the $\CC^*$ fixed point sets can be calculated in an analogous manner.
@@ -1040,7 +1047,8 @@ The next result provides the conditions on the map $d:\hat Q_0\to\ZZ$ needed to 
 \end{proof}
 
 In the following, we say that $d:\supp(\hat X)\to\ZZ$ satisfies the \emph{degree condition} for $\hat X$ if it has the properties of Lemma~\ref{le:degree condition}.
-\begin{theorem}\label{thm:torusfixedpoints}
+\begin{theorem}
+  \label{thm:torusfixedpoints}
   Let $X$ be a representation of $Q$ which can be lifted to a representation $\hat X$ of $\hat Q$ and choose $d:\supp(\hat X)\to\ZZ$ such that it satisfies the degree condition for $\hat X$.
   Then the $\CC^*$-action on $\bigoplus_{i\in Q_0} X_i$ determined by $t.x_{(i,\chi)}=t^{d(i,\chi)}x_{(i,\chi)}$ for $x_{(i,\chi)}\in X_{(i,\chi)}$ induces a $\CC^*$-action on $\Gr_\bfe^Q(X)$ such that
   \[\Gr^Q_\bfe(X)^{\CC^*}\cong\bigsqcup_{\hat\bfe} \Gr^{\hat Q}_{\hat\bfe}(\hat X),\]
@@ -1064,13 +1072,9 @@ If we denote these iterated torus fixed points by $\Gr^Q_\bfe(X)^{(k+1)}$, we ob
   \[\Gr^Q_\bfe(X)^{(k+1)}\cong \bigsqcup_{\hat\bfe^{(k)}} \Gr_{\hat\bfe^{(k)}}^{\hat Q^{(k)}}\big(\hat X^{(k)}\big)^{\CC^*}\cong \bigsqcup_{\hat\bfe^{(k+1)}} \Gr^{\hat Q^{(k+1)}}_{\hat\bfe^{(k+1)}}\big(\hat X^{(k+1)}\big)\cong \bigsqcup_{\tilde\bfe} \Gr^{\tilde Q}_{\tilde\bfe}(\tilde X),\]
   where $\hat\bfe^{(k)},\,\hat\bfe^{(k+1)},\,\tilde\bfe$ run through all dimension vectors compatible with $\bfe$.
 \end{corollary}
-%\begin{corollary}
-%  affine bundles over $\Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)$ if $\Gr^Q_\bfe(X)$ is smooth
-%  \[\{U\in \Gr^Q_\bfe(X):\lim_{t\to0} t\cdot U\in \Gr^{\tilde Q}_{\tilde\bfe}(\tilde X)\}\]
-%\end{corollary}
-Define the $F$-polynomial of a representation $X$ by 
-$$F_X=\sum_{\bfe\in\NN^{Q_0}}\chi(\Gr_\bfe(X))y^\bfe\in\ZZ[y_i\mid i\in Q_0].$$
 
+Define the $F$-polynomial of a representation $X$ by 
+\[F_X=\sum_{\bfe\in\NN^{Q_0}}\chi(\Gr_\bfe(X))y^\bfe\in\ZZ[y_i\mid i\in Q_0].\]
 \begin{corollary}
   \label{fpoly}
   Let $X$ be a representation which can be lifted to the universal covering quiver.
@@ -1084,8 +1088,9 @@ In this case the quiver Grassmannians $\Gr_\bfe(X)$ are smooth by \cite[Corollar
 Moreover, every exceptional representation is a tree module by \cite{rin1} which means that it can be lifted to the universal covering.
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{\texorpdfstring{$\mathbf{GL_n}$}{Gln}-Action on Arrows of \texorpdfstring{$\mathbf{K(n)}$}{K(n)}}
+
 The goal of this section is to prove Theorem~\ref{thm:truncpp} showing that quiver Grassmannians of truncated preprojectives $P_{m+1}^V$ are smooth and only depend on the dimension of the subspace $V\subsetneq \cH_m$.
 We begin by observing that $GL_n(\CC)$ naturally acts on the vector space $A_1=\bigoplus_{i=1}^n \CC\alpha_i$ spanned by the arrows of $K(n)$ and hence $GL_n(\CC)$ acts on $\rep K(n)$ via the induced action on the path algebra $A(n)$.
 More precisely, given a representation $M=(M_1,M_2,M_{\alpha_i})$ of $K(n)$ and $g=(g_{ij})\in GL_n(\CC)$, the representation $g.M$ is given by $(M_1,M_2,(g.M)_{\alpha_i})$ with $(g.M)_{\alpha_i}=\sum\limits_{j=1}^n g_{ij}M_{\alpha_j}$.
@@ -1110,11 +1115,6 @@ Note that $M$ and $g.M$ are not necessarily isomorphic as representations of $K(
   But this occurs exactly when the map $\theta^g:g.M\onto g.N$ is also a split epimorphism.
 \end{proof}
 
-%Write $\Sigma_1$ and $\Sigma_2$ for the BGP-reflection functors of $K(n)$ \cite{bgp}. 
-%Note that (up to relabeling vertices) the quiver $K(n)$ itself does not change when applying the reflection functors and thus we view these as endofunctors acting on the category $\rep K(n)$. 
-%With this identification of $K(n)$ and $K(n)^{op}$, the endofunctors $\Sigma_2\Sigma_1$ and $\Sigma_1\Sigma_2$ are each naturally isomorphic to the identity maps on the full subcategories $\rep_{\langle 1\rangle} K(n),\rep_{\langle 2\rangle} K(n)\subset \rep K(n)$, where the objects of $\rep_{\langle i\rangle} K(n)$ are those representations of $K(n)$ which do not contain the simple $S_i$ as a direct summand.
-%Also, following \cite{brenner-butler}, the Auslander-Reiten translation $\tau:\rep K(n)\to\rep K(n)$ may be identified with the functor $\Sigma_1^2$.
-
 While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the following twisted equivariance.
 \begin{lemma}\label{compatibleGSigma}
   For $g\in G$, the reflection functors $\Sigma_i:\rep K(n)\to\rep K(n)$ satisfy $g.\Sigma_i(M)=\Sigma_i(g^{-T}.M)$. 
@@ -1131,40 +1131,6 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
   i.e. $g.\Sigma_2(M)=\Sigma_2(g^{-T}.M)$.
 \end{proof}
 
-%\begin{corollary}
-%  \label{cor:preprojective stability}
-%  For $m\ge1$ and $g\in G$, the representations $P_m$ and $g.P_m$ are isomorphic.
-%\end{corollary}
-%\begin{proof}
-%  By construction, the representation $g.P_m$ also has dimension vector $(u_m,u_{m-1})$ and is indecomposable by Corollary~\ref{cor:indecomposability}.
-%  Thus by Theorem~\ref{th:rigids}, $P_m$ and $g.P_m$ are isomorphic.
-%\end{proof}
-%For $g\in GL_n(\CC)$, write $\phi_{m,g}:P_m\to g.P_m$ for the (unique up to scalars) isomorphism from Corollary~\ref{cor:preprojective stability}.
-
-%\begin{lemma}
-%  \label{le:transitivity}
-%  The action of $GL_n(\CC)$ on $\cH_m$ induces a transitive action of $GL_n(\CC)$ on each component $\Gr_d(\cH_m)$.
-%\end{lemma} 
-%\begin{proof}
-%  The map $\theta\mapsto g.\theta$ for $\theta\in \cH_m$ induces a group homomorphism $GL_n(\CC)\to GL(\cH_m)$ which we denote by $g\mapsto\tilde g_m$.
-%  We claim that this homomorphism is surjective which immediately implies the result.
-%
-%  We work by induction on $m$.
-%  Suppose $GL_n(\CC)\to GL(\cH_m)$ is surjective.
-%
-%\end{proof}
-
-%Similarly, for $V^g\in \Gr(\cH_m^g)$, we identify $g.P_m\otimes V^g$ with its image in $g.P_{m+1}$ under the natural evaluation map. 
-%\begin{lemma}
-%  \label{le:g equalities}
-%  For any $g\in GL_n(\CC)$, the subrepresentation $g.(P_m\otimes V)\subset g.P_{m+1}$ is equal to $g.P_m\otimes V^g\subset g.P_{m+1}$ and the subrepresentation $\phi_{m+1,g}^{-1}(g.P_m\otimes V^g)\subset P_{m+1}$ is equal to $P_m\otimes g.V\subset P_{m+1}$.
-%\end{lemma}
-%\begin{proof}
-%  The first equality is immediate from the definitions.
-%  The second equality also follows from the definitions by observing that $\phi_{m+1,g}(P_m\otimes g.V)=g.P_m\otimes V^g$.
-%\end{proof}
-
-%Any subrepresentation $E\subset P_{m+1}^V$ corresponds by taking pullbacks to a chain of inclusions $P_m\otimes V\subset\tilde E\subset P_{m+1}$.
 Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposable representations of $K(n)$ with dimension vector $d$ for $d\in\NN^{K(n)_0}$. As the $\GL_n(\CC)$-action commutes with the natural base change action, we can define a $\GL_n(\CC)$-action on $\Ind\big(K(n),d\big)$.
 \begin{proposition} 
   \label{indecomposables}
@@ -1179,7 +1145,8 @@ Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposabl
   As the $\GL_n(\CC)$-action is transitive on the left hand side, this implies that it is also transitive on the right hand side.
 \end{proof}
 
-\begin{theorem}\label{thm:truncpp}
+\begin{theorem}
+  \label{thm:truncpp}
   Fix a dimension vector $\bfe$.
   The quiver Grassmannian $\Gr_\bfe(P_{m+1}^V)$ is smooth for each $V\in \Gr(\cH_m)$.
   Moreover, for $V,W\in \Gr_d(\cH_m)$, we have $\Gr_\bfe(P_{m+1}^V)\cong \Gr_\bfe(P_{m+1}^W)$.
@@ -1202,8 +1169,10 @@ Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposabl
 \end{proof}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Fibrations of Quiver Grassmannians}
 \label{sec:fibrations}
+
 Let $\ses{M}{B}{N}$ be a short exact sequence of representations.
 For a fixed dimension vector $\tbfe$, this induces the so-called ``Caldero-Chapoton map'' between quiver Grassmannians
 \begin{align*}
@@ -1465,15 +1434,20 @@ The description of the non-empty fibers in Proposition~\ref{fibers} together wit
 \end{corollary}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Combinatorial Descriptions of Non-Empty Cells}
 \label{sec:combinatorics}
-\noindent In this section, we provide two combinatorial descriptions of the non-empty cells in the quiver Grassmannians of (truncated) preprojective representations of $K(n)$.
+
+\noindent 
+In this section, we provide two combinatorial descriptions of the non-empty cells in the quiver Grassmannians of (truncated) preprojective representations of $K(n)$.
 The first is quiver theoretic and follows directly from the recursive construction of the cell decomposition from Section~\ref{sec:fibrations}.
 The second is the notion of compatible pairs in a maximal Dyck path arising in the computation of rank 2 cluster variables \cite{llz}.
 We give a bijection between these which provides a partial geometric explanation for the combinatorial construction of counting polynomials for rank two quiver Grassmannians given in \cite{rupel}.
 
-\subsection{2-Quivers}\label{sec:2quivers}
+
+%%%%%%%%%%%%%%%%%%%%%%
+\subsection{2-Quivers}
+\label{sec:2quivers}
 
 The key concept for describing the cell decompositions is the following notion of $2$-quiver which is closely related to certain coefficient quivers of the corresponding representations.
 This construction makes use of the support quivers from Examples~\ref{ex:lifted preprojectives} and~\ref{ex:truncated lifts}.
@@ -1544,16 +1518,6 @@ An analogous statement holds if a quiver has precisely one sink.
   That is, given a 2-arrow $V:\Gamma(1)\implies\Gamma(2)$ for which $\Gamma(1)$ has a unique source $p$ and $\Gamma(2)$ has a unique sink $q$, we get an equivalent 2-quiver by replacing this 2-arrow with a usual arrow $\alpha_V:p\to q$.
 \end{remark}
 
-%The aim is to associate a $2$-quiver with every preprojective representation $P_m$ and with their quotients $P_m^{(k)}$ defined in section~\ref{QG}.
-%These $2$-quivers are related to certain coefficient quivers of these representations.
-%The upshot is that the non-empty cells of $\Gr_e(P_m)$ and $\Gr_e(P_m^{(k)})$ are in one-to-one correspondence with the strong successor closed subsets $\beta$ of type $e$.
-%Hence the corresponding Euler characteristic can be computed when counting these subsets.
-%It will turn out that a feature of this description is that it does not take care of the coloring of the different arrows induced by the arrows of $K(n)$.
-
-%\begin{remark}\footnote{Insert a remark that we do not work on the universal cover} 
-%  Lemma~\ref{AR} can be generalized to the cases $m\leq 2$.
-%  The only technical problem is that $\tau \tilde P^{(k)}_{m+1}$ is no quotient of $\tilde P_{m,k}$ and we have to replace it by the image of the unique morphism to $\tau \tilde P^{(k)}_{m+1}$ which induces the exact sequence. 
-%\end{remark}
 In the following, we freely use the notation and conventions of Section~\ref{sec:RepK(n)}.
 For $m\ge1$, Theorem~\ref{thm:truncpp} shows that up to isomorphism the quiver Grassmannians $\Gr_\bfe(P_{m+1}^V)$ of arbitrary truncated preprojective representations $P_{m+1}^V$ for $V\in\Gr(\cH_m)$ only depend on $\bfe$ and $\udim P_{m+1}^V$.
 In particular, fixing $\dim V=r$, we construct a 2-quiver $\cQ_{m+1}^{[r]}$ whose strong successor closed subsets are in one-to-one correspondence with the cells of quiver Grassmannians of~$P_{m+1}^V$.
@@ -1661,9 +1625,7 @@ Then $\cQ_3^{[r]}$ can be found as a sub-2-quiver of $\cQ_3$ which is constructe
   \draw[->] (I5)--(J51) node[pos=.7,above,sloped]{\scriptsize $\alpha_1$};
   \draw[->] (I5)--(J52) node[pos=.7,above,sloped]{\scriptsize $\alpha_2$};
   \draw[->] (I5)--(J5N1) node[pos=.7,above,sloped]{\scriptsize $\alpha_{n-1}$};
-  %\tikzstyle{every node}=[circle,fill=white!10]
   \node (Q2) [draw=black,fit={(P5) (I5) (J51) (J52) (J5N1)}]{};
-  %\node (R2) [draw=black,fit={(I4) (J4N1)}, sloped]{};
   \draw[-implies,double equal sign distance,red] (Q2)--(J4N1) node[pos=.5,above,sloped]{};
   \node (Q3) [draw=black,fit={(P4) (Q2) (I4) (J41) (J42) (J4N1) (J4N)}]{};
   \draw[-implies,double equal sign distance,red] (Q3)--(J3N2)  node[pos=.5,above,sloped] {};
@@ -1675,7 +1637,6 @@ Then $\cQ_3^{[r]}$ can be found as a sub-2-quiver of $\cQ_3$ which is constructe
   \draw[-implies,double equal sign distance,red] (Q5)--(J11)  node[pos=.5,above,sloped,sloped] {};
   \draw[-implies,double equal sign distance,red] (Q4b)--(J22)  node[pos=.5,above,sloped] {};
   \draw[-implies,double equal sign distance,red] (Q5)--(J11)  node[pos=.5,above,sloped] {};
-
 \end{tikzpicture}
 \]  
 To avoid cluttering the diagram, we did not label the vertices in the illustration.
@@ -1775,8 +1736,9 @@ As already mentioned two different vertices of $\mathcal Q_{m+1}^{[r]}$ can corr
 Writing dimension vectors $\tbfe\in\NN^{\widetilde{K(n)_0}}$ as $\tbfe=\sum_{q\in \widetilde{K(n)_0}}\tbfe_q\cdot q$, the dimension types $\tbfe(\beta)$ and  $\bfe(\beta)$ of a subset $\beta\subset(\mathcal Q_{m+1}^{[r]})_0$ are defined by
 \[\tbfe (\beta)=\sum_{q\in\beta} \tilde q\in\NN^{\widetilde{K(n)_0}}\qquad\text{and}\qquad\bfe(\beta)=G\big(\tbfe(\beta)\big)\in\NN^{K(n)_0},\]
 where $\tilde q\in\widetilde{K(n)}_0$ is the vertex which corresponds to $q\in\beta\subset(\mathcal Q_{m+1}^{[r]})_0$.
-\begin{theorem}\mbox{}
+\begin{theorem}
   \label{thm:2quivercells}
+  \mbox{}
   \begin{enumerate}
     \item The affine cells of the cell decomposition of $\Gr_\tbfe\big(\tilde P_{m+1}^{[r]}\big)$ (resp. $\Gr_\bfe\big(P_{m+1}^{[r]}\big)$) induced by Theorem \ref{cellscover} can be labeled by strong successor closed subsets $\beta\subset\cQ_{m+1}^{[r]}$ of dimension type $\tbfe\in\NN^{\widetilde{K(n)_0}}$ (resp. $\bfe\in\NN^{K(n)_0}$) yielding a one-to-one correspondence between cells and strong successor closed subsets.
     \item For $\tbfe\in\NN^{\widetilde{K(n)_0}}$ (resp. $\bfe\in\NN^{K(n)_0}$), the Euler characteristic $\chi(\Gr_\tbfe(\tilde P_{m+1}^{[r]}))$ (resp. $\chi(\Gr_{\bfe }(P_{m+1}^{[r]}))$) is given by the number of strong successor closed subsets of dimension type $\tbfe$ (resp. $\bfe$) of the $2$-quiver of $\cQ_{m+1}^{[r]}$.
@@ -1807,63 +1769,49 @@ As an example consider the case $n=3$ and $m=3$. The $2$-quiver of $\tilde P_3$ 
 \draw[->] (I1)--(J11) node[pos=.7,above,sloped]{\scriptsize$a$};
 \draw[->] (I1)--(J12) node[pos=.7,above,sloped]{\scriptsize$b$};
 \draw[->] (I1)--(J13) node[pos=.7,above,sloped]{\scriptsize$c$};
-%\draw[->] (I1)--(J1N) node[pos=.7,above,sloped]{\scriptsize$\alpha_{n}$};
 
 \draw (2,0) node (I2) {$\bullet$} +(1,1) node (J21) {$\bullet$} +(1,0) node (J22) {$\bullet$} +(1,-1) node (J23) {$\bullet$}; 
 \draw[->] (I2)--(J21) node[pos=.7,above,sloped]{\scriptsize$a$};
 \draw[->] (I2)--(J22) node[pos=.7,above,sloped]{\scriptsize$b$};
 \draw[->] (I2)--(J23) node[pos=.7,above,sloped]{\scriptsize$c$};
-%\draw[->] (I1)--(J1N) node[pos=.7,above,sloped]{\scriptsize$\alpha_{n}$};
 \draw (6,0) node (I3) {$\bullet$} (5,0) node (J31) {$\bullet$} (4,0) node (J33) {$\bullet$}; 
 \draw[->] (I3)--(J31) node[pos=.5,above,sloped]{\scriptsize$a$};
-%\draw[->] (I3)--(J32) node[pos=.7,above,sloped]{\scriptsize$b$};
-%\draw[->] (I3)--(J33) node[pos=.7,above,sloped]{\scriptsize$c$};
-%\draw[->] (I1)--(J1N) node[pos=.7,above,sloped]{\scriptsize$\alpha_{n}$};
 \node (Q0)[draw=black,fit={(I3) (J31) }]{};
 \node (Q1)[draw=black,fit={(Q0) (J33)}]{};
 \node (Q2)[draw=black,fit={(Q1) (I2) (J21) (J22) (J23)}]{};
 
-%\node (Q3)[draw=black,fit={(Q2b) (B) (P1)}]{};
 \draw[-implies,double equal sign distance,red] (Q0)--(J33) node[pos=.5,above] {\scriptsize $b$};
 \draw[-implies,double equal sign distance,red] (Q1)--(J22) node[pos=.5,above] {\scriptsize $c$};
 \draw[-implies,double equal sign distance,red] (Q2)--(J11) node[pos=.5,above] {´};
 \end{tikzpicture}
 \bigskip
 
-The one of $\tilde P_4$ is given by:\bigskip
-
+The one of $\tilde P_4$ is given by:
+\bigskip
 \begin{tikzpicture}[scale=1]
 \draw (1.6,0) node (I1) {$\bullet$} +(1,1) node (J11) {$\bullet$} +(1,0) node (J12) {$\bullet$} +(1,-1) node (J13) {$\bullet$}; 
 \draw[->] (I1)--(J11) node[pos=.7,above,sloped]{\scriptsize$a$};
 \draw[->] (I1)--(J12) node[pos=.7,above,sloped]{\scriptsize$b$};
 \draw[->] (I1)--(J13) node[pos=.7,above,sloped]{\scriptsize$c$};
-%\draw[->] (I1)--(J1N) node[pos=.7,above,sloped]{\scriptsize$\alpha_{n}$};
 
 \draw (3.6,0) node (I2) {$\bullet$} +(1,1) node (J21) {$\bullet$} +(1,0) node (J22) {$\bullet$} +(1,-1) node (J23) {$\bullet$}; 
 \draw[->] (I2)--(J21) node[pos=.7,above,sloped]{\scriptsize$a$};
 \draw[->] (I2)--(J22) node[pos=.7,above,sloped]{\scriptsize$b$};
 \draw[->] (I2)--(J23) node[pos=.7,above,sloped]{\scriptsize$c$};
-%\draw[->] (I1)--(J1N) node[pos=.7,above,sloped]{\scriptsize$\alpha_{n}$};
 \draw (7.6,0) node (I3) {$\bullet$} +(-1,0) node (J31) {$\bullet$} +(-2,0) node (J33) {$\bullet$}; 
 \draw[->] (I3)--(J31) node[pos=.5,above,sloped]{\scriptsize$a$};
-%\draw[->] (I3)--(J32) node[pos=.7,above,sloped]{\scriptsize$b$};
-%\draw[->] (I3)--(J33) node[pos=.7,above,sloped]{\scriptsize$c$};
-%\draw[->] (I1)--(J1N) node[pos=.7,above,sloped]{\scriptsize$\alpha_{n}$};
 \node (Q0)[draw=black,fit={(I3) (J31) }]{};
 \node (Q1)[draw=black,fit={(Q0) (J33)}]{};
 \node (Q2)[draw=black,fit={(Q1) (I2) (J21) (J22) (J23)}]{};
 
-%\node (Q3)[draw=black,fit={(Q2b) (B) (P1)}]{};
 \draw[-implies,double equal sign distance,red] (Q0)--(J33) node[pos=.5,above] {\scriptsize $b$};
 \draw[-implies,double equal sign distance,red] (Q1)--(J22) node[pos=.5,above] {\scriptsize $c$};
 \draw[-implies,double equal sign distance,red] (Q2)--(J11) node[pos=.5,above] {};
-
 
 \draw (0,-4) node (I1b) {$\bullet$} +(1,1) node (J11b) {$\bullet$} +(1,0) node (J12b) {$\bullet$} +(1,-1) node (J13b) {$\bullet$}; 
 \draw[->] (I1b)--(J11b) node[pos=.7,above,sloped]{\scriptsize$a$};
 \draw[->] (I1b)--(J12b) node[pos=.7,above,sloped]{\scriptsize$b$};
 \draw[->] (I1b)--(J13b) node[pos=.7,above,sloped]{\scriptsize$c$};
-%\draw[->] (I1)--(J1N) node[pos=.7,above,sloped]{\scriptsize$\alpha_{n}$};
 
 \draw (2,-4) node (I2b) {$\bullet$} +(1,1) node (J21b) {$\bullet$} +(1,0) node (J22b) {$\bullet$} +(1,-1) node (J23b) {$\bullet$}; 
 \draw[->] (I2b)--(J21b) node[pos=.7,above,sloped]{\scriptsize$a$};
@@ -1895,18 +1843,21 @@ The one of $\tilde P_4$ is given by:\bigskip
 \draw[-implies,double equal sign distance,red] (Q1c)--(J22c) node[pos=.5,above] {\scriptsize $c$};
 \draw[-implies,double equal sign distance,red] (Q2c)--(Q0b) node[pos=.5,above] {};
 \draw[-implies,double equal sign distance,red] (Q3c)--(Q1) node[pos=.6,above] {};
+\end{tikzpicture}
+\bigskip
 
-\end{tikzpicture}\bigskip
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Compatible Pairs}
+
 For $m\ge1$, let $D_m$ denote the maximal Dyck path in the lattice rectangle with corner vertices $(0,0)$ and $(u_m,u_{m-1})$.  
 More precisely, $D_m$ is the lattice path which begins at $(0,0)$, takes East and North steps to end at $(u_m,u_{m-1})$, and never passes above the main diagonal joining $(0,0)$ and $(u_m,u_{m-1})$.  
 It is maximal in the sense that any lattice point lying strictly above $D_m$ also lies above the main diagonal.  
 The maximal Dyck paths $D_m$, $m\ge1$, exhibit the following recursive structure.
 In what follows we assume $n\ge2$.
 \begin{theorem}
-  \cite[Corollary 2.4]{rupel}
   \label{th:dyck path recursion}
+  \cite[Corollary 2.4]{rupel}
   For $n\ge2$, the maximal Dyck path $D_m$, $m\ge1$, can be constructed recursively as follows:
   \begin{enumerate}
     \item $D_1$ consists of a single horizontal edge;
@@ -1969,8 +1920,8 @@ Given edges $e,e'\in E_{m+1}$ with $e<e'$, write $ee'$ for the shortest subpath 
 
 The recursive structure of the maximal Dyck paths from Theorem~\ref{th:dyck path recursion} gives rise to a recursive characterization of compatible pairs.
 \begin{definition}
-  \cite[Definition 3.11]{rupel}
   \label{def:piecewise compatibility}
+  \cite[Definition 3.11]{rupel}
   A pair of subsets $S_H\subset H_{m+1}$ and $S_V\subset V_{m+1}$ is called \emph{piecewise compatible} if, for each $1\le r\le n$, one of the conditions \eqref{eq:hgc} or \eqref{eq:vgc} is satisfied for each pair $(h,v)\in S_H\times S_V$ with $h\in H_{m,i}$ and $v\in V_{m,i}$.
 \end{definition}
 \begin{remark}
@@ -1997,8 +1948,8 @@ Similarly, for a vertical edge $v\in V_{m+1}$ and a subset $S_V\subset V_{m+1}$,
 \end{definition}
 
 \begin{theorem}
-  \cite[Theorem 3.20 and Corollary 3.22]{rupel}
   \label{th:blocking edge conditions}
+  \cite[Theorem 3.20 and Corollary 3.22]{rupel}
   For $m\ge2$, suppose $S_H\subset H_{m+1}$ and $S_V\subset V_{m+1}$ are piecewise compatible. 
   Then the following hold:
   \begin{enumerate}
@@ -2087,7 +2038,8 @@ We conjecture that the torus action on $\Gr_\bfe(P_{m+1})$ can be chosen to prov
   \label{conj:cell dimensions}
   For $m\ge1$ and $V\in\Gr(H_m)$ or $V=0$, there exists a torus action on $\Gr_\bfe(P_{m+1}^V)$ such that the dimension of the cell labeled by a compatible pair $(S_H,S_V)$ in the maximal Dyck path $D_{m+1}^{[r]}$, where $r=\dim V$, is given by $\overline{\gamma}_{S_H,S_V}=\sum\limits_{e<e'\in E_{m+1}^{[r]}}\overline{\gamma}_\omega(e,e')$ for
   \begin{equation*}
-    \overline{\gamma}_\omega(e,e')=\begin{cases}
+    \overline{\gamma}_\omega(e,e')=
+    \begin{cases}
       -n & \text{if $e\in S_H$ and $e'\in S_V$;}\\ 
       1 & \text{if $e\in S_H$ and $e'\in H_{m+1}^{[r]}\setminus S_H$;}\\ 
       1 & \text{if $e\in V_{m+1}^{[r]}\setminus S_V$ and $e'\in S_V$;}\\ 
@@ -2101,49 +2053,57 @@ We conjecture that the torus action on $\Gr_\bfe(P_{m+1})$ can be chosen to prov
 
 \bibitem{ass} 
   I.~Assem, D.~Simson, A.~Skowronski: Elements of the Representation Theory of Associative Algebras. Cambridge University Press, Cambridge 2007.
+
 \bibitem{ars} 
   M.~Auslander, I.~Reiten, S.~O.~Smalo: Representation theory of Artin algebras {\bf 36}. Cambridge University Press, Cambridge 1997.
+
 \bibitem{bb} 
   A.~Bia\l{}ynicki-Birula: Some theorems on actions of algebraic groups. Annals of Mathematics \textbf{98}, 480-497 (1973).
+
 \bibitem{bgp} 
   I.~N.~Bernstein, I.~M.~Gelfand, V.~A.~Ponomarev: Coxeter functors, and Gabriel's theorem. Russian Mathematical Surveys \textbf{28}(2), 17-32 (1973).
+
 \bibitem{brenner-butler} 
   S.~Brenner, M.~C.~R.~Butler: The equivalence of certain functors occurring in the representation theory of artin algebras and species. Journal of the London Mathematical Society \textbf{2}(1), 183-187 (1976).
+
 \bibitem{cc} 
   P.~Caldero, F.~Chapoton: Cluster algebras as {H}all algebras of quiver representations. Commentarii Mathematici Helvetici \textbf{81}(3), 595-616 (2006).
+
 \bibitem{ck} 
   P.~Caldero, B.~Keller: From triangulated categories to cluster algebras II.  Annales Scientifique de l'Ecole Normale Superi\'{e}ure (4) \textbf{39} (6), 983-1009 (2006).
-\bibitem{ca}	J.B.~Carrell: Torus actions and cohomology. Algebraic quotients. Torus actions and cohomology. The adjoint representation and the adjoint action, 83-158. Encyclopaedia Mathematical Science \textbf{131}, Invariant Theory and Algebraic
-Transformation Groups, Springer, Berlin, 2002.
+
+\bibitem{ca}	J.B.~Carrell: Torus actions and cohomology. Algebraic quotients. Torus actions and cohomology. The adjoint representation and the adjoint action, 83-158. Encyclopaedia Mathematical Science \textbf{131}, Invariant Theory and Algebraic Transformation Groups, Springer, Berlin, 2002.
+
 \bibitem{ce} 
   G.~Cerulli Irelli, F.~Esposito: Geometry of quiver Grassmannians of Kronecker type and applications to cluster algebras. Algebra \&  Number Theory \textbf{5}(6), 777-801 (2011).
+
 \bibitem{cefr} 
   G.~Cerulli Irelli, F.~Esposito, H.~Franzen, M.~Reineke: Topology of Quiver Grassmannians. Preprint 2018.
+
 \bibitem{cr} 
   P.~Caldero, M.~Reineke: On the quiver Grassmannian in the acyclic case. Journal of Pure and Applied Algebra \textbf{212}(11), 2369-2380 (2008).
-%\bibitem{cj} Crawley-Boevey, W., Jensen, Bernt Tore: A note on sub-bundles of vector bundles. Glasgow Mathematical Journal \textbf{48}, 459-462 (2006).
+
 \bibitem{gab} 
   P.~Gabriel: The universal cover of a finite-dimensional algebra. Representations of algebras. Lecture Notes in Mathematics {\bf 903}, 68-105 (1981).
-%\bibitem{hr} 
- % D.~Happel, C.~M.~Ringel: Tilted Algebras. Transactions of the American Mathematical Society {\bf 274}(2), 399-443 (1982).
+
 \bibitem{llz} 
   K.~Lee, L.~Li, A.~Zelevinsky: Greedy elements in rank 2 cluster algebras. Selecta Mathematica \textbf{20}(1), 57-82 (2014).
+
 \bibitem{lw} 
   O.~Lorscheid, T.~Weist: Representation type via Euler characteristics and singularities of quiver Grassmannians. Preprint 2017, arXiv:1706.00860.
+
 \bibitem{rin1} 
   C.~M.~Ringel. Exceptional modules are tree modules. Linear algebra and its Applications \textbf{275/276}, 471-493 (1998).
-%\bibitem{rin} 
- % C.~M.~Ringel: Reflection functors for hereditary algebras. Journal of the London Mathematical Society (2) {\bf 21}(3), 465-479 (1980).
-%\bibitem{mats} Matsumura, H.: Commutative ring theory. 
+
 \bibitem{rupel} 
   D.~Rupel: Rank Two Non-Commutative Laurent Phenomenon and Pseudo-Positivity. Preprint 2017, arXiv:1707.02696.
+
 \bibitem{sch} 
   A.~Schofield: General representations of quivers. Proceedings of the London Mathematical Society (3) \textbf{65}(1), 46-64 (1992).
+
 \bibitem{wei} 
   T.~Weist: Localization of quiver moduli spaces. Representation Theory \textbf{17}(13), 382-425 (2013).
-%\bibitem{wei2} 
- % T.~Weist: Tree modules. Bulletin of the London Mathematical Society \textbf{44}(5), 882-898 (2012).
-%\bibitem{wei3} Weist, T.: On the recursive construction of indecomposable quiver representations. Journal of Algebra \textbf{443}, 49-74 (2015).
+
 \end{thebibliography}
 
 \end{document}
