@@ -972,6 +972,7 @@ Observe that each Schubert cell $X_\bfi$ is invariant under this $\CC^*$-action.
 
 Assume that $X=\bigoplus_{l=1}^m X_l$ is a direct sum decomposition of $X$ and fix a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of~$X$ which is compatible with this decomposition, i.e.\ there exist indices $0=r_0<r_1<r_2<\cdots<r_{m-1}<r_m=n$ such that
 \[v_{r_0+1},\ldots,v_{r_1}\in X_1,\quad v_{r_1+1},\ldots,v_{r_2}\in X_2,\quad\cdots\quad v_{r_{m-1}+1},\ldots,v_{r_m}\in X_m.\]
+The following lemma generalizes \cite[Theorem 1]{cerulli}.
 \begin{lemma}
   \label{le:usualGrass}
   Consider a map $d:\{1,\ldots,n\}\to\ZZ$ such that $d(r)=d(r')$ if $v_r,v_{r'}\in X_l$ for some $l$ and $d(r)\neq d(r')$ if $v_r\in X_l$ and $v_{r'}\in X_{l'}$ with $l\neq l'$.
@@ -1180,7 +1181,9 @@ For a fixed dimension vector $\tbfe$, this induces the so-called ``Caldero-Chapo
   E&\mapsto \big(E\cap M,(E+M)/M\big).
 \end{align*}
 Following \cite[Section 3]{cc}, any non-empty fiber of $\Psi$ satisfies $\Psi^{-1}(U,W)\cong\mathbb{A}^{\dim\Hom(W,M/U)}$.
-
+\begin{remark}
+We should always keep in mind that the middle term $B$ and the Caldero-Chapoton depend on the short exact sequence $\eta\in\Ext(N,M)$, i.e. to be more exact we should have named it $\Psi^{\eta}$. As a matter of readability we decided to omit this index.
+\end{remark}
 For $\cG_{\tbff,\tbfg}:=\Psi^{-1}\big(\Gr_\tbff(M)\times \Gr_\tbfg(N)\big)$, we have 
 \begin{equation}
   \label{eq:grassmannian decomposition}
@@ -2076,6 +2079,8 @@ We conjecture that the torus action on $\Gr_\bfe(P_{m+1})$ can be chosen to prov
 
 \bibitem{ce} 
   G.~Cerulli Irelli, F.~Esposito: Geometry of quiver Grassmannians of Kronecker type and applications to cluster algebras. Algebra \&  Number Theory \textbf{5}(6), 777-801 (2011).
+
+\bibitem{cerulli} G.~Cerulli Irelli: Quiver Grassmannians associated with string modules. Journal of Algebraic Combinatorics \textbf{33}(2), 259-276 (2011).
 
 \bibitem{cefr} 
   G.~Cerulli Irelli, F.~Esposito, H.~Franzen, M.~Reineke: Topology of Quiver Grassmannians. Preprint 2018.
