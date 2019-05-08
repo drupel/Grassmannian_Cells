@@ -1,0 +1,73 @@
+\documentclass[titlepage,11pt,a4paper]{{scrartcl}}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[arrow,matrix,curve]{xy}
+\usepackage[latin1]{inputenc}
+\usepackage{theorem}
+\usepackage{geometry}
+\usepackage{enumitem}
+\geometry{a4paper,top=3cm, bottom=3cm} 
+\newtheorem{satz}{Theorem}
+\newtheorem{aufg}[satz]{Aufgabe}
+\newtheorem{defi}[satz]{Definition}
+\newtheorem{bem}[satz]{Remark}
+\newtheorem{kor}[satz]{Corollary}
+\newtheorem{lem}[satz]{Lemma}
+\newtheorem{ver}[satz]{Conjecture}
+\newtheorem{zit}[satz]{Zitat}
+\newtheorem{beo}[satz]{Beobachtung}
+\newtheorem{bei}[satz]{Example}
+\newtheorem{pro}[satz]{Proposition}
+\newcommand{\dju}{\bigcup\hspace{-2.23mm\dot}\hspace{2mm}}
+\newcommand{\modu}{~\rm{mod}~}
+\newcommand{\smdju}{\cup\hspace{-2.15mm\dot}\hspace{2mm}}
+\newcommand\dis[1]{\bigcup_{#1}\hspace{-2.5mm\dot}\hspace{2mm}}
+\newcommand{\qed}{\begin{flushright}$\square$\end{flushright}}
+\newcommand\R{$\mathbb{R}$}
+\newcommand\Q{$\mathbb{Q}$}
+\newcommand\Z{$\mathbb{Z}$}
+\newcommand\N{$\mathbb{N}$}
+\newcommand\C{$\mathbb{C}$}
+\newcommand\Rn{\mathbb{R}}
+\newcommand\Qn{\mathbb{Q}}
+\newcommand\Zn{\mathbb{Z}}
+\newcommand\Nn{\mathbb{N}}
+\newcommand\Cn{\mathbb{C}}
+\newcommand\Sk{\langle\,\,,\,\rangle}
+\newcommand{\Hom}{\mathrm{Hom}} 
+
+\newcommand{\filt}[6]{
+\[
+\begin{xy}
+\xymatrix@R20pt@C20pt{
+&\mathbb{C}^3&\\\langle #1,#2 \rangle\ar[ru]&\langle #3,#4\rangle\ar[u]&\langle #5,#6\rangle\ar[lu]\\\langle #1\rangle\ar[u]&\langle #3\rangle\ar[u]&\langle #5\rangle\ar[u]}
+\end{xy}
+\]
+} 
+\begin{document}
+\pagestyle{empty}
+
+
+\noindent{\bf Response to the reviewer - Cell decompositions for rank two quiver Grassmannians}\\
+
+
+
+\noindent In the following, we point out the changes we made.
+
+Section 4:
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\item This should be a matter of definition and by reindexing appropriately we should get the version with $\ast$'s on the right.
+\item We refer to Cerulli Irelli's paper now. But not that the assumptions in Theorem 1 are stronger than ours as we do not assume that every basis element is mapped on a scalar multiple of another basis element. Note also that the number of fixed points is finite in Cerulli Irelli's case which is not true in general.
+\item Then I think that Haupt's result is also not as general as ours, but I need to check this.
+\item We inserted a remark which addresses this issue.
+\item Theorems 4.20, 4.21 are to be updated.
+\item Corollary 4.23: shorten the proof in the middle, the argument stays the same.
+\end{enumerate}
+
+
+\end{document}

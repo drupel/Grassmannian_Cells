@@ -1,12 +1,9 @@
-\documentclass{amsart}
+\documentclass[smallextended,envcountsect,envcountsame]{svjour3}
 
 % Commands for marginal notes
-\usepackage[draft]{say}
-\newcommand{\sayD}[1]{\say[D]{#1}}
-\newcommand{\sayT}[1]{\say[T]{#1}}
 
 \usepackage{amsmath,amssymb,latexsym,color}
-\usepackage[bookmarks=true,colorlinks=true, linkcolor=blue, citecolor=cyan]{hyperref}
+\usepackage[bookmarks=true,colorlinks=true, linkcolor=blue, citecolor=black]{hyperref}
 \usepackage{tikz}
 \usetikzlibrary{arrows}
 \usetikzlibrary{fit}
@@ -15,20 +12,21 @@
 \usepackage{verbatim}
 \input xy
 \xyoption{all}
+\smartqed
 
 %\usepackage[inline]{showlabels}
 %\usepackage[marginal]{showlabels}
 
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{claim}[theorem]{Claim}
-\newtheorem{conjecture}[theorem]{Conjecture}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{question}[theorem]{Question}
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{remark}[theorem]{Remark}
-\newtheorem{example}[theorem]{Example}
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{claim}[theorem]{Claim}
+%\newtheorem{conjecture}[theorem]{Conjecture}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{question}[theorem]{Question}%
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{example}[theorem]{Example}
 \newtheorem{thm}{Theorem}
 \numberwithin{equation}{section}
 
@@ -97,14 +95,19 @@
 
 \title[Cell Decompositions for Quiver Grassmannians]{Cell Decompositions for Rank Two Quiver Grassmannians}
 
-\author{Dylan Rupel}
-\address[Dylan Rupel]{University of Notre Dame, Department of Mathematics, Notre Dame, IN 46556, USA}
-\email{drupel@nd.edu}
-\author{Thorsten Weist}
-\address[Thorsten Weist]{Bergische Universit\"at Wuppertal, Gau\ss str.\ 20, 42097 Wuppertal, Germany}
-\email{weist@uni-wuppertal.de}
+\author{Dylan Rupel \and Thorsten Weist}
+\institute{Dylan Rupel \at University of Notre Dame, Department of Mathematics, Notre Dame, IN 46556, USA\\\email{drupel@nd.edu} \and Thorsten Weist \at Bergische Universit\"at Wuppertal, Gau\ss str.\ 20, 42097 Wuppertal, Germany\\\email{weist@uni-wuppertal.de}}
+
+%\email{drupel@nd.edu}
+%\author{Thorsten Weist}
+%\institute{Bergische Universit\"at Wuppertal, Gau\ss str.\ 20, 42097 Wuppertal, Germany}
+%\email{weist@uni-wuppertal.de}
 
 \begin{document}
+\setcounter{tocdepth}{2}
+
+\maketitle%\tableofcontents
+
 \begin{abstract}
   We prove that all quiver Grassmannians for exceptional representations of a generalized Kronecker quiver admit a cell decomposition.  
   In the process, we introduce a class of regular representations which arise as quotients of consecutive preprojective representations.
@@ -113,16 +116,14 @@
   On the one hand, they are labeled by certain subsets of a so-called $2$-quiver attached to a (truncated) preprojective representation.
   On the other hand, the cells are in bijection with compatible pairs in a maximal Dyck path as predicted by the theory of cluster algebras.
   The natural bijection between these two labelings gives a geometric explanation for the appearance of Dyck path combinatorics in the theory of quiver Grassmannians. 
+	\subclass{16G20,14M15,13F60}
+	\keywords{Quiver Grassmannians, torus action, generalized Kronecker quiver, cell decompositions, combinatorial labeling of cells}
+
 \end{abstract}
 
-\setcounter{tocdepth}{2}
-
-\maketitle
-
-\tableofcontents
 %%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
-\noindent A quiver Grassmannian is a projective variety attached to a fixed quiver representation which parametrizes subrepresentations of a fixed dimension vector.
+\noindent A quiver Grassmannian is a projective variety attached to a fixed quiver representation which parame\-tri\-zes subrepresentations of a fixed dimension vector.
 In recent years, interest in quiver Grassmannians has grown considerably.
 On the one hand, this is due to the fact that generating functions for the Euler characteristics of quiver Grassmannians of exceptional representations can be found as cluster variables \cite{ck}.
 On the other hand, they are clearly interesting on their own as they reveal many properties of the representation and its geometry.
@@ -260,7 +261,7 @@ In addition, observe that every connected component of the universal covering qu
   Now every preprojective or preinjective representation of $Q$ can be obtained by applying a sequence of BGP-reflections \cite{bgp} to a simple representation $S'_j$ of a quiver $Q'$ whose underlying graph is the same as the one for $Q$.
   Applying a BGP-reflection to a fixed vertex $i$ of $Q$ corresponds to applying BGP-reflections to all vertices $(i,\chi)\in\hat Q_0$, where $\chi$ runs through all $\chi\in A_Q$ (resp. to all $(i,w)\in \tilde Q_0$ with $w\in W_Q$).
   This gives both claims.
-\end{proof}
+\qed\end{proof}
 
 The functor $F_Q$ induces a map $F_Q:\ZZ^{\hat Q_1}\to \ZZ^{Q_1}$.
 We say that a dimension vector $\hat \bfe$ of $\hat Q$ is \emph{compatible} with $\bfe$ if $F_Q(\hat\bfe)=\bfe$.
@@ -300,7 +301,7 @@ Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=
 The following is well-known.
 \begin{theorem}
   \label{th:rigids}
-  For each $m\ge1$, there exist unique (up to isomorphism) exceptional representations $P_m$ and $I_m$ of $K(n)$ with dimension vectors $(u_m,u_{m-1})$ and $(u_{m-1},u_m)$ respectively satisfying $\Hom(P_m,P_r)=0$ (resp. $\Hom(I_r,I_m)=0$) and $\Ext(P_r,P_m)=0$ (resp. $\Ext(I_m,I_r)=0$) for $1\leq r\leq m$.
+  For each $m\ge1$, there exist unique (up to isomorphism) exceptional representations $P_m$ and $I_m$ of $K(n)$ with dimension vectors $(u_m,u_{m-1})$ and $(u_{m-1},u_m)$ respectively such that $\Hom(P_m,P_r)=0$ (resp. $\Hom(I_r,I_m)=0$) and $\Ext(P_r,P_m)=0$ (resp. $\Ext(I_m,I_r)=0$) for $1\leq r\leq m$.
   Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}\oplus P_{m+1}^{a_2}$ or $I_m^{a_1}\oplus I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
 	
 \end{theorem}
@@ -348,7 +349,7 @@ where the right-hand morphism is the natural evaluation map.
   As $\Hom(P_2,P_1)=0$ and as the vertical maps are surjective, the representation $K$ has no direct summand which is isomorphic to $P_1=S_1$.
   But this already shows that $K$ is indecomposable as $\udim K=(\dim \cH_1/V,1)$.
   Since $V$ is a proper subspace of $\cH_1$, $\udim K$ is not the dimension vector of a preinjective representation and the claim follows.
-\end{proof}
+\qed\end{proof}
 
 In what follows we will not distinguish between $P_m\otimes V$ and its image under $ev_V$.
 
@@ -381,7 +382,7 @@ We collect below several basic homological results related to preprojective repr
   \[\Ext(P_m,P_{m+1})\cong\Ext(P_m,P_{m+1}^V).\]
   But there is a natural isomorphism $\Hom(P_m,P_m\otimes V)\cong V$ and the first claim follows.
   The final claim follows from Theorem ~\ref{th:rigids} which implies $\Ext(P_m,P_{m+1})=0$.
-\end{proof}
+\qed\end{proof}
 
 \begin{lemma}
   \label{le:unique preprojective morphism}
@@ -395,7 +396,7 @@ We collect below several basic homological results related to preprojective repr
   \[\Ext(P_{m+1},P_{m+1})\cong\Ext(P_{m+1},P_{m+1}^V).\]
   Under the first isomorphism, the identity map on $P_{m+1}$ is taken to the projection $\pi_V:P_{m+1}\to P_{m+1}^V$.
   The second isomorphism together with the rigidity of $P_{m+1}$ gives the final claim.
-\end{proof}
+\qed\end{proof}
 
 \begin{lemma}
   \label{le:unique morphisms}
@@ -407,13 +408,13 @@ We collect below several basic homological results related to preprojective repr
 \end{lemma}
 \begin{proof}
   We apply the functor $\Hom(-,P_{m+1}^V)$ to the sequence \eqref{eq:truncated preprojectives} for $W$ to get an exact sequence
-  \[0\longrightarrow \Hom(P_{m+1}^W,P_{m+1}^V)\longrightarrow \Hom(P_{m+1},P_{m+1}^V)\stackrel{-\circ ev_W}{\longrightarrow} \Hom(P_m\otimes W,P_{m+1}^V)\longrightarrow \Ext(P_{m+1}^W,P_{m+1}^V)\longrightarrow 0.\]
+  \[0\rightarrow \Hom(P_{m+1}^W,P_{m+1}^V)\longrightarrow \Hom(P_{m+1},P_{m+1}^V)\stackrel{-\circ ev_W}{\longrightarrow} \Hom(P_m\otimes W,P_{m+1}^V)\longrightarrow \Ext(P_{m+1}^W,P_{m+1}^V)\rightarrow 0.\]
   But the space $\Hom(P_{m+1},P_{m+1}^V)$ is one-dimensional and thus $\Hom(P_{m+1}^W,P_{m+1}^V)$ is nonzero if and only if the morphism $-\circ ev_W$ of the above sequence is zero.
   But this occurs exactly when the image of the map $ev_W:P_m\otimes W\to P_{m+1}$ is contained in the kernel of $\pi_V$, i.e.\ in the image of $ev_V:P_m\otimes V\to P_{m+1}$, and this occurs if and only if $W\subset V$. 
   In this case, there are isomorphisms
   \[\Ext(P_{m+1}^W,P_{m+1}^V)\cong\Hom(P_m\otimes W,P_{m+1}^V)\cong W^*\otimes \cH_m/V,\]
   where the last isomorphism is immediate from Lemma~\ref{le:truncated homomorphisms}.
-\end{proof}
+\qed\end{proof}
 \begin{remark}
   The total Grassmannian $\Gr(\cH_m)$ is naturally a poset under inclusion.
   This structure gives rise to a $\CC$-linear category $\CC \Gr(\cH_m)$ with objects the elements of $\Gr(\cH_m)$ and at most one morphism (up to scalars) between any two objects.
@@ -421,7 +422,7 @@ We collect below several basic homological results related to preprojective repr
   By Lemma~\ref{le:unique morphisms}(1), the functor $V\mapsto P_{m+1}^V$ gives an isomorphism of categories $\CC \Gr(\cH_m)\cong\cP_{m+1}$.
 \end{remark}
 
-For the truncated preprojective representations $P_{m+1}^V$, we have  $\udim P_{m+1}^V=d(m,\dim V):=\udim P_{m+1}-\dim V\cdot\udim P_m$.
+The truncated preprojective representation $P_{m+1}^V$ has dimension vector  $\udim P_{m+1}^V=d(m,\dim V):=\udim P_{m+1}-\dim V\cdot\udim P_m$.
 These will play an important role when describing quiver Grassmannians of preprojective representations recursively.
 For a dimension vector $d=(d_1,d_2)\in\NN^{K(n)_0}$, write 
 \[R_d(K(n))=\bigoplus_{i=1}^n\Hom_{\CC}(\CC^{d_2},\CC^{d_1})\]
@@ -454,7 +455,7 @@ for the affine space of representations of $K(n)$ with dimension vector $d$.
   As there exist representations with trivial endomorphism ring, the dimension vectors $d(m,r)$ are Schur roots.
   It follows that the set of indecomposable representations with trivial endomorphism ring forms a dense open subset of $R_{d(m,r)}(K(n))$, see for example \cite[Theorem 2.2]{sch}.
   This shows the last claim.
-\end{proof}
+\qed\end{proof}
 \begin{remark}
   There is a more elegant way to prove the first part of Proposition~\ref{pro:indecomposables} using the notion of stability and moduli spaces.
   Actually, fixing the standard stability induced by the linear form $\Theta:\ZZ^{Q_0}\to\ZZ$ defined by $\Theta(d)=d_2$, it can be shown that all indecomposables are stable and that the moduli space of stable representations is in fact $\Gr_l(\CC^n)$.
@@ -468,7 +469,7 @@ for the affine space of representations of $K(n)$ with dimension vector $d$.
 \begin{proof}
   Recall that $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some indecomposable representation $X$ and some $\ell\ge1$ implies that $X$ is preprojective of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$).
   However, $P_{m+1}^V$ is indecomposable by Proposition~\ref{pro:indecomposables} and it cannot be preprojective as it is not rigid by Lemma~\ref{le:unique morphisms}.
-\end{proof}
+\qed\end{proof}
 
 \begin{lemma}
   \label{le:reflected truncated preprojectives}
@@ -480,7 +481,7 @@ for the affine space of representations of $K(n)$ with dimension vector $d$.
   Thus, following Remark~\ref{rem:reflection recursion}, we may apply the functor $\Sigma_1(-)^\sigma$ to the sequence \eqref{eq:truncated preprojectives} to get the exact sequence
   \[0\longrightarrow P_{m-1}\otimes V\xrightarrow{\Sigma_1(ev_V)^\sigma} P_m\longrightarrow \Sigma_1(P_{m+1}^V)^\sigma\longrightarrow 0\]
   which gives the claim.
-\end{proof}
+\qed\end{proof}
 
 \begin{lemma}
   \label{le:projective subrepresentations}
@@ -493,7 +494,7 @@ for the affine space of representations of $K(n)$ with dimension vector $d$.
 
   For $m\ge2$, we observe by induction that Lemma~\ref{le:reflected truncated preprojectives} implies that any subrepresentation of $P_{m+1}^V$ which has no summand isomorphic to $P_1$ must be a direct sum of preprojective representations $P_r$ with $2\le r\le m$.
   Indeed, each of these is obtained from a subrepresentation of $\Sigma_1(P_{m+1}^V)^\sigma$ by applying the functor $\Sigma_2(-)^\sigma$ and the claim follows from the recursions in Remark~\ref{rem:reflection recursion} for preprojective representations.
-\end{proof}
+\qed\end{proof}
 
 For $V\in \Gr(\cH_m)$, $m\ge1$, any subspace $W\subset V$ gives rise to an exact sequence
 \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar[r]^(.6){ev} & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0},\]
@@ -512,7 +513,7 @@ Each such sequence has the following almost-split property for proper subreprese
     0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
   must split.
   The claim for arbitrary subrepresentations $Z\subset P_m\otimes(V/W)$ is an immediate consequence of this splitting.
-\end{proof}
+\qed\end{proof}
 
 \begin{lemma}
   \label{le:unique truncated extension}
@@ -523,7 +524,7 @@ Each such sequence has the following almost-split property for proper subreprese
   \end{equation}
 \end{lemma}
 \begin{proof}
-  Applying the functor $\Hom(-,P_{m-1})$ to the sequence \eqref{eq:truncated preprojectives} gives an isomorphism $\Ext(P_{m+1}^V,P_{m-1})\cong\Ext(P_{m+1},P_{m-1})$ with a one-dimensional space.
+ When applying the functor $\Hom(-,P_{m-1})$ to the sequence \eqref{eq:truncated preprojectives}, we obtain an isomorphism $\Ext(P_{m+1}^V,P_{m-1})\cong\Ext(P_{m+1},P_{m-1})$ with a one-dimensional space.
   Writing $X$ for the unique extension of $P_{m+1}^V$ by $P_{m-1}$, this isomorphism gives rise to the following pullback diagram:
   \[\xymatrix{ & & 0 \ar[d] & 0\ar[d] & \\
     & & P_m\otimes V \ar@{=}[r]\ar[d] & P_m\otimes V\ar[d] & \\
@@ -531,7 +532,7 @@ Each such sequence has the following almost-split property for proper subreprese
     0 \ar[r] & P_{m-1} \ar[r]^{\kappa_V} & X \ar[r]\ar[d] & P_{m+1}^V \ar[r]\ar[d] & 0\\
     & & 0 & 0 & }\]
   from which we immediately obtain the isomorphism $X\cong P_m\otimes(\cH_m/V)$.
-\end{proof}
+\qed\end{proof}
 
 \begin{lemma}
   \label{le:preprojective homomorphism duality}
@@ -543,7 +544,7 @@ Each such sequence has the following almost-split property for proper subreprese
   Then $\bar{\varphi}=0\in \cH_{m-1}$ if and only if the image of $\iota_{m-1}$ is contained in $P_m\otimes V\subsetneq P_m\otimes \cH_m$.
   But then Lemma~\ref{le:injective evaluation maps} implies $ev\circ\iota_{m-1}=ev_V\circ\iota_{m-1}\ne0$, a contradiction.
   Thus the map $\cH_m^*\to \cH_{m-1}$, $\varphi\mapsto\bar{\varphi}$ must be injective and hence an isomorphism.
-\end{proof}
+\qed\end{proof}
 \begin{remark}
   The set $\Gr(\cH_m)$ is naturally a poset and Lemma~\ref{le:preprojective homomorphism duality} gives an identification of the opposite poset $\Gr(\cH_m)^{op}\cong \Gr(\cH_m^*)$ with $\Gr(\cH_{m-1})$.
   We write $\bar{V}\subset \cH_{m-1}$ for the subspace corresponding to $V\subset \cH_m$ under this identification.
@@ -559,7 +560,7 @@ Each such sequence has the following almost-split property for proper subreprese
   \[\xymatrix{0 \ar[r] & P_{m-1} \ar[r]^(.35){\kappa_V} & P_m\otimes(\cH_m/V) \ar[r]^(.625){ev} & P_{m+1}^V \ar[r] & 0}.\]
   But $\cH_m/V$ is a one-dimensional vector space and so $P_m\otimes(\cH_m/V)\cong P_m$.
   Under this identification, the left hand morphism $\kappa_V$ in the sequence above identifies with a generator of $\bar{V}$ and thus $P_{m+1}^V\cong P_m^{\bar{V}}$.
-\end{proof}
+\qed\end{proof}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -603,7 +604,7 @@ To simplify the notation, we abbreviate $\tilde P_{2l-1,j}:=\tilde P_{2l-1,\alph
 \end{lemma}
 \begin{proof}
   This is clear for $m=1$ and follows in general by applying the recursion \eqref{eq:recursive covers}.
-\end{proof}
+\qed\end{proof}
 \begin{remark}
   Note that the dimension vectors of the lifted preprojectives $\tilde P_m$ are symmetric under permutations of the arrows of $K(n)$ (or rather the corresponding operation on $\widetilde{K(n)}$).
   In particular, they all have the same central vertex $(1,e)$ if $m$ is odd and central vertex $(2,e)$ if $m$ is even.
@@ -641,8 +642,7 @@ To simplify the notation, we abbreviate $\tilde P_{2l-1,j}:=\tilde P_{2l-1,\alph
   where the top vertex of dimension $n-1$ is $(1,e)$ and the arrow from each $\alpha_j^{-1}.\cA_j$ emanates from its unique source~$(2,\alpha_j^{-1})$.
   Then $\tilde P_{2,j}\subset\tilde P_3$ has one-dimensional spaces at each vertex of the quiver
   \[\xymatrix@R40pt@C10pt{&&&(1,e)&&&\\ &&&(2,\alpha_j^{-1})\ar_{\alpha_j}[u]\ar_{\alpha_1}[llld]\ar_(.65){\alpha_{j-1}}[ld]\ar^(.65){\alpha_{j+1}}[rd]\ar^{\alpha_n}[rrrd]&&&\\ (1,\alpha_j^{-1}\alpha_1)&\cdots&(1,\alpha_j^{-1}\alpha_{j-1})&&(1,\alpha_j^{-1}\alpha_{j+1})&\cdots&(1,\alpha_j^{-1}\alpha_n).}\]
-
-  The representation $\tilde P_4$ has support quiver
+ The representation $\tilde P_4$ has support quiver
   \begin{equation}
     \label{dia:P4 quiver}
     \xymatrix@R40pt@C10pt{&n-1\ar_{\alpha_1}[ld]\ar^{\alpha_n}[rd]&\\ \alpha_1.\cB_1&\cdots&\alpha_n.\cB_n,}
@@ -694,7 +694,7 @@ The next result establishes some basic homological properties of the translated 
   For part (4), observe that under the isomorphism from part (1) the subset $I\subsetneq\{1,\ldots,n\}$ corresponds to the subspace $V\subset \cH_m$ spanned by the generators of the direct summands $\Hom(\tilde P_{m,i},\tilde P_{m+1})$ for $i\in I$.
   The map $\bigoplus_{i\in I} \tilde P_{m,i}\to\tilde P_{m+1}$ is then a lift of the evaluation morphism $ev_V:P_m\otimes V\to P_{m+1}$ and hence is injective by Lemma~\ref{le:injective evaluation maps}.
   Taking the cokernel defines the truncated preprojective $\tilde P_{m+1}^I$ and the preceding discussion shows that $G(\tilde P_{m+1}^I)\cong P_{m+1}^V$ is truncated preprojective as well.
-\end{proof}
+\qed\end{proof}
 
 It will be important to understand the possible subrepresentations of the truncated preprojective representations $\tilde P_{m+1}^I$.
 \begin{lemma}
@@ -706,7 +706,7 @@ It will be important to understand the possible subrepresentations of the trunca
   Then Lemma~\ref{le:projective subrepresentations} shows that all subrepresentations of $G(\tilde P_{m+1}^I)$ are direct sums of preprojective representations of $K(n)$.
   But any subrepresentation of $\tilde P_{m+1}^I$ also projects to a subrepresentation of $G(\tilde P_{m+1}^I)$.
   Since, following Lemma~\ref{le:lifts of transjectives}, any lift of a preprojective of $K(n)$ will be a preprojective representation of $\widetilde{K(n)}$, this gives the result.
-\end{proof}
+\qed\end{proof}
 
 In what follows, we will need to carefully understand the homological properties of the truncated preprojectives for $\widetilde{K(n)}$.
 \begin{lemma}
@@ -739,7 +739,7 @@ In what follows, we will need to carefully understand the homological properties
   Then Lemma~\ref{le:homdecomposition}.(2) gives the final claim of part (3).
 
   Part (4) follows by applying $\Hom(-,\tilde P^I_{m+1})$ to the sequence \eqref{ses1} for $J$ then using parts (1) and (2).
-\end{proof}
+\qed\end{proof}
 
 \begin{example}
   \label{ex:truncated lifts}
@@ -768,7 +768,7 @@ In what follows, we will need to carefully understand the homological properties
   \[\ses{\bigoplus_{i\in I} \tilde P_{m-1,i}}{\tilde P_m}{\tilde\Sigma_2(\tilde P_{m-1}^I)^\sigma}.\]
   The equality $\tilde\Sigma_2(\tilde P_{m-1}^I)^\sigma=\tilde P_m^I$ immediately follows.
   The equality $\tilde P_{m+1}^I=\tau^{-1}\tilde P_{m-1}^I$ is obtained in the same way using the functor $\tilde\Sigma_1\tilde\Sigma_2=\tau^{-1}$.
-\end{proof}
+\qed\end{proof}
 
 We now introduce notation for locating specific lifted preprojectives as subrepresentations of our standard lifted preprojective representations.
 Since we work only on two fixed components of $\widetilde{K(n)}$, the following notation will be useful in describing paths in these components.
@@ -810,7 +810,7 @@ Indeed, by considering the support quiver of $\tilde P_{3,i}$ from Example~\ref{
   For the $m=3$ case, we note that $\tau\tilde P_4^I=\tilde P_2^I$ by Lemma~\ref{le:truncated tau}.
   Then the claimed structure $\tilde P_3(I,j)$ of the kernel and the surjectivity of the map $\tilde P_{3,j}\to\tau\tilde P_4^I$ are immediate from the explicit descriptions of $\tilde P_{3,j}$ and $\tilde P_2^I$ in Example~\ref{ex:lifted preprojectives} and Example~\ref{ex:truncated lifts} respectively.
   The general cases for parts (1) and (2) both then follow using the reflection recursions \eqref{eq:recursive covers} taking into account Remark~\ref{rem:reflection recursion}.(2).
-\end{proof}
+\qed\end{proof}
 
 \begin{remark}
   \label{rem:special case}
@@ -844,7 +844,7 @@ The following orthogonality property is a primary reason we need to lift to the 
   
   If $m=2$, we have $\Hom\!\big(\tilde P_3^I,\tilde P_2(I,j)\big)=0$ since $\tilde P_2(I,j)$ is a direct sum of simple projective representations.
   Using the explicit description of $\tilde P_3^I$ from Example~\ref{ex:truncated lifts}, we see that each $\tilde P_{1,(j,i)}$ for $i\ne j$ is supported at a vertex which is not a neighbor of the support of $\tilde P_3^I$ and this implies $\Ext\!\big(\tilde P_3^I,\tilde P_{1,(j,i)}\big)=0$ for $i\neq j$.
-\end{proof}
+\qed\end{proof}
 
 The next step is to introduce notation in order to locate truncated preprojectives as quotients of other truncated preprojectives in the universal covering.
 \begin{definition}
@@ -881,7 +881,7 @@ For $w\in W_n$, we write $\pi_{m+1,w}^{I,J}:\tilde P_{m+1,w}^I\to\tilde P_{m+1,w
       For $\ui=(i_0,\ldots,i_{k-1})$, there exists a commutative diagram:
       \begin{equation}
         \label{dia:truncated coherence}
-        \xymatrix@R40pt@C70pt{\tilde P_{m+1} \ar^(.4){\pi_{m+1}^{I'_0}}[d] & \ar[l] \tilde P_{m,i_0} \ar_(.4){\pi_{m,i_0}^{J_0}}[dl]\ar^(.4){\pi_{m,i_0}^{I'_1}}[d] & \ar[l] \tilde P_{m-1,(i_0,i_1)} \ar_(.4){\pi_{m-1,(i_0,i_1)}^{J_1}\;}[dl]\ar^(.4){\pi_{m-1,(i_0,i_1)}^{I'_2}}[d] & \ar[l] \ar[dl] \cdots & \ar[l] \tilde P_{m+1-k,\ui} \ar_(.4){\pi_{m+1-k,\ui}^{J_{k-1}}\;}[dl]\ar^(.4){\pi_{m+1-k}^{I'_k}}[d]\\
+        \xymatrix@R40pt@C60pt{\tilde P_{m+1} \ar^(.4){\pi_{m+1}^{I'_0}}[d] & \ar[l] \tilde P_{m,i_0} \ar_(.4){\pi_{m,i_0}^{J_0}}[dl]\ar^(.4){\pi_{m,i_0}^{I'_1}}[d] & \ar[l] \tilde P_{m-1,(i_0,i_1)} \ar_(.4){\pi_{m-1,(i_0,i_1)}^{J_1}\;}[dl]\ar^(.4){\pi_{m-1,(i_0,i_1)}^{I'_2}}[d] & \ar[l] \ar[dl] \cdots & \ar[l] \tilde P_{m+1-k,\ui} \ar_(.4){\pi_{m+1-k,\ui}^{J_{k-1}}\;}[dl]\ar^(.4){\pi_{m+1-k}^{I'_k}}[d]\\
         \tilde P_{m+1}^{I'_0}\ar^{\pi_{m,i_0}^{J_0,I'_1}}[r] & \tilde P_{m,i_0}^{I'_1}\ar^{\pi_{m-1,(i_0,i_1)}^{J_1,I'_2}}[r] & \tilde P_{m-1,(i_0,i_1)}^{I'_2}\ar^(.6){\pi_{m-2,(i_0,i_1,i_2)}^{J_2,I'_3}}[r] & \cdots\ar^{\pi_{m+1-k,\ui}^{J_{k-1},I'_k}}[r] & \tilde P_{m+1-k,\ui}^{I'_k}}
       \end{equation}
       where the composed map $\pi_{m+1}^\bfI:\tilde P_{m+1}\to\tilde P_{m+1-k,\ui}^{I'_k}$ is unique up to scaling and therefore we write
@@ -900,7 +900,7 @@ For $w\in W_n$, we write $\pi_{m+1,w}^{I,J}:\tilde P_{m+1,w}^I\to\tilde P_{m+1,w
   The image of the inclusion $\tilde P_{m-1}\into \tilde P_{m,j}$ in the bottom row is the subrepresentation $\tilde P_{m-1,(j,j)}\subset\tilde P_{m,j}$ and part (1) follows.
 
   The first claim of part (2) is then immediate by repeatedly applying part (1) while the final claim of part (2) is a consequence of the definition of $\delta$.
-\end{proof}
+\qed\end{proof}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -972,6 +972,7 @@ Observe that each Schubert cell $X_\bfi$ is invariant under this $\CC^*$-action.
 
 Assume that $X=\bigoplus_{l=1}^m X_l$ is a direct sum decomposition of $X$ and fix a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of~$X$ which is compatible with this decomposition, i.e.\ there exist indices $0=r_0<r_1<r_2<\cdots<r_{m-1}<r_m=n$ such that
 \[v_{r_0+1},\ldots,v_{r_1}\in X_1,\quad v_{r_1+1},\ldots,v_{r_2}\in X_2,\quad\cdots\quad v_{r_{m-1}+1},\ldots,v_{r_m}\in X_m.\]
+The following lemma generalizes \cite[Theorem 1]{cerulli}.
 \begin{lemma}
   \label{le:usualGrass}
   Consider a map $d:\{1,\ldots,n\}\to\ZZ$ such that $d(r)=d(r')$ if $v_r,v_{r'}\in X_l$ for some $l$ and $d(r)\neq d(r')$ if $v_r\in X_l$ and $v_{r'}\in X_{l'}$ with $l\neq l'$.
@@ -985,7 +986,7 @@ Assume that $X=\bigoplus_{l=1}^m X_l$ is a direct sum decomposition of $X$ and f
   For the reverse direction, assume $U\in X_{\bfi}$ is a $\CC^*$-fixed point represented by the matrix $M(U)$.
   Then, if~$v_{i_q}\in X_l$, the assumptions on $d$ imply $M(U)_{qr}=0$ unless $r_{l-1}+1\le r\le r_l$.
   That is, $M(U)$ has the shape of a block matrix representing the decomposition $U=\bigoplus_{l=1}^m U\cap X_l$.
-\end{proof}
+\qed\end{proof}
 The next step is to generalize this to quiver Grassmannians.
 Let $Q$ be an acyclic quiver.
 Choose a map $d:\hat Q_0\to\ZZ$ and fix a representation $X\in\rep Q$ which can be lifted to $\hat Q$.
@@ -1011,7 +1012,7 @@ Indeed, for this such an action must satisfy $X_\alpha(t.U_i)\subset t.U_j$ for 
     &=\sum\limits_{\chi\in A_Q} t^{d(i,\chi)}X_{(\alpha,\chi)}(u_{(i,\chi)})=\sum\limits_{\chi\in A_Q} t^{d(i,\chi)}u_{(j,\chi+e_\alpha)}=t^{-c_\alpha}\sum\limits_{\chi\in A_Q} t.u_{(j,\chi+e_\alpha)}=t^{-c_\alpha} t.u_j.
   \end{align*}
   Therefore $X_\alpha(t.U_i)\subset t.U_j$ for every arrow $\alpha:i\to j$ of $Q$ and we obtain a $\CC^*$-action on $\Gr_\bfe(X)$.
-\end{proof}
+\qed\end{proof}
 
 The next result provides the conditions on the map $d:\hat Q_0\to\ZZ$ needed to get an analogue of Lemma~\ref{le:usualGrass}
 \begin{lemma}
@@ -1044,7 +1045,7 @@ The next result provides the conditions on the map $d:\hat Q_0\to\ZZ$ needed to 
 
   By definition, we have $d(j,\chi+e_\alpha)-d(i,\chi)=c_\alpha$ when $(j,\chi+e_\alpha)\in\supp(\hat X)$.
   Now assuming $d(j,\chi')-d(i,\chi)=c_\alpha$, an analogous argument to the one above shows that $\chi'=\chi+e_\alpha$.
-\end{proof}
+\qed\end{proof}
 
 In the following, we say that $d:\supp(\hat X)\to\ZZ$ satisfies the \emph{degree condition} for $\hat X$ if it has the properties of Lemma~\ref{le:degree condition}.
 \begin{theorem}
@@ -1060,7 +1061,7 @@ In the following, we say that $d:\supp(\hat X)\to\ZZ$ satisfies the \emph{degree
   By Lemma~\ref{le:usualGrass}, this holds precisely when we have a decomposition 
   \[U_i=\bigoplus_{\chi\in A_Q} U_i\cap X_{(i,\chi)}\]
   which is equivalent to $U$ being liftable to the universal abelian covering $\hat Q$.
-\end{proof}
+\qed\end{proof}
 The next step is to iterate the $\CC^*$-actions, keeping in mind the following idea: every representation $X$ which lifts to the universal covering quiver also lifts to the universal abelian covering quiver and to the iterated universal abelian covering quivers, i.e.\ to each $\hat Q^{(k)}:=\widehat{\hat Q^{(k-1)}}$ with $\hat Q^{(1)}:=\hat Q$.
 Now it is straightforward to check that there exist natural surjective morphisms $f_k:\widetilde Q\to \hat Q^{(k)}$ which become injective on finite subquivers if $k\gg 0$, see also \cite[Section 3.4]{wei}.
 Since the support of $X$ is finite as a representation of $\tilde Q$, we can find $k\geq 0$ such that the full subquiver with vertices $\supp(X)\subseteq \hat Q^{(k+1)}_0$ is a tree.
@@ -1105,7 +1106,7 @@ Note that $M$ and $g.M$ are not necessarily isomorphic as representations of $K(
   Then for $g=(g_{ij})\in GL_n(\CC)$ and $1\le i\le n$, we have
   \[\theta_2\circ (g.M)_{\alpha_i}=\sum\limits_{j=1}^n g_{ij}(\theta_2\circ M_{\alpha_j})=\sum\limits_{j=1}^n g_{ij}(N_{\alpha_j}\circ\theta_1)=(g.N)_{\alpha_i}\circ\theta_1\]
   so that $\theta$ also gives a morphism from $g.M$ to $g.N$. 
-\end{proof}
+\qed\end{proof}
 \begin{corollary}
   \label{cor:indecomposability}
   For $M\in\rep K(n)$ and $g\in GL_n(\CC)$, the representation $M$ is indecomposable if and only if $g.M$ is indecomposable.
@@ -1113,11 +1114,11 @@ Note that $M$ and $g.M$ are not necessarily isomorphic as representations of $K(
 \begin{proof}
   The representation $M$ is decomposable if there exists a split epimorphism $\theta:M\onto N$ for some nonzero representation $N$.
   But this occurs exactly when the map $\theta^g:g.M\onto g.N$ is also a split epimorphism.
-\end{proof}
+\qed\end{proof}
 
 While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the following twisted equivariance.
 \begin{lemma}\label{compatibleGSigma}
-  For $g\in G$, the reflection functors $\Sigma_i:\rep K(n)\to\rep K(n)$ satisfy $g.\Sigma_i(M)=\Sigma_i(g^{-T}.M)$. 
+  For each $g\in G$, the reflection functors $\Sigma_i:\rep K(n)\to\rep K(n)$ satisfy $g.\Sigma_i(M)=\Sigma_i(g^{-T}.M)$. 
 \end{lemma}
 \begin{proof}
   We present all the details for $\Sigma_2$, the proof for $\Sigma_1$ is similar.
@@ -1129,7 +1130,7 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
   In particular, we may construct $g.\Sigma_2(M)$ using the following exact sequence:
   \[\xymatrix@C50pt{0 \ar[r] & M_2 \ar[r]^(.45){g^{-T}\circ\bigoplus\limits_{i=1}^n M_{\alpha_i}} & \bigoplus\limits_{i=1}^n M_1 \ar[r]^{\pi\circ g^T} & M'_2 \ar[r] & 0},\]
   i.e. $g.\Sigma_2(M)=\Sigma_2(g^{-T}.M)$.
-\end{proof}
+\qed\end{proof}
 
 Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposable representations of $K(n)$ with dimension vector $d$ for $d\in\NN^{K(n)_0}$. As the $\GL_n(\CC)$-action commutes with the natural base change action, we can define a $\GL_n(\CC)$-action on $\Ind\big(K(n),d\big)$.
 \begin{proposition} 
@@ -1139,11 +1140,11 @@ Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposabl
 \end{proposition}
 \begin{proof}
   For $m=1$, the action of $\GL_n(\CC)$ on $\Gr_d(\CC^n)$ is transitive which shows that it is transitive on $\Ind\big(K(n),d(1,r)\big)$.
-  As reflection functors preserve indecomposability and isomorphism classes, Lemma~\ref{compatibleGSigma} gives a commutative diagram as below for each $g\in\GL_n(\CC)$:
+  As the reflection functors preserve indecomposability and isomorphism classes, Lemma~\ref{compatibleGSigma} gives a commutative diagram as below for each $g\in\GL_n(\CC)$:
   \[\xymatrix{\Ind\big(K(n),d(m,r)\big)\ar[r]^(.45){\Sigma_2}\ar[d]^{g^{-T}}&\Ind\big(K(n),d(m+1,r)\big)\ar[d]^g\\
     \Ind\big(K(n),d(m,r)\big)\ar[r]^(.45){\Sigma_2}&\Ind\big(K(n),d(m+1,r)\big)}.\]
   As the $\GL_n(\CC)$-action is transitive on the left hand side, this implies that it is also transitive on the right hand side.
-\end{proof}
+\qed\end{proof}
 
 \begin{theorem}
   \label{thm:truncpp}
@@ -1161,12 +1162,12 @@ Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposabl
   \[M_{\alpha_i}(U_2)\subset U_1 \text{ for all } i=1,\ldots,n\Leftrightarrow \left(\sum\limits_{j=1}^n g_{ij}M_{\alpha_j}\right)(U_2)\subset U_1 \text{ for all } i=1,\ldots,n.\]
   Note that we have $g^{-1}.(g.P_{m+1}^V)=P_{m+1}^V$ which shows the non-obvious direction.
 
-  Propositions~\ref{pro:indecomposables} and~\ref{indecomposables} imply that the quiver Grassmannians $\Gr_\bfe(M)$ for $M\in\Ind\big(K(n),\udim P_{m+1}^V\big)$ are all isomorphic for a fixed $\bfe\in\NN^{Q_0}$.
+  Propositions~\ref{pro:indecomposables} and~\ref{indecomposables} give that the quiver Grassmannians $\Gr_\bfe(M)$ for $M\in\Ind\big(K(n),\udim P_{m+1}^V\big)$ are all isomorphic for a fixed $\bfe\in\NN^{Q_0}$.
   In other words, we use that all indecomposables with this dimension vector are truncated preprojectives.
 
   As the indecomposables form a dense open subset of all representations, we found a dense subset whose quiver Grassmannians for a fixed $\bfe$ are isomorphic.
   But now the same proof as for exceptional roots applies in order to show that these quiver Grassmannians need to be smooth, see \cite[Corollary 4]{cr}.
-\end{proof}
+\qed\end{proof}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1180,7 +1181,9 @@ For a fixed dimension vector $\tbfe$, this induces the so-called ``Caldero-Chapo
   E&\mapsto \big(E\cap M,(E+M)/M\big).
 \end{align*}
 Following \cite[Section 3]{cc}, any non-empty fiber of $\Psi$ satisfies $\Psi^{-1}(U,W)\cong\mathbb{A}^{\dim\Hom(W,M/U)}$.
-
+\begin{remark}
+We should always keep in mind that the middle term $B$ and the Caldero-Chapoton depend on the short exact sequence $\eta\in\Ext(N,M)$, i.e. to be more exact we should have named it $\Psi^{\eta}$. As a matter of readability we decided to omit this index.
+\end{remark}
 For $\cG_{\tbff,\tbfg}:=\Psi^{-1}\big(\Gr_\tbff(M)\times \Gr_\tbfg(N)\big)$, we have 
 \begin{equation}
   \label{eq:grassmannian decomposition}
@@ -1204,7 +1207,7 @@ For completeness we include a proof of the first.
   \[\bigsqcup_{ \tbff'\geq\tbff} \cG_{\tbff',\tbfe-\tbff'}\subset \Gr_\tbfe(B)\]
   for any fixed $\tbff$.
   Any refinement of this partial order to a total order $\preceq$ will give the claim.
-\end{proof}
+\qed\end{proof}
 \begin{theorem}
   \label{vb}
   If $\Im\big(\Psi_{\tbff,\tbfg}\big)$ is locally closed and the fiber dimension of $\Psi_{\tbff,\tbfg}$ is constant over $\Im\big(\Psi_{\tbff,\tbfg}\big)$, then $\Psi_{\tbff,\tbfg}:\cG_{\tbff,\tbfg}\to\Im\big(\Psi_{\tbff,\tbfg}\big)$ is an affine bundle.
@@ -1292,7 +1295,7 @@ Then, in the same way as above, we obtain the following map for any fixed $\tbff
   Thus the injective map $\CC=\Hom(\tilde K_m,\tilde K_m)\to\Ext(\tilde P_{m+1}^I,\tilde K_m)$ induced by the Auslander-Reiten sequence \eqref{eq:ar2} is actually bijective and so applying $\Hom(-,\tilde K_m)$ to this sequence yields $\Ext(Z,\tilde K_m)=0$.
   But then $\Ext(Z,\tilde K_m/W)=0$ and so $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)\cong\Ext(\tilde P_{m+1}^I,\tilde K_m/W)$ must be zero as well.
   By part (1) we see that the fiber $\Psi^{-1}(U,\tilde P_{m+1}^I)$ is non-empty in this case.
-\end{proof}
+\qed\end{proof}
 
 Now we are able to state the following result concerning the fibers of $\Psi$:
 \begin{proposition}
@@ -1316,7 +1319,7 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
   If $U=0$, we have $\Ext(W,\tilde P_{m,j})=0$ because for dimension reasons every indecomposable direct summand of $W$ is isomorphic to a lift of some $P_l$ with $l\leq m$ and, moreover, $\Ext(P_l,P_m)=0$ for $l\leq m+1$.
 
   The second statement follows directly from Proposition~\ref{quotient}.
-\end{proof}
+\qed\end{proof}
 
 \begin{corollary}
   For all $\tbff$ and $\tbfg$, the image of $\Psi_{\tbff,\tbfg}$ is open in $\Gr_\tbff(\tilde P_{m,j})\times\Gr_\tbfg(\tilde P_{m+1}^I)$.
@@ -1326,7 +1329,7 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
   Assume $\tbfg=\udim\tilde P_{m+1}^I$.
   By Proposition~\ref{quotient}, the image of $\Psi_{\tbff,\tbfg}$ consist precisely of those pairs $(U,\tilde P_{m+1}^I)$ for which $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)=0$.
   But the map $U\mapsto\dim\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)$ is upper semicontinuous so that its minimal value on $\Gr_\tbff(\tilde P_{m,j})$ is its generic value, i.e.\ the image of $\Psi_{\tbff,\tbfg}$ is open.
-\end{proof}
+\qed\end{proof}
 
 \begin{theorem}
   \label{cellscover}
@@ -1375,7 +1378,7 @@ By induction, the compatibility condition ($\dagger$) is true for $\pi_{m,j}^\bf
 
   For $V\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ which is contained in such a cell, we have $\pi_{m+1}^{J,I}(V)\in C_k$.
   But then $\pi_{m+1}^{J,\bfI}(V)\ne0$ if and only if $\pi_{m+1}^{I,\bfI}(W)\ne0$ for all $W\in C_k$ and thus $\pi_{m+1}^{J,\bfI}(V')\ne0$ for all $V'$ in this cell $B_\ell\times C_k\times\AA^d$ of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$. This shows ($\dagger$) for $\pi_{m+1}^{J,\bfI}$.
-\end{proof}
+\qed\end{proof}
 
 \begin{theorem}
   \label{celldec}
@@ -1392,7 +1395,7 @@ By induction, the compatibility condition ($\dagger$) is true for $\pi_{m,j}^\bf
   The dual version for preinjective representations follows immediately since $\Gr_{\bfe}(P_m)\cong \Gr_{\udim P_m-\bfe}(I_m)$ and $\Gr_{\tbfe}(\tilde P_m)\cong\Gr_{\udim \tilde P_m-\tbfe}(\tilde I_m)$.
 
   The second part follows in the same way taking into account the initial remark.
-\end{proof}
+\qed\end{proof}
 
 \begin{corollary}
   Let $X\in\rep K(n)$ be a direct sum of exceptional representations.
@@ -1424,7 +1427,7 @@ By induction, the compatibility condition ($\dagger$) is true for $\pi_{m,j}^\bf
   Finally consider the short exact sequence
   \[\ses{I(s)}{X}{P(r)}.\]
   As every quotient of $I(s)$ is preinjective and as every subrepresentation of $P(r')$ is preprojective, the same argument shows that every quiver Grassmannian attached to $X$ has a cell decomposition.
-\end{proof}
+\qed\end{proof}
 
 As the $F$-polynomial of truncated preprojective representations only depend on the dimension vector, we may denote them by $F_{d(m,r)}$.
 The description of the non-empty fibers in Proposition~\ref{fibers} together with Corollary~\ref{fpoly} and Theorem~\ref{celldec} yield the following:
@@ -1511,7 +1514,7 @@ An analogous statement holds if a quiver has precisely one sink.
   Finally, let $\beta\subset(Q_V)_0$ be strong successor closed in $\cQ_V$.
   Since $Q_1\subset(Q_V)_1$, we immediately see that $\beta$ is successor closed in $Q$.
   To see that $\beta$ is strong successor closed in $\cQ$, it suffices to consider the 2-arrow $V:\{p\}\implies\{q\}$ for which the claim is obvious as above.
-\end{proof}
+\qed\end{proof}
 
 \begin{remark}
   Below we will usually apply Lemma~\ref{lem:2equivalence} after performing each of the equivalences from Definition~\ref{def:2equivalence}.
@@ -1542,8 +1545,8 @@ In particular, the vertices and arrows of the quiver $Q_{m+1}^{[r]}$ underlying 
 To begin, we take the $2$-quiver $\cQ_1=\cQ_1^{[0]}$ associated to $\tilde P_1$ to be the quiver $Q_1$ consisting of a single vertex which we associate to the vertex $(1,e)$ of $\widetilde{K(n)}$.
 By analogy with the notation of Section~\ref{Lifting}, we define a 2-quiver $\cQ_{1,i}$ for $1\le i\le n$ whose underlying quiver $Q_{1,i}$ has a single vertex which is associated to the vertex $(1,\alpha_i)$ of $\widetilde{K(n)}$.
 
-The 2-quiver $\cQ_2^{[r]}$ associated to $\tilde P_2^{[r]}$ has underlying quiver $Q_2^{[r]}:=Q_1^\sigma\sqcup\coprod\limits_{i=1}^{n-r} Q_{1,i}$, where the single vertex of the quiver $Q_1^\sigma$ is associated to the vertex $(2,e)$ of $\widetilde{K(n)}$, and has 2-arrows (colored red) as in the figure below:
-\[\begin{tikzpicture}
+The 2-quiver $\cQ_2^{[r]}$ associated to $\tilde P_2^{[r]}$ has underlying quiver $Q_2^{[r]}:=Q_1^\sigma\sqcup\coprod\limits_{i=1}^{n-r} Q_{1,i}$, where the single vertex of the quiver $Q_1^\sigma$ is associated to the vertex $(2,e)$ of $\widetilde{K(n)}$, and has 2-arrows as in the figure below:
+\[\begin{tikzpicture}[scale=0.98]
   \tikzstyle{box} = [rectangle, minimum width=2cm, minimum height=1cm, text centered, draw=black]
   \draw (0,0) node (Vr) {$(1,\alpha_{n-r})$} +(.8,-.9) node {\footnotesize$ \mathcal Q_2^{[r]}$} +(3,0) node (Vr1) {$(1,\alpha_{n-r+1})$}+(3.8,-.9) node (Lr1) {\footnotesize$ \mathcal Q_2^{[r+1]}$} +(6,0) node (Vx) {$\dots$} +(9,.15) node (V2) {$(1,\alpha_{2})$} +(9.8,-.75) node (L2) {\footnotesize$ \mathcal Q_2^{[n-2]}$}+(11.5,.45) node (V1) {$(1,\alpha_1)$}  +(14,.45) node (V0) {$(2,e)$} +(12.8,-.35) node (L1) {\footnotesize$\mathcal Q_2^{[n-1]}$}; 
 
@@ -1594,7 +1597,7 @@ By Lemma~\ref{lem:2equivalence}, we obtain an equivalent 2-quiver by replacing e
 By a slight abuse of notation, below we will let $\cQ_3^{[r]}$ denote this equivalent 2-quiver.
 Then $\cQ_3^{[r]}$ can be found as a sub-2-quiver of $\cQ_3$ which is constructed recursively by connecting $\cQ_3^{[i]}$ to $\cQ_{2,i}$ for $i=n-1,\ldots, 1$ in the following way: \bigskip
 \[
-\begin{tikzpicture}[scale=1.35]
+\begin{tikzpicture}[scale=1.34]
   \draw (0,0) node (I1) {$\bullet$} +(1,1) node (J11) {$\bullet$} +(1,.5) node (J12) {$\bullet$} +(1,0.1) node (D1) { $\vdots$}+(1,-.5) node (J1N1) {$\bullet$} +(1,-1) node (J1N) {$\bullet$} +(0.1,-1.3) node {\footnotesize$\mathcal Q_3$}; 
   \draw[->] (I1)--(J11) node[pos=.7,above,sloped]{\scriptsize$\alpha_1$};
   \draw[->] (I1)--(J12) node[pos=.7,above,sloped]{\scriptsize$\alpha_2$};
@@ -1658,7 +1661,7 @@ To avoid cluttering the diagram, we did not label the vertices in the illustrati
 
   Finally note for $0\le r\le n-2$ that there exists a short exact sequence
   \[\ses{\Hom(P_m,P_m)}{\Ext\big(P_{m+1}^{[r]},P_m\big)}{\Ext\big(P_{m+1}^{[r+1]},P_m\big)}.\]
-  Thus a basis of $\Ext\big(P_{m+1}^{[r]},P_m\big)$ can be obtained by taking the last $r$ elements of a basis for $\Ext\big(P_{m+1}^{[n-1]},P_m\big)$.
+  Thus we obtain a basis of $\Ext\big(P_{m+1}^{[r]},P_m\big)$ by taking the last $r$ elements of a basis for $\Ext\big(P_{m+1}^{[n-1]},P_m\big)$.
   The choice of 2-arrows in $\cQ_{m+1}^{[r]}$ should be viewed as a combinatorial shadow of the isomorphisms above.
 \end{remark}
 
@@ -1681,7 +1684,7 @@ For $r<s<n$, there is a 2-arrow $V_s:\Gamma_s(1)\implies\Gamma_s(2)$ of $\cQ_{m+
 \end{remark}
 
 \[
-\begin{tikzpicture}[scale=0.97]
+\begin{tikzpicture}[scale=0.94]
 \draw (0,4) node (A1) {\footnotesize$Q_{m-1,1}$}
   +(0,-1.2) node (PM) {\footnotesize$\mathcal Q_{m,r}$}
   +(0,-4.2) node {$\cQ_{m+1}^{[r-1]}$}
@@ -1729,7 +1732,7 @@ For $r<s<n$, there is a 2-arrow $V_s:\Gamma_s(1)\implies\Gamma_s(2)$ of $\cQ_{m+
 \draw[-implies,double equal sign distance,red] (Q2b)--(B) node[pos=.5,above] {};
 
 \node (PMK) [draw=black,fit={(Q2b) (B)}]{};
-\draw[-implies,double equal sign distance,red,thick] (PMK)--(P11b);
+\draw[-implies,double equal sign distance,red] (PMK)--(P11b);
 \end{tikzpicture}
 \]
 As already mentioned two different vertices of $\mathcal Q_{m+1}^{[r]}$ can correspond to the same vertex of $\widetilde{K(n)}$.
@@ -1750,7 +1753,7 @@ where $\tilde q\in\widetilde{K(n)}_0$ is the vertex which corresponds to $q\in\b
 
   We proceed by induction on $m$ and $r$.
   The case of the representation $\tilde P_1$ is trivial.
-  We have $(\udim\tilde P_2^{[r]})_q\in\{0,1\}$ for all $q\in\widetilde{K(n)}$, whence the subrepresentations are in one-to-one correspondence with the successor closed subsets of the quiver (\ref{coeff}) which is equivalent to $\mathcal Q_2^{[r]}$.
+  Now we have $(\udim\tilde P_2^{[r]})_q\in\{0,1\}$ for all $q\in\widetilde{K(n)}$, whence the subrepresentations are in one-to-one correspondence with the successor closed subsets of the quiver (\ref{coeff}) which is equivalent to $\mathcal Q_2^{[r]}$.
   Equivalently, we have $\Gr_\tbfe(\tilde P_2^{[r]})\in\{\varnothing,\{\pt\}\}$ so that $\Gr_{\tbfe}(\tilde P_2^{[r]})=\{\pt\}$ if and only if $\tbfe\subset\cQ_2^{[r]}$ is strong successor closed.
 
   Thus assume that the claim is true for $\tilde P_m$ and $\tilde P_{m+1}^{[r]}$.
@@ -1760,7 +1763,7 @@ where $\tilde q\in\widetilde{K(n)}_0$ is the vertex which corresponds to $q\in\b
   Let $\beta_1\coprod\beta_2\subset (\mathcal Q_{m+1}^{[r-1]})_0\coprod{}(\mathcal Q_{m,r})_0$ be a pair of strong successor closed subsets which gives rise to a pair of non-empty cells by the induction hypothesis.
   By Proposition~\ref{quotient}, the fiber over the pair of cells corresponding to $\beta_1\coprod\beta_2$ is empty if and only if $\beta_2=(\mathcal Q_{m+1}^{[r]})_0$ and $\beta_1\cap(\mathcal Q_{m-1}^{[r]})_0=\varnothing$, where $\mathcal Q_{m-1}^{[r]}$ is considered as a sub-$2$-quiver of $\mathcal Q_{m,r}$.
   But this is precisely the condition on $\beta_1\coprod\beta_2$ to be strong successor closed as $\mathcal Q_{m+1}^{[r]}$ is connected to $\mathcal Q_{m-1}^{[r]}$ by a $2$-arrow. This shows the first claim.
-\end{proof}
+\qed\end{proof}
 
 As an example consider the case $n=3$ and $m=3$. The $2$-quiver of $\tilde P_3$ is given by:\bigskip
 
@@ -1786,8 +1789,8 @@ As an example consider the case $n=3$ and $m=3$. The $2$-quiver of $\tilde P_3$ 
 \end{tikzpicture}
 \bigskip
 
-The one of $\tilde P_4$ is given by:
-\bigskip
+The one of $\tilde P_4$ is given by:\bigskip
+
 \begin{tikzpicture}[scale=1]
 \draw (1.6,0) node (I1) {$\bullet$} +(1,1) node (J11) {$\bullet$} +(1,0) node (J12) {$\bullet$} +(1,-1) node (J13) {$\bullet$}; 
 \draw[->] (I1)--(J11) node[pos=.7,above,sloped]{\scriptsize$a$};
@@ -1875,7 +1878,7 @@ We obtain the following as an immediate consequence.
   We work by induction on $m\ge2$.
   The cases $m=2,3$ are immediate from Theorem~\ref{th:dyck path recursion} parts (2) and (3).
   For $m\ge4$, part (3) of Theorem~\ref{th:dyck path recursion} shows by induction that there are $(n-1)u_{m-3}+(u_{m-3}-u_{m-4})=u_{m-2}$ vertical edges which are immediately preceded by exactly $n-1$ horizontal edges.
-\end{proof}
+\qed\end{proof}
 
 For $m\ge1$ and $1\le r\le n-1$, write $D_{m+1}^{[r]}$ for the maximal Dyck path obtained from $D_{m+1}$ by removing the first $r$ copies of $D_m$.
 Extending this notation we also set $D_{m+1}^{[0]}:=D_{m+1}$.
@@ -2004,7 +2007,7 @@ Similarly, for a vertical edge $v\in V_{m+1}$ and a subset $S_V\subset V_{m+1}$,
   But then by the definition of $\varphi^*$ we have $V_{m,r+1,n}^{[r+1]}\cap S_V=\varnothing$ and $S_V^{[r+1]}=V_{m+1}^{[r+1]}$ so that $D(v_{u_m};S_V)=hv_{u_m}$ with $h$ as in the first case above.
   Since $(S_H,S_V)$ is not compatible, Theorem~\ref{th:blocking edge conditions} states that $h$ must be the blocking edge for $S_H$ and we must have $D(h;S_H)=hv_{u_m}$.
   But this can only occur if $H_{m,r+1,n}^{[r+1]}\subset S_H$ since $H_{m+1}^{[r+1]}\cap S_H=\varnothing$ by piecewise compatibility.
-\end{proof}
+\qed\end{proof}
 
 The following result is an immediate consequence of the combinatorial construction of rank 2 cluster variables \cite{llz} and the categorification of these variables using representations of $K(n)$ \cite{cc,ck}.
 \begin{theorem}
@@ -2029,7 +2032,7 @@ We accomplish this by providing a bijection between the compatible pairs as in T
   Given a strong successor closed subset $\beta\subset(Q_{m+1}^{[r]})_0$, we define a pair of subsets $S_H(\beta)\subset H_{m+1}^{[r]}$ and $S_V(\beta)\subset V_{m+1}^{[r]}$ as follows: a vertical edge $v\in V_{m+1}^{[r]}$ is in $S_V(\beta)$ exactly when the corresponding vertex of $Q_{m+1}^{[r]}$ is in $\beta$ while a horizontal edge $h\in H_{m+1}^{[r]}$ is in $S_H(\beta)$ exactly when the corresponding vertex of $Q_{m+1}^{[r]}$ is \emph{not} in $\beta$.
   Then Corollary~\ref{cor:piecewise not compatible} shows that under this bijection a subset $\beta\in(Q_{m+1}^{[r]})_0$ is strong successor closed in~$\cQ_{m+1}^{[r]}$ if and only if the corresponding pair of subsets $\big(S_H(\beta),S_V(\beta)\big)$ is compatible.
   Applying Theorem~\ref{thm:2quivercells} completes the proof.
-\end{proof}
+\qed\end{proof}
 
 The results of \cite{rupel} provide a stronger statement than Theorem~\ref{th:combinatorial euler}.
 Indeed, the compatible pairs are shown to compute the counting polynomials of these quiver Grassmannians $\Gr_\bfe(P_{m+1})$ over a finite field (these coincide with their Poincar\'e polynomials in this case).  
@@ -2076,6 +2079,8 @@ We conjecture that the torus action on $\Gr_\bfe(P_{m+1})$ can be chosen to prov
 
 \bibitem{ce} 
   G.~Cerulli Irelli, F.~Esposito: Geometry of quiver Grassmannians of Kronecker type and applications to cluster algebras. Algebra \&  Number Theory \textbf{5}(6), 777-801 (2011).
+
+\bibitem{cerulli} G.~Cerulli Irelli: Quiver Grassmannians associated with string modules. Journal of Algebraic Combinatorics \textbf{33}(2), 259-276 (2011).
 
 \bibitem{cefr} 
   G.~Cerulli Irelli, F.~Esposito, H.~Franzen, M.~Reineke: Topology of Quiver Grassmannians. Preprint 2018.
