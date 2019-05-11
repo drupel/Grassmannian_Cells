@@ -828,7 +828,7 @@ The following orthogonality property is a primary reason we need to lift to the 
 \begin{corollary}
   \label{cor:perpendicular}
   Consider a non-empty subset $I\subsetneq\{1,\ldots,n\}$ and fix an element $j\in I$.
-  For $m\geq 2$, we have $\tilde P_m(I,j)\in (\tilde P_{m+1}^I)^\perp$.
+  For $m\geq 2$, we have $\Hom(\tilde P_{m+1}^I,\tilde P_m(I,j))=\Ext(\tilde P_{m+1}^I,\tilde P_m(I,j))=0$.
 \end{corollary}
 \begin{proof}
   If $m\geq 3$, we consider the long exact sequence obtained when applying $\Hom(\tilde P_{m+1}^I,-)$ to the sequence
@@ -1351,13 +1351,16 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
     \item[($\dagger$)] For any $V\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ such that $\pi_{m+1}^{J,\bfI}(V)\neq 0$, we have $\pi_{m+1}^{J,\bfI}(V')\neq 0$ for all $V'\in C_V$, where $C_V$ is the affine cell which contains $V$.
   \end{itemize}
   \vs
+	
+\begin{remark}
 Note that having proved the claim, for $|J|\leq n-2$ the statement itself is obtained when setting $\bfI=(J\cup\{i\})$ for any $i\in\{1,\ldots,n\}\backslash\{J\}$. For $|J|=n-1$, we can apply Lemma~\ref{le:truncated quotients}, i.e. $P_{m+1}^J\cong\tilde P_{m,j}^{\{j\}}$ with $J^c=\{j\}$, together with the fact that $\tilde P_{m,j}^{\{j\}}$ is obtained when translating $\tilde P_{m}^{\{j\}}$ in the universal covering quiver. Clearly, translation does not affect quiver Grassmannians when also translating dimension vectors $\tbfe$, i.e. quiver Grassmannians of $\tilde P_{m,j}^{\{j\}}$ are just the same as those of $\tilde P_{m}^{\{j\}}$.
 
-
-Finally, recall that the preprojective representations $\tilde P_{m+1}$ and their quiver Grassmannians are obtained when setting $J=\varnothing$ and considering any short exact sequence
+Furthermore, recall that the preprojective representations $\tilde P_{m+1}$ and their quiver Grassmannians are obtained when setting $J=\varnothing$ and considering any short exact sequence
 		$$\ses{\tilde P_{m,j}}{\tilde P_{m+1}}{\tilde P_{m+1}^{\{j\}}}$$
 for $j\in\{1,\ldots,n\}$. Then we can use the fact that $\tilde P_{m,j}$ is the translation of $\tilde P_m$.
-	
+
+Finally, note that the claim together with Proposition \ref{label} ensures that the fiber dimension along the points of the affine cell $C_V$ is constant. Thus Theorem \ref{vb} gives the statement of the Theorem.
+\end{remark}
 
 
   In what follows, we will freely use the notation from Lemma~\ref{le:truncated quotients}.
