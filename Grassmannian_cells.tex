@@ -828,7 +828,7 @@ The following orthogonality property is a primary reason we need to lift to the 
 \begin{corollary}
   \label{cor:perpendicular}
   Consider a non-empty subset $I\subsetneq\{1,\ldots,n\}$ and fix an element $j\in I$.
-  For $m\geq 2$, we have $\tilde P_m(I,j)\in (\tilde P_{m+1}^I)^\perp$.
+  For $m\geq 2$, we have $\Hom(\tilde P_{m+1}^I,\tilde P_m(I,j))=\Ext(\tilde P_{m+1}^I,\tilde P_m(I,j))=0$.
 \end{corollary}
 \begin{proof}
   If $m\geq 3$, we consider the long exact sequence obtained when applying $\Hom(\tilde P_{m+1}^I,-)$ to the sequence
@@ -1062,6 +1062,9 @@ In the following, we say that $d:\supp(\hat X)\to\ZZ$ satisfies the \emph{degree
   \[U_i=\bigoplus_{\chi\in A_Q} U_i\cap X_{(i,\chi)}\]
   which is equivalent to $U$ being liftable to the universal abelian covering $\hat Q$.
 \qed\end{proof}
+\begin{remark} Note that similar techniques and results are obtained in \cite{haupt}, see e.g. \cite[Theorem 1.2(c)]{haupt}. Note that only representations $\hat X$ of $\hat Q$ are considered in the corresponding proof in \cite[Section 8]{haupt} which satisfy $\dim \hat X_{(i,\chi)}\in\{0,1\}$. Furthermore, it does not seem to be straightforward to obtain our explicit description of the fixed point set of the quiver Grassmannians as those subrepresentations which live on the universal abelian covering with Haupt's result. 
+\end{remark}
+
 The next step is to iterate the $\CC^*$-actions, keeping in mind the following idea: every representation $X$ which lifts to the universal covering quiver also lifts to the universal abelian covering quiver and to the iterated universal abelian covering quivers, i.e.\ to each $\hat Q^{(k)}:=\widehat{\hat Q^{(k-1)}}$ with $\hat Q^{(1)}:=\hat Q$.
 Now it is straightforward to check that there exist natural surjective morphisms $f_k:\widetilde Q\to \hat Q^{(k)}$ which become injective on finite subquivers if $k\gg 0$, see also \cite[Section 3.4]{wei}.
 Since the support of $X$ is finite as a representation of $\tilde Q$, we can find $k\geq 0$ such that the full subquiver with vertices $\supp(X)\subseteq \hat Q^{(k+1)}_0$ is a tree.
@@ -1331,12 +1334,14 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
   But the map $U\mapsto\dim\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)$ is upper semicontinuous so that its minimal value on $\Gr_\tbff(\tilde P_{m,j})$ is its generic value, i.e.\ the image of $\Psi_{\tbff,\tbfg}$ is open.
 \qed\end{proof}
 
+
 \begin{theorem}
   \label{cellscover}
-  For $m\geq 1$ and $I\subsetneq\{1,\ldots,n\}$, every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^I)$ admits a cell decomposition.
+  For $m\geq 1$ and $J\subsetneq\{1,\ldots,n\}$, every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a cell decomposition. In particular, every quiver Grassmannian of a lifted preprojective representation admits a cell decomposition.
 \end{theorem}
 \begin{proof}
-  We work by induction on $m$.
+ 
+	We work by induction on $m$.
   When $m=1$, the claim is trivial since in this case all quiver Grassmannians are points.
   We establish the result for $m\ge2$ by proving the following more general statement:\bigskip
 
@@ -1346,6 +1351,17 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
     \item[($\dagger$)] For any $V\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ such that $\pi_{m+1}^{J,\bfI}(V)\neq 0$, we have $\pi_{m+1}^{J,\bfI}(V')\neq 0$ for all $V'\in C_V$, where $C_V$ is the affine cell which contains $V$.
   \end{itemize}
   \vs
+	
+\begin{remark}
+Note that having proved the claim, for $|J|\leq n-2$ the statement itself is obtained when setting $\bfI=(J\cup\{i\})$ for any $i\in\{1,\ldots,n\}\backslash\{J\}$. For $|J|=n-1$, we can apply Lemma~\ref{le:truncated quotients}, i.e. $P_{m+1}^J\cong\tilde P_{m,j}^{\{j\}}$ with $J^c=\{j\}$, together with the fact that $\tilde P_{m,j}^{\{j\}}$ is obtained when translating $\tilde P_{m}^{\{j\}}$ in the universal covering quiver. Clearly, translation does not affect quiver Grassmannians when also translating dimension vectors $\tbfe$, i.e. quiver Grassmannians of $\tilde P_{m,j}^{\{j\}}$ are just the same as those of $\tilde P_{m}^{\{j\}}$.
+
+Furthermore, recall that the preprojective representations $\tilde P_{m+1}$ and their quiver Grassmannians are obtained when setting $J=\varnothing$ and considering any short exact sequence
+		$$\ses{\tilde P_{m,j}}{\tilde P_{m+1}}{\tilde P_{m+1}^{\{j\}}}$$
+for $j\in\{1,\ldots,n\}$. Then we can use the fact that $\tilde P_{m,j}$ is the translation of $\tilde P_m$.
+
+Finally, note that the claim together with Proposition \ref{label} ensures that the fiber dimension along the points of the affine cell $C_V$ is constant. Thus Theorem \ref{vb} gives the statement of the Theorem.
+\end{remark}
+
 
   In what follows, we will freely use the notation from Lemma~\ref{le:truncated quotients}.
   We proceed by simultaneous induction on $m$ and reverse induction on $|J|$.
@@ -2090,6 +2106,8 @@ We conjecture that the torus action on $\Gr_\bfe(P_{m+1})$ can be chosen to prov
 
 \bibitem{gab} 
   P.~Gabriel: The universal cover of a finite-dimensional algebra. Representations of algebras. Lecture Notes in Mathematics {\bf 903}, 68-105 (1981).
+	
+\bibitem{haupt} N.~Haupt: Euler Characteristics of Quiver Grassmannians and Ringel-Hall Algebras of String Algebras. Algebras and Representation Theory \text{15}, 755-793 (2012). 
 
 \bibitem{llz} 
   K.~Lee, L.~Li, A.~Zelevinsky: Greedy elements in rank 2 cluster algebras. Selecta Mathematica \textbf{20}(1), 57-82 (2014).
