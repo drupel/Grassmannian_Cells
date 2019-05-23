@@ -177,7 +177,7 @@ A consequence of our main result is a geometric explanation for these computatio
 The paper is organized as follows.
 In Section~\ref{sec:covering}, we collect several results concerning quiver covering theory.
 In Section~\ref{sec:RepK(n)}, we recall basic facts concerning the representation theory of generalized Kronecker quivers $K(n)$ which are needed later to investigate the quiver Grassmannians attached to preprojective representations.
-We first focus on preprojective and preinjective representations, written as $P_m$ and $I_m$, which enables us to investigate a special class of indecomposable representations in Section~\ref{sec:truncated preprojectives} -- we call them truncated preprojective representations.
+Our primary focus is on a special class of indecomposable representations which we call truncated preprojective representations.
 We prove that every preprojective representation admits a filtration by preprojectives of smaller dimensions such that all quotients appearing are actually truncated preprojective representations.
 In Section~\ref{Lifting}, we use this together with the fact that every preprojective representation can be lifted to the universal covering in order to construct lifted filtrations.
 Throughout this section, we collect many results which will turn out to completely reveal the structure of quiver Grassmannians attached to (truncated) preprojective representations.
@@ -223,6 +223,7 @@ We would like to thank Giovanni Cerulli Irelli, Hans Franzen, Oliver Lorscheid a
 We refer to \cite{gab} for an introduction to covering theory.
 Let $Q$ be an acyclic quiver with vertices $Q_0$ and arrows $Q_1$ which we denote by $\alpha:s(\alpha)\to t(\alpha)$.
 A $\CC$-representation $X$ of $Q$ consists of a collection of $\CC$-vector spaces $X_i$ for $i\in Q_0$ and a collection of $\CC$-linear maps $X_\alpha:X_{s(\alpha)}\to X_{t(\alpha)}$ for $\alpha\in Q_1$.
+The dimension vector of $X$ is $\udim X:=(\dim X_i)_{i\in Q_0}\in\NN^{Q_0}$.
 Given $\CC$-representations $X$ and $Y$ of $Q$, a morphism $f:X\to Y$ is a collection of $\CC$-linear maps $f_i:X_i\to Y_i$ for $i\in Q_0$ satisfying $f_{t(\alpha)}\circ X_\alpha=Y_\alpha\circ f_{s(\alpha)}$ for each $\alpha\in Q_1$.
 We write $\rep Q$ for the hereditary abelian category of finite-dimensional $\C$-representations of $Q$, and we assume in the following that all representations are finite-dimensional.
 
@@ -294,30 +295,37 @@ As a $\CC$-vector space, the path algebra $A(n)$ can be written as $A_0\oplus A_
 
 Write $\Sigma_1$ and $\Sigma_2$ for the BGP-reflection functors of $K(n)$ \cite{bgp}. 
 We use the same symbols $\Sigma_1$, $\Sigma_2$ for the BGP-reflection functors of $K(n)^{op}$, this should not lead to any confusion. 
-Then each endofunctor $\Sigma_i^2$ is naturally isomorphic to the identity map on the full subcategory $\rep_{\langle i\rangle} K(n)\subset \rep K(n)$ whose objects are those representations of $K(n)$ which do not contain the simple $S_i$ as a direct summand.
-In particular, $\Sigma_i$ gives an exact equivalence of categories $\Sigma_i:\rep_{\langle i\rangle} K(n)\to\rep_{\langle i\rangle} K(n)^{op}$.
+Then each endofunctor $\Sigma_i^2$ is naturally isomorphic to the identity map on the full subcategory $\rep^{\langle i\rangle} K(n)\subset \rep K(n)$ whose objects are those representations of $K(n)$ which do not contain the simple $S_i$ as a direct summand.
+In particular, $\Sigma_i$ gives an exact equivalence of categories $\Sigma_i:\rep^{\langle i\rangle} K(n)\to\rep^{\langle i\rangle} K(n)^{op}$.
 Also, following \cite{brenner-butler}, the Auslander-Reiten translation $\tau:\rep K(n)\to\rep K(n)$ may be identified with the functor $\Sigma_2\Sigma_1$.
 
 Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=1$, $u_{k+1}=nu_k-u_{k-1}$.
+Observe by an easy induction that $u_{k+1}-u_k>0$ for $k\ge0$ since $n\ge3$.
+
 The following is well-known.
 \begin{theorem}
   \label{th:rigids}
-  For each $m\ge1$, there exist unique (up to isomorphism) exceptional representations $P_m$ and $I_m$ of $K(n)$ with dimension vectors $(u_m,u_{m-1})$ and $(u_{m-1},u_m)$ respectively such that $\Hom(P_m,P_r)=0$ (resp. $\Hom(I_r,I_m)=0$) and $\Ext(P_r,P_m)=0$ (resp. $\Ext(I_m,I_r)=0$) for $1\leq r\leq m$.
+  For each $m\ge1$, there exist unique (up to isomorphism) exceptional representations $P_m$ and $I_m$ of $K(n)$ with dimension vectors 
+  \[\udim P_m=(u_m,u_{m-1}),\qquad\qquad \udim I_m=(u_{m-1},u_m).\]
+  These satisfy 
+  \[\Hom(P_m,P_r)=0, \qquad \Hom(I_r,I_m)=0, \qquad \Ext(P_r,P_m)=0, \qquad \Ext(I_m,I_r)=0\]
+  for $1\leq r\leq m$.
   Moreover, any rigid representation of $K(n)$ is isomorphic to one of the form $P_m^{a_1}\oplus P_{m+1}^{a_2}$ or $I_m^{a_1}\oplus I_{m+1}^{a_2}$ for some $m\ge1$ and some $a_1,a_2\ge0$.
-	
 \end{theorem}
+
 The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
 \begin{remark}
   \label{rem:reflection recursion}
   We may identify the quiver $K(n)$ with $K(n)^{op}$ by interchanging the vertex labels.
   This induces an isomorphism of categories $\rep K(n)\cong\rep K(n)^{op}$ which we write as $M\mapsto M^\sigma$.
   Note that $\Sigma_1(M^\sigma)=(\Sigma_2 M)^\sigma$ and $\Sigma_2(M^\sigma)=(\Sigma_1 M)^\sigma$.
+  Using this, we have the following:
   \begin{enumerate}
     \item The preprojective and preinjective representations satisfy the following recursions using the reflection functors:
       \[P_1=S_1,\quad P_m^\sigma=\Sigma_2 P_{m-1},\quad I_1=S_2,\quad I_m^\sigma=\Sigma_1 I_{m-1}\]
       for $m\ge2$.
       In particular, we have $P_{m-1}=\tau P_{m+1}$ and $I_{m+1}=\tau I_{m-1}$ for $m\ge2$.
-    \item If $\ses{M}{B}{N}$ is a short exact sequence such that no direct summand of $M$, $B$, nor $N$ is preinjective, then the sequences $\ses{(\Sigma_1\Sigma_2)^nM}{(\Sigma_1\Sigma_2)^nB}{(\Sigma_1\Sigma_2)^nN}$ and $\ses{\Sigma_2(\Sigma_1\Sigma_2)^nM}{\Sigma_2(\Sigma_1\Sigma_2)^nB}{\Sigma_2(\Sigma_1\Sigma_2)^nN}$ are exact for any $n\ge0$ and none of these representations contain preinjective direct summands.
+    \item If $\ses{M}{B}{N}$ is a short exact sequence such that no direct summand of $M$, $B$, nor $N$ is preinjective, then the sequences $\ses{(\Sigma_1\Sigma_2)^k M}{(\Sigma_1\Sigma_2)^k B}{(\Sigma_1\Sigma_2)^k N}$ and $\ses{\Sigma_2(\Sigma_1\Sigma_2)^k M}{\Sigma_2(\Sigma_1\Sigma_2)^k B}{\Sigma_2(\Sigma_1\Sigma_2)^k N}$ are exact for any $k\ge0$ and none of these representations contain preinjective direct summands.
   \end{enumerate}
 \end{remark}
 
@@ -336,30 +344,26 @@ where the right-hand morphism is the natural evaluation map.
   For any $V\in \Gr(\cH_m)$, $m\geq 1$, the natural evaluation map $ev_V:P_m\otimes V\to P_{m+1}$ is injective.
 \end{lemma}
 \begin{proof}
-  As $\Ext(P_m\otimes V,P_{m-1})=0$ and $\Hom(P_1,I_1)=0$, we obtain a commutative diagram 
-  \[\xymatrix{0 \ar[r] & P_{m-1}\ar@{=}[d]\ar[r] &P_{m-1}\oplus P_m\otimes V \ar@{}[dr]|(.7){\lrcorner} \ar[r]\ar[d]_{(\iota_{m-1},\mathrm{id}_{P_m}\otimes \iota_V)} &P_{m}\otimes V \ar[r]\ar_{ev_V}[d] & 0 \ar[d]\\ 0 \ar[r] & P_{m-1}\ar[r]^{\iota_{m-1}} & P_m\otimes \cH_m \ar[r]^{ev} &P_{m+1} \ar[r] & I_{2-m}\ar[r]&0}\]
-  in which we set $P_0=0$ and $I_l=0$ for $l\leq 0$.
-  Since $\mathrm{id}_{P_1}\otimes \iota_V$ is injective, the snake lemma shows that $\ker(ev_V)=0$ for $m=1$ and thus $ev_V$ is injective in this case.
-  
-  In view of Remark~\ref{rem:reflection recursion}, it is enough for the case $m>1$ to show that the cokernel of $ev_V$ does not have a preinjective direct summand when $m=1$.
-  Clearly the cokernel of $\mathrm{id}_{P_1}\otimes \iota_V$ is isomorphic to $P_1\otimes \cH_1/V$.
-  Thus we obtain the following commutative diagram induced by the cokernels of the above vertical maps, note that the vertical maps below are surjective:
-  \[\xymatrix{0 \ar[r]  & P_1\otimes \cH_1 \ar[d]\ar[r]^{ev} &P_{2}\ar[d] \ar[r] & I_{1}\ar@{=}[d]\ar[r]&0\\ 0\ar[r] & P_1\otimes \cH_1/V \ar[r] &K\ar[r]& I_{1}\ar[r]&0.}\]
-
-  We need to show that $K$ has no preinjective direct summand.
-  As $\Hom(P_2,P_1)=0$ and as the vertical maps are surjective, the representation $K$ has no direct summand which is isomorphic to $P_1=S_1$.
-  But this already shows that $K$ is indecomposable as $\udim K=(\dim \cH_1/V,1)$.
-  Since $V$ is a proper subspace of $\cH_1$, $\udim K$ is not the dimension vector of a preinjective representation and the claim follows.
+  The map $ev_V$ is irreducible and is thus either injective or surjective.
+  But as observed above, we have $r\cdot\udim P_m<\udim P_{m+1}$ for $1\le r<n$ and so $ev_V$ cannot be surjective.
 \qed\end{proof}
 
-In what follows we will not distinguish between $P_m\otimes V$ and its image under $ev_V$.
+% As $\Ext(P_m\otimes V,P_{m-1})=0$ and $\Hom(P_1,I_1)=0$, we obtain a commutative diagram 
+% \[\xymatrix{0 \ar[r] & P_{m-1}\ar@{=}[d]\ar[r] &P_{m-1}\oplus P_m\otimes V \ar@{}[dr]|(.7){\lrcorner} \ar[r]\ar[d]_{(\iota_{m-1},\mathrm{id}_{P_m}\otimes \iota_V)} &P_{m}\otimes V \ar[r]\ar_{ev_V}[d] & 0 \ar[d]\\ 0 \ar[r] & P_{m-1}\ar[r]^{\iota_{m-1}} & P_m\otimes \cH_m \ar[r]^{ev} &P_{m+1} \ar[r] & I_{2-m}\ar[r]&0}\]
+% in which we set $P_0=0$ and $I_l=0$ for $l\leq 0$.
+% Since $\mathrm{id}_{P_1}\otimes \iota_V$ is injective, the snake lemma shows that $\ker(ev_V)=0$ for $m=1$ and thus $ev_V$ is injective in this case.
+% 
+% In view of Remark~\ref{rem:reflection recursion}, it is enough for the case $m>1$ to show that the cokernel of $ev_V$ does not have a preinjective direct summand when $m=1$.
+% Clearly the cokernel of $\mathrm{id}_{P_1}\otimes \iota_V$ is isomorphic to $P_1\otimes \cH_1/V$.
+% Thus we obtain the following commutative diagram induced by the cokernels of the above vertical maps, note that the vertical maps below are surjective:
+% \[\xymatrix{0 \ar[r]  & P_1\otimes \cH_1 \ar[d]\ar[r]^{ev} &P_{2}\ar[d] \ar[r] & I_{1}\ar@{=}[d]\ar[r]&0\\ 0\ar[r] & P_1\otimes \cH_1/V \ar[r] &K\ar[r]& I_{1}\ar[r]&0.}\]
 
+% We need to show that $K$ has no preinjective direct summand.
+% As $\Hom(P_2,P_1)=0$ and as the vertical maps are surjective, the representation $K$ has no direct summand which is isomorphic to $P_1=S_1$.
+% But this already shows that $K$ is indecomposable as $\udim K=(\dim \cH_1/V,1)$.
+% Since $V$ is a proper subspace of $\cH_1$, $\udim K$ is not the dimension vector of a preinjective representation and the claim follows.
+%\qed\end{proof}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Truncated Preprojectives}
-\label{sec:truncated preprojectives}
-
-Motivated by Lemma~\ref{le:injective evaluation maps}, we define the following.
 \begin{definition}
   For $V\in \Gr(\cH_m)$, define the \emph{truncated preprojective} $P_{m+1}^V$ to be the cokernel of the map $ev_V:P_m\otimes V\to P_{m+1}$, i.e.\ we have a short exact sequence
   \begin{equation}
@@ -377,12 +381,12 @@ We collect below several basic homological results related to preprojective repr
   For $V\in \Gr(\cH_m)$, $m\ge1$, we have $\Hom(P_m,P_{m+1}^V)\cong \cH_m/V$ and $\Ext(P_m,P_{m+1}^V)=0$.
 \end{lemma}
 \begin{proof}
-  As $P_m$ is exceptional, applying the functor $\Hom(P_m,-)$ to the sequence \eqref{eq:truncated preprojectives}, gives an exact sequence
+  As $P_m$ is rigid, applying the functor $\Hom(P_m,-)$ to the sequence \eqref{eq:truncated preprojectives}, gives an exact sequence
   \[\xymatrix{0 \ar[r] & \Hom(P_m,P_m\otimes V) \ar[r] & \Hom(P_m,P_{m+1}) \ar[r] & \Hom(P_m,P_{m+1}^V) \ar[r] & 0}\]
   and an isomorphism
   \[\Ext(P_m,P_{m+1})\cong\Ext(P_m,P_{m+1}^V).\]
-  But there is a natural isomorphism $\Hom(P_m,P_m\otimes V)\cong V$ and the first claim follows.
-  The final claim follows from Theorem ~\ref{th:rigids} which implies $\Ext(P_m,P_{m+1})=0$.
+  There is a natural isomorphism $\Hom(P_m,P_m\otimes V)\cong V$ giving the first claim.
+  The second claim follows from the vanishing of $\Ext(P_m,P_{m+1})$ (c.f.~Theorem~\ref{th:rigids}).
 \qed\end{proof}
 
 \begin{lemma}
@@ -489,13 +493,15 @@ for the affine space of representations of $K(n)$ with dimension vector $d$.
   For $V\in \Gr(\cH_m)$, $m\ge1$, any proper subrepresentation $X\subsetneq P_{m+1}^V$ can be written as a direct sum of preprojective representations $P_r$ with $1\le r\le m$.
 \end{lemma}
 \begin{proof}
-  We proceed by induction on $m$.
-  When $m=1$, the dimension vector of $P_{m+1}^V$ is $(\codim_{\cH_m} V,1)$.
-  In particular, it is immediate that each proper subrepresentation of $P_{m+1}^V$ is isomorphic to $P_1^k$ for some $0\le k\le\codim_{\cH_m} V$.
-
-  For $m\ge2$, we observe by induction that Lemma~\ref{le:reflected truncated preprojectives} implies that any subrepresentation of $P_{m+1}^V$ which has no summand isomorphic to $P_1$ must be a direct sum of preprojective representations $P_r$ with $2\le r\le m$.
-  Indeed, each of these is obtained from a subrepresentation of $\Sigma_1(P_{m+1}^V)^\sigma$ by applying the functor $\Sigma_2(-)^\sigma$ and the claim follows from the recursions in Remark~\ref{rem:reflection recursion} for preprojective representations.
+  Since $ev_V$ is irreducible, every proper subrepresentation of $P_{m+1}^V$ factors through $P_{m+1}$ and the claim follows.
 \qed\end{proof}
+% We proceed by induction on $m$.
+% When $m=1$, the dimension vector of $P_{m+1}^V$ is $(\codim_{\cH_m} V,1)$.
+% In particular, it is immediate that each proper subrepresentation of $P_{m+1}^V$ is isomorphic to $P_1^k$ for some $0\le k\le\codim_{\cH_m} V$.
+
+% For $m\ge2$, we observe by induction that Lemma~\ref{le:reflected truncated preprojectives} implies that any subrepresentation of $P_{m+1}^V$ which has no summand isomorphic to $P_1$ must be a direct sum of preprojective representations $P_r$ with $2\le r\le m$.
+% Indeed, each of these is obtained from a subrepresentation of $\Sigma_1(P_{m+1}^V)^\sigma$ by applying the functor $\Sigma_2(-)^\sigma$ and the claim follows from the recursions in Remark~\ref{rem:reflection recursion} for preprojective representations.
+%\qed\end{proof}
 
 For $V\in \Gr(\cH_m)$, $m\ge1$, any subspace $W\subset V$ gives rise to an exact sequence
 \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar[r]^(.6){ev} & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0},\]
