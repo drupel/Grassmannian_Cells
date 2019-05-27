@@ -37,6 +37,7 @@
 \newcommand{\NN}{\mathbb{N}}
 \newcommand{\ZZ}{\mathbb{Z}}
 
+\newcommand{\bfd}{\mathbf{d}}
 \newcommand{\bfe}{\mathbf{e}}
 \newcommand{\bff}{\mathbf{f}}
 \newcommand{\bfg}{\mathbf{g}}
@@ -314,6 +315,11 @@ The following is well-known.
 \end{theorem}
 
 The representations $P_m$ are called the \emph{preprojective} representations of $K(n)$ and the representations $I_m$ are called \emph{preinjective}.
+The following homological organization is well-known.
+\begin{lemma}
+  \label{le:preprojective subs}
+  If $\Hom(X,P_m)\ne0$ (resp. $\Ext(P_m,X)\ne0$) for some indecomposable representation $X$ and some $m\ge1$, then $X$ must be preprojective of the form $P_r$ with $1\le r\le m$ (resp. $1\le r\le m-2$).
+\end{lemma}
 \begin{remark}
   \label{rem:reflection recursion}
   We may identify the quiver $K(n)$ with $K(n)^{op}$ by interchanging the vertex labels.
@@ -374,10 +380,10 @@ where the right-hand morphism is the natural evaluation map.
   \end{equation}
 \end{definition}
 \begin{remark}
-  It will be convenient to also set $P_{m+1}^0=P_{m+1}$, observe that this notation is consistent with taking $V=0$ in the sequence \eqref{eq:truncated preprojectives}.
+  It will be convenient to also set $P_{m+1}^0=P_{m+1}$ as this notation is consistent with taking $V=0$ in the sequence \eqref{eq:truncated preprojectives}.
 \end{remark}
 
-We collect below several basic homological results related to preprojective representations.
+We collect below several basic homological results related to truncated preprojective representations.
 \begin{lemma}
   \label{le:truncated homomorphisms}
   For $V\in \Gr(\cH_m)$, $m\ge1$, we have $\Hom(P_m,P_{m+1}^V)\cong \cH_m/V$ and $\Ext(P_m,P_{m+1}^V)=0$.
@@ -409,18 +415,26 @@ We collect below several basic homological results related to preprojective repr
   \label{le:unique morphisms}
   Consider $V,W\in \Gr(\cH_m)$, $m\ge1$.
   \begin{enumerate}
-    \item There exists a morphism $P_{m+1}^W\to P_{m+1}^V$ if and only if $W\subseteq V$ and this morphism is unique (up to scalars) when it exists.
+    \item There exists a morphism $P_{m+1}^W\to P_{m+1}^V$ if and only if $W\subseteq V$, and this morphism is unique (up to scalars) when it exists.
     \item For $W\subseteq V$, we have $\Ext(P_{m+1}^W,P_{m+1}^V)\cong W^*\otimes(\cH_m/V)$.
+      Otherwise, $\Ext(P_{m+1}^W,P_{m+1}^V)$ is naturally isomorphic to the quotient of $W^*\otimes (\cH_m/V)$ by the line corresponding to the standard counit $\CC\to W^*\otimes W$, this line degenerates to a point in the case $W\subseteq V$.
   \end{enumerate}
 \end{lemma}
 \begin{proof}
   We apply the functor $\Hom(-,P_{m+1}^V)$ to the sequence \eqref{eq:truncated preprojectives} for $W$ to get an exact sequence
   \[0\rightarrow \Hom(P_{m+1}^W,P_{m+1}^V)\longrightarrow \Hom(P_{m+1},P_{m+1}^V)\stackrel{-\circ ev_W}{\longrightarrow} \Hom(P_m\otimes W,P_{m+1}^V)\longrightarrow \Ext(P_{m+1}^W,P_{m+1}^V)\rightarrow 0.\]
-  But the space $\Hom(P_{m+1},P_{m+1}^V)$ is one-dimensional and thus $\Hom(P_{m+1}^W,P_{m+1}^V)$ is nonzero (and hence one-dimensional) if and only if the morphism $-\circ ev_W$ of the above sequence is zero.
-  But this occurs exactly when the image of the map $ev_W:P_m\otimes W\to P_{m+1}$ is contained in the kernel of $\pi_V$, i.e.\ in the image of $ev_V:P_m\otimes V\to P_{m+1}$, and this occurs if and only if $W\subseteq V$. 
-  In this case, there are isomorphisms
+  But the space $\Hom(P_{m+1},P_{m+1}^V)$ is one-dimensional, therefore $\Hom(P_{m+1}^W,P_{m+1}^V)$ is nonzero (hence one-dimensional) if and only if the morphism $-\circ ev_W$ of the above sequence is zero.
+  A routine chase using the following pullback diagram confirms the latter holds if and only if $W\subseteq V$.
+  \[\xymatrix{
+      & 0 \ar[d] & 0 \ar[d] & 0 \ar[d] \\
+      0 \ar[r] & K \ar[r] \ar[d] \ar@{}[dr]|(.7){\lrcorner} & P_m\otimes W \ar[d]^{ev_W} \ar[r] & C \ar[r] \ar[d] & 0\\
+    0 \ar[r] & P_m\otimes V \ar[r]^{ev_V} & P_{m+1} \ar[r]^{\pi_V} & P_{m+1}^V \ar[r] & 0}\]
+  
+  In case $W\subseteq V$, there are isomorphisms
   \[\Ext(P_{m+1}^W,P_{m+1}^V)\cong\Hom(P_m\otimes W,P_{m+1}^V)\cong W^*\otimes \cH_m/V,\]
   where the last isomorphism is immediate from Lemma~\ref{le:truncated homomorphisms}.
+  Otherwise, we must quotient $\Hom(P_m\otimes W,P_{m+1}^V)$ by the image of $-\circ ev_W$.
+  This line can be described as above since that gives $ev_W$ under the isomorphism $W^*\otimes\cH_m\cong\Hom(P_m\otimes W,P_{m+1})$.
 \qed\end{proof}
 \begin{remark}
   The total Grassmannian $\Gr(\cH_m)$ is naturally a poset under inclusion.
@@ -429,43 +443,43 @@ We collect below several basic homological results related to preprojective repr
   By Lemma~\ref{le:unique morphisms}(1), the functor $V\mapsto P_{m+1}^V$ gives an isomorphism of categories $\CC \Gr(\cH_m)\cong\cP_{m+1}$.
 \end{remark}
 
-The truncated preprojective representation $P_{m+1}^V$ has dimension vector  $\udim P_{m+1}^V=d(m,\dim V):=\udim P_{m+1}-\dim V\cdot\udim P_m$.
+The truncated preprojective representation $P_{m+1}^V$ has dimension vector  $\udim P_{m+1}^V=\bfd(m,\dim V):=\udim P_{m+1}-\dim V\cdot\udim P_m$.
 These will play an important role when describing quiver Grassmannians of preprojective representations recursively.
-For a dimension vector $d=(d_1,d_2)\in\NN^{K(n)_0}$, write 
-\[R_d(K(n))=\bigoplus_{i=1}^n\Hom_{\CC}(\CC^{d_2},\CC^{d_1})\]
-for the affine space of representations of $K(n)$ with dimension vector $d$. 
+For a dimension vector $\bfd=(d_1,d_2)\in\NN^{K(n)_0}$, write 
+\[R_\bfd(K(n))=\bigoplus_{i=1}^n\Hom_{\CC}(\CC^{d_2},\CC^{d_1})\]
+for the affine space of representations of $K(n)$ with dimension vector $\bfd$. 
 \begin{proposition}
   \label{pro:indecomposables}
   Let $m\geq 1$ and $0\le r\le n-1$.
   The following hold:
   \begin{enumerate}
-    \item The isomorphism classes of indecomposable representations of $K(n)$ with dimension vector $d(m,r)$ are in one-to-one correspondence with points of $\Gr_{n-r}(\CC^n)$.
-    \item The indecomposable representations of $K(n)$ with dimension vector $d(m,r)$ are precisely the truncated preprojective representations $P_{m+1}^V$ for $V\in \Gr(\cH_m)$ with $\dim V=r$. 
-    \item The set of indecomposable representations with dimension vector $d(m,r)$ is given by a non-empty open subset of $R_{d(m,r)}(K(n))$. 
+    \item The isomorphism classes of indecomposable representations of $K(n)$ with dimension vector $\bfd(m,r)$ are in one-to-one correspondence with points of $\Gr_{n-r}(\CC^n)$.
+    \item The indecomposable representations of $K(n)$ with dimension vector $\bfd(m,r)$ are precisely the truncated preprojective representations $P_{m+1}^V$ for $V\in \Gr(\cH_m)$ with $\dim V=r$. 
+    \item The set of indecomposable representations with dimension vector $\bfd(m,r)$ is given by a non-empty open subset of $R_{\bfd(m,r)}(K(n))$. 
   \end{enumerate}
 \end{proposition}
 \begin{proof}
-  As the reflection functors $\Sigma_1,\,\Sigma_2$ preserve indecomposability and $\Sigma_2(d(m,r))^\sigma=d(m+1,r)$, it suffices to prove the first statement for $m=1$.
-  Then we have $d(m,r)=(l,1)$ for $l:=n-r$.
-  This means that $X\in R_{d(m,r)}(K(n))$ can be represented by a matrix $M_X\in\CC^{l\times n}$, where the $i^{\mathrm{th}}$ column stands for $X_{\alpha_i}$.
-  Now $X$ is indecomposable if and only if $\rk(M_X)=l$.
-  Indeed, $X$ admits a summand isomorphic to $S_1^k$ exactly when $\rk(M_X)=l-k$.
+  As the reflection functors $\Sigma_1,\,\Sigma_2$ preserve indecomposability and $\Sigma_2(\bfd(m,r))^\sigma=\bfd(m+1,r)$, it suffices to prove the first statement for $m=1$.
+  Then we have $\bfd(m,r)=(\ell,1)$ for $\ell:=n-r$.
+  This means that $X\in R_{\bfd(m,r)}(K(n))$ can be represented by a matrix $M_X\in\CC^{\ell\times n}$, where the $i^{\mathrm{th}}$ column stands for $X_{\alpha_i}$.
+  Now $X$ is indecomposable if and only if $\rk(M_X)=\ell$.
+  Indeed, $X$ admits a summand isomorphic to $S_1^k$ exactly when $\rk(M_X)=\ell-k$.
 
-  This shows that the indecomposable representations in $R_{(l,1)}(K(n))$ are in one-to-one correspondence with $l\times n$ matrices of maximal rank.
-  Thus we may associate to each such representation $X$ a subspace of $\CC^n$ of dimension~$l$ spanned by the row vectors of the corresponding matrix $M_X$.
-  Now it is straightforward to check that the $\GL_{d(m,r)}=\GL_l(\CC)\times\CC^\ast$-action on $R_{d(m,r)}(K(n))$ corresponds to the base change action of $\GL_l(\CC)$ on the set of these subspaces.
+  This shows that the indecomposable representations in $R_{(\ell,1)}(K(n))$ are in one-to-one correspondence with $\ell\times n$ matrices of maximal rank.
+  Thus we may associate to each such representation $X$ a subspace of $\CC^n$ of dimension~$\ell$ spanned by the row vectors of the corresponding matrix $M_X$.
+  Now it is straightforward to check that the $\GL_{\bfd(m,r)}=\GL_\ell(\CC)\times\CC^\ast$-action on $R_{\bfd(m,r)}(K(n))$ corresponds to the base change action of $\GL_\ell(\CC)$ on the set of these subspaces.
   This shows the first statement.
 
   By Lemma~\ref{le:unique morphisms}, the endomorphism ring of $P_{m+1}^V$ is one-dimensional and so $P_{m+1}^V$ must be indecomposable.
-  Since both the isomorphism classes of indecomposables and the isomorphism classes of truncated projectives with dimension vector $d(m,r)$ are parametrized by the same Grassmannian, this gives the second claim.
+  Since both the isomorphism classes of indecomposables and the isomorphism classes of truncated projectives with dimension vector $\bfd(m,r)$ are parametrized by the same Grassmannian, this gives the second claim.
 
-  As there exist representations with trivial endomorphism ring, the dimension vectors $d(m,r)$ are Schur roots.
-  It follows that the set of indecomposable representations with trivial endomorphism ring forms a dense open subset of $R_{d(m,r)}(K(n))$, see for example \cite[Theorem 2.2]{sch}.
+  As there exist representations with trivial endomorphism ring, the dimension vectors $\bfd(m,r)$ are Schur roots.
+  It follows that the set of indecomposable representations with trivial endomorphism ring forms a dense open subset of $R_{\bfd(m,r)}(K(n))$, see for example \cite[Theorem 2.2]{sch}.
   This shows the last claim.
 \qed\end{proof}
 \begin{remark}
   There is a more elegant way to prove the first part of Proposition~\ref{pro:indecomposables} using the notion of stability and moduli spaces.
-  Actually, fixing the standard stability induced by the linear form $\Theta:\ZZ^{Q_0}\to\ZZ$ defined by $\Theta(d)=d_2$, it can be shown that all indecomposables are stable and that the moduli space of stable representations is in fact $\Gr_l(\CC^n)$.
+  Actually, fixing the standard stability induced by the linear form $\Theta:\ZZ^{Q_0}\to\ZZ$ defined by $\Theta(\bfd)=d_2$, it can be shown that all indecomposables are stable and that the moduli space of stable representations is in fact $\Gr_\ell(\CC^n)$.
   We opted for the proof above because the notion of stability would only be used at this point and we wanted to keep the exposition as simple as possible. 
 \end{remark}
 
@@ -474,8 +488,8 @@ for the affine space of representations of $K(n)$ with dimension vector $d$.
   For $V\in\Gr(\cH_m)$, $m\ge1$, we have $\Hom(P_{m+1}^V,P_\ell)=0=\Ext(P_\ell,P_{m+1}^V)$ for all $\ell\ge1$.
 \end{lemma}
 \begin{proof}
-  Recall that $\Hom(X,P_\ell)\ne0$ (resp. $\Ext(P_\ell,X)\ne0$) for some indecomposable representation $X$ and some $\ell\ge1$ implies that $X$ is preprojective of the form $P_r$ with $1\le r\le\ell$ (resp. $1\le r\le\ell-2$).
-  However, $P_{m+1}^V$ is indecomposable by Proposition~\ref{pro:indecomposables} and it cannot be preprojective as it is not rigid by Lemma~\ref{le:unique morphisms}.
+   The representation $P_{m+1}^V$ is indecomposable by Proposition~\ref{pro:indecomposables} and it cannot be preprojective as it is not rigid by Lemma~\ref{le:unique morphisms}.
+   The claim then follows from Lemma~\ref{le:preprojective subs}.
 \qed\end{proof}
 
 \begin{lemma}
@@ -495,7 +509,7 @@ for the affine space of representations of $K(n)$ with dimension vector $d$.
   For $V\in \Gr(\cH_m)$, $m\ge1$, any proper subrepresentation $X\subsetneq P_{m+1}^V$ can be written as a direct sum of preprojective representations $P_r$ with $1\le r\le m$.
 \end{lemma}
 \begin{proof}
-  Since the map $ev_V$ in equation \eqref{eq:truncated preprojectives} is irreducible, every proper subrepresentation of $P_{m+1}^V$ factors through $P_{m+1}$ and the claim follows.
+  Since the map $ev_V$ in equation \eqref{eq:truncated preprojectives} is irreducible, every proper subrepresentation of $P_{m+1}^V$ factors through $P_{m+1}$ and the claim follows from Lemma~\ref{le:preprojective subs}.
 \qed\end{proof}
 % We proceed by induction on $m$.
 % When $m=1$, the dimension vector of $P_{m+1}^V$ is $(\codim_{\cH_m} V,1)$.
@@ -521,7 +535,7 @@ Each such sequence has the following almost-split property for proper subreprese
   \[\xymatrix{0 \ar[r] & P_m\otimes(V/W) \ar@{=}[d]\ar[r] & Y \ar[r]\ar[d]\ar@{}[dr]|(.7){\lrcorner} & X \ar[d]\ar[r] & 0 \\
     0 \ar[r] & P_m\otimes(V/W) \ar[r] & P_{m+1}^W \ar[r] & P_{m+1}^V \ar[r] & 0}\]
   must split.
-  The claim for arbitrary subrepresentations $Z\subset P_m\otimes(V/W)$ is an immediate consequence of this splitting.
+  The claim for an arbitrary subrepresentation $Z\subseteq P_m\otimes(V/W)$ is an immediate consequence of this splitting.
 \qed\end{proof}
 
 \begin{lemma}
@@ -552,7 +566,7 @@ Each such sequence has the following almost-split property for proper subreprese
   Suppose $\varphi\in \cH_m^*$ is a nonzero functional on $\cH_m$ and let $V\subsetneq \cH_m$ denote the kernel of $\varphi$.
   Then $\bar{\varphi}=0\in \cH_{m-1}$ if and only if the image of $\iota_{m-1}$ is contained in $P_m\otimes V\subsetneq P_m\otimes \cH_m$.
   But then Lemma~\ref{le:injective evaluation maps} implies $ev\circ\iota_{m-1}=ev_V\circ\iota_{m-1}\ne0$, a contradiction.
-  Thus the map $\cH_m^*\to \cH_{m-1}$, $\varphi\mapsto\bar{\varphi}$ must be injective and hence an isomorphism.
+  Thus the map $\cH_m^*\to \cH_{m-1}$, $\varphi\mapsto\bar{\varphi}$, must be injective and hence an isomorphism.
 \qed\end{proof}
 \begin{remark}
   The set $\Gr(\cH_m)$ is naturally a poset and Lemma~\ref{le:preprojective homomorphism duality} gives an identification of the opposite poset $\Gr(\cH_m)^{op}\cong \Gr(\cH_m^*)$ with $\Gr(\cH_{m-1})$.
@@ -576,7 +590,6 @@ Each such sequence has the following almost-split property for proper subreprese
 \subsection{Lifting to \texorpdfstring{$\mathbf{\widetilde{K(n)}}$}{K(n)}}
 \label{Lifting}
 
-Fix a natural number $n\geq 3$.
 Write $W_n:=W_{K(n)}$ for the free group generated by the arrows $\alpha_i$, $1\le i\le n$, of $K(n)$ and denote by $e\in W_n$ its identity element.
 In this section, we fix compatible bases for each $\cH_m:=\Hom(P_m,P_{m+1})$ and use these to lift the (truncated) preprojective representations of the quiver $K(n)$ to the universal cover~$\widetilde{K(n)}$.
 This lifting will rigidify the situation, allowing more precise control over these representations and their subrepresentation structure.
