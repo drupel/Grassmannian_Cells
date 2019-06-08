@@ -960,7 +960,7 @@ As usual, given $\tilde M\in\rep \widetilde{K(n)}$, we write
 \noindent 
 In this section, we aim to establish the existence of cell decompositions for quiver Grassmannians of (truncated) preprojective representations of $K(n)$ and its universal covering quiver.
 By a \emph{cell decomposition} of an algebraic variety $X$, we mean a filtration $\varnothing=X_{k+1}\subset X_k\subset \cdots \subset X_2\subset X_1=X$ of $X$ by closed subsets $X_i\subset X$ so that each $X_i\setminus X_{i+1}$ is isomorphic to an affine space.
-Alternatively, a cell decomposition of $X$ is a collection of disjoint locally closed subsets $U_1,\ldots,U_k\subset X$, each isomorphic to an affine space, such that each $X_i=U_i\sqcup U_{i+1}\sqcup\cdots\sqcup U_k$ is closed in $X$ with $X_1=X$.
+Alternatively, a cell decomposition of $X$ is a disjoint collection of locally closed subsets $U_1,\ldots,U_k\subset X$, each isomorphic to an affine space, such that each $X_i=U_i\sqcup U_{i+1}\sqcup\cdots\sqcup U_k$ is closed in $X$ with $X_1=X$.
 We call the subsets $U_i\subset X$ the \emph{affine cells} for this cell decomposition.
 Given varieties $X$ and $Y$ each with cell decompositions, we may choose an ordering on products of their affine cells (e.g.\ lexicographic) to get a cell decomposition of $X\times Y$. 
 Given a variety $X$ with a cell decomposition, we call a subvariety $U\subset X$ \emph{compatible} with the cell decomposition if $U$ can be written as the union over a subset of the affine cells for $X$.
@@ -972,10 +972,11 @@ In this case, $U$ also has a cell decomposition given by taking exactly those af
 \label{sec:bb}
 
 The aim of Section~\ref{torusaction} is to define a $\CC^*$-action on quiver Grassmannians which can be used to simplify the calculation of homological invariants in general.
-If the quiver Grassmannian is smooth, which is for instance the case for exceptional representations by \cite{cr}, it can also be used to stratify the quiver Grassmannians using the results of Bia\l{}ynicki-Birula.
+If the quiver Grassmannian is smooth, which is for instance the case for exceptional representations by \cite{cr}, this action can also be used to stratify the quiver Grassmannians using the results of Bia\l{}ynicki-Birula.
 More specifically, let $X$ be a smooth projective variety with a $\C^\ast$-action.
 For a connected component of the fixed point set $C\subset X^{\C^\ast}$, we define its attracting set as
-\[\Att(C):=\{y\in X\mid \lim_{t\to 0}t.y\in C\}.\]
+\[\Att(C):=\{y\in X\mid \lim_{t\to 0}t.y\in C\},\]
+where $\lim_{t\to 0}t.y$ denotes the unique completion of the map $\CC^*\to X$, $t\mapsto t.y$, to a map $\CC\to X$.
 The following result of Bia\l{}ynicki-Birula relates the geometry of $X$ to the geometry of its $\CC^*$-fixed points (see \cite[Section 4]{bb} or \cite[Section 4]{ca}).
 \begin{theorem}
   \label{thm:bb}
@@ -986,7 +987,7 @@ The following result of Bia\l{}ynicki-Birula relates the geometry of $X$ to the 
 \end{theorem}
 
 If each component $C_i$ admits a cell decomposition, Theorem~\ref{thm:bb} implies the same is true of $X$.
-Indeed, we can trivialize each affine bundle $\Att(C_i)\to C_i$ over each affine piece of $C_i$ and then taking the natural ordering of the resulting affine spaces gives a cell decomposition of $X$.
+Indeed, we can trivialize each affine bundle $\Att(C_i)\to C_i$ over each affine piece of $C_i$ and then taking the natural ordering on the resulting affine spaces gives a cell decomposition of $X$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1003,7 +1004,7 @@ This naturally induces an action of $\C^\ast$ on the Grassmannian $\Gr_k(X)$.
 Our goal is to understand the fixed points of such an action.
 
 For this recall that we can represent each subspace~$U\in\Gr_k(X)$ uniquely by a $k\times n$ matrix $M(U)$ whose rows provide a basis for $U$ when expanded as coefficient vectors in the basis $\mathcal B$.
-The uniqueness of $M(U)$ comes from requiring that it be in row-echelon form, i.e.\ there exists a unique sequence $1\leq i_1<\ldots<i_k\leq n$ so that $M(U)$ is of the form
+The uniqueness of $M(U)$ comes from requiring that it be in a row-echelon form, e.g.\ we will assume there exists a unique sequence $1\leq i_1<\ldots<i_k\leq n$ so that $M(U)$ is of the form
 \[M(U):=
   \begin{pmatrix}
     \ast&\cdots &\ast &1&0 &\cdots& 0 & 0 & 0 &\cdots&0&0&0&\cdots&0\\
@@ -1131,7 +1132,7 @@ Define the $F$-polynomial of a representation $X$ by
   \label{fpoly}
   Let $X$ be a representation which can be lifted to the universal covering quiver.
   \begin{enumerate}
-    \item If $\Gr_\bfe(X)$ is smooth and $\Gr^{\hat Q}_\tbfe(\hat X)$ has a cell decomposition, then $\Gr_\bfe(X)$ has a cell decomposition.
+    \item If $\Gr_\bfe(X)$ is smooth and each $\Gr^{\tilde Q}_\tbfe(\tilde X)$ has a cell decomposition, then $\Gr_\bfe(X)$ has a cell decomposition.
     \item We have $F_X=SF_{\tilde X}$ where $SF_{\tilde X}$ is obtained from $F_{\tilde X}$ by applying $S:\ZZ[y_{(i,w)}\mid i\in Q_0,w\in W_Q]\to\ZZ[y_i\mid i\in Q_0]$ given by $S(y_{(i,w)})=y_i$ for all $i\in Q_0$ and $w\in W_Q$.
   \end{enumerate} 
 \end{corollary}
@@ -1183,7 +1184,7 @@ While the reflection functors are not $GL_n(\CC)$-equivariant, they do admit the
   i.e. $g.\Sigma_2(M)=\Sigma_2(g^{-T}.M)$.
 \qed\end{proof}
 
-Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposable representations of $K(n)$ with dimension vector $d$ for $d\in\NN^{K(n)_0}$. As the $\GL_n(\CC)$-action commutes with the natural base change action, we can define a $\GL_n(\CC)$-action on $\Ind\big(K(n),d\big)$.
+Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposable representations of $K(n)$ with dimension vector $d$ for $d\in\NN^{K(n)_0}$. As the $\GL_n(\CC)$-action above commutes with the natural base change action on representations, we can define a $\GL_n(\CC)$-action on $\Ind\big(K(n),d\big)$.
 \begin{proposition} 
   \label{indecomposables}
   Let $m\geq 1$ and $d(m,r)=\udim P_{m+1}-r\udim P_m$ with $0\leq r\leq n-1$.
