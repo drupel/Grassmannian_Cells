@@ -301,7 +301,7 @@ In particular, $\Sigma_i$ gives an exact equivalence of categories $\Sigma_i:\re
 Also, following \cite{brenner-butler}, the Auslander-Reiten translation $\tau:\rep K(n)\to\rep K(n)$ may be identified with the functor $\Sigma_2\Sigma_1$.
 
 Define Chebyshev polynomials $u_k$ for $k\in\ZZ$ by the recursion $u_0=0$, $u_1=1$, $u_{k+1}=nu_k-u_{k-1}$.
-Observe by an easy induction that $u_{k+1}-u_k>0$ for $k\ge0$ since $n\ge3$.
+Since $n\ge3$, we may observe by an easy induction that $u_{k+1}-u_k>0$ for $k\ge0$ and thus $u_{k+1}>(n-1)u_k$ for $k\ge0$.
 
 The following is well-known.
 \begin{theorem}
@@ -846,7 +846,7 @@ For $I\subsetneq\{1,\ldots,n\}$, write $I^c=\{1,\ldots,n\}\setminus I$ for the c
     \item For any pair $i,j\in\{1,\ldots,n\}$ with $i\ne j$, there is a commutative diagram
       \begin{equation}
         \label{dia:truncated coherence}
-        \xymatrix@R40pt@C60pt{\tilde P_{m+1} \ar^(.4){\tilde\pi_{m+1}^{\{i\}^c}}[d] & \ar[l] \tilde P_{m,i} \ar_(.35){\tilde\pi_{m,i}^{\{i\}}}[dl]\ar^(.4){\tilde\pi_{m,i}^{\{j\}^c}}[d] & \ar[l] \tilde P_{m-1,(i,j)} \ar_(.35){\tilde\pi_{m-1,(i,j)}^{\{j\}}}[dl]\\
+        \xymatrix@R40pt@C60pt{\tilde P_{m+1} \ar^(.4){\tilde\pi_{m+1}^{\{i\}^c}}[d] & \ar[l] \tilde P_{m,i} \ar_(.45){\tilde\pi_{m,i}^{\{i\}}}[dl]\ar^(.4){\tilde\pi_{m,i}^{\{j\}^c}}[d] & \ar[l] \tilde P_{m-1,(i,j)} \ar_(.45){\tilde\pi_{m-1,(i,j)}^{\{j\}}}[dl]\\
         \tilde P_{m+1}^{\{i\}^c}\cong\tilde P_{m,i}^{\{i\}}\ar^{\tilde\pi_{m,i}^{\{i\},\{j\}^c}}[r] & \tilde P_{m,i}^{\{j\}^c}\cong \tilde P_{m-1,(i,j)}^{\{j\}}}
       \end{equation}
     \item For any admissible word $\ui\in A_1^{(k)}$ with $1\le k\le m$ and any proper subset $I\subsetneq\{1,\ldots,n\}$ with $i_k\in I$, there exist (unique up to scale) surjective maps $\tilde\pi_{m+1}^{\ui,I}:\tilde P_{m+1}\to \tilde P_{m+1-k,\ui}^I$ satisfying:
@@ -865,9 +865,9 @@ For $I\subsetneq\{1,\ldots,n\}$, write $I^c=\{1,\ldots,n\}\setminus I$ for the c
   & & 0& 0&}\]
   The image of the inclusion $\tilde P_{m-1}\into \tilde P_{m,j}$ in the bottom row is the subrepresentation $\tilde P_{m-1,(j,j)}\subset\tilde P_{m,j}$ and part (1) follows.
 
-  The commutativity of the upper triangles in (2) follows from the construction of the isomorphisms in the bottom row, while the commutativity of the lower triangle is immediate from the definitions of these maps.
+  The commutativity of the upper triangles in (2) follows from the construction of the isomorphisms in the bottom row, while the commutativity of the lower triangle is immediate from Lemma~\ref{le:properties}.5.
 
-  These diagrams stitch together to give the composition 
+  These diagrams stitch together to give the following composition, where we suppress the lower isomorphisms in the diagram \eqref{dia:truncated coherence}:
   \[\tilde\pi_{m+1}^{\ui,I}:=\tilde\pi_{m+1-k,\ui}^{\{i_k\},I}\circ\tilde\pi_{m+2-k,\ui_{k-1}}^{\{i_{k-1}\},\{i_k\}^c}\circ\cdots\circ\tilde\pi_{m,i_0}^{\{i_1\},\{i_2\}^c}\circ\tilde\pi_{m+1}^{\{i_1\}^c}\]
   which can be seen to satisfy the desired properties from (3) inductively using the commutativity from (2).
 \qed\end{proof}
@@ -929,8 +929,8 @@ The next technical results illustrate the need to lift to the universal covering
 \end{remark}
 
 The following orthogonality property is a primary reason we need to lift to the universal cover of $K(n)$.
-Given $\tilde M\in\rep \tilde K(n)$, write
-\[\tilde M^\perp := \{\tilde N\in\rep \tilde K(n):\Hom(\tilde M,\tilde N)=0=\Ext(\tilde M,\tilde N)\}.\]
+As usual, given $\tilde M\in\rep \widetilde{K(n)}$, we write
+\[\tilde M^\perp := \{\tilde N\in\rep \widetilde{K(n)}:\Hom(\tilde M,\tilde N)=0=\Ext(\tilde M,\tilde N)\}.\]
 \begin{corollary}
   \label{cor:perpendicular}
   Consider a non-empty subset $I\subsetneq\{1,\ldots,n\}$ and fix an element $j\in I$.
@@ -996,6 +996,7 @@ Indeed, we can trivialize each affine bundle $\Att(C_i)\to C_i$ over each affine
 Fix a vector space $X$ of dimension $n$ and let $k\leq n$.
 We first consider a natural $\CC^*$-action on the usual Grassmannian $\Gr_k(X)$ which is compatible with a given direct sum decomposition of the vector space $X$.
 Then we generalize the concept to quiver Grassmannians and observe that the $\CC^*$-fixed point sets can be calculated in an analogous manner.
+This greatly extends the results \cite[Theorem 1]{cerulli} and \cite[Theorem 1.2]{haupt} which utilize similar constructions.
 
 Given a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of $X$ and a map $d:\{1,\ldots,n\}\to\ZZ$, we get a $\C^\ast$-action on $X$ when linearly extending the definition $t.v_r:=t^{d(r)}v_r$ for $r=1,\ldots,n$ to all of $X$.
 This naturally induces an action of $\C^\ast$ on the Grassmannian $\Gr_k(X)$.
@@ -1022,7 +1023,6 @@ Observe that each Schubert cell $X_\bfi$ is invariant under this $\CC^*$-action.
 
 Assume that $X=\bigoplus_{l=1}^m X_l$ is a direct sum decomposition of $X$ and fix a basis $\mathcal B=\{v_1,\ldots,v_n\}$ of~$X$ which is compatible with this decomposition, i.e.\ there exist indices $0=r_0<r_1<r_2<\cdots<r_{m-1}<r_m=n$ such that
 \[v_{r_0+1},\ldots,v_{r_1}\in X_1,\quad v_{r_1+1},\ldots,v_{r_2}\in X_2,\quad\cdots\quad v_{r_{m-1}+1},\ldots,v_{r_m}\in X_m.\]
-The following lemma generalizes \cite[Theorem 1]{cerulli}.
 \begin{lemma}
   \label{le:usualGrass}
   Consider a map $d:\{1,\ldots,n\}\to\ZZ$ such that $d(r)=d(r')$ if $v_r,v_{r'}\in X_l$ for some $l$ and $d(r)\neq d(r')$ if $v_r\in X_l$ and $v_{r'}\in X_{l'}$ with $l\neq l'$.
@@ -1112,8 +1112,6 @@ In the following, we say that $d:\supp(\hat X)\to\ZZ$ satisfies the \emph{degree
   \[U_i=\bigoplus_{\chi\in A_Q} U_i\cap X_{(i,\chi)}\]
   which is equivalent to $U$ being liftable to the universal abelian covering $\hat Q$.
 \qed\end{proof}
-\begin{remark} Note that similar techniques and results are obtained in \cite{haupt}, see e.g. \cite[Theorem 1.2(c)]{haupt}. Note that only representations $\hat X$ of $\hat Q$ are considered in the corresponding proof in \cite[Section 8]{haupt} which satisfy $\dim \hat X_{(i,\chi)}\in\{0,1\}$. Furthermore, it does not seem to be straightforward to obtain our explicit description of the fixed point set of the quiver Grassmannians as those subrepresentations which live on the universal abelian covering with Haupt's result. 
-\end{remark}
 
 The next step is to iterate the $\CC^*$-actions, keeping in mind the following idea: every representation $X$ which lifts to the universal covering quiver also lifts to the universal abelian covering quiver and to the iterated universal abelian covering quivers, i.e.\ to each $\hat Q^{(k)}:=\widehat{\hat Q^{(k-1)}}$ with $\hat Q^{(1)}:=\hat Q$.
 Now it is straightforward to check that there exist natural surjective morphisms $f_k:\widetilde Q\to \hat Q^{(k)}$ which become injective on finite subquivers if $k\gg 0$, see also \cite[Section 3.4]{wei}.
@@ -1227,16 +1225,13 @@ Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposabl
 \subsection{Fibrations of Quiver Grassmannians}
 \label{sec:fibrations}
 
-Let $\ses{M}{B}{N}$ be a short exact sequence of representations.
-For a fixed dimension vector $\tbfe$, this induces the so-called ``Caldero-Chapoton map'' between quiver Grassmannians
+Let $\eta:\ses{M}{B}{N}$ be a short exact sequence of $\widetilde{K(n)}$-representations.
+For a fixed dimension vector $\tbfe$, there is an induced ``Caldero-Chapoton map'' between quiver Grassmannians
 \begin{align*}
-  \Psi:\Gr_\tbfe(B)&\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr_\tbff(M)\times \Gr_\tbfg(N)\\
+  \Psi=\Psi^\eta:\Gr_\tbfe(B)&\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr_\tbff(M)\times \Gr_\tbfg(N)\\
   E&\mapsto \big(E\cap M,(E+M)/M\big).
 \end{align*}
 Following \cite[Section 3]{cc}, any non-empty fiber of $\Psi$ satisfies $\Psi^{-1}(U,W)\cong\mathbb{A}^{\dim\Hom(W,M/U)}$.
-\begin{remark}
-We should always keep in mind that the middle term $B$ and the Caldero-Chapoton depend on the short exact sequence $\eta\in\Ext(N,M)$, i.e. to be more exact we should have named it $\Psi^{\eta}$. As a matter of readability we decided to omit this index.
-\end{remark}
 For $\cG_{\tbff,\tbfg}:=\Psi^{-1}\big(\Gr_\tbff(M)\times \Gr_\tbfg(N)\big)$, we have 
 \begin{equation}
   \label{eq:grassmannian decomposition}
@@ -1280,24 +1275,24 @@ Fix $m\ge1$.
 For fixed subsets $J\subsetneq I\subsetneq\{1,\ldots,n\}$ with $I\setminus J=\{j\}$, Lemma~\ref{le:properties}.1 provides a short exact sequence 
 \begin{equation}
   \label{eq:truncated ses}
-  \ses{\tilde P_{m,j}}{\tilde P_{m+1}^J}{\tilde P_{m+1}^I}
+  \eta_m:\ses{\tilde P_{m,j}}{\tilde P_{m+1}^J}{\tilde P_{m+1}^I}
 \end{equation}
 which induces a map between quiver Grassmannians as above for any fixed $\tbfe$:
 \begin{equation}
   \label{eq:truncated CC}
-  \Psi:\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff(\tilde P_{m,j})\times\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I).
+  \Psi=\Psi^{\eta_m}:\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff(\tilde P_{m,j})\times\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I).
 \end{equation}
 To understand the fibers of this map for $m\ge2$, we will need to make use of another map between quiver Grassmannians coming out of Lemma~\ref{le:special subrepresentations}.
 Here we consider the short exact sequence 
 \begin{equation}
   \label{eq:tau sequence}
-  \ses{\tilde P_m(I,j)}{\tilde P_{m,j}}{\tilde K_m},
+  \xi_m:\ses{\tilde P_m(I,j)}{\tilde P_{m,j}}{\tilde K_m},
 \end{equation}
 where $\tilde K_m=\tilde K_m(I)=\tau\tilde P_{m+1}^I$ for $m\ge3$ and $\tilde K_2=\tilde K_2(I,j)$ is the representation in \eqref{eq:special case} from Remark~\ref{rem:special case}.
 Then, in the same way as above, we obtain the following map for any fixed $\tbff$:
 \begin{equation}
   \label{eq:truncated CC2}
-  \Phi:\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})\to\bigsqcup_{\tbfs+\tbft=\tbff} \Gr^{\tilde Q}_\tbfs\big(\tilde P_m(I,j)\big)\times\Gr^{\tilde Q}_\tbft(\tilde K_m).
+  \Phi=\Phi^{\xi_m}:\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})\to\bigsqcup_{\tbfs+\tbft=\tbff} \Gr^{\tilde Q}_\tbfs\big(\tilde P_m(I,j)\big)\times\Gr^{\tilde Q}_\tbft(\tilde K_m).
 \end{equation}
 \begin{proposition}
   \label{quotient}
@@ -1384,7 +1379,6 @@ Now we are able to state the following result concerning the fibers of $\Psi$:
   But the map $U\mapsto\dim\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/U)$ is upper semicontinuous so that its minimal value on $\Gr_\tbff(\tilde P_{m,j})$ is its generic value, i.e.\ the image of $\Psi_{\tbff,\tbfg}$ is open.
 \qed\end{proof}
 
-
 \begin{theorem}
   \label{cellscover}
   For $m\geq 1$ and $J\subsetneq\{1,\ldots,n\}$, every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a cell decomposition. In particular, every quiver Grassmannian of a lifted preprojective representation admits a cell decomposition.
@@ -1409,7 +1403,7 @@ Furthermore, recall that the preprojective representations $\tilde P_{m+1}$ and 
 		$$\ses{\tilde P_{m,j}}{\tilde P_{m+1}}{\tilde P_{m+1}^{\{j\}}}$$
 for $j\in\{1,\ldots,n\}$. Then we can use the fact that $\tilde P_{m,j}$ is the translation of $\tilde P_m$.
 
-Finally, note that the claim together with Proposition \ref{label} ensures that the fiber dimension along the points of the affine cell $C_V$ is constant. Thus Theorem \ref{vb} gives the statement of the Theorem.
+Finally, note that the claim together with Proposition \ref{fibers} ensures that the fiber dimension along the points of the affine cell $C_V$ is constant. Thus Theorem \ref{vb} gives the statement of the Theorem.
 \end{remark}
 
 
@@ -2143,10 +2137,10 @@ We conjecture that the torus action on $\Gr_\bfe(P_{m+1})$ can be chosen to prov
 
 \bibitem{ca}	J.B.~Carrell: Torus actions and cohomology. Algebraic quotients. Torus actions and cohomology. The adjoint representation and the adjoint action, 83-158. Encyclopaedia Mathematical Science \textbf{131}, Invariant Theory and Algebraic Transformation Groups, Springer, Berlin, 2002.
 
+\bibitem{cerulli} G.~Cerulli Irelli: Quiver Grassmannians associated with string modules. Journal of Algebraic Combinatorics \textbf{33}(2), 259-276 (2011).
+
 \bibitem{ce} 
   G.~Cerulli Irelli, F.~Esposito: Geometry of quiver Grassmannians of Kronecker type and applications to cluster algebras. Algebra \&  Number Theory \textbf{5}(6), 777-801 (2011).
-
-\bibitem{cerulli} G.~Cerulli Irelli: Quiver Grassmannians associated with string modules. Journal of Algebraic Combinatorics \textbf{33}(2), 259-276 (2011).
 
 \bibitem{cefr} 
   G.~Cerulli Irelli, F.~Esposito, H.~Franzen, M.~Reineke: Topology of Quiver Grassmannians. Preprint 2018.
