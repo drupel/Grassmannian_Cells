@@ -1045,9 +1045,9 @@ The next step is to generalize this to quiver Grassmannians.
 Let $Q$ be an acyclic quiver.
 Choose a map $d:\hat Q_0\to\ZZ$ and fix a representation $X\in\rep Q$ which can be lifted to $\hat Q$.
 We consider the decomposition $X_i=\bigoplus_{\chi\in A_Q} X_{(i,\chi)}$ and define a $\CC^*$-action on each $X_{(i,\chi)}$ via $t.x_{(i,\chi)}=t^{d(i,\chi)}x_{(i,\chi)}$ which is then extended linearly to each $X_i$.
-Associated to each subspace $U_i$, there is a corresponding subspace $t.U_i$ for each $t\in\CC^*$.
-In general, this does not induce a $\CC^*$-action on the quiver Grassmannians $\Gr_\bfe(X)$ since $t.U=(t.U_i)_{i\in Q_0}$ is not necessarily a subrepresentation of $X$ for every $U\in\Gr_\bfe(X)$.
-Indeed, for this such an action must satisfy $X_\alpha(t.U_i)\subset t.U_j$ for every arrow $\alpha:i\to j$ of $Q$ and every $t\in\CC^*$. 
+Associated to each subspace $E_i$, there is a corresponding subspace $t.E_i$ for each $t\in\CC^*$.
+In general, this does not induce a $\CC^*$-action on the quiver Grassmannians $\Gr_\bfe(X)$ since $t.E=(t.E_i)_{i\in Q_0}$ is not necessarily a subrepresentation of $X$ for every $E\in\Gr_\bfe(X)$.
+Indeed, for this such an action must satisfy $X_\alpha(t.E_i)\subset t.E_j$ for every arrow $\alpha:i\to j$ of $Q$ and every $t\in\CC^*$. 
 \begin{lemma}
   Let $X$ be a representation of $Q$ which can be lifted to $\hat Q$.
   Fix an integer $c_\alpha\in\ZZ$ for each~$\alpha\in Q_1$.
@@ -1055,17 +1055,17 @@ Indeed, for this such an action must satisfy $X_\alpha(t.U_i)\subset t.U_j$ for 
   Then the $\CC^*$-action on $X$ determined by $d$ induces a $\CC^*$-action on $\Gr_\bfe(X)$.
 \end{lemma}
 \begin{proof} 
-  Fix $U\in\Gr_\bfe(X)$ and consider $u_i\in U_i$.
-  Since $U$ is a subrepresentation, for an arrow $\alpha:i\to j$ of $Q$ we may write $X_\alpha(u_i)=u_j$ for some $u_j\in U_j$.
+  Fix $E\in\Gr_\bfe(X)$ and consider $e_i\in E_i$.
+  Since $E$ is a subrepresentation, for an arrow $\alpha:i\to j$ of $Q$ we may write $X_\alpha(e_i)=e_j$ for some $e_j\in E_j$.
 
   As $X$ can be lifted to $\hat Q$, for any arrow $\alpha\in Q_1$ we can write $X_\alpha:X_i\to X_j$ as a block matrix consisting of linear maps $X_{(\alpha,\chi)}:X_{(i,\chi)}\to X_{(j,\chi+e_\alpha)}$ for $\chi\in A_Q$.
-  Then writing $u_i=\sum_{\chi\in A_Q} u_{(i,\chi)}$ for some vectors $u_{(i,\chi)}\in X_{(i,\chi)}$, we have $X_\alpha(u_{(i,\chi)})=X_{(\alpha,\chi)}(u_{(i,\chi)})\in X_{(j,\chi+e_\alpha)}$, say $X_{(\alpha,\chi)}(u_{(i,\chi)})=u_{(j,\chi+e_\alpha)}$.
-  It follows that $u_j=\sum_{\chi\in A_Q} u_{(j,\chi+e_\alpha)}$ and so
+  Then writing $e_i=\sum_{\chi\in A_Q} e_{(i,\chi)}$ for some vectors $e_{(i,\chi)}\in X_{(i,\chi)}$, we have $X_\alpha(e_{(i,\chi)})=X_{(\alpha,\chi)}(e_{(i,\chi)})\in X_{(j,\chi+e_\alpha)}$, say $X_{(\alpha,\chi)}(e_{(i,\chi)})=e_{(j,\chi+e_\alpha)}$.
+  It follows that $e_j=\sum_{\chi\in A_Q} e_{(j,\chi+e_\alpha)}$ and so
   \begin{align*}
-    X_\alpha(t.u_i)
-    &=\sum\limits_{\chi\in A_Q} t^{d(i,\chi)}X_{(\alpha,\chi)}(u_{(i,\chi)})=\sum\limits_{\chi\in A_Q} t^{d(i,\chi)}u_{(j,\chi+e_\alpha)}=t^{-c_\alpha}\sum\limits_{\chi\in A_Q} t.u_{(j,\chi+e_\alpha)}=t^{-c_\alpha} t.u_j.
+    X_\alpha(t.e_i)
+    &=\sum\limits_{\chi\in A_Q} t^{d(i,\chi)}X_{(\alpha,\chi)}(e_{(i,\chi)})=\sum\limits_{\chi\in A_Q} t^{d(i,\chi)}e_{(j,\chi+e_\alpha)}=t^{-c_\alpha}\sum\limits_{\chi\in A_Q} t.e_{(j,\chi+e_\alpha)}=t^{-c_\alpha} t.e_j.
   \end{align*}
-  Therefore $X_\alpha(t.U_i)\subset t.U_j$ for every arrow $\alpha:i\to j$ of $Q$ and we obtain a $\CC^*$-action on $\Gr_\bfe(X)$.
+  Therefore $X_\alpha(t.E_i)\subset t.E_j$ for every arrow $\alpha:i\to j$ of $Q$ and we obtain a $\CC^*$-action on $\Gr_\bfe(X)$.
 \qed\end{proof}
 
 The next result provides the conditions on the map $d:\hat Q_0\to\ZZ$ needed to get an analogue of Lemma~\ref{le:usualGrass}
@@ -1110,11 +1110,11 @@ In the following, we say that $d:\supp(\hat X)\to\ZZ$ satisfies the \emph{degree
   where $\hat\bfe$ runs through all dimension vectors compatible with $\bfe$.
 \end{theorem}
 \begin{proof}
-  A representation $U\in\Gr_{\bfe}(X)$ is a $\CC^*$-fixed point if and only if $t.U=U$ for all $t\in\C^\ast$, i.e.\ $t.U_i=U_i$ for all $i\in Q_0$ and all $t\in\C^\ast$.
-  Thus, apart from being a subrepresentation of $X$, each component $U_i$ is a fixed point of the induced $\CC^*$-actions on the usual Grassmannians of vector subspaces $\Gr_{\bfe_i}(X_i)$.
+  A representation $E\in\Gr_{\bfe}(X)$ is a $\CC^*$-fixed point if and only if $t.E=E$ for all $t\in\C^\ast$, i.e.\ $t.E_i=E_i$ for all $i\in Q_0$ and all $t\in\C^\ast$.
+  Thus, apart from being a subrepresentation of $X$, each component $E_i$ is a fixed point of the induced $\CC^*$-actions on the usual Grassmannians of vector subspaces $\Gr_{\bfe_i}(X_i)$.
   By Lemma~\ref{le:usualGrass}, this holds precisely when we have a decomposition 
-  \[U_i=\bigoplus_{\chi\in A_Q} U_i\cap X_{(i,\chi)}\]
-  which is equivalent to $U$ being liftable to the universal abelian covering $\hat Q$.
+  \[E_i=\bigoplus_{\chi\in A_Q} E_i\cap X_{(i,\chi)}\]
+  which is equivalent to $E$ being liftable to the universal abelian covering $\hat Q$.
 \qed\end{proof}
 
 The next step is to iterate the $\CC^*$-actions, keeping in mind the following idea: every representation $X$ which lifts to the universal covering quiver also lifts to the universal abelian covering quiver and to the iterated universal abelian covering quivers, i.e.\ to each $\hat Q^{(k)}:=\widehat{\hat Q^{(k-1)}}$ with $\hat Q^{(1)}:=\hat Q$.
@@ -1212,9 +1212,9 @@ Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposabl
   We first show that $\Gr_\bfe(g.P_{m+1}^V)=\Gr_\bfe(P_{m+1}^V)$.
   Assume that $P_{m+1}^V$ is given by the linear maps $M_{\alpha_i}$.
   Then $g.P_{m+1}^V$ is given by the matrices $(g.M)_{\alpha_i}=\sum\limits_{j=1}^n g_{ij}M_{\alpha_j}$.
-  Let $(U_1,U_2)\in\Gr_\bfe(g.P_{m+1}^V)$.
+  Let $(E_1,E_2)\in\Gr_\bfe(g.P_{m+1}^V)$.
   Then we have  
-  \[M_{\alpha_i}(U_2)\subset U_1 \text{ for all } i=1,\ldots,n\Leftrightarrow \left(\sum\limits_{j=1}^n g_{ij}M_{\alpha_j}\right)(U_2)\subset U_1 \text{ for all } i=1,\ldots,n.\]
+  \[M_{\alpha_i}(E_2)\subset E_1 \text{ for all } i=1,\ldots,n\Leftrightarrow \left(\sum\limits_{j=1}^n g_{ij}M_{\alpha_j}\right)(E_2)\subset E_1 \text{ for all } i=1,\ldots,n.\]
   Note that we have $g^{-1}.(g.P_{m+1}^V)=P_{m+1}^V$ which shows the non-obvious direction.
 
   Propositions~\ref{pro:indecomposables} and~\ref{indecomposables} give that the quiver Grassmannians $\Gr_\bfe(M)$ for $M\in\Ind\big(K(n),\udim P_{m+1}^V\big)$ are all isomorphic for a fixed $\bfe\in\NN^{Q_0}$.
@@ -1395,9 +1395,9 @@ Now we are able to state the following crucial result concerning the fibers of $
   We establish the result for $m\ge2$ by proving the following more general statement:\bigskip
 
   \noindent{\bf Claim.}
-  For any admissible sequence $\bfI=(I_0,\ldots,I_k)$ with $k<m$ and any subset $J\subset I_0$, the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a cell decomposition which is compatible with the unique map $\pi_{m+1}^{J,\bfI}:\tilde P_{m+1}^J\to\tilde P_{m+1}^\bfI$ from Lemma~\ref{le:truncated quotients} in the following sense:
+  For any admissible sequence $\bfi=(i_1,\ldots,i_k)$ with $k<m$ and any subsets $I,J\subsetneq\{1,\ldots,n\}$ with $i_k\in I$ and $i_1\notin J$, the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a cell decomposition which is compatible with the unique map $\tilde\pi_{m+1}^{\ui,J,I}:\tilde P_{m+1}^J\to\tilde P_{m+1-k,\ui}^I$ from Lemma~\ref{le:truncated quotients} in the following sense:
   \begin{itemize}
-    \item[($\dagger$)] For any $E\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ such that $\pi_{m+1}^{J,\bfI}(E)\neq 0$, we have $\pi_{m+1}^{J,\bfI}(E')\neq 0$ for all $E'\in C_E$, where $C_E$ is the affine cell which contains $E$.
+    \item[($\dagger$)] For any $E\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ such that $\tilde\pi_{m+1}^{\ui,J,I}(E)\neq 0$, we have $\tilde\pi_{m+1}^{\ui,J,I}(E')\neq 0$ for all $E'\in C_E$, where $C_E$ is the affine cell which contains $E$.
   \end{itemize}
   \vs
 	
