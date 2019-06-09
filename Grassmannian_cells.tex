@@ -1386,9 +1386,15 @@ Now we are able to state the following crucial result concerning the fibers of $
 
 \begin{theorem}
   \label{cellscover}
-  For $m\geq 1$ and $J\subsetneq\{1,\ldots,n\}$, every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a cell decomposition. In particular, every quiver Grassmannian of a lifted preprojective representation admits a cell decomposition.
+  For $m\geq 1$ and $J\subsetneq\{1,\ldots,n\}$, every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a cell decomposition.
 \end{theorem}
+\begin{corollary}
+  Every quiver Grassmannian of a lifted preprojective representation admits a cell decomposition.
+\end{corollary}
 \begin{proof}
+  This is the special case $J=\varnothing$ in Theorem~\ref{cellscover}.
+\end{proof}
+\begin[Proof of Theorem~\ref{cellscover}]{proof}
  
   We work by induction on $m$.
   When $m=1$, the claim is trivial since in this case all quiver Grassmannians are points.
