@@ -509,7 +509,12 @@ for the affine space of representations of $K(n)$ with dimension vector $\bfd$.
   For $V\in \Gr(\cH_m)$, $m\ge1$, any proper subrepresentation $X\subsetneq P_{m+1}^V$ can be written as a direct sum of preprojective representations $P_r$ with $1\le r\le m$.
 \end{lemma}
 \begin{proof}
-  Since the map $ev_V$ in equation \eqref{eq:truncated preprojectives} is irreducible, every proper subrepresentation of $P_{m+1}^V$ factors through $P_{m+1}$ and the claim follows from Lemma~\ref{le:preprojective subs}.
+  We proceed by induction on $m$.
+  When $m=1$, the dimension vector of $P_{m+1}^V$ is $(\codim_{\cH_m} V,1)$.
+  In particular, it is immediate that each proper subrepresentation of $P_{m+1}^V$ is isomorphic to $P_1^k$ for some $0\le k\le\codim_{\cH_m} V$.
+
+  For $m\ge2$, we observe by induction that Lemma~\ref{le:reflected truncated preprojectives} implies any subrepresentation of $P_{m+1}^V$ which has no summand isomorphic to $P_1$ must be a direct sum of preprojective representations $P_r$ with $2\le r\le m$.
+  Indeed, each of these is obtained from a subrepresentation of $\Sigma_1(P_{m+1}^V)^\sigma$ by applying the functor $\Sigma_2(-)^\sigma$ and the claim follows from the recursions in Remark~\ref{rem:reflection recursion} for preprojective representations.
 \qed\end{proof}
 % We proceed by induction on $m$.
 % When $m=1$, the dimension vector of $P_{m+1}^V$ is $(\codim_{\cH_m} V,1)$.
