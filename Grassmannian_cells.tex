@@ -750,9 +750,10 @@ In what follows, we will need to carefully understand the homological properties
       \[\Hom(\tilde P_{m+1}^J,\tilde P_{m+1}^I)\cong\CC\quad\text{and}\quad\Ext(\tilde P_{m+1}^J,\tilde P_{m+1}^I)=0.\]
       In particular, $\tilde P_{m+1}^I$ is an exceptional representation of $\widetilde{K(n)}$.
     \item For each proper subset $J\subsetneq I$, there is an exact sequence 
-      \begin{equation*}
+      \begin{equation}
+        \label{eq:truncted sequence}
         \xymatrix{ 0 \ar[r] & \bigoplus_{i\in I\setminus J} \tilde P_{m,i} \ar[r] & \tilde P^J_{m+1} \ar[r]^{\tilde\pi_{m+1}^{I,J}} & \tilde P_{m+1}^I \ar[r] & 0}.
-      \end{equation*}
+      \end{equation}
       For any sequence of proper subsets $K\subsetneq J\subsetneq I$, the quotient maps satisfy $\pi_{m+1}^{I,K}=\pi_{m+1}^{I,J}\circ\pi_{m+1}^{J,K}$ and $\pi_{m+1}^I=\pi_{m+1}^{I,J}\circ\pi_{m+1}^J$.
   \end{enumerate}
 \end{lemma} 
@@ -2108,7 +2109,7 @@ We accomplish this by providing a bijection between the compatible pairs as in T
 \qed\end{proof}
 
 The results of \cite{rupel} provide a stronger statement than Theorem~\ref{th:combinatorial euler}.
-Indeed, the compatible pairs are shown to compute the counting polynomials of these quiver Grassmannians $\Gr_\bfe(P_{m+1})$ over a finite field (these coincide with their Poincar\'e polynomials in this case).  
+Indeed, the compatible pairs are shown to compute the counting polynomials of the quiver Grassmannians $\Gr_\bfe(P_{m+1})$ over a finite field (these coincide with their Poincar\'e polynomials in this case).  
 We conjecture that the torus action on $\Gr_\bfe(P_{m+1})$ can be chosen to provide a geometric explanation of this result.
 \begin{conjecture}
   \label{conj:cell dimensions}
