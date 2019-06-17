@@ -869,7 +869,7 @@ For $I\subsetneq\{1,\ldots,n\}$, write $I^c=\{1,\ldots,n\}\setminus I$ for the c
         \item $\tilde\pi_{m+1}^{\ui,I,J}\circ\tilde\pi_{m+1}^{J,K}=\tilde\pi_{m+1}^{\ui,I,K}$ for $K\subsetneq J$;
           \item $\tilde\pi_{m+1-k,\ui}^{H,I}\circ\tilde\pi_{m+1}^{\ui,I,J}=\tilde\pi_{m+1}^{\ui,H,J}$ for $I\subsetneq H\subsetneq\{1,\ldots,n\}$;
         %\item $\tilde\pi_{m+1}^{\ui,\varnothing,I}\Big|_{\tilde P_{m+1-k,\ui}} =\tilde\pi_{m+1-k,\ui}^I$;
-        \item $\tilde\pi_{m+1}^{\ui,I,J}\Big|_{\tilde P_{m+1-\ell,\ui_\ell}}=\tilde\pi_{m+1-\ell,\ui_\ell}^{\ui'_\ell,I,\varnothing}$ for $0\le \ell\le k$, where $\ui_\ell:=(i_1,\ldots,i_\ell)$ and $\ui'_\ell:=(i_{\ell+1},\ldots,i_k)$.
+        \item $\tilde\pi_{m+1}^{\ui,I,J}\Big|_{\tilde P_{m+1-\ell,\ui_\ell}}=\tilde\pi_{m+1-\ell,\ui_\ell}^{\ui'_\ell,I,\varnothing}$ for $1\le \ell\le k$, where $\ui_\ell:=(i_1,\ldots,i_\ell)$ and $\ui'_\ell:=(i_{\ell+1},\ldots,i_k)$.
       \end{itemize}
   \end{enumerate}
 \end{lemma}
@@ -889,7 +889,7 @@ For $I\subsetneq\{1,\ldots,n\}$, write $I^c=\{1,\ldots,n\}\setminus I$ for the c
   For $i_1\notin J$, part (2) shows that such embeddings factor through $\tilde P_{m+1}^J$ which gives (3).
 
   The diagrams from (2) stitch together to give the following composition, where we suppress the lower isomorphisms in the diagram \eqref{dia:truncated coherence}:
-  \[\tilde\pi_{m+1}^{\ui,I,J}:=\tilde\pi_{m+1-k,\ui}^{I,\{i_k\}}\circ\tilde\pi_{m+2-k,\ui_{k-1}}^{\{i_k\}^c,\{i_{k-1}\}}\circ\cdots\circ\tilde\pi_{m,i_0}^{\{i_2\}^c,\{i_1\}}\circ\tilde\pi_{m+1}^{\{i_1\}^c,J}.\]
+  \[\tilde\pi_{m+1}^{\ui,I,J}:=\tilde\pi_{m+1-k,\ui}^{I,\{i_k\}}\circ\tilde\pi_{m+2-k,\ui_{k-1}}^{\{i_k\}^c,\{i_{k-1}\}}\circ\cdots\circ\tilde\pi_{m,i_1}^{\{i_2\}^c,\{i_1\}}\circ\tilde\pi_{m+1}^{\{i_1\}^c,J}.\]
   These can be seen to satisfy the desired properties from (4) inductively using Lemma~\ref{le:properties}.5 and the commutativity from (2).
 \qed\end{proof}
 
@@ -900,7 +900,7 @@ The next technical results illustrate the need to lift to the universal covering
   \begin{enumerate}
     \item For $m\ge2$, we have $\Hom(\tilde P_{m,j},\tau\tilde P_{m+1}^I)\cong\CC$.
       Moreover, the kernel of a nonzero morphism $\tilde P_{m,j}\to\tau\tilde P_{m+1}^I$ is the following representation 
-      \[\tilde P_m(I,j):=
+      \[\tilde P_m(j,I):=
         \begin{cases}
           \bigoplus_{\substack{1\leq k\leq n\\k\neq j}}\tilde P_{m-1,(j,k)}\oplus \bigoplus_{i\in I\setminus\{j\}}\tilde P_{m-2,(j,j,i)} & \text{ if $m\geq 3$;}\\
           \bigoplus_{\substack{1\leq k\leq n\\k\neq j}}\tilde P_{1,(j,k)} & \text{ if $m=2$.}
@@ -928,7 +928,7 @@ The next technical results illustrate the need to lift to the universal covering
 
   Since the evaluation map $ev_I$ in equation~\eqref{ses1} is irreducible, any nontrivial map to $\tilde P_{m-1}^{I\setminus\{j\}}$ must factor through $\tilde P_{m-1}$.
   It then follows from Lemma~\ref{le:homdecomposition} that $\tilde P_{m-1,(j,k)}$ is in the kernel of the vertical morphism $\eta$ for $k\ne j$.
-  Therefore $\ker\eta$ is the direct sum of these with the kernel of the induced map $\tilde P_{m-1}\to\tilde P_{m-1}^{I\setminus\{j\}}$, that is with $\bigoplus_{i\in I\setminus\{j\}} P_{m-2,i}=\bigoplus_{i\in I\setminus\{j\}} P_{m-2,(j,j,i)}$, and so $\ker\eta=P_m(I,j)$.
+  Therefore $\ker\eta$ is the direct sum of these with the kernel of the induced map $\tilde P_{m-1}\to\tilde P_{m-1}^{I\setminus\{j\}}$, that is with $\bigoplus_{i\in I\setminus\{j\}} \tilde P_{m-2,i}=\bigoplus_{i\in I\setminus\{j\}} \tilde P_{m-2,(j,j,i)}$, and so $\ker\eta=\tilde P_m(j,I)$.
   Since $\eta$ and the right hand vertical morphism have the same kernel, this completes the proof of (1).
 
   This also shows that the vertical map $\eta$ is surjective, and thus the map $\tilde P_{m,j}\to \tilde P_{m-1}^I\cong \tau\tilde P_{m+1}^I$ is surjective.
@@ -955,22 +955,22 @@ As usual, given $\tilde M\in\rep \widetilde{K(n)}$, we write
 \begin{corollary}
   \label{cor:perpendicular}
   Consider a non-empty subset $I\subsetneq\{1,\ldots,n\}$ and fix an element $j\in I$.
-  For $m\geq 2$, we have $\tilde P_m(I,j)\in (\tilde P_{m+1}^I)^\perp$.
+  For $m\geq 2$, we have $\tilde P_m(j,I)\in (\tilde P_{m+1}^I)^\perp$.
 \end{corollary}
 \begin{proof}
   If $m=2$, we have $\Hom\!\big(\tilde P_3^I,\tilde P_2(I,j)\big)=0$ since $\tilde P_2(I,j)$ is a direct sum of the simple projective representations $\tilde P_{1,(j,k)}$ for $k\ne j$.
   Using the explicit description of $\tilde P_3^I$ from Example~\ref{ex:truncated lifts}, we see that each $\tilde P_{1,(j,k)}$ for $k\ne j$ is supported at a vertex which is not a neighbor of the support of $\tilde P_3^I$, which implies $\Ext\!\big(\tilde P_3^I,\tilde P_{1,(j,k)}\big)=0$ for $k\neq j$ and thus $\Ext\!\big(\tilde P_3^I,\tilde P_2(I,j)\big)=0$.
   
   If $m\geq 3$, we consider the long exact sequence obtained when applying $\Hom(\tilde P_{m+1}^I,-)$ to the sequence
-  \[\ses{\tilde P_m(I,j)}{\tilde P_{m,j}}{\tau\tilde P_{m+1}^I}.\]
-  Following Lemma~\ref{le:properties}.3, we have $\Hom(\tilde P_{m+1}^I,\tilde P_{m,j})=0$ and using the long exact sequence this immediately implies $\Hom\big(\tilde P_{m+1}^I,\tilde P_m(I,j)\big)=0$.
+  \[\ses{\tilde P_m(j,I)}{\tilde P_{m,j}}{\tau\tilde P_{m+1}^I}.\]
+  Following Lemma~\ref{le:properties}.3, we have $\Hom(\tilde P_{m+1}^I,\tilde P_{m,j})=0$ and using the long exact sequence this immediately implies $\Hom\big(\tilde P_{m+1}^I,\tilde P_m(j,I)\big)=0$.
   From Lemma~\ref{le:properties}.3 again, we have $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\CC$.
   Using the Auslander-Reiten formulas \cite[Theorem IV.2.13]{ass} and Lemma~\ref{le:properties}.4, we get
   \[\dim\Ext(\tilde P_{m+1}^I,\tau\tilde P_{m+1}^I)=\dim\Hom(\tilde P_{m+1}^I,\tilde P_{m+1}^I)=1.\]
   It follows that the surjective map $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\to\Ext(\tilde P_{m+1}^I,\tau\tilde P_{m+1}^I)$ appearing in the long exact sequence is in fact an isomorphism.
   But the Auslander-Reiten formulas and Lemma~\ref{le:properties}.4 again imply 
   \[\dim\Hom(\tilde P_{m+1}^I,\tau\tilde P_{m+1}^I)=\dim\Ext(\tilde P_{m+1}^I,\tilde P_{m+1}^I)=0.\]
-  Combining with the preceding discussion, this gives $\Ext\!\big(\tilde P_{m+1}^I,\tilde P_m(I,j)\big)=0$.
+  Combining with the preceding discussion, this gives $\Ext\!\big(\tilde P_{m+1}^I,\tilde P_m(j,I)\big)=0$.
 \qed\end{proof}
 
 
@@ -1247,34 +1247,34 @@ Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposabl
 \subsection{Fibrations of Quiver Grassmannians}
 \label{sec:fibrations}
 
-Let $\eta:\ses{M}{B}{N}$ be a short exact sequence of $\widetilde{K(n)}$-representations.
+Let $\eta:\ses{\tilde M}{\tilde B}{\tilde N}$ be a short exact sequence of $\widetilde{K(n)}$-representations.
 For a fixed dimension vector $\tbfe$, there is an induced ``Caldero-Chapoton map'' between quiver Grassmannians
 \begin{align*}
-  \Psi=\Psi^\eta:\Gr_\tbfe(B)&\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr_\tbff(M)\times \Gr_\tbfg(N)\\
-  E&\mapsto \big(E\cap M,(E+M)/M\big).
+  \Psi=\Psi^\eta:\Gr_\tbfe(\tilde B)&\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr_\tbff(\tilde M)\times \Gr_\tbfg(\tilde N)\\
+  E&\mapsto \big(\tilde E\cap \tilde M,(\tilde E+\tilde M)/\tilde M\big).
 \end{align*}
-Following \cite[Section 3]{cc}, any non-empty fiber of $\Psi$ satisfies $\Psi^{-1}(F,G)\cong\mathbb{A}^{\dim\Hom(G,M/F)}$.
-For $\cG_{\tbff,\tbfg}:=\Psi^{-1}\big(\Gr_\tbff(M)\times \Gr_\tbfg(N)\big)$, we have 
+Following \cite[Section 3]{cc}, any non-empty fiber of $\Psi$ satisfies $\Psi^{-1}(\tilde F,\tilde G)\cong\mathbb{A}^{\dim\Hom(\tilde G,\tilde M/\tilde F)}$.
+For $\cG_{\tbff,\tbfg}:=\Psi^{-1}\big(\Gr_\tbff(\tilde M)\times \Gr_\tbfg(\tilde N)\big)$, we have 
 \begin{equation}
   \label{eq:grassmannian decomposition}
-  \Gr_\tbfe(B)=\bigsqcup_{\tbff+\tbfg=\tbfe} \cG_{\tbff,\tbfg}.
+  \Gr_\tbfe(\tilde B)=\bigsqcup_{\tbff+\tbfg=\tbfe} \cG_{\tbff,\tbfg}.
 \end{equation}
 Then $\Psi$ restricts to a map
-\[\Psi_{\tbff,\tbfg}:\cG_{\tbff,\tbfg}\to \Gr_\tbff(M)\times \Gr_\tbfg(N).\]
+\[\Psi_{\tbff,\tbfg}:\cG_{\tbff,\tbfg}\to \Gr_\tbff(\tilde M)\times \Gr_\tbfg(\tilde N).\]
 The following results are proven in \cite[Section 3]{cefr}.
 For completeness we include a proof of the first.
 \begin{lemma}
   \label{le:good partition}
   There exists a total ordering $\preceq$ of the dimension vectors $\tbff$ appearing in the decomposition \eqref{eq:grassmannian decomposition} such that for any fixed $\tbff$ the subset 
   \[\bigsqcup_{ \tbff'\succeq\tbff} \cG_{\tbff',\tbfe-\tbff'}\]
-  is closed in $\Gr_\tbfe(B)$.
+  is closed in $\Gr_\tbfe(\tilde B)$.
 \end{lemma}
 \begin{proof}
-  Recall that $\Gr_\tbfe(B)$ is a closed subvariety of $\prod_{i\in Q_0} \Gr_{e_i}(B_i)$.
-  For each $i$, the inclusion $M_i\subset B_i$ induces an upper-semicontinuous function $\rho_i:\Gr_{e_i}(B_i)\to\ZZ$ given by $\rho_i(E_i)=\dim(E_i\cap M_i)$.
-  In particular, for any fixed $f_i$ the set $\rho_i^{-1}\big(\{f_i,f_i+1,\ldots,e_i\}\big)$ is closed in $\Gr_{e_i}(B_i)$.
+  Recall that $\Gr_\tbfe(\tilde B)$ is a closed subvariety of $\prod_{i\in Q_0} \Gr_{e_i}(\tilde B_i)$.
+  For each $i$, the inclusion $\tilde M_i\subset \tilde B_i$ induces an upper-semicontinuous function $\rho_i:\Gr_{e_i}(B_i)\to\ZZ$ given by $\rho_i(\tilde E_i)=\dim(\tilde E_i\cap \tilde M_i)$.
+  In particular, for any fixed $f_i$ the set $\rho_i^{-1}\big(\{f_i,f_i+1,\ldots,e_i\}\big)$ is closed in $\Gr_{e_i}(\tilde B_i)$.
   It follows that the lexicographic partial ordering on dimension vectors given by $\tbff\prec\tbff'$ when $f_i\leq f'_i$ for all $i\in Q_0$ gives a closed subset
-  \[\bigsqcup_{ \tbff'\succ\tbff} \cG_{\tbff',\tbfe-\tbff'}\subset \Gr_\tbfe(B)\]
+  \[\bigsqcup_{ \tbff'\succ\tbff} \cG_{\tbff',\tbfe-\tbff'}\subset \Gr_\tbfe(\tilde B)\]
   for any fixed $\tbff$.
   Any refinement of this partial order to a total order $\preceq$ will give the claim.
 \qed\end{proof}
@@ -1286,10 +1286,10 @@ For completeness we include a proof of the first.
 
 \begin{remark}
   \label{rem:cell decompositions}
-  To apply Theorem~\ref{vb} and establish cell decompositions for the $\cG_{\tbff,\tbfg}$, we will find a cell decomposition of $\Gr_\tbff(M)\times\Gr_\tbfg(N)$ such that $\Im\big(\Psi_{\tbff,\tbfg}\big)$ is a union of affine cells, giving an induced cell decomposition of $\Im\big(\Psi_{\tbff,\tbfg}\big)$.
+  To apply Theorem~\ref{vb} and establish cell decompositions for the $\cG_{\tbff,\tbfg}$, we will find a cell decomposition of $\Gr_\tbff(\tilde M)\times\Gr_\tbfg(\tilde N)$ such that $\Im\big(\Psi_{\tbff,\tbfg}\big)$ is a union of affine cells, giving an induced cell decomposition of $\Im\big(\Psi_{\tbff,\tbfg}\big)$.
 
-  By Lemma~\ref{le:good partition}, the existence of cell decompositions for each $\cG_{\tbff,\tbfg}$ implies the existence of a cell decomposition for $\Gr_\tbfe(B)$.
-  Indeed, we may take the affine cells of all the $\cG_{\tbff,\tbfg}$ as affine cells of $\Gr_\tbfe(B)$ with the natural lexicographic total order induced by taking cells from $\cG_{\tbff',\tbfg'}$ after those of $\cG_{\tbff,\tbfg}$ whenever $\tbff'\succ\tbff$.
+  By Lemma~\ref{le:good partition}, the existence of cell decompositions for each $\cG_{\tbff,\tbfg}$ implies the existence of a cell decomposition for $\Gr_\tbfe(\tilde B)$.
+  Indeed, we may take the affine cells of all the $\cG_{\tbff,\tbfg}$ as affine cells of $\Gr_\tbfe(\tilde B)$ with the natural lexicographic total order induced by taking cells from $\cG_{\tbff',\tbfg'}$ after those of $\cG_{\tbff,\tbfg}$ whenever $\tbff'\succ\tbff$.
 \end{remark}
 
 We will apply these results in the setting of the truncated preprojective lifts from Lemma~\ref{le:homdecomposition}.
@@ -1302,70 +1302,70 @@ For fixed subsets $J\subsetneq I\subsetneq\{1,\ldots,n\}$ with $I\setminus J=\{j
 which induces a map between quiver Grassmannians as above for any fixed $\tbfe$:
 \begin{equation}
   \label{eq:truncated CC}
-  \Psi=\Psi^{\eta_m}:\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr^{\tilde Q}_\tbff(\tilde P_{m,j})\times\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I).
+  \Psi=\Psi^{\eta_m}:\Gr_\tbfe(\tilde P_{m+1}^J)\to\bigsqcup_{\tbff+\tbfg=\tbfe} \Gr_\tbff(\tilde P_{m,j})\times\Gr_\tbfg(\tilde P_{m+1}^I).
 \end{equation}
 To understand the fibers of this map for $m\ge2$, we will need to make use of another map between quiver Grassmannians coming out of Lemma~\ref{le:special subrepresentations}.
 Here we consider the short exact sequence 
 \begin{equation}
   \label{eq:tau sequence}
-  \xi_m:\ses{\tilde P_m(I,j)}{\tilde P_{m,j}}{\tilde K_m},
+  \xi_m:\ses{\tilde P_m(j,I)}{\tilde P_{m,j}}{\tilde C_m},
 \end{equation}
-where $\tilde K_m=\tilde K_m(I)=\tau\tilde P_{m+1}^I$ for $m\ge3$ and $\tilde K_2=\tilde K_2(I,j)$ is the representation in \eqref{eq:special case} from Remark~\ref{rem:special case}.
+where $\tilde C_m=\tilde C_m(I)=\tau\tilde P_{m+1}^I$ for $m\ge3$ and $\tilde C_2=\tilde C_2(j,I)$ is the representation in \eqref{eq:special case} from Remark~\ref{rem:special case}.
 Then, in the same way as above, we obtain the following map for any fixed $\tbff$:
 \begin{equation}
   \label{eq:truncated CC2}
-  \Phi=\Phi^{\xi_m}:\Gr^{\tilde Q}_\tbff(\tilde P_{m,j})\to\bigsqcup_{\tbfs+\tbft=\tbff} \Gr^{\tilde Q}_\tbfs\big(\tilde P_m(I,j)\big)\times\Gr^{\tilde Q}_\tbft(\tilde K_m).
+  \Phi=\Phi^{\xi_m}:\Gr_\tbff(\tilde P_{m,j})\to\bigsqcup_{\tbfs+\tbft=\tbff} \Gr_\tbfs\big(\tilde P_m(j,I)\big)\times\Gr_\tbft(\tilde C_m).
 \end{equation}
 \begin{proposition}
   \label{quotient}
   For $m\geq 2$ and a non-empty subset $I\subsetneq\{1,\ldots,n\}$.
   The following hold for any $j\in I$:
   \begin{enumerate}
-    \item The fiber $\Psi^{-1}(F,\tilde P_{m+1}^I)$ is not empty if and only if $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/F)=0$.
-    \item The fiber $\Psi^{-1}(F,\tilde P_{m+1}^I)$ is empty if and only if $\Phi(F)=(F,0)$, i.e.\ $F$ is already a subrepresentation of $\tilde P_m(I,j)$.
+    \item The fiber $\Psi^{-1}(\tilde F,\tilde P_{m+1}^I)$ is not empty if and only if $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/\tilde F)=0$.
+    \item The fiber $\Psi^{-1}(\tilde F,\tilde P_{m+1}^I)$ is empty if and only if $\Phi(\tilde F)=(\tilde F,0)$, i.e.\ $\tilde F$ is already a subrepresentation of $\tilde P_m(j,I)$.
   \end{enumerate} 
 \end{proposition}
 \begin{proof}
-  Any subrepresentation $F\subset\tilde P_{m,j}$ produces an exact sequence
-  \[\xymatrix{\Ext(\tilde P_{m+1}^I,F)\ar[r] &\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\ar[r] &\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/F)\ar[r] & 0}.\]
-  But note that the fiber $\Psi^{-1}(F,\tilde P_{m+1}^I)$ being non-empty gives rise to a pushout diagram
-  \[\xymatrix{0\ar[r]& F\ar[r]\ar[d]\ar@{}[dr]|(.3){\ulcorner} & F'\ar[d]\ar[r]& \tilde P_{m+1}^I\ar[r]\ar@{=}[d]& 0\\
+  Any subrepresentation $\tilde F\subset\tilde P_{m,j}$ produces an exact sequence
+  \[\xymatrix{\Ext(\tilde P_{m+1}^I,\tilde F)\ar[r] &\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\ar[r] &\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/\tilde F)\ar[r] & 0}.\]
+  But note that the fiber $\Psi^{-1}(\tilde F,\tilde P_{m+1}^I)$ being non-empty gives rise to a pushout diagram
+  \[\xymatrix{0\ar[r]& \tilde F\ar[r]\ar[d]\ar@{}[dr]|(.3){\ulcorner} & \tilde F'\ar[d]\ar[r]& \tilde P_{m+1}^I\ar[r]\ar@{=}[d]& 0\\
     0\ar[r] &\tilde P_{m,j}\ar[r] &  \tilde P_{m+1}^J\ar[r] & \tilde P_{m+1}^I\ar[r] & 0}\]
   in which the bottom row is not split by Lemma~\ref{le:properties}.4.
   This implies that the map 
-  \[\Ext(\tilde P_{m+1}^I,F)\to\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\CC\]
-  is surjective and thus $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/F)=0$.
+  \[\Ext(\tilde P_{m+1}^I,\tilde F)\to\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\CC\]
+  is surjective and thus $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/\tilde F)=0$.
   This argument can be reversed and thus (1) holds.
   
-  Now consider $F\subset\tilde P_{m,j}$ with 
-  \[\Phi(F)=(S,T)\in\Gr^{\tilde Q}_\tbfs\big(\tilde P_m(I,j)\big)\times\Gr^{\tilde Q}_\tbft(\tilde K_m).\]
+  Now consider $\tilde F\subset\tilde P_{m,j}$ with 
+  \[\Phi(\tilde F)=(\tilde S,\tilde T)\in\Gr_\tbfs\big(\tilde P_m(j,I)\big)\times\Gr_\tbft(\tilde C_m).\]
   This gives rise to the following commutative diagram:  
   \[\xymatrix{
-    \Ext(\tilde P_{m+1}^I,S)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,F)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,T)\ar[r]\ar[d] & 0\\
-    \Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)\big)\ar[r]\ar[d] &  \Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\ar[r]\ar[d] & \Ext(\tilde P_{m+1}^I,\tilde K_m)\ar[r]\ar[d] & 0\\
-    \Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)/S\big)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/F)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde K_m/T)\ar[r]\ar[d] & 0 \\
+    \Ext(\tilde P_{m+1}^I,\tilde S)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde F)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde T)\ar[r]\ar[d] & 0\\
+    \Ext\big(\tilde P_{m+1}^I,\tilde P_m(j,I)\big)\ar[r]\ar[d] &  \Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\ar[r]\ar[d] & \Ext(\tilde P_{m+1}^I,\tilde C_m)\ar[r]\ar[d] & 0\\
+    \Ext\big(\tilde P_{m+1}^I,\tilde P_m(j,I)/\tilde S\big)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/\tilde F)\ar[r]\ar[d] &\Ext(\tilde P_{m+1}^I,\tilde C_m/\tilde T)\ar[r]\ar[d] & 0 \\
     0&0&0&}\]
-  By Corollary~\ref{cor:perpendicular}, we have $\Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)\big)=0$ and so $\Ext\big(\tilde P_{m+1}^I,\tilde P_m(I,j)/S\big)=0$ as well.
+    By Corollary~\ref{cor:perpendicular}, we have $\Ext\big(\tilde P_{m+1}^I,\tilde P_m(j,I)\big)=0$ and so $\Ext\big(\tilde P_{m+1}^I,\tilde P_m(j,I)/\tilde S\big)=0$ as well.
   This yields the isomorphisms
-  \[\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\Ext(\tilde P_{m+1}^I,\tilde K_m)\quad\text{and}\quad\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/F)\cong\Ext(\tilde P_{m+1}^I,\tilde K_m/T).\]
+  \[\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\Ext(\tilde P_{m+1}^I,\tilde C_m)\quad\text{and}\quad\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/\tilde F)\cong\Ext(\tilde P_{m+1}^I,\tilde C_m/\tilde T).\]
 
-  If $T=0$, we get an isomorphism $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/F)\cong\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\CC$ and by part (1) we must have an empty fiber $\Psi^{-1}(F,\tilde P_{m+1}^I)=\varnothing$.
+  If $\tilde T=0$, we get an isomorphism $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/\tilde F)\cong\Ext(\tilde P_{m+1}^I,\tilde P_{m,j})\cong\CC$ and by part (1) we must have an empty fiber $\Psi^{-1}(\tilde F,\tilde P_{m+1}^I)=\varnothing$.
 
-  If $T\neq 0$, $\tilde K_m/T$ is a proper factor of $\tilde K_m$ and we must have $\Ext(\tilde P_{m+1}^I,\tilde K_m/T)=0$.
-  Indeed, by Auslander-Reiten theory every non-split morphism $g:\tilde K_m\to\tilde K_m/T$ factors through the middle term $Z$ of the AR-sequence 
+  If $\tilde T\neq 0$, $\tilde C_m/\tilde T$ is a proper factor of $\tilde C_m$ and we must have $\Ext(\tilde P_{m+1}^I,\tilde C_m/\tilde T)=0$.
+  Indeed, by Auslander-Reiten theory every non-split morphism $g:\tilde C_m\to\tilde C_m/\tilde T$ factors through the middle term $\tilde Z$ of the AR-sequence 
   \begin{equation}
     \label{eq:ar2}
-    \ses{\tilde K_m}{Z}{\tilde P_{m+1}^I}.
+    \ses{\tilde C_m}{\tilde Z}{\tilde P_{m+1}^I}.
   \end{equation}
   This in particular says the first map of the induced sequence
-  \[\Hom(Z,\tilde K_m/T)\to\Hom(\tilde K_m,\tilde K_m/T)\to\Ext(\tilde P_{m+1}^I,\tilde K_m/T)\to\Ext(Z,\tilde K_m/T)\]
+  \[\Hom(\tilde Z,\tilde C_m/\tilde T)\to\Hom(\tilde C_m,\tilde C_m/\tilde T)\to\Ext(\tilde P_{m+1}^I,\tilde C_m/\tilde T)\to\Ext(\tilde Z,\tilde C_m/\tilde T)\]
   is surjective.
   By Lemma~\ref{le:properties}.4 and the Auslander-Reiten formulas, we have 
-  \[\Ext(\tilde K_m,\tilde K_m)=0\qquad\text{and}\qquad\Ext(\tilde P_{m+1}^I,\tilde K_m)=\CC.\]
+  \[\Ext(\tilde C_m,\tilde C_m)=0\qquad\text{and}\qquad\Ext(\tilde P_{m+1}^I,\tilde C_m)=\CC.\]
   For $m=2$, the identities above follow immediately from the corresponding statements for $\tau\tilde P_3^I$.
-  Thus the injective map $\CC=\Hom(\tilde K_m,\tilde K_m)\to\Ext(\tilde P_{m+1}^I,\tilde K_m)$ induced by the Auslander-Reiten sequence \eqref{eq:ar2} is actually bijective and so applying $\Hom(-,\tilde K_m)$ to this sequence yields $\Ext(Z,\tilde K_m)=0$.
-  But then $\Ext(Z,\tilde K_m/T)=0$ and so $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/F)\cong\Ext(\tilde P_{m+1}^I,\tilde K_m/T)$ must be zero as well.
-  From part (1), we see that the fiber $\Psi^{-1}(F,\tilde P_{m+1}^I)$ is non-empty in this case.
+  Thus the injective map $\CC=\Hom(\tilde C_m,\tilde C_m)\to\Ext(\tilde P_{m+1}^I,\tilde C_m)$ induced by the Auslander-Reiten sequence \eqref{eq:ar2} is actually bijective and so applying $\Hom(-,\tilde C_m)$ to this sequence yields $\Ext(\tilde Z,\tilde C_m)=0$.
+  But then $\Ext(\tilde Z,\tilde C_m/\tilde T)=0$ and so $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/\tilde F)\cong\Ext(\tilde P_{m+1}^I,\tilde C_m/\tilde T)$ must be zero as well.
+  From part (1), we see that the fiber $\Psi^{-1}(\tilde F,\tilde P_{m+1}^I)$ is non-empty in this case.
 \qed\end{proof}
 
 Now we are able to state the following crucial result concerning the fibers of $\Psi$:
@@ -1373,9 +1373,9 @@ Now we are able to state the following crucial result concerning the fibers of $
   \label{fibers}
   The following hold:
   \begin{enumerate}
-    \item For $G\subsetneq\tilde P_{m+1}^I$ and $F\subseteq\tilde P_{m,j}$, we have $\Psi^{-1}(F,G)\cong\AA^{\langle G,\tilde P_{m,j}/F\rangle}$.
-    \item If $G=\tilde P_{m+1}^I$, the fiber $\Psi^{-1}(F,G)$ is not empty if and only if $\Phi(F)\neq(F,0)$.
-      In this case, we have $\Psi^{-1}(F,G)\cong\AA^{\langle G,\tilde P_{m,j}/F\rangle}$.
+    \item For $\tilde G\subsetneq\tilde P_{m+1}^I$ and $\tilde F\subseteq\tilde P_{m,j}$, we have $\Psi^{-1}(\tilde F,\tilde G)\cong\AA^{\langle \tilde G,\tilde P_{m,j}/\tilde F\rangle}$.
+    \item If $\tilde G=\tilde P_{m+1}^I$, the fiber $\Psi^{-1}(\tilde F,\tilde G)$ is not empty if and only if $\Phi(\tilde F)\neq(\tilde F,0)$.
+      In this case, we have $\Psi^{-1}(\tilde F,\tilde G)\cong\AA^{\langle \tilde G,\tilde P_{m,j}/\tilde F\rangle}$.
   \end{enumerate}
 \end{proposition}
 \begin{remark}
@@ -1384,10 +1384,10 @@ Now we are able to state the following crucial result concerning the fibers of $
   However, there does not seem to be a reasonable analogue of part (2) when considering Caldero-Chapoton maps for $K(n)$.
 \end{remark}
 \begin{proof}
-  By Lemma~\ref{le:subrep}, any subrepresentation $G\subsetneq\tilde P_{m+1}^I$ is preprojective.
-  But the representation $\tilde P_{m,j}/F$ is not preprojective as it is a proper quotient of a preprojective representation unless $F=0$.
-  Thus we have $\Ext(G,\tilde P_{m,j}/F)=0$. 
-  If $F=0$, we have $\Ext(G,\tilde P_{m,j})=0$ because for dimension reasons every indecomposable direct summand of $G$ is isomorphic to a lift of some $P_l$ with $l\leq m$ and, moreover, $\Ext(P_l,P_m)=0$ for $l\leq m+1$.
+  By Lemma~\ref{le:subrep}, any subrepresentation $\tilde G\subsetneq\tilde P_{m+1}^I$ is preprojective.
+  But the representation $\tilde P_{m,j}/\tilde F$ is not preprojective as it is a proper quotient of a preprojective representation unless $\tilde F=0$.
+  Thus we have $\Ext(\tilde G,\tilde P_{m,j}/\tilde F)=0$. 
+  If $\tilde F=0$, we have $\Ext(\tilde G,\tilde P_{m,j})=0$ because for dimension reasons every indecomposable direct summand of $\tilde G$ is isomorphic to a lift of some $P_l$ with $l\leq m$ and, moreover, $\Ext(P_l,P_m)=0$ for $l\leq m+1$.
 
   The second statement follows directly from Proposition~\ref{quotient}.
 \qed\end{proof}
@@ -1398,18 +1398,20 @@ Now we are able to state the following crucial result concerning the fibers of $
 \begin{proof}
   By Proposition~\ref{fibers}, the map $\Psi_{\tbff,\tbfg}$ is surjective for $\tbfg\ne\udim\tilde P_{m+1}^I$ and there is nothing to show in this case.
   Assume $\tbfg=\udim\tilde P_{m+1}^I$.
-  By Proposition~\ref{quotient}, the image of $\Psi_{\tbff,\tbfg}$ consist precisely of those pairs $(F,\tilde P_{m+1}^I)$ for which $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/F)=0$.
-  But the map $F\mapsto\dim\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/F)$ is upper semicontinuous so that its minimal value on $\Gr_\tbff(\tilde P_{m,j})$ is its generic value, i.e.\ the image of $\Psi_{\tbff,\tbfg}$ is open.
+  By Proposition~\ref{quotient}, the image of $\Psi_{\tbff,\tbfg}$ consist precisely of those pairs $(\tilde F,\tilde P_{m+1}^I)$ for which $\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/\tilde F)=0$.
+  But the map $\tilde F\mapsto\dim\Ext(\tilde P_{m+1}^I,\tilde P_{m,j}/\tilde F)$ is upper semicontinuous so that its minimal value on $\Gr_\tbff(\tilde P_{m,j})$ is its generic value, i.e.\ the image of $\Psi_{\tbff,\tbfg}$ is open.
 \qed\end{proof}
 
 \begin{theorem}
   \label{cellscover}
-  For each $m\geq 1$ and $J\subsetneq\{1,\ldots,n\}$, every quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ admits a cell decomposition.
+  For each $m\geq 1$ and $J\subsetneq\{1,\ldots,n\}$, every quiver Grassmannian $\Gr_\tbfe(\tilde P_{m+1}^J)$ admits a cell decomposition.
   These cell decompositions are compatible with the projection maps $\tilde\pi_{m+1}^{\ui,I,J}:\tilde P_{m+1}^J\to\tilde P_{m+1-k,\ui}^I$ from Lemma~\ref{le:truncated quotients} in the following sense:
   \begin{itemize}
-    \item[($\dagger$)] for any $E\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ such that $\tilde\pi_{m+1}^{\ui,I,J}(E)\neq 0$ for some admissible sequence $\ui=(i_1,\ldots,i_k)$, $k<m$, with $i_1\notin J$ and subset $I\subsetneq\{1,\ldots,n\}$ with $i_k\in I$, we have $\tilde\pi_{m+1}^{\ui,I,J}(E')\neq 0$ for all $E'\in C_E$, where $C_E$ is the affine cell which contains $E$.
+    \item[($\dagger$)] for any $\tilde E\in\Gr_\tbfe(\tilde P_{m+1}^J)$ such that $\tilde\pi_{m+1}^{\ui,I,J}(\tilde E)\neq 0$ for some admissible sequence $\ui=(i_1,\ldots,i_k)$, $k<m$, with $i_1\notin J$ and subset $I\subsetneq\{1,\ldots,n\}$ with $i_k\in I$, we have $\tilde\pi_{m+1}^{\ui,I,J}(\tilde E')\neq 0$ for all $\tilde E'\in C_{\tilde E}$, where $C_{\tilde E}$ is the affine cell which contains $\tilde E$.
   \end{itemize}
+  Moreover, the cell decompositions are independent of the choices made during their inductive construction.
 \end{theorem}
+We record the following immediate consequence before giving the proof.
 \begin{corollary}
   Every quiver Grassmannian of a lifted preprojective representation admits a cell decomposition.
 \end{corollary}
@@ -1422,41 +1424,74 @@ Now we are able to state the following crucial result concerning the fibers of $
   When $m=1$, the claim is trivial since in this case all quiver Grassmannians are points.
 
   For $m\ge2$, we work by reverse induction on $|J|$ with the base case $|J|=n-1$, say $J^c=\{j\}$.
-  This gives $\tilde P_{m+1}^J\cong\tilde P_{m,j}^{\{j\}}$ by Lemma~\ref{le:truncated quotients}.1 and thus the projection maps $\tilde\pi_{m+1}^{\ui,I,J}$ and $\tilde\pi_{m,j}^{\ui,I,\{j\}}$ coincide for any admissible sequence $\ui\in A_1^{(k)}$, $k<m$, with $i_1=j$ and any subset $I\subsetneq\{1,\ldots,n\}$ with $i_k\in I$.
-  By the induction on $m$, the quiver Grassmannian $\Gr^{\tilde Q}_\tbfe(\tilde P_m^{\{j\}})$ admits a cell decomposition so that the compatibility condition~($\dagger$) holds for each of the maps $\tilde\pi_m^{\ui'_1,I,\{j\}}:\tilde P_m^{\{j\}}\to\tilde P_{m+1-k,\ui'_1}^I$, where $\ui'_1=(i_2,\ldots,i_k)$ with $i_2\ne j$.
-  But~$\Gr^{\tilde Q}_\tbfe(\tilde P_{m,j}^{\{j\}})$ is naturally isomorphic to $\Gr^{\tilde Q}_\tbfe(\tilde P_m^{\{j\}})$ using the action of $W_n$, under this correspondence the cell decomposition becomes compatible with the projection maps $\tilde\pi_{m,j}^{\ui,I,\{j\}}:\tilde P_{m,j}^{\{j\}}\to\tilde P_{m+1-k,\ui}^I$.
-  Then using the equivalence $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)\cong\Gr^{\tilde Q}_\tbfe(\tilde P_{m,j}^{\{j\}})$ coming from Lemma~\ref{le:truncated quotients}.1, we obtain the desired cell decomposition of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$.
+  This gives $\tilde P_{m+1}^J\cong\tilde P_{m,j}^{\{j\}}$ by Lemma~\ref{le:truncated quotients}.1 and thus the projection maps $\tilde\pi_{m+1}^{\ui,I,J}$ and $\tilde\pi_{m,j}^{\ui'_1,I,\{j\}}$, where $\ui'_1=(i_2,\ldots,i_k)$, coincide for any admissible sequence $\ui\in A_1^{(k)}$, $k<m$, with $i_1=j$ and any subset $I\subsetneq\{1,\ldots,n\}$ with $i_k\in I$.
+  By the induction on $m$, the quiver Grassmannian $\Gr_\tbfe(\tilde P_m^{\{j\}})$ admits a cell decomposition so that the compatibility condition~($\dagger$) holds for each of the maps $\tilde\pi_m^{\ui'_1,I,\{j\}}:\tilde P_m^{\{j\}}\to\tilde P_{m+1-k,\ui'_1}^I$.
+  But~$\Gr_\tbfe(\tilde P_{m,j}^{\{j\}})$ is naturally isomorphic to $\Gr_\tbfe(\tilde P_m^{\{j\}})$ using the action of $W_n$, under this correspondence the cell decomposition becomes compatible with the projection maps $\tilde\pi_{m,j}^{\ui'_1,I,\{j\}}:\tilde P_{m,j}^{\{j\}}\to\tilde P_{m+1-k,\ui}^I$.
+  Then using the equivalence $\Gr_\tbfe(\tilde P_{m+1}^J)\cong\Gr_\tbfe(\tilde P_{m,j}^{\{j\}})$ coming from Lemma~\ref{le:truncated quotients}.1, we obtain the desired cell decomposition of $\Gr_\tbfe(\tilde P_{m+1}^J)$ which is compatible with the projection maps $\tilde\pi_{m+1}^{\ui,I,J}$.
 
-  Consider $J\subsetneq I\subsetneq \{1,\ldots,n\}$ with $I\setminus J=\{j\}$.
+  Now consider $J\subsetneq I\subsetneq \{1,\ldots,n\}$ with $I\setminus J=\{j\}$.
   This gives the short exact sequence \eqref{eq:truncated ses} inducing the maps $\Psi$ and $\Phi$ between quiver Grassmannians from \eqref{eq:truncated CC} and \eqref{eq:truncated CC2}.
-  By way of induction, we assume all quiver Grassmannians $Gr_\tbff(\tilde P_{m,j})$ and $Gr_\tbfg(\tilde P_{m+1}^I)$ admit cell decompositions satisfying ($\dagger$), say
+  By way of induction, we assume all quiver Grassmannians $\Gr_\tbff(\tilde P_{m,j})$ and $\Gr_\tbfg(\tilde P_{m+1}^I)$ admit cell decompositions satisfying ($\dagger$), say
   \begin{equation}
     \label{eq:cellB}
-    \Gr^{\tilde Q}_\tbff(\tilde P_{m,j})=\coprod_{k=1}^r B_{\tbff,k}
+    \Gr_\tbff(\tilde P_{m,j})=\coprod_{k=1}^r B_{\tbff,k}
   \end{equation}
   and
-  \[\Gr^{\tilde Q}_\tbfg(\tilde P_{m+1}^I)=\coprod_{\ell=1}^s C_{\tbfg,\ell}.\]
-  Proposition~\ref{fibers} shows that the fiber of $\Psi_{\tbff,\tbfg}$ over $(F,G)\in B_{\tbff,k}\times C_{\tbfg,\ell}$ is empty exactly when $\tbfg=\udim\tilde P_{m+1}^I$ and one of the following conditions is satisfied
+  \[\Gr_\tbfg(\tilde P_{m+1}^I)=\coprod_{\ell=1}^s C_{\tbfg,\ell}.\]
+  Proposition~\ref{fibers} shows that the fiber of $\Psi_{\tbff,\tbfg}$ over $(\tilde F,\tilde G)\in B_{\tbff,k}\times C_{\tbfg,\ell}$ is empty exactly when $\tbfg=\udim\tilde P_{m+1}^I$ and one of the following conditions is satisfied
   \begin{itemize}
     \item $m=2$ with $\tbff_{(2,\alpha_j^{-1})}\ne0$ or $\tbff_{(1,e)}\ne0$;
-    \item $m\ge3$ with $\tilde\pi_{m,j}^{j,I,\varnothing}(F)=0$.
+    \item $m\ge3$ with $\tilde\pi_{m,j}^{j,I,\varnothing}(\tilde F)=0$.
   \end{itemize}
   By the compatibility with $\tilde\pi_{m,j}^{j,I,\varnothing}$ for the cell decomposition \eqref{eq:cellB}, we see that either all or none of the fibers over $B_{\tbff,k}\times C_{\tbfg,\ell}$ are empty.
   It follows that there is an induced cell decomposition on the image of $\Psi_{\tbff,\tbfg}$ given by those products of cells $B_{\tbff,k}\times C_{\tbfg,\ell}$ over which the fiber is not empty.
-  Theorem \ref{vb} then provides a cell decomposition for $\cG_{\tbff,\tbfg}$, where cells take the form $B_{\tbff,k}\times C_{\tbfg,\ell}\times\AA^d$ with~$d=\langle\tbfg,\udim\tilde P_{m,j}-\tbff\rangle$.
-  By Lemma~\ref{le:good partition}, we may order the affine cells in the $\cG_{\tbff,\tbfg}$ appropriately to obtain a cell decomposition of $\Gr_{\tbfe}^{\tilde Q}(\tilde P_{m+1}^J)$ (c.f. Remark~\ref{rem:cell decompositions}).
+  Theorem \ref{vb} then provides a cell decomposition for $\cG_{\tbff,\tbfg}$, where cells take the form $\AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$ with~$d=\langle\tbfg,\udim\tilde P_{m,j}-\tbff\rangle$.
+  By Lemma~\ref{le:good partition}, we may order the affine cells in the $\cG_{\tbff,\tbfg}$ appropriately to obtain a cell decomposition of $\Gr_{\tbfe}(\tilde P_{m+1}^J)$ (c.f. Remark~\ref{rem:cell decompositions}).
 
-  Now consider $E\in\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$ which is contained in such a cell, say $E\in B_{\tbff,k}\times C_{\tbfg,\ell}\times\AA^d$, and assume $\tilde\pi_{m+1}^{\ui,I',J}(E)\neq 0$ for some admissible sequence $\ui=(i_1,\ldots,i_k)$, $k<m$, with $i_1\notin J$ and some subset $I'\subsetneq\{1,\ldots,n\}$ with $i_k\in I'$.
+  Now consider $\tilde E\in\Gr_\tbfe(\tilde P_{m+1}^J)$ which is contained in such a cell, say $\tilde E\in \AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$, and assume $\tilde\pi_{m+1}^{\ui,I',J}(\tilde E)\neq 0$ for some admissible sequence $\ui=(i_1,\ldots,i_k)$, $k<m$, with $i_1\notin J$ and some subset $I'\subsetneq\{1,\ldots,n\}$ with $i_k\in I'$.
   There are two cases to consider:
   \begin{itemize}
     \item If $i_1\ne j$, the map $\tilde\pi_{m+1}^{\ui,I',J}$ factors as $\tilde\pi_{m+1}^{\ui,I',I}\circ\tilde\pi_{m+1}^{I,J}$ by Lemma~\ref{le:truncated quotients}.4.
-      By construction, we have $\tilde\pi_{m+1}^{I,J}(E')\in C_{\tbfg,\ell}$ for all~$E'\in B_{\tbff,k}\times C_{\tbfg,\ell}\times\AA^d$.
-      But $\tilde\pi_{m+1}^{\ui,I',I}\big(\tilde\pi_{m+1}^{I,J}(E)\big)=\tilde\pi_{m+1}^{\ui,I',J}(E)\ne0$ implies $\tilde\pi_{m+1}^{\ui,I',I}(G)\ne0$ for all~$G\in C_{\tbfg,\ell}$, in particular $\tilde\pi_{m+1}^{\ui,I',J}(E')=\tilde\pi_{m+1}^{\ui,I',I}\big(\tilde\pi_{m+1}^{I,J}(E')\big)\neq 0$ for all $E'\in B_{\tbff,k}\times C_{\tbfg,\ell}\times\AA^d$.
+      By construction, we have $\tilde\pi_{m+1}^{I,J}(\tilde E')\in C_{\tbfg,\ell}$ for all~$\tilde E'\in \AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$.
+      But $\tilde\pi_{m+1}^{\ui,I',I}\big(\tilde\pi_{m+1}^{I,J}(\tilde E)\big)=\tilde\pi_{m+1}^{\ui,I',J}(\tilde E)\ne0$ implies $\tilde\pi_{m+1}^{\ui,I',I}(\tilde G)\ne0$ for all~$\tilde G\in C_{\tbfg,\ell}$, in particular $\tilde\pi_{m+1}^{\ui,I',J}(\tilde E')=\tilde\pi_{m+1}^{\ui,I',I}\big(\tilde\pi_{m+1}^{I,J}(\tilde E')\big)\neq 0$ for all $\tilde E'\in \AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$.
     \item If $i_1=j$, the restricted map $\tilde\pi_{m+1}^{\ui,I',J}\Big|_{\tilde P_{m,j}}$ coincides with $\tilde\pi_{m,j}^{\ui'_1,I',\varnothing}$ by Lemma~\ref{le:truncated quotients}.4.
-      By construction, we have $E'\cap P_{m,j}\in B_{\tbff,k}$ for all ~$E'\in B_{\tbff,k}\times C_{\tbfg,\ell}\times\AA^d$.
-      But $\tilde\pi_{m,j}^{\ui'_1,I',\varnothing}(E\cap\tilde P_{m,j})=\tilde\pi_{m+1}^{\ui,I',J}(E)\ne0$ implies $\tilde\pi_{m,j}^{\ui'_1,I',\varnothing}(F)\ne0$ for all~$F\in B_{\tbff,k}$, in particular $\tilde\pi_{m+1}^{\ui,I',J}(E')=\tilde\pi_{m,j}^{\ui'_1,I',\varnothing}(E'\cap \tilde P_{m,j})\neq 0$ for all $E'\in B_{\tbff,k}\times C_{\tbfg,\ell}\times\AA^d$.
+      By construction, we have $\tilde E'\cap \tilde P_{m,j}\in B_{\tbff,k}$ for all ~$\tilde E'\in \AA^d\times B_{\tbff,k} \times C_{\tbfg,\ell}$.
+      But $\tilde\pi_{m,j}^{\ui'_1,I',\varnothing}(\tilde E\cap\tilde P_{m,j})=\tilde\pi_{m+1}^{\ui,I',J}(\tilde E)\ne0$ implies $\tilde\pi_{m,j}^{\ui'_1,I',\varnothing}(\tilde F)\ne0$ for all~$\tilde F\in B_{\tbff,k}$, in particular $\tilde\pi_{m+1}^{\ui,I',J}(\tilde E')=\tilde\pi_{m,j}^{\ui'_1,I',\varnothing}(\tilde E'\cap \tilde P_{m,j})\neq 0$ for all $\tilde E'\in \AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$.
   \end{itemize}
-  Thus the compatibility condition ($\dagger$) holds for the cell decomposition of $\Gr^{\tilde Q}_\tbfe(\tilde P_{m+1}^J)$.
+  Thus the compatibility condition ($\dagger$) holds for the cell decomposition of $\Gr_\tbfe(\tilde P_{m+1}^J)$.
+
+  To see the final claim, there are three cases to consider.
+  The case $|J|=n-1$ is immediate from the construction above.
+  When $|J|<n-2$, we may find subsets $I,I'\subsetneq\{1,\ldots,n\}$ with $J\subsetneq I,I'$, $I\setminus J=\{j\}$, $I'\setminus J=\{j'\}$, and $j\ne j'$.
+  This gives rise to the following commutative diagram:
+  \[\xymatrix{& & 0\ar[d]& 0\ar[d]&\\
+    & & \tilde P_{m,j'}\ar[d]\ar@{=}[r]& \tilde P_{m,j'}\ar[d]&\\
+    0\ar[r]&\tilde P_{m,j} \ar[r]\ar@{=}[d] & \tilde P_{m+1}^J\ar[d]\ar[r]\ar@{}[dr]|(.7){\lrcorner} & \tilde P_{m+1}^I\ar[r]\ar[d]& 0\\
+    0\ar[r] &\tilde P_{m,j}\ar[r] &  \tilde P_{m+1}^{I'}\ar[r]\ar[d] & \tilde P_{m+1}^{I\cup I'}\ar[r]\ar[d] & 0\\
+  & & 0& 0&}\]
+  Let $A:=\AA^d\times B\times C$ be an affine cell for $\Gr_\tbfe(\tilde P_{m+1}^J)$ constructed as above using this middle horizontal sequence, say with $B$ an affine cell of $\Gr_\tbff(\tilde P_{m,j})$ and $C$ an affine cell of $\Gr_\tbfg(\tilde P_{m+1}^I)$.
+  Thus, for $\tilde E\in A$, we have $\tilde E\cap P_{m,j}\in B$ and $\tilde\pi_{m+1}^{I,J}(\tilde E)\in C$.
+  Similarly, the affine cell $C$ can be written as $\AA^{d'}\times B'\times D$ with $B'$ an affine cell of $\Gr_{\tbff'}(\tilde P_{m,j'})$ and $D$ an affine cell of $\Gr_\tbfh(\tilde P_{m+1}^{I\cup I'})$ so that elements $\tilde G\in C$ satisfy $\tilde G\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I\cup I',I}(\tilde G)\in D$.
+  In particular, this implies $\tilde E\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I\cup I',J}(\tilde E)\in D$ for any $\tilde E\in A$.
+  Then for $\tilde E\in A$, writing $\tilde G'=\tilde\pi_{m+1}^{I',J}(\tilde E)$, we see $\tilde\pi_{m+1}^{I',J}(\tilde G')\in D$ and $\tilde G'\cap \tilde P_{m,j}\in B$.
+  Thus $\tilde\pi_{m+1}^{I',J}(\tilde E)$ lies in an affine cell $C':=\AA^{d''}\times B\times D$ for $\Gr_{\tbfg'}(\tilde P_{m+1}^{I'})$.
+  The induced map $A\to B'\times C'$, $\tilde E\mapsto \big(\tilde E\cap \tilde P_{m,j'},\tilde\pi_{m+1}^{I',J}(\tilde E)\big)$, is surjective by a routine chase through the diagram above.
+  For any $\tilde E\in Gr_\tbfe(\tilde P_{m+1}^J)$ with $\tilde E\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I',J}(\tilde E)\in C'$, the following hold:
+  \begin{itemize}
+    \item $\tilde E\cap \tilde P_{m,j}=\tilde\pi_{m+1}^{I',J}(\tilde E)\cap \tilde P_{m,j}\in B$;
+    \item writing $\tilde G=\tilde\pi_{m+1}^{I,J}(\tilde E)$, we have $\tilde G\cap \tilde P_{m,j'}=\tilde E\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I\cup I',I}(\tilde G)\in D$ so that $\tilde\pi_{m+1}^{I,J}(\tilde E)\in C$.
+  \end{itemize}
+  It follows that $\tilde E\in A$ and thus $A$ identifies with the affine cell for $\Gr_\tbfe(\tilde P_{m+1}^J)$ constructed from the affine cells $B'$ and $C'$ using the middle vertical sequence in the diagram above.
+
+  Now suppose $|J|=n-2$, say $\{1,\ldots,n\}\setminus J=\{j,j'\}$.
+  This gives rise to the following commutative diagram:
+  \[\xymatrix{& 0 \ar[d] & 0 \ar[d] & & \\
+      0 \ar[r] & \tilde P_{m-1} \ar[r] \ar[d] \ar@{}[dr]|(.3){\ulcorner} & \tilde P_{m,j'} \ar[d]\ar[r] & \tilde P_{m,j'}^{\{j'\}} \ar[d]^{\sim}\ar[r] & 0 \\
+    0 \ar[r] & \tilde P_{m,j} \ar[r]\ar[d] & \tilde P_{m+1}^J\ar[d]\ar[r] & \tilde P_{m+1}^{\{j'\}^c} \ar[r]& 0\\
+    &\tilde P_{m,j}^{\{j\}}\ar[r]^{\sim}\ar[d] & \tilde P_{m+1}^{\{j\}^c}\ar[d] & & \\
+  & 0 & 0& &}\]
+  where $\tilde P_{m-1}$ is labeled as $\tilde P_{m-1,(j,j)}$ in the left vertical sequence and as $\tilde P_{m-1,(j',j')}$ in the upper horizontal sequence.
+  By a chase through this diagram dual to the previous case, we see that the cell decomposition for $\Gr_\tbfe(\tilde P_{m+1}^J)$ is the same regardless of whether we use the middle horizontal or the middle vertical sequence for its construction.
 \qed
 
 \begin{theorem}
@@ -1494,12 +1529,12 @@ Now we are able to state the following crucial result concerning the fibers of $
   By induction, we can assume that all quiver Grassmannians attached to the two outer terms have a cell decomposition.
   Consider the Caldero-Chapoton map
   \[\Psi_\bfe:\Gr_\bfe\big(P(r'+1)\big)\to\bigsqcup_{\bff+\bfg=\bfe} \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg\big(P(r')\big).\]
-  The results of \cite[Section 3]{cc} show that $\Psi_{\bfe}^{-1}(F,G)\cong\AA^{\dim\Hom(G,P_{j_{r'+1}}/F)}$ for all $(F,G)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg\big(P(r')\big)$, in particular the fiber is never empty.
+  The results of \cite[Section 3]{cc} show that $\Psi_{\bfe}^{-1}(\tilde F,\tilde G)\cong\AA^{\dim\Hom(\tilde G,P_{j_{r'+1}}/\tilde F)}$ for all $(\tilde F,\tilde G)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg\big(P(r')\big)$, in particular the fiber is never empty.
   Now every subrepresentation $G$ of $P(r')$ is isomorphic to a direct sum of preprojective representations such that for each direct summand $P_l$ we have $l\leq j_{r'}$.
   Moreover, the quotient $P_{j_{r'+1}}/F$ is not projective if $U\neq 0$ and equal to $P_{j_{r'+1}}$ otherwise.
-  Together these yield $\Ext(G,P_{j_{r'+1}}/F)=0$ and thus
-  \[\dim\Hom(G,P_{j_{r'+1}}/F)=\langle G, P_{j_{r'+1}}/F\rangle\]
-  for all $(F,G)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg(P(r'))$.
+  Together these yield $\Ext(\tilde G,P_{j_{r'+1}}/\tilde F)=0$ and thus
+  \[\dim\Hom(\tilde G,P_{j_{r'+1}}/\tilde F)=\langle \tilde G, P_{j_{r'+1}}/\tilde F\rangle\]
+  for all $(\tilde F,\tilde G)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg(P(r'))$.
   Following Theorem~\ref{vb} (see Remark~\ref{rem:cell decompositions}), this already shows that $\Gr_{\bfe}\big(P(r')\big)$ has a cell decomposition for every $1\leq r'\leq r$.
   By duality, the same is true for $\Gr_{\bfe}\big(I(s)\big)$. 
 
@@ -1508,7 +1543,25 @@ Now we are able to state the following crucial result concerning the fibers of $
   As every quotient of $I(s)$ is preinjective and as every subrepresentation of $P(r')$ is preprojective, the same argument shows that every quiver Grassmannian attached to $X$ has a cell decomposition.
 \qed\end{proof}
 
-As the $F$-polynomial of truncated preprojective representations only depend on the dimension vector, we may denote them by $F_{d(m,r)}$.
+While the cell decompositions above appear to depend on the data built into their recursive construction, the compatibility condition ($\dagger$) implies these cell decompositions exhibit a remarkable amount of recursive symmetry.
+\begin{corollary}
+  Fix an admissible sequence $\ui=(i_1,\ldots,i_k)$, $k<m$, and subsets $I,J\subsetneq\{1,\ldots,n\}$ with $i_1\notin J$ and $i_k\in I$.
+  Let $\tilde K_m=\tilde K_m(\ui,I,J)$ denote the kernel of the projection $\tilde\pi_{m+1}^{\ui,I,J}:\tilde P_{m+1}^J\to \tilde P_{m+1-k,\ui}^I$.
+  For any dimension vectors $\tbfe,\tbff,\tbfg$ with $\tbfe=\tbff+\tbfg$, and any affine cell $A_\tbfe$ of $Gr_\tbfe(\tilde P_{m+1}^J)$ which intersects the preimage under the Caldero-Chapoton map of a product of affine cells $B_\tbff\times C_\tbfg$ from $Gr_\tbff(\tilde K_m)\times Gr_\tbfg(\tilde P_{m+1-k,\ui}^I)$, we have $\Psi(\tilde E)\in B_\tbff\times C_\tbfg$ for all $\tilde E\in A_\tbfe$.
+  Moreover, the induced map $A_\tbfe\to B_\tbff\times C_\tbfg$ is surjective with affine fibers.
+\end{corollary}
+\begin{proof}
+  \begin{itemize}
+    \item Implicit in the construction of the cell decomposition for $\Gr_\tbfe(\tilde P_{m+1}^J)$ is a choice of complete filtration for $\tilde P_{m+1}^J$ by subrepresentations of the form $\tilde K_m(\ui',I',J)$.
+      In Section~\ref{sec:2quivers}, we fix a standard convention.
+
+    \item By the compatibility of the cell $A_\tbfe$ with the map $\tilde\pi_{m+1}^{\ui,I,J}$, we have $\tilde\pi_{m+1}^{\ui,I,J}(\tilde E)\ne 0$ for all $\tilde E\in A_\tbfe$.
+  \end{itemize}
+
+  Suppose the cell $A_\tbfe$ was constructed inductively using $J\subsetneq I'\subsetneq \{1,\ldots,n\}$ with $I'\setminus J=\{j\}$.
+\end{proof}
+
+As the $F$-polynomials of truncated preprojective representations only depend on the dimension vector, we may denote them by $F_{d(m,r)}$.
 The description of the non-empty fibers in Proposition~\ref{fibers} together with Corollary~\ref{fpoly} and Theorem~\ref{celldec} yield the following:
 \begin{corollary}
   For $m\geq 1$ and $0\leq r\leq n-2$, we have 
@@ -1733,10 +1786,10 @@ To avoid cluttering the diagram, we did not label the vertices in the illustrati
     \cong\bigoplus_{i=r+1}^n \Ext\big(\tilde P_{m+1}^{[r]},\tilde P_{m,i}\big)
     \cong\bigoplus_{i=r+1}^n \Hom\big(\tilde P_{m,i},\tau\tilde P_{m+1}^{[r]}\big).
   \end{align}
-  The image of a nonzero map $\tilde P_{m,i}\to\tau\tilde P_{m+1}^{[r]}$ is the representation $\tilde K_m$ from the appropriate sequence \eqref{eq:tau sequence}.
+  The image of a nonzero map $\tilde P_{m,i}\to\tau\tilde P_{m+1}^{[r]}$ is the representation $\tilde C_m$ from the appropriate sequence \eqref{eq:tau sequence}.
   Such a map is surjective if $m\ge3$ and for $m=2$ has image with support quiver $(2,\alpha_i^{-1})\xrightarrow{\alpha_i} (1,e)$.
   In view of Corollary~\ref{cor:perpendicular}, the sequence \eqref{eq:tau sequence} gives rise to an isomorphism 
-  \[\Ext\big(\tilde P_{m+1}^{[r]},\tilde P_{m,i}\big)\cong\Ext\big(\tilde P_{m+1}^{[r]},\tilde K_m\big).\]
+  \[\Ext\big(\tilde P_{m+1}^{[r]},\tilde P_{m,i}\big)\cong\Ext\big(\tilde P_{m+1}^{[r]},\tilde C_m\big).\]
 
   Finally note for $0\le r\le n-2$ that there exists a short exact sequence
   \[\ses{\Hom(P_m,P_m)}{\Ext\big(P_{m+1}^{[r]},P_m\big)}{\Ext\big(P_{m+1}^{[r+1]},P_m\big)}.\]
