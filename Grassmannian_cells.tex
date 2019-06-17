@@ -1462,7 +1462,7 @@ We record the following immediate consequence before giving the proof.
 
   To see the final claim, there are three cases to consider.
   The case $|J|=n-1$ is immediate from the construction above.
-  When $|J|<n-2$, we may find subsets $I,I'\subsetneq\{1,\ldots,n\}$ with $J\subsetneq I,I'$, $I\setminus J=\{j\}$, $I'\setminus J=\{j'\}$, and $j\ne j'$.
+  When $|J|<n-2$, we may find subsets $I,I'\subsetneq\{1,\ldots,n\}$ containing $J$ so that $I\setminus J=\{j\}$, $I'\setminus J=\{j'\}$, and $j\ne j'$.
   This gives rise to the following commutative diagram:
   \[\xymatrix{& & 0\ar[d]& 0\ar[d]&\\
     & & \tilde P_{m,j'}\ar[d]\ar@{=}[r]& \tilde P_{m,j'}\ar[d]&\\
@@ -1473,7 +1473,7 @@ We record the following immediate consequence before giving the proof.
   Thus, for $\tilde E\in A$, we have $\tilde E\cap P_{m,j}\in B$ and $\tilde\pi_{m+1}^{I,J}(\tilde E)\in C$.
   Similarly, the affine cell $C$ can be written as $\AA^{d'}\times B'\times D$ with $B'$ an affine cell of $\Gr_{\tbff'}(\tilde P_{m,j'})$ and $D$ an affine cell of $\Gr_\tbfh(\tilde P_{m+1}^{I\cup I'})$ so that elements $\tilde G\in C$ satisfy $\tilde G\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I\cup I',I}(\tilde G)\in D$.
   In particular, this implies $\tilde E\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I\cup I',J}(\tilde E)\in D$ for any $\tilde E\in A$.
-  Then for $\tilde E\in A$, writing $\tilde G'=\tilde\pi_{m+1}^{I',J}(\tilde E)$, we see $\tilde\pi_{m+1}^{I',J}(\tilde G')\in D$ and $\tilde G'\cap \tilde P_{m,j}\in B$.
+  Then for $\tilde E\in A$, writing $\tilde G'=\tilde\pi_{m+1}^{I',J}(\tilde E)$, we see $\tilde G'\cap \tilde P_{m,j}\in B$ and $\tilde\pi_{m+1}^{I\cup I',I'}(\tilde G')\in D$.
   Thus $\tilde\pi_{m+1}^{I',J}(\tilde E)$ lies in an affine cell $C':=\AA^{d''}\times B\times D$ for $\Gr_{\tbfg'}(\tilde P_{m+1}^{I'})$.
   The induced map $A\to B'\times C'$, $\tilde E\mapsto \big(\tilde E\cap \tilde P_{m,j'},\tilde\pi_{m+1}^{I',J}(\tilde E)\big)$, is surjective by a routine chase through the diagram above.
   For any $\tilde E\in Gr_\tbfe(\tilde P_{m+1}^J)$ with $\tilde E\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I',J}(\tilde E)\in C'$, the following hold:
