@@ -1403,7 +1403,7 @@ Now we are able to state the following crucial result concerning the fibers of $
   \begin{itemize}
     \item[($\dagger$)] for any $\tilde E\in\Gr_\tbfe(\tilde P_{m+1}^J)$ such that $\tilde\pi_{m+1}^{\ui,I,J}(\tilde E)\neq 0$ for some admissible sequence $\ui=(i_1,\ldots,i_k)$, $k<m$, with $i_1\notin J$ and subset $I\subsetneq\{1,\ldots,n\}$ with $i_k\in I$, we have $\tilde\pi_{m+1}^{\ui,I,J}(\tilde E')\neq 0$ for all $\tilde E'\in C_{\tilde E}$, where $C_{\tilde E}$ is the affine cell which contains $\tilde E$.
   \end{itemize}
-  Moreover, the cell decompositions are independent of the choices made during their inductive construction.
+% Moreover, the cell decompositions are independent of the choices made during their inductive construction.
 \end{theorem}
 We record the following immediate consequence before giving the proof.
 \begin{corollary}
@@ -1454,38 +1454,38 @@ We record the following immediate consequence before giving the proof.
   \end{itemize}
   Thus the compatibility condition ($\dagger$) holds for the cell decomposition of $\Gr_\tbfe(\tilde P_{m+1}^J)$.
 
-  To see the final claim, there are three cases to consider.
-  The case $|J|=n-1$ is immediate from the construction above.
-  When $|J|<n-2$, we may find subsets $I,I'\subsetneq\{1,\ldots,n\}$ containing $J$ so that $I\setminus J=\{j\}$, $I'\setminus J=\{j'\}$, and $j\ne j'$.
-  This gives rise to the following commutative diagram:
-  \[\xymatrix{& & 0\ar[d]& 0\ar[d]&\\
-    & & \tilde P_{m,j'}\ar[d]\ar@{=}[r]& \tilde P_{m,j'}\ar[d]&\\
-    0\ar[r]&\tilde P_{m,j} \ar[r]\ar@{=}[d] & \tilde P_{m+1}^J\ar[d]\ar[r]\ar@{}[dr]|(.7){\lrcorner} & \tilde P_{m+1}^I\ar[r]\ar[d]& 0\\
-    0\ar[r] &\tilde P_{m,j}\ar[r] &  \tilde P_{m+1}^{I'}\ar[r]\ar[d] & \tilde P_{m+1}^{I\cup I'}\ar[r]\ar[d] & 0\\
-  & & 0& 0&}\]
-  Let $A:=\AA^d\times B\times C$ be an affine cell for $\Gr_\tbfe(\tilde P_{m+1}^J)$ constructed as above using this middle horizontal sequence, say with $B$ an affine cell of $\Gr_\tbff(\tilde P_{m,j})$ and $C$ an affine cell of $\Gr_\tbfg(\tilde P_{m+1}^I)$.
-  Thus, for $\tilde E\in A$, we have $\tilde E\cap P_{m,j}\in B$ and $\tilde\pi_{m+1}^{I,J}(\tilde E)\in C$.
-  Similarly, the affine cell $C$ can be written as $\AA^{d'}\times B'\times D$ with $B'$ an affine cell of $\Gr_{\tbff'}(\tilde P_{m,j'})$ and $D$ an affine cell of $\Gr_\tbfh(\tilde P_{m+1}^{I\cup I'})$ so that elements $\tilde G\in C$ satisfy $\tilde G\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I\cup I',I}(\tilde G)\in D$.
-  In particular, this implies $\tilde E\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I\cup I',J}(\tilde E)\in D$ for any $\tilde E\in A$.
-  Then for $\tilde E\in A$, writing $\tilde G'=\tilde\pi_{m+1}^{I',J}(\tilde E)$, we see $\tilde G'\cap \tilde P_{m,j}\in B$ and $\tilde\pi_{m+1}^{I\cup I',I'}(\tilde G')\in D$.
-  Thus $\tilde\pi_{m+1}^{I',J}(\tilde E)$ lies in an affine cell $C':=\AA^{d''}\times B\times D$ for $\Gr_{\tbfg'}(\tilde P_{m+1}^{I'})$.
-  The induced map $A\to B'\times C'$, $\tilde E\mapsto \big(\tilde E\cap \tilde P_{m,j'},\tilde\pi_{m+1}^{I',J}(\tilde E)\big)$, is surjective by a routine chase through the diagram above.
-  For any $\tilde E\in Gr_\tbfe(\tilde P_{m+1}^J)$ with $\tilde E\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I',J}(\tilde E)\in C'$, the following hold:
-  \begin{itemize}
-    \item $\tilde E\cap \tilde P_{m,j}=\tilde\pi_{m+1}^{I',J}(\tilde E)\cap \tilde P_{m,j}\in B$;
-    \item writing $\tilde G=\tilde\pi_{m+1}^{I,J}(\tilde E)$, we have $\tilde G\cap \tilde P_{m,j'}=\tilde E\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I\cup I',I}(\tilde G)\in D$ so that $\tilde\pi_{m+1}^{I,J}(\tilde E)\in C$.
-  \end{itemize}
-  It follows that $\tilde E\in A$ and thus $A$ identifies with the affine cell for $\Gr_\tbfe(\tilde P_{m+1}^J)$ constructed from the affine cells $B'$ and $C'$ using the middle vertical sequence in the diagram above.
+% To see the final claim, there are three cases to consider.
+% The case $|J|=n-1$ is immediate from the construction above.
+% When $|J|<n-2$, we may find subsets $I,I'\subsetneq\{1,\ldots,n\}$ containing $J$ so that $I\setminus J=\{j\}$, $I'\setminus J=\{j'\}$, and $j\ne j'$.
+% This gives rise to the following commutative diagram:
+% \[\xymatrix{& & 0\ar[d]& 0\ar[d]&\\
+%   & & \tilde P_{m,j'}\ar[d]\ar@{=}[r]& \tilde P_{m,j'}\ar[d]&\\
+%   0\ar[r]&\tilde P_{m,j} \ar[r]\ar@{=}[d] & \tilde P_{m+1}^J\ar[d]\ar[r]\ar@{}[dr]|(.7){\lrcorner} & \tilde P_{m+1}^I\ar[r]\ar[d]& 0\\
+%   0\ar[r] &\tilde P_{m,j}\ar[r] &  \tilde P_{m+1}^{I'}\ar[r]\ar[d] & \tilde P_{m+1}^{I\cup I'}\ar[r]\ar[d] & 0\\
+% & & 0& 0&}\]
+% Let $A:=\AA^d\times B\times C$ be an affine cell for $\Gr_\tbfe(\tilde P_{m+1}^J)$ constructed as above using this middle horizontal sequence, say with $B$ an affine cell of $\Gr_\tbff(\tilde P_{m,j})$ and $C$ an affine cell of $\Gr_\tbfg(\tilde P_{m+1}^I)$.
+% Thus, for $\tilde E\in A$, we have $\tilde E\cap P_{m,j}\in B$ and $\tilde\pi_{m+1}^{I,J}(\tilde E)\in C$.
+% Similarly, the affine cell $C$ can be written as $\AA^{d'}\times B'\times D$ with $B'$ an affine cell of $\Gr_{\tbff'}(\tilde P_{m,j'})$ and $D$ an affine cell of $\Gr_\tbfh(\tilde P_{m+1}^{I\cup I'})$ so that elements $\tilde G\in C$ satisfy $\tilde G\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I\cup I',I}(\tilde G)\in D$.
+% In particular, this implies $\tilde E\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I\cup I',J}(\tilde E)\in D$ for any $\tilde E\in A$.
+% Then for $\tilde E\in A$, writing $\tilde G'=\tilde\pi_{m+1}^{I',J}(\tilde E)$, we see $\tilde G'\cap \tilde P_{m,j}\in B$ and $\tilde\pi_{m+1}^{I\cup I',I'}(\tilde G')\in D$.
+% Thus $\tilde\pi_{m+1}^{I',J}(\tilde E)$ lies in an affine cell $C':=\AA^{d''}\times B\times D$ for $\Gr_{\tbfg'}(\tilde P_{m+1}^{I'})$.
+% The induced map $A\to B'\times C'$, $\tilde E\mapsto \big(\tilde E\cap \tilde P_{m,j'},\tilde\pi_{m+1}^{I',J}(\tilde E)\big)$, is surjective by a routine chase through the diagram above.
+% For any $\tilde E\in Gr_\tbfe(\tilde P_{m+1}^J)$ with $\tilde E\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I',J}(\tilde E)\in C'$, the following hold:
+% \begin{itemize}
+%   \item $\tilde E\cap \tilde P_{m,j}=\tilde\pi_{m+1}^{I',J}(\tilde E)\cap \tilde P_{m,j}\in B$;
+%   \item writing $\tilde G=\tilde\pi_{m+1}^{I,J}(\tilde E)$, we have $\tilde G\cap \tilde P_{m,j'}=\tilde E\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I\cup I',I}(\tilde G)\in D$ so that $\tilde\pi_{m+1}^{I,J}(\tilde E)\in C$.
+% \end{itemize}
+% It follows that $\tilde E\in A$ and thus $A$ identifies with the affine cell for $\Gr_\tbfe(\tilde P_{m+1}^J)$ constructed from the affine cells $B'$ and $C'$ using the middle vertical sequence in the diagram above.
 
-  Now suppose $|J|=n-2$, say $\{1,\ldots,n\}\setminus J=\{j,j'\}$.
-  This gives rise to the following commutative diagram:
-  \[\xymatrix{& 0 \ar[d] & 0 \ar[d] & & \\
-      0 \ar[r] & \tilde P_{m-1} \ar[r] \ar[d] \ar@{}[dr]|(.3){\ulcorner} & \tilde P_{m,j'} \ar[d]\ar[r] & \tilde P_{m,j'}^{\{j'\}} \ar[d]^{\sim}\ar[r] & 0 \\
-    0 \ar[r] & \tilde P_{m,j} \ar[r]\ar[d] & \tilde P_{m+1}^J\ar[d]\ar[r] & \tilde P_{m+1}^{\{j'\}^c} \ar[r]& 0\\
-    &\tilde P_{m,j}^{\{j\}}\ar[r]^{\sim}\ar[d] & \tilde P_{m+1}^{\{j\}^c}\ar[d] & & \\
-  & 0 & 0& &}\]
-  where $\tilde P_{m-1}$ is labeled as $\tilde P_{m-1,(j,j)}$ in the left vertical sequence and as $\tilde P_{m-1,(j',j')}$ in the upper horizontal sequence.
-  By a chase through this diagram dual to the previous case, we see that the cell decomposition for $\Gr_\tbfe(\tilde P_{m+1}^J)$ is the same regardless of whether we use the middle horizontal or the middle vertical sequence for its construction.
+% Now suppose $|J|=n-2$, say $\{1,\ldots,n\}\setminus J=\{j,j'\}$.
+% This gives rise to the following commutative diagram:
+% \[\xymatrix{& 0 \ar[d] & 0 \ar[d] & & \\
+%     0 \ar[r] & \tilde P_{m-1} \ar[r] \ar[d] \ar@{}[dr]|(.3){\ulcorner} & \tilde P_{m,j'} \ar[d]\ar[r] & \tilde P_{m,j'}^{\{j'\}} \ar[d]^{\sim}\ar[r] & 0 \\
+%   0 \ar[r] & \tilde P_{m,j} \ar[r]\ar[d] & \tilde P_{m+1}^J\ar[d]\ar[r] & \tilde P_{m+1}^{\{j'\}^c} \ar[r]& 0\\
+%   &\tilde P_{m,j}^{\{j\}}\ar[r]^{\sim}\ar[d] & \tilde P_{m+1}^{\{j\}^c}\ar[d] & & \\
+% & 0 & 0& &}\]
+% where $\tilde P_{m-1}$ is labeled as $\tilde P_{m-1,(j,j)}$ in the left vertical sequence and as $\tilde P_{m-1,(j',j')}$ in the upper horizontal sequence.
+% By a chase through this diagram dual to the previous case, we see that the cell decomposition for $\Gr_\tbfe(\tilde P_{m+1}^J)$ is the same regardless of whether we use the middle horizontal or the middle vertical sequence for its construction.
 \qed
 
 \begin{theorem}
