@@ -865,9 +865,9 @@ For $I\subsetneq\{1,\ldots,n\}$, write $I^c=\{1,\ldots,n\}\setminus I$ for the c
       These satisfy the following relations:
       \begin{itemize}
         \item $\tilde\pi_{m+1}^{\ui,I,J}\circ\tilde\pi_{m+1}^{J,K}=\tilde\pi_{m+1}^{\ui,I,K}$ for $K\subsetneq J$;
-          \item $\tilde\pi_{m+1-k,\ui}^{H,I}\circ\tilde\pi_{m+1}^{\ui,I,J}=\tilde\pi_{m+1}^{\ui,H,J}$ for $I\subsetneq H\subsetneq\{1,\ldots,n\}$;
+        \item $\tilde\pi_{m+1-k,\ui}^{H,I}\circ\tilde\pi_{m+1}^{\ui,I,J}=\tilde\pi_{m+1}^{\ui,H,J}$ for $I\subsetneq H\subsetneq\{1,\ldots,n\}$;
         %\item $\tilde\pi_{m+1}^{\ui,\varnothing,I}\Big|_{\tilde P_{m+1-k,\ui}} =\tilde\pi_{m+1-k,\ui}^I$;
-        \item $\tilde\pi_{m+1}^{\ui,I,J}\Big|_{\tilde P_{m+1-\ell,\ui_\ell}}=\tilde\pi_{m+1-\ell,\ui_\ell}^{\ui'_\ell,I,\varnothing}$ for $1\le \ell\le k$, where $\ui_\ell:=(i_1,\ldots,i_\ell)$ and $\ui'_\ell:=(i_{\ell+1},\ldots,i_k)$.
+        %\item $\tilde\pi_{m+1}^{\ui,I,J}\Big|_{\tilde P_{m+1-\ell,\ui_\ell}}=\tilde\pi_{m+1-\ell,\ui_\ell}^{\ui'_\ell,I,\varnothing}$ for $1\le \ell\le k$, where $\ui_\ell:=(i_1,\ldots,i_\ell)$ and $\ui'_\ell:=(i_{\ell+1},\ldots,i_k)$.
       \end{itemize}
   \end{enumerate}
 \end{lemma}
@@ -1403,11 +1403,10 @@ Now we are able to state the following crucial result concerning the fibers of $
 \begin{theorem}
   \label{cellscover}
   For each $m\geq 1$ and $J\subsetneq\{1,\ldots,n\}$, every quiver Grassmannian $\Gr_\tbfe(\tilde P_{m+1}^J)$ admits a cell decomposition.
-  These cell decompositions are compatible with the projection maps $\tilde\pi_{m+1}^{\ui,I,J}:\tilde P_{m+1}^J\to\tilde P_{m+1-k,\ui}^I$ from Lemma~\ref{le:truncated quotients} in the following sense:
+  These cell decompositions can be chosen compatible with the projection maps $\tilde\pi_{m+1}^{\ui,I,J}:\tilde P_{m+1}^J\to\tilde P_{m+1-k,\ui}^I$ from Lemma~\ref{le:truncated quotients} in the following sense:
   \begin{itemize}
-    \item[($\dagger$)] for any $\tilde E\in\Gr_\tbfe(\tilde P_{m+1}^J)$ such that $\tilde\pi_{m+1}^{\ui,I,J}(\tilde E)\neq 0$ for some admissible sequence $\ui=(i_1,\ldots,i_k)$, $k<m$, with $i_1\notin J$ and subset $I\subsetneq\{1,\ldots,n\}$ with $i_k\in I$, we have $\tilde\pi_{m+1}^{\ui,I,J}(\tilde E')\neq 0$ for all $\tilde E'\in C_{\tilde E}$, where $C_{\tilde E}$ is the affine cell which contains $\tilde E$.
+    \item[($\dagger$)] for any $\tilde E\in\Gr_\tbfe(\tilde P_{m+1}^J)$ such that $\tilde\pi_{m+1}^{\ui,I,J}(\tilde E)\neq 0$ for some admissible sequence $\ui=(i_1,\ldots,i_k)$, $k<m$, with $i_1\notin J$ and subset $I\subsetneq\{1,\ldots,n\}$ with $i_k\in I$, there exists a cell decomposition of $\Gr_\tbfe(\tilde P_{m+1}^J)$ so that $\tilde\pi_{m+1}^{\ui,I,J}(\tilde E')\neq 0$ for all $\tilde E'\in C_{\tilde E}$, where $C_{\tilde E}$ is the affine cell which contains $\tilde E$.
   \end{itemize}
-% Moreover, the cell decompositions are independent of the choices made during their inductive construction.
 \end{theorem}
 We record the following immediate consequence before giving the proof.
 \begin{corollary}
@@ -1423,20 +1422,21 @@ We record the following immediate consequence before giving the proof.
 
   For $m\ge2$, we work by reverse induction on $|J|$ with the base case $|J|=n-1$, say $J^c=\{j\}$.
   This gives $\tilde P_{m+1}^J\cong\tilde P_{m,j}^{\{j\}}$ by Lemma~\ref{le:truncated quotients}.1 and thus the projection maps $\tilde\pi_{m+1}^{\ui,I,J}$ and $\tilde\pi_{m,j}^{\ui'_1,I,\{j\}}$, where $\ui'_1=(i_2,\ldots,i_k)$, coincide for any admissible sequence $\ui\in A_1^{(k)}$, $k<m$, with $i_1=j$ and any subset $I\subsetneq\{1,\ldots,n\}$ with $i_k\in I$.
-  By the induction on $m$, the quiver Grassmannian $\Gr_\tbfe(\tilde P_m^{\{j\}})$ admits a cell decomposition so that the compatibility condition~($\dagger$) holds for each of the maps $\tilde\pi_m^{\ui'_1,I,\{j\}}:\tilde P_m^{\{j\}}\to\tilde P_{m+1-k,\ui'_1}^I$.
-  But~$\Gr_\tbfe(\tilde P_{m,j}^{\{j\}})$ is naturally isomorphic to $\Gr_\tbfe(\tilde P_m^{\{j\}})$ using the action of $W_n$, under this correspondence the cell decomposition becomes compatible with the projection maps $\tilde\pi_{m,j}^{\ui'_1,I,\{j\}}:\tilde P_{m,j}^{\{j\}}\to\tilde P_{m+1-k,\ui}^I$.
-  Then using the equivalence $\Gr_\tbfe(\tilde P_{m+1}^J)\cong\Gr_\tbfe(\tilde P_{m,j}^{\{j\}})$ coming from Lemma~\ref{le:truncated quotients}.1, we obtain the desired cell decomposition of $\Gr_\tbfe(\tilde P_{m+1}^J)$ which is compatible with the projection maps $\tilde\pi_{m+1}^{\ui,I,J}$.
+  By the induction on $m$, the quiver Grassmannian $\Gr_\tbfe(\tilde P_m^{\{j\}})$ admits a cell decomposition so that the compatibility condition~($\dagger$) holds for the map $\tilde\pi_m^{\ui'_1,I,\{j\}}:\tilde P_m^{\{j\}}\to\tilde P_{m+1-k,\ui'_1}^I$.
+  But~$\Gr_\tbfe(\tilde P_{m,j}^{\{j\}})$ is naturally isomorphic to $\Gr_\tbfe(\tilde P_m^{\{j\}})$ using the action of $W_n$, under this correspondence the cell decomposition becomes compatible with the projection map $\tilde\pi_{m,j}^{\ui'_1,I,\{j\}}:\tilde P_{m,j}^{\{j\}}\to\tilde P_{m+1-k,\ui}^I$.
+  Then using the equivalence $\Gr_\tbfe(\tilde P_{m+1}^J)\cong\Gr_\tbfe(\tilde P_{m,j}^{\{j\}})$ coming from Lemma~\ref{le:truncated quotients}.1, we obtain the desired cell decomposition of $\Gr_\tbfe(\tilde P_{m+1}^J)$ which is compatible with the projection map $\tilde\pi_{m+1}^{\ui,I,J}$.
 
-  Now consider $J\subsetneq I\subsetneq \{1,\ldots,n\}$ with $I\setminus J=\{j\}$.
+  Now suppose $|J|\le n-2$ and consider an admissible sequence $\ui=(i_1,\ldots,i_k)$, $k<m$, with $i_1\notin J$ and a subset $I'\subsetneq\{1,\ldots,n\}$ with $i_k\in I'$.
+  Taking $j\notin J$ with $j\ne i_1$, we write $I=J\cup\{j\}$.
   This gives the short exact sequence \eqref{eq:truncated ses} inducing the maps $\Psi$ and $\Phi$ between quiver Grassmannians from \eqref{eq:truncated CC} and \eqref{eq:truncated CC2}.
-  By way of induction, we assume all quiver Grassmannians $\Gr_\tbff(\tilde P_{m,j})$ and $\Gr_\tbfg(\tilde P_{m+1}^I)$ admit cell decompositions satisfying ($\dagger$), say
+  By way of induction, we assume all quiver Grassmannians $\Gr_\tbff(\tilde P_{m,j})$ and $\Gr_\tbfg(\tilde P_{m+1}^I)$ admit cell decompositions satisfying ($\dagger$) for the maps $\tilde\pi_{m,j}^{j,I',\varnothing}$ and $\tilde\pi_{m+1}^{\ui,I',I}$ respectively, say
   \begin{equation}
     \label{eq:cellB}
     \Gr_\tbff(\tilde P_{m,j})=\coprod_{k=1}^r B_{\tbff,k}
   \end{equation}
   and
   \[\Gr_\tbfg(\tilde P_{m+1}^I)=\coprod_{\ell=1}^s C_{\tbfg,\ell}.\]
-  Proposition~\ref{fibers} shows that the fiber of $\Psi_{\tbff,\tbfg}$ over $(\tilde F,\tilde G)\in B_{\tbff,k}\times C_{\tbfg,\ell}$ is empty exactly when $\tbfg=\udim\tilde P_{m+1}^I$ and one of the following conditions is satisfied
+  Proposition~\ref{fibers} shows that the fiber of $\Psi_{\tbff,\tbfg}$ over $(\tilde F,\tilde G)\in B_{\tbff,k}\times C_{\tbfg,\ell}$ is empty exactly when $\tbfg=\udim\tilde P_{m+1}^I$ and one of the following conditions is satisfied:
   \begin{itemize}
     \item $m=2$ with $\tbff_{(2,\alpha_j^{-1})}\ne0$ or $\tbff_{(1,e)}\ne0$;
     \item $m\ge3$ with $\tilde\pi_{m,j}^{j,I,\varnothing}(\tilde F)=0$.
@@ -1446,17 +1446,11 @@ We record the following immediate consequence before giving the proof.
   Theorem \ref{vb} then provides a cell decomposition for $\cG_{\tbff,\tbfg}$, where cells take the form $\AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$ with~$d=\langle\tbfg,\udim\tilde P_{m,j}-\tbff\rangle$.
   By Lemma~\ref{le:good partition}, we may order the affine cells in the $\cG_{\tbff,\tbfg}$ appropriately to obtain a cell decomposition of $\Gr_{\tbfe}(\tilde P_{m+1}^J)$ (c.f. Remark~\ref{rem:cell decompositions}).
 
-  Now consider $\tilde E\in\Gr_\tbfe(\tilde P_{m+1}^J)$ which is contained in such a cell, say $\tilde E\in \AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$, and assume $\tilde\pi_{m+1}^{\ui,I',J}(\tilde E)\neq 0$ for some admissible sequence $\ui=(i_1,\ldots,i_k)$, $k<m$, with $i_1\notin J$ and some subset $I'\subsetneq\{1,\ldots,n\}$ with $i_k\in I'$.
-  There are two cases to consider:
-  \begin{itemize}
-    \item If $i_1\ne j$, the map $\tilde\pi_{m+1}^{\ui,I',J}$ factors as $\tilde\pi_{m+1}^{\ui,I',I}\circ\tilde\pi_{m+1}^{I,J}$ by Lemma~\ref{le:truncated quotients}.4.
-      By construction, we have $\tilde\pi_{m+1}^{I,J}(\tilde E')\in C_{\tbfg,\ell}$ for all~$\tilde E'\in \AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$.
-      But $\tilde\pi_{m+1}^{\ui,I',I}\big(\tilde\pi_{m+1}^{I,J}(\tilde E)\big)=\tilde\pi_{m+1}^{\ui,I',J}(\tilde E)\ne0$ implies $\tilde\pi_{m+1}^{\ui,I',I}(\tilde G)\ne0$ for all~$\tilde G\in C_{\tbfg,\ell}$, in particular $\tilde\pi_{m+1}^{\ui,I',J}(\tilde E')=\tilde\pi_{m+1}^{\ui,I',I}\big(\tilde\pi_{m+1}^{I,J}(\tilde E')\big)\neq 0$ for all $\tilde E'\in \AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$.
-    \item If $i_1=j$, the restricted map $\tilde\pi_{m+1}^{\ui,I',J}\Big|_{\tilde P_{m,j}}$ coincides with $\tilde\pi_{m,j}^{\ui'_1,I',\varnothing}$ by Lemma~\ref{le:truncated quotients}.4.
-      By construction, we have $\tilde E'\cap \tilde P_{m,j}\in B_{\tbff,k}$ for all ~$\tilde E'\in \AA^d\times B_{\tbff,k} \times C_{\tbfg,\ell}$.
-      But $\tilde\pi_{m,j}^{\ui'_1,I',\varnothing}(\tilde E\cap\tilde P_{m,j})=\tilde\pi_{m+1}^{\ui,I',J}(\tilde E)\ne0$ implies $\tilde\pi_{m,j}^{\ui'_1,I',\varnothing}(\tilde F)\ne0$ for all~$\tilde F\in B_{\tbff,k}$, in particular $\tilde\pi_{m+1}^{\ui,I',J}(\tilde E')=\tilde\pi_{m,j}^{\ui'_1,I',\varnothing}(\tilde E'\cap \tilde P_{m,j})\neq 0$ for all $\tilde E'\in \AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$.
-  \end{itemize}
-  Thus the compatibility condition ($\dagger$) holds for the cell decomposition of $\Gr_\tbfe(\tilde P_{m+1}^J)$.
+  Now consider $\tilde E\in\Gr_\tbfe(\tilde P_{m+1}^J)$ which is contained in such a cell, say $\tilde E\in \AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$, and assume $\tilde\pi_{m+1}^{\ui,I',J}(\tilde E)\neq 0$.
+  Since $i_1\ne j$, the map $\tilde\pi_{m+1}^{\ui,I',J}$ factors as $\tilde\pi_{m+1}^{\ui,I',I}\circ\tilde\pi_{m+1}^{I,J}$ by Lemma~\ref{le:truncated quotients}.4.
+  By construction, we have $\tilde\pi_{m+1}^{I,J}(\tilde E')\in C_{\tbfg,\ell}$ for all~$\tilde E'\in \AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$.
+  But $\tilde\pi_{m+1}^{\ui,I',I}\big(\tilde\pi_{m+1}^{I,J}(\tilde E)\big)=\tilde\pi_{m+1}^{\ui,I',J}(\tilde E)\ne0$ implies $\tilde\pi_{m+1}^{\ui,I',I}(\tilde G)\ne0$ for all~$\tilde G\in C_{\tbfg,\ell}$, in particular $\tilde\pi_{m+1}^{\ui,I',J}(\tilde E')=\tilde\pi_{m+1}^{\ui,I',I}\big(\tilde\pi_{m+1}^{I,J}(\tilde E')\big)\neq 0$ for all $\tilde E'\in \AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$.
+  Thus the compatibility condition ($\dagger$) with $\tilde\pi_{m+1}^{\ui,I',J}$ holds for this cell decomposition of $\Gr_\tbfe(\tilde P_{m+1}^J)$.
 
 % To see the final claim, there are three cases to consider.
 % The case $|J|=n-1$ is immediate from the construction above.
