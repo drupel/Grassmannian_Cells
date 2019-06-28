@@ -1495,7 +1495,11 @@ We record the following immediate consequence before giving the proof.
       Then every quiver Grassmannian $\Gr_\bfe(X)$ has a cell decomposition.
   \end{enumerate}
 \end{theorem}
-\begin{proof}Both claims follow by considering iterated torus actions taking into account that all quiver Grassmannians under consideration are smooth. For the truncated preprojective representations of $K(n)$ this is Theorem~\ref{thm:truncpp}. For the truncated preprojective representations lifted to the iterated universal abelian covering quivers $\widehat{K(n)}^{(k)}$ for $k\geq 1$, it follows inductively - when applying reflection recursions similar to those stated in (\ref{eq:recursive covers}) -  that these lifts are exceptional representations of $\widehat{K(n)}^{(k)}$, which means that their quiver Grassmannians are again smooth. Note that this is indeed clear for $m= 2$.
+\begin{proof}
+  Both claims follow by considering iterated torus actions taking into account that all quiver Grassmannians under consideration are smooth.
+  For the truncated preprojective representations of $K(n)$, this is Theorem~\ref{thm:truncpp}.
+  For the truncated preprojective representations lifted to the iterated universal abelian covering quivers $\widehat{K(n)}^{(k)}$ for $k\geq 1$, it follows inductively -- when applying reflection recursions similar to those stated in (\ref{eq:recursive covers}) --  that these lifts are exceptional representations of $\widehat{K(n)}^{(k)}$, which means that their quiver Grassmannians are again smooth.
+  Note that this is indeed clear for $m= 2$.
 
   The first part now follows by combining the results of Section~\ref{torusaction} and Theorems~\ref{thm:bb} and~\ref{cellscover}, taking into account that every preprojective representation of $\widetilde{ K(n)}$ is a lift of a preprojective representation (c.f.\ Lemma~\ref{le:lifts of transjectives}).
   The dual version for preinjective representations follows immediately since $\Gr_{\bfe}(P_m)\cong \Gr_{\udim P_m-\bfe}(I_m)$ and $\Gr_{\tbfe}(\tilde P_m)\cong\Gr_{\udim \tilde P_m-\tbfe}(\tilde I_m)$.
@@ -1534,24 +1538,6 @@ We record the following immediate consequence before giving the proof.
   \[\ses{I(s)}{X}{P(r)}.\]
   As every quotient of $I(s)$ is preinjective and as every subrepresentation of $P(r')$ is preprojective, the same argument shows that every quiver Grassmannian attached to $X$ has a cell decomposition.
 \qed\end{proof}
-
-While the cell decompositions above appear to depend on the data built into their recursive construction, the compatibility condition ($\dagger$) implies these cell decompositions exhibit a remarkable amount of recursive symmetry.
-\begin{corollary}
-  Fix an admissible sequence $\ui=(i_1,\ldots,i_k)$, $k<m$, and subsets $I,J\subsetneq\{1,\ldots,n\}$ with $i_1\notin J$ and $i_k\in I$.
-  Let $\tilde K_m=\tilde K_m(\ui,I,J)$ denote the kernel of the projection $\tilde\pi_{m+1}^{\ui,I,J}:\tilde P_{m+1}^J\to \tilde P_{m+1-k,\ui}^I$.
-  For any dimension vectors $\tbfe,\tbff,\tbfg$ with $\tbfe=\tbff+\tbfg$, and any affine cell $A_\tbfe$ of $Gr_\tbfe(\tilde P_{m+1}^J)$ which intersects the preimage under the Caldero-Chapoton map of a product of affine cells $B_\tbff\times C_\tbfg$ from $Gr_\tbff(\tilde K_m)\times Gr_\tbfg(\tilde P_{m+1-k,\ui}^I)$, we have $\Psi(\tilde E)\in B_\tbff\times C_\tbfg$ for all $\tilde E\in A_\tbfe$.
-  Moreover, the induced map $A_\tbfe\to B_\tbff\times C_\tbfg$ is surjective with affine fibers.
-\end{corollary}
-\begin{proof}
-  \begin{itemize}
-    \item Implicit in the construction of the cell decomposition for $\Gr_\tbfe(\tilde P_{m+1}^J)$ is a choice of complete filtration for $\tilde P_{m+1}^J$ by subrepresentations of the form $\tilde K_m(\ui',I',J)$.
-      In Section~\ref{sec:2quivers}, we fix a standard convention.
-
-    \item By the compatibility of the cell $A_\tbfe$ with the map $\tilde\pi_{m+1}^{\ui,I,J}$, we have $\tilde\pi_{m+1}^{\ui,I,J}(\tilde E)\ne 0$ for all $\tilde E\in A_\tbfe$.
-  \end{itemize}
-
-  Suppose the cell $A_\tbfe$ was constructed inductively using $J\subsetneq I'\subsetneq \{1,\ldots,n\}$ with $I'\setminus J=\{j\}$.
-\end{proof}
 
 As the $F$-polynomials of truncated preprojective representations only depend on the dimension vector, we may denote them by $F_{d(m,r)}$.
 The description of the non-empty fibers in Proposition~\ref{fibers} together with Corollary~\ref{fpoly} and Theorem~\ref{celldec} yield the following:
