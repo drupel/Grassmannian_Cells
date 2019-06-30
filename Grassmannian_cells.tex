@@ -58,6 +58,7 @@
 \newcommand{\cA}{\mathcal{A}}
 \newcommand{\cB}{\mathcal{B}}
 \newcommand{\cC}{\mathcal{C}}
+\newcommand{\cF}{\mathcal{F}}
 \newcommand{\cG}{\mathcal{G}}
 \newcommand{\cH}{\mathcal{H}}
 \newcommand{\cP}{\mathcal{P}}
@@ -257,7 +258,8 @@ In addition, observe that every connected component of the universal covering qu
 
 \begin{lemma}
   \label{le:lifts of transjectives}
-  Every preprojective and preinjective representation of $Q$ can be lifted to $\hat Q$ and to $\widetilde Q$. Any lift of a preprojective (or preinjective) representation is preprojective (preinjective). 
+  Every preprojective and preinjective representation of $Q$ can be lifted to $\hat Q$ and to $\widetilde Q$.
+  Any lift of a preprojective (or preinjective) representation is preprojective (preinjective). 
 \end{lemma}
 \begin{proof}
   This statement is clear for the simple representations $S_i$, $i\in Q_0$.
@@ -306,7 +308,7 @@ Since $n\ge3$, we may observe by an easy induction that $u_{k+1}-u_k>0$ for $k\g
 The following is well-known.
 \begin{theorem}
   \label{th:rigids}
-  For each $m\ge1$, there exist unique (up to isomorphism) exceptional representations $P_m$ and $I_m$ of $K(n)$ with dimension vectors 
+  For each $m\ge1$, there exist unique (up to isomorphism) exceptional representations $P_m$ and $Q_m$ of $K(n)$ with dimension vectors 
   \[\udim P_m=(u_m,u_{m-1}),\qquad\qquad \udim Q_m=(u_{m-1},u_m).\]
   These satisfy 
   \[\Hom(P_m,P_r)=0, \qquad \Hom(Q_r,Q_m)=0, \qquad \Ext(P_r,P_m)=0, \qquad \Ext(Q_m,Q_r)=0\]
@@ -328,7 +330,7 @@ The following homological organization is well-known.
   Using this, we have the following:
   \begin{enumerate}
     \item The preprojective and preinjective representations satisfy the following recursions using the reflection functors:
-      \[P_1=S_1,\quad P_m^\sigma=\Sigma_2 P_{m-1},\quad Q_1=S_2,\quad Q_m^\sigma=\Sigma_1 I_{m-1}\]
+      \[P_1=S_1,\quad P_m^\sigma=\Sigma_2 P_{m-1},\quad Q_1=S_2,\quad Q_m^\sigma=\Sigma_1 Q_{m-1}\]
       for $m\ge2$.
       In particular, we have $P_{m-1}=\tau P_{m+1}$ and $Q_{m+1}=\tau Q_{m-1}$ for $m\ge2$.
     \item If $\ses{M}{B}{N}$ is a short exact sequence such that no direct summand of $M$, $B$, nor $N$ is preinjective, then the sequences $\ses{(\Sigma_1\Sigma_2)^k M}{(\Sigma_1\Sigma_2)^k B}{(\Sigma_1\Sigma_2)^k N}$ and $\ses{\Sigma_2(\Sigma_1\Sigma_2)^k M}{\Sigma_2(\Sigma_1\Sigma_2)^k B}{\Sigma_2(\Sigma_1\Sigma_2)^k N}$ are exact for any $k\ge0$ and none of these representations contain preinjective direct summands.
@@ -443,7 +445,8 @@ We collect below several basic homological results related to truncated preproje
   By Lemma~\ref{le:unique morphisms}(1), the functor $V\mapsto P_{m+1}^V$ gives an isomorphism of categories $\CC \Gr(\cH_m)\cong\cP_{m+1}$.
 \end{remark}
 
-The truncated preprojective representation $P_{m+1}^V$ has dimension vector  $\udim P_{m+1}^V=\bfd(m,\dim V):=\udim P_{m+1}-\dim V\cdot\udim P_m$.
+The truncated preprojective representation $P_{m+1}^V$ has dimension vector
+\[\udim P_{m+1}^V=\bfd(m,\dim V):=\udim P_{m+1}-\dim V\cdot\udim P_m.\]
 These will play an important role when describing quiver Grassmannians of preprojective representations recursively.
 For a dimension vector $\bfd=(d_1,d_2)\in\NN^{K(n)_0}$, write 
 \[R_\bfd(K(n))=\bigoplus_{i=1}^n\Hom_{\CC}(\CC^{d_2},\CC^{d_1})\]
@@ -703,7 +706,7 @@ The next result establishes some basic homological properties of these translate
         \label{ses1}
         \xymatrix{ 0 \ar[r] & \bigoplus_{i\in I} \tilde P_{m,i} \ar[r]^{ev_I} & \tilde P_{m+1} \ar[r]^{\tilde\pi_{m+1}^I} & \tilde P_{m+1}^I \ar[r] & 0}.
       \end{equation}
-      Moreover, $G(\tilde P_{m+1}^I)$ is a truncated preprojective of $K(n)$ for each $I\subsetneq\{1,\ldots,n\}$.
+      Moreover, $G(\tilde P_{m+1}^I)=:P_{m+1}^{\langle I\rangle}$ is a truncated preprojective of $K(n)$ for each $I\subsetneq\{1,\ldots,n\}$.
   \end{enumerate}
 \end{lemma}
 \begin{remark}
@@ -719,9 +722,9 @@ The next result establishes some basic homological properties of these translate
 
   Part (3) is clear for $m=1$ and follows for $m\ge2$ by applying the reflection recursion \eqref{eq:recursive covers}.
 
-  For part (4), observe that under the isomorphism from part (1) the subset $I\subsetneq\{1,\ldots,n\}$ corresponds to the subspace $V\subset \cH_m$ spanned by generators of the direct summands $\Hom(\tilde P_{m,i},\tilde P_{m+1})$ for $i\in I$.
-  The map $\bigoplus_{i\in I} \tilde P_{m,i}\to\tilde P_{m+1}$ is then a lift of the evaluation morphism $ev_V:P_m\otimes V\to P_{m+1}$ and hence is injective by Lemma~\ref{le:injective evaluation maps}.
-  Taking the cokernel defines the truncated preprojective $\tilde P_{m+1}^I$ and the preceding discussion shows that $G(\tilde P_{m+1}^I)\cong P_{m+1}^V$ is truncated preprojective as well.
+  For part (4), observe that under the isomorphism from part (1) the subset $I\subsetneq\{1,\ldots,n\}$ corresponds to the subspace $\langle I\rangle\subset \cH_m$ spanned by the direct summands $\Hom(\tilde P_{m,i},\tilde P_{m+1})$ for $i\in I$.
+  The map $\bigoplus_{i\in I} \tilde P_{m,i}\to\tilde P_{m+1}$ is then a lift of the evaluation morphism $ev_{\langle I\rangle}:P_m\otimes \langle I\rangle\to P_{m+1}$ and hence is injective by Lemma~\ref{le:injective evaluation maps}.
+  Taking the cokernel defines the truncated preprojective $\tilde P_{m+1}^I$ and the preceding discussion shows that $G(\tilde P_{m+1}^I)\cong P_{m+1}^{\langle I\rangle}$ is truncated preprojective as well.
 \qed\end{proof}
 
 It will be important to understand the possible subrepresentations of the truncated preprojective representations $\tilde P_{m+1}^I$.
@@ -818,6 +821,16 @@ In what follows, we will need to carefully understand the homological properties
   The equality $\tilde P_{m+1}^I=\tau^{-1}\tilde P_{m-1}^I$ is obtained in the same way using the functor $\tilde\Sigma_1\tilde\Sigma_2=\tau^{-1}$.
 \qed\end{proof}
 
+For $I\subsetneq\{1,\ldots,n\}$, write $I^c=\{1,\ldots,n\}\setminus I$ for the complementary subset.
+\begin{corollary}
+  \label{cor:truncated lift}
+  For $m\ge1$ and $I\subsetneq\{1,\ldots,n\}$, the lift $\widetilde P_{m+1}^I$ of the truncated preprojective $P_{m+1}^{\langle I\rangle}$ is preprojective.
+\end{corollary}
+\begin{proof}
+  We see explicitly that $\widetilde P_2^I=\Big(\prod\limits_{j\in I^c}\tilde\Sigma_{(1,\alpha_j)}\Big)(\tilde S_{(2,e)})$ is preprojective.
+  The case $m\ge2$ then follows immediately from Lemma~\ref{le:truncated tau}.
+\qed\end{proof}
+
 We now introduce notation for locating specific lifted preprojectives as subrepresentations of our standard lifted preprojective representations $\tilde P_{m+1}$.
 To each word $\ui=(i_1,\ldots,i_k)$, with $1\leq k\leq m$, we associate a preprojective subrepresentation~$\tilde P_{m+1-k,\ui}\subset\tilde P_{m+1}$ which lifts $P_{m+1-k}$.
 More precisely, we obtain from Lemma~\ref{le:shifted subreps} a sequence of preprojective subrepresentations which uniquely determines the desired inclusion:
@@ -842,7 +855,6 @@ and call the elements of $A_1^{(k)}$ \emph{admissible sequences} of length $k$.
 Here we allow $k=0$ and take $A_1^{(0)}$ to consist of only the empty word $\ui=()$.
 
 The following gives an analogue of Lemma~\ref{cor:truncated preprojective isomorphism}.
-For $I\subsetneq\{1,\ldots,n\}$, write $I^c=\{1,\ldots,n\}\setminus I$ for the complementary subset.
 \begin{lemma}
   \label{le:truncated quotients}
   For $m\ge2$, the following hold:
@@ -985,6 +997,13 @@ Given varieties $X$ and $Y$ each with cell decompositions, we may choose an orde
 Given a variety $X$ with a cell decomposition, we call a subvariety $U\subset X$ \emph{compatible} with the cell decomposition if $U$ can be written as the union over a subset of the affine cells for $X$.
 In this case, $U$ also has a cell decomposition given by taking exactly those affine cells for $X$ which are contained in $U$.
 
+The following result of Caldero and Reineke lays a foundation for our approach.
+\begin{theorem}
+  \cite{cr}
+  \label{thm:smooth rigid}
+  Every quiver Grassmannian of a rigid representations of an acyclic quiver is smooth.
+\end{theorem}
+This allows the application of the torus method of Bia\l{}ynicki-Birula described in the following section.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Torus Actions and the Bia\l{}ynicki-Birula Decomposition}
@@ -1001,8 +1020,9 @@ The following result of Bia\l{}ynicki-Birula relates the geometry of $X$ to the 
   \label{thm:bb}
   Let $X$ be a smooth projective complex variety with a $\C^\ast$-action.
   Then each attracting set $\Att(C)$ is a locally closed $\CC^*$-invariant subvariety of $X$ and the natural map $\Att(C)\to C$ is an affine bundle.
+  In particular, the existence of a cell decomposition of $C$ implies a cell decomposition of $\Att(C)$.
   Moreover, assuming $X^{\C^\ast}=\coprod_{i=1}^r C_i$ is a decomposition of the fixed point set of $X$ into finitely many connected components, we have $X=\coprod_{i=1}^r \Att(C_i)$, where we can choose an ordering such that $\coprod_{i=1}^s\Att(C_i)$ is closed for $1\leq s\leq r$.
-  In particular, we have an equality of Euler characteristics $\chi(X)=\chi(X^{\C^\ast})$.
+  In particular, we have an equality of Euler characteristics $\chi(X)=\chi(X^{\C^\ast})$ and, when each $C_i$ admits a cell decomposition, we obtain a cell decomposition of $X$.
 \end{theorem}
 
 If each component $C_i$ admits a cell decomposition, Theorem~\ref{thm:bb} implies the same is true of $X$.
@@ -1139,20 +1159,21 @@ Since the support of $X$ is finite as a representation of $\tilde Q$, we can fin
 Thus, writing $\hat X^{(\ell)}$ for the lift of $X$ to $\hat Q^{(\ell)}$, there exists a $\CC^*$-action on the vector spaces $\hat X^{(k)}_\beta$ for $\beta\in \hat Q^{(k-1)}_0\times A_{\hat Q^{(k-1)}}$ which induces $\CC^*$-actions on the quiver Grassmannians $\Gr_{\hat\bfe^{(k)}}^{\hat Q^{(k)}}\big(\hat X^{(k)}\big)$ such that the fixed point sets are precisely $\Gr_{\hat\bfe^{(k+1)}}^{\hat Q^{(k+1)}}\big(\hat X^{(k+1)}\big)$.
 If we denote these iterated $\CC^*$-fixed points by $\Gr^Q_\bfe(X)^{(k+1)}$, we obtain the following result.
 \begin{corollary}
+  \label{cor:iterated fixed points}
   Let $X$ be a representation which can be lifted to $\tilde Q$.
   Then there exists an iterated torus action such that
   \[\Gr^Q_\bfe(X)^{(k+1)}\cong \bigsqcup_{\hat\bfe^{(k)}} \Gr_{\hat\bfe^{(k)}}^{\hat Q^{(k)}}\big(\hat X^{(k)}\big)^{\CC^*}\cong \bigsqcup_{\hat\bfe^{(k+1)}} \Gr^{\hat Q^{(k+1)}}_{\hat\bfe^{(k+1)}}\big(\hat X^{(k+1)}\big)\cong \bigsqcup_{\tilde\bfe} \Gr^{\tilde Q}_{\tilde\bfe}(\tilde X),\]
   where $\hat\bfe^{(k)},\,\hat\bfe^{(k+1)},\,\tilde\bfe$ run through all dimension vectors compatible with $\bfe$.
 \end{corollary}
 
-Define the $F$-polynomial of a representation $X$ by 
-\[F_X=\sum_{\bfe\in\NN^{Q_0}}\chi(\Gr_\bfe(X))y^\bfe\in\ZZ[y_i\mid i\in Q_0].\]
+Define the $\cF$-polynomial of a representation $X$ by 
+\[\cF_X=\sum_{\bfe\in\NN^{Q_0}}\chi(\Gr_\bfe(X))y^\bfe\in\ZZ[y_i\mid i\in Q_0].\]
 \begin{corollary}
   \label{fpoly}
   Let $X$ be a representation which can be lifted to the universal covering quiver.
   \begin{enumerate}
     \item If $\Gr_\bfe(X)$ is smooth and each $\Gr^{\tilde Q}_\tbfe(\tilde X)$ has a cell decomposition, then $\Gr_\bfe(X)$ has a cell decomposition.
-    \item We have $F_X=SF_{\tilde X}$ where $SF_{\tilde X}$ is obtained from $F_{\tilde X}$ by applying $S:\ZZ[y_{(i,w)}\mid i\in Q_0,w\in W_Q]\to\ZZ[y_i\mid i\in Q_0]$ given by $S(y_{(i,w)})=y_i$ for all $i\in Q_0$ and $w\in W_Q$.
+    \item We have $\cF_X=S\cF_{\tilde X}$ where $S\cF_{\tilde X}$ is obtained from $\cF_{\tilde X}$ by applying $S:\ZZ[y_{(i,w)}\mid i\in Q_0,w\in W_Q]\to\ZZ[y_i\mid i\in Q_0]$ given by $S(y_{(i,w)})=y_i$ for all $i\in Q_0$ and $w\in W_Q$.
   \end{enumerate} 
 \end{corollary}
 An important special case for this is the case of exceptional representations.
@@ -1221,7 +1242,7 @@ Write $\Ind\big(K(n),d\big)$ for the set of isomorphism classes of indecomposabl
   \label{thm:truncpp}
   Fix a dimension vector $\bfe$.
   The quiver Grassmannian $\Gr_\bfe(P_{m+1}^V)$ is smooth for each $V\in \Gr(\cH_m)$.
-  Moreover, for $V,W\in \Gr_d(\cH_m)$, we have $\Gr_\bfe(P_{m+1}^V)\cong \Gr_\bfe(P_{m+1}^W)$.
+  Moreover, for $V,W\in \Gr_r(\cH_m)$, $1\le r\le n-1$, we have $\Gr_\bfe(P_{m+1}^V)\cong \Gr_\bfe(P_{m+1}^W)$.
 \end{theorem}
 \begin{proof}
   Let $g\in\GL_n(\CC)$.
@@ -1410,11 +1431,11 @@ Now we are able to state the following crucial result concerning the fibers of $
 \end{theorem}
 We record the following immediate consequence before giving the proof.
 \begin{corollary}
-  Every quiver Grassmannian of a lifted preprojective representation admits a cell decomposition.
+  Every quiver Grassmannian of any lift of a (truncated) preprojective representation admits a cell decomposition.
 \end{corollary}
 \begin{proof}
-  For the standard lifts $\tilde P_m$, this is just the special case $J=\varnothing$ in Theorem~\ref{cellscover}.
-  The claim for any translate $\tilde P_{m,w}$ for $w\in W_n$ is an immediate consequence of this.
+  For the standard lifts $\tilde P_{m+1}^J$, this is Theorem~\ref{cellscover}.
+  The claim for any translate $\tilde P_{m+1,w}^J$ for $w\in W_n$ is an immediate consequence of this.
 \qed\end{proof}
 \subsubsection*{Proof of Theorem~\ref{cellscover}}
   We work by induction on $m$.
@@ -1451,60 +1472,33 @@ We record the following immediate consequence before giving the proof.
   By construction, we have $\tilde\pi_{m+1}^{I,J}(\tilde E')\in C_{\tbfg,\ell}$ for all~$\tilde E'\in \AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$.
   But $\tilde\pi_{m+1}^{\ui,I',I}\big(\tilde\pi_{m+1}^{I,J}(\tilde E)\big)=\tilde\pi_{m+1}^{\ui,I',J}(\tilde E)\ne0$ implies $\tilde\pi_{m+1}^{\ui,I',I}(\tilde G)\ne0$ for all~$\tilde G\in C_{\tbfg,\ell}$, in particular $\tilde\pi_{m+1}^{\ui,I',J}(\tilde E')=\tilde\pi_{m+1}^{\ui,I',I}\big(\tilde\pi_{m+1}^{I,J}(\tilde E')\big)\neq 0$ for all $\tilde E'\in \AA^d \times B_{\tbff,k} \times C_{\tbfg,\ell}$.
   Thus the compatibility condition ($\dagger$) with $\tilde\pi_{m+1}^{\ui,I',J}$ holds for this cell decomposition of $\Gr_\tbfe(\tilde P_{m+1}^J)$.
-
-% To see the final claim, there are three cases to consider.
-% The case $|J|=n-1$ is immediate from the construction above.
-% When $|J|<n-2$, we may find subsets $I,I'\subsetneq\{1,\ldots,n\}$ containing $J$ so that $I\setminus J=\{j\}$, $I'\setminus J=\{j'\}$, and $j\ne j'$.
-% This gives rise to the following commutative diagram:
-% \[\xymatrix{& & 0\ar[d]& 0\ar[d]&\\
-%   & & \tilde P_{m,j'}\ar[d]\ar@{=}[r]& \tilde P_{m,j'}\ar[d]&\\
-%   0\ar[r]&\tilde P_{m,j} \ar[r]\ar@{=}[d] & \tilde P_{m+1}^J\ar[d]\ar[r]\ar@{}[dr]|(.7){\lrcorner} & \tilde P_{m+1}^I\ar[r]\ar[d]& 0\\
-%   0\ar[r] &\tilde P_{m,j}\ar[r] &  \tilde P_{m+1}^{I'}\ar[r]\ar[d] & \tilde P_{m+1}^{I\cup I'}\ar[r]\ar[d] & 0\\
-% & & 0& 0&}\]
-% Let $A:=\AA^d\times B\times C$ be an affine cell for $\Gr_\tbfe(\tilde P_{m+1}^J)$ constructed as above using this middle horizontal sequence, say with $B$ an affine cell of $\Gr_\tbff(\tilde P_{m,j})$ and $C$ an affine cell of $\Gr_\tbfg(\tilde P_{m+1}^I)$.
-% Thus, for $\tilde E\in A$, we have $\tilde E\cap P_{m,j}\in B$ and $\tilde\pi_{m+1}^{I,J}(\tilde E)\in C$.
-% Similarly, the affine cell $C$ can be written as $\AA^{d'}\times B'\times D$ with $B'$ an affine cell of $\Gr_{\tbff'}(\tilde P_{m,j'})$ and $D$ an affine cell of $\Gr_\tbfh(\tilde P_{m+1}^{I\cup I'})$ so that elements $\tilde G\in C$ satisfy $\tilde G\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I\cup I',I}(\tilde G)\in D$.
-% In particular, this implies $\tilde E\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I\cup I',J}(\tilde E)\in D$ for any $\tilde E\in A$.
-% Then for $\tilde E\in A$, writing $\tilde G'=\tilde\pi_{m+1}^{I',J}(\tilde E)$, we see $\tilde G'\cap \tilde P_{m,j}\in B$ and $\tilde\pi_{m+1}^{I\cup I',I'}(\tilde G')\in D$.
-% Thus $\tilde\pi_{m+1}^{I',J}(\tilde E)$ lies in an affine cell $C':=\AA^{d''}\times B\times D$ for $\Gr_{\tbfg'}(\tilde P_{m+1}^{I'})$.
-% The induced map $A\to B'\times C'$, $\tilde E\mapsto \big(\tilde E\cap \tilde P_{m,j'},\tilde\pi_{m+1}^{I',J}(\tilde E)\big)$, is surjective by a routine chase through the diagram above.
-% For any $\tilde E\in Gr_\tbfe(\tilde P_{m+1}^J)$ with $\tilde E\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I',J}(\tilde E)\in C'$, the following hold:
-% \begin{itemize}
-%   \item $\tilde E\cap \tilde P_{m,j}=\tilde\pi_{m+1}^{I',J}(\tilde E)\cap \tilde P_{m,j}\in B$;
-%   \item writing $\tilde G=\tilde\pi_{m+1}^{I,J}(\tilde E)$, we have $\tilde G\cap \tilde P_{m,j'}=\tilde E\cap \tilde P_{m,j'}\in B'$ and $\tilde\pi_{m+1}^{I\cup I',I}(\tilde G)\in D$ so that $\tilde\pi_{m+1}^{I,J}(\tilde E)\in C$.
-% \end{itemize}
-% It follows that $\tilde E\in A$ and thus $A$ identifies with the affine cell for $\Gr_\tbfe(\tilde P_{m+1}^J)$ constructed from the affine cells $B'$ and $C'$ using the middle vertical sequence in the diagram above.
-
-% Now suppose $|J|=n-2$, say $\{1,\ldots,n\}\setminus J=\{j,j'\}$.
-% This gives rise to the following commutative diagram:
-% \[\xymatrix{& 0 \ar[d] & 0 \ar[d] & & \\
-%     0 \ar[r] & \tilde P_{m-1} \ar[r] \ar[d] \ar@{}[dr]|(.3){\ulcorner} & \tilde P_{m,j'} \ar[d]\ar[r] & \tilde P_{m,j'}^{\{j'\}} \ar[d]^{\sim}\ar[r] & 0 \\
-%   0 \ar[r] & \tilde P_{m,j} \ar[r]\ar[d] & \tilde P_{m+1}^J\ar[d]\ar[r] & \tilde P_{m+1}^{\{j'\}^c} \ar[r]& 0\\
-%   &\tilde P_{m,j}^{\{j\}}\ar[r]^{\sim}\ar[d] & \tilde P_{m+1}^{\{j\}^c}\ar[d] & & \\
-% & 0 & 0& &}\]
-% where $\tilde P_{m-1}$ is labeled as $\tilde P_{m-1,(j,j)}$ in the left vertical sequence and as $\tilde P_{m-1,(j',j')}$ in the upper horizontal sequence.
-% By a chase through this diagram dual to the previous case, we see that the cell decomposition for $\Gr_\tbfe(\tilde P_{m+1}^J)$ is the same regardless of whether we use the middle horizontal or the middle vertical sequence for its construction.
 \qed
-
+\bigskip
+Now we come to the main result of this work.
 \begin{theorem}
   \label{celldec}
   The following hold:
   \begin{enumerate}
-    \item Every quiver Grassmannian of any indecomposable preprojective or preinjective representation of $K(n)$ and $\widetilde{K(n)}$ has a cell decomposition.
-    \item Let $X\in\rep K(n)$ be an indecomposable representation with dimension vector $(d,e)$ or $(e,d)$, where $(d,e)=\udim P_{m+1}-r\udim P_m$ for $m\geq 1$ and $\leq 0\leq r\leq n-1$.
+    \item Every quiver Grassmannian of an indecomposable preprojective or preinjective representation of~$K(n)$ has a cell decomposition.
+    \item Let $X\in\rep K(n)$ be an indecomposable representation with dimension vector $(d,e)$ or $(e,d)$, where $(d,e)=\udim P_{m+1}-r\udim P_m$ for $m\geq 1$ and $1\leq r\leq n-1$.
       Then every quiver Grassmannian $\Gr_\bfe(X)$ has a cell decomposition.
   \end{enumerate}
 \end{theorem}
 \begin{proof}
-  Both claims follow by considering iterated torus actions taking into account that all quiver Grassmannians under consideration are smooth.
-  For the truncated preprojective representations of $K(n)$, this is Theorem~\ref{thm:truncpp}.
-  For the truncated preprojective representations lifted to the iterated universal abelian covering quivers $\widehat{K(n)}^{(k)}$ for $k\geq 1$, it follows inductively -- when applying reflection recursions similar to those stated in (\ref{eq:recursive covers}) --  that these lifts are exceptional representations of $\widehat{K(n)}^{(k)}$, which means that their quiver Grassmannians are again smooth.
-  Note that this is indeed clear for $m= 2$.
+  We consider a representation $X$ of $K(n)$ which is either an indecomposable preprojective or truncated preprojective (c.f. Proposition~\ref{pro:indecomposables}.2), the results for preinjectives or the duals of truncated preprojectives follow via the isomorphisms 
+  \[\Gr_{\bfe}(P_m)\cong \Gr_{\udim P_m-\bfe}(Q_m) \qquad \text{and} \qquad \Gr_{\bfe}(P_{m+1}^V)\cong \Gr_{\udim P_{m+1}^V-\bfe}\big((P_{m+1}^V)^*\big),\]
+  where $(-)^*=\Hom_\CC(-,\CC)$ is the $\CC$-linear duality.
 
-  The first part now follows by combining the results of Section~\ref{torusaction} and Theorems~\ref{thm:bb} and~\ref{cellscover}, taking into account that every preprojective representation of $\widetilde{ K(n)}$ is a lift of a preprojective representation (c.f.\ Lemma~\ref{le:lifts of transjectives}).
-  The dual version for preinjective representations follows immediately since $\Gr_{\bfe}(P_m)\cong \Gr_{\udim P_m-\bfe}(I_m)$ and $\Gr_{\tbfe}(\tilde P_m)\cong\Gr_{\udim \tilde P_m-\tbfe}(\tilde I_m)$.
+  By Theorem~\ref{thm:smooth rigid}, each quiver Grassmannian $\Gr_\bfe(P_m)$ is smooth.
+  Theorem~\ref{thm:truncpp} shows each $\Gr_{\bfe}(P_{m+1}^V)$ is smooth and that, after an isomorphism, we may assume $V$ is a coordinate subspace under the decomposition in Lemma~\ref{le:basic homological properties}.
+  In particular, we can assume $P_{m+1}^V$ admits a lift to the universal covering quiver $\widetilde{K(n)}$.
+  This is true in the preprojective case by Lemma~\ref{le:lifts of transjectives}.
 
-  The second part follows in the same way taking into account the initial remark.
+  It follows that $X$ lifts to each iterated abelian cover $\widehat{K(n)}^{(k)}$.
+  As in Corollary~\ref{cor:truncated lift}, we see that each such lift is preprojective and thus the lifted representations all have smooth quiver Grassmannians.
+
+  Using Corollary~\ref{cor:iterated fixed points} and the associated iteration of Theorem~\ref{thm:bb}, we reduce the problem of constructing cell decompositions for the quiver Grassmannians of $X$ to constructing cells decompositions for the quiver Grassmannians of the lift to $\widetilde{K(n)}$.
+  The claim then follows from Theorem~\ref{cellscover}.
 \qed\end{proof}
 
 \begin{corollary}
@@ -1514,36 +1508,39 @@ We record the following immediate consequence before giving the proof.
 \end{corollary}
 \begin{proof}
   As every exceptional representation of $K(n)$ is either preprojective or preinjective, we have
-  \[X=\bigoplus_{i=1}^rP_{j_i}\oplus\bigoplus_{i=1}^sI_{k_i},\]
+  \[X=\bigoplus_{i=1}^rP_{j_i}\oplus\bigoplus_{i=1}^sQ_{k_i},\]
   where we assume that $j_i\leq j_{i+1}$ and write
-  \[P(r'):=\bigoplus_{i=1}^{r'} P_{j_i},\quad I(s'):=\bigoplus_{i=1}^{s'}I_{k_i}\]
+  \[P(r'):=\bigoplus_{i=1}^{r'} P_{j_i},\quad I(s'):=\bigoplus_{i=1}^{s'}Q_{k_i}\]
   for $r'\leq r$ and $s'\leq s$. 
 
-  By Theorem~\ref{celldec}, the claim is true for all quiver Grassmannians attached to $P_{j_i}$ or $I_{k_i}$.
+  By Theorem~\ref{celldec}, the claim is true for all quiver Grassmannians attached to $P_{j_i}$ or $Q_{k_i}$.
   Consider the short exact sequence
   \[\ses{P_{j_{r'+1}}}{P(r'+1)}{P(r')}.\]
   By induction, we can assume that all quiver Grassmannians attached to the two outer terms have a cell decomposition.
   Consider the Caldero-Chapoton map
   \[\Psi_\bfe:\Gr_\bfe\big(P(r'+1)\big)\to\bigsqcup_{\bff+\bfg=\bfe} \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg\big(P(r')\big).\]
-  The results of \cite[Section 3]{cc} show that $\Psi_{\bfe}^{-1}(\tilde F,\tilde G)\cong\AA^{\dim\Hom(\tilde G,P_{j_{r'+1}}/\tilde F)}$ for all $(\tilde F,\tilde G)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg\big(P(r')\big)$, in particular the fiber is never empty.
+  The results of \cite[Section 3]{cc} show that $\Psi_{\bfe}^{-1}(F,G)\cong\AA^{\dim\Hom(G,P_{j_{r'+1}}/F)}$ for all $(F,G)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg\big(P(r')\big)$, in particular the fiber is never empty.
   Now every subrepresentation $G$ of $P(r')$ is isomorphic to a direct sum of preprojective representations such that for each direct summand $P_l$ we have $l\leq j_{r'}$.
   Moreover, the quotient $P_{j_{r'+1}}/F$ is not projective if $U\neq 0$ and equal to $P_{j_{r'+1}}$ otherwise.
-  Together these yield $\Ext(\tilde G,P_{j_{r'+1}}/\tilde F)=0$ and thus
-  \[\dim\Hom(\tilde G,P_{j_{r'+1}}/\tilde F)=\langle \tilde G, P_{j_{r'+1}}/\tilde F\rangle\]
-  for all $(\tilde F,\tilde G)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg(P(r'))$.
+  Together these yield $\Ext(G,P_{j_{r'+1}}/F)=0$ and thus
+  \[\dim\Hom(G,P_{j_{r'+1}}/F)=\langle G, P_{j_{r'+1}}/F\rangle\]
+  for all $(F,G)\in \Gr_\bff(P_{j_{r'+1}})\times \Gr_\bfg(P(r'))$.
   Following Theorem~\ref{vb} (see Remark~\ref{rem:cell decompositions}), this already shows that $\Gr_{\bfe}\big(P(r')\big)$ has a cell decomposition for every $1\leq r'\leq r$.
   By duality, the same is true for $\Gr_{\bfe}\big(I(s)\big)$. 
 
   Finally consider the short exact sequence
   \[\ses{I(s)}{X}{P(r)}.\]
-  As every quotient of $I(s)$ is preinjective and as every subrepresentation of $P(r')$ is preprojective, the same argument shows that every quiver Grassmannian attached to $X$ has a cell decomposition.
+  As every quotient of $I(s)$ is preinjective and as every subrepresentation of $P(r')$ is preprojective, the same argument as above shows that every quiver Grassmannian attached to $X$ has a cell decomposition.
 \qed\end{proof}
+\begin{remark}
+  The interested reader may utilize the iterative construction of the cell decomposition above to describe the cells using strong successor closed subsets of an appropriate 2-quiver as we do for the truncated preprojectives in the next section.
+\end{remark}
 
-As the $F$-polynomials of truncated preprojective representations only depend on the dimension vector, we may denote them by $F_{d(m,r)}$.
+As the $\cF$-polynomials of truncated preprojective representations only depend on the dimension vector, we may denote them by $\cF_{d(m,r)}$.
 The description of the non-empty fibers in Proposition~\ref{fibers} together with Corollary~\ref{fpoly} and Theorem~\ref{celldec} yield the following:
 \begin{corollary}
   For $m\geq 1$ and $0\leq r\leq n-2$, we have 
-  \[F_{d(m,r)}=F_{d(m,r+1)}F_{\udim P_m}-x^{d(m,r)}F_{d(m-2,r)}.\]
+  \[\cF_{d(m,r)}=\cF_{d(m,r+1)}\cF_{\udim P_m}-x^{d(m,r)}\cF_{d(m-2,r)}.\]
 \end{corollary}
 
 

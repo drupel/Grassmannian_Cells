@@ -1,4 +1,4 @@
-\documentclass[titlepage,11pt,a4paper]{{scrartcl}}
+\documentclass[11pt,a4paper]{{scrartcl}}
 \usepackage{amstext}
 \usepackage{amssymb}
 \usepackage{amsfonts}
@@ -48,43 +48,37 @@
 \end{xy}
 \]
 } 
+
+\title{Response to the reviewer - Cell decompositions for rank two quiver Grassmannians}
+\date{}
+
 \begin{document}
 \pagestyle{empty}
 
+\maketitle
 
-\noindent{\bf Response to the reviewer - Cell decompositions for rank two quiver Grassmannians}\\
-
-
-\noindent In the following, we point out the changes made and give responses to the referee's comments..
+\noindent In the following, we point out the changes made and give responses to the referee's comments.
 
 \renewcommand{\labelenumi}{(\arabic{enumi})}
 \begin{enumerate}
-  \item[Section 3.1] The referee's suggestions were incorporated into a shortened proof of Lemmas 3.4 and motivated a rewriting of the proof of Lemma 3.9.
-    We could not see how to use irreducibility to prove Lemma 3.15, it is not clear why a subrepresentation $U \subset \tilde P_{m+1}^V$ lifts to a map $U \to \tilde P_{m+1}$ rather than giving rise to a map $\tilde P_{m+1} \to U$.
-  \item[Lemma 3.30] The referee's comments offer a pleasing non-inductive viewpoint towards evaluating this kernel and thus have been incorporated into a new clarified proof.
-  \item[Corollary 3.32] The notation of perpendicular categories has been incorporated into the statement of the result.
-  \item[Definition 3.33] We had overlooked this simple viewpoint on admissible sequences and thank the referee for these extremely helpful remarks.
+  \item[Section 3.1:] The referee's suggestions were incorporated into shortened proofs of Lemmas 3.4, 3.15 and motivated a rewriting of the proof of Lemma 3.9.
+  \item[Lemma 3.30:] The referee's comments offer a pleasing non-inductive viewpoint towards evaluating this kernel and thus have been incorporated into a new clarified proof.
+  \item[Corollary 3.32:] The notation of perpendicular categories has been incorporated into the statement of the result.
+  \item[Definition 3.33:] We had overlooked this simple viewpoint on admissible sequences and thank the referee for these extremely helpful remarks.
     The entire section has been somewhat reorganized to better capture the nature of the construction.
-  \item[After Definition 3.33] After the reorganization, this notation is no longer being used.
-  \item[Before Lemma 3.34] This typo has been corrected.
-  \item[Lemma 3.34] Lemma 3.34 (now 3.33) has been rewritten to clarify the inductive structure of truncated preprojectives following the change of focus onto admissible sequences.
-  \item[Section 4.2] This is a matter of convention.
-    In general, the placement of the $*$'s for an attracting set is equivalent to the choice of the map $d:\{1,\ldots,n\}\to\ZZ$, cells of our chosen form impose the condition $d(1)>\cdots>d(n)$.
-  \item[Lemma 4.3] We have added references to Cerulli Irelli and Haupt at the beginning of Section 4.2.
+  \item[After Definition 3.33:] After the reorganization, this notation is no longer being used.
+  \item[Before Lemma 3.34:] This typo has been corrected.
+  \item[Lemma 3.34:] Lemma 3.34 (now 3.33) has been rewritten to clarify the inductive structure of truncated preprojectives following the change of focus onto admissible sequences.
+  \item[Section 4.2:] This is a matter of convention.
+    In general, the placement of the $*$'s for an attracting set is equivalent to the choice of the map $d:\{1,\ldots,n\}\to\Zn$, cells of our chosen form impose the condition $d(1)>\cdots>d(n)$.
+  \item[Lemma 4.3:] We have added references to Cerulli Irelli and Haupt at the beginning of Section 4.2.
     However, Haupt's statement is stronger than his proof since it assumes a thin lift to an abelian cover, a trait our representations rarely possess.
-    Furthermore, it does not seem to be straightforward to obtain our explicit description of the fixed point set of the quiver Grassmannians as those subrepresentations which live on the universal abelian covering with Haupt's result. 
-  \item[Section 4.4] The dependence of various Caldero-Chapoton maps on their defining sequences has been clarified.
-  \item[Theorem 4.20] 
+    Furthermore, it does not seem to be straightforward to obtain our explicit description of the fixed point set of the quiver Grassmannians as those subrepresentations which live on the universal abelian covering with Haupt's construction when this applies. 
+  \item[Section 4.4:] The dependence of various Caldero-Chapoton maps on their defining sequences has been clarified.
+  \item[Theorem 4.20:] The proof has been reorganized and rewritten to accommodate the changes of notation surrounding admissible sequences, we hope to have clarified the proof in the process.
+  \item[Theorem 4.21:] The proof has been rewritten to clarify the logic of the inductive construction by iterated torus actions.
+  \item[Corollary 4.22:] We believe the proof will not be shortened much by the notational changes suggested by the referee.
+    Moreover, the explicit nature of the recursion given allows one to easily construct a 2-quiver whose strong successor-closed subsets label the affine cells, Remark 4.25 has been added to alert the reader to this observation. 
 \end{enumerate}
-
-Section 4:
-\begin{enumerate}
-\renewcommand{\labelenumi}{(\arabic{enumi})}
-\item We inserted a remark concerning the result of Haupt. Our approach seems to simplify the language and generalize the techniques of Haupt. If we are not mistaken, the proof of Theorem 1.2(c) in Section 8 only deals with those representations of the universal (abelian) covering whose dimension vectors only consists of $0$'s and $1$'s. We actually consider arbitrary representations of $\hat Q$. Moreover, the explicit description of the fixed points of $\mathrm{Gr}_{\mathbf{e}}(M)$ of a liftable representation $M$ as subrepresentations of the lifted representations $\hat M$ seems to be missing.  
-
-\item We inserted a remark in Theorem 4.22 (former 4.20) which is meant to explain how the statement is obtained from the claim. Moreover, it should make the proof clearer.
-\item I find the strategy if 4.23 is very clear and I also think that the proof of 4.24 is very close to the suggestion of the referee. Any ideas what to change?
-\end{enumerate}
-
 
 \end{document}
